@@ -1007,7 +1007,6 @@ SAXONS_UNITE = {
 		is_ironman = yes
 		is_alternate_start = no
 		OR = {
-			culture = anglo_saxon
 			culture = saxon
 		}
 	}
@@ -1893,7 +1892,6 @@ SMASH_PATRIARCHY = {
 
 		OR = {
 			religion = cathar
-			religion = messalian
 			religion = bogomilist
 		}
 

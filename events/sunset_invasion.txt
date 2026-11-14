@@ -1179,7 +1179,6 @@ province_event = {
 				}
 
 				owner = {
-					NOT = { religion = aztec_pagan }
 				}
 			}
 
@@ -1474,7 +1473,6 @@ narrative_event = {
 		name = {
 			text = EVTOPTA_SSI_030
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -1519,7 +1517,6 @@ narrative_event = {
 		name = {
 			text = EVTOPTA_SSI_031
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -1564,7 +1561,6 @@ narrative_event = {
 		name = {
 			text = EVTOPTA_SSI_035
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -1608,7 +1604,6 @@ character_event = {
 		name = {
 			text = EVTOPTA_SSI_040
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -1818,7 +1813,6 @@ character_event = {
 		name = {
 			text = EVTOPTA_SSI_043
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -1862,7 +1856,6 @@ character_event = {
 		name = {
 			text = EVTOPTA_SSI_043
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -1906,7 +1899,6 @@ character_event = {
 		name = {
 			text = EVTOPTA_SSI_043
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -1950,7 +1942,6 @@ character_event = {
 		name = {
 			text = EVTOPTA_SSI_043
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -1994,7 +1985,6 @@ character_event = {
 		name = {
 			text = EVTOPTA_SSI_043
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -2056,11 +2046,6 @@ character_event = {
 
 		religion_openly_aztec_or_reformed_trigger = no
 
-		NOT = {
-			top_liege = {
-				has_landed_title = e_aztec_empire
-			}
-		}
 	}
 
 	immediate = {
@@ -2140,7 +2125,6 @@ narrative_event = {
 		name = {
 			text = EVTOPTA_SSI_070
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
@@ -2185,7 +2169,6 @@ narrative_event = {
 		name = {
 			text = EVTOPTA_SSI_071
 			trigger = {
-				NOT = { has_landed_title = e_aztec_empire }
 			}
 		}
 		name = {
