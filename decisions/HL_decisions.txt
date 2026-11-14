@@ -259,14 +259,14 @@ decisions = {
 				limit = {
 					ai = yes
 				}
-				character_event = { id = 60530 } # ai reinforcements
+				#character_event = { id = 60530 } # ai reinforcements # Horse Lords event not in LI; LI has no e_mongol_empire, so this Mongol decision is broken anyway
 				population = 50000
 			}
 			hidden_tooltip = {
 				any_playable_ruler = {
-					narrative_event = { id = 60520 } # notify the world
+					#narrative_event = { id = 60520 } # notify the world # Horse Lords event not in LI; LI has no e_mongol_empire, so this Mongol decision is broken anyway
 				}
-				narrative_event = { id = 60520 } # and myself
+				#narrative_event = { id = 60520 } # and myself # Horse Lords event not in LI; LI has no e_mongol_empire, so this Mongol decision is broken anyway
 			}
 		}
 		
@@ -334,13 +334,13 @@ decisions = {
 				limit = {
 					ai = yes
 				}
-				character_event = { id = 60530 } # ai reinforcements
+				#character_event = { id = 60530 } # ai reinforcements # Horse Lords event not in LI; LI has no e_mongol_empire, so this Mongol decision is broken anyway
 			}
 			hidden_tooltip = {
 				any_playable_ruler = {
-					narrative_event = { id = 60520 } # notify the world
+					#narrative_event = { id = 60520 } # notify the world # Horse Lords event not in LI; LI has no e_mongol_empire, so this Mongol decision is broken anyway
 				}
-				narrative_event = { id = 60520 } # and myself
+				#narrative_event = { id = 60520 } # and myself # Horse Lords event not in LI; LI has no e_mongol_empire, so this Mongol decision is broken anyway
 			}
 		}
 		

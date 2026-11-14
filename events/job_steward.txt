@@ -1818,7 +1818,7 @@ character_event = {
 				}
 			}
 		}
-		liege = { letter_event = { id = 320501 days = 7 tooltip = "EVTTOOLTIP320501" } }
+		#liege = { letter_event = { id = 320501 days = 7 tooltip = "EVTTOOLTIP320501" } } # event exists nowhere, not even in vanilla
 	}
 }
 
@@ -1993,6 +1993,6 @@ character_event = {
 				duration = 730
 			}
 		}
-		liege = { letter_event = { id = 320503 days = 7 tooltip = "EVTTOOLTIP320503" } }
+		#liege = { letter_event = { id = 320503 days = 7 tooltip = "EVTTOOLTIP320503" } } # event exists nowhere, not even in vanilla
 	}
 }

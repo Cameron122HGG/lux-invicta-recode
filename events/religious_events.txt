@@ -4945,3 +4945,102 @@ character_event = {
 		}
 	}
 }
+
+# 39704 and 39706 (Iconoclast Patriarchy world notices) copied unchanged from vanilla 3.3.3: religious_decisions.txt calls them but LI's older copy of this file lacked them
+long_character_event = {
+	id = 39704
+	desc = {
+		text = EVTDESC39704A
+		trigger = {
+			character = FROM
+		}
+	}
+	desc = {
+		text = EVTDESC39704B
+		trigger = {
+			NOT = { character = FROM }
+		}
+	}
+	picture = GFX_evt_bishop
+	border = GFX_event_long_frame_religion
+	
+	major = yes
+	
+	is_triggered_only = yes
+	major_trigger = {
+		religion_group = christian
+	}
+	
+	only_playable = yes
+	
+	option = {
+		name = EVTOPTA_SOA_4200
+		trigger = {
+			religion = iconoclast
+		}
+	}
+	option = {
+		name = EVTOPTB_SOA_4200
+		trigger = {
+			religion = orthodox
+		}
+	}
+	option = {
+		name = EVTOPTC_SOA_4200
+		trigger = {
+			NOR = {
+				religion = iconoclast
+				religion = orthodox
+			}
+		}
+	}
+}
+
+long_character_event = {
+	id = 39706
+	desc = {
+		text = EVTDESC39706A
+		trigger = {
+			character = FROM
+		}
+	}
+	desc = {
+		text = EVTDESC39706B
+		trigger = {
+			NOT = { character = FROM }
+		}
+	}
+	picture = GFX_evt_bishop
+	border = GFX_event_long_frame_religion
+	
+	major = yes
+	
+	is_triggered_only = yes
+	major_trigger = {
+		religion_group = christian
+	}
+	
+	only_playable = yes
+	
+	option = {
+		name = EVTOPTA_SOA_4200
+		trigger = {
+			religion = orthodox
+		}
+	}
+	option = {
+		name = EVTOPTB_SOA_4200
+		trigger = {
+			religion = iconoclast
+		}
+	}
+	option = {
+		name = EVTOPTC_SOA_4200
+		trigger = {
+			NOR = {
+				religion = iconoclast
+				religion = orthodox
+			}
+		}
+	}
+}

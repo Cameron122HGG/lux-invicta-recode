@@ -23,9 +23,9 @@ decisions = {
 		effect = {
 			liege = {
 				set_guardian = ROOT
-				letter_event = {
-					id = regency.1
-				}
+				#letter_event = { # event exists nowhere, not even in vanilla
+					#id = regency.1
+				#}
 			}
 		}
 		revoke_allowed = {
