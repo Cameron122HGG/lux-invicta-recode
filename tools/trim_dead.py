@@ -27,6 +27,7 @@ dyn = set()
 for f in os.listdir(os.path.join(R, 'common/dynasties')):
     dyn |= set(re.findall(r'(?m)^\s*(\d+)\s*=\s*\{', nc(rd(os.path.join(R, 'common/dynasties', f)))))
 traits = topkeys('common/traits', 0); artifacts = topkeys('common/artifacts', 0)
+societies = topkeys('common/societies', 0)
 titles = set()
 for dp, _, fs in os.walk(os.path.join(R, 'common/landed_titles')):
     for f in fs: titles |= set(re.findall(r'\b([ekdcb]_[\w-]+)\s*=\s*\{', nc(rd(os.path.join(dp, f)))))
@@ -34,7 +35,7 @@ VALID = {'culture': cultures, 'culture_group': cult_groups, 'religion': religion
          'dynasty': dyn, 'true_religion': religions, 'secret_religion': religions, 'graphical_culture': None,
          'trait': traits, 'artifact_type': artifacts, 'has_artifact': artifacts,
          'has_landed_title': titles, 'title': titles, 'has_claim': titles, 'has_weak_claim': titles,
-         'has_strong_claim': titles}
+         'has_strong_claim': titles, 'society_member_of': societies}
 # Scope names used in place of a value ("religion = liege", "culture = attacker"). CleanSlate uses
 # these a lot; they are only resolved at runtime, so they are never "dead".
 SCOPE_WORDS = {'liege', 'top_liege', 'owner', 'controller', 'location', 'capital_scope', 'holder', 'holder_scope',
@@ -96,10 +97,11 @@ def fold(n, ctx):
         if any(v == 'F' for _, v in vals): stats['unsure'] += 1
         return None
     if k in ORS or k in NORS:
+        live = [v for c, v in vals if v != 'F']
+        # never empty the list: an all-dead OR/NOR keeps its entries (its value is passed up instead)
+        if not live: return 'T' if k in NORS else 'F'
         for c, v in vals:
             if v == 'F': drop.update(span(c)); stats['leaf removed' if 'v' in c else 'NOT removed'] += 1
-        live = [v for c, v in vals if v != 'F']
-        if not live: return 'T' if k in NORS else 'F'
         return None
     if k in ANDS or k in UNITS or SCOPES_AS_AND:
         if any(v == 'F' for _, v in vals): return 'F'
@@ -117,6 +119,11 @@ def walk_units(items):
         else:
             walk_units(n['kids'])
 walk_units(root)
+# --defs: also fold every top-level definition (scripted triggers etc.), so dead entries in their
+# OR/NOR lists and always-true NOTs are removed too. A definition itself is never dropped.
+if '--defs' in sys.argv:
+    for n in root:
+        if 'kids' in n: fold(n, None)
 
 # safety: no kept leaf may sit on a dropped line (lines are removed whole)
 def leaves(items, inside_dropped=False):
