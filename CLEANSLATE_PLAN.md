@@ -96,6 +96,11 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `faction_succ_ultimogeniture`, `GBC.*` events) are left out, so CleanSlate's version is used.
      They're listed for phase 3 in `migration_notes/phase2_clashes.txt`.
    - Checked: all `li_` files have balanced braces; no duplicate event IDs.
+   - Follow-up: laws and religion features also sit inside group blocks (`laws = {}`,
+     `de_jure_laws = {}`, `law_groups = {}`, `religion_doctrine = {}`…), so the first run missed
+     LI's laws (the phase 2 run logged 133,000 "Bad law" lines). Re-run with
+     `--only=common/laws,common/religion_features`: `li_0_term_laws`, `li_slavery_laws` whole, plus 150
+     laws from 3 files. Religion features had nothing new.
 3. **LI's real changes (~527).** For each: diff LI against vanilla, apply only LI's change onto
    CleanSlate's definition, and mark it `# LI:`. The ~1,945 older-vanilla copies take CleanSlate's
    version, with a spot-check of a sample per folder.

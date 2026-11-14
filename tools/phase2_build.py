@@ -18,7 +18,11 @@ OWNED = ['common/buildings', 'common/trade_routes', 'common/societies', 'common/
 WORLD = ['common/landed_titles', 'common/cultures', 'common/religions', 'common/dynasties',
          'common/graphicalculturetypes', 'common/bookmarks', 'common/defines']
 SKIP = ['common/on_actions', 'common/achievements.txt', 'common/defines.txt']
-WRAP_DEPTH1 = {'decisions': True, 'common/governments': True}   # definitions sit one level down
+# definitions sit one level down, inside group blocks (decisions = {}, feudal_governments = {},
+# laws = {} / de_jure_laws = {} / law_groups = {}, religion_doctrine = {}...)
+WRAP_DEPTH1 = {'decisions': True, 'common/governments': True, 'common/laws': True, 'common/religion_features': True}
+# --only=<folder>[,<folder>]: process only these folders (e.g. to add a folder after a first run)
+ONLY = next((a.split('=', 1)[1].split(',') for a in sys.argv if a.startswith('--only=')), None)
 
 def rd(p): return open(p, 'rb').read()
 def nc(b): return re.sub(rb'#[^\n]*', b'', b)
@@ -78,6 +82,7 @@ vkeys = {}; ckeys = {}
 for rel in sorted(files):
     fol = folder(rel); name = os.path.basename(rel)
     if any(rel == s or rel.startswith(s + '/') for s in WORLD + SKIP): continue
+    if ONLY and fol not in ONLY: continue
     dst = os.path.dirname(rel) + '/' + (name if name.lower().startswith('li_') else 'li_' + name)
     if fol in OWNED:
         plan.append(('copy', rel, dst, None)); stats['owned folder: copied whole'] += 1; per['owned folder'][fol] += 1; continue
@@ -133,11 +138,12 @@ def build_extract(rel, new):
 
 if APPLY:
     notes = os.path.join(REPO, 'migration_notes'); os.makedirs(notes, exist_ok=True)
-    with open(os.path.join(notes, 'phase2_clashes.txt'), 'w', encoding='utf-8', newline='\r\n') as o:
-        o.write('# Phase 2: LI definitions whose key CleanSlate also defines. CleanSlate\'s version is used;\n'
-                '# review LI\'s version (from master) in phase 3.  <master file>\t<key>\n')
+    with open(os.path.join(notes, 'phase2_clashes.txt'), 'a' if ONLY else 'w', encoding='utf-8', newline='\r\n') as o:
+        if not ONLY:
+            o.write('# Phase 2: LI definitions whose key CleanSlate also defines. CleanSlate\'s version is used;\n'
+                    '# review LI\'s version (from master) in phase 3.  <master file>\t<key>\n')
         for rel, k in dup_cs: o.write(f'{rel}\t{k}\n')
-    for fol in OWNED:  # LI's folder replaces CleanSlate's
+    for fol in ([] if ONLY else OWNED):  # LI's folder replaces CleanSlate's
         d = os.path.join(REPO, fol)
         if os.path.isdir(d): shutil.rmtree(d)
     for kind, rel, dst, new in plan:

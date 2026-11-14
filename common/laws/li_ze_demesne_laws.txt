@@ -1,0 +1,133 @@
+# Lux Invicta definitions extracted from master:common/laws/ze_demesne_laws.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+law_groups = {
+	sovereignty_title_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+}
+
+laws = {
+	sovereignty_title_law_0 = {
+		group = sovereignty_title_law
+		show_as_title = yes
+		default = yes
+		allow = { 
+			NOT = { has_law = sovereignty_title_law_2 } }
+		potential = {
+			has_dlc = "Zeus"
+			NOT = { holder_scope = { is_nomadic = yes } }
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			set_allow_title_revokation = no
+			IF = {
+				limit = {
+					holder_scope = {
+						is_tribal = no
+						is_republic = no
+					}
+				}
+				set_protected_inheritance = no					
+			}
+			hidden_tooltip = {
+				revoke_law = sovereignty_title_law_1
+				revoke_law = sovereignty_title_law_2
+			}
+		}
+	}
+	sovereignty_title_law_1 = {
+		group = sovereignty_title_law
+		show_as_title = yes
+		allow = {
+			OR = {
+				has_law = centralization_2
+				has_law = clanic_centralization_4
+			}
+		}
+		potential = {
+			has_dlc = "Zeus"
+			NOT = { holder_scope = { is_nomadic = yes } }
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { 
+			factor = 1
+			modifier = {
+				factor = 0.05
+				has_law = sovereignty_title_law_0
+			}
+			modifier = {
+				factor = 0
+				has_law = sovereignty_title_law_2
+			}
+		}
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			set_allow_title_revokation = yes
+			IF = {
+				limit = {
+					holder_scope = {
+						is_tribal = no
+						is_republic = no
+					}
+				}
+				set_protected_inheritance = yes					
+			}
+			custom_tooltip = { text = fabricate_claims_possible	}
+			hidden_tooltip = {
+				revoke_law = sovereignty_title_law_0
+				revoke_law = sovereignty_title_law_2
+			}
+		}
+	}
+	sovereignty_title_law_2 = {
+		group = sovereignty_title_law
+		show_as_title = yes
+		allow = {
+			NOT = { has_law = sovereignty_title_law_0 }
+			has_law = centralization_4
+		}
+		potential = {
+			has_dlc = "Zeus"
+			NOT = { holder_scope = { is_nomadic = yes } }
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.01
+			}
+			modifier = {
+				factor = 10
+				holder_scope = { trait = ambitious }
+			}
+		}
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			set_allow_title_revokation = yes
+			set_allow_free_revokation = yes
+			if = {
+				limit = {
+					holder_scope = {
+						is_tribal = no
+						is_republic = no
+					}
+				}
+				set_protected_inheritance = yes					
+			}
+			custom_tooltip = { text = fabricate_claims_possible	}
+			custom_tooltip = { text = fabricate_claims_bonus }
+			hidden_tooltip = {
+				revoke_law = sovereignty_title_law_0
+				revoke_law = sovereignty_title_law_1
+			}
+		}
+	}
+}
+

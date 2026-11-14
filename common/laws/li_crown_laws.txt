@@ -1,0 +1,426 @@
+# Lux Invicta definitions extracted from master:common/laws/crown_laws.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+de_jure_laws = {
+#FEMALE MARSHALS/COMMANDERS LAW
+	fem_marshal_0 = {	#Forbidden
+		show_as_title = yes
+		group = fem_marshal
+		
+		potential = {
+			NOT = { has_dlc = "Zeus" }
+			holder_scope = { NOT = { is_landed = no } } 
+		}
+		allow = {
+			has_law = fem_marshal_1
+			holder_scope = {
+				feminism_0_religions_trigger = yes
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		pass_effect = {
+			hidden_tooltip = {
+				any_de_jure_vassal = {
+					limit = {
+						is_liege_or_above = ROOT
+						OR = {
+							is_female = no
+							NOT = {
+								OR = {
+									martial = 20
+									trait = misguided_warrior
+									trait = tough_soldier
+									trait = skilled_tactician
+									trait = brilliant_strategist
+								}
+							}
+						}
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_forbade_fem_marshal_pos
+						months = 60
+					}
+				}
+				any_de_jure_vassal = {
+					limit = {
+						is_liege_or_above = ROOT
+						is_female = yes
+						martial = 20
+						OR = {
+							trait = misguided_warrior
+							trait = tough_soldier
+							trait = skilled_tactician
+							trait = brilliant_strategist
+						}
+					}
+					opinion = {
+						modifier = opinion_forbade_fem_marshal_neg
+						who = ROOT
+						months = 60
+					}
+				}
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				revoke_law = fem_marshal_0
+				revoke_law = fem_marshal_1
+				revoke_law = fem_marshal_2
+				revoke_law = fem_marshal_3
+			}
+		}
+	}
+	fem_marshal_1 = {	#Allowed
+		show_as_title = yes
+		group = fem_marshal
+		
+		potential = {
+			NOT = { has_dlc = "Zeus" }
+			holder_scope = { NOT = { is_landed = no } } 
+		}
+		allow = {
+			OR = {
+				AND = {
+					has_law = fem_marshal_0
+					succ_law_title = {
+						OR = {
+							has_law = true_cognatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = enatic_succession
+						}
+					}
+					holder_scope = {
+						OR = {
+							feminism_1_religions_trigger = yes
+							AND = {
+								feminism_0_religions_trigger = yes
+								is_female = yes
+								trait = ambitious
+							}
+						}
+					}
+				}
+				has_law = fem_marshal_2
+			}
+		}
+		pass_effect = {
+			hidden_tooltip = {
+				if = {
+					limit = {
+						has_law = fem_marshal_1
+					}
+					any_de_jure_vassal = {
+						limit = {
+							is_liege_or_above = ROOT
+							OR = {
+								is_female = no
+								NOT = {
+									OR = {
+										martial = 20
+										trait = misguided_warrior
+										trait = tough_soldier
+										trait = skilled_tactician
+										trait = brilliant_strategist
+									}
+								}
+							}
+						}
+						opinion = {
+							modifier = opinion_allowed_fem_marshal_neg
+							who = ROOT
+							months = 60
+						}
+					}
+					any_de_jure_vassal = {
+						limit = {
+							is_female = yes
+							martial = 20
+							OR = {
+								trait = misguided_warrior
+								trait = tough_soldier
+								trait = skilled_tactician
+								trait = brilliant_strategist
+							}
+						}
+						opinion = {
+							modifier = opinion_allowed_fem_marshal_pos
+							who = ROOT
+							months = 60
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_law = fem_marshal_2
+					}
+					any_de_jure_vassal = {
+						limit = {
+							is_liege_or_above = ROOT
+							OR = {
+								is_female = no
+								NOT = {
+									OR = {
+										martial = 20
+										trait = misguided_warrior
+										trait = tough_soldier
+										trait = skilled_tactician
+										trait = brilliant_strategist
+									}
+								}
+							}
+						}
+						opinion = {
+							modifier = opinion_allowed_fewer_fem_marshal_pos
+							who = ROOT
+							months = 60
+						}
+					}
+					any_de_jure_vassal = {
+						limit = {
+							is_female = yes
+							martial = 20
+							OR = {
+								trait = misguided_warrior
+								trait = tough_soldier
+								trait = skilled_tactician
+								trait = brilliant_strategist
+							}
+						}
+						opinion = {
+							modifier = opinion_allowed_fewer_fem_marshal_neg
+							who = ROOT
+							months = 60
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			revoke_law = fem_marshal_0
+			revoke_law = fem_marshal_1
+			revoke_law = fem_marshal_2
+			revoke_law = fem_marshal_3
+		}
+	}
+	fem_marshal_2 = {	#Accepted
+		show_as_title = yes
+		group = fem_marshal
+		
+		potential = {
+			NOT = { has_dlc = "Zeus" }
+			holder_scope = { NOT = { is_landed = no } } 
+			holder_scope = {
+				NOR = {
+					religion_group = zoroastrian_group
+					culture_group = iranian
+					religion_group = muslim
+					religion_group = jewish_group
+					religion = hubal
+					religion = gurzil
+				}
+			}
+		}
+		allow = {
+			OR = {
+				AND = {
+					has_law = fem_marshal_1
+					succ_law_title = {
+						OR = {
+							has_law = true_cognatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = enatic_succession
+						}
+					}
+					holder_scope = {
+						OR = {
+							feminism_2_religions_trigger = yes
+							AND = {
+								feminism_1_religions_trigger = yes
+								is_female = yes
+								trait = ambitious
+							}
+						}
+					}
+				}
+				has_law = fem_marshal_3
+			}
+		}
+		pass_effect = {
+			hidden_tooltip = {
+				if = {
+					limit = {
+						has_law = fem_marshal_1
+					}
+					any_de_jure_vassal = {
+						limit = {
+							is_liege_or_above = ROOT
+							OR = {
+								is_female = no
+								NOT = {
+									OR = {
+										martial = 12
+										trait = misguided_warrior
+										trait = tough_soldier
+										trait = skilled_tactician
+										trait = brilliant_strategist
+									}
+								}
+							}
+						}
+						opinion = {
+							modifier = opinion_allowed_more_fem_marshal_neg
+							who = ROOT
+							months = 60
+						}
+					}
+					any_de_jure_vassal = {
+						limit = {
+							is_female = yes
+							martial = 12
+							OR = {
+								trait = misguided_warrior
+								trait = tough_soldier
+								trait = skilled_tactician
+								trait = brilliant_strategist
+							}
+						}
+						opinion = {
+							modifier = opinion_allowed_more_fem_marshal_pos
+							who = ROOT
+							months = 60
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_law = fem_marshal_3
+					}
+					any_de_jure_vassal = {
+						limit = {
+							is_liege_or_above = ROOT
+							OR = {
+								is_female = no
+								NOT = {
+									OR = {
+										martial = 20
+										trait = misguided_warrior
+										trait = tough_soldier
+										trait = skilled_tactician
+										trait = brilliant_strategist
+									}
+								}
+							}
+						}
+						opinion = {
+							modifier = opinion_allowed_fewer_fem_marshal_pos
+							who = ROOT
+							months = 60
+						}
+					}
+					any_de_jure_vassal = {
+						limit = {
+							is_female = yes
+							martial = 20
+							OR = {
+								trait = misguided_warrior
+								trait = tough_soldier
+								trait = skilled_tactician
+								trait = brilliant_strategist
+							}
+						}
+						opinion = {
+							modifier = opinion_allowed_fewer_fem_marshal_neg
+							who = ROOT
+							months = 60
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			revoke_law = fem_marshal_0
+			revoke_law = fem_marshal_1
+			revoke_law = fem_marshal_2
+			revoke_law = fem_marshal_3
+		}
+	}
+	fem_marshal_3 = {	#Approved
+		show_as_title = yes
+		group = fem_marshal
+		
+		potential = {
+			NOT = { has_dlc = "Zeus" }
+			holder_scope = { NOT = { is_landed = no } } 
+			holder_scope = {
+				NOR = {
+					religion_group = zoroastrian_group
+					culture_group = iranian
+					religion_group = muslim
+					religion_group = jewish_group
+					religion = hubal
+					religion = gurzil
+				}
+			}
+		}
+		allow = {
+			has_law = fem_marshal_2
+			succ_law_title = {
+				OR = {
+					has_law = true_cognatic_succession
+					has_law = enatic_cognatic_succession
+					has_law = enatic_succession
+				}
+			}
+			holder_scope = {
+				OR = {
+					feminism_3_religions_trigger = yes
+					feminism_4_religions_trigger = yes
+					AND = {
+						feminism_2_religions_trigger = yes
+						is_female = yes
+						trait = ambitious
+					}
+				}
+			}
+		}
+		pass_effect = {
+			hidden_tooltip = {
+				any_de_jure_vassal = {
+					limit = {
+						is_liege_or_above = ROOT
+						is_female = no
+					}
+					opinion = {
+						modifier = opinion_allowed_more_fem_marshal_neg
+						who = ROOT
+						months = 60
+					}
+				}
+				any_de_jure_vassal = {
+					limit = {
+						is_liege_or_above = ROOT
+						is_female = yes
+					}
+					opinion = {
+						modifier = opinion_allowed_more_fem_marshal_pos
+						who = ROOT
+						months = 60
+					}
+				}
+			}
+		}
+		effect = {
+			revoke_law = fem_marshal_0
+			revoke_law = fem_marshal_1
+			revoke_law = fem_marshal_2
+			revoke_law = fem_marshal_3
+		}
+	}
+}
+
