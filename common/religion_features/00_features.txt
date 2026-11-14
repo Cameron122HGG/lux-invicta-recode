@@ -1257,10 +1257,6 @@ religion_astrology = {
 		picture = GFX_religion_feature_animistic
 
 		trigger = {
-			trigger_if = {
-				limit = { religion = west_african_pagan_reformed }
-				NOT = { has_selected_religion_feature = religion_feature_west_african }	# Redundant
-			}
 		}
 
 		effect = {
@@ -1321,10 +1317,6 @@ religion_beatification = {
 		picture = GFX_religion_feature_pyramids
 
 		trigger = {
-			trigger_if = {
-				limit = { religion = aztec_pagan_reformed }
-				NOT = { has_selected_religion_feature = religion_feature_aztec }	# Redundant
-			}
 		}
 
 		effect = {
@@ -2035,7 +2027,6 @@ religion_leadership = {
 						limit = {
 							FROM = {
 								OR = {
-									religion = baltic_pagan
 									religion = slavic_pagan
 								}
 							}
@@ -2117,7 +2108,6 @@ religion_leadership = {
 								character = yes
 
 								OR = {
-									religion = baltic_pagan
 									religion = slavic_pagan
 								}
 							}
@@ -2266,8 +2256,6 @@ religion_leadership = {
 							religion = orthodox
 							religion = monothelite
 							religion = iconoclast
-							religion = paulician
-							religion = miaphysite
 							religion = monophysite
 						}
 					}
@@ -2300,9 +2288,7 @@ religion_leadership = {
 						NOR = {
 							religion = cathar
 							religion = waldensian
-							religion = lollard
 							religion = bogomilist
-							religion = messalian
 						}
 					}
 
@@ -2319,11 +2305,9 @@ religion_leadership = {
 							religion = catholic
 							religion = fraticelli
 							religion = orthodox
-							religion = miaphysite
 							religion = monophysite
 							religion = monothelite
 							religion = iconoclast
-							religion = paulician
 							religion = nestorian
 							religion_group = zoroastrian_group
 							religion_group = jewish_group

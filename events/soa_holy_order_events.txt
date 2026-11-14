@@ -4453,20 +4453,6 @@ character_event = {
 					}
 				}
 				# Some orders only want coastal castles
-				trigger_else_if = {
-					limit = {
-						ROOT = {
-							OR = {
-								has_landed_title = d_bektashi
-								has_landed_title = d_fedayeen
-								has_landed_title = d_haruriyyah
-								has_landed_title = d_jomsvikings
-							}
-						}
-					}
-
-					is_coastal = yes
-				}
 			}
 		}
 	}
@@ -4575,20 +4561,6 @@ character_event = {
 							region = world_africa_north
 						}
 					}
-					trigger_else_if = {
-						limit = {
-							ROOT = {
-								OR = {
-									has_landed_title = d_bektashi
-									has_landed_title = d_fedayeen
-									has_landed_title = d_haruriyyah
-									has_landed_title = d_jomsvikings
-								}
-							}
-						}
-
-						is_coastal = yes
-					}
 				}
 			}
 
@@ -4660,20 +4632,6 @@ character_event = {
 							region = world_india_rajastan
 							region = world_africa_north
 						}
-					}
-					trigger_else_if = {
-						limit = {
-							ROOT = {
-								OR = {
-									has_landed_title = d_bektashi
-									has_landed_title = d_fedayeen
-									has_landed_title = d_haruriyyah
-									has_landed_title = d_jomsvikings
-								}
-							}
-						}
-
-						is_coastal = yes
 					}
 				}
 
@@ -5749,7 +5707,6 @@ narrative_event = {
 		name = {
 			text = EVTOPTB_SOA_2009
 			trigger = {
-				NOT = { religion = west_african_pagan_reformed }
 			}
 		}
 	}
@@ -6393,7 +6350,6 @@ narrative_event = {
 		name = {
 			text = EVTOPTB_SOA_2009
 			trigger = {
-				NOT = { religion = aztec_pagan_reformed }
 			}
 		}
 	}

@@ -2631,7 +2631,6 @@ nick_the_wolf = {
 
 			AND = {
 				culture_group = altaic
-				NOT = { culture = khitan }
 
 				OR = {
 					trait = brilliant_strategist

@@ -2647,7 +2647,7 @@ character_event = {
                         30 = { add_trait = thrifty_clerk }
                         15 = { add_trait = fortune_builder }
                         5 = { add_trait = midas_touched }
-                        30 = { add_trait = martial_cleric }
+                        30 = { add_trait = dutiful_cleric }
                         15 = { add_trait = scholarly_theologian }
                         5 = { add_trait = mastermind_theologian }
                     }
@@ -2657,7 +2657,7 @@ character_event = {
                         25 = { add_trait = shrewd }
                         15 = { add_trait = quick }
                         5 = { add_trait = genius }
-                        5 = { add_trait = fair }
+                        5 = { add_trait = attractive }
                     }
                     random_list = {
                         85 = { } #Nothing
@@ -2668,7 +2668,7 @@ character_event = {
                         3 = { add_trait = stutter }
                         2 = { 
                             add_trait = ugly 
-                            remove_trait = fair 
+                            remove_trait = attractive 
                         }
                         1 = { add_trait = dwarf }
                         1 = {  add_trait = weak }
@@ -2781,12 +2781,12 @@ character_event = {
                                     25 = { add_trait = hedonist}
                                     20 = {
                                         trigger = { is_female = yes }
-                                        add_trait = seductress
+                                        add_trait = master_seductress
                                         add_trait = lustful
                                     }
                                     20 = {
                                         trigger = { is_female = no }
-                                        add_trait = seducer
+                                        add_trait = master_seducer
                                         add_trait = lustful
                                     }
                                 }
@@ -2886,9 +2886,9 @@ character_event = {
                         20 = { add_trait = shrewd }
                         15 = { add_trait = quick }
                         5 = { add_trait = genius }
-                        10 = { add_trait = robust }
+                        10 = { add_trait = brawny }
                         5 = { add_trait = strong }
-                        5 = { add_trait = fair }
+                        5 = { add_trait = attractive }
                     }
                     random_list = {
                         85 = { } #Nothing
@@ -2899,13 +2899,13 @@ character_event = {
                         3 = { add_trait = stutter }
                         2 = { 
                             add_trait = ugly 
-                            remove_trait = fair 
+                            remove_trait = attractive 
                         }
                         1 = { add_trait = dwarf }
                         1 = { 
                             add_trait = weak 
                             remove_trait = strong 
-                            remove_trait = robust
+                            remove_trait = brawny
                         }
                     }
                     random = {
@@ -3016,12 +3016,12 @@ character_event = {
                                     25 = { add_trait = hedonist}
                                     20 = {
                                         trigger = { is_female = yes }
-                                        add_trait = seductress
+                                        add_trait = master_seductress
                                         add_trait = lustful
                                     }
                                     20 = {
                                         trigger = { is_female = no }
-                                        add_trait = seducer
+                                        add_trait = master_seducer
                                         add_trait = lustful
                                     }
                                 }
@@ -3107,7 +3107,7 @@ character_event = {
                         20 = { add_trait = brave } 
                         20 = { add_trait = strong }
                         20 = { add_trait = shrewd }
-                        40 = { add_trait = robust }
+                        40 = { add_trait = brawny }
                     }
                     random_list = {
                         71 = { } #Nothing
@@ -3263,7 +3263,7 @@ character_event = {
                                 random_list = {
                                     20 = { add_trait = duelist }
                                     40 = { add_trait = hunter }
-                                    40 = { add_trait = gamer }
+                                    40 = { add_trait = game_master }
                                 }
                             }
                             add_trait = levy_coordinator 
@@ -3424,7 +3424,7 @@ character_event = {
                                 50 = { add_trait = scholar }
                             }
                             add_trait = scarred
-                            add_trait = robust
+                            add_trait = brawny
                             random_list = {
                                 60 = { } #Nothing
                                 20 = { 
@@ -3522,7 +3522,7 @@ character_event = {
                             }
                             random = {
                                 chance = 50
-                                add_trait = robust
+                                add_trait = brawny
                             }
                             remove_trait = weak
                         }
@@ -3559,11 +3559,11 @@ character_event = {
                             set_character_flag = archetype_sociable
                             if = {
                                 limit = { is_female = yes }
-                                add_trait = seductress
+                                add_trait = master_seductress
                             }
                             if = {
                                 limit = { is_female = no }
-                                add_trait = seducer
+                                add_trait = master_seducer
                             }
                             random_list = {
                                 50 = { } #Nothing
@@ -3571,7 +3571,7 @@ character_event = {
                                 25 = { add_trait = falconer }
                             }
                             random_list = {
-                                30 = { add_trait = fair }
+                                30 = { add_trait = attractive }
                                 50 = { add_trait = strong }
                             }
                             add_trait = lustful
@@ -5120,7 +5120,7 @@ character_event = {
  			factor = 1.75
  			OR = {
  				trait = detached_priest
- 				trait = martial_cleric
+ 				trait = dutiful_cleric
  				trait = scholarly_theologian
  				trait = mastermind_theologian
  			}
@@ -6552,7 +6552,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.3
-			trait = gamer
+			trait = game_master
 		}
 	}
 
@@ -6573,7 +6573,7 @@ character_event = {
 						trait = nun
 						trait = chaste
 						trait = shrewd
-						trait = gamer
+						trait = game_master
 						trait = patient
 						trait = fatigue
 						trait = on_pilgrimage 
@@ -6596,7 +6596,7 @@ character_event = {
 						trait = monk
 						trait = chaste
 						trait = shrewd
-						trait = gamer
+						trait = game_master
 						trait = patient
 						trait = fatigue 
 						trait = on_pilgrimage
@@ -6628,7 +6628,7 @@ character_event = {
 						trait = nun
 						trait = chaste
 						trait = shrewd
-						trait = gamer
+						trait = game_master
 						trait = patient
 						trait = fatigue 
 						trait = on_pilgrimage
@@ -6652,7 +6652,7 @@ character_event = {
 						trait = monk
 						trait = chaste
 						trait = shrewd
-						trait = gamer
+						trait = game_master
 						trait = patient
 						trait = fatigue 
 						trait = on_pilgrimage
