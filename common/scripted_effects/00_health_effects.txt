@@ -1932,7 +1932,7 @@ weight_trait_check_effect = {
 
 			hidden_effect = {
 				remove_weight_modifier_effect = yes
-				#character_event = { id = HFP.20601 } # Notification: I am no longer fat # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = HFP.20601 } # Notification: I am no longer fat
 			}
 		}
 		else_if = {
@@ -1948,7 +1948,7 @@ weight_trait_check_effect = {
 
 			hidden_effect = {
 				remove_weight_modifier_effect = yes
-				#character_event = { id = HFP.20602 } # Notification: I am malnourished # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = HFP.20602 } # Notification: I am malnourished
 			}
 		}
 	}
@@ -1972,7 +1972,7 @@ weight_trait_check_effect = {
 
 			hidden_effect = {
 				remove_weight_modifier_effect = yes
-				#character_event = { id = HFP.20603 } # Notification: I am no longer malnourished # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = HFP.20603 } # Notification: I am no longer malnourished
 			}
 		}
 
@@ -1989,7 +1989,7 @@ weight_trait_check_effect = {
 
 			hidden_effect = {
 				remove_weight_modifier_effect = yes
-				#character_event = { id = HFP.20600 } # Notification: I am fat # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = HFP.20600 } # Notification: I am fat
 			}
 		}
 	}
@@ -2005,7 +2005,7 @@ weight_trait_check_effect = {
 			# First time try to fire a special event if character meets any of the conditions, otherwise simply notify
 			weight_flavor_conditions_effect = yes
 			add_trait = fat
-			#character_event = { id = HFP.20600 } # Notification: I am fat # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			character_event = { id = HFP.20600 } # Notification: I am fat
 		}
 		else_if = {
 			limit = {
@@ -2018,7 +2018,7 @@ weight_trait_check_effect = {
 			# First time try to fire a special event if character meets any of the conditions, otherwise simply notify
 			weight_flavor_conditions_effect = yes
 			add_trait = malnourished
-			#character_event = { id = HFP.20602 } # Notification: I am malnourished # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			character_event = { id = HFP.20602 } # Notification: I am malnourished
 		}
 	}
 }

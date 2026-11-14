@@ -283,6 +283,28 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      in CleanSlate's `wol_war_events.txt` and moved into its Holy Fury duel events (`HFP.10113` in
      `hfp_duel_events.txt`). LI lacks it while Holy Fury is off; it comes back with the duels part
      (user decision 2026-11-14: wait for phase 8, don't uncomment master's version).
+   - **State (2026-11-14):** 1,084 of CleanSlate's 2,203 Holy Fury events are in the mod. Complete:
+     coronation, sway/antagonize, tribal, saintly pilgrimage; mostly: religious, bloodlines, baptism,
+     pregnancy; a few: battle (4/53), duels (7/37), health (7/96); none: warrior lodges (9 event files,
+     9 societies), Holy Fury crusades/children's crusade/Reconquista (1/205), sainthood, eldership,
+     bloodline acquisition, realm events. 330 calls to Holy Fury events are switched off (step A note);
+     83 Holy Fury on_action entries are live. Of the 9 lodge religions LI has `norse_pagan`,
+     `tengri_pagan`, `slavic_pagan`, `finnish_pagan`, but not Baltic, West African, Zun, Bön or Hellenic.
+   - **Decisions (user, 2026-11-14):**
+     - **Source: CK2Plus AIO's Holy Fury content** (consistent with decision 5), not plain CleanSlate's.
+     - **Warrior lodges: map LI's own pagan faiths onto the lodges** (lore decisions per faith, made with
+       the user), not only the 4 that exist, and not left out.
+     - **Order:** mechanical parts first.
+   - **Parts, in order** (one at a time, a test run after each):
+     1. Mechanical, no lore: battle events, commander duels (brings back `WoL.11013`/`HFP.10113`),
+        remaining pregnancy/health events, realm and random flavour, Holy Fury holy order events.
+     2. Sainthood and ancestor worship (mapped to LI's titles).
+     3. Bloodline acquisition (legendary deeds), checked against LI's own bloodlines.
+     4. Crusades: the Holy Fury crusade system, children's crusade, Reconquista (LI's Iberia/titles).
+     5. Warrior lodges, with the faith mapping.
+   - **Per part:** restore AIO's events/societies/decisions for that part; undo step A's switch-offs for
+     those IDs (and master-style Holy Fury switch-offs); check dependencies (events, scripted items,
+     score values, modifiers, localisation); `trim_dead`; orphaned-target check; test run.
 
 ## Tools (currently in the session scratchpad; move into `tools/` in the repo to keep them)
 
