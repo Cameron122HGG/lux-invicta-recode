@@ -104,6 +104,16 @@ Each phase is its own commit (or several), followed by a run and a log compariso
 3. **LI's real changes (~527).** For each: diff LI against vanilla, apply only LI's change onto
    CleanSlate's definition, and mark it `# LI:`. The ~1,945 older-vanilla copies take CleanSlate's
    version, with a spot-check of a sample per folder.
+   *(Started 2026-11-14.)* First fixes, driven by the phase 2 run's log:
+   - CleanSlate's renamed IDs applied to LI's files with `tools/cs_renames.py` (pulled forward from
+     phase 4): 76 renames, 555 lines in 49 files. Covers traits (`fair` → `attractive`,
+     `robust` → `brawny`…), event/opinion modifiers, scripted triggers/effects, decisions and combat
+     tactics, including `GFX_trait_*` sprite names and LI's localisation keys. Cultures, religions,
+     titles and governments are **not** renamed: those are LI's own world (see phase 5). The
+     changelog's `slow_ever` is a typo for `slow_fever`.
+   - 29 vanilla events that CleanSlate removed or inlined, but that LI's content still calls
+     (holy order borrowing/donations `SoA.1010/1015/1140`, pagan feasts, pilgrimages, regency
+     duels…), restored from LI's master versions into `events/li_restored_events.txt`.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.

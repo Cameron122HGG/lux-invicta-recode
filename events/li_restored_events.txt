@@ -1,0 +1,1392 @@
+# Phase 3 of CLEANSLATE_PLAN.md: events that LI's content calls but CleanSlate removed or merged
+# (CleanSlate inlined many hidden vanilla events). Copied unchanged from LI's master versions,
+# so LI's decisions and events behave exactly as before.
+
+namespace = SoA
+namespace = TOG
+namespace = RoI
+namespace = MNM
+
+# from master:events/regency_events.txt
+character_event = {
+	id = 61225
+	desc = EVTDESC61225
+	picture = GFX_evt_bloody_man
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA61225
+		event_target:round_loser = {
+			character_event = {	id = 61232 tooltip = EVTTOOLTIP61232 }
+			clr_character_flag = duelist_courtier
+		}
+		prestige = 20
+	}
+}
+
+character_event = {
+	id = 61226
+	desc = EVTDESC61226
+	picture = GFX_evt_bloody_man
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA61226 #Spare opponent
+		ai_chance = { factor = 80 }
+		event_target:round_loser = {
+			character_event = {	id = 61230 tooltip = EVTTOOLTIP61230 }
+			clr_character_flag = duelist_courtier
+		}
+		piety = 40
+	}
+	option = {
+		name = EVTOPTB61226 #Kill opponent
+		ai_chance = { factor = 20 }
+		event_target:round_loser = {
+			character_event = {	id = 61232 tooltip = EVTTOOLTIP61232 }
+			clr_character_flag = duelist_courtier
+		}
+		prestige = 20
+	}
+}
+
+character_event = {
+	id = 61228
+	desc = EVTDESC61225
+	picture = GFX_evt_bloody_man
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA61228
+		liege = {
+			random_courtier = {
+				limit = { has_minor_title = title_regent }
+				character_event = {	id = 61232 tooltip = EVTTOOLTIP61232 }
+			}
+		}
+		hidden_tooltip = {
+			liege = {
+				character_event = {	id = 61235 }
+			}
+		}
+		give_minor_title = title_regent
+		clr_character_flag = duelist_courtier
+		prestige = 20
+	}
+}
+
+character_event = {
+	id = 61230
+	desc = EVTDESC61230
+	picture = GFX_evt_bloody_man
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA61230
+		add_maimed_trait_effect = yes
+		prestige = -20
+		clear_event_target = round_winner
+		clear_event_target = round_loser
+		clear_event_target = regency_duel_liege
+	}
+}
+
+# from master:events/oldgods_various_events.txt
+character_event = {
+	id = TOG.3108
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = wants_varangian
+	}
+	
+	immediate = {
+		set_character_flag = serving_varangian
+		#clr_character_flag = wants_varangian
+	}
+}
+
+# from master:events/roi_various_events.txt
+character_event = {
+	id = RoI.30121
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				liege = { trait = shaivist_hindu }
+			}
+			add_trait = shaivist_hindu
+		}
+		if = {
+			limit = {
+				liege = { trait = vaishnavist_hindu }
+			}
+			add_trait = vaishnavist_hindu
+		}
+		if = {
+			limit = {
+				liege = { trait = shaktist_hindu }
+			}
+			add_trait = shaktist_hindu
+		}
+		if = {
+			limit = {
+				liege = { trait = smartist_hindu }
+			}
+			add_trait = smartist_hindu
+		}
+		# if = {
+			# limit = {
+				# liege = { trait = mahayana_buddhist }
+			# }
+			# add_trait = mahayana_buddhist
+		# }
+		# if = {
+			# limit = {
+				# liege = { trait = vajrayana_buddhist }
+			# }
+			# add_trait = vajrayana_buddhist
+		# }
+		# if = {
+			# limit = {
+				# liege = { trait = theravada_buddhist }
+			# }
+			# add_trait = theravada_buddhist
+		# }
+		if = {
+			limit = {
+				liege = { trait = digambara_jain }
+			}
+			add_trait = digambara_jain
+		}
+		if = {
+			limit = {
+				liege = { trait = svetambara_jain }
+			}
+			add_trait = svetambara_jain
+		}
+	}
+}
+
+# from master:events/pilgrim_events.txt
+character_event = {
+	id = SoA.5022
+	desc = EVTDESC_SoA_5022
+	picture = GFX_evt_pilgrims_epic_journey_desert
+	border = GFX_event_normal_frame_religion
+	trigger = { 
+		has_character_flag = preparing_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+        clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SoA_5022
+		clr_character_flag = preparing_pilgrimage
+		hidden_tooltip = {
+			add_trait = on_pilgrimage
+			set_character_flag = good_pilgrimage
+			narrative_event = { id = SoA.5051 days = 30 }
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					location = {
+						distance = {
+							where = 814	# Jerusalem
+							value = 400	# Longer journey
+						}
+					}
+				}
+				random_list = {
+					10 = {  character_event = { id = SoA.5026 days = 5 random = 9 } } # List for longer journeys only
+					10 = {  character_event = { id = SoA.5027 days = 5 random = 9 } }
+					10 = {  narrative_event = { id = SoA.5028 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5029 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5030 days = 5 random = 9 } }
+				}
+			}
+	
+			random_list = {
+				10 = {  character_event = { id = SoA.5031 days = 15 random = 7 } } # List that is always checked
+				10 = {  character_event = { id = SoA.5032 days = 15 random = 7 } }
+				10 = {  narrative_event = { id = SoA.5033 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5034 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5035 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5036 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5037 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5038 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5039 days = 15 random = 7 } }
+			}
+			if = {
+				limit = {
+						OR = {
+							is_title_active = d_holycatholic
+							is_title_active = d_holyunctionist
+							is_title_active = d_holysolomonic_christ
+							is_title_active = d_holysemipelagian
+							is_title_active = d_holysabellianist
+							is_title_active = d_holypelagian
+							is_title_active = d_holymontanist_reformed
+							is_title_active = d_holymonothelite
+							is_title_active = d_holymonophysite
+							is_title_active = d_holymelkite
+							is_title_active = d_holyiconoclast
+							is_title_active = d_holydonatist
+							is_title_active = d_holyaudianist
+							is_title_active = d_holyarian
+							is_title_active = d_holyadoptionist
+							is_title_active = d_holyorthodox
+						}
+				}
+				random_list = {
+					10 = { narrative_event = { id = SoA.5045 days = 23 random = 4 } } # Holy orders events, close to destination
+					10 = { character_event = { id = SoA.5046 days = 23 random = 4 } }
+					10 = { character_event = { id = SoA.5047 days = 23 random = 4 } }
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = SoA.5024
+	desc = EVTDESC_SoA_5024
+	picture = GFX_evt_pilgrims_epic_journey
+	border = GFX_event_normal_frame_religion
+	trigger = { 
+		has_character_flag = preparing_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+        clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SoA_5024
+		clr_character_flag = preparing_pilgrimage
+		hidden_tooltip = {
+			add_trait = on_pilgrimage
+			set_character_flag = good_pilgrimage
+			narrative_event = { id = SoA.5053 days = 30 }
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					location = {
+						distance = {
+							where = 275	# Rome
+							value = 400	# Longer journey
+						}
+					}
+				}
+				random_list = {
+					10 = {  character_event = { id = SoA.5026 days = 5 random = 9 } } # List for longer journeys only
+					10 = {  character_event = { id = SoA.5027 days = 5 random = 9 } }
+					10 = {  narrative_event = { id = SoA.5028 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5029 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5030 days = 5 random = 9 } }
+				}
+			}
+	
+			random_list = {
+				10 = {  character_event = { id = SoA.5031 days = 15 random = 7 } } # List that is always checked
+				10 = {  character_event = { id = SoA.5032 days = 15 random = 7 } }
+				10 = {  narrative_event = { id = SoA.5033 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5034 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5035 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5036 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5037 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5038 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5039 days = 15 random = 7 } }
+			}
+			if = {
+				limit = {
+                    is_title_active = d_holycatholic
+				}
+				random_list = {
+					10 = {  narrative_event = { id = SoA.5045 days = 23 random = 4 } } # Holy orders events, close to destination
+					10 = {  character_event = { id = SoA.5046 days = 23 random = 4 } }
+					10 = {  character_event = { id = SoA.5047 days = 23 random = 4 } }
+				}
+			}
+		}
+	}
+}
+
+narrative_event = {
+	id = SoA.5051
+	title = EVTNAME_SoA_5051
+	desc = EVTDESC_SoA_5051
+	picture = GFX_evt_jerusalem
+	border = GFX_event_narrative_frame_religion
+	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_SoA_5051
+		hidden_tooltip = { character_event = { id = SoA.5055 days = 5 } }
+	}
+}
+
+narrative_event = {
+	id = SoA.5053
+	title = EVTNAME_SoA_5053
+	desc = EVTDESC_SoA_5053
+	picture = GFX_evt_victory_arch_byzantine
+	border = GFX_event_narrative_frame_religion
+	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_SoA_5053
+		hidden_tooltip = { character_event = { id = SoA.5055 days = 5 } }
+	}
+}
+
+character_event = {
+	id = SoA.5096
+	desc = EVTDESC_SoA_5096
+	picture = GFX_evt_pilgrims_epic_journey_desert
+	border = GFX_event_normal_frame_religion
+	trigger = { 
+		has_character_flag = preparing_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+        clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SoA_5096
+		clr_character_flag = preparing_pilgrimage
+		hidden_tooltip = {
+			add_trait = on_pilgrimage
+			set_character_flag = good_pilgrimage
+			narrative_event = { id = SoA.5099 days = 30 }
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					location = {
+						distance = {
+							where = 804	# Antioch
+							value = 400	# Longer journey
+						}
+					}
+				}
+				random_list = {
+					10 = {  character_event = { id = SoA.5026 days = 5 random = 9 } } # List for longer journeys only
+					10 = {  character_event = { id = SoA.5027 days = 5 random = 9 } }
+					10 = {  narrative_event = { id = SoA.5028 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5029 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5030 days = 5 random = 9 } }
+				}
+			}
+	
+			random_list = {
+				10 = {  character_event = { id = SoA.5031 days = 15 random = 7 } } # List that is always checked
+				10 = {  character_event = { id = SoA.5032 days = 15 random = 7 } }
+				10 = {  narrative_event = { id = SoA.5033 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5034 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5035 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5036 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5037 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5038 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5039 days = 15 random = 7 } }
+			}
+			if = {
+				limit = {
+						OR = {
+							is_title_active = d_holycatholic
+							is_title_active = d_holyunctionist
+							is_title_active = d_holysolomonic_christ
+							is_title_active = d_holysemipelagian
+							is_title_active = d_holysabellianist
+							is_title_active = d_holypriscillian_reformed
+							is_title_active = d_holypelagian
+							is_title_active = d_holymontanist_reformed
+							is_title_active = d_holymonothelite
+							is_title_active = d_holymonophysite
+							is_title_active = d_holymelkite
+							is_title_active = d_holyiconoclast
+							is_title_active = d_holydonatist
+							is_title_active = d_holyaudianist
+							is_title_active = d_holyarian
+							is_title_active = d_holyadoptionist
+							is_title_active = d_holyorthodox
+						}
+				}
+				random_list = {
+					10 = {  narrative_event = { id = SoA.5045 days = 23 random = 4 } } # Holy orders events, close to destination
+					10 = {  character_event = { id = SoA.5046 days = 23 random = 4 } }
+					10 = {  character_event = { id = SoA.5047 days = 23 random = 4 } }
+				}
+			}
+		}
+	}
+}
+
+narrative_event = {
+	id = SoA.5099
+	title = EVTNAME_SoA_5099
+	desc = EVTDESC_SoA_5099
+	picture = GFX_evt_market_byzantine
+	border = GFX_event_narrative_frame_religion
+	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_SoA_5099
+		hidden_tooltip = { character_event = { id = SoA.5055 days = 5 } }
+	}
+}
+
+# from master:events/oldgods_pagan_feasts.txt
+character_event = {
+	id = TOG.822
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = jarilo_feast_vassal
+			has_character_flag = pagan_festival_feast_vassal
+		}
+		liege = {
+			OR = {
+		has_character_flag = holding_pagan_festival
+		has_character_flag = holding_jarilo
+	}
+			NOT = { has_character_flag = feast_gluttonous }
+			any_vassal = {
+				OR = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				NOT = { has_character_flag = feast_gluttonous }
+				trait = gluttonous
+				NOT = { character = ROOT }
+			}
+		}
+	}
+	
+#	mean_time_to_happen = {
+#		days = 60
+#		
+#		modifier = {
+#			factor = 1.1
+#			liege = { num_of_vassals = 10 }
+#		}
+#		modifier = {
+#			factor = 1.2
+#			liege = { num_of_vassals = 20 }
+#		}
+#		modifier = {
+#			factor = 1.3
+#			liege = { num_of_vassals = 30 }
+#		}
+#		modifier = {
+#			factor = 1.4
+#			liege = { num_of_vassals = 40 }
+#		}
+#		modifier = {
+#			factor = 1.5
+#			liege = { num_of_vassals = 50 }
+#		}
+#		modifier = {
+#			factor = 3
+#			liege = { num_of_vassals = 100 }
+#		}
+#	}
+	
+	immediate = {
+		liege = {
+			set_character_flag = feast_gluttonous
+			random_vassal = {
+				limit = {
+					OR = {
+						has_character_flag = jarilo_feast_vassal
+						has_character_flag = pagan_festival_feast_vassal
+					}
+					trait = gluttonous
+					NOT = { character = ROOT }
+				}
+				character_event = { id = TOG.823 }
+				set_character_flag = feast_gluttonous
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TOG.830
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+			}
+		NOT = { has_character_flag = feast_friendship }
+		liege = { 
+			OR = {
+		has_character_flag = holding_pagan_festival
+		has_character_flag = holding_jarilo
+	}
+			any_vassal = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+				NOT = { has_character_flag = feast_friendship }
+				NOT = { character = ROOT }
+				opinion = { who = ROOT value =  20 }
+			}		
+		}
+	}
+	
+#	mean_time_to_happen = {
+#		days = 60
+#		
+#		modifier = {
+#			factor = 1.1
+#			liege = { num_of_vassals = 10 }
+#		}
+#		modifier = {
+#			factor = 1.2
+#			liege = { num_of_vassals = 20 }
+#		}
+#		modifier = {
+#			factor = 1.3
+#			liege = { num_of_vassals = 30 }
+#		}
+#		modifier = {
+#			factor = 1.4
+#			liege = { num_of_vassals = 40 }
+#		}
+#		modifier = {
+#			factor = 1.5
+#			liege = { num_of_vassals = 50 }
+#		}
+#		modifier = {
+#			factor = 3
+#			liege = { num_of_vassals = 100 }
+#		}
+#	}
+	
+	immediate = {
+		set_character_flag = feast_friendship
+		liege = { 
+			random_vassal = {
+				limit = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+					NOT = { character = ROOT }
+					opinion = { who = ROOT value =  20 }
+				}
+				character_event = { id = TOG.831 }
+				set_character_flag = feast_friendship
+				opinion = {
+					modifier = opinion_feast_friend
+					who = ROOT
+				}
+				reverse_opinion = {
+					modifier = opinion_feast_friend
+					who = ROOT
+				}
+			}		
+		}
+	}
+}
+
+character_event = {
+	id = TOG.833
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = jarilo_feast_vassal
+			has_character_flag = pagan_festival_feast_vassal
+		}
+		NOT = { has_character_flag = feast_homosexual }
+		trait = homosexual
+		is_female = no
+		has_lover = no
+		liege = { 
+			OR = {
+		has_character_flag = holding_pagan_festival
+		has_character_flag = holding_jarilo
+	}
+			NOT = { has_character_flag = feast_homosexual }
+			any_vassal = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = holding_pagan_festival
+				NOT = { has_character_flag = feast_homosexual }
+				NOT = { character = ROOT }
+				opinion = { who = ROOT value =  0 }
+				trait = homosexual
+				is_female = no
+				has_lover = no
+			}		
+		}
+	}
+	
+#	mean_time_to_happen = {
+#		days = 40
+#		
+#		modifier = {
+#			factor = 1.1
+#			liege = { num_of_vassals = 10 }
+#		}
+#		modifier = {
+#			factor = 1.2
+#			liege = { num_of_vassals = 20 }
+#		}
+#		modifier = {
+#			factor = 1.3
+#			liege = { num_of_vassals = 30 }
+#		}
+#		modifier = {
+#			factor = 1.4
+#			liege = { num_of_vassals = 40 }
+#		}
+#		modifier = {
+#			factor = 1.5
+#			liege = { num_of_vassals = 50 }
+#		}
+#		modifier = {
+#			factor = 3
+#			liege = { num_of_vassals = 100 }
+#		}
+#	}
+	
+	immediate = {
+		set_character_flag = feast_homosexual
+		liege = { 
+			set_character_flag = feast_homosexual
+			random_vassal = {
+				limit = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+					NOT = { has_character_flag = feast_homosexual }
+					NOT = { character = ROOT }
+					opinion = { who = ROOT value =  0 }
+					trait = homosexual
+					is_female = no
+				}
+				character_event = { id = TOG.834 }
+				add_lover = ROOT
+				set_character_flag = feast_homosexual
+			}		
+		}
+	}
+}
+
+character_event = {
+	id = TOG.836
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = jarilo_feast_vassal
+			has_character_flag = pagan_festival_feast_vassal
+		}
+		NOT = { has_character_flag = feast_homosexual }
+		trait = homosexual
+		is_female = yes
+		has_lover = no
+		liege = { 
+			OR = {
+		has_character_flag = holding_pagan_festival
+		has_character_flag = holding_jarilo
+	}
+			NOT = { has_character_flag = feast_homosexual }
+			any_vassal = {
+				OR = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				NOT = { has_character_flag = feast_homosexual }
+				NOT = { character = ROOT }
+				opinion = { who = ROOT value =  0 }
+				trait = homosexual
+				is_female = yes
+				has_lover = no
+			}		
+		}
+	}
+	
+#	mean_time_to_happen = {
+#		days = 40
+#		
+#		modifier = {
+#			factor = 1.1
+#			liege = { num_of_vassals = 10 }
+#		}
+#		modifier = {
+#			factor = 1.2
+#			liege = { num_of_vassals = 20 }
+#		}
+#		modifier = {
+#			factor = 1.3
+#			liege = { num_of_vassals = 30 }
+#		}
+#		modifier = {
+#			factor = 1.4
+#			liege = { num_of_vassals = 40 }
+#		}
+#		modifier = {
+#			factor = 1.5
+#			liege = { num_of_vassals = 50 }
+#		}
+#		modifier = {
+#			factor = 3
+#			liege = { num_of_vassals = 100 }
+#		}
+#	}
+	
+	immediate = {
+		set_character_flag = feast_homosexual
+		liege = { 
+			set_character_flag = feast_homosexual
+			random_vassal = {
+				limit = {
+					OR = {
+						has_character_flag = jarilo_feast_vassal
+						has_character_flag = pagan_festival_feast_vassal
+					}
+					NOT = { has_character_flag = feast_homosexual }
+					NOT = { character = ROOT }
+					opinion = { who = ROOT value =  0 }
+					trait = homosexual
+					is_female = yes
+				}
+				character_event = { id = TOG.837 }
+				set_character_flag = feast_homosexual
+				add_lover = ROOT
+			}		
+		}
+	}
+}
+
+character_event = {
+	id = TOG.837
+	desc = EVTDESC_TOG_664
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_664
+		tooltip_info = homosexual
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = TOG.838 }
+			}
+			liege = {
+				character_event = { id = TOG.840 }
+				any_vassal = {
+					limit = {
+						OR = {
+							has_character_flag = jarilo_feast_vassal
+							has_character_flag = pagan_festival_feast_vassal
+						}
+						NOT = {
+							character = ROOT
+							character = FROM
+						}
+					}
+					character_event = { id = TOG.840 }
+				}
+			}			
+		}
+		tooltip = {
+			random = {
+				chance = 50
+				character_event = { id = TOG.839 tooltip = EVTTOOLTIP_TOG_669 }
+			}
+			add_lover = FROM
+		}
+	}
+}
+
+character_event = {
+	id = TOG.838
+	desc = EVTDESC_TOG_664
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_664
+		tooltip_info = homosexual
+		random = {
+			chance = 50
+			character_event = { id = TOG.839 tooltip = EVTTOOLTIP_TOG_669 }
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = TOG.839 }
+				}
+			}
+		}
+		tooltip = {
+			add_lover = FROM
+		}
+	}
+}
+
+character_event = { #feast_drunkard
+	id = TOG.841
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = holding_jarilo
+			has_character_flag = holding_pagan_festival
+		}
+		NOT = { has_character_flag = feast_drunkard }
+		any_vassal = {
+			OR = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+			}
+			NOT = { has_character_flag = feast_drunkard }
+			trait = drunkard
+		}
+	}
+	
+	immediate = {
+		random_vassal = {
+			limit = {
+				OR = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				trait = drunkard
+			}
+			character_event = { id = TOG.820 }
+		}
+	}
+}
+
+character_event = {
+	id = TOG.842 #feast_gluttonous
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = holding_jarilo
+			has_character_flag = holding_pagan_festival
+		}
+		NOT = { has_character_flag = feast_gluttonous }
+		any_vassal = {
+			OR = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+			}
+			NOT = { has_character_flag = feast_gluttonous }
+			trait = gluttonous
+		}
+	}
+	
+	immediate = {
+		random_vassal = {
+			limit = {
+				OR = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				trait = gluttonous
+			}
+			character_event = { id = TOG.822 }
+		}
+	}
+}
+
+character_event = {
+	id = TOG.843 #feast_lunatic
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = holding_jarilo
+			has_character_flag = holding_pagan_festival
+		}
+		NOT = { has_character_flag = feast_lunatic }
+		any_vassal = {
+			OR = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+			}
+			NOT = { has_character_flag = feast_lunatic }
+			trait = lunatic
+		}
+	}
+	
+	immediate = {
+		random_vassal = {
+			limit = {
+				OR = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				trait = lunatic
+			}
+			character_event = { id = TOG.826 }
+		}
+	}
+}
+
+character_event = {
+	id = TOG.844 #feast_lustful
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = holding_jarilo
+			has_character_flag = holding_pagan_festival
+		}
+		NOT = { has_character_flag = feast_lustful }
+		any_vassal = { 
+			OR = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+			}
+			NOT = { has_character_flag = feast_lustful }
+			trait = lustful
+			is_female = no
+		}
+	}
+	
+	immediate = {
+		random_vassal = {
+			limit = {
+				OR = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				trait = lustful
+				is_female = no
+			}
+			character_event = { id = TOG.828 }
+		}
+	}
+}
+
+character_event = {
+	id = TOG.849 #feast_friendship
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = holding_jarilo
+			has_character_flag = holding_pagan_festival
+		}
+		NOT = { has_character_flag = feast_friendship }
+		OR = {
+			has_character_flag = jarilo_feast_vassal
+			has_character_flag = pagan_festival_feast_vassal
+		}
+		any_vassal = {
+			OR = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+			}
+			NOT = { has_character_flag = feast_friendship }
+			liege = { 
+				any_vassal = {
+					OR = {
+						has_character_flag = jarilo_feast_vassal
+						has_character_flag = pagan_festival_feast_vassal
+					}
+					NOT = { has_character_flag = feast_friendship }
+					NOT = { character = PREVPREV }
+					opinion = { who = PREVPREV value =  20 }
+				}		
+			}
+		}
+	}
+	
+	immediate = {
+		random_vassal = {
+			limit = {
+				OR = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				NOT = { has_character_flag = feast_friendship }
+				liege = { 
+					any_vassal = {
+						OR = {
+							has_character_flag = jarilo_feast_vassal
+							has_character_flag = pagan_festival_feast_vassal
+						}
+						NOT = { has_character_flag = feast_friendship }
+						NOT = { character = PREVPREV }
+						opinion = { who = PREVPREV value =  20 }
+					}		
+				}
+			}
+			character_event = { id = TOG.830 }
+		}
+	}
+}
+
+character_event = {
+	id = TOG.850 #male_homosexual
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		NOT = { has_character_flag = feast_homosexual }
+		OR = {
+			has_character_flag = holding_jarilo
+			has_character_flag = holding_pagan_festival
+		}
+		any_vassal = { 
+			OR = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+			}
+			NOT = { has_character_flag = feast_homosexual }
+			trait = homosexual
+			is_female = no
+			has_lover = no
+			liege = { 
+				any_vassal = {
+					OR = {
+						has_character_flag = jarilo_feast_vassal
+						has_character_flag = pagan_festival_feast_vassal
+					}
+					NOT = { has_character_flag = feast_homosexual }
+					NOT = { character = PREVPREV }
+					opinion = { who = PREVPREV value =  0 }
+					trait = homosexual
+					is_female = no
+					has_lover = no
+				}		
+			}
+		}
+	}
+	
+	immediate = {
+		random_vassal = {
+			limit = {
+				OR = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				NOT = { has_character_flag = feast_homosexual }
+				trait = homosexual
+				is_female = no
+				has_lover = no
+				liege = { 
+					any_vassal = {
+						has_character_flag = jarilo_feast_vassal
+						NOT = { has_character_flag = feast_homosexual }
+						NOT = { character = PREVPREV }
+						opinion = { who = PREVPREV value =  0 }
+						trait = homosexual
+						is_female = no
+						has_lover = no
+					}		
+				}
+			}
+			character_event = { id = TOG.833 }
+		}
+	}
+}
+
+character_event = {
+	id = TOG.851 #female_homosexual
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		NOT = { has_character_flag = feast_homosexual }
+		OR = {
+			has_character_flag = holding_jarilo
+			has_character_flag = holding_pagan_festival
+		}
+		any_vassal = { 
+			OR = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+			}
+			NOT = { has_character_flag = feast_homosexual }
+			trait = homosexual
+			is_female = yes
+			has_lover = no
+			liege = { 
+				any_vassal = {
+					OR = {
+						has_character_flag = jarilo_feast_vassal
+						has_character_flag = pagan_festival_feast_vassal
+					}
+					NOT = { has_character_flag = feast_homosexual }
+					NOT = { character = PREVPREV }
+					opinion = { who = PREVPREV value =  0 }
+					trait = homosexual
+					is_female = yes
+					has_lover = no
+				}		
+			}
+		}
+	}
+	
+	immediate = {
+		random_vassal = {
+			limit = {
+				OR = {
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				NOT = { has_character_flag = feast_homosexual }
+				trait = homosexual
+				is_female = yes
+				has_lover = no
+				liege = { 
+					any_vassal = {
+						OR = {
+							has_character_flag = jarilo_feast_vassal
+							has_character_flag = pagan_festival_feast_vassal
+						}
+						NOT = { has_character_flag = feast_homosexual }
+						NOT = { character = PREVPREV }
+						opinion = { who = PREVPREV value =  0 }
+						trait = homosexual
+						is_female = yes
+						has_lover = no
+					}		
+				}
+			}
+			character_event = { id = TOG.836 }
+		}
+	}
+}
+
+# from master:events/mnm_assassins_events.txt
+character_event = {
+	id = MNM.6201
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		if = {
+			limit = { event_target:assassins_target = { always = yes } }
+			FROM = { society_quest_event = { id = MNM.6202 days = 7 random = 7 } } 
+		}
+	}
+}
+
+# from master:events/soa_holy_order_events.txt
+character_event = {
+	id = SoA.1010
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		wealth = -300
+		FROM = {
+			letter_event = {
+				id = SoA.1011
+			}
+		}
+	}
+}
+
+character_event = {
+	id = SoA.1015
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_defacto_liege = FROM
+		FROM = {
+			letter_event = {
+				id = SoA.1016
+			}
+		}
+	}
+}
+
+character_event = {
+	id = SoA.1140
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		wealth = 300
+		FROM = {
+			letter_event = {
+				id = SoA.1141
+			}
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_generous_donation
+		}
+	}
+}

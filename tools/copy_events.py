@@ -4,10 +4,13 @@ import os, re, sys
 args = [a for a in sys.argv[1:] if a != '--apply']; APPLY = '--apply' in sys.argv
 R, V, VF, LF, NOTE = args[:5]; IDS = args[5:]
 DEF = re.compile(r'(?m)^\w+_event\s*=\s*\{\s*id\s*=\s*([\w.]+)')
-def rd(p): return open(p, 'rb').read().decode('cp1252', 'replace')
+def rd(p): return open(p, 'rb').read().decode('latin-1')   # lossless: every byte round-trips
 def nc(t): return re.sub(r'#[^\n]*', '', t)
 def block(t, i):
-    m = re.search(r'(?m)^\w+_event\s*=\s*\{\s*id\s*=\s*' + re.escape(i) + r'\b', t); s = m.start(); k = t.find('{', s); d = 0; e = k
+    # allow comments between the opening brace and the id ("character_event = { #feast_drunkard")
+    m = re.search(r'(?m)^\w+_event[ \t]*=[ \t]*\{[ \t]*(?:#[^\n]*)?\s*(?:#[^\n]*\n\s*)*id\s*=\s*' + re.escape(i) + r'\b', t)
+    assert m, 'event not found: ' + i
+    s = m.start(); k = t.find('{', s); d = 0; e = k
     while True:
         c = t[e]
         if c == '#': e = t.find('\n', e); continue
@@ -51,5 +54,5 @@ print('lines to copy:', allb.count('\n') + 1)
 if APPLY:
     p = os.path.join(R, 'events', LF); b = open(p, 'rb').read().rstrip(b'\r\n')
     nl = b'\r\n' if b'\r\n' in b else b'\n'
-    add = (nl * 2 + b'# ' + NOTE.encode('cp1252') + nl + allb.encode('cp1252').replace(b'\n', nl) + nl)
+    add = (nl * 2 + b'# ' + NOTE.encode('latin-1') + nl + allb.encode('latin-1').replace(b'\n', nl) + nl)
     open(p, 'wb').write(b + add); print('appended to', LF)
