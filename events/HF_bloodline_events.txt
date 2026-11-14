@@ -12144,7 +12144,2376 @@ character_event = { # Mystic character arrives
 	}
 }
 
+# LI: Holy Fury bloodline events restored from CK2Plus AIO (phase 8 part 3, CLEANSLATE_PLAN.md); step A had left them out.
 
+# Killed by brazen bull - from targeted decision. - First time.
+character_event = {
+	id = HF.24003
+	desc = EVTDESCHF24003
+	picture = GFX_evt_beheading
+	border = GFX_event_normal_frame_intrigue
 
+	is_triggered_only = yes
 
+	option = {
+		name = EVTOPTAHF24003
 
+		death = {
+			death_reason = death_execution_brazen_bull
+			killer = FROMFROM
+		}
+	}
+}
+
+# Host notified of death by brazen bull (generic executions)
+character_event = {
+	id = HF.24004
+	desc = EVTDESCHF24004
+	picture = GFX_evt_beheading
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	ai = no
+
+	option = {
+		name = EVTOPTAHF24004
+	}
+}
+
+# Killed by brazen bull (generic executions)
+character_event = {
+	id = HF.24005
+	desc = EVTDESCHF24005
+	picture = GFX_evt_beheading
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAHF24005
+
+		death = {
+			death_reason = death_execution_brazen_bull
+			killer = FROMFROM
+		}
+	}
+}
+
+# Executing people by adding them to the Macabre Banquet
+character_event = {
+	id = HF.24105
+	desc = EVTDESCHF24105
+	picture = GFX_evt_feast_hf
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes # prisoner_macabre_banquet, HF_bloodline_decisions.txt
+
+	ai = no
+
+	option = {
+		name = EVTOPTAHF24105
+	}
+}
+
+# Killed by macabre banquet (generic executions)
+character_event = {
+	id = HF.24106
+	desc = EVTDESCHF24106
+	picture = GFX_evt_feast_hf
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes # prisoner_macabre_banquet, HF_bloodline_decisions.txt
+
+	option = {
+		name = EVTOPTAHF24106
+
+		death = {
+			death_reason = death_execution_macabre_banquet
+			killer = FROMFROM
+		}
+	}
+}
+
+# Opportunity arises
+narrative_event = {
+	id = HF.24220
+	title = EVTTITLEHF24220
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	desc = {
+		text = EVTDESCAHF24220
+		trigger = {
+			any_owned_bloodline = {
+				has_bloodline_flag = samrat_chakravartin_bloodline
+				bloodline_is_active_for = PREV
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBHF24220
+		trigger = {
+			NOT = {
+				any_owned_bloodline = {
+					has_bloodline_flag = samrat_chakravartin_bloodline
+					bloodline_is_active_for = PREV
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes # on_decade_pulse
+
+	ai = no
+	religion_group = indian_group
+	only_capable = yes
+	prisoner = no
+	min_age = 16
+
+	trigger = {
+		real_tier = EMPEROR
+		prestige >= 15000
+		is_alternate_start = no
+
+		capital_scope = {
+			region = world_india
+		}
+
+		NOR = {
+			trait = content
+			has_character_flag = flag_chance_for_ashoka_blood # Opportunity only once per character
+			has_global_flag = flag_ashoka_blood_restored # Bloodline unlocked only once per playthrough
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 4
+
+			any_owned_bloodline = {
+				has_bloodline_flag = samrat_chakravartin_bloodline
+				bloodline_is_active_for = PREV
+			}
+		}
+
+		mult_modifier = {
+			factor = 3
+			trait = charitable
+		}
+
+		mult_modifier = {
+			factor = 3
+			trait = brave
+		}
+
+		mult_modifier = {
+			factor = 3
+			religion_group = bud_group # LI: was religion = buddhist (LI's Buddhist faiths are the bud_group)
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			practical_age >= 50
+		}
+
+		mult_modifier = {
+			factor = 2
+			has_education_learning_trigger = yes
+		}
+
+		mult_modifier = {
+			factor = 2
+			has_lifestyle_learning_trigger = yes
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = scholar
+		}
+
+		mult_modifier = {
+			factor = 2
+			has_ambition = obj_forge_bloodline
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 8
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 10
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 12
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 14
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 16
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 18
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 20
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 22
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 24
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 26
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 28
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 30
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			prestige >= 22000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			prestige >= 24000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			prestige >= 26000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			prestige >= 28000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			prestige >= 30000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			prestige >= 40000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			prestige >= 50000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_group = bud_group # LI: was religion = buddhist (LI's Buddhist faiths are the bud_group)
+			piety >= 1000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_group = bud_group # LI: was religion = buddhist (LI's Buddhist faiths are the bud_group)
+			piety >= 1500
+		}
+
+		mult_modifier = {
+			factor = 1.75
+
+			religion_group = bud_group # LI: was religion = buddhist (LI's Buddhist faiths are the bud_group)
+			piety >= 2000
+		}
+
+		mult_modifier = {
+			factor = 1.75
+
+			check_variable = {
+				which = bloodline_won_wars
+				value >= 5
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.75
+
+			check_variable = {
+				which = bloodline_won_wars
+				value >= 10
+			}
+		}
+	}
+
+	immediate = {
+		set_character_flag = flag_chance_for_ashoka_blood
+	}
+
+	option = { # Pursue
+		name = EVTOPTAHF24220
+
+		narrative_event = {
+			id = HF.24221
+			days = 25
+			random = 25
+			tooltip = TT_EVTOPTAHF24220
+		}
+	}
+
+	option = { # Abandon
+		name = EVTOPTBHF24220
+	}
+}
+
+# Call Brahmins to examine you
+narrative_event = {
+	id = HF.24221
+	title = EVTTITLEHF24220
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	desc = {
+		text = EVTDESCAHF24221
+		trigger = {
+			any_owned_bloodline = {
+				has_bloodline_flag = samrat_chakravartin_bloodline
+				bloodline_is_active_for = PREV
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBHF24221
+		trigger = {
+			NOT = {
+				any_owned_bloodline = {
+					has_bloodline_flag = samrat_chakravartin_bloodline
+					bloodline_is_active_for = PREV
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = flag_ashoka_scholars_search_high
+		clr_character_flag = flag_ashoka_scholars_search_medium
+		clr_character_flag = flag_ashoka_scholars_search_low
+		clr_character_flag = flag_ashoka_scholars_search_cheap
+	}
+
+	option = {
+		name = EVTOPTAHF24221
+
+		custom_tooltip = {
+			text = TT_EVTOPTAHF24202
+			set_character_flag = flag_ashoka_scholars_search_high
+		}
+
+		scaled_wealth = { value = -4 min = -1000 max = -2000 }
+	}
+
+	option = {
+		name = EVTOPTBHF24221
+
+		custom_tooltip = {
+			text = TT_EVTOPTBHF24202
+			set_character_flag = flag_ashoka_scholars_search_medium
+		}
+
+		scaled_wealth = { value = -3 min = -750 max = -1500 }
+	}
+
+	option = {
+		name = EVTOPTCHF24221
+
+		custom_tooltip = {
+			text = TT_EVTOPTCHF24202
+			set_character_flag = flag_ashoka_scholars_search_low
+		}
+
+		scaled_wealth = { value = -2 min = -500 max = -1000 }
+	}
+
+	option = {
+		name = EVTOPTDHF24221
+
+		custom_tooltip = {
+			text = TT_EVTOPTDHF24202
+			set_character_flag = flag_ashoka_scholars_search_cheap
+		}
+
+		scaled_wealth = { value = -1 min = -250 max = -500 }
+	}
+
+	after = {
+		narrative_event = {
+			id = HF.24222
+			days = 150
+			random = 150
+		}
+	}
+}
+
+# Test 1: Ashoka's Bravery
+narrative_event = {
+	id = HF.24222
+	title = EVTTITLEHF24222
+	desc = EVTDESCAHF24222
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = flag_ashoka_intrigue_check
+		clr_character_flag = flag_ashoka_learning_check
+		clr_character_flag = flag_ashoka_diplomacy_check
+	}
+
+	option = {
+		name = EVTOPTZHF24222
+		tooltip_info = diplomacy
+
+		trigger = {
+			diplomacy >= 12
+			trait = brave
+		}
+
+		set_character_flag = flag_ashoka_diplomacy_check
+	}
+
+	option = {
+		name = EVTOPTAHF24222
+		tooltip_info = intrigue
+
+		trigger = {
+			intrigue >= 18
+			NOT = { trait = brave }
+		}
+
+		set_character_flag = flag_ashoka_intrigue_check
+	}
+
+	option = {
+		name = EVTOPTBHF24222
+		tooltip_info = learning
+
+		trigger = {
+			learning >= 18
+			NOT = { trait = brave }
+		}
+
+		set_character_flag = flag_ashoka_learning_check
+	}
+
+	option = {
+		name = EVTOPTCHF24222
+		tooltip_info = brave
+
+		trigger = { trait = brave }
+	}
+
+	option = {
+		name = EVTOPTDHF24222
+
+		trigger = {
+			NOR = {
+				trait = brave
+				trait = craven
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTEHF24222
+		tooltip_info = craven
+
+		trigger = { trait = craven }
+	}
+
+	after = {
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+
+			random_list = {
+				# Success - Move to second test
+				# Failure - Retry or change approach
+
+				40 = {
+					mult_modifier = {
+						factor = 0.1
+						has_character_flag = flag_ashoka_scholars_search_cheap
+					}
+
+					mult_modifier = {
+						factor = 0.35
+						has_character_flag = flag_ashoka_scholars_search_low
+					}
+
+					mult_modifier = {
+						factor = 0.75
+						has_character_flag = flag_ashoka_scholars_search_medium
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 18
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 20
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 22
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 24
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 28
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 30
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 18
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 20
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 22
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 24
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 28
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 30
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 12
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 14
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 16
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 18
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 20
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 22
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 24
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 28
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 30
+					}
+
+					mult_modifier = {
+						factor = 0.5
+						trait = craven
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						trait = brave
+					}
+
+					narrative_event = {
+						id = HF.24224 # Success
+						days = 350
+						random = 450
+					}
+				}
+
+				60 = {
+					narrative_event = {
+						id = HF.24223 # Failure
+						days = 350
+						random = 450
+					}
+				}
+			}
+		}
+	}
+}
+
+# Failed to prove bravery. Try again or abandon quest.
+narrative_event = {
+	id = HF.24223
+	title = EVTTITLEHF24222
+	desc = EVTDESCAHF24223
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = flag_ashoka_intrigue_check
+		clr_character_flag = flag_ashoka_learning_check
+		clr_character_flag = flag_ashoka_diplomacy_check
+	}
+
+	option = {
+		name = EVTOPTZHF24223
+		tooltip_info = diplomacy
+
+		trigger = {
+			trait = brave
+			diplomacy >= 12
+		}
+
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+			set_character_flag = flag_ashoka_diplomacy_check
+		}
+	}
+
+	option = {
+		name = EVTOPTAHF24223
+		tooltip_info = intrigue
+
+		trigger = {
+			intrigue >= 18
+			NOT = { trait = brave }
+		}
+
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+			set_character_flag = flag_ashoka_intrigue_check
+		}
+	}
+
+	option = {
+		name = EVTOPTBHF24223
+		tooltip_info = learning
+
+		trigger = {
+			learning >= 18
+			NOT = { trait = brave }
+		}
+
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+			set_character_flag = flag_ashoka_learning_check
+		}
+	}
+
+	option = {
+		name = EVTOPTCHF24223
+		tooltip_info = brave
+
+		trigger = { trait = brave }
+
+		custom_tooltip = { text = TT_EVTOPTHF24222 }
+	}
+
+	option = {
+		name = EVTOPTDHF24223
+
+		trigger = {
+			NOR = {
+				trait = brave
+				trait = craven
+			}
+		}
+
+		custom_tooltip = { text = TT_EVTOPTHF24222 }
+	}
+
+	option = {
+		name = EVTOPTEHF24223
+		tooltip_info = craven
+
+		trigger = { trait = craven }
+
+		custom_tooltip = { text = TT_EVTOPTHF24222 }
+	}
+
+	option = { # Abandon search
+		name = EVTOPTFHF24223
+
+		custom_tooltip = { text = TT_EVTOPTFHF24223 }
+
+		if = {
+			limit = { trait = ambitious }
+
+			remove_trait = ambitious
+			add_trait_silently_depressed_effect = yes
+		}
+
+		piety = -2000
+		set_character_flag = flag_ashoka_abandoning_quest
+	}
+
+	after = {
+		if = {
+			limit = { has_character_flag = flag_ashoka_abandoning_quest }
+			clr_character_flag = flag_ashoka_abandoning_quest
+		}
+		else = {
+			piety = -500
+
+			hidden_effect = {
+				random_list = {
+					# Success - Move to second test
+					# Failure - Retry or change approach
+
+					40 = {
+						mult_modifier = {
+							factor = 0.1
+							has_character_flag = flag_ashoka_scholars_search_cheap
+						}
+
+						mult_modifier = {
+							factor = 0.35
+							has_character_flag = flag_ashoka_scholars_search_low
+						}
+
+						mult_modifier = {
+							factor = 0.75
+							has_character_flag = flag_ashoka_scholars_search_medium
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 18
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 20
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 22
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 24
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 28
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 30
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 18
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 20
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 22
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 24
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 28
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 30
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 12
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 14
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 16
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 18
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 20
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 22
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 24
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 28
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 30
+						}
+
+						mult_modifier = {
+							factor = 0.5
+							trait = craven
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							trait = brave
+						}
+
+						narrative_event = {
+							id = HF.24224 # Success
+							days = 350
+							random = 450
+						}
+					}
+
+					60 = {
+						narrative_event = {
+							id = HF.24223 # Failure
+							days = 350
+							random = 450
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Test 2: Ashoka's Humility.
+narrative_event = {
+	id = HF.24224
+	title = EVTTITLEHF24224
+	desc = EVTDESCAHF24224
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = flag_ashoka_intrigue_check
+		clr_character_flag = flag_ashoka_learning_check
+		clr_character_flag = flag_ashoka_diplomacy_check
+	}
+
+	option = {
+		name = EVTOPTZHF24224
+		tooltip_info = diplomacy
+
+		trigger = {
+			trait = humble
+			diplomacy >= 12
+		}
+
+		set_character_flag = flag_ashoka_diplomacy_check
+	}
+
+	option = {
+		name = EVTOPTAHF24224
+		tooltip_info = intrigue
+
+		trigger = {
+			intrigue >= 18
+			NOT = { trait = humble }
+		}
+
+		set_character_flag = flag_ashoka_intrigue_check
+	}
+
+	option = {
+		name = EVTOPTBHF24224
+		tooltip_info = learning
+
+		trigger = {
+			learning >= 18
+			NOT = { trait = humble }
+		}
+
+		set_character_flag = flag_ashoka_learning_check
+	}
+
+	option = {
+		name = EVTOPTCHF24224
+		tooltip_info = humble
+
+		trigger = { trait = humble }
+	}
+
+	option = {
+		name = EVTOPTDHF24224
+
+		trigger = {
+			NOR = {
+				trait = humble
+				trait = proud
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTEHF24224
+		tooltip_info = proud
+
+		trigger = { trait = proud }
+	}
+
+	after = {
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+
+			random_list = {
+				# Success - Move to third test
+				# Failure - Retry or change approach
+
+				40 = {
+					mult_modifier = {
+						factor = 0.1
+						has_character_flag = flag_ashoka_scholars_search_cheap
+					}
+
+					mult_modifier = {
+						factor = 0.35
+						has_character_flag = flag_ashoka_scholars_search_low
+					}
+
+					mult_modifier = {
+						factor = 0.75
+						has_character_flag = flag_ashoka_scholars_search_medium
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 18
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 20
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 22
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 24
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 28
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 30
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 18
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 20
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 22
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 24
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 28
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 30
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 12
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 14
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 16
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 18
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 20
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 22
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 24
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 28
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 30
+					}
+
+					mult_modifier = {
+						factor = 0.5
+						trait = proud
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						trait = humble
+					}
+
+					narrative_event = {
+						id = HF.24226 # Success
+						days = 350
+						random = 450
+					}
+				}
+
+				60 = {
+					narrative_event = {
+						id = HF.24225 # Failure
+						days = 350
+						random = 450
+					}
+				}
+			}
+		}
+	}
+}
+
+# Failed to prove humility. Try again or abandon quest.
+narrative_event = {
+	id = HF.24225
+	title = EVTTITLEHF24224
+	desc = EVTDESCBHF24225
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = flag_ashoka_intrigue_check
+		clr_character_flag = flag_ashoka_learning_check
+		clr_character_flag = flag_ashoka_diplomacy_check
+	}
+
+	option = {
+		name = EVTOPTZHF24225
+		tooltip_info = diplomacy
+
+		trigger = {
+			trait = humble
+			diplomacy >= 12
+		}
+
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+			set_character_flag = flag_ashoka_diplomacy_check
+		}
+	}
+
+	option = {
+		name = EVTOPTAHF24225
+		tooltip_info = intrigue
+
+		trigger = {
+			intrigue = 18
+			NOT = { trait = humble }
+		}
+
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+			set_character_flag = flag_ashoka_intrigue_check
+		}
+	}
+
+	option = {
+		name = EVTOPTBHF24225
+		tooltip_info = learning
+
+		trigger = {
+			learning >= 18
+			NOT = { trait = humble }
+		}
+
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+			set_character_flag = flag_ashoka_learning_check
+		}
+	}
+
+	option = {
+		name = EVTOPTCHF24225
+		tooltip_info = humble
+
+		trigger = { trait = humble }
+
+		custom_tooltip = { text = TT_EVTOPTHF24222 }
+	}
+
+	option = {
+		name = EVTOPTDHF24225
+
+		trigger = {
+			NOR = {
+				trait = humble
+				trait = proud
+			}
+		}
+
+		custom_tooltip = { text = TT_EVTOPTHF24222 }
+	}
+
+	option = {
+		name = EVTOPTEHF24225
+		tooltip_info = proud
+
+		trigger = { trait = proud }
+
+		custom_tooltip = { text = TT_EVTOPTHF24222 }
+	}
+
+	option = { # Abandon search
+		name = EVTOPTFHF24225
+
+		custom_tooltip = { text = TT_EVTOPTFHF24223 }
+
+		if = {
+			limit = { trait = ambitious }
+
+			remove_trait = ambitious
+			add_trait_silently_depressed_effect = yes
+		}
+
+		piety = -2000
+		set_character_flag = flag_ashoka_abandoning_quest
+	}
+
+	after = {
+		if = {
+			limit = { has_character_flag = flag_ashoka_abandoning_quest }
+			clr_character_flag = flag_ashoka_abandoning_quest
+		}
+		else = {
+			piety = -500
+
+			hidden_effect = {
+				random_list = {
+					# Success - Move to third test
+					# Failure - Retry or change approach
+
+					40 = {
+						mult_modifier = {
+							factor = 0.1
+							has_character_flag = flag_ashoka_scholars_search_cheap
+						}
+
+						mult_modifier = {
+							factor = 0.35
+							has_character_flag = flag_ashoka_scholars_search_low
+						}
+
+						mult_modifier = {
+							factor = 0.75
+							has_character_flag = flag_ashoka_scholars_search_medium
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 18
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 20
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 22
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 24
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 28
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 30
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 18
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 20
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 22
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 24
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 28
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 30
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 12
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 14
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 16
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 18
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 20
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 22
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 24
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 28
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 30
+						}
+
+						mult_modifier = {
+							factor = 0.5
+							trait = proud
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							trait = humble
+						}
+
+						narrative_event = {
+							id = HF.24226 # Success
+							days = 350
+							random = 450
+						}
+					}
+
+					60 = {
+						narrative_event = {
+							id = HF.24225 # Failure
+							days = 350
+							random = 450
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Test 3: Ashoka's Charity
+narrative_event = {
+	id = HF.24226
+	title = EVTTITLEHF24226
+	desc = EVTDESCBHF24226
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = flag_ashoka_intrigue_check
+		clr_character_flag = flag_ashoka_learning_check
+		clr_character_flag = flag_ashoka_diplomacy_check
+	}
+
+	option = {
+		name = EVTOPTZHF24226
+		tooltip_info = diplomacy
+
+		trigger = {
+			trait = charitable
+			diplomacy >= 12
+		}
+
+		set_character_flag = flag_ashoka_diplomacy_check
+
+		scaled_wealth = { value = -4 min = -750 max = -1000 }
+	}
+
+	option = {
+		name = EVTOPTAHF24226
+		tooltip_info = intrigue
+
+		trigger = {
+			intrigue >= 18
+			NOT = { trait = charitable }
+		}
+
+		set_character_flag = flag_ashoka_intrigue_check
+
+		scaled_wealth = { value = -3 min = -500 max = -750 }
+	}
+
+	option = {
+		name = EVTOPTBHF24226
+		tooltip_info = learning
+
+		trigger = {
+			learning = 18
+			NOT = { trait = charitable }
+		}
+
+		set_character_flag = flag_ashoka_learning_check
+
+		scaled_wealth = { value = -3 min = -500 max = -750 }
+	}
+
+	option = {
+		name = EVTOPTCHF24226
+		tooltip_info = charitable
+
+		trigger = { trait = charitable }
+
+		scaled_wealth = { value = -4 min = -750 max = -1000 }
+	}
+
+	option = {
+		name = EVTOPTDHF24226
+
+		trigger = {
+			NOR = {
+				trait = charitable
+				trait = greedy
+			}
+		}
+
+		scaled_wealth = { value = -3 min = -500 max = -750 }
+	}
+
+	option = {
+		name = EVTOPTEHF24226
+		tooltip_info = greedy
+
+		trigger = { trait = greedy }
+
+		scaled_wealth = { value = -2 min = -350 max = -500 }
+	}
+
+	after = {
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+
+			random_list = {
+				# Success - Found Bloodline
+				# Failure - Retry or change approach
+
+				40 = {
+					mult_modifier = {
+						factor = 0.1
+						has_character_flag = flag_ashoka_scholars_search_cheap
+					}
+
+					mult_modifier = {
+						factor = 0.35
+						has_character_flag = flag_ashoka_scholars_search_low
+					}
+
+					mult_modifier = {
+						factor = 0.75
+						has_character_flag = flag_ashoka_scholars_search_medium
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 18
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 20
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 22
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 24
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 28
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_intrigue_check
+						intrigue >= 30
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 18
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 20
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 22
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 24
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 28
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_learning_check
+						learning >= 30
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 12
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 14
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 16
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 18
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 20
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 22
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 24
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 28
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						has_character_flag = flag_ashoka_diplomacy_check
+						diplomacy >= 30
+					}
+
+					mult_modifier = {
+						factor = 0.5
+						trait = greedy
+					}
+
+					mult_modifier = {
+						factor = 1.5
+						trait = charitable
+					}
+
+					narrative_event = {
+						id = HF.24228 # Success
+						days = 350
+						random = 450
+					}
+				}
+
+				60 = {
+					narrative_event = {
+						id = HF.24227 # Failure
+						days = 350
+						random = 450
+					}
+				}
+			}
+		}
+	}
+}
+
+# Failed to prove charity. Try again or abandon quest.
+narrative_event = {
+	id = HF.24227
+	title = EVTTITLEHF24226
+	desc = EVTDESCAHF24227
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = flag_ashoka_intrigue_check
+		clr_character_flag = flag_ashoka_learning_check
+		clr_character_flag = flag_ashoka_diplomacy_check
+	}
+
+	option = {
+		name = EVTOPTZHF24227
+		tooltip_info = diplomacy
+
+		trigger = {
+			trait = charitable
+			diplomacy >= 12
+		}
+
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+			set_character_flag = flag_ashoka_diplomacy_check
+		}
+
+		scaled_wealth = { value = -4 min = -750 max = -1000 }
+	}
+
+	option = {
+		name = EVTOPTAHF24227
+		tooltip_info = intrigue
+
+		trigger = {
+			intrigue >= 18
+			NOT = { trait = charitable }
+		}
+
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+			set_character_flag = flag_ashoka_intrigue_check
+		}
+
+		scaled_wealth = { value = -3 min = -500 max = -750 }
+	}
+
+	option = {
+		name = EVTOPTBHF24227
+		tooltip_info = learning
+
+		trigger = {
+			learning >= 18
+			NOT = { trait = charitable }
+		}
+
+		custom_tooltip = {
+			text = TT_EVTOPTHF24222
+			set_character_flag = flag_ashoka_learning_check
+		}
+
+		scaled_wealth = { value = -3 min = -500 max = -750 }
+	}
+
+	option = {
+		name = EVTOPTCHF24227
+		tooltip_info = charitable
+
+		trigger = { trait = charitable }
+
+		custom_tooltip = { text = TT_EVTOPTHF24222 }
+
+		scaled_wealth = { value = -4 min = -750 max = -1000 }
+	}
+
+	option = {
+		name = EVTOPTDHF24227
+
+		trigger = {
+			NOR = {
+				trait = charitable
+				trait = greedy
+			}
+		}
+
+		custom_tooltip = { text = TT_EVTOPTHF24222 }
+
+		scaled_wealth = { value = -3 min = -500 max = -750 }
+	}
+
+	option = {
+		name = EVTOPTEHF24227
+		tooltip_info = greedy
+
+		trigger = { trait = greedy }
+
+		custom_tooltip = { text = TT_EVTOPTHF24222 }
+
+		scaled_wealth = { value = -2 min = -350 max = -500 }
+	}
+
+	option = { # Abandon search
+		name = EVTOPTFHF24227
+
+		custom_tooltip = { text = TT_EVTOPTFHF24223 }
+
+		if = {
+			limit = { trait = ambitious }
+
+			remove_trait = ambitious
+			add_trait_silently_depressed_effect = yes
+		}
+
+		piety = -2000
+		set_character_flag = flag_ashoka_abandoning_quest
+	}
+
+	after = {
+		if = {
+			limit = { has_character_flag = flag_ashoka_abandoning_quest }
+			clr_character_flag = flag_ashoka_abandoning_quest
+		}
+		else = {
+			piety = -500
+
+			hidden_effect = {
+				random_list = {
+					# Success - Move to third test
+					# Failure - Retry or change approach
+
+					40 = {
+						mult_modifier = {
+							factor = 0.1
+							has_character_flag = flag_ashoka_scholars_search_cheap
+						}
+
+						mult_modifier = {
+							factor = 0.35
+							has_character_flag = flag_ashoka_scholars_search_low
+						}
+
+						mult_modifier = {
+							factor = 0.75
+							has_character_flag = flag_ashoka_scholars_search_medium
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 18
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 20
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 22
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 24
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 28
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_intrigue_check
+							intrigue >= 30
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 18
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 20
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 22
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 24
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 28
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_learning_check
+							learning >= 30
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 12
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 14
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 16
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 18
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 20
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 22
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 24
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 28
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							has_character_flag = flag_ashoka_diplomacy_check
+							diplomacy >= 30
+						}
+
+						mult_modifier = {
+							factor = 0.5
+							trait = proud
+						}
+
+						mult_modifier = {
+							factor = 1.5
+							trait = humble
+						}
+
+						narrative_event = {
+							id = HF.24228 # Success
+							days = 350
+							random = 450
+						}
+					}
+
+					60 = {
+						narrative_event = {
+							id = HF.24227 # Failure
+							days = 350
+							random = 450
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Acquired Ashoka's Bloodline
+narrative_event = {
+	id = HF.24228
+	title = EVTTITLEHF24228
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	desc = {
+		text = EVTDESCAHF24228
+		trigger = {
+			any_owned_bloodline = {
+				has_bloodline_flag = samrat_chakravartin_bloodline
+				bloodline_is_active_for = PREV
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBHF24228
+		trigger = {
+			NOT = {
+				any_owned_bloodline = {
+					has_bloodline_flag = samrat_chakravartin_bloodline
+					bloodline_is_active_for = PREV
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = flag_ashoka_intrigue_check
+		clr_character_flag = flag_ashoka_learning_check
+		clr_character_flag = flag_ashoka_diplomacy_check
+		set_global_flag = flag_ashoka_blood_restored
+	}
+
+	option = {
+		name = EVTOPTAHF24228
+
+		if = {
+			limit = { can_apply_cool_nickname_trigger = yes }
+
+			if = {
+				limit = {  is_female = no }
+				give_nickname = nick_the_lion
+			}
+			else = {
+				give_nickname = nick_the_lioness
+			}
+		}
+
+		if = {
+			limit = { is_female = no }
+
+			create_bloodline = {
+				type = ashoka_bloodline
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = ashoka_bloodline
+				inheritance = matrilineal
+			}
+		}
+
+		any_player = {
+			limit = {
+				is_within_diplo_range = ROOT
+				NOT = { character = ROOT }
+			}
+
+			narrative_event = { id = HF.24229 }
+		}
+	}
+}
+
+# Notify other players
+narrative_event = {
+	id = HF.24229
+	title = EVTTITLEHF24228
+	picture = GFX_evt_bishop_hindu
+	border = GFX_event_narrative_frame_religion
+
+	desc = {
+		text = EVTDESCAHF24229
+		trigger = {
+			FROM = {
+				any_owned_bloodline = {
+					has_bloodline_flag = samrat_chakravartin_bloodline
+					bloodline_is_active_for = PREV
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBHF24229
+		trigger = {
+			NOT = {
+				FROM = {
+					any_owned_bloodline = {
+						has_bloodline_flag = samrat_chakravartin_bloodline
+						bloodline_is_active_for = PREV
+					}
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAHF24229
+	}
+}
+
+# Add mental decay if not won enough wars by maturity as a ruler (35 years)
+character_event = {
+	id = HF.24230
+	picture = GFX_evt_bad_news
+	border = GFX_event_normal_frame_diplomacy
+
+	desc = {
+		trigger = {
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_alexander
+				bloodline_is_active_for = PREV
+			}
+		}
+		text = EVTDESCAHF24230
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				any_owned_bloodline = {
+					has_bloodline_flag = bloodline_ashoka
+					bloodline_is_active_for = PREV
+				}
+			}
+		}
+		text = EVTDESCBHF24230
+	}
+
+	only_rulers = yes
+	min_age = 35
+	only_capable = yes
+	prisoner = no
+
+	is_triggered_only = yes
+
+	trigger = {
+		higher_real_tier_than = DUKE
+		NOT = { trait = depressed }
+
+		check_variable = {
+			which = bloodline_won_wars
+			value < 10
+		}
+
+		any_owned_bloodline = {
+			bloodline_is_active_for = PREV
+
+			OR = {
+				has_bloodline_flag = bloodline_alexander
+				has_bloodline_flag = bloodline_ashoka
+			}
+
+			founder = {
+				NOT = { character = ROOT }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAHF24230
+		tooltip_info = content
+
+		trigger = { trait = content }
+
+	}
+	option = {
+		name = EVTOPTBHF24230
+
+		random = {
+			chance = 25
+			add_trait_depressed_effect = yes
+		}
+	}
+}
+
+# Executing people by (dragon) burning
+character_event = {
+	id = HF.24234
+	desc = EVTDESCHF24234
+	picture = GFX_evt_burning_man_hf
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes # prisoner_dragon_burning, HF_bloodline_decisions.txt
+
+	ai = no
+
+	option = {
+		name = EVTOPTAHF24234
+	}
+}
+
+# Killed by (dragon) burning.
+character_event = {
+	id = HF.24235
+	desc = EVTDESCHF24235
+	picture = GFX_evt_burning_man_hf
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes # prisoner_dragon_burning, HF_bloodline_decisions.txt
+
+	immediate = {
+		death = {
+			death_reason = death_execution_burning
+			killer = FROMFROM
+		}
+	}
+
+	option = {
+		name = EVTOPTAHF24235
+
+		tooltip = {
+			death = {
+				death_reason = death_execution_burning
+				killer = FROMFROM
+			}
+		}
+	}
+}
+
+narrative_event = {
+	id = HF.24240
+	title = EVTTITLEHF24240
+	desc = EVTDESCHFA24240
+	picture = GFX_evt_china_expansionist
+	border = GFX_event_narrative_frame_diplomacy
+	sound = bloodline_added
+
+	is_triggered_only = yes # adopt_chinese_imperialism, jd_decisions.txt
+
+	option = { # Gain Chinese Imperialism bloodline
+		name = EVTOPTAHF24240
+
+		if = {
+			limit = { is_female = no }
+
+			create_bloodline = {
+				type = chinese_imperial_bloodline
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = chinese_imperial_bloodline
+				inheritance = matrilineal
+			}
+		}
+	}
+}
