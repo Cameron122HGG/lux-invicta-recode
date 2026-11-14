@@ -85,6 +85,11 @@ ANDS = {'trigger', 'AND', 'modifier', 'limit', 'potential', 'allow'}; ORS = {'OR
 # --scopes: every other block (scope changes such as primary_title = {...}, any_x = {...}) is an
 # "all of" block too: if one of its checks can never be true, the block can never be true
 SCOPES_AS_AND = '--scopes' in sys.argv
+# blocks that are not "all of" triggers: their value is never passed up (dead entries inside their
+# own OR lists can still be removed)
+OPAQUE = {'trigger_else', 'if', 'else_if', 'else', 'while', 'calc_true_if', 'ai_chance', 'chance', 'mean_time_to_happen',
+          'option', 'immediate', 'after', 'effect', 'hidden_effect', 'random_list', 'random', 'weight_multiplier',
+          'trigger_switch', 'switch', 'break_if', 'ai_will_do', 'ai_target_filter'}
 def span(n): return set(range(n['l0'], n['l1'] + 1))
 def fold(n, ctx):
     """returns 'F' (always false), 'T' (always true) or None (unknown); marks droppable lines"""
@@ -96,6 +101,13 @@ def fold(n, ctx):
         if len(kids) == 1 and vals[0][1] == 'F': return 'T'
         if any(v == 'F' for _, v in vals): stats['unsure'] += 1
         return None
+    if k == 'NAND':                       # not (all of): one dead child makes it always true
+        return 'T' if any(v == 'F' for _, v in vals) else None
+    if k in ('trigger_if', 'trigger_else_if'):
+        # a trigger_if whose limit can never hold is skipped, so it PASSES (true), not false
+        lim = [v for c, v in vals if c['k'] == 'limit']
+        return 'T' if lim and lim[0] == 'F' else None
+    if k in OPAQUE: return None           # effects, weights, counts: nothing to pass up
     if k in ORS or k in NORS:
         live = [v for c, v in vals if v != 'F']
         # never empty the list: an all-dead OR/NOR keeps its entries (its value is passed up instead)
