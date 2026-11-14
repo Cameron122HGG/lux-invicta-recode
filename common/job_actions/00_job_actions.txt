@@ -109,7 +109,7 @@ action_fabricate_claims = {
 		is_within_diplo_range = FROM
 	}
 	
-	events = { 913 914 }
+	events = { chancellor.201 chancellor.301 } # LI: were 913 914, vanilla IDs CleanSlate renumbered
 }
 
 action_sow_dissent = {
@@ -686,7 +686,7 @@ action_inquisition = {
 		color = { 255 35 35 }
 	}
 
-	events = { 900 901 902 903 }
+	events = { lordspiritual.001 lordspiritual.101 lordspiritual.201 lordspiritual.301 } # LI: were 900 901 902 903, vanilla IDs CleanSlate renumbered
 }
 
 action_improve_rel_relations = {
@@ -774,7 +774,7 @@ action_build_zeal = {
 	
 	monthly_character_piety = 0.05
 	
-	events = { 20218 }
+	events = { lordspiritual.1301 } # LI: was 20218, vanilla ID CleanSlate renumbered
 }
 
 action_hunt_heretics = {
