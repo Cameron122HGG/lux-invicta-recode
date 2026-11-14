@@ -398,7 +398,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_settlement_building_northmangfx"
-		texturefile = "gfx\\interface\\placeholder_building_settlement_norse.tga"
+		texturefile = "gfx\\interface\\placeholder_building_settlement.tga"
 		noOfFrames = 1
 		norefcount = yes
 	}
@@ -515,7 +515,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_settlement_building_easternslavicgfx"
-		texturefile = "gfx\\interface\\placeholder_building_settlement_norse.tga"
+		texturefile = "gfx\\interface\\placeholder_building_settlement.tga"
 		noOfFrames = 1
 		norefcount = yes
 	}
@@ -631,7 +631,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_settlement_building_ugricgfx"
-		texturefile = "gfx\\interface\\placeholder_building_settlement_norse.tga"
+		texturefile = "gfx\\interface\\placeholder_building_settlement.tga"
 		noOfFrames = 1
 		norefcount = yes
 	}
@@ -748,7 +748,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_settlement_building_balticgfx"
-		texturefile = "gfx\\interface\\placeholder_building_settlement_norse.tga"
+		texturefile = "gfx\\interface\\placeholder_building_settlement.tga"
 		noOfFrames = 1
 		norefcount = yes
 	}
@@ -1027,7 +1027,7 @@ spriteTypes = {
 
 	spriteType = {
 		name = "GFX_settlement_temple_latingfx_westerngfx_looted"
-		texturefile = "gfx\\interface\\placeholder_temple_roman_christian_looted.tga"
+		texturefile = "gfx\\interface\\placeholder_temple_roman_christian_loote.tga"
 		noOfFrames = 1
 		norefcount = yes
 	}
@@ -1041,7 +1041,7 @@ spriteTypes = {
 	
 	spriteType = {
 		name = "GFX_settlement_temple_latingfx_muslimgfx_looted"
-		texturefile = "gfx\\interface\\placeholder_temple_roman_christian_looted.tga"
+		texturefile = "gfx\\interface\\placeholder_temple_roman_christian_loote.tga"
 		noOfFrames = 1
 		norefcount = yes
 	}
@@ -1055,7 +1055,7 @@ spriteTypes = {
 	
 	spriteType = {
 		name = "GFX_settlement_temple_latingfx_indiangfx_looted"
-		texturefile = "gfx\\interface\\placeholder_temple_roman_christian_looted.tga"
+		texturefile = "gfx\\interface\\placeholder_temple_roman_christian_loote.tga"
 		noOfFrames = 1
 		norefcount = yes
 	}
@@ -1085,7 +1085,7 @@ spriteTypes = {
 
 	spriteType = {
 		name = "GFX_settlement_temple_westerngfx_latingfx_looted"
-		texturefile = "gfx\\interface\\placeholder_temple_roman_christian_looted.tga"
+		texturefile = "gfx\\interface\\placeholder_temple_roman_christian_loote.tga"
 		noOfFrames = 1
 		norefcount = yes
 	}

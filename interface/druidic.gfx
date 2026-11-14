@@ -44,7 +44,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_trait_celtic_knight"
-		texturefile = "gfx/traits/celtic_knight.dds"
+		texturefile = "gfx/traits/celtic_warrior.dds" # TEMP: celtic_knight.dds is missing - it came from the 2012 Celtic World mod, which can no longer be found
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
@@ -65,7 +65,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_trait_celtic_knight"
-		texturefile = "gfx/traits/celtic_knight.dds"
+		texturefile = "gfx/traits/celtic_warrior.dds" # TEMP: celtic_knight.dds is missing - it came from the 2012 Celtic World mod, which can no longer be found
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"

@@ -1520,23 +1520,22 @@ spriteTypes = {
  						portrait_culture_group = altaic
  						portrait_culture_group = arabic
  						portrait_culture_group = iranian
- 						portrait_culture_group = israelite
  					}
  				}
  				4 = { # Indian
  					OR = {
- 						portrait_culture_group = indo_aryan_group
- 						portrait_culture_group = dravidian_group	
+ 						portrait_culture_group = indoaryan
+ 						portrait_culture_group = dravidian	
  					}
  				}
- 				5 = { # Central Asian
- 					portrait_culture_group = magyar
- 				}
  				6 = { # West African
- 					portrait_culture_group = west_african
+ 					portrait_culture_group = congo_nigerian
  				}
  				7 = { # East African
- 					portrait_culture_group = east_african
+ 					OR = { # vanilla east_african -> LI ethiopic + nilo_saharan
+ 						portrait_culture_group = ethiopic
+ 						portrait_culture_group = nilo_saharan
+ 					}
  				}
  				8 = { # Byzantine
  					portrait_culture_group = byzantine
@@ -1571,23 +1570,22 @@ spriteTypes = {
  						portrait_culture_group = altaic
  						portrait_culture_group = arabic
  						portrait_culture_group = iranian
- 						portrait_culture_group = israelite
  					}
  				}
  				4 = { # Indian
  					OR = {
- 						portrait_culture_group = indo_aryan_group
- 						portrait_culture_group = dravidian_group	
+ 						portrait_culture_group = indoaryan
+ 						portrait_culture_group = dravidian	
  					}
  				}
- 				5 = { # Central Asian
- 					portrait_culture_group = magyar
- 				}
  				6 = { # West African
- 					portrait_culture_group = west_african
+ 					portrait_culture_group = congo_nigerian
  				}
  				7 = { # East African
- 					portrait_culture_group = east_african
+ 					OR = { # vanilla east_african -> LI ethiopic + nilo_saharan
+ 						portrait_culture_group = ethiopic
+ 						portrait_culture_group = nilo_saharan
+ 					}
  				}
  				8 = { # Byzantine
  					portrait_culture_group = byzantine
@@ -1667,7 +1665,6 @@ spriteTypes = {
  						portrait_culture_group = altaic
  						portrait_culture_group = arabic
  						portrait_culture_group = iranian
- 						portrait_culture_group = israelite
  						
  						portrait_culture_group = byzantine
  					}
@@ -1702,23 +1699,22 @@ spriteTypes = {
  						portrait_culture_group = altaic
  						portrait_culture_group = arabic
  						portrait_culture_group = iranian
- 						portrait_culture_group = israelite
  					}
  				}
  				4 = { # Indian
  					OR = {
- 						portrait_culture_group = indo_aryan_group
- 						portrait_culture_group = dravidian_group	
+ 						portrait_culture_group = indoaryan
+ 						portrait_culture_group = dravidian	
  					}
  				}
- 				5 = { # Central Asian
- 					portrait_culture_group = magyar
- 				}
  				6 = { # West African
- 					portrait_culture_group = west_african
+ 					portrait_culture_group = congo_nigerian
  				}
  				7 = { # East African
- 					portrait_culture_group = east_african
+ 					OR = { # vanilla east_african -> LI ethiopic + nilo_saharan
+ 						portrait_culture_group = ethiopic
+ 						portrait_culture_group = nilo_saharan
+ 					}
  				}
  				8 = { # Byzantine
  					portrait_culture_group = byzantine
@@ -1753,23 +1749,22 @@ spriteTypes = {
  						portrait_culture_group = altaic
  						portrait_culture_group = arabic
  						portrait_culture_group = iranian
- 						portrait_culture_group = israelite
  					}
  				}
  				4 = { # Indian
  					OR = {
- 						portrait_culture_group = indo_aryan_group
- 						portrait_culture_group = dravidian_group	
+ 						portrait_culture_group = indoaryan
+ 						portrait_culture_group = dravidian	
  					}
  				}
- 				5 = { # Central Asian
- 					portrait_culture_group = magyar
- 				}
  				6 = { # West African
- 					portrait_culture_group = west_african
+ 					portrait_culture_group = congo_nigerian
  				}
  				7 = { # East African
- 					portrait_culture_group = east_african
+ 					OR = { # vanilla east_african -> LI ethiopic + nilo_saharan
+ 						portrait_culture_group = ethiopic
+ 						portrait_culture_group = nilo_saharan
+ 					}
  				}
  				8 = { # Byzantine
  					portrait_culture_group = byzantine
@@ -1889,7 +1884,6 @@ spriteTypes = {
 					portrait_society = the_satanists
 					portrait_society = the_trollcrafters
 					portrait_society = the_cult_of_kali
-					portrait_society = the_cold_ones
 					portrait_society = the_plaguebringers
 				}
 			}
@@ -1979,7 +1973,6 @@ spriteTypes = {
 					portrait_society = the_satanists
 					portrait_society = the_trollcrafters
 					portrait_society = the_cult_of_kali
-					portrait_society = the_cold_ones
 					portrait_society = the_plaguebringers
 				}
 			}
