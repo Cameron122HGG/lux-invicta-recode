@@ -64,7 +64,7 @@ spawn_slave_army_effect = {
 		}
 	}
 	if = {
-		limit = { can_use_dragon_abilities_trigger = yes }
+		limit = { always = yes } # LI: was can_use_dragon_abilities_trigger = yes, which LI never defined (the game ignored it, so this always ran)
 		create_random_soldier = {
 			random_traits = yes
 			dynasty = none
