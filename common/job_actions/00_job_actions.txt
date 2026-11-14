@@ -112,7 +112,6 @@ action_fabricate_claims = {
 	events = { chancellor.201 chancellor.301 } # LI: were 913 914, vanilla IDs CleanSlate renumbered
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
 action_sow_dissent = {
 	attribute = diplomacy
 
@@ -122,23 +121,10 @@ action_sow_dissent = {
 	trigger = {
 		is_within_diplo_range = FROM
 
-		OR = {
-			any_province_lord = {
-				NOR = {
-					character = FROM
-					is_vassal_or_below_of = FROM
-				}
-			}
-
-			owner = {
-				religion = ROOT
-				religion = FROM
-				NOT = { character = FROM }
-
-				any_vassal = {
-					is_playable = yes
-					NOT = { character = FROM }
-				}
+		any_province_lord = {
+			NOR = {
+				character = FROM
+				is_vassal_or_below_of = FROM
 			}
 		}
 	}
@@ -407,17 +393,19 @@ action_study_technology = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
 action_organize_spies = {
 	attribute = intrigue
 	plot_power_modifier = 0.005
 
 	potential = {
+		NOT = { has_dlc = "Mystics" }
 	}
 
 	trigger = {
-		FROM = {
-			is_capital = PREV
+		is_within_diplo_range = FROM
+
+		any_province_lord = {
+			NOT = { character = FROM }
 		}
 	}
 
@@ -563,11 +551,10 @@ action_train_troops_nomadic = {
 	events = { }
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
 action_assist_arrest = {
 	attribute = martial
 	arrest_chance_modifier = 0.01
-	local_revolt_risk = -0.005
+	local_revolt_risk = -0.01
 
 	potential = {
 	}
@@ -581,9 +568,7 @@ action_assist_arrest = {
 		}
 	}
 
-	events = {
-		940 # Marshal attempts to cow the province's peasants
-	}
+	events = { }
 }
 
 action_organize_army = {
