@@ -819,3 +819,27 @@ denounce_newborn_FROM_effect = {
 		}
 	}
 }
+
+# LI: vanilla 3.3.3 effect CleanSlate dropped; still used by JD.60000 (li_restored_events.txt). martial_cleric -> dutiful_cleric (CleanSlate rename).
+remove_education_effect = {
+	remove_trait = naive_appeaser
+	remove_trait = underhanded_rogue
+	remove_trait = charismatic_negotiator
+	remove_trait = grey_eminence
+	remove_trait = misguided_warrior
+	remove_trait = tough_soldier
+	remove_trait = skilled_tactician
+	remove_trait = brilliant_strategist
+	remove_trait = indulgent_wastrel
+	remove_trait = thrifty_clerk
+	remove_trait = fortune_builder
+	remove_trait = midas_touched
+	remove_trait = amateurish_plotter
+	remove_trait = flamboyant_schemer
+	remove_trait = intricate_webweaver
+	remove_trait = elusive_shadow
+	remove_trait = detached_priest
+	remove_trait = dutiful_cleric
+	remove_trait = scholarly_theologian
+	remove_trait = mastermind_theologian
+}
