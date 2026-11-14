@@ -143,6 +143,11 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      on vanilla religions, Templar-only events). They never run in LI, but removing them safely
      needs per-case handling (e.g. a dead trigger becomes `always = no`; an `if` with an `else`
      can't simply be deleted).
+   - Trait icons: CleanSlate's renamed traits look for icons under the new names
+     (`gfx/traits/attractive…`), which phase 1 hadn't brought over with LI's gfx (1,030 error lines).
+     29 icons added to `gfx/traits`: LI's own art copied to the new name where LI had it (`fair`,
+     `martial_cleric`, `syphilitic`), CleanSlate's icon for the other 26. 7 language-flag icons
+     (`gfx/interface/*_flag.dds`) that CleanSlate's interface uses were added too.
    - **CK2Plus AIO survey (2026-11-14)** (`mod/ck2plus_aio.zip`, 12 Nov 2026, CK2Plus with
      CleanSlate built in). Of LI's definitions: 435 are CK2Plus content (not vanilla; 28 identical to
      AIO, 407 changed since LI copied them); 1,555 are vanilla definitions CK2Plus also changed. Of
