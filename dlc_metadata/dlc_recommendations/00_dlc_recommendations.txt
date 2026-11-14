@@ -1,3 +1,6 @@
+# Lux Invicta copy of the vanilla/DLC file "00_dlc_recommendations.txt": checks for cultures, religions
+# and dynasties that do not exist in LI were removed (behaviour otherwise unchanged; units that could
+# never match were dropped).
 dlc_horse_lords_content_pack = {
 	reason = {
 		tooltip_desc = DLC_dlc055_RECOMMENDATION_CUMAN
@@ -7,8 +10,6 @@ dlc_horse_lords_content_pack = {
 		trigger = {
 			OR = {
 				culture = cuman
-				culture = karluk
-				culture = kirghiz
 				culture = uyghur
 			}
 		}
@@ -21,10 +22,8 @@ dlc_horse_lords_content_pack = {
 
 		trigger = {
 			OR = {
-				culture = french
 				culture = german
 				culture = dutch
-				culture = suebi
 				culture = frankish
 			}
 		}
@@ -44,15 +43,6 @@ dlc_horse_lords_content_pack = {
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc055_RECOMMENDATION_MONGOL
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			culture = mongol
-		}
-	}
 }
 
 dlc001 = {
@@ -78,7 +68,6 @@ dlc001 = {
 				dynasty = 261		# von Zähringen
 				dynasty = 346		# de Bigod
 				dynasty = 413		# de Poitou
-				dynasty = 442		# Jimena
 				dynasty = 487		# Estrid
 				dynasty = 499		# Yngling
 				dynasty = 506		# Premyslid
@@ -105,7 +94,6 @@ dlc001 = {
 				dynasty = 743		# Capet
 				dynasty = 752		# de Normandie
 				dynasty = 756		# of Godwin
-				dynasty = 774		# de Trastámara
 				dynasty = 1687		# Dunkeld
 				dynasty = 3123		# de Brus
 				dynasty = 3134		# Stewart
@@ -120,30 +108,9 @@ dlc001 = {
 }
 
 dlc002 = {
-	reason = {
-		tooltip_desc = DLC_dlc002_RECOMMENDATION_MONGOL
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			culture = mongol
-		}
-	}
 }
 
 dlc003 = { # Songs of Albion
-	reason = {
-		tooltip_desc = DLC_dlc003_RECOMMENDATION_SAXON
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			OR = {
-				culture = anglo_saxon
-				culture = english
-			}
-		}
-	}
 }
 
 dlc004 = {
@@ -171,15 +138,6 @@ dlc006 = {
 }
 
 dlc008 = { # African Unit Pack
-	reason = {
-		tooltip_desc = DLC_dlc008_RECOMMENDATION_AFRICAN
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			culture = mande
-		}
-	}
 }
 
 dlc009 = {
@@ -268,22 +226,12 @@ dlc012 = {
 				culture = armenian
 				culture = greek
 				culture = georgian
-				culture = assyrian
 			}
 		}
 	}
 }
 
 dlc013 = {
-	reason = {
-		tooltip_desc = DLC_dlc013_RECOMMENDATION_AFRICAN
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			culture = mande
-		}
-	}
 }
 
 dlc014 = {
@@ -343,7 +291,6 @@ dlc017 = {
 				culture = armenian
 				culture = georgian
 				culture = greek
-				culture = assyrian
 			}
 		}
 	}
@@ -457,7 +404,6 @@ dlc029 = {
 				dynasty = 353		# d'Evreux
 				dynasty = 370		# Dunbar
 				dynasty = 380		# de Vexin-Amiens
-				dynasty = 436		# de León
 				dynasty = 461		# af Orkneyjar
 				dynasty = 490		# Knytling
 				dynasty = 498		# Stenkiling
@@ -473,15 +419,12 @@ dlc029 = {
 				dynasty = 688		# Mac Ailpin
 				dynasty = 744		# of Bamburgh
 				dynasty = 813		# of Mercia
-				dynasty = 821		# Ulfing
-				dynasty = 822		# Gautske
 				dynasty = 1053		# Konradiner
 				dynasty = 7246		# Solomonid
 				dynasty = 7290		# Babenberger
 				dynasty = 7389		# Guideschi
 				dynasty = 7508		# Mojmírid
 				dynasty = 7511		# Karen
-				dynasty = 7514		# Hvitserk
 				dynasty = 8600		# d'Asturias
 				dynasty = 8601		# de Cantabria
 				dynasty = 8617		# Íñiga
@@ -523,16 +466,12 @@ dlc034 = {
 
 		trigger = {
 			OR = {
-				religion = aztec_pagan					# Huitzilopochtli
 				religion_group = zoroastrian_group	# Immortals
 				religion_group = muslim				# Bektashi & Hashshashin
-				religion = jewish					# Zealots
 				religion = orthodox					# Holy Sepulchre and Varangian Guard
 				religion = norse_pagan				# Jomsvikings
 				religion = finnish_pagan			# Sons of Kavela
 				religion = slavic_pagan				# Warriors of Perun
-				religion = baltic_pagan				# Chosen of Perkunas
-				religion = west_african_pagan		# Spirit Guardians
 			}
 		}
 	}
@@ -548,7 +487,6 @@ dlc035 = {
 			OR = {
 				religion_group = muslim
 				religion_group = jewish_group
-				religion = miaphysite
 				religion = nestorian
 			}
 		}
@@ -569,15 +507,6 @@ dlc035 = {
 }
 
 dlc037 = {
-	reason = {
-		tooltip_desc = DLC_dlc037_RECOMMENDATION_SAXON
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			culture = anglo_saxon
-		}
-	}
 }
 
 dlc038 = {
@@ -603,7 +532,6 @@ dlc040 = {
 				culture = turkish
 				culture = pecheneg
 				culture = khazar
-				culture = bolghar
 				culture = avar
 			}
 		}
@@ -621,7 +549,6 @@ dlc041 = {
 				culture = turkish
 				culture = pecheneg
 				culture = khazar
-				culture = bolghar
 				culture = avar
 			}
 		}
@@ -629,19 +556,6 @@ dlc041 = {
 }
 
 dlc042 = {
-	reason = {
-		tooltip_desc = DLC_dlc042_RECOMMENDATION_INDIA
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			has_dlc = "Rajas of India"
-			OR = {
-				culture_group = dravidian_group
-				culture_group = indo_aryan_group
-			}
-		}
-	}
 }
 
 dlc043 = {
@@ -681,7 +595,6 @@ dlc046 = {
 
 			OR = {
 				culture = basque
-				culture = french
 				culture = occitan
 
 				culture_group = west_germanic
@@ -704,17 +617,13 @@ dlc047 = {
 			OR = {
 				culture = italian
 				culture = roman
-				culture = assyrian
-				culture = andalusian
 				culture = armenian
 				culture = greek
 				culture = georgian
-				culture = assyrian
 
 				culture_group = iberian
 				culture_group = arabic
 				culture_group = iranian
-				culture_group = east_african
 			}
 		}
 	}
@@ -747,11 +656,8 @@ dlc048 = {
 				dynasty = 7001		# de Azagra
 				dynasty = 8626		# Vimaranes
 				dynasty = 8646		# Isauros
-				dynasty = 9570		# Khunzakhal
-				dynasty = 9586		# Senulatovic
 				dynasty = 11100		# Borjigin
 				dynasty = 12110		# Unruochinger
-				dynasty = 12269		# Ashina
 				dynasty = 12463		# von Schauenburg
 				dynasty = 13032		# della Scala
 				dynasty = 19010		# Csák
@@ -763,30 +669,6 @@ dlc048 = {
 				dynasty = 101682	# Dukljanin
 				dynasty = 101727	# Abbasid
 				dynasty = 102013	# Skjöldung
-				dynasty = 1022242	# Gideon
-				dynasty = 1022314	# Neapolites
-				dynasty = 1022331	# Ukil
-				dynasty = 1022368	# Khazbek
-				dynasty = 1022369	# Yantsukh
-				dynasty = 1029042	# Cerneu
-				dynasty = 1029102	# de Poher
-				dynasty = 1029195	# Kalinga Ganga
-				dynasty = 1040011	# Uib
-				dynasty = 1040018	# Circinn
-				dynasty = 1042100	# Karkota
-				dynasty = 1042110	# Zunbil
-				dynasty = 1044031	# Gausian
-				dynasty = 1044033	# Agilolfing
-				dynasty = 1044044	# Sicard
-				dynasty = 1044053	# Alachisling
-				dynasty = 1044066	# Walpertingi
-				dynasty = 1044105	# Theodericing
-				dynasty = 1044111	# Louping
-				dynasty = 1044116	# Nibelunging
-				dynasty = 1047000	# Wuffing
-				dynasty = 1047002	# Iceling
-				dynasty = 1047006	# Cerdicing
-				dynasty = 1047023	# Eadricing
 			}
 		}
 	}
@@ -800,9 +682,7 @@ dlc051 = {
 
 		trigger = {
 			OR = {
-				culture = castilian
 				culture = catalan
-				culture = portuguese
 				culture = visigothic
 				culture = italian
 				culture = roman
@@ -819,9 +699,7 @@ dlc052 = {
 
 		trigger = {
 			OR = {
-				culture = castilian
 				culture = catalan
-				culture = portuguese
 				culture = visigothic
 				culture = italian
 				culture = roman
@@ -864,10 +742,7 @@ dlc063 = {
 				culture = turkish
 				culture = pecheneg
 				culture = khazar
-				culture = bolghar
 				culture = avar
-				culture = khitan
-				culture = jurchen
 			}
 		}
 	}
@@ -880,10 +755,7 @@ dlc063 = {
 		trigger = {
 			OR = {
 				culture = cuman
-				culture = karluk
-				culture = kirghiz
 				culture = uyghur
-				culture = mongol
 			}
 		}
 	}
@@ -898,15 +770,12 @@ dlc063 = {
 
 			OR = {
 				culture_group = north_germanic
-				culture = english
-				culture = anglo_saxon
 				culture = frisian
 				culture = norman
 				culture = occitan
 				culture_group = iberian
 				culture_group = celtic
 				culture_group = west_slavic
-				culture_group = magyar
 				culture_group = finno_ugric
 				culture_group = baltic
 			}
@@ -926,7 +795,6 @@ dlc063 = {
 				culture = italian
 				culture = roman
 				culture = dutch
-				culture = french
 			}
 		}
 	}
@@ -949,15 +817,8 @@ dlc063 = {
 		trigger = {
 			OR = {
 				culture_group = arabic
-				culture_group = dravidian_group
 				culture = bengali
-				culture = oriya
-				culture = assamese
-				culture = hindustani
 				# culture = guijurati
-				culture = panjabi
-				culture = rajput
-				culture = sindhi
 				culture = marathi
 				culture = sinhala
 			}
@@ -971,28 +832,10 @@ dlc064 = {
 
 # South Indian Portraits
 dlc065 = {
-	reason = {
-		tooltip_desc = DLC_dlc065_RECOMMENDATION_INDIA
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			culture_group = dravidian_group
-		}
-	}
 }
 
 # The Reaper's Due Content Pack
 dlc067 = {
-	reason = {
-		tooltip_desc = DLC_dlc067_RECOMMENDATION_EAST_AFRICA
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			culture_group = east_african
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc067_RECOMMENDATION_BYZANTINE
@@ -1004,7 +847,6 @@ dlc067 = {
 				culture = armenian
 				culture = greek
 				culture = georgian
-				culture = assyrian
 			}
 		}
 	}
@@ -1022,15 +864,6 @@ dlc067 = {
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc067_RECOMMENDATION_WEST_AFRICA
-		tooltip_reason = DLC_RECOMMENDATION_REASON_PACK_CULTURE
-		weight = 10
-
-		trigger = {
-			culture_group = west_african
-		}
-	}
 }
 
 # Full Plate Metal Music Pack
@@ -1053,9 +886,7 @@ dlc071 = {
 
 			OR = {
 				religion = nestorian
-				religion = miaphysite
 				religion = hindu
-				religion = buddhist
 				religion = jain
 			}
 		}
@@ -1112,20 +943,10 @@ dlc011 = {
 				culture = armenian
 				culture = greek
 				culture = georgian
-				culture = assyrian
 			}
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
-
-		trigger = {
-			culture = andalusian
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
@@ -1140,19 +961,6 @@ dlc011 = {
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
-
-		trigger = {
-			OR = {
-				culture = bedouin
-				culture = egyptian
-				culture = levantine
-			}
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
@@ -1218,7 +1026,6 @@ dlc011 = {
 
 		trigger = {
 			OR = {
-				culture = english
 				culture = welsh
 			}
 		}
@@ -1234,15 +1041,6 @@ dlc011 = {
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
-
-		trigger = {
-			culture = french
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
@@ -1287,18 +1085,6 @@ dlc011 = {
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
-
-		trigger = {
-			OR = {
-				culture_group = indo_aryan_group
-				culture_group = dravidian_group
-			}
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
@@ -1320,15 +1106,6 @@ dlc011 = {
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
-
-		trigger = {
-			culture = jurchen
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
@@ -1340,25 +1117,7 @@ dlc011 = {
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
 
-		trigger = {
-			culture_group = israelite
-		}
-	}
-
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
-
-		trigger = {
-			culture = nahua
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
@@ -1368,7 +1127,6 @@ dlc011 = {
 		trigger = {
 			OR = {
 				culture = frankish
-				culture = anglo_saxon
 				culture = frisian
 				culture_group = north_germanic
 			}
@@ -1395,25 +1153,7 @@ dlc011 = {
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
 
-		trigger = {
-			culture_group = tibetan_group
-		}
-	}
-
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
-
-		trigger = {
-			culture = somali
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
@@ -1425,25 +1165,7 @@ dlc011 = {
 		}
 	}
 
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
 
-		trigger = {
-			culture = suebi
-		}
-	}
-
-	reason = {
-		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
-
-		trigger = {
-			culture_group = west_african
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc011_RECOMMENDATION_LOR_CULTURE
@@ -1452,7 +1174,6 @@ dlc011 = {
 
 		trigger = {
 			OR = {
-				culture = french
 				culture = norman
 				culture = occitan
 				culture = german
@@ -1468,13 +1189,9 @@ dlc011 = {
 
 		trigger = {
 			OR = {
-				culture = andalusian
-				culture = castilian
 				culture = catalan
-				culture = portuguese
 				culture = visigothic
 				culture = saxon
-				culture = sephardi
 				culture = alan
 			}
 		}
@@ -1483,15 +1200,6 @@ dlc011 = {
 
 # Sunset invasion
 dlc018 = {
-	reason = {
-		tooltip_desc = DLC_dlc018_RECOMMENDATION_SI_REQUIRED_NAHUATI
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_CULTURE
-		weight = 4
-
-		trigger = {
-			culture = nahua
-		}
-	}
 }
 
 # The Republic
@@ -1568,19 +1276,14 @@ dlc032 = {
 			OR = {
 				religion = catholic
 				religion = orthodox
-				religion = miaphysite
 				religion = nestorian
 				religion = sunni
-				religion = jewish
 				religion = zoroastrian
-				religion = manichaean
 				religion_openly_norse_or_reformed_trigger = yes
 				religion = tengri_pagan_reformed
-				religion = west_african_pagan_reformed
 				religion = slavic_pagan_reformed
 				religion = baltic_pagan_reformed
 				religion = finnish_pagan_reformed
-				religion = aztec_pagan_reformed
 			}
 		}
 	}
@@ -1597,7 +1300,6 @@ dlc039 = {
 			OR = {
 				religion_group = indian_group
 				religion_openly_bon_or_reformed_trigger = yes
-				religion = khurmazta
 			}
 		}
 	}
@@ -1676,7 +1378,6 @@ dlc069 = {
 			OR = {
 				religion = catholic
 				religion = orthodox
-				religion = miaphysite
 				religion = nestorian
 			}
 		}
@@ -1690,7 +1391,6 @@ dlc069 = {
 		trigger = {
 			OR = {
 				religion = jain
-				religion = buddhist
 			}
 		}
 	}
@@ -1703,7 +1403,6 @@ dlc069 = {
 		trigger = {
 			OR = {
 				religion_openly_zun_or_reformed_trigger = yes
-				religion = hellenic_pagan
 				religion_group = zoroastrian_group
 
 				trigger_if = {
@@ -1756,7 +1455,6 @@ dlc069 = {
 
 		trigger = {
 			OR = {
-				religion = baltic_pagan
 				religion = slavic_pagan
 				religion = norse_pagan
 				religion = finnish_pagan
@@ -1771,7 +1469,6 @@ dlc069 = {
 
 		trigger = {
 			OR = {
-				culture = english
 				culture = norman
 				culture_group = central_germanic
 			}
@@ -1781,29 +1478,7 @@ dlc069 = {
 
 # Jade Dragon
 dlc073 = {
-	reason = {
-		tooltip_desc = DLC_dlc073_RECOMMENDATION_JD_REQUIRED
-		tooltip_reason = DLC_RECOMMENDATION_REASON_EXPANSION_RELIGION
-		weight = 10
 
-		trigger = {
-			OR = {
-				religion = bon_pagan
-				religion = taoist
-				religion = khurmazta
-			}
-		}
-	}
-
-	reason = {
-		tooltip_desc = DLC_dlc073_RECOMMENDATION_JD_REQUIRED
-		tooltip_reason = DLC_RECOMMENDATION_REASON_NEIGHBOR
-		weight = 4
-
-		trigger = {
-			religion = manichaean
-		}
-	}
 
 	reason = {
 		tooltip_desc = DLC_dlc073_RECOMMENDATION_JD_REQUIRED
@@ -1822,11 +1497,7 @@ dlc073 = {
 
 		trigger = {
 			OR = {
-				culture = nepali
-				culture_group = tibetan_group
 				culture = han
-				culture = khitan
-				culture = jurchen
 			}
 		}
 	}

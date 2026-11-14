@@ -42,6 +42,7 @@ SCOPE_WORDS = {'liege', 'top_liege', 'owner', 'controller', 'location', 'capital
                'real_father', 'mother_even_if_dead', 'father_even_if_dead', 'guardian', 'lover', 'killer',
                'primary_title', 'culture', 'religion', 'heir', 'player_heir', 'regent', 'betrothed', 'current_heir'}
 def leaf_dead(k, v):
+    if v is None: return False   # bare list entry, no value
     v = v.strip('"')
     if k not in VALID or VALID[k] is None: return False
     if k == 'title' and not re.match(r'[ekdcb]_', v): return False  # 'title = X' with a non-title value (e.g. a loc key)
