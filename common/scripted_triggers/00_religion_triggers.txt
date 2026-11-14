@@ -1047,7 +1047,6 @@ religion_openly_aztec_or_reformed_trigger = {
 has_dharmic_religion_trigger = {
 	OR = {
 		religion = hindu
-		religion = buddhist
 		religion = jain
 	}
 }
@@ -1061,7 +1060,6 @@ religion_secretly_norse_or_reformed_trigger = {
 
 religion_secretly_baltic_or_reformed_trigger = {
 	OR = {
-		secret_religion = baltic_pagan
 		secret_religion = baltic_pagan_reformed
 	}
 }
@@ -1125,7 +1123,6 @@ religion_secretly_aztec_or_reformed_trigger = {
 has_secret_dharmic_religion_trigger = {
 	OR = {
 		secret_religion = hindu
-		secret_religion = buddhist
 		secret_religion = jain
 	}
 }
@@ -1139,7 +1136,6 @@ true_norse_religion_trigger = {
 
 true_baltic_religion_trigger = {
 	OR = {
-		true_religion = baltic_pagan
 		true_religion = baltic_pagan_reformed
 	}
 }
@@ -1203,7 +1199,6 @@ true_aztec_religion_trigger = {
 true_dharmic_religion_trigger = {
 	OR = {
 		true_religion = hindu
-		true_religion = buddhist
 		true_religion = jain
 	}
 }
@@ -1312,7 +1307,6 @@ is_catholic_branch = {
 		religion = catholic
 		religion = cathar
 		religion = fraticelli
-		religion = lollard
 		religion = waldensian
 	}
 }
@@ -1322,7 +1316,6 @@ is_catholic_true_branch = {
 		true_religion = catholic
 		true_religion = cathar
 		true_religion = fraticelli
-		true_religion = lollard
 		true_religion = waldensian
 	}
 }
@@ -1332,7 +1325,6 @@ is_catholic_secret_branch = {
 		secret_religion = catholic
 		secret_religion = cathar
 		secret_religion = fraticelli
-		secret_religion = lollard
 		secret_religion = waldensian
 	}
 }
@@ -1343,7 +1335,6 @@ is_orthodox_branch = {
 		religion = bogomilist
 		religion = iconoclast
 		religion = monothelite
-		religion = paulician
 	}
 }
 
@@ -1353,7 +1344,6 @@ is_orthodox_true_branch = {
 		true_religion = bogomilist
 		true_religion = iconoclast
 		true_religion = monothelite
-		true_religion = paulician
 	}
 }
 
@@ -1363,27 +1353,23 @@ is_orthodox_secret_branch = {
 		secret_religion = bogomilist
 		secret_religion = iconoclast
 		secret_religion = monothelite
-		secret_religion = paulician
 	}
 }
 
 is_miaphysite_branch = {
 	OR = {
-		religion = miaphysite
 		religion = monophysite
 	}
 }
 
 is_miaphysite_true_branch = {
 	OR = {
-		true_religion = miaphysite
 		true_religion = monophysite
 	}
 }
 
 is_miaphysite_secret_branch = {
 	OR = {
-		secret_religion = miaphysite
 		secret_religion = monophysite
 	}
 }
@@ -1391,21 +1377,18 @@ is_miaphysite_secret_branch = {
 is_nestorian_branch = {
 	OR = {
 		religion = nestorian
-		religion = messalian
 	}
 }
 
 is_nestorian_true_branch = {
 	OR = {
 		true_religion = nestorian
-		true_religion = messalian
 	}
 }
 
 is_nestorian_secret_branch = {
 	OR = {
 		secret_religion = nestorian
-		secret_religion = messalian
 	}
 }
 
@@ -1413,24 +1396,18 @@ is_nestorian_secret_branch = {
 is_sunni_branch = {
 	OR = {
 		religion = sunni
-		religion = zikri
-		religion = yazidi
 	}
 }
 
 is_sunni_true_branch = {
 	OR = {
 		true_religion = sunni
-		true_religion = zikri
-		true_religion = yazidi
 	}
 }
 
 is_sunni_secret_branch = {
 	OR = {
 		secret_religion = sunni
-		secret_religion = zikri
-		secret_religion = yazidi
 	}
 }
 
@@ -1508,12 +1485,9 @@ religion_has_excommunication = {
 		religion = catholic
 		religion = fraticelli
 		religion = orthodox
-		religion = miaphysite
 		religion = monophysite
 		religion = monothelite
-		religion = paulician
 		religion = nestorian
-		religion = yazidi
 	}
 }
 
@@ -1535,9 +1509,7 @@ religion_has_seven_virtue = {
 religion_is_feminist = {
 	OR = {
 		religion = cathar
-		religion = messalian
 		religion = bogomilist
-		religion = mazdaki
 		religion_is_equal_trigger = yes
 		religion_is_matriarchal_trigger = yes
 	}

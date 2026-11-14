@@ -111,7 +111,6 @@ muslim_religion_head_trigger = {
 					trait = sayyid
 					NOR = {
 						# Not for Kharijite
-						FROM = { title = d_kharijite }
 						# Not for bloodline owners as they have better option
 						any_owned_bloodline = {
 							has_bloodline_flag = bloodline_shiite_leader
@@ -183,7 +182,6 @@ muslim_religion_head_trigger = {
 					trait = sayyid
 					NOR = {
 						# Not for Kharijite
-						FROM = { title = d_kharijite }
 						# Not for bloodline owners as they have better option
 						any_owned_bloodline = {
 							has_bloodline_flag = bloodline_shiite_leader

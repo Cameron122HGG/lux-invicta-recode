@@ -53,7 +53,6 @@ is_devil_worshiper_trigger = {
 
 		OR = {
 			society_member_of = the_satanists
-			society_member_of = the_cold_ones
 			society_member_of = the_plaguebringers
 			society_member_of = the_cult_of_kali
 			society_member_of = the_trollcrafters
@@ -78,7 +77,6 @@ is_christian_monastic_member_trigger = {
 is_dharmic_monastic_member_trigger = {
 	OR = {
 		society_member_of = monastic_order_hindu
-		society_member_of = monastic_order_buddhist
 		society_member_of = monastic_order_jain
 	}
 }
@@ -88,7 +86,6 @@ is_monastic_member_trigger = {
 	OR = {
 		is_dharmic_monastic_member_trigger = yes
 		is_christian_monastic_member_trigger = yes
-		society_member_of = monastic_order_stoics
 	}
 }
 

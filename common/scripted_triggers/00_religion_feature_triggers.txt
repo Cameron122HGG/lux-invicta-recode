@@ -95,21 +95,6 @@ religion_has_haruspicy_trigger = {
 			has_religion_feature = religion_feature_hellenic
 			has_religion_feature = religion_haruspicy
 
-			trigger_if = {
-				limit = { religion = hellenic_pagan }
-
-				NOR = {
-					has_alternate_start_parameter = {
-						key = religion_features
-						value = random
-					}
-
-					has_alternate_start_parameter = {
-						key = religion_names
-						value = random
-					}
-				}
-			}
 		}
 	}
 	trigger_else = {
@@ -125,21 +110,6 @@ religion_has_astrology_trigger = {
 			has_religion_feature = religion_feature_hellenic
 			has_religion_feature = religion_astrology
 
-			trigger_if = {
-				limit = { religion = hellenic_pagan }
-
-				NOR = {
-					has_alternate_start_parameter = {
-						key = religion_features
-						value = random
-					}
-
-					has_alternate_start_parameter = {
-						key = religion_names
-						value = random
-					}
-				}
-			}
 		}
 	}
 	trigger_else = {
@@ -170,21 +140,6 @@ religion_has_ritual_sacrifice_trigger = {
 			has_religion_feature = religion_feature_aztec
 			has_religion_feature = religion_ritual_sacrifice
 
-			trigger_if = {
-				limit = { religion = aztec_pagan }
-
-				NOR = {
-					has_alternate_start_parameter = {
-						key = religion_features
-						value = random
-					}
-
-					has_alternate_start_parameter = {
-						key = religion_names
-						value = random
-					}
-				}
-			}
 		}
 	}
 	trigger_else = {
@@ -223,21 +178,6 @@ religion_is_animistic_trigger = {
 			has_religion_feature = religion_feature_west_african
 			has_religion_feature = religion_animistic
 
-			trigger_if = {
-				limit = { religion = west_african_pagan }
-
-				NOR = {
-					has_alternate_start_parameter = {
-						key = religion_features
-						value = random
-					}
-
-					has_alternate_start_parameter = {
-						key = religion_names
-						value = random
-					}
-				}
-			}
 		}
 	}
 	trigger_else = {
@@ -257,21 +197,6 @@ religion_has_pyramids_trigger = {
 			has_religion_feature = religion_feature_aztec
 			has_religion_feature = religion_pyramids
 
-			trigger_if = {
-				limit = { religion = aztec_pagan }
-
-				NOR = {
-					has_alternate_start_parameter = {
-						key = religion_features
-						value = random
-					}
-
-					has_alternate_start_parameter = {
-						key = religion_names
-						value = random
-					}
-				}
-			}
 		}
 	}
 	trigger_else = {

@@ -26,9 +26,6 @@ french_overlayer_special_crown_trigger = {
 				artifact_type = crown_finnish_fylkir
 				artifact_type = crown_slavic_fylkir
 				artifact_type = crown_romuva_fylkir
-				artifact_type = crown_zun_fylkir
-				artifact_type = crown_west_african_fylkir
-				artifact_type = crown_aztec_fylkir
 				artifact_type = iron_crown_of_lombardy
 				artifact_type = cursed_diamond_crown
 			}
@@ -38,7 +35,6 @@ french_overlayer_special_crown_trigger = {
 
 french_martial_overlayer_trigger = {
 	OR = {
-		culture = french
 		culture = occitan
 	}
 
@@ -57,7 +53,6 @@ french_martial_overlayer_trigger = {
 
 french_duchess_overlayer_trigger = {
 	OR = {
-		culture = french
 		culture = occitan
 	}
 
@@ -79,7 +74,6 @@ french_duchess_overlayer_trigger = {
 
 french_countess_overlayer_trigger = {
 	OR = {
-		culture = french
 		culture = occitan
 	}
 
@@ -101,7 +95,6 @@ french_countess_overlayer_trigger = {
 
 french_courtier_overlayer_trigger = {
 	OR = {
-		culture = french
 		culture = occitan
 	}
 
@@ -138,7 +131,6 @@ french_courtier_overlayer_trigger = {
 
 french_queen_underlayer_trigger = {
 	OR = {
-		culture = french
 		culture = occitan
 	}
 
@@ -167,7 +159,6 @@ french_queen_underlayer_trigger = {
 
 french_duke_overlayer_trigger = {
 	OR = {
-		culture = french
 		culture = occitan
 	}
 
@@ -189,7 +180,6 @@ french_duke_overlayer_trigger = {
 
 french_count_overlayer_trigger = {
 	OR = {
-		culture = french
 		culture = occitan
 	}
 

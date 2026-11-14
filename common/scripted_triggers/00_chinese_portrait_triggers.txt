@@ -32,7 +32,6 @@ is_devout_chinese_buddhist_trigger = {			### Male, and visually Chinese by race 
 	LI_bud_trigger = yes # was religion = buddhist, which does not exist in Lux Invicta
 	is_female = no
 	OR = {
-		society_member_of = monastic_order_buddhist
 		has_job_title = job_spiritual
 		AND = {
 			is_theocracy = yes
