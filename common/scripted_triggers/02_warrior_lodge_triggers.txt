@@ -31,22 +31,8 @@ is_member_of_roots_warrior_lodge_trigger = {
 }
 
 # TODO: replace with society flags?
-is_member_of_any_warrior_lodge_trigger = {
-	custom_tooltip = {
-		text = is_member_of_any_warrior_lodge_tt
-
-		OR = {
-			society_member_of = warrior_lodge_norse
-			society_member_of = warrior_lodge_tengri
-			society_member_of = warrior_lodge_baltic
-			society_member_of = warrior_lodge_finnish
-			society_member_of = warrior_lodge_slavic
-			society_member_of = warrior_lodge_west_african
-			society_member_of = warrior_lodge_zun
-			society_member_of = warrior_lodge_bon
-			society_member_of = warrior_lodge_hellenic
-		}
-	}
+is_member_of_any_warrior_lodge_trigger = { # LI: Lux Invicta has no warrior lodges (Holy Fury switched off), so this is never true
+	always = no
 }
 
 has_any_warrior_lodge_training_trait_trigger = {
