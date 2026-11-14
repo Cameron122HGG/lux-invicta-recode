@@ -1,3 +1,5 @@
+# LI: secretly_cathar/druze/hurufi/ibadi/iconoclast/kharijite removed from the opposites lists below (2026-11-14):
+# they were vanilla's old secret-religion traits, which CleanSlate deleted as obsolete, so they no longer exist.
 # Lux Invicta definitions extracted from master:common/traits/02_traits.txt (phase 2 of CLEANSLATE_PLAN.md).
 # Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
 
@@ -15,20 +17,14 @@ secretly_antinomian = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
 		secretly_dionysos
 		secretly_donatist
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -82,20 +78,14 @@ secretly_aten = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
 		secretly_dionysos
 		secretly_donatist
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -149,20 +139,14 @@ secretly_batembuzi = {
 		secretly_aten
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
 		secretly_dionysos
 		secretly_donatist
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -216,20 +200,14 @@ secretly_bud_bahusrutiya = {
 		secretly_aten
 		secretly_batembuzi
 		secretly_bud_mahayana
-		secretly_cathar
 		secretly_dionysos
 		secretly_donatist
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -283,20 +261,14 @@ secretly_bud_mahayana = {
 		secretly_aten
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
-		secretly_cathar
 		secretly_dionysos
 		secretly_donatist
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -351,19 +323,13 @@ secretly_dionysos = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
 		secretly_donatist
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -418,18 +384,12 @@ secretly_donatist = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -484,17 +444,11 @@ secretly_erlik = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -549,17 +503,11 @@ secretly_haruri = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -614,17 +562,11 @@ secretly_hubal = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -679,17 +621,11 @@ secretly_illuyanka = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -744,17 +680,11 @@ secretly_irminsul = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -809,17 +739,11 @@ secretly_jud_sabaoth = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -874,18 +798,12 @@ secretly_mand_ruha = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mani_ahriman
 		secretly_mazdakism
 		secretly_melkite
@@ -939,18 +857,12 @@ secretly_mani_ahriman = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mazdakism
 		secretly_melkite
@@ -1004,18 +916,12 @@ secretly_mazdakism = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_melkite
@@ -1069,18 +975,12 @@ secretly_melkite = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1134,18 +1034,12 @@ secretly_montanist = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1199,18 +1093,12 @@ secretly_norse_war = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1264,18 +1152,12 @@ secretly_pelagian = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1329,18 +1211,12 @@ secretly_plato_christ = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1394,18 +1270,12 @@ secretly_plato_islam = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1459,18 +1329,12 @@ secretly_priscillian = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1524,18 +1388,12 @@ secretly_qarmatian = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1590,18 +1448,12 @@ secretly_ragnarok = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1655,18 +1507,12 @@ secretly_saule = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1720,18 +1566,12 @@ secretly_saura = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1785,18 +1625,12 @@ secretly_set = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1850,18 +1684,12 @@ secretly_sol_christ = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1915,18 +1743,12 @@ secretly_sufi = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -1980,18 +1802,12 @@ secretly_tengri_ahriman = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -2045,18 +1861,12 @@ secretly_vidharma = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -2110,18 +1920,12 @@ secretly_yahyanism = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
@@ -2175,18 +1979,12 @@ secretly_zor_angra = {
 		secretly_batembuzi
 		secretly_bud_bahusrutiya
 		secretly_bud_mahayana
-		secretly_cathar
-		secretly_druze
 		secretly_erlik
 		secretly_haruri
 		secretly_hubal
-		secretly_hurufi
-		secretly_ibadi
-		secretly_iconoclast
 		secretly_illuyanka
 		secretly_irminsul
 		secretly_jud_sabaoth
-		secretly_kharijite
 		secretly_mand_ruha
 		secretly_mani_ahriman
 		secretly_mazdakism
