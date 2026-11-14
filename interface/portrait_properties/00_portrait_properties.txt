@@ -126,8 +126,6 @@
 				religion_group = muslim
 				religion_group = indian_group
 				religion_group = zoroastrian_group
-				religion = zun_pagan
-				religion = zun_pagan_reformed 
 			}
 		}
 		modifier = {
@@ -182,13 +180,6 @@
 		modifier = {
 			factor = 0
 			NOT = { religion_group = pagan_group }
-		}
-		modifier = {
-			factor = 0
-			OR = { 
-				religion = hellenic_pagan
-				religion = hellenic_pagan_reformed
-			}
 		}
 		modifier = {
 			factor = 0
@@ -261,8 +252,6 @@
 			factor = 0
 			OR = { 
 				has_landed_title = k_papal_state 
-				has_landed_title = k_hellenic_pagan 
-				has_landed_title = d_fraticelli 
 				has_claim = k_papal_state 
 				has_claim = d_fraticelli 
 			}
@@ -371,7 +360,6 @@
 			factor = 0
 			NOT = { religion_group = muslim }
 			NOT = { religion_group = zoroastrian_group }
-			NOT = { religion = zun_pagan }
 			NOT = { religion_group = indian_group }
 		}
 	}
@@ -387,8 +375,6 @@
 			NOT = { religion_group = muslim }
 			NOT = { religion_group = indian_group }
 			NOT = { religion_group = zoroastrian_group }
-			NOT = { religion = zun_pagan }
-			NOT = { religion = zun_pagan_reformed }
 		}
 		modifier = {
 			factor = 100
@@ -435,10 +421,6 @@
 			factor = 0
 			is_nomadic = no
 		}
-		modifier = {
-			factor = 2
-			culture = mongol
-		}
 	}
 
 	17 = { # Mongol camp 2
@@ -459,10 +441,6 @@
 			}
 		}
 		modifier = {
-			factor = 2
-			culture = mongol
-		}
-		modifier = {
 			factor = 0
 			lower_real_tier_than = DUKE
 			spouse = { lower_real_tier_than = DUKE } 
@@ -478,8 +456,6 @@
 		modifier = {
 			factor = 0
 			NOT = { has_landed_title = k_papal_state }
-			NOT = { has_landed_title = k_hellenic_pagan }
-			NOT = { has_landed_title = d_fraticelli }
 			NOT = { has_claim = k_papal_state }
 			NOT = { has_claim = d_fraticelli }
 		}
@@ -629,7 +605,6 @@
 			factor = 0
 			is_female = yes
 			graphical_culture = westafricangfx
-			NOT = { culture = manden }
 			NOT = { culture = ethiopian }
 			OR = {
 				higher_real_tier_than = count
@@ -655,7 +630,6 @@
 			factor = 0
 			is_female = yes
 			graphical_culture = westafricangfx
-			NOT = { culture = manden }
 			NOT = { culture = ethiopian }
 			OR = {
 				higher_real_tier_than = count
@@ -673,7 +647,6 @@
 			factor = 0
 			is_female = yes
 			OR = {
-				culture = manden
 				culture = ethiopian
 			}
 			NOT = { graphical_culture = westafricangfx }
@@ -736,7 +709,6 @@
 			factor = 0
 			is_female = yes
 			OR = {
-				culture = manden
 				culture = ethiopian
 			}
 			NOT = { graphical_culture = westafricangfx }
@@ -757,7 +729,6 @@
 			factor = 0
 			is_female = yes
 			OR = {
-				culture = manden
 				culture = ethiopian
 			}
 			NOT = { graphical_culture = westafricangfx }
@@ -820,7 +791,6 @@
 			factor = 0
 			is_female = yes
 			graphical_culture = westafricangfx
-			NOT = { culture = manden }
 			NOT = { culture = ethiopian }
 			OR = {
 				higher_real_tier_than = count
@@ -904,7 +874,6 @@
 			factor = 0
 			is_female = yes
 			OR = {
-				culture = manden
 				culture = ethiopian
 			}
 			NOT = { graphical_culture = westafricangfx }
@@ -921,7 +890,6 @@
 			factor = 0
 			is_female = yes
 			graphical_culture = westafricangfx
-			NOT = { culture = manden }
 			NOT = { culture = ethiopian }
 			OR = {
 				higher_real_tier_than = count
@@ -939,7 +907,6 @@
 			factor = 0
 			is_female = yes
 			OR = {
-				culture = manden
 				culture = ethiopian
 			}
 			NOT = { graphical_culture = westafricangfx }
@@ -956,7 +923,6 @@
 			factor = 0
 			is_female = yes
 			graphical_culture = westafricangfx
-			NOT = { culture = manden }
 			NOT = { culture = ethiopian }
 			OR = {
 				higher_real_tier_than = count
@@ -982,7 +948,6 @@
 			factor = 0
 			is_female = yes
 			OR = {
-				culture = manden
 				culture = ethiopian
 			}
 			NOT = { graphical_culture = westafricangfx }
@@ -1013,7 +978,6 @@
 			factor = 0
 			is_female = yes
 			OR = {
-				culture = manden
 				culture = ethiopian
 			}
 			NOT = { graphical_culture = westafricangfx }
@@ -1143,7 +1107,6 @@
 			factor = 0
 			is_female = yes
 			OR = {
-				culture = manden
 				culture = ethiopian
 			}
 			NOT = { graphical_culture = westafricangfx }
@@ -1627,11 +1590,6 @@
 				government = order_government
 				primary_title = {
 					OR = {
-						title = d_knights_hospitaler
-						title = d_knights_templar
-						title = d_teutonic_order
-						title = k_teutonic_state
-						title = d_livonian_order
 						title = e_china_west_governor
 					}
 				}
@@ -1670,11 +1628,6 @@
 					NOT = {
 						primary_title = {
 							OR = {
-								title = d_knights_hospitaler
-								title = d_knights_templar
-								title = d_teutonic_order
-								title = k_teutonic_state
-								title = d_livonian_order
 								title = e_china_west_governor
 							}
 						}
@@ -1788,8 +1741,6 @@
 			}
 			OR = {
 				religion_group = christian
-				religion = hellenic_pagan
-				religion = hellenic_pagan_reformed
 			}
 		#	OR = {
 		#		graphical_culture = southerngfx
@@ -2976,11 +2927,6 @@
 				NOT = { has_portrait_property = { layer = 3 index = 10 } } 
 				primary_title = { #Holy Orders in peace time should wear martial clothes, but not the helmet.
 					OR = {
-						title = d_knights_hospitaler
-						title = d_knights_templar
-						title = d_teutonic_order
-						title = k_teutonic_state
-						title = d_livonian_order
 						title = e_china_west_governor
 					}
 				}
@@ -3021,15 +2967,6 @@
 			factor = 20000
 			OR = { 
 				government = order_government 
-				primary_title = { #Holy Orders in peace time should wear martial clothes, but not the helmet.
-					OR = {
-						title = d_knights_hospitaler
-						title = d_knights_templar
-						title = d_teutonic_order
-						title = k_teutonic_state
-						title = d_livonian_order
-					}
-				}
 			}
 		}
 		modifier = {
@@ -3532,7 +3469,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				culture = manden
 				culture = maghreb_arabic
 			}
 		}
@@ -3640,12 +3576,6 @@
 		}
 		modifier = {
 			factor = 0
-			NOR = {
-				religion = west_african_pagan
-				religion = west_african_pagan_reformed
-				culture = manden
-				culture_group = east_african
-			}
 		}
 	}
 	
@@ -3678,12 +3608,6 @@
 		}
 		modifier = {
 			factor = 0
-			NOR = {
-				religion = west_african_pagan
-				religion = west_african_pagan_reformed
-				culture = manden
-				culture_group = east_african
-			}
 		}
 	}
 	
@@ -3765,7 +3689,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				culture = manden
 				culture = maghreb_arabic
 			}
 		}
@@ -3807,7 +3730,6 @@
 				trait = proud
 				trait = ambitious
 				trait = envious
-				culture = manden
 				culture = maghreb_arabic
 			}
 			NOT = { has_character_modifier = golden_mask }
@@ -4208,17 +4130,6 @@
 				}
 			}
 			OR = {
-				trait = dead_crown_hre #Dead kings don't have artifacts
-				trait = dead_crown_byzantine #Dead kings don't have artifacts
-				trait = dead_crown_pahlavi #Dead kings don't have artifacts
-				trait = dead_crown_fylkir #Dead kings don't have artifacts
-				trait = dead_crown_tengri_fylkir #Dead kings don't have artifacts
-				trait = dead_crown_finnish_fylkir #Dead kings don't have artifacts
-				trait = dead_crown_slavic_fylkir
-				trait = dead_crown_romuva_fylkir
-				trait = dead_crown_zun_fylkir
-				trait = dead_crown_west_african_fylkir
-				trait = dead_crown_aztec_fylkir
 				trait = augustus # Laurels
 			}
 		}
@@ -4241,9 +4152,6 @@
 					artifact_type = crown_finnish_fylkir
 					artifact_type = crown_slavic_fylkir
 					artifact_type = crown_romuva_fylkir
-					artifact_type = crown_zun_fylkir
-					artifact_type = crown_west_african_fylkir
-					artifact_type = crown_aztec_fylkir
 					artifact_type = iron_crown_of_lombardy
 					artifact_type = cursed_diamond_crown
 				}
@@ -4382,17 +4290,6 @@
 				}
 			}
 			OR = {
-				trait = dead_crown_hre #Dead kings don't have artifacts
-				trait = dead_crown_byzantine #Dead kings don't have artifacts
-				trait = dead_crown_pahlavi #Dead kings don't have artifacts
-				trait = dead_crown_fylkir #Dead kings don't have artifacts
-				trait = dead_crown_tengri_fylkir #Dead kings don't have artifacts
-				trait = dead_crown_finnish_fylkir #Dead kings don't have artifacts
-				trait = dead_crown_slavic_fylkir
-				trait = dead_crown_romuva_fylkir
-				trait = dead_crown_zun_fylkir
-				trait = dead_crown_west_african_fylkir
-				trait = dead_crown_aztec_fylkir
 				trait = augustus # Laurels
 			}
 		}
@@ -4415,9 +4312,6 @@
 					artifact_type = crown_finnish_fylkir
 					artifact_type = crown_slavic_fylkir
 					artifact_type = crown_romuva_fylkir
-					artifact_type = crown_zun_fylkir
-					artifact_type = crown_west_african_fylkir
-					artifact_type = crown_aztec_fylkir
 					artifact_type = iron_crown_of_lombardy
 					artifact_type = cursed_diamond_crown
 				}
@@ -4444,7 +4338,6 @@
 					artifact_type = crown_hre
 					is_artifact_equipped = yes 
 				}
-				trait = dead_crown_hre
 			}
 		}
 	}
@@ -4467,7 +4360,6 @@
 					artifact_type = crown_byzantine
 					is_artifact_equipped = yes 
 				}
-				trait = dead_crown_byzantine
 			}
 		}
 	}
@@ -4490,7 +4382,6 @@
 					artifact_type = cursed_diamond_crown
 					is_artifact_equipped = yes 
 				}
-				trait = dead_cursed_diamond_crown
 			}
 		}
 	}
@@ -4512,7 +4403,6 @@
 					artifact_type = iron_crown_of_lombardy
 					is_artifact_equipped = yes 
 				}
-				trait = dead_iron_crown_lombardy
 			}
 		}
 	}
@@ -4550,7 +4440,6 @@
 					artifact_type = crown_pahlavi
 					is_artifact_equipped = yes 
 				}
-				trait = dead_crown_pahlavi
 			}
 		}
 	}
@@ -4572,7 +4461,6 @@
 					artifact_type = crown_fylkir
 					is_artifact_equipped = yes 
 				}
-				trait = dead_crown_fylkir
 			}
 		}
 	}
@@ -4594,7 +4482,6 @@
 					artifact_type = crown_tengri_fylkir
 					is_artifact_equipped = yes 
 				}
-				trait = dead_crown_tengri_fylkir
 			}
 		}
 	}
@@ -4616,7 +4503,6 @@
 					artifact_type = crown_finnish_fylkir
 					is_artifact_equipped = yes 
 				}
-				trait = dead_crown_finnish_fylkir
 			}
 		}
 	}
@@ -4633,13 +4519,6 @@
 		}
 		modifier = { #West-African Fylkir Crown
 			factor = 0
-			NOR = { 
-				any_artifact = {
-					artifact_type = crown_west_african_fylkir
-					is_artifact_equipped = yes 
-				}
-				trait = dead_crown_west_african_fylkir
-			}
 		}
 	}
 	11 = { 
@@ -4664,8 +4543,6 @@
 					artifact_type = crown_romuva_fylkir
 					is_artifact_equipped = yes 
 				}
-				trait = dead_crown_slavic_fylkir
-				trait = dead_crown_romuva_fylkir
 			}
 		}
 	}
@@ -4674,13 +4551,6 @@
 		hide_layers = { 5 = { } } #Hide layer 5 (headgear) when this frame is picked.
 		modifier = { #Zunist Fylkir Crown
 			factor = 0
-			NOR = { 
-				any_artifact = {
-					artifact_type = crown_zun_fylkir
-					is_artifact_equipped = yes 
-				}
-				trait = dead_crown_zun_fylkir
-			}
 		}
 	}
 	13 = { 
@@ -4688,13 +4558,6 @@
 		hide_layers = { 5 = { } } #Hide layer 5 (headgear) when this frame is picked.
 		modifier = { #Aztec Fylkir Crown
 			factor = 0
-			NOR = { 
-				any_artifact = {
-					artifact_type = crown_aztec_fylkir
-					is_artifact_equipped = yes 
-				}
-				trait = dead_crown_aztec_fylkir
-			}
 		}
 	}
 	14 = { 
@@ -6376,31 +6239,6 @@
 34 = {
 	0 = { # blank
 		factor = 100
-		modifier = { #Templar special headgear.
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-			religion = catholic
-			OR = {
-				has_landed_title = d_knights_templar 
-				has_landed_title = d_knights_hospitaler
-				has_landed_title = d_teutonic_order
-				has_landed_title = k_teutonic_state
-				has_landed_title = d_livonian_order
-				has_landed_title = d_knights_santiago
-				has_landed_title = d_knights_calatrava
-				liege = { has_landed_title = d_knights_templar }
-				liege = { has_landed_title = d_knights_hospitaler }
-				liege = { has_landed_title = d_teutonic_order }
-				liege = { has_landed_title = k_teutonic_state }
-				liege = { has_landed_title = d_livonian_order }
-				liege = { has_landed_title = d_knights_santiago }
-				liege = { has_landed_title = d_knights_calatrava }
-			}
-		}
 		modifier = { #Wearable Crown artifacts.
 			factor = 0
 			in_command = yes
@@ -6442,10 +6280,6 @@
 		}
 		modifier = {
 			factor = 0
-			NOR = {
-				has_landed_title = d_knights_templar 
-				liege = { has_landed_title = d_knights_templar }
-			}
 		}
 	}
 	2 = {  #Crusader King helmet - Male.
@@ -6541,10 +6375,6 @@
 		}
 		modifier = {
 			factor = 0
-			NOR = {
-				has_landed_title = d_knights_hospitaler 
-				liege = { has_landed_title = d_knights_hospitaler }
-			}
 		}
 	}
 	5 = {  #Teuton special headgear.
@@ -6570,12 +6400,6 @@
 		}
 		modifier = {
 			factor = 0
-			NOR = {
-				has_landed_title = d_teutonic_order 
-				has_landed_title = k_teutonic_state 
-				liege = { has_landed_title = d_teutonic_order }
-				liege = { has_landed_title = k_teutonic_state }
-			}
 		}
 	}
 	6 = { #Wearable Winged Helmet
@@ -6631,12 +6455,6 @@
 		}
 		modifier = {
 			factor = 0
-			NOR = {
-				has_landed_title = d_knights_santiago 
-				has_landed_title = d_knights_calatrava 
-				liege = { has_landed_title = d_knights_santiago }
-				liege = { has_landed_title = d_knights_calatrava }
-			}
 		}
 	}
 	8 = { #Wearable Wrapped Helmet
@@ -6692,10 +6510,6 @@
 		}
 		modifier = {
 			factor = 0
-			NOR = {
-				has_landed_title = d_livonian_order 
-				liege = { has_landed_title = d_livonian_order }
-			}
 		}
 	}
 	10 = { #Unicorn headgear.
@@ -6873,13 +6687,6 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = dead_scepter_bon_fylkir
-				trait = dead_scepter_hellenic_fylkir
-			}
-		}
-		modifier = {
-			factor = 0
-			OR = {
 				in_command = no
 				has_game_rule = {
 					name = martial_headgear
@@ -6889,7 +6696,6 @@
 			any_artifact = {
 				OR = {
 					artifact_type = scepter_bon_fylkir
-					artifact_type = scepter_hellenic_fylkir
 				}
 				is_artifact_equipped = yes 
 			}
@@ -6913,7 +6719,6 @@
 					artifact_type = scepter_bon_fylkir
 					is_artifact_equipped = yes 
 				}
-				trait = dead_scepter_bon_fylkir
 			}
 		}
 	}
@@ -6930,13 +6735,6 @@
 		}
 		modifier = { #Hellenic Fylkir Scepter
 			factor = 0
-			NOR = { 
-				any_artifact = {
-					artifact_type = scepter_hellenic_fylkir
-					is_artifact_equipped = yes 
-				}
-				trait = dead_scepter_hellenic_fylkir
-			}
 		}
 	}
 }

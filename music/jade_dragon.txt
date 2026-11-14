@@ -1,0 +1,48 @@
+# Lux Invicta copy of the vanilla/DLC file "jade_dragon.txt": checks for cultures, religions
+# and dynasties that do not exist in LI were removed (behaviour otherwise unchanged; units that could
+# never match were dropped).
+song = {
+	name = "A Venerable Dynasty.ogg"
+	song_name = "A Venerable Dynasty"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			is_single_player_observer_mode = no
+			NOT = { is_within_diplo_range = offmap_china }
+		}
+	}
+	volume = 0.6
+}
+
+song = {
+	name = "Green Valley.ogg"
+	song_name = "Green Valley"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			is_single_player_observer_mode = no
+			NOT = { is_within_diplo_range = offmap_china }
+		}
+	}
+	volume = 0.6
+}
+
+
+song = {
+	name = "The Way Of The Dragon.ogg"
+	song_name = "The Way Of The Dragon"
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			is_single_player_observer_mode = no
+			NOT = { is_within_diplo_range = offmap_china }
+		}
+	}
+	volume = 0.6
+}
