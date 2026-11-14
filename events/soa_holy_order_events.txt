@@ -3442,236 +3442,840 @@ character_event = {
 }
 
 # Son or brother asks to join a holy order
+# LI: Lux Invicta's SoA.1031-1033 chain + SoA.2864 (from master), not CleanSlate's SoA.1031 (which merged 1032/1033 and needs
+# event targets set by CleanSlate's own SoA.1030; LI's SoA.1030 above does not set them). CleanSlate renames applied.
 character_event = {
 	id = SoA.1031
+	desc = EVTDESC_SOA_1031
+	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_religion
-
-	desc = {
-		text = EVTDESC_SOA_1031
-		picture = GFX_evt_crusaders
-		trigger = { event_target:holy_order_to_join = { title = d_knights_templar } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1131
-		picture = GFX_evt_crusaders
-		trigger = { event_target:holy_order_to_join = { title = d_knights_hospitaller } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1331
-		picture = GFX_evt_crusaders
-		trigger = { event_target:holy_order_to_join = { title = d_teutonic_order } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1331
-		picture = GFX_evt_crusaders
-		trigger = { event_target:holy_order_to_join = { title = k_teutonic_state } }
-	}
-	desc = {
-		text = EVTDESC_SOA_2631
-		picture = GFX_evt_knight_kneeling
-		trigger = { event_target:holy_order_to_join = { title = d_knights_santiago } }
-	}
-	desc = {
-		text = EVTDESC_SOA_2731
-		picture = GFX_evt_knight_kneeling
-		trigger = { event_target:holy_order_to_join = { title = d_knights_calatrava } }
-	}
-	desc = {
-		text = EVTDESC_SOA_2831
-		picture = GFX_evt_knight_kneeling
-		trigger = { event_target:holy_order_to_join = { title = d_saint_addai } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1631
-		picture = GFX_evt_western_knights_byzantine
-		trigger = { event_target:holy_order_to_join = { title = d_holy_sepulchre } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1731
-		picture = GFX_evt_western_knights_byzantine
-		trigger = { event_target:holy_order_to_join = { title = d_saint_anthony } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1231
-		picture = GFX_evt_moors
-		trigger = { event_target:holy_order_to_join = { title = d_bektashi } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1431
-		picture = GFX_evt_moors
-		trigger = { event_target:holy_order_to_join = { title = d_fedayeen } }
-	}
-	desc = {
-		text = EVTDESC_CM_4331
-		picture = GFX_evt_moors
-		trigger = { event_target:holy_order_to_join = { title = d_haruriyyah } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1831
-		picture = GFX_evt_melee
-		trigger = { event_target:holy_order_to_join = { title = d_immortals } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1931
-		picture = GFX_evt_melee
-		trigger = { event_target:holy_order_to_join = { title = d_zealots } }
-	}
-	desc = {
-		text = EVTDESC_SOA_1531
-		picture = GFX_evt_vikings_arriving_oldgods
-		trigger = { event_target:holy_order_to_join = { title = d_jomsvikings } }
-	}
-	desc = {
-		text = EVTDESC_SOA_2031
-		picture = GFX_evt_throne_room_altaic
-		trigger = { event_target:holy_order_to_join = { title = d_sky_lords } }
-	}
-	desc = {
-		text = EVTDESC_SOA_2131
-		picture = GFX_evt_melee
-		trigger = { event_target:holy_order_to_join = { title = d_spirit_guardians } }
-	}
-	desc = {
-		text = EVTDESC_SOA_2231
-		picture = GFX_evt_throne_room_norse_pagan
-		trigger = { event_target:holy_order_to_join = { title = d_warriors_perun } }
-	}
-	desc = {
-		text = EVTDESC_SOA_2331
-		picture = GFX_evt_throne_room_norse_pagan
-		trigger = { event_target:holy_order_to_join = { title = d_chosen_perkunas } }
-	}
-	desc = {
-		text = EVTDESC_SOA_2431
-		picture = GFX_evt_throne_room_norse_pagan
-		trigger = { event_target:holy_order_to_join = { title = d_sons_kaleva } }
-	}
-	desc = {
-		text = EVTDESC_SOA_2531
-		picture = GFX_evt_throne_room_mesoamerican
-		trigger = { event_target:holy_order_to_join = { title = d_huitzilopochtli } }
-	}
-	desc = {
-		text = EVTDESC_CM_4002
-		picture = GFX_evt_sun_temple
-		trigger = { event_target:holy_order_to_join = { title = d_zun_warriors } }
-	}
 
 	is_triggered_only = yes
 
 	option = {
 		name = EVTOPTA_SOA_1031 # Agree
-
+		ai_chance = {
+			factor = 100
+		}
+		
 		if = {
-			limit = { religion = FROM }
+			limit = {
+				religion = FROM
+			}
 			piety = 100
 		}
-
-		event_target:holy_order_to_join = {
-			show_scope_change = no
-
-			trigger_switch = {
-				on_trigger = title
-
-				d_knights_templar     = { custom_tooltip = { text = EVTTOOLTIP_SOA_1032 } }
-				d_knights_hospitaller = { custom_tooltip = { text = EVTTOOLTIP_SOA_1132 } }
-				d_teutonic_order      = { custom_tooltip = { text = EVTTOOLTIP_SOA_1332 } }
-				k_teutonic_state      = { custom_tooltip = { text = EVTTOOLTIP_SOA_1332 } }
-				d_knights_santiago    = { custom_tooltip = { text = EVTTOOLTIP_SOA_2632 } }
-				d_knights_calatrava   = { custom_tooltip = { text = EVTTOOLTIP_SOA_2732 } }
-				d_saint_addai         = { custom_tooltip = { text = EVTTOOLTIP_SOA_2832 } }
-				d_holy_sepulchre      = { custom_tooltip = { text = EVTTOOLTIP_SOA_1632 } }
-				d_saint_anthony       = { custom_tooltip = { text = EVTTOOLTIP_SOA_1732 } }
-				d_bektashi            = { custom_tooltip = { text = EVTTOOLTIP_SOA_1232 } }
-				d_fedayeen            = { custom_tooltip = { text = EVTTOOLTIP_SOA_1432 } }
-				d_haruriyyah          = { custom_tooltip = { text = EVTTOOLTIP_CM_4332  } }
-				d_immortals           = { custom_tooltip = { text = EVTTOOLTIP_SOA_1832 } }
-				d_zealots             = { custom_tooltip = { text = EVTTOOLTIP_SOA_1932 } }
-				d_jomsvikings         = { custom_tooltip = { text = EVTTOOLTIP_SOA_1532 } }
-				d_sky_lords           = { custom_tooltip = { text = EVTTOOLTIP_SOA_2032 } }
-				d_spirit_guardians    = { custom_tooltip = { text = EVTTOOLTIP_SOA_2132 } }
-				d_warriors_perun      = { custom_tooltip = { text = EVTTOOLTIP_SOA_2232 } }
-				d_chosen_perkunas     = { custom_tooltip = { text = EVTTOOLTIP_SOA_2332 } }
-				d_sons_kaleva         = { custom_tooltip = { text = EVTTOOLTIP_SOA_2432 } }
-				d_huitzilopochtli     = { custom_tooltip = { text = EVTTOOLTIP_SOA_2532 } }
-				d_zun_warriors        = { custom_tooltip = { text = EVTTOOLTIP_CM_4003  } }
-			}
-		}
-
+		
 		FROM = {
-			show_scope_change = no
-
-			if = {
-				limit = { has_minor_title = title_commander }
-				remove_title = title_commander
+			character_event = {
+				id = SoA.1032
+				tooltip = EVTTOOLTIP_SOA_1032
 			}
-
-			if = {
-				limit = { has_minor_title = title_appointed_regent }
-				remove_title = title_appointed_regent
-			}
-
-			if = {
-				limit = { has_minor_title = title_patrician_heir }
-				remove_title = title_patrician_heir
-			}
-
-			# Muslims are disinherited
-			if = {
-				limit = { religion_group = muslim }
-				add_trait = disinherited
-			}
-			# All others divorce and become celibate
-			else = {
-				add_trait_silently_celibate_effect = yes
-
-				any_spouse = {
-					show_scope_change = no
-
-					PREV = {
-						show_scope_change = no
-
-						remove_spouse = PREV
-						character_event = { id = SoA.2863 }
-					}
-				}
-
-				any_consort = {
-					show_scope_change = no
-
-					PREV = {
-						show_scope_change = no
-
-						remove_consort = PREV
-					}
-				}
-			}
-
-			hidden_effect = { clear_wealth = yes }
-			move_character = event_target:order_target
-			end_inaccessibility_effect = yes # removes in_hiding or in_seclusion
 		}
-
-		ai_chance = { factor = 100 }
 	}
-
+	
 	option = {
 		name = EVTOPTB_SOA_1031 # Refuse
-
+		
 		if = {
-			limit = { religion = FROM }
+			limit = {
+				religion = FROM
+			}
 			piety = -100
 		}
-
+		
 		FROM = {
-			show_scope_change = no
-
-			custom_tooltip = { text = EVTTOOLTIP_SOA_1033 }
-
-			opinion = {
-				name = opinion_refused_request_holy_order
-				who = ROOT
+			character_event = {
+				id = SoA.1033
+				tooltip = EVTTOOLTIP_SOA_1033
 			}
+		}
+	}
+}
+
+# LI: SoA.1032 saved "holy_order" for every religion but zurvanism_reformed, while SoA.2864 reads "order_target",
+# so new members were never moved to their order (original LI bug); all saves are now "order_target".
+character_event = {
+	id = SoA.1032
+	hide_window = yes
+	is_triggered_only = yes
+
+	option = {
+		trigger_switch = {
+			on_trigger = religion
+			adoptionist = {
+				d_holyadoptionist = {
+						save_event_target_as = order_target
+				}
+			}
+			alexandros = {
+				d_holyalexandros = {
+					save_event_target_as = order_target
+				}
+			}
+			almaqah = {
+				d_holyalmaqah = {
+					save_event_target_as = order_target
+				}
+			}
+			apollinarist = {
+				d_holyapollinarist = {
+					save_event_target_as = order_target
+				}
+			}
+			arian = {
+				d_holyarian = {
+					save_event_target_as = order_target
+				}
+			}
+			ashari = {
+				d_holyashari = {
+					save_event_target_as = order_target
+				}
+			}
+			athari = {
+				d_holyathari = {
+					save_event_target_as = order_target
+				}
+			}
+			audianist = {
+				d_holyaudianist = {
+					save_event_target_as = order_target
+				}
+			}
+			aztec = {
+				d_holyaztec = {
+					save_event_target_as = order_target
+				}
+			}
+			bud_bahusrutiya = {
+				d_holybud_bahusrutiya = {
+					save_event_target_as = order_target
+				}
+			}
+			bud_mahayana = {
+				d_holybud_mahayana = {
+					save_event_target_as = order_target
+				}
+			}
+			bud_pratyeka = {
+				d_holybud_pratyeka = {
+					save_event_target_as = order_target
+				}
+			}
+			bud_pureland = {
+				d_holybud_pureland = {
+					save_event_target_as = order_target
+				}
+			}
+			bud_sthaviravada = {
+				d_holybud_sthaviravada = {
+					save_event_target_as = order_target
+				}
+			}
+			bud_vajrayana = {
+				d_holybud_vajrayana = {
+					save_event_target_as = order_target
+				}
+			}
+			catholic = {
+				d_holycatholic = {
+					save_event_target_as = order_target
+				}
+			}
+			donatist = {
+				d_holydonatist = {
+					save_event_target_as = order_target
+				}
+			}
+			haruri = {
+				d_holyharuri = {
+					save_event_target_as = order_target
+				}
+			}
+			hindu = {
+				d_holyhindu = {
+					save_event_target_as = order_target
+				}
+			}
+			hurufi = {
+				d_holyhurufi = {
+					save_event_target_as = order_target
+				}
+			}
+			iconoclast = {
+				d_holyiconoclast = {
+					save_event_target_as = order_target
+				}
+			}
+			ilm_islam = {
+				d_holyilm_islam = {
+					save_event_target_as = order_target
+				}
+			}
+			indoh_bud = {
+				d_holyindoh_bud = {
+					save_event_target_as = order_target
+				}
+			}
+			indoh_confucian = {
+				d_holyindoh_confucian = {
+					save_event_target_as = order_target
+				}
+			}
+			indoh_hindu = {
+				d_holyindoh_hindu = {
+					save_event_target_as = order_target
+				}
+			}
+			indoh_zor = {
+				d_holyindoh_zor = {
+					save_event_target_as = order_target
+				}
+			}
+			jain = {
+				d_holyjain = {
+					save_event_target_as = order_target
+				}
+			}
+			jud_zion = {
+				d_holyjud_zion = {
+					save_event_target_as = order_target
+				}
+			}
+			jupiter = {
+				d_holyjupiter = {
+					save_event_target_as = order_target
+				}
+			}
+			luwian = {
+				d_holyluwian = {
+					save_event_target_as = order_target
+				}
+			}
+			mani = {
+				d_holymani = {
+					save_event_target_as = order_target
+				}
+			}
+			mani_mithra = {
+				d_holymani_mithra = {
+					save_event_target_as = order_target
+				}
+			}
+			maturidi = {
+				d_holymaturidi = {
+					save_event_target_as = order_target
+				}
+			}
+			melkite = {
+				d_holymelkite = {
+					save_event_target_as = order_target
+				}
+			}
+			mithra = {
+				d_holymithra = {
+					save_event_target_as = order_target
+				}
+			}
+			mithra_christ = {
+				d_holymithra_christ = {
+					save_event_target_as = order_target
+				}
+			}
+			mithra_sol = {
+				d_holymithra_sol = {
+					save_event_target_as = order_target
+				}
+			}
+			monophysite = {
+				d_holymonophysite = {
+					save_event_target_as = order_target
+				}
+			}
+			monothelite = {
+				d_holymonothelite = {
+					save_event_target_as = order_target
+				}
+			}
+			murjiah = {
+				d_holymurjiah = {
+					save_event_target_as = order_target
+				}
+			}
+			mutazil = {
+				d_holymutazil = {
+					save_event_target_as = order_target
+				}
+			}
+			mwari = {
+				d_holymwari = {
+					save_event_target_as = order_target
+				}
+			}
+			neoplato = {
+				d_holyneoplato = {
+					save_event_target_as = order_target
+				}
+			}
+			nestorian = {
+				d_holynestorian = {
+					save_event_target_as = order_target
+				}
+			}
+			nyau = {
+				d_holynyau = {
+					save_event_target_as = order_target
+				}
+			}
+			orthodox = {
+				d_holyorthodox = {
+					save_event_target_as = order_target
+				}
+			}
+			pelagian = {
+				d_holypelagian = {
+					save_event_target_as = order_target
+				}
+			}
+			plato_christ = {
+				d_holyplato_christ = {
+					save_event_target_as = order_target
+				}
+			}
+			plato_islam = {
+				d_holyplato_islam = {
+					save_event_target_as = order_target
+				}
+			}
+			roman_imperial = {
+				d_holyroman_imperial = {
+					save_event_target_as = order_target
+				}
+			}
+			sabellianist = {
+				d_holysabellianist = {
+					save_event_target_as = order_target
+				}
+			}
+			semipelagian = {
+				d_holysemipelagian = {
+					save_event_target_as = order_target
+				}
+			}
+			shiite = {
+				d_holyshiite = {
+					save_event_target_as = order_target
+				}
+			}
+			sol = {
+				d_holysol = {
+					save_event_target_as = order_target
+				}
+			}
+			sol_apollo = {
+				d_holysol_apollo = {
+					save_event_target_as = order_target
+				}
+			}
+			sol_christ = {
+				d_holysol_christ = {
+					save_event_target_as = order_target
+				}
+			}
+			sol_mani = {
+				d_holysol_mani = {
+					save_event_target_as = order_target
+				}
+			}
+			solomonic_alexandros = {
+				d_holysolomonic_alexandros = {
+					save_event_target_as = order_target
+				}
+			}
+			solomonic_christ = {
+				d_holysolomonic_christ = {
+					save_event_target_as = order_target
+				}
+			}
+			sunni = {
+				d_holysunni = {
+					save_event_target_as = order_target
+				}
+			}
+			unctionist = {
+				d_holyunctionist = {
+					save_event_target_as = order_target
+				}
+			}
+			yoruba = {
+				d_holyyoruba = {
+					save_event_target_as = order_target
+				}
+			}
+			zahiri = {
+				d_holyzahiri = {
+					save_event_target_as = order_target
+				}
+			}
+			zal = {
+				d_holyzal = {
+					save_event_target_as = order_target
+				}
+			}
+			zal_christ = {
+				d_holyzal_christ = {
+					save_event_target_as = order_target
+				}
+			}
+			zal_mani = {
+				d_holyzal_mani = {
+					save_event_target_as = order_target
+				}
+			}
+			zor_hindu = {
+				d_holyzor_hindu = {
+					save_event_target_as = order_target
+				}
+			}
+			zoroastrian = {
+				d_holyzoroastrian = {
+					save_event_target_as = order_target
+				}
+			}
+			ahriman_reformed = {
+				d_holyahriman_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			amun_reformed = {
+				d_holyamun_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			arab_pagan_reformed = {
+				d_holyarab_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			aten_reformed = {
+				d_holyaten_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			baal_monotheistic_reformed = {
+				d_holybaal_monotheistic_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			baltic_pagan_reformed = {
+				d_holybaltic_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			bantu_pagan_reformed = {
+				d_holybantu_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			berber_pagan_reformed = {
+				d_holyberber_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			bon_reformed = {
+				d_holybon_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			bud_zen_reformed = {
+				d_holybud_zen_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			bud_zor_reformed = {
+				d_holybud_zor_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			cathar_reformed = {
+				d_holycathar_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			celtic_christ_reformed = {
+				d_holyceltic_christ_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			celtic_pagan_reformed = {
+				d_holyceltic_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			christian_populist_reformed = {
+				d_holychristian_populist_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			chumbylat_reformed = {
+				d_holychumbylat_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			cybele_reformed = {
+				d_holycybele_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			druze_reformed = {
+				d_holydruze_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			erlik_reformed = {
+				d_holyerlik_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			ethiopian_war_reformed = {
+				d_holyethiopian_war_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			finnish_pagan_reformed = {
+				d_holyfinnish_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			german_pagan_reformed = {
+				d_holygerman_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			graeco_roman_reformed = {
+				d_holygraeco_roman_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			iberian_pagan_reformed = {
+				d_holyiberian_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			illuyanka_reformed = {
+				d_holyilluyanka_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			indohelen_reformed = {
+				d_holyindohelen_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			inuit_pagan_reformed = {
+				d_holyinuit_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			isis_reformed = {
+				d_holyisis_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			jud_ark_reformed = {
+				d_holyjud_ark_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			judaism_reformed = {
+				d_holyjudaism_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			kubera_reformed = {
+				d_holykubera_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			lubu_reformed = {
+				d_holylubu_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			mand_ruha_reformed = {
+				d_holymand_ruha_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			mandaean_reformed = {
+				d_holymandaean_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			mani_germanic_reformed = {
+				d_holymani_germanic_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			mani_slavic_reformed = {
+				d_holymani_slavic_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			mari_christ_reformed = {
+				d_holymari_christ_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			mazdakism_reformed = {
+				d_holymazdakism_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			montanist_reformed = {
+				d_holymontanist_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			murugan_reformed = {
+				d_holymurugan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			muslim_aliite_reformed = {
+				d_holymuslim_aliite_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			muslim_domination_reformed = {
+				d_holymuslim_domination_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			muslim_sufi_reformed = {
+				d_holymuslim_sufi_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			nasrani_reformed = {
+				d_holynasrani_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			norse_christ_reformed = {
+				d_holynorse_christ_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			norse_pagan_reformed = {
+				d_holynorse_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			northern_sun_reformed = {
+				d_holynorthern_sun_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			nyakalagan_reformed = {
+				d_holynyakalagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			priscillian_reformed = {
+				d_holypriscillian_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			ragnarok_reformed = {
+				d_holyragnarok_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			saura_reformed = {
+				d_holysaura_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			serer_reformed = {
+				d_holyserer_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			set_reformed = {
+				d_holyset_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			sethian_reformed = {
+				d_holysethian_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			slavic_christian_reformed = {
+				d_holyslavic_christian_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			slavic_pagan_reformed = {
+				d_holyslavic_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			sol_boreas_reformed = {
+				d_holysol_boreas_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			sol_islam_reformed = {
+				d_holysol_islam_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			sol_sahara_reformed = {
+				d_holysol_sahara_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			tao_reformed = {
+				d_holytao_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			tarhunt_reformed = {
+				d_holytarhunt_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			teiwaz_reformed = {
+				d_holyteiwaz_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			tengri_bud_reformed = {
+				d_holytengri_bud_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			tengri_confucian_reformed = {
+				d_holytengri_confucian_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			tengri_mani_reformed = {
+				d_holytengri_mani_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			tengri_pagan_reformed = {
+				d_holytengri_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			tengri_rod_reformed = {
+				d_holytengri_rod_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			vattisenyaly_reformed = {
+				d_holyvattisenyaly_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			vidharma_reformed = {
+				d_holyvidharma_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			voipel_reformed = {
+				d_holyvoipel_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			yazdanism_reformed = {
+				d_holyyazdanism_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			zande_pagan_reformed = {
+				d_holyzande_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			zulu_pagan_reformed = {
+				d_holyzulu_pagan_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+			zurvanism_reformed = {
+				d_holyzurvanism_reformed = {
+					save_event_target_as = order_target
+				}
+			}
+		}
+		ROOT = {
+			character_event = {
+				id = SoA.2864
+			}
+		}
+	}
+}
+
+character_event = {
+	id = SoA.1033
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_request_holy_order
+		}
+	}
+}
+
+character_event = {
+	id = SoA.2864
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_minor_title = title_commander
+			}
+			remove_title = title_commander
+		}
+		if = {
+			limit = {
+				has_minor_title = title_appointed_regent
+			}
+			remove_title = title_appointed_regent
+		}
+		if = {
+			limit = {
+				has_minor_title = title_patrician_heir
+			}
+			remove_title = title_patrician_heir
+		}
+		clear_wealth = event_target:order_target
+		spouse = {
+			remove_spouse = spouse
+			character_event = { id = SoA.2863 }
+		}
+		move_character = event_target:order_target
+		add_trait = celibate
+		if = {
+			limit = { is_inaccessible_trigger = yes }
+			remove_trait = in_hiding
+			clr_character_flag = do_not_disturb
+			add_character_modifier = {
+				name = went_out_of_hiding_timer
+				duration = 180
+				hidden = yes
+			}
+			character_event = { id = CM.6400 } # Notify plotters and family
 		}
 	}
 }
