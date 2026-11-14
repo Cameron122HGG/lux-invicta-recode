@@ -19,7 +19,9 @@ CS = os.path.join(REPO, 'cleanslate_beta7')
 DEPTH1 = {'decisions', 'common/governments', 'common/laws', 'common/religion_features'}
 WORLD = {'common/landed_titles', 'common/cultures', 'common/religions', 'common/dynasties', 'common/bookmarks',
          'common/province_setup', 'common/religious_titles', 'common/offmap_powers', 'common/alternate_start',
-         'common/defines', 'common/static_modifiers'}
+         'common/defines', 'common/static_modifiers',
+         'common/buildings',    # top-level keys are holding types: a block is a whole building list (LI's own buildings)
+         'common/job_actions'}  # tied to the restored CleanSlate job events and LI's translated actions
 def rd(p): return open(p, 'rb').read().decode('latin-1')
 def nc(s): return re.sub(r'#[^\n]*', '', s)
 def canon(s): return re.sub(r'\s+', ' ', re.sub(r'\s*([{}=<>])\s*', r'\1', nc(s))).strip()
@@ -114,7 +116,8 @@ for key, (lf, la, lb, ltext) in li.items():
         if '# LI:' in pre: c = 'LI-wins block in mod (skip)'
         else:
             body = nc(aio[key])
-            need = sorted({e for e in re.findall(r'\bid\s*=\s*([\w.]+)', body) if e not in mod_events and e != k} |
+            listed = {e for lst in re.findall(r'\bevents\s*=\s*\{([^}]*)\}', body) for e in re.findall(r'[\w.]+', lst)}
+            need = sorted({e for e in set(re.findall(r'\bid\s*=\s*([\w.]+)', body)) | listed if e not in mod_events and e != k} |
                           {x for x in re.findall(r'\b(\w+)\s*=', body) if x in aio_script and x not in mod_script} |
                           {x for x in re.findall(r'[\w.-]+', body) if x in aio_mods and x not in mod_mods} |
                           {x for x in re.findall(r'[\w.-]+', body) if x in aio_loc and x not in mod_loc and len(x) > 4})

@@ -4467,7 +4467,6 @@ hermetics = {
 				religion_group = jewish_group
 				religion_group = muslim
 				religion_group = zoroastrian_group
-				religion = taoist
 				religion_openly_zun_or_reformed_trigger = yes
 			}
 		}
@@ -4504,7 +4503,6 @@ hermetics = {
 
 			OR = {
 				religion_has_astrology_trigger = yes
-				religion = taoist
 				religion_group = christian
 				religion_group = muslim
 				religion_group = jewish_group
@@ -4704,7 +4702,6 @@ hermetics = {
 	startup_populate = {
 		trigger = {
 			OR = {
-				religion = taoist
 				religion_group = christian
 				religion_group = jewish_group
 				religion_group = muslim

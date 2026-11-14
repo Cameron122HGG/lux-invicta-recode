@@ -179,6 +179,13 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `obj_get_nick`, Holy Fury lodges…); 544 that use LI's world (hand port).
      **Batch 1 applied:** 298 definitions in 78 files (modifiers, traits, static modifiers, decisions,
      CBs, laws, minor titles, artifacts…). **Batch 2 (186 events)** waits for a test run.
+     Batch 1 test (+45 lines) showed two mistakes, both fixed: in `common/buildings` each top-level
+     block is a whole holding type's building list, so the swap had replaced LI's castle/city/temple/
+     tribal/nomad/hospital/family-palace/trade-post buildings with CK2Plus's (using a tech LI removed,
+     `TECH_TEMPLE_CONSTRUCTION`). The 5 building files and `00_job_actions.txt` (AIO's
+     `action_assist_arrest` lists event 940, which the mod lacks) were restored to their pre-batch
+     state, and the tool now skips both folders and checks `events = { }` lists. Dead vanilla religions
+     in AIO's religion features, societies and religion triggers were trimmed.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.
