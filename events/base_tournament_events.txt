@@ -2365,7 +2365,19 @@ character_event = {
 	desc = EVTDESC100420
 	picture = GFX_evt_joust
 
-	is_triggered_only = yes
+	is_triggered_only = yes # CleanSlate: fired from the tournament tombola; LI also fires it from on_actions (li_on_actions.txt)
+
+	trigger = { # LI: CleanSlate dropped this event's own trigger; without a rival here event_target:tournament_rival is empty
+		any_rival = { # same conditions as the random_rival below
+			has_character_flag = attending_tournament
+			same_liege = ROOT
+			NOT = { vassal_of = ROOT }
+			war = no
+			in_command = no
+			prisoner = no
+			is_incapable = no
+		}
+	}
 
 	immediate = {
 		random_rival = {
