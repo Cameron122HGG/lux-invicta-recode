@@ -2276,10 +2276,8 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = is_displaced_prince }
 
-			c_jiuquan = {
-				location = {
-					save_event_target_as = target_province
-				}
+			1513 = { # LI: Jiuquan, Lux Invicta's province from master (CleanSlate used c_jiuquan, which LI's map lacks)
+				save_event_target_as = target_province
 			}
 
 			# Spawn troops... (depending on some stuff)
@@ -3286,10 +3284,8 @@ character_event = {
 				china_spawn_commander_effect = yes
 			}
 
-			c_dunhuang = { # Dunhuang
-				location = {
-					save_event_target_as = spawn_province
-				}
+			1448 = { # LI: Dunhuang, Lux Invicta's province from master (CleanSlate used c_dunhuang, which LI's map lacks)
+				save_event_target_as = spawn_province
 			}
 
 			china_war_spawn_troops_no_disband_effect = yes
