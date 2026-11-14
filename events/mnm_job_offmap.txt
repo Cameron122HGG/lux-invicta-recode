@@ -5,7 +5,7 @@
 
 namespace = MNM
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI: CleanSlate version kept - CK2Plus AIO's copy only renamed chancellor_employer to statecraft_target, reading the target before it is saved
 character_event = {
 	id = MNM.78000
 	title = MNM.78000.t
@@ -33,6 +33,7 @@ character_event = {
 	}
 
 	immediate = {
+
 		liege = {
 			# Pick best target, if no good one add a small general opinion bonus for a time. don't fire these events while that modifier is active
 			save_event_target_as = chancellor_employer
@@ -44,7 +45,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 40
 						}
 					}
@@ -55,7 +56,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 40
 						}
 					}
@@ -73,7 +74,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 40
 						}
 					}
@@ -88,11 +89,11 @@ character_event = {
 			else_if = {
 				limit = {
 					any_neighbor_independent_ruler = {
-						shares_realm_border_with = event_target:statecraft_target
+						shares_realm_border_with = event_target:chancellor_employer
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 40
 						}
 					}
@@ -100,11 +101,11 @@ character_event = {
 
 				random_neighbor_independent_ruler = {
 					limit = {
-						shares_realm_border_with = event_target:statecraft_target
+						shares_realm_border_with = event_target:chancellor_employer
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 40
 						}
 					}
@@ -120,7 +121,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 80
 						}
 					}
@@ -131,7 +132,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 80
 						}
 					}
@@ -149,7 +150,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 80
 						}
 					}
@@ -164,11 +165,11 @@ character_event = {
 			else_if = {
 				limit = {
 					any_neighbor_independent_ruler = {
-						shares_realm_border_with = event_target:statecraft_target
+						shares_realm_border_with = event_target:chancellor_employer
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 80
 						}
 					}
@@ -176,11 +177,11 @@ character_event = {
 
 				random_neighbor_independent_ruler = {
 					limit = {
-						shares_realm_border_with = event_target:statecraft_target
+						shares_realm_border_with = event_target:chancellor_employer
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:statecraft_target
+							who = event_target:chancellor_employer
 							value < 80
 						}
 					}
