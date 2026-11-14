@@ -30,7 +30,7 @@ on_yearly_pulse = {
 			delay = 170
 
 			700 = 0
-			100 = SoA.1003 # Grand Master demands one of your sons due to debt
+			100 = 0 # was SoA.1003: Grand Master demands one of your sons due to debt (LI: Lux Invicta's SoA.1003 has no trigger and needs the holy order/FROM targets of a caller; master never fired it)
 			200 = SoA.1020 # Grand Master demands the right to build a castle in your demesne
 		}
 
