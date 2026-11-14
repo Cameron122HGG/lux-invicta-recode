@@ -14,7 +14,7 @@ setting_up_saintly_burial_site_effect = {
 	}
 
 	owner = {
-		#character_event = { id = HF.40022 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+		character_event = { id = HF.40022 }
 	}
 }
 
@@ -281,7 +281,7 @@ deciding_upon_saint_effect = {
 
 			random_realm_province = {
 				preferred_limit = { held_under_PREV = yes }
-				#province_event = { id = HF.40010 } # Checking time left to Canonization # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				province_event = { id = HF.40010 } # Checking time left to Canonization
 			}
 
 			change_variable = {

@@ -2295,7 +2295,7 @@ depose_impious_pope = {
 
 		hidden_effect = {
 			event_target:new_pope = {
-				#narrative_event = { id = HF.40094 } # The Pope loses and has to abdicate # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				narrative_event = { id = HF.40094 } # The Pope loses and has to abdicate
 			}
 		}
 	}
@@ -2322,7 +2322,7 @@ depose_impious_pope = {
 					name = failed_to_depose_impious_pope_modifier
 				}
 
-				#narrative_event = { id = HF.40095 } # The Pope wins # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				narrative_event = { id = HF.40095 } # The Pope wins
 			}
 		}
 	}

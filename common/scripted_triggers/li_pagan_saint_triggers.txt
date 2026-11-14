@@ -1,0 +1,101 @@
+# LI: which saintly bloodline family a pagan saint of each Lux Invicta reformed faith founds (Holy Fury sainthood,
+# phase 8 part 2, CLEANSLATE_PLAN.md). Holy Fury only had branches for its 10 vanilla reformed faiths;
+# HF_sainthood_events.txt now checks these triggers instead. Whether a faith can have saints at all is decided by the
+# religion_beatification feature (chosen at reformation), as in vanilla.
+
+li_saints_germanic_trigger = { # Germanic saintly bloodlines
+	OR = {
+		religion = norse_pagan_reformed
+		religion = german_pagan_reformed
+		religion = ragnarok_reformed
+		religion = teiwaz_reformed
+		religion = norse_christ_reformed
+		religion = northern_sun_reformed
+		# Celtic faiths: vanilla has no Celtic saintly bloodlines; they use the Germanic ones for now (user decision 2026-11-14)
+		religion = celtic_pagan_reformed
+		religion = iberian_pagan_reformed
+		religion = celtic_christ_reformed
+	}
+}
+
+li_saints_romuva_trigger = { # Baltic (Romuva) saintly bloodlines
+	OR = {
+		religion = baltic_pagan_reformed
+	}
+}
+
+li_saints_slavic_trigger = { # Slavic saintly bloodlines
+	OR = {
+		religion = slavic_pagan_reformed
+	}
+}
+
+li_saints_suomenusko_trigger = { # Finnish (Suomenusko) saintly bloodlines
+	OR = {
+		religion = finnish_pagan_reformed
+		religion = chumbylat_reformed
+		religion = voipel_reformed
+		religion = inuit_pagan_reformed
+	}
+}
+
+li_saints_tengri_trigger = { # Tengri saintly bloodlines
+	OR = {
+		religion = tengri_pagan_reformed
+		religion = erlik_reformed
+		religion = tengri_rod_reformed
+		religion = vattisenyaly_reformed
+		religion = tengri_bud_reformed
+		religion = tengri_confucian_reformed
+		religion = tengri_mani_reformed
+	}
+}
+
+li_saints_hellenic_trigger = { # Hellenic saintly bloodlines
+	OR = {
+		religion = graeco_roman_reformed
+		religion = cybele_reformed
+		religion = illuyanka_reformed
+		religion = tarhunt_reformed
+		religion = indohelen_reformed
+		religion = sol_boreas_reformed
+		religion = sol_sahara_reformed
+		religion = sol_islam_reformed
+		# Egyptian and Near-Eastern faiths: vanilla has no saintly bloodlines for them; they use the Hellenic ones for now (user decision 2026-11-14)
+		religion = amun_reformed
+		religion = aten_reformed
+		religion = isis_reformed
+		religion = set_reformed
+		religion = arab_pagan_reformed
+		religion = baal_monotheistic_reformed
+	}
+}
+
+li_saints_african_trigger = { # African saintly bloodlines
+	OR = {
+		religion = bantu_pagan_reformed
+		religion = nyakalagan_reformed
+		religion = zande_pagan_reformed
+		religion = zulu_pagan_reformed
+		religion = serer_reformed
+		religion = ethiopian_war_reformed
+		religion = berber_pagan_reformed
+	}
+}
+
+li_saints_zun_trigger = { # Zun saintly bloodlines
+	OR = {
+		religion = kubera_reformed
+		religion = murugan_reformed
+		religion = saura_reformed
+		religion = vidharma_reformed
+	}
+}
+
+li_saints_bon_trigger = { # Bon saintly bloodlines
+	OR = {
+		religion = bon_reformed
+		religion = lubu_reformed
+		religion = tao_reformed
+	}
+}
