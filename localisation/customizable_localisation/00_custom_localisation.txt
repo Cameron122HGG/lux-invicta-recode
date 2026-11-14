@@ -2688,7 +2688,6 @@ defined_text = { #Does not work for jain and buddhist
 		localisation_key = string_god_random
 		trigger = {
 			OR = {				
-				society_member_of = monastic_order_stoics
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
@@ -2739,14 +2738,6 @@ defined_text = {
 		}
 	}
 	text = {
-		localisation_key = String_Buddha
-		trigger = { society_member_of = monastic_order_buddhist 
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
-		}
-	}
-	text = {
 		localisation_key = String_Adi_Shankara
 		trigger = { society_member_of = monastic_order_hindu 
 			NOT = {
@@ -2757,14 +2748,6 @@ defined_text = {
 	text = {
 		localisation_key = String_Acharya_Kundakunda
 		trigger = { society_member_of = monastic_order_jain 
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
-		}
-	}
-	text = {
-		localisation_key = String_Zeno
-		trigger = { society_member_of = monastic_order_stoics
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
@@ -2798,15 +2781,10 @@ defined_text = {
 		trigger = { society_member_of = monastic_order_hindu }
 	}
 	text = {
-		localisation_key = String_agora
-		trigger = { society_member_of = monastic_order_stoics }
-	}
-	text = {
 		localisation_key = String_temple
 		trigger = {
 			OR = {
 				society_member_of = monastic_order_jain
-				society_member_of = monastic_order_buddhist
 			}
 		}
 	}
@@ -2856,14 +2834,6 @@ defined_text = {
 		}
 	}		
 	text = {
-		localisation_key = String_the_Noble_Eightfold_Path
-		trigger = { society_member_of = monastic_order_buddhist 
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
-		}
-	}
-	text = {
 		localisation_key = String_the_four_Purusartha
 		trigger = { society_member_of = monastic_order_hindu 
 			NOT = {
@@ -2874,14 +2844,6 @@ defined_text = {
 	text = {
 		localisation_key = String_the_Anuvrata
 		trigger = { society_member_of = monastic_order_jain 
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
-		}
-	}
-	text = {
-		localisation_key = String_the_Aretai
-		trigger = { society_member_of = monastic_order_stoics
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
@@ -2905,7 +2867,6 @@ defined_text = {
 		localisation_key = String_in_meditation
 		trigger = { 
 			OR = { 
-				society_member_of = monastic_order_stoics
 				is_dharmic_monastic_member_trigger = yes 
 			}
 		}
@@ -2927,7 +2888,6 @@ defined_text = {
 		localisation_key = String_Peace_be_upon_you
 		trigger = {
 			OR = {
-				society_member_of = monastic_order_stoics
 				is_dharmic_monastic_member_trigger = yes
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
@@ -2950,15 +2910,6 @@ defined_text = {
 		localisation_key = String_Shubhaste_panthanah_santu
 		trigger = {
 			is_dharmic_monastic_member_trigger = yes
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
-		}
-	}
-	text = {
-		localisation_key = String_Go_in_peace
-		trigger = {
-			society_member_of = monastic_order_stoics
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
@@ -3841,18 +3792,6 @@ defined_text = {
 			OR = {
 				religion = finnish_pagan
 				religion = finnish_pagan_reformed
-			}
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
-		}
-	}
-	text = {
-		localisation_key = String_West_African
-		trigger = { 
-			OR = {
-				religion = serer_group
-				religion = serer_group
 			}
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
@@ -5354,7 +5293,6 @@ defined_text = {
 		trigger = { 
 			NOR = {
 				society_member_of = monastic_order_jain
-				society_member_of = monastic_order_buddhist
 			}
 		}
 		localisation_key = ""
@@ -5364,7 +5302,6 @@ defined_text = {
 			society_rank == 1
 			OR = {
 				society_member_of = monastic_order_jain
-				society_member_of = monastic_order_buddhist
 			}
 		}
 		localisation_key = GetSocietyRankUpTooltip2_MOBuddhistJain_Rank1
@@ -5374,7 +5311,6 @@ defined_text = {
 			society_rank == 2
 			OR = {
 				society_member_of = monastic_order_jain
-				society_member_of = monastic_order_buddhist
 			}
 		}
 		localisation_key = GetSocietyRankUpTooltip2_MOBuddhistJain_Rank2
@@ -5384,7 +5320,6 @@ defined_text = {
 			society_rank == 3
 			OR = {
 				society_member_of = monastic_order_jain
-				society_member_of = monastic_order_buddhist
 			}
 		}
 		localisation_key = GetSocietyRankUpTooltip2_MOBuddhistJain_Rank3
@@ -5421,7 +5356,6 @@ defined_text = {
 		trigger = { 
 			NOR = {
 				society_member_of = monastic_order_jain
-				society_member_of = monastic_order_buddhist
 			}
 		}
 		localisation_key = ""
@@ -5431,7 +5365,6 @@ defined_text = {
 			society_rank == 1
 			OR = {
 				society_member_of = monastic_order_jain
-				society_member_of = monastic_order_buddhist
 			}
 		}
 		localisation_key = request_to_rank_up_within_society_virtues1
@@ -5441,7 +5374,6 @@ defined_text = {
 			society_rank == 2
 			OR = {
 				society_member_of = monastic_order_jain
-				society_member_of = monastic_order_buddhist
 			}
 		}
 		localisation_key = request_to_rank_up_within_society_virtues2
@@ -5451,7 +5383,6 @@ defined_text = {
 			society_rank == 3
 			OR = {
 				society_member_of = monastic_order_jain
-				society_member_of = monastic_order_buddhist
 			}
 		}
 		localisation_key = request_to_rank_up_within_society_virtues3
@@ -5843,8 +5774,6 @@ defined_text = {
 		trigger = {
 			OR = {
 				religion_group = muslim
-				religion = serer_group
-				religion = serer_group
 			}
 		}
 		localisation_key = String_pink_turban
@@ -6123,7 +6052,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6138,12 +6066,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Sun_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Sun_nahua
 	}
 	text = {
 		trigger = {
@@ -6167,7 +6089,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6182,12 +6103,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Mercury_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Mercury_nahua
 	}
 	text = {
 		trigger = {
@@ -6211,7 +6126,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6226,12 +6140,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Venus_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Venus_nahua
 	}
 	text = {
 		trigger = {
@@ -6255,7 +6163,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6270,12 +6177,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Earth_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Earth_nahua
 	}
 	text = {
 		trigger = {
@@ -6299,7 +6200,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6314,12 +6214,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Moon_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Moon_nahua
 	}
 	text = {
 		trigger = {
@@ -6343,7 +6237,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6359,12 +6252,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Mars_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Mars_nahua
 	}
 	text = {
 		trigger = {
@@ -6388,7 +6275,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6403,12 +6289,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Jupiter_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Jupiter_nahua
 	}
 	text = {
 		trigger = {
@@ -6432,7 +6312,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6447,12 +6326,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Saturn_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Saturn_nahua
 	}
 	text = {
 		trigger = {
@@ -6476,7 +6349,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6491,12 +6363,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Uranus_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Uranus_nahua
 	}
 	text = {
 		trigger = {
@@ -6520,7 +6386,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6535,12 +6400,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Neptune_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Neptune_nahua
 	}
 	text = {
 		trigger = {
@@ -6564,7 +6423,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6579,12 +6437,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Pluto_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Pluto_nahua
 	}
 	text = {
 		trigger = {
@@ -6608,7 +6460,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6623,12 +6474,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Mercury_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Mercury_nahua
 	}
 	text = {
 		trigger = {
@@ -6647,7 +6492,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6662,12 +6506,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Venus_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Venus_nahua
 	}
 	text = {
 		trigger = {
@@ -6686,7 +6524,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6701,12 +6538,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Mars_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Mars_nahua
 	}
 	text = {
 		trigger = {
@@ -6725,7 +6556,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6740,12 +6570,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Jupiter_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Jupiter_nahua
 	}
 	text = {
 		trigger = {
@@ -6764,7 +6588,6 @@ defined_text = {
 		trigger = {
 			NOR = {
 				religion_group = muslim
-				culture = nahua
 				AND = { #"English" names are the ones Latins would use, only Greek Hellenics would use the greek gods names.
 					OR = { religion_group = graecoroman_group religion_group = indohelen_group } 
 					culture_group = byzantine
@@ -6779,12 +6602,6 @@ defined_text = {
 			religion_group = muslim
 		}
 		localisation_key = String_Saturn_arabic
-	}
-	text = {
-		trigger = {
-			culture = nahua
-		}
-		localisation_key = String_Saturn_nahua
 	}
 	text = {
 		trigger = {
@@ -8703,16 +8520,6 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_the_artistic_sensibility
-	}
-	text = {
-		localisation_key = String_friendly_to_outsiders
-		trigger = {
-			offmap_china = {
-				offmap_ruler = {
-					culture = mongol
-				}
-			}
-		}
 	}
 }
 
@@ -14469,26 +14276,10 @@ defined_text = {
 	text = {
 		trigger = { 
 			ROOT = { 
-				religion = serer_group
-			} 
-		}
-		localisation_key = string_reformed_religion_west_african
-	}
-	text = {
-		trigger = { 
-			ROOT = { 
 				religion = bon_reformed
 			} 
 		}
 		localisation_key = string_reformed_religion_bon
-	}
-	text = {
-		trigger = { 
-			ROOT = { 
-				religion = quetzal_reformed
-			} 
-		}
-		localisation_key = string_reformed_religion_aztec
 	}
 	text = {
 		trigger = { 
@@ -14546,19 +14337,10 @@ defined_text = {
 				NOR = { 
 					religion_group = indohelen_group
 					religion = bon_reformed
-					religion = quetzal_reformed
 				} 
 			} 
 		}
 		localisation_key = string_reformed_religion_default_outro
-	}
-	text = {
-		trigger = { 
-			ROOT = { 
-				religion = quetzal_reformed
-			} 
-		}
-		localisation_key = string_reformed_religion_aztec_outro
 	}
 	text = {
 		trigger = { 
@@ -15387,19 +15169,6 @@ defined_text = {
 			}
 		}
 		localisation_key = tooltip_religion_feature_intrigue
-	}
-	text = {
-		trigger = {
-			OR = {
-				FROM = {
-						religion = serer_group
-				}
-				ROOT = {
-						religion = serer_group
-				}
-			}
-		}
-		localisation_key = tooltip_religion_feature_stewardship
 	}
 	text = {
 		trigger = {
@@ -16692,61 +16461,29 @@ defined_text = {
 defined_text = {
 	name = GetWLDieName
 
-	text = {
-		trigger = {
-			society_member_of = warrior_lodge_hellenic
-			has_character_flag = flag_warrior_lodge_die_is_krita
-		}
-		localisation_key = string_warrior_lodge_die_is_apollo
-	}
 
 	text = {
 		trigger = {
-			NOT = { society_member_of = warrior_lodge_hellenic }
 			has_character_flag = flag_warrior_lodge_die_is_krita
 		}
 		localisation_key = string_warrior_lodge_die_is_krita
 	}
-	text = {
-		trigger = {
-			society_member_of = warrior_lodge_hellenic
-			has_character_flag = flag_warrior_lodge_die_is_treta
-		}
-		localisation_key = string_warrior_lodge_die_is_athena
-	}
 
 	text = {
 		trigger = {
-			NOT = { society_member_of = warrior_lodge_hellenic }
 			has_character_flag = flag_warrior_lodge_die_is_treta
 		}
 		localisation_key = string_warrior_lodge_die_is_treta
 	}
-	text = {
-		trigger = {
-			society_member_of = warrior_lodge_hellenic
-			has_character_flag = flag_warrior_lodge_die_is_dwapara
-		}
-		localisation_key = string_warrior_lodge_die_is_hermes
-	}
 
 	text = {
 		trigger = {
-			NOT = { society_member_of = warrior_lodge_hellenic }
 			has_character_flag = flag_warrior_lodge_die_is_dwapara
 		}
 		localisation_key = string_warrior_lodge_die_is_dwapara
 	}
 	text = {
 		trigger = {
-			society_member_of = warrior_lodge_hellenic
-			has_character_flag = flag_warrior_lodge_die_is_kali
-		}
-		localisation_key = string_warrior_lodge_die_is_dionysus
-	}
-	text = {
-		trigger = {
-			NOT = { society_member_of = warrior_lodge_hellenic }
 			has_character_flag = flag_warrior_lodge_die_is_kali
 		}
 		localisation_key = string_warrior_lodge_die_is_kali
@@ -16756,61 +16493,29 @@ defined_text = {
 defined_text = {
 	name = GetWLDieBetName
 
-	text = {
-		trigger = {
-			society_member_of = warrior_lodge_hellenic
-			has_character_flag = flag_betting_on_krita
-		}
-		localisation_key = string_warrior_lodge_die_is_apollo
-	}
 
 	text = {
 		trigger = {
-			NOT = { society_member_of = warrior_lodge_hellenic }
 			has_character_flag = flag_betting_on_krita
 		}
 		localisation_key = string_warrior_lodge_die_is_krita
 	}
-	text = {
-		trigger = {
-			society_member_of = warrior_lodge_hellenic
-			has_character_flag = flag_betting_on_treta
-		}
-		localisation_key = string_warrior_lodge_die_is_athena
-	}
 
 	text = {
 		trigger = {
-			NOT = { society_member_of = warrior_lodge_hellenic }
 			has_character_flag = flag_betting_on_treta
 		}
 		localisation_key = string_warrior_lodge_die_is_treta
 	}
-	text = {
-		trigger = {
-			society_member_of = warrior_lodge_hellenic
-			has_character_flag = flag_betting_on_dwapara
-		}
-		localisation_key = string_warrior_lodge_die_is_hermes
-	}
 
 	text = {
 		trigger = {
-			NOT = { society_member_of = warrior_lodge_hellenic }
 			has_character_flag = flag_betting_on_dwapara
 		}
 		localisation_key = string_warrior_lodge_die_is_dwapara
 	}
 	text = {
 		trigger = {
-			society_member_of = warrior_lodge_hellenic
-			has_character_flag = flag_betting_on_kali
-		}
-		localisation_key = string_warrior_lodge_die_is_dionysus
-	}
-	text = {
-		trigger = {
-			NOT = { society_member_of = warrior_lodge_hellenic }
 			has_character_flag = flag_betting_on_kali
 		}
 		localisation_key = string_warrior_lodge_die_is_kali
@@ -17054,14 +16759,6 @@ defined_text =
 	{
 		trigger = 
 		{
-			culture = jurchen
-		}
-		localisation_key = Culture_Army_Jurchen
-	}
-	text = 
-	{
-		trigger = 
-		{
 			OR = {
 				culture_group = altaic
 				culture_group = iranian
@@ -17229,14 +16926,6 @@ defined_text =
 	{
 		trigger = 
 		{
-			culture = nahua
-		}
-		localisation_key = Culture_Army_Nahua
-	}	
-	text = 
-	{
-		trigger = 
-		{
 			OR = {
 				culture_group = north_germanic
 				culture = saxon 
@@ -17284,22 +16973,6 @@ defined_text =
 			culture = teutonic
 		}
 		localisation_key = Culture_Army_Suebi
-	}
-	text = 
-	{
-		trigger = 
-		{
-			culture_group = tibetan_group
-		}
-		localisation_key = Culture_Army_Tibetan
-	}
-	text = 
-	{
-		trigger = 
-		{
-			culture_group = west_african
-		}
-		localisation_key = Culture_Army_WestAfrica
 	}
 	text = 
 	{
@@ -17383,12 +17056,6 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			religion = serer_group
-		}
-		localisation_key = Holy_Order_ReformedWestAfrica
-	}
-	text = {
-		trigger = {
 			religion = slavic_pagan_reformed
 		}
 		localisation_key = Holy_Order_ReformedSlavic
@@ -17404,12 +17071,6 @@ defined_text = {
 			religion = finnish_pagan_reformed
 		}
 		localisation_key = Holy_Order_ReformedSuomenusko
-	}
-	text = {
-		trigger = {
-			religion = quetzal_reformed
-		}
-		localisation_key = Holy_Order_ReformedAztec
 	}
 }
 

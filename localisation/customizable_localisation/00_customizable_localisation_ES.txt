@@ -686,19 +686,15 @@ defined_text = {
 									NOR = {
 										culture_group = arabic # Emirato
 										culture_group = iranian # Satrapía
-										culture = mongol # Gran cacicazgo
 										culture = russian # Gran Principado
-										culture_group = west_african # Emirato
 									}
 								}
 								AND = {
 									real_tier = COUNT # Condado, Emirato (?), Thikana, Marzbanato, Beylicato
-									NOT = { culture = mongol } # Jefatura
 								}
 								AND = {
 									real_tier = BARON
 									OR = {
-										culture = mongol # Taishi
 										culture = turkish # Timar
 									}
 								}
@@ -717,22 +713,6 @@ defined_text = {
 								AND = {
 									real_tier = KING # Reino, Kanato, Sultanato
 									NOT = { culture = saxon } # Gran cacicazgo
-								}
-								AND = {
-									real_tier = DUKE
-									OR = {
-										culture_group = dravidian_group # Raj
-										culture_group = indo_aryan_group # Raj
-										culture = norse # Jarldómr
-									}
-								}
-								AND = {
-									real_tier = COUNT
-									OR = {
-										culture_group = west_african # Emirato (?)
-										culture_group = dravidian_group # Thikana
-										culture_group = indo_aryan_group # Thikana
-									}
 								}
 							}
 						}
@@ -761,38 +741,17 @@ defined_text = {
 						}
 					}
 				}
-				title = d_fraticelli # Papado fatricelli
-				title = d_hurufi # Emirato hurufita
-				title = d_ibadi # Califato ibadí
 				title = d_iconoclast # Patriarcado iconoclasta
-				title = d_jewish # Gran sacerdocio judío
-				title = d_kharijite # Califato jariyí
-				title = d_miaphysite # Papado miafisita
-				title = d_monophysite # Papado monofisita
 				title = d_monothelite # Patriarcado monotelita
 				title = d_nestorian # Patriarcado de Oriente
 				title = d_norse_pagan_reformed # Fylkirato
-				title = d_paulician # Patriarcado pauliciano
-				title = d_shiite # Califato chií
-				title = d_sunni # Califato suní
-				title = d_yazidi # Emirato yazidí
 				title = e_china_west_governor # Protectorado de las Provincias del Oeste
 				title = e_hre # Sacro Imperio romano
 				# title = e_shiite # Califato chií
 				# title = e_sunni # Califato suní
 				title = e_arabia # Imperio árabe
-				title = e_bengal # Imperio bengalí
 				title = e_byzantium # Imperio bizantino
-				title = e_deccan # Imperio decaní
-				title = e_ilkhanate # Ilkanato
-				title = e_latin_empire # Imperio latino
-				title = e_aztec_empire # Imperio azteca
-				title = e_mongol_empire # Imperio mongol
-				title = e_persia # Imperio persa
 				title = e_roman_empire # Imperio romano
-				title = e_seljuk_turks # Imperio selyúcida
-				title = e_wendish_empire # Imperio wendo
-				title = k_papacy # Papado
 				title = k_orthodox # Patriarcado ecuménico
 			}
 			NOR = {
@@ -801,19 +760,10 @@ defined_text = {
 				title = d_hanseatic_navy # Flota de cocas del Báltico
 				title = d_maghreb_corsairs # Corsarios berberiscos
 				title = d_venetian_navy # Flota de galeras del Adriático
-				title = e_golden_horde # Horda Dorada
-				title = d_aztec_pagan_reformed # Iglesia azteca
 				title = d_baltic_pagan_reformed # Iglesia romuviana
 				title = d_finnish_pagan_reformed # Iglesia suomenusko
-				title = d_manichaean # Iglesia maniquea
 				title = d_slavic_pagan_reformed # Iglesia eslava
 				title = d_tengri_pagan_reformed # Iglesia tengri
-				title = d_west_african_pagan_reformed # Iglesia africana occidental
-				title = d_zoroastrian # Iglesia zoroástrica
-				title = d_zun_pagan_reformed # Iglesia de Zun
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
 			}
 		}
 	}
@@ -831,18 +781,12 @@ defined_text = {
 									real_tier = DUKE
 									OR = {
 										culture_group = iranian # Satrapía
-										culture = mongol # Gran cacicazgo
 										culture = russian # Gran Principado
 									}
 								}
 								AND = {
-									real_tier = COUNT
-									culture = mongol # Jefatura
-								}
-								AND = {
 									real_tier = BARON # Baronía
 									NOR = {
-										culture = mongol # Taishi
 										culture = turkish # Timar
 										culture_group = iranian # Arg
 									}
@@ -858,20 +802,9 @@ defined_text = {
 								}
 								AND = {
 									real_tier = DUKE # Gran cacicazgo
-									NOR = {
-										culture_group = dravidian_group # Raj
-										culture_group = indo_aryan_group # Raj
-										culture = norse # Jarldómr
-										culture_group = west_african # Emirato
-									}
 								}
 								AND = {
 									real_tier = COUNT # Jefatura
-									NOR = {
-										culture_group = west_african # Emirato (?)
-										culture_group = dravidian_group # Thikana
-										culture_group = indo_aryan_group # Thikana
-									}
 								}
 								real_tier = BARON # Tribu, Dama
 							}
@@ -910,53 +843,23 @@ defined_text = {
 				title = d_hanseatic_navy # Flota de cocas del Báltico
 				title = d_maghreb_corsairs # Corsarios berberiscos
 				title = d_venetian_navy # Flota de galeras del Adriático
-				title = d_aztec_pagan_reformed # Iglesia azteca
 				title = d_baltic_pagan_reformed # Iglesia romuviana
 				title = d_finnish_pagan_reformed # Iglesia suomenusko
-				title = d_manichaean # Iglesia maniquea
 				title = d_slavic_pagan_reformed # Iglesia eslava
 				title = d_tengri_pagan_reformed # Iglesia tengri
-				title = d_west_african_pagan_reformed # Iglesia africana occidental
-				title = d_zoroastrian # Iglesia zoroástrica
-				title = e_golden_horde # Horda Dorada
 			}
 			NOR = {
-				title = d_fraticelli # Papado fatricelli
-				title = d_hurufi # Emirato hurufita
-				title = d_ibadi # Califato ibadí
 				title = d_iconoclast # Patriarcado iconoclasta
-				title = d_kharijite # Califato jariyí
 				title = d_monothelite # Patriarcado monotelita
 				title = d_nestorian # Patriarcado de Oriente
 				title = d_norse_pagan_reformed # Fylkirato
-				title = d_paulician # Patriarcado pauliciano
-				title = d_shiite # Califato chií
-				title = d_sunni # Califato suní
-				title = d_yazidi # Emirato yazidí
-				title = d_jewish # Gran sacerdocio judío
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = d_miaphysite # Papado miafisita
-				title = d_monophysite # Papado monofisita
-				title = d_zun_pagan_reformed # Iglesia de Zun
 				title = e_arabia # Imperio árabe
-				title = e_bengal # Imperio bengalí
 				title = e_byzantium # Imperio bizantino
-				title = e_deccan # Imperio decaní
-				title = e_ilkhanate # Ilkanato
-				title = e_latin_empire # Imperio latino
-				title = e_aztec_empire # Imperio azteca
-				title = e_mongol_empire # Imperio mongol
-				title = e_persia # Imperio persa
 				title = e_roman_empire # Imperio romano
-				title = e_seljuk_turks # Imperio selyúcida
-				title = e_timurids # Timúridas
-				title = e_wendish_empire # Imperio wendo
 				title = e_china_west_governor # Protectorado de las Provincias del Oeste
 				title = e_hre # Sacro Imperio romano
 				# title = e_shiite # Califato chií
 				# title = e_sunni # Califato suní
-				title = k_papacy # Papado
 				title = k_orthodox # Patriarcado ecuménico
 			}
 		}
@@ -981,7 +884,6 @@ defined_text = {
 									real_tier = DUKE
 									OR = {
 										culture_group = arabic # Emirato
-										culture_group = west_african # Emirato
 									}
 								}
 							}
@@ -1017,55 +919,28 @@ defined_text = {
 						}
 					}
 				}
-				title = d_fraticelli # Papado fatricelli
-				title = d_jewish # Gran sacerdocio judío
 				title = d_iconoclast # Patriarcado iconoclasta
-				title = d_miaphysite # Papado miafisita
-				title = d_monophysite # Papado monofisita
-				title = d_hurufi # Emirato hurufita
-				title = d_ibadi # Califato ibadí
-				title = d_kharijite # Califato jariyí
 				title = d_monothelite # Patriarcado monotelita
 				title = d_nestorian # Patriarcado de Oriente
 				title = d_norse_pagan_reformed # Fylkirato
-				title = d_paulician # Patriarcado pauliciano
-				title = d_shiite # Califato chií
-				title = d_sunni # Califato suní
-				title = d_yazidi # Emirato yazidí
 				title = e_arabia # Imperio árabe
-				title = e_bengal # Imperio bengalí
 				title = e_byzantium # Imperio bizantino
 				title = e_china_west_governor # Protectorado de las Provincias del Oeste
-				title = e_deccan # Imperio decaní
 				title = e_hre # Sacro Imperio romano
-				title = e_ilkhanate # Ilkanato
-				title = e_latin_empire # Imperio latino
-				title = e_aztec_empire # Imperio azteca
-				title = e_mongol_empire # Imperio mongol
-				title = e_persia # Imperio persa
 				title = e_roman_empire # Imperio romano
-				title = e_seljuk_turks # Imperio selyúcida
 				# title = e_shiite # Califato chií
 				# title = e_sunni # Califato suní
-				title = e_wendish_empire # Imperio wendo
-				title = k_papacy # Papado
 				title = k_orthodox # Patriarcado ecuménico
 			}
 			NOR = {
-				title = d_aztec_pagan_reformed # Iglesia azteca
 				title = d_baltic_pagan_reformed # Iglesia romuviana
 				title = d_finnish_pagan_reformed # Iglesia suomenusko
-				title = d_manichaean # Iglesia maniquea
 				title = d_slavic_pagan_reformed # Iglesia eslava
 				title = d_tengri_pagan_reformed # Iglesia tengri
-				title = d_west_african_pagan_reformed # Iglesia africana occidental
-				title = d_zoroastrian # Iglesia zoroástrica
-				title = d_zun_pagan_reformed # Iglesia de Zun
 				title = d_frisian_navy # Flota de cocas del mar del Norte
 				title = d_genoese_navy # Flota de galeras genovesas
 				title = d_hanseatic_navy # Flota de cocas del Báltico
 				title = d_venetian_navy # Flota de galeras del Adriático
-				title = e_golden_horde # Horda Dorada
 			}
 		}
 	}
@@ -1074,9 +949,6 @@ defined_text = {
 		trigger = {
 			OR = {
 				title = d_maghreb_corsairs # Corsarios berberiscos
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
 			}
 		}
 	}
@@ -1112,19 +984,15 @@ defined_text = {
 									NOR = {
 										culture_group = arabic # Emirato
 										culture_group = iranian # Satrapía
-										culture = mongol # Gran cacicazgo
 										culture = russian # Gran Principado
-										culture_group = west_african # Emirato
 									}
 								}
 								AND = {
 									real_tier = COUNT # Condado, Emirato (?), Thikana, Marzbanato, Beylicato
-									NOT = { culture = mongol } # Jefatura
 								}
 								AND = {
 									real_tier = BARON
 									OR = {
-										culture = mongol # Taishi
 										culture = turkish # Timar
 									}
 								}
@@ -1143,22 +1011,6 @@ defined_text = {
 								AND = {
 									real_tier = KING # Reino, Kanato, Sultanato
 									NOT = { culture = saxon } # Gran cacicazgo
-								}
-								AND = {
-									real_tier = DUKE
-									OR = {
-										culture_group = dravidian_group # Raj
-										culture_group = indo_aryan_group # Raj
-										culture = norse # Jarldómr
-									}
-								}
-								AND = {
-									real_tier = COUNT
-									OR = {
-										culture_group = west_african # Emirato (?)
-										culture_group = dravidian_group # Thikana
-										culture_group = indo_aryan_group # Thikana
-									}
 								}
 							}
 						}
@@ -1187,39 +1039,18 @@ defined_text = {
 						}
 					}
 				}
-				title = d_fraticelli # Papado fatricelli
-				title = d_hurufi # Emirato hurufita
-				title = d_ibadi # Califato ibadí
-				title = d_jewish # Gran sacerdocio judío
 				title = d_iconoclast # Patriarcado iconoclasta
-				title = d_kharijite # Califato jariyí
-				title = d_miaphysite # Papado miafisita
-				title = d_monophysite # Papado monofisita
 				title = d_monothelite # Patriarcado monotelita
 				title = d_nestorian # Patriarcado de Oriente
 				title = d_norse_pagan_reformed # Fylkirato
-				title = d_paulician # Patriarcado pauliciano
-				title = d_shiite # Califato chií
-				title = d_sunni # Califato suní
-				title = d_yazidi # Emirato yazidí
 				title = k_orthodox # Patriarcado ecuménico
-				title = k_papacy # Papado
 				title = e_china_west_governor # Protectorado de las Provincias del Oeste
 				title = e_hre # Sacro Imperio romano
 				# title = e_shiite # Califato chií
 				# title = e_sunni # Califato suní
 				title = e_arabia # Imperio árabe
-				title = e_bengal # Imperio bengalí
 				title = e_byzantium # Imperio bizantino
-				title = e_deccan # Imperio decaní
-				title = e_ilkhanate # Ilkanato
-				title = e_latin_empire # Imperio latino
-				title = e_aztec_empire # Imperio azteca
-				title = e_mongol_empire # Imperio mongol
-				title = e_persia # Imperio persa
 				title = e_roman_empire # Imperio romano
-				title = e_seljuk_turks # Imperio selyúcida
-				title = e_wendish_empire # Imperio wendo
 
 			}
 			NOR = {
@@ -1228,19 +1059,10 @@ defined_text = {
 				title = d_hanseatic_navy # Flota de cocas del Báltico
 				title = d_maghreb_corsairs # Corsarios berberiscos
 				title = d_venetian_navy # Flota de galeras del Adriático
-				title = e_golden_horde # Horda Dorada
-				title = d_aztec_pagan_reformed # Iglesia azteca
 				title = d_baltic_pagan_reformed # Iglesia romuviana
 				title = d_finnish_pagan_reformed # Iglesia suomenusko
-				title = d_manichaean # Iglesia maniquea
 				title = d_slavic_pagan_reformed # Iglesia eslava
 				title = d_tengri_pagan_reformed # Iglesia tengri
-				title = d_west_african_pagan_reformed # Iglesia africana occidental
-				title = d_zoroastrian # Iglesia zoroástrica
-				title = d_zun_pagan_reformed # Iglesia de Zun
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
 			}
 		}
 	}
@@ -1258,18 +1080,12 @@ defined_text = {
 									real_tier = DUKE
 									OR = {
 										culture_group = iranian # Satrapía
-										culture = mongol # Gran cacicazgo
 										culture = russian # Gran Principado
 									}
 								}
 								AND = {
-									real_tier = COUNT
-									culture = mongol # Jefatura
-								}
-								AND = {
 									real_tier = BARON # Baronía
 									NOR = {
-										culture = mongol # Taishi
 										culture = turkish # Timar
 										culture_group = iranian # Arg
 									}
@@ -1285,20 +1101,9 @@ defined_text = {
 								}
 								AND = {
 									real_tier = DUKE # Gran cacicazgo
-									NOR = {
-										culture_group = dravidian_group # Raj
-										culture_group = indo_aryan_group # Raj
-										culture = norse # Jarldómr
-										culture_group = west_african # Emirato
-									}
 								}
 								AND = {
 									real_tier = COUNT # Jefatura
-									NOR = {
-										culture_group = west_african # Emirato (?)
-										culture_group = dravidian_group # Thikana
-										culture_group = indo_aryan_group # Thikana
-									}
 								}
 								real_tier = BARON # Tribu, Dama
 							}
@@ -1332,54 +1137,24 @@ defined_text = {
 						}
 					}
 				}
-				title = d_fraticelli # Papado fatricelli
 				title = d_frisian_navy # Flota de cocas del mar del Norte
 				title = d_genoese_navy # Flota de galeras genovesas
 				title = d_hanseatic_navy # Flota de cocas del Báltico
-				title = d_jewish # Gran sacerdocio judío
 				title = d_maghreb_corsairs # Corsarios berberiscos
-				title = d_miaphysite # Papado miafisita
-				title = d_monophysite # Papado monofisita
 				title = d_venetian_navy # Flota de galeras del Adriático
-				title = e_golden_horde # Horda Dorada
-				title = k_papacy # Papado
 			}
 			NOR = {
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
-				title = d_aztec_pagan_reformed # Iglesia azteca
 				title = d_baltic_pagan_reformed # Iglesia romuviana
 				title = d_finnish_pagan_reformed # Iglesia suomenusko
-				title = d_manichaean # Iglesia maniquea
 				title = d_slavic_pagan_reformed # Iglesia eslava
 				title = d_tengri_pagan_reformed # Iglesia tengri
-				title = d_west_african_pagan_reformed # Iglesia africana occidental
-				title = d_zoroastrian # Iglesia zoroástrica
-				title = d_zun_pagan_reformed # Iglesia de Zun
 				title = e_arabia # Imperio árabe
-				title = e_bengal # Imperio bengalí
 				title = e_byzantium # Imperio bizantino
-				title = e_deccan # Imperio decaní
-				title = e_ilkhanate # Ilkanato
-				title = e_latin_empire # Imperio latino
-				title = e_aztec_empire # Imperio azteca
-				title = e_mongol_empire # Imperio mongol
-				title = e_persia # Imperio persa
 				title = e_roman_empire # Imperio romano
-				title = e_seljuk_turks # Imperio selyúcida
-				title = e_wendish_empire # Imperio wendo
-				title = d_hurufi # Emirato hurufita
-				title = d_ibadi # Califato ibadí
 				title = d_iconoclast # Patriarcado iconoclasta
-				title = d_kharijite # Califato jariyí
 				title = d_monothelite # Patriarcado monotelita
 				title = d_nestorian # Patriarcado de Oriente
 				title = d_norse_pagan_reformed # Fylkirato
-				title = d_paulician # Patriarcado pauliciano
-				title = d_shiite # Califato chií
-				title = d_sunni # Califato suní
-				title = d_yazidi # Emirato yazidí
 				title = e_china_west_governor # Protectorado de las Provincias del Oeste
 				title = e_hre # Sacro Imperio romano
 				# title = e_shiite # Califato chií
@@ -1408,7 +1183,6 @@ defined_text = {
 									real_tier = DUKE
 									OR = {
 										culture_group = arabic # Emirato
-										culture_group = west_african # Emirato
 									}
 								}
 							}
@@ -1444,69 +1218,29 @@ defined_text = {
 						}
 					}
 				}
-				title = d_aztec_pagan_reformed # Iglesia azteca
 				title = d_baltic_pagan_reformed # Iglesia romuviana
 				title = d_finnish_pagan_reformed # Iglesia suomenusko
-				title = d_manichaean # Iglesia maniquea
 				title = d_slavic_pagan_reformed # Iglesia eslava
 				title = d_tengri_pagan_reformed # Iglesia tengri
-				title = d_west_african_pagan_reformed # Iglesia africana occidental
-				title = d_zoroastrian # Iglesia zoroástrica
-				title = d_zun_pagan_reformed # Iglesia de Zun
 				title = e_arabia # Imperio árabe
-				title = e_bengal # Imperio bengalí
 				title = e_byzantium # Imperio bizantino
-				title = e_deccan # Imperio decaní
-				title = e_ilkhanate # Ilkanato
-				title = e_latin_empire # Imperio latino
-				title = e_aztec_empire # Imperio azteca
-				title = e_mongol_empire # Imperio mongol
-				title = e_persia # Imperio persa
 				title = e_roman_empire # Imperio romano
-				title = e_seljuk_turks # Imperio selyúcida
-				title = e_wendish_empire # Imperio wendo
 			}
 			NOR = {
-				title = d_fraticelli # Papado fatricelli
 				title = d_frisian_navy # Flota de cocas del mar del Norte
 				title = d_genoese_navy # Flota de galeras genovesas
 				title = d_hanseatic_navy # Flota de cocas del Báltico
-				title = d_jewish # Gran sacerdocio judío
 				title = d_maghreb_corsairs # Corsarios berberiscos
-				title = d_miaphysite # Papado miafisita
-				title = d_monophysite # Papado monofisita
 				title = d_venetian_navy # Flota de galeras del Adriático
-				title = e_golden_horde # Horda Dorada
-				title = k_papacy # Papado
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
-				title = d_hurufi # Emirato hurufita
-				title = d_ibadi # Califato ibadí
 				title = d_iconoclast # Patriarcado iconoclasta
-				title = d_kharijite # Califato jariyí
 				title = d_monothelite # Patriarcado monotelita
 				title = d_nestorian # Patriarcado de Oriente
 				title = d_norse_pagan_reformed # Fylkirato
-				title = d_paulician # Patriarcado pauliciano
-				title = d_shiite # Califato chií
-				title = d_sunni # Califato suní
-				title = d_yazidi # Emirato yazidí
 				title = e_china_west_governor # Protectorado de las Provincias del Oeste
 				title = e_hre # Sacro Imperio romano
 				# title = e_shiite # Califato chií
 				# title = e_sunni # Califato suní
 				title = k_orthodox # Patriarcado ecuménico
-			}
-		}
-	}
-	text = {
-		localisation_key = String_ES_los_
-		trigger = {
-			OR = {
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
 			}
 		}
 	}
@@ -1542,19 +1276,15 @@ defined_text = {
 									NOR = {
 										culture_group = arabic # Emirato
 										culture_group = iranian # Satrapía
-										culture = mongol # Gran cacicazgo
 										culture = russian # Gran Principado
-										culture_group = west_african # Emirato
 									}
 								}
 								AND = {
 									real_tier = COUNT # Condado, Emirato (?), Thikana, Marzbanato, Beylicato
-									NOT = { culture = mongol } # Jefatura
 								}
 								AND = {
 									real_tier = BARON
 									OR = {
-										culture = mongol # Taishi
 										culture = turkish # Timar
 									}
 								}
@@ -1573,22 +1303,6 @@ defined_text = {
 								AND = {
 									real_tier = KING # Reino, Kanato, Sultanato
 									NOT = { culture = saxon } # Gran cacicazgo
-								}
-								AND = {
-									real_tier = DUKE
-									OR = {
-										culture_group = dravidian_group # Raj
-										culture_group = indo_aryan_group # Raj
-										culture = norse # Jarldómr
-									}
-								}
-								AND = {
-									real_tier = COUNT
-									OR = {
-										culture_group = west_african # Emirato (?)
-										culture_group = dravidian_group # Thikana
-										culture_group = indo_aryan_group # Thikana
-									}
 								}
 							}
 						}
@@ -1617,17 +1331,10 @@ defined_text = {
 						}
 					}
 				}
-				title = d_hurufi # Emirato hurufita
-				title = d_ibadi # Califato ibadí
 				title = d_iconoclast # Patriarcado iconoclasta
-				title = d_kharijite # Califato jariyí
 				title = d_monothelite # Patriarcado monotelita
 				title = d_nestorian # Patriarcado de Oriente
 				title = d_norse_pagan_reformed # Fylkirato
-				title = d_paulician # Patriarcado pauliciano
-				title = d_shiite # Califato chií
-				title = d_sunni # Califato suní
-				title = d_yazidi # Emirato yazidí
 				title = e_china_west_governor # Protectorado de las Provincias del Oeste
 				title = e_hre # Sacro Imperio romano
 				# title = e_shiite # Califato chií
@@ -1635,41 +1342,18 @@ defined_text = {
 				title = k_orthodox # Patriarcado ecuménico
 			}
 			NOR = {
-				title = d_fraticelli # Papado fatricelli
 				title = d_frisian_navy # Flota de cocas del mar del Norte
 				title = d_genoese_navy # Flota de galeras genovesas
 				title = d_hanseatic_navy # Flota de cocas del Báltico
-				title = d_jewish # Gran sacerdocio judío
 				title = d_maghreb_corsairs # Corsarios berberiscos
-				title = d_miaphysite # Papado miafisita
-				title = d_monophysite # Papado monofisita
 				title = d_venetian_navy # Flota de galeras del Adriático
-				title = e_golden_horde # Horda Dorada
-				title = k_papacy # Papado
-				title = d_aztec_pagan_reformed # Iglesia azteca
 				title = d_baltic_pagan_reformed # Iglesia romuviana
 				title = d_finnish_pagan_reformed # Iglesia suomenusko
-				title = d_manichaean # Iglesia maniquea
 				title = d_slavic_pagan_reformed # Iglesia eslava
 				title = d_tengri_pagan_reformed # Iglesia tengri
-				title = d_west_african_pagan_reformed # Iglesia africana occidental
-				title = d_zoroastrian # Iglesia zoroástrica
-				title = d_zun_pagan_reformed # Iglesia de Zun
 				title = e_arabia # Imperio árabe
-				title = e_bengal # Imperio bengalí
 				title = e_byzantium # Imperio bizantino
-				title = e_deccan # Imperio decaní
-				title = e_ilkhanate # Ilkanato
-				title = e_latin_empire # Imperio latino
-				title = e_aztec_empire # Imperio azteca
-				title = e_mongol_empire # Imperio mongol
-				title = e_persia # Imperio persa
 				title = e_roman_empire # Imperio romano
-				title = e_seljuk_turks # Imperio selyúcida
-				title = e_wendish_empire # Imperio wendo
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
 			}
 		}
 	}
@@ -1687,18 +1371,12 @@ defined_text = {
 									real_tier = DUKE
 									OR = {
 										culture_group = iranian # Satrapía
-										culture = mongol # Gran cacicazgo
 										culture = russian # Gran Principado
 									}
 								}
 								AND = {
-									real_tier = COUNT
-									culture = mongol # Jefatura
-								}
-								AND = {
 									real_tier = BARON # Baronía
 									NOR = {
-										culture = mongol # Taishi
 										culture = turkish # Timar
 										culture_group = iranian # Arg
 									}
@@ -1714,20 +1392,9 @@ defined_text = {
 								}
 								AND = {
 									real_tier = DUKE # Gran cacicazgo
-									NOR = {
-										culture_group = dravidian_group # Raj
-										culture_group = indo_aryan_group # Raj
-										culture = norse # Jarldómr
-										culture_group = west_african # Emirato
-									}
 								}
 								AND = {
 									real_tier = COUNT # Jefatura
-									NOR = {
-										culture_group = west_african # Emirato (?)
-										culture_group = dravidian_group # Thikana
-										culture_group = indo_aryan_group # Thikana
-									}
 								}
 								real_tier = BARON # Tribu, Dama
 							}
@@ -1761,54 +1428,24 @@ defined_text = {
 						}
 					}
 				}
-				title = d_fraticelli # Papado fatricelli
 				title = d_frisian_navy # Flota de cocas del mar del Norte
 				title = d_genoese_navy # Flota de galeras genovesas
 				title = d_hanseatic_navy # Flota de cocas del Báltico
-				title = d_jewish # Gran sacerdocio judío
 				title = d_maghreb_corsairs # Corsarios berberiscos
-				title = d_miaphysite # Papado miafisita
-				title = d_monophysite # Papado monofisita
 				title = d_venetian_navy # Flota de galeras del Adriático
-				title = e_golden_horde # Horda Dorada
-				title = k_papacy # Papado
 			}
 			NOR = {
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
-				title = d_aztec_pagan_reformed # Iglesia azteca
 				title = d_baltic_pagan_reformed # Iglesia romuviana
 				title = d_finnish_pagan_reformed # Iglesia suomenusko
-				title = d_manichaean # Iglesia maniquea
 				title = d_slavic_pagan_reformed # Iglesia eslava
 				title = d_tengri_pagan_reformed # Iglesia tengri
-				title = d_west_african_pagan_reformed # Iglesia africana occidental
-				title = d_zoroastrian # Iglesia zoroástrica
-				title = d_zun_pagan_reformed # Iglesia de Zun
 				title = e_arabia # Imperio árabe
-				title = e_bengal # Imperio bengalí
 				title = e_byzantium # Imperio bizantino
-				title = e_deccan # Imperio decaní
-				title = e_ilkhanate # Ilkanato
-				title = e_latin_empire # Imperio latino
-				title = e_aztec_empire # Imperio azteca
-				title = e_mongol_empire # Imperio mongol
-				title = e_persia # Imperio persa
 				title = e_roman_empire # Imperio romano
-				title = e_seljuk_turks # Imperio selyúcida
-				title = e_wendish_empire # Imperio wendo
-				title = d_hurufi # Emirato hurufita
-				title = d_ibadi # Califato ibadí
 				title = d_iconoclast # Patriarcado iconoclasta
-				title = d_kharijite # Califato jariyí
 				title = d_monothelite # Patriarcado monotelita
 				title = d_nestorian # Patriarcado de Oriente
 				title = d_norse_pagan_reformed # Fylkirato
-				title = d_paulician # Patriarcado pauliciano
-				title = d_shiite # Califato chií
-				title = d_sunni # Califato suní
-				title = d_yazidi # Emirato yazidí
 				title = e_china_west_governor # Protectorado de las Provincias del Oeste
 				title = e_hre # Sacro Imperio romano
 				# title = e_shiite # Califato chií
@@ -1837,7 +1474,6 @@ defined_text = {
 									real_tier = DUKE
 									OR = {
 										culture_group = arabic # Emirato
-										culture_group = west_african # Emirato
 									}
 								}
 							}
@@ -1873,69 +1509,29 @@ defined_text = {
 						}
 					}
 				}
-				title = d_aztec_pagan_reformed # Iglesia azteca
 				title = d_baltic_pagan_reformed # Iglesia romuviana
 				title = d_finnish_pagan_reformed # Iglesia suomenusko
-				title = d_manichaean # Iglesia maniquea
 				title = d_slavic_pagan_reformed # Iglesia eslava
 				title = d_tengri_pagan_reformed # Iglesia tengri
-				title = d_west_african_pagan_reformed # Iglesia africana occidental
-				title = d_zoroastrian # Iglesia zoroástrica
-				title = d_zun_pagan_reformed # Iglesia de Zun
 				title = e_arabia # Imperio árabe
-				title = e_bengal # Imperio bengalí
 				title = e_byzantium # Imperio bizantino
-				title = e_deccan # Imperio decaní
-				title = e_ilkhanate # Ilkanato
-				title = e_latin_empire # Imperio latino
-				title = e_aztec_empire # Imperio azteca
-				title = e_mongol_empire # Imperio mongol
-				title = e_persia # Imperio persa
 				title = e_roman_empire # Imperio romano
-				title = e_seljuk_turks # Imperio selyúcida
-				title = e_wendish_empire # Imperio wendo
 			}
 			NOR = {
-				title = d_fraticelli # Papado fatricelli
 				title = d_frisian_navy # Flota de cocas del mar del Norte
 				title = d_genoese_navy # Flota de galeras genovesas
 				title = d_hanseatic_navy # Flota de cocas del Báltico
-				title = d_jewish # Gran sacerdocio judío
 				title = d_maghreb_corsairs # Corsarios berberiscos
-				title = d_miaphysite # Papado miafisita
-				title = d_monophysite # Papado monofisita
 				title = d_venetian_navy # Flota de galeras del Adriático
-				title = e_golden_horde # Horda Dorada
-				title = k_papacy # Papado
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
-				title = d_hurufi # Emirato hurufita
-				title = d_ibadi # Califato ibadí
 				title = d_iconoclast # Patriarcado iconoclasta
-				title = d_kharijite # Califato jariyí
 				title = d_monothelite # Patriarcado monotelita
 				title = d_nestorian # Patriarcado de Oriente
 				title = d_norse_pagan_reformed # Fylkirato
-				title = d_paulician # Patriarcado pauliciano
-				title = d_shiite # Califato chií
-				title = d_sunni # Califato suní
-				title = d_yazidi # Emirato yazidí
 				title = e_china_west_governor # Protectorado de las Provincias del Oeste
 				title = e_hre # Sacro Imperio romano
 				# title = e_shiite # Califato chií
 				# title = e_sunni # Califato suní
 				title = k_orthodox # Patriarcado ecuménico
-			}
-		}
-	}
-	text = {
-		localisation_key = String_ES_los_
-		trigger = {
-			OR = {
-				title = d_han_junks # Juncos han
-				title = d_jurchen_corsairs # Corsarios yurchen
-				title = e_timurids # Timúridas
 			}
 		}
 	}
@@ -1953,36 +1549,16 @@ defined_text = {
 		trigger = {
 			primary_title = {
 				OR = {
-					title = d_army_light # Ejército de la Luz
 					title = d_bourbon # Borbonesado
 					title = d_dauphine # Delfinado
-					title = d_finnmark # Finnmark
-					title = d_huitzilopochtli # Culto de Huitzilopochtli
-					title = d_hurufi # Emirato hurufita
-					title = d_ibadi # Califato ibadí
 					title = d_iconoclast # Patriarcado iconoclasta
-					title = d_kharijite # Califato jariyí
 					title = d_monothelite # Patriarcado monotelita
 					title = d_nestorian # Patriarcado de Oriente
-					title = d_northumberland # Northumberland
-					title = d_paulician # Patriarcado pauliciano
-					title = d_shiite # Califato chií
-					title = d_sunni # Califato suní
-					title = d_yazidi # Emirato yazidí
-					title = d_han_massive # Ejército del Dragón
 					title = e_arabia # Imperio árabe
-					title = e_bengal # Imperio bengalí
 					title = e_byzantium # Imperio bizantino
 					title = e_china_west_governor # Protectorado de las Provincias del Oeste
 					title = e_hre # Sacro Imperio romano
-					title = e_ilkhanate # Ilkanato
-					title = e_latin_empire # Imperio latino
-					title = e_aztec_empire # Imperio azteca
-					title = e_mongol_empire # Imperio mongol
-					title = e_persia # Imperio persa
 					title = e_roman_empire # Imperio romano
-					title = e_seljuk_turks # Imperio selyúcida
-					title = e_wendish_empire # Imperio wendo
 					# title = e_shiite # Califato chií
 					# title = e_sunni # Califato suní
 					title = k_orthodox # Patriarcado ecuménico
@@ -1997,89 +1573,42 @@ defined_text = {
 				OR = {
 					title = d_abyssinian_band # Banda armada de Abisinia
 					title = d_alan_band # Banda de jinetes alana
-					title = d_bektashi # Hermandad bektashi
 					title = d_bengal_band # Banda armada bengalí
 					title = d_bengal_company # Compañía de Bengala
-					title = d_bodpa_low # Banda bödpa
 					title = d_breton_band # Banda armada bretona
-					title = d_breton_company # Compañía bretona
 					title = d_bulgarian_band # Banda armada búlgara
-					title = d_bulgarian_company # Compañía búlgara
 					title = d_catalan_band # Banda armada catalana
-					title = d_catalan_company # Compañía catalana
 					title = d_company_of_st_george # Compañía de san Jorge
 					title = d_cuman_band # Banda armada cumana
-					title = d_cuman_company # Compañía cumana
-					title = d_finnish_band # Banda armada finesa
-					title = d_fraticelli # Papado fatricelli
 					title = d_frisian_navy # Flota de cocas del mar del Norte
 					title = d_genoese_navy # Flota de galeras genovesas
 					title = d_ghanan_band # Banda armada ghanesa
 					title = d_ghilman # Banda de ghilman
-					title = d_great_company # Gran compañía
-					title = d_han_large # Compañía del Fénix
-					title = d_han_low # Banda de la Grulla
-					title = d_han_mid # Compañía del Kirin
-					title = d_han_mid_low # Compañía de la Tortuga
-					title = d_han_tiny_1 # Banda de la Peonia
-					title = d_han_tiny_2 # Banda de la Orquídea
 					title = d_hanseatic_navy # Flota de cocas del Báltico
-					title = d_holy_sepulchre # Hermandad del Santo Sepulcro
 					title = d_irish_band # Banda armada irlandesa
-					title = d_jewish # Gran sacerdocio judío
-					title = d_jurchen_band # Banda yurchen
-					title = d_sami_band # Banda armada sami
 					title = d_lesser_poland # Pequeña Polonia
 					title = d_lithuanian_band # Banda armada lituana
-					title = d_little_hat_company # Compañía del sombrero
 					title = d_lombard_band # Banda armada lombarda
 					title = d_lower_lorraine # Baja Lorena
 					title = d_maghreb_corsairs # Corsarios berberiscos
 					title = d_mamluks # Compañía mameluca
 					title = d_marathi_band # Banda armada maratí
 					title = d_marathi_company # Compañía maratí
-					title = d_miaphysite # Papado miafisita
-					title = d_monophysite # Papado monofisita
-					title = d_navarrese_company # Compañía navarra
-					title = d_opsikion # Nicea
 					# title = d_nikomedeia # Nicomedia
 					title = d_nubian_band # Banda armada nubia
 					title = d_pecheneg_band # Banda armada pechenega
-					title = d_pecheneg_company # Compañía pechenega
 					title = d_rajput_band # Banda armada rajput
 					title = d_rajput_company # Compañía rajput
-					title = d_rose_company # Compañía de la Rosa
 					title = d_rus_band # Banda armada rusa
-					title = d_rus_company # Compañía rusa
-					title = d_sardinian_band # Banda sarda
-					title = d_sardinian_company # Compañía sarda
 					title = d_saxon_band # Banda armada sajona
 					title = d_scottish_band # Banda armada escocesa
-					title = d_shiite_bedouin_company # Compañía beduina
-					title = d_shiite_berber_company # Compañía tuareg
-					title = d_shiite_cuman_company # Compañía de las estepas
-					title = d_shiite_turkic_company # Compañía turcomana
-					title = d_silk_road_sentinels # Centinelas de la Ruta de la Seda
-					title = d_star_company # Compañía de la Estrella
-					title = d_sunni_bedouin_company # Compañía árabe
-					title = d_sunni_berber_company # Compañía bereber
-					title = d_sunni_cuman_company # Compañía khazar
-					title = d_sunni_turkic_company # Compañía turcomana
 					title = d_swiss_band # Banda armada suiza
-					title = d_swiss_company # Compañía suiza
 					title = d_tamil_band # Banda armada tamil
-					title = d_tangut_low # Banda tangut
-					title = d_treasure_fleet # Flota del Tesoro
 					title = d_turkic_band # Banda armada túrcica
-					title = d_turkic_company # Compañía túrcica
-					title = d_transjurania # Alta Borgoña
 					title = d_upper_lorraine # Alta Lorena
 					title = d_varangian_guard # Guardia varega
 					title = d_venetian_navy # Flota de galeras del Adriático
-					title = d_victual_brothers # Banda des frères vitaliens
 					title = d_white_company # Compañía Blanca
-					title = e_golden_horde # Horda Dorada
-					title = k_papacy # Papado
 				}
 			}
 		}
@@ -2090,23 +1619,10 @@ defined_text = {
 			primary_title = {
 				OR = {
 					# title = d_arabia_felix # Arabia Feliz
-					title = d_arabia # Arabia Pétrea
-					title = d_aztec_pagan_reformed # Iglesia azteca
 					title = d_baltic_pagan_reformed # Iglesia romuviana
 					title = d_finnish_pagan_reformed # Iglesia suomenusko
-					title = d_knights_calatrava # Orden de Calatrava
-					title = d_knights_hospitaller # Orden Hospitalaria
-					title = d_knights_santiago # Orden de Santiago
-					title = d_knights_templar # Orden del Templo
-					title = d_manichaean # Iglesia maniquea
-					title = d_saint_addai # Orden de san Tadeo
-					title = d_saint_anthony # Orden de san Antonio
 					title = d_slavic_pagan_reformed # Iglesia eslava
 					title = d_tengri_pagan_reformed # Iglesia tengri
-					title = d_teutonic_order # Orden teutónica
-					title = d_west_african_pagan_reformed # Iglesia africana occidental
-					title = d_zoroastrian # Iglesia zoroástrica
-					title = d_zun_pagan_reformed # Iglesia de Zun
 					title = e_india # India #India
 				}
 			}
@@ -2119,45 +1635,24 @@ defined_text = {
 				OR = {
 					# title = d_abbasid # Abasidas
 					# title = d_arabs # Árabes
-					title = d_ashokas_chosen # Elegidos de Ashoka
-					title = d_bulls_rishabha # Toros de Rishabhanatha
-					title = d_chosen_perkunas # Elegidos de Perkunas
 					title = d_estonia # Estonios
-					title = d_followers_arjuna # Seguidores de Arjuna
-					title = d_han_junks # Juncos han
 					# title = d_ilmenians # Ilmenianos
-					title = d_immortals # Inmortales
 					# title = d_ingers # Ingriens
-					title = d_jomsvikings # Jomsvikingos
-					title = d_jurchen_corsairs # Corsarios yurchen
 					# title = d_khazars # Jázaros
 					# title = d_kryvians # Krivianos
 					# title = d_lendians # Lendianos
 					# title = d_lettigalians # Latgalianos
 					# title = d_muromians # Muromianos
 					# title = d_obotrites # Abodrites
-					title = d_outlaws_of_the_marsh # Forajidos de los pantanos
-					title = d_persian_caravan_guards # Guardias de caravanas persas
 					# title = d_pruthenians # Prutenios
 					# title = d_severians # Severianos
-					title = d_sky_lords # Señores del Cielo
 					# title = d_sorbs # Sorabos
-					title = d_spirit_guardians # Guardianes de los espíritus
-					title = d_turkic_guard # Guardias túrcicos
-					title = d_warriors_perun # Guerreros de Perún
-					title = d_zealots # Fanáticos
-					title = d_zemgale # Semigalianos
-					title = d_zun_warriors # Caballeros del Sol
 					title = e_pirates # Piratas
 					title = e_rebels # Rebeldes
-					title = e_timurids # Timúridas
 					# title = k_al-murabitids # Almorávides
 					# title = k_almohad # Almohades
-					title = k_cumania # Cumanos
 					# title = k_fatimids # Fatimidas
 					# title = k_hammadid # Hamaditas
-					title = k_ottoman # Otomanos
-					title = k_pechenegs # Pechenegos
 					# title = k_zirid # Ziríes
 					# title = k_ziyanids # Ziyanitas
 				}
@@ -2172,7 +1667,6 @@ defined_text = {
 					title = d_aegean_islands # Islas del Egeo
 					# title = d_balearic # Baleares
 					title = d_orkney # Orcadas
-					title = d_the_isles # Hébridas
 				}
 			}
 		}
@@ -2191,17 +1685,9 @@ defined_text = {
 		trigger = {
 			primary_title = {
 				OR = {
-					title = d_huitzilopochtli # Culto de Huitzilopochtli
-					title = d_hurufi # Emirato hurufita
-					title = d_ibadi # Califato ibadí
 					title = d_iconoclast # Patriarcado iconoclasta
-					title = d_kharijite # Califato jariyí
 					title = d_monothelite # Patriarcado monotelita
 					title = d_nestorian # Patriarcado de Oriente
-					title = d_paulician # Patriarcado pauliciano
-					title = d_fraticelli # Papado fatricelli
-					title = d_shiite # Califato chií
-					title = d_sunni # Califato suní
 					title = e_china_west_governor # Protectorado de las Provincias del Oeste
 					title = e_hre # Sacro Imperio romano
 					# title = e_shiite # Califato chií
@@ -2218,82 +1704,38 @@ defined_text = {
 				OR = {
 					title = d_abyssinian_band # Banda armada abisinia
 					title = d_alan_band # Banda de jinetes alana
-					title = d_bektashi # Hermandad bektashi
 					title = d_bengal_band # Banda armada bengalí
 					title = d_bengal_company # Compañía de Bengala
-					title = d_bodpa_low # Banda bödpa
 					title = d_breton_band # Banda armada bretona
-					title = d_breton_company # Compañía bretona
 					title = d_bulgarian_band # Banda armada búlgara
-					title = d_bulgarian_company # Compañía búlgara
 					title = d_catalan_band # Banda armada catalana
-					title = d_catalan_company # Compañía catalana
 					title = d_company_of_st_george # Compañía de san Jorge
 					title = d_cuman_band # Banda armada cumana
-					title = d_cuman_company # Compañía cumana
-					title = d_finnish_band # Banda armada finesa
 					title = d_frisian_navy # Flota de cocas del mar del Norte
 					title = d_genoese_navy # Flota de galeras genovesas
 					title = d_ghanan_band # Banda armada ghanesa
 					title = d_ghilman # Banda de ghilman
-					title = d_great_company # Gran compañía
-					title = d_han_large # Compañía del Fénix
-					title = d_han_low # Banda de la Grulla
-					title = d_han_mid # Compañía del Kirin
-					title = d_han_mid_low # Compañía de la Tortuga
-					title = d_han_tiny_1 # Banda de la Peonia
-					title = d_han_tiny_2 # Banda de la Orquídea
 					title = d_hanseatic_navy # Flota de cocas del Báltico
-					title = d_holy_sepulchre # Hermandad del Santo Sepulcro
 					title = d_irish_band # Banda armada irlandesa
-					title = d_jewish # Gran sacerdocio judío
-					title = d_jurchen_band # Banda yurchen
-					title = d_sami_band # Banda armada sami
 					title = d_lithuanian_band # Banda armada lituana
-					title = d_little_hat_company # Compañía del sombrero
 					title = d_lombard_band # Banda armada lombarda
 					title = d_maghreb_corsairs # Corsarios berberiscos
 					title = d_mamluks # Compañía mameluca
 					title = d_marathi_band # Banda armada maratí
 					title = d_marathi_company # Compañía maratí
-					title = d_miaphysite # Papado miafisita #EL
-					title = d_monophysite # Papado monofisita #EL
-					title = d_navarrese_company # Compañía navarra
 					title = d_nubian_band # Banda armada nubia
 					title = d_pecheneg_band # Banda armada pechenega
-					title = d_pecheneg_company # Compañía pechenega
 					title = d_rajput_band # Banda armada rajput
 					title = d_rajput_company # Compañía rajput
-					title = d_rose_company # Compañía de la Rosa
 					title = d_rus_band # Banda armada rusa
-					title = d_rus_company # Compañía rusa
-					title = d_sardinian_band # Banda sarda
-					title = d_sardinian_company # Compañía sarda
 					title = d_saxon_band # Banda armada sajona
 					title = d_scottish_band # Banda armada escocesa
-					title = d_shiite_bedouin_company # Compañía beduina
-					title = d_shiite_berber_company # Compañía tuareg
-					title = d_shiite_cuman_company # Compañía de las estepas
-					title = d_shiite_turkic_company # Compañía turcomana
-					title = d_silk_road_sentinels # Centinelas de la Ruta de la Seda
-					title = d_star_company # Compañía de la Estrella
-					title = d_sunni_bedouin_company # Compañía árabe
-					title = d_sunni_berber_company # Compañía bereber
-					title = d_sunni_cuman_company # Compañía khazar
-					title = d_sunni_turkic_company # Compañía turcomana
 					title = d_swiss_band # Banda armada suiza
-					title = d_swiss_company # Compañía suiza
 					title = d_tamil_band # Banda armada tamil
-					title = d_tangut_low # Banda tangut
-					title = d_treasure_fleet # Flota del Tesoro
 					title = d_turkic_band # Banda armada túrcica
-					title = d_turkic_company # Compañía túrcica
 					title = d_varangian_guard # Guardia varega
 					title = d_venetian_navy # Flota de galeras del Adriático
-					title = d_victual_brothers # Banda des frères vitaliens
 					title = d_white_company # Compañía Blanca
-					title = e_golden_horde # Horda Dorada
-					title = k_papacy # Papado #EL
 				}
 			}
 		}
@@ -2303,36 +1745,14 @@ defined_text = {
 		trigger = {
 			primary_title = {
 				OR = {
-					title = d_army_light # Ejército de la Luz
-					title = d_aztec_pagan_reformed # Iglesia azteca
 					title = d_baltic_pagan_reformed # Iglesia romuviana
 					title = d_finnish_pagan_reformed # Iglesia suomenusko
-					title = d_han_massive # Ejército del Dragon
-					title = d_knights_calatrava # Orden de Calatrava
-					title = d_knights_hospitaller # Orden hospitalaria
-					title = d_knights_santiago # Orden de Santiago
-					title = d_knights_templar # Orden del Templo
-					title = d_manichaean # Iglesia maniquea
-					title = d_saint_addai # Orden de san Tadeo
-					title = d_saint_anthony # Orden de san Antonio
 					title = d_slavic_pagan_reformed # Iglesia eslava
 					title = d_tengri_pagan_reformed # Iglesia tengri
-					title = d_teutonic_order # Orden teutónica
-					title = d_west_african_pagan_reformed # Iglesia africana occidental
-					title = d_zoroastrian # Iglesia zoroástrica
-					title = d_zun_pagan_reformed # Iglesia de Zun
 					title = e_arabia # Imperio árabe
-					title = e_bengal # Imperio bengalí
 					title = e_byzantium # Imperio bizantino
-					title = e_ilkhanate # Ilkanato
 					title = e_india # India #LA
-					title = e_latin_empire # Imperio latino
-					title = e_aztec_empire # Imperio azteca
-					title = e_mongol_empire # Imperio mongol
-					title = e_persia # Imperio persa
 					title = e_roman_empire # Imperio romano
-					title = e_seljuk_turks # Imperio selyúcida
-					title = e_wendish_empire # Imperio wendo
 				}
 			}
 		}
@@ -2345,18 +1765,10 @@ defined_text = {
 					# title = d_abbasid # Abasidas
 					title = d_aegean_islands # Islas del Egeo #LAS
 					# title = d_arabs # Árabes
-					title = d_ashokas_chosen # Elegidos de Ashoka
 					# title = d_balearic # Baleares #LAS
-					title = d_bulls_rishabha # Toros de Rishabhanatha
-					title = d_chosen_perkunas # Elegidos de Perkunas
 					title = d_estonia # Estonios
-					title = d_followers_arjuna # Seguidores de Arjuna
-					title = d_han_junks # Juncos han
 					# title = d_ilmenians # Ilmenianos
-					title = d_immortals # Inmortales
 					# title = d_ingers # Ingriens
-					title = d_jomsvikings # Jomsvikingos
-					title = d_jurchen_corsairs # Corsarios yurchen
 					# title = d_khazars # Jázaros
 					# title = d_kryvians # Krivianos
 					# title = d_lendians # Lendianos
@@ -2364,29 +1776,15 @@ defined_text = {
 					# title = d_muromians # Muromianos
 					# title = d_obotrites # Abodrites
 					title = d_orkney # Orcadas #LAS
-					title = d_outlaws_of_the_marsh # Forajidos de los pantanos (?)
-					title = d_persian_caravan_guards # Guardias de caravanas persas
 					# title = d_pruthenians # Prutenios
 					# title = d_severians # Severianos
-					title = d_sky_lords # Señores del Cielo
 					# title = d_sorbs # Sorabos
-					title = d_spirit_guardians # Guardianes de los espíritus
-					title = d_turkic_guard # Guardias túrcicos
-					title = d_warriors_perun # Guerreros de Perún
-					title = d_the_isles # Hébridas #LAS
-					title = d_zealots # Fanáticos
-					title = d_zemgale # Semigalianos
-					title = d_zun_warriors # Caballeros del Sol
 					title = e_pirates # Piratas
 					title = e_rebels # Rebeldes
-					title = e_timurids # Timúridas
 					# title = k_al-murabitids # Almorávides
 					# title = k_almohad # Almohades
-					title = k_cumania # Cumanos
 					# title = k_fatimids # Fatimidas
 					# title = k_hammadid # Hamaditas
-					title = k_ottoman # Otomanos
-					title = k_pechenegs # Pechenegos
 					# title = k_zirid # Ziríes
 					# title = k_ziyanids # Ziyanitas
 				}
@@ -2401,7 +1799,6 @@ defined_text = {
 					title = d_aegean_islands # Islas del Egeo
 					# title = d_balearic # Baleares
 					title = d_orkney # Orcadas
-					title = d_the_isles # Hébridas
 				}
 			}
 		}
@@ -2420,38 +1817,18 @@ defined_text = {
 		trigger = {
 			primary_title = {
 				OR = {
-					title = d_huitzilopochtli # Culto de Huitzilopochtli
-					title = d_hurufi # Emirato hurufita
-					title = d_ibadi # Califato ibadí
 					title = d_iconoclast # Patriarcado iconoclasta
-					title = d_kharijite # Califato jariyí
 					title = d_monothelite # Patriarcado monotelita
 					title = d_nestorian # Patriarcado de Oriente
-					title = d_paulician # Patriarcado pauliciano
-					title = d_fraticelli # Papado fatricelli
-					title = d_shiite # Califato chií
-					title = d_sunni # Califato suní
-					title = d_army_light # Ejército de la Luz
-					title = d_aztec_pagan_reformed # Iglesia azteca
 					title = d_baltic_pagan_reformed # Iglesia romuviana
 					title = d_finnish_pagan_reformed # Iglesia suomenusko
-					title = d_han_massive # Ejército del Dragon
 					title = e_arabia # Imperio árabe
-					title = e_bengal # Imperio bengalí
 					title = e_byzantium # Imperio bizantino
-					title = e_ilkhanate # Ilkanato
-					title = e_latin_empire # Imperio latino
-					title = e_aztec_empire # Imperio azteca
-					title = e_mongol_empire # Imperio mongol
-					title = e_persia # Imperio persa
 					title = e_roman_empire # Imperio romano
-					title = e_seljuk_turks # Imperio selyúcida
-					title = e_wendish_empire # Imperio wendo
 					title = e_china_west_governor # Protectorado de las Provincias del Oeste
 					title = e_hre # Sacro Imperio romano
 					# title = e_shiite # Califato chií
 					# title = e_sunni # Califato suní
-					title = k_papacy # Papado
 					title = k_orthodox # Patriarcado ecuménico
 				}
 			}
@@ -2464,95 +1841,41 @@ defined_text = {
 				OR = {
 					title = d_abyssinian_band # Banda armada abisinia
 					title = d_alan_band # Banda de jinetes alana
-					title = d_bektashi # Hermandad bektashi
 					title = d_bengal_band # Banda armada bengalí
 					title = d_bengal_company # Compañía de Bengala
-					title = d_bodpa_low # Banda bödpa
 					title = d_breton_band # Banda armada bretona
-					title = d_breton_company # Compañía bretona
 					title = d_bulgarian_band # Banda armada búlgara
-					title = d_bulgarian_company # Compañía búlgara
 					title = d_catalan_band # Banda armada catalana
-					title = d_catalan_company # Compañía catalana
 					title = d_company_of_st_george # Compañía de san Jorge
 					title = d_cuman_band # Banda armada cumana
-					title = d_cuman_company # Compañía cumana
-					title = d_finnish_band # Banda armada finesa
 					title = d_frisian_navy # Flota de cocas del mar del Norte
 					title = d_genoese_navy # Flota de galeras genovesas
 					title = d_ghanan_band # Banda armada ghanesa
 					title = d_ghilman # Banda de ghilman
-					title = d_knights_calatrava # Orden de Calatrava
-					title = d_knights_hospitaller # Orden hospitalaria
-					title = d_knights_santiago # Orden de Santiago
-					title = d_knights_templar # Orden del Templo
-					title = d_manichaean # Iglesia maniquea
 					title = d_slavic_pagan_reformed # Iglesia eslava
 					title = d_tengri_pagan_reformed # Iglesia tengri
-					title = d_west_african_pagan_reformed # Iglesia africana occidental
-					title = d_zoroastrian # Iglesia zoroástrica
-					title = d_zun_pagan_reformed # Iglesia de Zun
-					title = d_saint_addai # Orden de san Tadeo
-					title = d_saint_anthony # Orden de san Antonio
-					title = d_teutonic_order # Orden teutónica
-					title = d_great_company # Gran compañía
-					title = d_han_large # Compañía del Fénix
-					title = d_han_low # Banda de la Grulla
-					title = d_han_mid # Compañía del Kirin
-					title = d_han_mid_low # Compañía de la Tortuga
-					title = d_han_tiny_1 # Banda de la Peonia
-					title = d_han_tiny_2 # Banda de la Orquídea
 					title = d_hanseatic_navy # Flota de cocas del Báltico
-					title = d_holy_sepulchre # Hermandad del Santo Sepulcro
 					title = d_irish_band # Banda armada irlandesa
-					title = d_jewish # Gran sacerdocio judío
-					title = d_jurchen_band # Banda yurchen
-					title = d_sami_band # Banda armada sami
 					title = d_lithuanian_band # Banda armada lituana
-					title = d_little_hat_company # Compañía del sombrero
 					title = d_lombard_band # Banda armada lombarda
 					title = d_maghreb_corsairs # Corsarios berberiscos
 					title = d_mamluks # Compañía mameluca
 					title = d_marathi_band # Banda armada maratí
 					title = d_marathi_company # Compañía maratí
-					title = d_miaphysite # Papado miafisita #EL
-					title = d_monophysite # Papado monofisita #EL
-					title = d_navarrese_company # Compañía navarra
 					title = d_nubian_band # Banda armada nubia
 					title = d_pecheneg_band # Banda armada pechenega
-					title = d_pecheneg_company # Compañía pechenega
 					title = d_rajput_band # Banda armada rajput
 					title = d_rajput_company # Compañía rajput
-					title = d_rose_company # Compañía de la Rosa
 					title = d_rus_band # Banda armada rusa
-					title = d_rus_company # Compañía rusa
-					title = d_sardinian_band # Banda sarda
-					title = d_sardinian_company # Compañía sarda
 					title = d_saxon_band # Banda armada sajona
 					title = d_scottish_band # Banda armada escocesa
-					title = d_shiite_bedouin_company # Compañía beduina
-					title = d_shiite_berber_company # Compañía tuareg
-					title = d_shiite_cuman_company # Compañía de las estepas
-					title = d_shiite_turkic_company # Compañía turcomana
-					title = d_silk_road_sentinels # Centinelas de la Ruta de la Seda
-					title = d_star_company # Compañía de la Estrella
-					title = d_sunni_bedouin_company # Compañía árabe
-					title = d_sunni_berber_company # Compañía bereber
-					title = d_sunni_cuman_company # Compañía khazar
-					title = d_sunni_turkic_company # Compañía turcomana
 					title = d_swiss_band # Banda armada suiza
-					title = d_swiss_company # Compañía suiza
 					title = d_tamil_band # Banda armada tamil
-					title = d_tangut_low # Banda tangut
-					title = d_treasure_fleet # Flota del Tesoro
 					title = d_turkic_band # Banda armada túrcica
-					title = d_turkic_company # Compañía túrcica
 					title = d_varangian_guard # Guardia varega
 					title = d_venetian_navy # Flota de galeras del Adriático
-					title = d_victual_brothers # Banda des frères vitaliens
 					title = d_white_company # Compañía Blanca
 					title = e_india # India
-					title = e_golden_horde # Horda Dorada
 				}
 			}
 		}
@@ -2564,45 +1887,24 @@ defined_text = {
 				OR = {
 					# title = d_abbasid # Abasidas
 					# title = d_arabs # Árabes
-					title = d_ashokas_chosen # Elegidos de Ashoka
-					title = d_bulls_rishabha # Toros de Rishabhanatha
-					title = d_chosen_perkunas # Elegidos de Perkunas
 					title = d_estonia # Estonios
-					title = d_followers_arjuna # Seguidores de Arjuna
-					title = d_han_junks # Juncos han
 					# title = d_ilmenians # Ilmenianos
-					title = d_immortals # Inmortales
 					# title = d_ingers # Ingriens
-					title = d_jomsvikings # Jomsvikingos
-					title = d_jurchen_corsairs # Corsarios yurchen
 					# title = d_khazars # Jázaros
 					# title = d_kryvians # Krivianos
 					# title = d_lendians # Lendianos
 					# title = d_lettigalians # Latgalianos
 					# title = d_muromians # Muromianos
 					# title = d_obotrites # Abodritas
-					title = d_outlaws_of_the_marsh # Forajidos de los pantanos
-					title = d_persian_caravan_guards # Guardias de caravanas persas
 					# title = d_pruthenians # Prutenios
 					# title = d_severians # Severianos
-					title = d_sky_lords # Señores del Cielo
 					# title = d_sorbs # Sorabos
-					title = d_spirit_guardians # Guardianes de los espíritus
-					title = d_turkic_guard # Guardias túrcicos
-					title = d_warriors_perun # Guerreros de Perún
-					title = d_zealots # Fanáticos
-					title = d_zemgale # Semigalianos
-					title = d_zun_warriors # Caballeros del Sol
 					title = e_pirates # Piratas
 					title = e_rebels # Rebeldes
-					title = e_timurids # Timúridas
 					# title = k_al-murabitids # Almorávides
 					# title = k_almohad # Almohades
-					title = k_cumania # Cumanos
 					# title = k_fatimids # Fatimidas
 					# title = k_hammadid # Hamaditas
-					title = k_ottoman # Otomanos
-					title = k_pechenegs # Pechenegos
 					# title = k_zirid # Ziríes
 					# title = k_ziyanids # Ziyanitas
 				}
@@ -2617,7 +1919,6 @@ defined_text = {
 					title = d_aegean_islands # Islas del Egeo
 					# title = d_balearic # Baleares
 					title = d_orkney # Orcadas
-					title = d_the_isles # Hébridas
 				}
 			}
 		}
@@ -2642,9 +1943,6 @@ defined_text = {
 				society_member_of = monastic_order_monophysite
 				society_member_of = monastic_order_jain
 				society_member_of = monastic_order_hindu
-				society_member_of = monastic_order_buddhist
-				society_member_of = secret_religious_society_norse_pagan
-				society_member_of = secret_religious_society_norse_pagan_reformed
 			}
 		}
 	}
@@ -2654,54 +1952,6 @@ defined_text = {
 			OR = {
 				society_member_of = the_cult_of_kali
 				society_member_of = hermetics
-				society_member_of = secret_religious_society_aztec
-				society_member_of = secret_religious_society_aztec_reformed
-				society_member_of = secret_religious_society_baltic_pagan
-				society_member_of = secret_religious_society_baltic_pagan_reformed
-				society_member_of = secret_religious_society_bogomilist
-				society_member_of = secret_religious_society_bon
-				society_member_of = secret_religious_society_buddhist
-				society_member_of = secret_religious_society_cathar
-				society_member_of = secret_religious_society_catholic
-				society_member_of = secret_religious_society_druze
-				society_member_of = secret_religious_society_finnish_pagan
-				society_member_of = secret_religious_society_finnish_pagan_reformed
-				society_member_of = secret_religious_society_fraticelli
-				society_member_of = secret_religious_society_hindu
-				society_member_of = secret_religious_society_hurufi
-				society_member_of = secret_religious_society_ibadi
-				society_member_of = secret_religious_society_iconoclast
-				society_member_of = secret_religious_society_jain
-				society_member_of = secret_religious_society_jewish
-				society_member_of = secret_religious_society_karaite
-				society_member_of = secret_religious_society_kharijite
-				society_member_of = secret_religious_society_khurmazta
-				society_member_of = secret_religious_society_lollard
-				society_member_of = secret_religious_society_manichaean
-				society_member_of = secret_religious_society_mazdaki
-				society_member_of = secret_religious_society_messalian
-				society_member_of = secret_religious_society_miaphysite
-				society_member_of = secret_religious_society_monophysite
-				society_member_of = secret_religious_society_monothelite
-				society_member_of = secret_religious_society_nestorian
-				society_member_of = secret_religious_society_orthodox
-				society_member_of = secret_religious_society_paulician
-				society_member_of = secret_religious_society_samaritan
-				society_member_of = secret_religious_society_shiite
-				society_member_of = secret_religious_society_slavic_pagan
-				society_member_of = secret_religious_society_slavic_pagan_reformed
-				society_member_of = secret_religious_society_sunni
-				society_member_of = secret_religious_society_taoist
-				society_member_of = secret_religious_society_tengri_pagan
-				society_member_of = secret_religious_society_tengri_pagan_reformed
-				society_member_of = secret_religious_society_waldensian
-				society_member_of = secret_religious_society_west_african_pagan
-				society_member_of = secret_religious_society_west_african_pagan_reformed
-				society_member_of = secret_religious_society_yazidi
-				society_member_of = secret_religious_society_zikri
-				society_member_of = secret_religious_society_zoroastrian
-				society_member_of = secret_religious_society_zun_pagan
-				society_member_of = secret_religious_society_zun_pagan_reformed
 			}
 		}
 	}
@@ -2726,9 +1976,6 @@ defined_text = {
 				society_member_of = monastic_order_monophysite
 				society_member_of = monastic_order_jain
 				society_member_of = monastic_order_hindu
-				society_member_of = monastic_order_buddhist
-				society_member_of = secret_religious_society_norse_pagan
-				society_member_of = secret_religious_society_norse_pagan_reformed
 			}
 		}
 	}
@@ -2739,57 +1986,8 @@ defined_text = {
 			OR = {
 				society_member_of = the_assassins
 				society_member_of = the_satanists
-				society_member_of = the_cold_ones
 				society_member_of = the_plaguebringers
 				society_member_of = hermetics
-				society_member_of = secret_religious_society_aztec
-				society_member_of = secret_religious_society_aztec_reformed
-				society_member_of = secret_religious_society_baltic_pagan
-				society_member_of = secret_religious_society_baltic_pagan_reformed
-				society_member_of = secret_religious_society_bogomilist
-				society_member_of = secret_religious_society_bon
-				society_member_of = secret_religious_society_buddhist
-				society_member_of = secret_religious_society_cathar
-				society_member_of = secret_religious_society_catholic
-				society_member_of = secret_religious_society_druze
-				society_member_of = secret_religious_society_finnish_pagan
-				society_member_of = secret_religious_society_finnish_pagan_reformed
-				society_member_of = secret_religious_society_fraticelli
-				society_member_of = secret_religious_society_hindu
-				society_member_of = secret_religious_society_hurufi
-				society_member_of = secret_religious_society_ibadi
-				society_member_of = secret_religious_society_iconoclast
-				society_member_of = secret_religious_society_jain
-				society_member_of = secret_religious_society_jewish
-				society_member_of = secret_religious_society_karaite
-				society_member_of = secret_religious_society_kharijite
-				society_member_of = secret_religious_society_khurmazta
-				society_member_of = secret_religious_society_lollard
-				society_member_of = secret_religious_society_manichaean
-				society_member_of = secret_religious_society_mazdaki
-				society_member_of = secret_religious_society_messalian
-				society_member_of = secret_religious_society_miaphysite
-				society_member_of = secret_religious_society_monophysite
-				society_member_of = secret_religious_society_monothelite
-				society_member_of = secret_religious_society_nestorian
-				society_member_of = secret_religious_society_orthodox
-				society_member_of = secret_religious_society_paulician
-				society_member_of = secret_religious_society_samaritan
-				society_member_of = secret_religious_society_shiite
-				society_member_of = secret_religious_society_slavic_pagan
-				society_member_of = secret_religious_society_slavic_pagan_reformed
-				society_member_of = secret_religious_society_sunni
-				society_member_of = secret_religious_society_taoist
-				society_member_of = secret_religious_society_tengri_pagan
-				society_member_of = secret_religious_society_tengri_pagan_reformed
-				society_member_of = secret_religious_society_waldensian
-				society_member_of = secret_religious_society_west_african_pagan
-				society_member_of = secret_religious_society_west_african_pagan_reformed
-				society_member_of = secret_religious_society_yazidi
-				society_member_of = secret_religious_society_zikri
-				society_member_of = secret_religious_society_zoroastrian
-				society_member_of = secret_religious_society_zun_pagan
-				society_member_of = secret_religious_society_zun_pagan_reformed
 			}
 		}
 	}
@@ -2812,58 +2010,8 @@ defined_text = {
 			OR = {
 				society_member_of = the_assassins
 				society_member_of = the_satanists
-				society_member_of = the_cold_ones
 				society_member_of = the_plaguebringers
 				society_member_of = hermetics
-				society_member_of = secret_religious_society_aztec
-				society_member_of = secret_religious_society_aztec_reformed
-				society_member_of = secret_religious_society_baltic_pagan
-				society_member_of = secret_religious_society_baltic_pagan_reformed
-				society_member_of = secret_religious_society_bogomilist
-				society_member_of = secret_religious_society_bon
-				society_member_of = secret_religious_society_buddhist
-				society_member_of = secret_religious_society_cathar
-				society_member_of = secret_religious_society_catholic
-				society_member_of = secret_religious_society_druze
-				society_member_of = secret_religious_society_finnish_pagan
-				society_member_of = secret_religious_society_finnish_pagan_reformed
-				society_member_of = secret_religious_society_fraticelli
-				society_member_of = secret_religious_society_hindu
-				society_member_of = secret_religious_society_hurufi
-				society_member_of = secret_religious_society_ibadi
-				society_member_of = secret_religious_society_iconoclast
-				society_member_of = secret_religious_society_jain
-				society_member_of = secret_religious_society_jewish
-				society_member_of = secret_religious_society_karaite
-				society_member_of = secret_religious_society_kharijite
-				society_member_of = secret_religious_society_khurmazta
-				society_member_of = secret_religious_society_lollard
-				society_member_of = secret_religious_society_manichaean
-				society_member_of = secret_religious_society_mazdaki
-				society_member_of = secret_religious_society_messalian
-				society_member_of = secret_religious_society_miaphysite
-				society_member_of = secret_religious_society_monophysite
-				society_member_of = secret_religious_society_monothelite
-				society_member_of = secret_religious_society_nestorian
-				society_member_of = secret_religious_society_norse_pagan_reformed
-				society_member_of = secret_religious_society_orthodox
-				society_member_of = secret_religious_society_paulician
-				society_member_of = secret_religious_society_samaritan
-				society_member_of = secret_religious_society_shiite
-				society_member_of = secret_religious_society_slavic_pagan
-				society_member_of = secret_religious_society_slavic_pagan_reformed
-				society_member_of = secret_religious_society_sunni
-				society_member_of = secret_religious_society_taoist
-				society_member_of = secret_religious_society_tengri_pagan
-				society_member_of = secret_religious_society_tengri_pagan_reformed
-				society_member_of = secret_religious_society_waldensian
-				society_member_of = secret_religious_society_west_african_pagan
-				society_member_of = secret_religious_society_west_african_pagan_reformed
-				society_member_of = secret_religious_society_yazidi
-				society_member_of = secret_religious_society_zikri
-				society_member_of = secret_religious_society_zoroastrian
-				society_member_of = secret_religious_society_zun_pagan
-				society_member_of = secret_religious_society_zun_pagan_reformed
 			}
 		}
 	}
@@ -2871,7 +2019,6 @@ defined_text = {
 		localisation_key = String_ES_La_
 		trigger = {
 			OR = {
-				society_member_of = secret_religious_society_norse_pagan
 				society_member_of = monastic_order_benedictine
 				society_member_of = monastic_order_dominican
 				society_member_of = monastic_order_orthodox
@@ -2879,7 +2026,6 @@ defined_text = {
 				society_member_of = monastic_order_monophysite
 				society_member_of = monastic_order_jain
 				society_member_of = monastic_order_hindu
-				society_member_of = monastic_order_buddhist
 				society_member_of = the_trollcrafters
 				society_member_of = the_cult_of_kali
 			}
@@ -2900,58 +2046,9 @@ defined_text = {
 			OR = {
 				society_member_of = the_assassins
 				society_member_of = the_satanists
-				society_member_of = the_cold_ones
 				society_member_of = the_cult_of_kali
 				society_member_of = the_plaguebringers
 				society_member_of = hermetics
-				society_member_of = secret_religious_society_aztec
-				society_member_of = secret_religious_society_aztec_reformed
-				society_member_of = secret_religious_society_baltic_pagan
-				society_member_of = secret_religious_society_baltic_pagan_reformed
-				society_member_of = secret_religious_society_bogomilist
-				society_member_of = secret_religious_society_bon
-				society_member_of = secret_religious_society_buddhist
-				society_member_of = secret_religious_society_cathar
-				society_member_of = secret_religious_society_catholic
-				society_member_of = secret_religious_society_druze
-				society_member_of = secret_religious_society_finnish_pagan
-				society_member_of = secret_religious_society_finnish_pagan_reformed
-				society_member_of = secret_religious_society_fraticelli
-				society_member_of = secret_religious_society_hindu
-				society_member_of = secret_religious_society_hurufi
-				society_member_of = secret_religious_society_ibadi
-				society_member_of = secret_religious_society_iconoclast
-				society_member_of = secret_religious_society_jain
-				society_member_of = secret_religious_society_jewish
-				society_member_of = secret_religious_society_karaite
-				society_member_of = secret_religious_society_kharijite
-				society_member_of = secret_religious_society_khurmazta
-				society_member_of = secret_religious_society_lollard
-				society_member_of = secret_religious_society_manichaean
-				society_member_of = secret_religious_society_mazdaki
-				society_member_of = secret_religious_society_messalian
-				society_member_of = secret_religious_society_miaphysite
-				society_member_of = secret_religious_society_monophysite
-				society_member_of = secret_religious_society_monothelite
-				society_member_of = secret_religious_society_nestorian
-				society_member_of = secret_religious_society_orthodox
-				society_member_of = secret_religious_society_paulician
-				society_member_of = secret_religious_society_samaritan
-				society_member_of = secret_religious_society_shiite
-				society_member_of = secret_religious_society_slavic_pagan
-				society_member_of = secret_religious_society_slavic_pagan_reformed
-				society_member_of = secret_religious_society_sunni
-				society_member_of = secret_religious_society_taoist
-				society_member_of = secret_religious_society_tengri_pagan
-				society_member_of = secret_religious_society_tengri_pagan_reformed
-				society_member_of = secret_religious_society_waldensian
-				society_member_of = secret_religious_society_west_african_pagan
-				society_member_of = secret_religious_society_west_african_pagan_reformed
-				society_member_of = secret_religious_society_yazidi
-				society_member_of = secret_religious_society_zikri
-				society_member_of = secret_religious_society_zoroastrian
-				society_member_of = secret_religious_society_zun_pagan
-				society_member_of = secret_religious_society_zun_pagan_reformed
 			}
 		}
 	}
@@ -2967,9 +2064,6 @@ defined_text = {
 				society_member_of = monastic_order_monophysite
 				society_member_of = monastic_order_jain
 				society_member_of = monastic_order_hindu
-				society_member_of = monastic_order_buddhist
-				society_member_of = secret_religious_society_norse_pagan
-				society_member_of = secret_religious_society_norse_pagan_reformed
 			}
 		}
 	}
@@ -3065,9 +2159,6 @@ defined_text = {
 							religion_openly_aztec_or_reformed_trigger = yes # Petlacalcatl
 							culture = bodpa # Gnyer
 							culture = han # Tesorero
-							culture = jurchen # Tesorero
-							culture = tangut # Gnyer
-							religion = taoist # Tesorero
 							religion_group = zoroastrian_group # Darik-pat
 						}
 					}
@@ -3098,7 +2189,6 @@ defined_text = {
 					liege = {
 						OR = {
 							culture = bodpa # Gnyer
-							culture = tangut # Gnyer
 						}
 					}
 				}
@@ -3170,9 +2260,6 @@ defined_text = {
 							religion_openly_aztec_or_reformed_trigger = yes # Petlacalcatl
 							culture = bodpa # Gnyer
 							culture = han # Tesorero
-							culture = jurchen # Tesorero
-							culture = tangut # Gnyer
-							religion = taoist # Tesorero
 							religion_group = zoroastrian_group # Darik-pat
 						}
 					}
@@ -3204,7 +2291,6 @@ defined_text = {
 						OR = {
 							culture = bodpa # Banchenmo
 							religion_openly_norse_or_reformed_trigger = yes # Vidente
-							culture = tangut # Banchenmo
 							religion_group = indian_group # Upadhyaya
 						}
 					}
@@ -3214,7 +2300,6 @@ defined_text = {
 					liege = {
 						OR = {
 							culture = bodpa # Gnyer
-							culture = tangut # Gnyer
 						}
 					}
 				}
@@ -3245,9 +2330,6 @@ defined_text = {
 							religion_openly_aztec_or_reformed_trigger = yes # Petlacalcatl
 							culture = bodpa # Gnyer
 							culture = han # Tesorero
-							culture = jurchen # Tesorero
-							culture = tangut # Gnyer
-							religion = taoist # Tesorero
 							religion_group = zoroastrian_group # Darik-pat
 						}
 					}
@@ -3280,7 +2362,6 @@ defined_text = {
 						OR = {
 							culture = bodpa # Banchenmo
 							religion_openly_norse_or_reformed_trigger = yes # Vidente
-							culture = tangut # Banchenmo
 							religion_group = indian_group # Upadhyaya
 						}
 					}
@@ -3290,7 +2371,6 @@ defined_text = {
 					liege = {
 						OR = {
 							culture = bodpa # Gnyer
-							culture = tangut # Gnyer
 						}
 					}
 				}
@@ -3327,9 +2407,6 @@ defined_text = {
 									religion_openly_aztec_or_reformed_trigger = yes # Petlacalcatl
 									culture = bodpa # Gnyer
 									culture = han # Tesorero
-									culture = jurchen # Tesorero
-									culture = tangut # Gnyer
-									religion = taoist # Tesorero
 									religion_group = zoroastrian_group # Darik-pat
 								}
 							}
@@ -3375,9 +2452,6 @@ defined_text = {
 							religion_openly_aztec_or_reformed_trigger = yes # Petlacalcatl
 							culture = bodpa # Gnyer
 							culture = han # Tesorero
-							culture = jurchen # Tesorero
-							culture = tangut # Gnyer
-							religion = taoist # Tesorero
 							religion_group = zoroastrian_group # Darik-pat
 						}
 					}
@@ -3410,7 +2484,6 @@ defined_text = {
 						OR = {
 							culture = bodpa # Banchenmo
 							religion_openly_norse_or_reformed_trigger = yes # Vidente
-							culture = tangut # Banchenmo
 							religion_group = indian_group # Upadhyaya
 						}
 					}
@@ -3420,7 +2493,6 @@ defined_text = {
 					liege = {
 						OR = {
 							culture = bodpa # Gnyer
-							culture = tangut # Gnyer
 						}
 					}
 				}
@@ -3457,9 +2529,6 @@ defined_text = {
 									religion_openly_aztec_or_reformed_trigger = yes # Petlacalcatl
 									culture = bodpa # Gnyer
 									culture = han # Tesorero
-									culture = jurchen # Tesorero
-									culture = tangut # Gnyer
-									religion = taoist # Tesorero
 									religion_group = zoroastrian_group # Darik-pat
 								}
 							}
@@ -3616,7 +2685,6 @@ defined_text = {
 		localisation_key = String_ES_de_
 		trigger = {
 			OR = {
-				religion = mazdaki # Ahura Mazda
 				religion = zoroastrian # Ahura Mazda
 				religion = druze # Alá
 				religion = hurufi # Alá
@@ -3624,38 +2692,26 @@ defined_text = {
 				religion = kharijite # Alá
 				religion = shiite # Alá
 				religion = sunni # Alá
-				religion = zikri # Alá
 				religion_openly_norse_or_reformed_trigger = yes # Odín
 				religion_openly_finnish_or_reformed_trigger = yes # Ukko
-				religion = buddhist # Brahma
 				religion = hindu # Brahma
 				religion = bogomilist # Dios
 				religion = cathar # Dios
 				religion = catholic # Dios
 				religion = fraticelli # Dios
 				religion = iconoclast # Dios
-				religion = jewish # Dios
-				religion = karaite # Dios
-				religion = lollard # Dios
-				religion = messalian # Dios
-				religion = miaphysite # Dios
 				religion = monophysite # Dios
 				religion = monothelite # Dios
 				religion = nestorian # Dios
 				religion = orthodox # Dios
-				religion = paulician # Dios
-				religion = samaritan # Dios
 				religion = waldensian # Dios
 				religion_openly_baltic_or_reformed_trigger = yes # Dievas
 				religion_openly_aztec_or_reformed_trigger = yes # Huitzilopochtli
 				religion_openly_slavic_or_reformed_trigger = yes # Perún
 				religion_openly_bon_or_reformed_trigger = yes # Sangpo Bumtri
 				religion_openly_hellenic_or_reformed_trigger = yes # Saturno
-				religion = yazidi # Shaytan
 				religion_openly_tengri_or_reformed_trigger = yes # Tengri
-				religion = khurmazta # Zarvana
 				religion_openly_zun_or_reformed_trigger = yes # Zun
-				religion = manichaean # Zurvan
 			}
 		}
 	}
@@ -3663,8 +2719,6 @@ defined_text = {
 		localisation_key = String_ES_del_
 		trigger = {
 			OR = {
-				religion = taoist  # Orden Céleste
-				religion = pagan # Creador
 				religion_openly_west_african_or_reformed_trigger = yes # Creador
 			}
 		}
@@ -3686,8 +2740,6 @@ defined_text = {
 		localisation_key = String_ES_al_
 		trigger = {
 			OR = {
-				religion = taoist  # Orden Céleste
-				religion = pagan # Creador
 				religion_openly_west_african_or_reformed_trigger = yes # Creador
 			}
 		}
@@ -3709,8 +2761,6 @@ defined_text = {
 		localisation_key = String_ES_el_
 		trigger = {
 			OR = {
-				religion = taoist  # Orden Céleste
-				religion = pagan # Creador
 				religion_openly_west_african_or_reformed_trigger = yes # Creador
 			}
 		}
@@ -3732,7 +2782,6 @@ defined_text = {
 		localisation_key = ""
 		trigger = {
 			OR = {
-				religion = mazdaki # Ahura Mazda
 				religion = zoroastrian # Ahura Mazda
 				religion = druze # Alá
 				religion = hurufi # Alá
@@ -3740,38 +2789,26 @@ defined_text = {
 				religion = kharijite # Alá
 				religion = shiite # Alá
 				religion = sunni # Alá
-				religion = zikri # Alá
 				religion_openly_norse_or_reformed_trigger = yes # Odín
 				religion_openly_finnish_or_reformed_trigger = yes # Ukko
-				religion = buddhist # Brahma
 				religion = hindu # Brahma
 				religion = bogomilist # Dios
 				religion = cathar # Dios
 				religion = catholic # Dios
 				religion = fraticelli # Dios
 				religion = iconoclast # Dios
-				religion = jewish # Dios
-				religion = karaite # Dios
-				religion = lollard # Dios
-				religion = messalian # Dios
-				religion = miaphysite # Dios
 				religion = monophysite # Dios
 				religion = monothelite # Dios
 				religion = nestorian # Dios
 				religion = orthodox # Dios
-				religion = paulician # Dios
-				religion = samaritan # Dios
 				religion = waldensian # Dios
 				religion_openly_baltic_or_reformed_trigger = yes # Dievas
 				religion_openly_aztec_or_reformed_trigger = yes # Huitzilopochtli
 				religion_openly_slavic_or_reformed_trigger = yes # Perún
 				religion_openly_bon_or_reformed_trigger = yes # Sangpo Bumtri
 				religion_openly_hellenic_or_reformed_trigger = yes # Saturno
-				religion = yazidi # Shaytan
 				religion_openly_tengri_or_reformed_trigger = yes # Tengri
-				religion = khurmazta # Zarvana
 				religion_openly_zun_or_reformed_trigger = yes # Zun
-				religion = manichaean # Zurvan
 			}
 		}
 	}
@@ -3779,8 +2816,6 @@ defined_text = {
 		localisation_key = String_ES_El_
 		trigger = {
 			OR = {
-				religion = taoist # Orden Céleste
-				religion = pagan # Creador
 				religion_openly_west_african_or_reformed_trigger = yes # Creador
 			}
 		}
@@ -3803,19 +2838,13 @@ defined_text = {
 		trigger = {
 			OR = {
 				religion_openly_bon_or_reformed_trigger = yes # Dodus
-				religion = buddhist # Buddhacavana
 				religion = hindu # Mahabharata
 				religion = druze # Libro de la sabiduría
 				religion = hurufi # Corán
 				religion = ibadi # Corán
 				religion = kharijite # Corán
-				religion = manichaean # Evangelio de Mani
-				religion = mazdaki # Gran Secreto
 				religion = shiite # Corán
 				religion = sunni # Corán
-				religion = taoist # Dao de jing
-				religion = yazidi # Libro de la Iluminación
-				religion = zikri # Corán
 			}
 		}
 	}
@@ -3828,16 +2857,10 @@ defined_text = {
 				religion = catholic # Biblia
 				religion = fraticelli # Biblia
 				religion = iconoclast # Biblia
-				religion = jewish # Torá
-				religion = karaite # Torá
-				religion = lollard # Biblia
-				religion = miaphysite # Biblia
 				religion = monophysite # Biblia
 				religion = monothelite # Biblia
 				religion = nestorian # Biblia
 				religion = orthodox # Biblia
-				religion = paulician # Biblia
-				religion = samaritan # Torá
 				religion = waldensian # Biblia
 			}
 		}
@@ -3847,8 +2870,6 @@ defined_text = {
 		trigger = {
 			OR = {
 				religion = jain # Angas Sutras
-				religion = khurmazta # Gathas
-				religion = messalian # Ascetas
 				religion = zoroastrian # Gathas
 			}
 		}
@@ -3862,7 +2883,6 @@ defined_text = {
 				religion_openly_finnish_or_reformed_trigger = yes # Leyendas
 				religion_openly_hellenic_or_reformed_trigger = yes # Leyendas
 				religion_openly_norse_or_reformed_trigger = yes # Sagas
-				religion = pagan # Leyendas
 				religion_openly_slavic_or_reformed_trigger = yes # Leyendas
 				religion_openly_tengri_or_reformed_trigger = yes # Leyendas
 				religion_openly_west_african_or_reformed_trigger = yes # Leyendas
@@ -3883,20 +2903,13 @@ defined_text = {
 		localisation_key = String_ES_del_
 		trigger = {
 			OR = {
-				religion = bon_pagan # Dodus
-				religion = buddhist # Buddhacavana
 				religion = druze # Libro de la sabiduría
 				religion = hindu # Mahabharata
 				religion = hurufi # Corán
 				religion = ibadi # Corán
 				religion = kharijite # Corán
-				religion = manichaean # Evangelio de Mani
-				religion = mazdaki # Gran Secreto
 				religion = shiite # Corán
 				religion = sunni # Corán
-				religion = taoist # Dao de jing
-				religion = yazidi # Libro de la Iluminación
-				religion = zikri # Corán
 			}
 		}
 	}
@@ -3909,16 +2922,10 @@ defined_text = {
 				religion = catholic # Biblia
 				religion = fraticelli # Biblia
 				religion = iconoclast # Biblia
-				religion = jewish # Torá
-				religion = karaite # Torá
-				religion = lollard # Biblia
-				religion = miaphysite # Biblia
 				religion = monophysite # Biblia
 				religion = monothelite # Biblia
 				religion = nestorian # Biblia
 				religion = orthodox # Biblia
-				religion = paulician # Biblia
-				religion = samaritan # Torá
 				religion = waldensian # Biblia
 			}
 		}
@@ -3928,8 +2935,6 @@ defined_text = {
 		trigger = {
 			OR = {
 				religion = jain # Angas Sutras
-				religion = khurmazta # Gathas
-				religion = messalian # Ascetas
 				religion = zoroastrian # Gathas
 			}
 		}
@@ -3943,7 +2948,6 @@ defined_text = {
 				religion_openly_finnish_or_reformed_trigger = yes # Leyendas
 				religion_openly_hellenic_or_reformed_trigger = yes # Leyendas
 				religion_openly_norse_or_reformed_trigger = yes # Sagas
-				religion = pagan # Leyendas
 				religion_openly_slavic_or_reformed_trigger = yes # Leyendas
 				religion_openly_tengri_or_reformed_trigger = yes # Leyendas
 				religion_openly_west_african_or_reformed_trigger = yes # Leyendas
@@ -4053,32 +3057,12 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_Mas
-		trigger = { is_female = no religion = aztec_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_reformed_Mas
-		trigger = { is_female = no religion = aztec_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_baltic_pagan_Mas
-		trigger = { is_female = no religion = baltic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_baltic_pagan_reformed_Mas
 		trigger = { is_female = no religion = baltic_pagan_reformed }
 	}
 	text = {
 		localisation_key = String_ES_Religion_bogomilist_Mas
 		trigger = { is_female = no religion = bogomilist }
-	}
-	text = {
-		localisation_key = String_ES_Religion_bon_pagan_Mas
-		trigger = { is_female = no religion = bon_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_buddhist_Mas
-		trigger = { is_female = no religion = buddhist }
 	}
 	text = {
 		localisation_key = String_ES_Religion_cathar_Mas
@@ -4105,10 +3089,6 @@ defined_text = {
 		trigger = { is_female = no religion = fraticelli }
 	}
 	text = {
-		localisation_key = String_ES_Religion_hellenic_pagan_Mas
-		trigger = { is_female = no religion = hellenic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_hindu_Mas
 		trigger = { is_female = no religion = hindu }
 	}
@@ -4129,40 +3109,8 @@ defined_text = {
 		trigger = { is_female = no religion = jain }
 	}
 	text = {
-		localisation_key = String_ES_Religion_jewish_Mas
-		trigger = { is_female = no religion = jewish }
-	}
-	text = {
-		localisation_key = String_ES_Religion_karaite_Mas
-		trigger = { is_female = no religion = karaite }
-	}
-	text = {
 		localisation_key = String_ES_Religion_kharijite_Mas
 		trigger = { is_female = no religion = kharijite }
-	}
-	text = {
-		localisation_key = String_ES_Religion_khurmazta_Mas
-		trigger = { is_female = no religion = khurmazta }
-	}
-	text = {
-		localisation_key = String_ES_Religion_lollard_Mas
-		trigger = { is_female = no religion = lollard }
-	}
-	text = {
-		localisation_key = String_ES_Religion_manichaean_Mas
-		trigger = { is_female = no religion = manichaean }
-	}
-	text = {
-		localisation_key = String_ES_Religion_mazdaki_Mas
-		trigger = { is_female = no religion = mazdaki }
-	}
-	text = {
-		localisation_key = String_ES_Religion_messalian_Mas
-		trigger = { is_female = no religion = messalian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_miaphysite_Mas
-		trigger = { is_female = no religion = miaphysite }
 	}
 	text = {
 		localisation_key = String_ES_Religion_monophysite_Mas
@@ -4189,18 +3137,6 @@ defined_text = {
 		trigger = { is_female = no religion = orthodox }
 	}
 	text = {
-		localisation_key = String_ES_Religion_pagan_Mas
-		trigger = { is_female = no religion = pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_paulician_Mas
-		trigger = { is_female = no religion = paulician }
-	}
-	text = {
-		localisation_key = String_ES_Religion_samaritan_Mas
-		trigger = { is_female = no religion = samaritan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_shiite_Mas
 		trigger = { is_female = no religion = shiite }
 	}
@@ -4217,10 +3153,6 @@ defined_text = {
 		trigger = { is_female = no religion = sunni }
 	}
 	text = {
-		localisation_key = String_ES_Religion_taoist_Mas
-		trigger = { is_female = no religion = taoist }
-	}
-	text = {
 		localisation_key = String_ES_Religion_tengri_pagan_Mas
 		trigger = { is_female = no religion = tengri_pagan }
 	}
@@ -4233,44 +3165,8 @@ defined_text = {
 		trigger = { is_female = no religion = waldensian }
 	}
 	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_Mas
-		trigger = { is_female = no religion = west_african_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_reformed_Mas
-		trigger = { is_female = no religion = west_african_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_yazidi_Mas
-		trigger = { is_female = no religion = yazidi }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zikri_Mas
-		trigger = { is_female = no religion = zikri }
-	}
-	text = {
 		localisation_key = String_ES_Religion_zoroastrian_Mas
 		trigger = { is_female = no religion = zoroastrian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_Mas
-		trigger = { is_female = no religion = zun_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_reformed_Mas
-		trigger = { is_female = no religion = zun_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_Femen
-		trigger = { is_female = yes religion = aztec_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_reformed_Femen
-		trigger = { is_female = yes religion = aztec_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_baltic_pagan_Femen
-		trigger = { is_female = yes religion = baltic_pagan }
 	}
 	text = {
 		localisation_key = String_ES_Religion_baltic_pagan_reformed_Femen
@@ -4279,14 +3175,6 @@ defined_text = {
 	text = {
 		localisation_key = String_ES_Religion_bogomilist_Femen
 		trigger = { is_female = yes religion = bogomilist }
-	}
-	text = {
-		localisation_key = String_ES_Religion_bon_pagan_Femen
-		trigger = { is_female = yes religion = bon_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_buddhist_Femen
-		trigger = { is_female = yes religion = buddhist }
 	}
 	text = {
 		localisation_key = String_ES_Religion_cathar_Femen
@@ -4313,10 +3201,6 @@ defined_text = {
 		trigger = { is_female = yes religion = fraticelli }
 	}
 	text = {
-		localisation_key = String_ES_Religion_hellenic_pagan_Femen
-		trigger = { is_female = yes religion = hellenic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_hindu_Femen
 		trigger = { is_female = yes religion = hindu }
 	}
@@ -4337,40 +3221,8 @@ defined_text = {
 		trigger = { is_female = yes religion = jain }
 	}
 	text = {
-		localisation_key = String_ES_Religion_jewish_Femen
-		trigger = { is_female = yes religion = jewish }
-	}
-	text = {
-		localisation_key = String_ES_Religion_karaite_Femen
-		trigger = { is_female = yes religion = karaite }
-	}
-	text = {
 		localisation_key = String_ES_Religion_kharijite_Femen
 		trigger = { is_female = yes religion = kharijite }
-	}
-	text = {
-		localisation_key = String_ES_Religion_khurmazta_Femen
-		trigger = { is_female = yes religion = khurmazta }
-	}
-	text = {
-		localisation_key = String_ES_Religion_lollard_Femen
-		trigger = { is_female = yes religion = lollard }
-	}
-	text = {
-		localisation_key = String_ES_Religion_manichaean_Femen
-		trigger = { is_female = yes religion = manichaean }
-	}
-	text = {
-		localisation_key = String_ES_Religion_mazdaki_Femen
-		trigger = { is_female = yes religion = mazdaki }
-	}
-	text = {
-		localisation_key = String_ES_Religion_messalian_Femen
-		trigger = { is_female = yes religion = messalian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_miaphysite_Femen
-		trigger = { is_female = yes religion = miaphysite }
 	}
 	text = {
 		localisation_key = String_ES_Religion_monophysite_Femen
@@ -4397,18 +3249,6 @@ defined_text = {
 		trigger = { is_female = yes religion = orthodox }
 	}
 	text = {
-		localisation_key = String_ES_Religion_pagan_Femen
-		trigger = { is_female = yes religion = pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_paulician_Femen
-		trigger = { is_female = yes religion = paulician }
-	}
-	text = {
-		localisation_key = String_ES_Religion_samaritan_Femen
-		trigger = { is_female = yes religion = samaritan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_shiite_Femen
 		trigger = { is_female = yes religion = shiite }
 	}
@@ -4425,10 +3265,6 @@ defined_text = {
 		trigger = { is_female = yes religion = sunni }
 	}
 	text = {
-		localisation_key = String_ES_Religion_taoist_Femen
-		trigger = { is_female = yes religion = taoist }
-	}
-	text = {
 		localisation_key = String_ES_Religion_tengri_pagan_Femen
 		trigger = { is_female = yes religion = tengri_pagan }
 	}
@@ -4441,32 +3277,8 @@ defined_text = {
 		trigger = { is_female = yes religion = waldensian }
 	}
 	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_Femen
-		trigger = { is_female = yes religion = west_african_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_reformed_Femen
-		trigger = { is_female = yes religion = west_african_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_yazidi_Femen
-		trigger = { is_female = yes religion = yazidi }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zikri_Femen
-		trigger = { is_female = yes religion = zikri }
-	}
-	text = {
 		localisation_key = String_ES_Religion_zoroastrian_Femen
 		trigger = { is_female = yes religion = zoroastrian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_Femen
-		trigger = { is_female = yes religion = zun_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_reformed_Femen
-		trigger = { is_female = yes religion = zun_pagan_reformed }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetReligionMasFemen
@@ -4478,32 +3290,12 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_PlMas
-		trigger = { religion = aztec_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_reformed_PlMas
-		trigger = { religion = aztec_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_baltic_pagan_PlMas
-		trigger = { religion = baltic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_baltic_pagan_reformed_PlMas
 		trigger = { religion = baltic_pagan_reformed }
 	}
 	text = {
 		localisation_key = String_ES_Religion_bogomilist_PlMas
 		trigger = { religion = bogomilist }
-	}
-	text = {
-		localisation_key = String_ES_Religion_bon_pagan_PlMas
-		trigger = { religion = bon_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_buddhist_PlMas
-		trigger = { religion = buddhist }
 	}
 	text = {
 		localisation_key = String_ES_Religion_cathar_PlMas
@@ -4530,10 +3322,6 @@ defined_text = {
 		trigger = { religion = fraticelli }
 	}
 	text = {
-		localisation_key = String_ES_Religion_hellenic_pagan_PlMas
-		trigger = { religion = hellenic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_hindu_PlMas
 		trigger = { religion = hindu }
 	}
@@ -4554,40 +3342,8 @@ defined_text = {
 		trigger = { religion = jain }
 	}
 	text = {
-		localisation_key = String_ES_Religion_jewish_PlMas
-		trigger = { religion = jewish }
-	}
-	text = {
-		localisation_key = String_ES_Religion_karaite_PlMas
-		trigger = { religion = karaite }
-	}
-	text = {
 		localisation_key = String_ES_Religion_kharijite_PlMas
 		trigger = { religion = kharijite }
-	}
-	text = {
-		localisation_key = String_ES_Religion_khurmazta_PlMas
-		trigger = { religion = khurmazta }
-	}
-	text = {
-		localisation_key = String_ES_Religion_lollard_PlMas
-		trigger = { religion = lollard }
-	}
-	text = {
-		localisation_key = String_ES_Religion_manichaean_PlMas
-		trigger = { religion = manichaean }
-	}
-	text = {
-		localisation_key = String_ES_Religion_mazdaki_PlMas
-		trigger = { religion = mazdaki }
-	}
-	text = {
-		localisation_key = String_ES_Religion_messalian_PlMas
-		trigger = { religion = messalian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_miaphysite_PlMas
-		trigger = { religion = miaphysite }
 	}
 	text = {
 		localisation_key = String_ES_Religion_monophysite_PlMas
@@ -4614,18 +3370,6 @@ defined_text = {
 		trigger = { religion = orthodox }
 	}
 	text = {
-		localisation_key = String_ES_Religion_pagan_PlMas
-		trigger = { religion = pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_paulician_PlMas
-		trigger = { religion = paulician }
-	}
-	text = {
-		localisation_key = String_ES_Religion_samaritan_PlMas
-		trigger = { religion = samaritan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_shiite_PlMas
 		trigger = { religion = shiite }
 	}
@@ -4642,10 +3386,6 @@ defined_text = {
 		trigger = { religion = sunni }
 	}
 	text = {
-		localisation_key = String_ES_Religion_taoist_PlMas
-		trigger = { religion = taoist }
-	}
-	text = {
 		localisation_key = String_ES_Religion_tengri_pagan_PlMas
 		trigger = { religion = tengri_pagan }
 	}
@@ -4658,32 +3398,8 @@ defined_text = {
 		trigger = { religion = waldensian }
 	}
 	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_PlMas
-		trigger = { religion = west_african_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_reformed_PlMas
-		trigger = { religion = west_african_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_yazidi_PlMas
-		trigger = { religion = yazidi }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zikri_PlMas
-		trigger = { religion = zikri }
-	}
-	text = {
 		localisation_key = String_ES_Religion_zoroastrian_PlMas
 		trigger = { religion = zoroastrian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_PlMas
-		trigger = { religion = zun_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_reformed_PlMas
-		trigger = { religion = zun_pagan_reformed }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetReligionMasPl
@@ -4695,32 +3411,12 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_PlFemen
-		trigger = { religion = aztec_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_reformed_PlFemen
-		trigger = { religion = aztec_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_baltic_pagan_PlFemen
-		trigger = { religion = baltic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_baltic_pagan_reformed_PlFemen
 		trigger = { religion = baltic_pagan_reformed }
 	}
 	text = {
 		localisation_key = String_ES_Religion_bogomilist_PlFemen
 		trigger = { religion = bogomilist }
-	}
-	text = {
-		localisation_key = String_ES_Religion_bon_pagan_PlFemen
-		trigger = { religion = bon_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_buddhist_PlFemen
-		trigger = { religion = buddhist }
 	}
 	text = {
 		localisation_key = String_ES_Religion_cathar_PlFemen
@@ -4747,10 +3443,6 @@ defined_text = {
 		trigger = { religion = fraticelli }
 	}
 	text = {
-		localisation_key = String_ES_Religion_hellenic_pagan_PlFemen
-		trigger = { religion = hellenic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_hindu_PlFemen
 		trigger = { religion = hindu }
 	}
@@ -4771,40 +3463,8 @@ defined_text = {
 		trigger = { religion = jain }
 	}
 	text = {
-		localisation_key = String_ES_Religion_jewish_PlFemen
-		trigger = { religion = jewish }
-	}
-	text = {
-		localisation_key = String_ES_Religion_karaite_PlFemen
-		trigger = { religion = karaite }
-	}
-	text = {
 		localisation_key = String_ES_Religion_kharijite_PlFemen
 		trigger = { religion = kharijite }
-	}
-	text = {
-		localisation_key = String_ES_Religion_khurmazta_PlFemen
-		trigger = { religion = khurmazta }
-	}
-	text = {
-		localisation_key = String_ES_Religion_lollard_PlFemen
-		trigger = { religion = lollard }
-	}
-	text = {
-		localisation_key = String_ES_Religion_manichaean_PlFemen
-		trigger = { religion = manichaean }
-	}
-	text = {
-		localisation_key = String_ES_Religion_mazdaki_PlFemen
-		trigger = { religion = mazdaki }
-	}
-	text = {
-		localisation_key = String_ES_Religion_messalian_PlFemen
-		trigger = { religion = messalian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_miaphysite_PlFemen
-		trigger = { religion = miaphysite }
 	}
 	text = {
 		localisation_key = String_ES_Religion_monophysite_PlFemen
@@ -4831,18 +3491,6 @@ defined_text = {
 		trigger = { religion = orthodox }
 	}
 	text = {
-		localisation_key = String_ES_Religion_pagan_PlFemen
-		trigger = { religion = pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_paulician_PlFemen
-		trigger = { religion = paulician }
-	}
-	text = {
-		localisation_key = String_ES_Religion_samaritan_PlFemen
-		trigger = { religion = samaritan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_shiite_PlFemen
 		trigger = { religion = shiite }
 	}
@@ -4859,10 +3507,6 @@ defined_text = {
 		trigger = { religion = sunni }
 	}
 	text = {
-		localisation_key = String_ES_Religion_taoist_PlFemen
-		trigger = { religion = taoist }
-	}
-	text = {
 		localisation_key = String_ES_Religion_tengri_pagan_PlFemen
 		trigger = { religion = tengri_pagan }
 	}
@@ -4875,32 +3519,8 @@ defined_text = {
 		trigger = { religion = waldensian }
 	}
 	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_PlFemen
-		trigger = { religion = west_african_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_reformed_PlFemen
-		trigger = { religion = west_african_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_yazidi_PlFemen
-		trigger = { religion = yazidi }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zikri_PlFemen
-		trigger = { religion = zikri }
-	}
-	text = {
 		localisation_key = String_ES_Religion_zoroastrian_PlFemen
 		trigger = { religion = zoroastrian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_PlFemen
-		trigger = { religion = zun_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_reformed_PlFemen
-		trigger = { religion = zun_pagan_reformed }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetReligionFemenPl
@@ -4912,32 +3532,12 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_Mas
-		trigger = { religion = aztec_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_aztec_pagan_reformed_Mas
-		trigger = { religion = aztec_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_baltic_pagan_Mas
-		trigger = { religion = baltic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_baltic_pagan_reformed_Mas
 		trigger = { religion = baltic_pagan_reformed }
 	}
 	text = {
 		localisation_key = String_ES_Religion_bogomilist_Mas
 		trigger = { religion = bogomilist }
-	}
-	text = {
-		localisation_key = String_ES_Religion_bon_pagan_Mas
-		trigger = { religion = bon_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_buddhist_Mas
-		trigger = { religion = buddhist }
 	}
 	text = {
 		localisation_key = String_ES_Religion_cathar_Mas
@@ -4964,10 +3564,6 @@ defined_text = {
 		trigger = { religion = fraticelli }
 	}
 	text = {
-		localisation_key = String_ES_Religion_hellenic_pagan_Mas
-		trigger = { religion = hellenic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_hindu_Mas
 		trigger = { religion = hindu }
 	}
@@ -4988,40 +3584,8 @@ defined_text = {
 		trigger = { religion = jain }
 	}
 	text = {
-		localisation_key = String_ES_Religion_jewish_Mas
-		trigger = { religion = jewish }
-	}
-	text = {
-		localisation_key = String_ES_Religion_karaite_Mas
-		trigger = { religion = karaite }
-	}
-	text = {
 		localisation_key = String_ES_Religion_kharijite_Mas
 		trigger = { religion = kharijite }
-	}
-	text = {
-		localisation_key = String_ES_Religion_khurmazta_Mas
-		trigger = { religion = khurmazta }
-	}
-	text = {
-		localisation_key = String_ES_Religion_lollard_Mas
-		trigger = { religion = lollard }
-	}
-	text = {
-		localisation_key = String_ES_Religion_manichaean_Mas
-		trigger = { religion = manichaean }
-	}
-	text = {
-		localisation_key = String_ES_Religion_mazdaki_Mas
-		trigger = { religion = mazdaki }
-	}
-	text = {
-		localisation_key = String_ES_Religion_messalian_Mas
-		trigger = { religion = messalian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_miaphysite_Mas
-		trigger = { religion = miaphysite }
 	}
 	text = {
 		localisation_key = String_ES_Religion_monophysite_Mas
@@ -5048,18 +3612,6 @@ defined_text = {
 		trigger = { religion = orthodox }
 	}
 	text = {
-		localisation_key = String_ES_Religion_pagan_Mas
-		trigger = { religion = pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_paulician_Mas
-		trigger = { religion = paulician }
-	}
-	text = {
-		localisation_key = String_ES_Religion_samaritan_Mas
-		trigger = { religion = samaritan }
-	}
-	text = {
 		localisation_key = String_ES_Religion_shiite_Mas
 		trigger = { religion = shiite }
 	}
@@ -5076,10 +3628,6 @@ defined_text = {
 		trigger = { religion = sunni }
 	}
 	text = {
-		localisation_key = String_ES_Religion_taoist_Mas
-		trigger = { religion = taoist }
-	}
-	text = {
 		localisation_key = String_ES_Religion_tengri_pagan_Mas
 		trigger = { religion = tengri_pagan }
 	}
@@ -5092,32 +3640,8 @@ defined_text = {
 		trigger = { religion = waldensian }
 	}
 	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_Mas
-		trigger = { religion = west_african_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_west_african_pagan_reformed_Mas
-		trigger = { religion = west_african_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_Religion_yazidi_Mas
-		trigger = { religion = yazidi }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zikri_Mas
-		trigger = { religion = zikri }
-	}
-	text = {
 		localisation_key = String_ES_Religion_zoroastrian_Mas
 		trigger = { religion = zoroastrian }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_Mas
-		trigger = { religion = zun_pagan }
-	}
-	text = {
-		localisation_key = String_ES_Religion_zun_pagan_reformed_Mas
-		trigger = { religion = zun_pagan_reformed }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetReligionMas
@@ -5129,28 +3653,12 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_TLAZOLTEOTL
-		trigger = { religion = aztec_pagan }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_TLAZOLTEOTL
-		trigger = { religion = aztec_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_VELNIAS
-		trigger = { religion = baltic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_VELNIAS
 		trigger = { religion = baltic_pagan_reformed }
 	}
 	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_THE_DEVIL
 		trigger = { religion = bogomilist }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_MARA
-		trigger = { religion = buddhist }
 	}
 	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_THE_DEVIL
@@ -5177,10 +3685,6 @@ defined_text = {
 		trigger = { religion = fraticelli }
 	}
 	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_PLUTO
-		trigger = { religion = hellenic_pagan }
-	}
-	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_IBLIS
 		trigger = { religion = hurufi }
 	}
@@ -5193,40 +3697,8 @@ defined_text = {
 		trigger = { religion = iconoclast }
 	}
 	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_SATAN
-		trigger = { religion = jewish }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_SATAN
-		trigger = { religion = karaite }
-	}
-	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_IBLIS
 		trigger = { religion = kharijite }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_AHRIMAN
-		trigger = { religion = khurmazta }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_THE_DEVIL
-		trigger = { religion = lollard }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_AHRIMAN
-		trigger = { religion = manichaean }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_AHRIMAN
-		trigger = { religion = mazdaki }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_THE_DEMIURGE
-		trigger = { religion = messalian }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_THE_DEVIL
-		trigger = { religion = miaphysite }
 	}
 	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_THE_DEVIL
@@ -5253,14 +3725,6 @@ defined_text = {
 		trigger = { religion = orthodox }
 	}
 	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_THE_DEVIL
-		trigger = { religion = paulician }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_SATAN
-		trigger = { religion = samaritan }
-	}
-	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_IBLIS
 		trigger = { religion = shiite }
 	}
@@ -5277,10 +3741,6 @@ defined_text = {
 		trigger = { religion = sunni }
 	}
 	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_KING_YAN
-		trigger = { religion = taoist }
-	}
-	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_ERLIK
 		trigger = { religion = tengri_pagan }
 	}
@@ -5291,10 +3751,6 @@ defined_text = {
 	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_THE_DEVIL
 		trigger = { religion = waldensian }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDeDel_IBLIS
-		trigger = { religion = zikri }
 	}
 	text = {
 		localisation_key = String_ES_GetEvilGodDeDel_AHRIMAN
@@ -5310,40 +3766,12 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_GetEvilGodDelaDelos_GOD_THE_EVIL_ONES
-		trigger = { religion = bon_pagan }
-	}
-	text = {
 		localisation_key = String_ES_GetEvilGodDelaDelos_THE_VINAYAKAS
 		trigger = { religion = hindu }
 	}
 	text = {
 		localisation_key = String_ES_GetEvilGodDelaDelos_THE_PUNISHERS
 		trigger = { religion = jain }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDelaDelos_THE_DARK_SPIRITS
-		trigger = { religion = pagan }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDelaDelos_THE_DARK_SPIRITS
-		trigger = { religion = west_african_pagan }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDelaDelos_THE_DARK_SPIRITS
-		trigger = { religion = west_african_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDelaDelos_THE_DARK_SPIRITS
-		trigger = { religion = yazidi }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDelaDelos_THE_DARKNESS
-		trigger = { religion = zun_pagan }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodDelaDelos_THE_DARKNESS
-		trigger = { religion = zun_pagan_reformed }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetEvilGodDelaDelos
@@ -5355,40 +3783,12 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_GetEvilGodLaLos_GOD_THE_EVIL_ONES
-		trigger = { religion = bon_pagan }
-	}
-	text = {
 		localisation_key = String_ES_GetEvilGodLaLos_THE_VINAYAKAS
 		trigger = { religion = hindu }
 	}
 	text = {
 		localisation_key = String_ES_GetEvilGodLaLos_THE_PUNISHERS
 		trigger = { religion = jain }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodLaLos_THE_DARK_SPIRITS
-		trigger = { religion = pagan }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodLaLos_THE_DARK_SPIRITS
-		trigger = { religion = west_african_pagan }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodLaLos_THE_DARK_SPIRITS
-		trigger = { religion = west_african_pagan_reformed }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodLaLos_THE_DARK_SPIRITS
-		trigger = { religion = yazidi }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodLaLos_THE_DARKNESS
-		trigger = { religion = zun_pagan }
-	}
-	text = {
-		localisation_key = String_ES_GetEvilGodLaLos_THE_DARKNESS
-		trigger = { religion = zun_pagan_reformed }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetEvilGodLaLos
@@ -5400,40 +3800,16 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_Culture_afghan_Mas
-		trigger = { culture = afghan }
-	}
-	text = {
 		localisation_key = String_ES_Culture_alan_Mas
 		trigger = { culture = alan }
-	}
-	text = {
-		localisation_key = String_ES_Culture_andalusian_Mas
-		trigger = { culture = andalusian }
 	}
 	text = {
 		localisation_key = String_ES_Culture_armenian_Mas
 		trigger = { culture = armenian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_ashkenazi_Mas
-		trigger = { culture = ashkenazi }
-	}
-	text = {
-		localisation_key = String_ES_Culture_assamese_Mas
-		trigger = { culture = assamese }
-	}
-	text = {
-		localisation_key = String_ES_Culture_assyrian_Mas
-		trigger = { culture = assyrian }
-	}
-	text = {
 		localisation_key = String_ES_Culture_avar_Mas
 		trigger = { culture = avar }
-	}
-	text = {
-		localisation_key = String_ES_Culture_baloch_Mas
-		trigger = { culture = baloch }
 	}
 	text = {
 		localisation_key = String_ES_Culture_basque_Mas
@@ -5442,10 +3818,6 @@ defined_text = {
 	text = {
 		localisation_key = String_ES_Culture_bear_Mas
 		trigger = { culture = bear }
-	}
-	text = {
-		localisation_key = String_ES_Culture_bedouin_Mas
-		trigger = { culture = bedouin }
 	}
 	text = {
 		localisation_key = String_ES_Culture_bengali_Mas
@@ -5460,20 +3832,12 @@ defined_text = {
 		trigger = { culture = bohemian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_bolghar_Mas
-		trigger = { culture = bolghar }
-	}
-	text = {
 		localisation_key = String_ES_Culture_breton_Mas
 		trigger = { culture = breton }
 	}
 	text = {
 		localisation_key = String_ES_Culture_bulgarian_Mas
 		trigger = { culture = bulgarian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_castilian_Mas
-		trigger = { culture = castilian }
 	}
 	text = {
 		localisation_key = String_ES_Culture_cat_Mas
@@ -5500,24 +3864,12 @@ defined_text = {
 		trigger = { culture = dutch }
 	}
 	text = {
-		localisation_key = String_ES_Culture_egyptian_Mas
-		trigger = { culture = egyptian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_english_Mas
-		trigger = { culture = english }
-	}
-	text = {
 		localisation_key = String_ES_Culture_ethiopian_Mas
 		trigger = { culture = ethiopian }
 	}
 	text = {
 		localisation_key = String_ES_Culture_finnish_Mas
 		trigger = { culture = finnish }
-	}
-	text = {
-		localisation_key = String_ES_Culture_french_Mas
-		trigger = { culture = french }
 	}
 	text = {
 		localisation_key = String_ES_Culture_frisian_Mas
@@ -5536,16 +3888,8 @@ defined_text = {
 		trigger = { culture = greek }
 	}
 	text = {
-		localisation_key = String_ES_Culture_gujarati_Mas
-		trigger = { culture = gujarati }
-	}
-	text = {
 		localisation_key = String_ES_Culture_han_Mas
 		trigger = { culture = han }
-	}
-	text = {
-		localisation_key = String_ES_Culture_hindustani_Mas
-		trigger = { culture = hindustani }
 	}
 	text = {
 		localisation_key = String_ES_Culture_horse_Mas
@@ -5556,10 +3900,6 @@ defined_text = {
 		trigger = { culture = hungarian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_ilmenian_Mas
-		trigger = { culture = ilmenian }
-	}
-	text = {
 		localisation_key = String_ES_Culture_irish_Mas
 		trigger = { culture = irish }
 	}
@@ -5568,32 +3908,12 @@ defined_text = {
 		trigger = { culture = italian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_jurchen_Mas
-		trigger = { culture = jurchen }
-	}
-	text = {
 		localisation_key = String_ES_Culture_kannada_Mas
 		trigger = { culture = kannada }
 	}
 	text = {
-		localisation_key = String_ES_Culture_karluk_Mas
-		trigger = { culture = karluk }
-	}
-	text = {
-		localisation_key = String_ES_Culture_khanty_Mas
-		trigger = { culture = khanty }
-	}
-	text = {
 		localisation_key = String_ES_Culture_khazar_Mas
 		trigger = { culture = khazar }
-	}
-	text = {
-		localisation_key = String_ES_Culture_khitan_Mas
-		trigger = { culture = khitan }
-	}
-	text = {
-		localisation_key = String_ES_Culture_kirghiz_Mas
-		trigger = { culture = kirghiz }
 	}
 	text = {
 		localisation_key = String_ES_Culture_komi_Mas
@@ -5602,18 +3922,6 @@ defined_text = {
 	text = {
 		localisation_key = String_ES_Culture_kurdish_Mas
 		trigger = { culture = kurdish }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sami_Mas
-		trigger = { culture = sami }
-	}
-	text = {
-		localisation_key = String_ES_Culture_latgalian_Mas
-		trigger = { culture = latgalian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_levantine_Mas
-		trigger = { culture = levantine }
 	}
 	text = {
 		localisation_key = String_ES_Culture_lithuanian_Mas
@@ -5628,36 +3936,12 @@ defined_text = {
 		trigger = { culture = berber }
 	}
 	text = {
-		localisation_key = String_ES_Culture_mande_Mas
-		trigger = { culture = mande }
-	}
-	text = {
 		localisation_key = String_ES_Culture_marathi_Mas
 		trigger = { culture = marathi }
 	}
 	text = {
-		localisation_key = String_ES_Culture_mongol_Mas
-		trigger = { culture = mongol }
-	}
-	text = {
-		localisation_key = String_ES_Culture_mordvin_Mas
-		trigger = { culture = mordvin }
-	}
-	text = {
-		localisation_key = String_ES_Culture_nahua_Mas
-		trigger = { culture = nahua }
-	}
-	text = {
-		localisation_key = String_ES_Culture_nepali_Mas
-		trigger = { culture = nepali }
-	}
-	text = {
 		localisation_key = String_ES_Culture_norman_Mas
 		trigger = { culture = norman }
-	}
-	text = {
-		localisation_key = String_ES_Culture_norse_Mas
-		trigger = { culture = norse }
 	}
 	text = {
 		localisation_key = String_ES_Culture_norwegian_Mas
@@ -5680,14 +3964,6 @@ defined_text = {
 		trigger = { culture = saxon }
 	}
 	text = {
-		localisation_key = String_ES_Culture_oriya_Mas
-		trigger = { culture = oriya }
-	}
-	text = {
-		localisation_key = String_ES_Culture_panjabi_Mas
-		trigger = { culture = panjabi }
-	}
-	text = {
 		localisation_key = String_ES_Culture_pecheneg_Mas
 		trigger = { culture = pecheneg }
 	}
@@ -5704,28 +3980,12 @@ defined_text = {
 		trigger = { culture = polish }
 	}
 	text = {
-		localisation_key = String_ES_Culture_pomeranian_Mas
-		trigger = { culture = pomeranian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_portuguese_Mas
-		trigger = { culture = portuguese }
-	}
-	text = {
 		localisation_key = String_ES_Culture_prussian_Mas
 		trigger = { culture = prussian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_rajput_Mas
-		trigger = { culture = rajput }
-	}
-	text = {
 		localisation_key = String_ES_Culture_roman_Mas
 		trigger = { culture = roman }
-	}
-	text = {
-		localisation_key = String_ES_Culture_vlach_Mas
-		trigger = { culture = vlach }
 	}
 	text = {
 		localisation_key = String_ES_Culture_russian_Mas
@@ -5740,60 +4000,20 @@ defined_text = {
 		trigger = { culture = nenets }
 	}
 	text = {
-		localisation_key = String_ES_Culture_anglo_saxon_Mas
-		trigger = { culture = anglo_saxon }
-	}
-	text = {
 		localisation_key = String_ES_Culture_scottish_Mas
 		trigger = { culture = scottish }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sephardi_Mas
-		trigger = { culture = sephardi }
 	}
 	text = {
 		localisation_key = String_ES_Culture_serbian_Mas
 		trigger = { culture = serbian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_severian_Mas
-		trigger = { culture = severian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sindhi_Mas
-		trigger = { culture = sindhi }
-	}
-	text = {
 		localisation_key = String_ES_Culture_sinhala_Mas
 		trigger = { culture = sinhala }
 	}
 	text = {
-		localisation_key = String_ES_Culture_sogdian_Mas
-		trigger = { culture = sogdian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_somali_Mas
-		trigger = { culture = somali }
-	}
-	text = {
-		localisation_key = String_ES_Culture_suebi_Mas
-		trigger = { culture = suebi }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sumpa_Mas
-		trigger = { culture = sumpa }
-	}
-	text = {
 		localisation_key = String_ES_Culture_swedish_Mas
 		trigger = { culture = swedish }
-	}
-	text = {
-		localisation_key = String_ES_Culture_tamil_Mas
-		trigger = { culture = tamil }
-	}
-	text = {
-		localisation_key = String_ES_Culture_tangut_Mas
-		trigger = { culture = tangut }
 	}
 	text = {
 		localisation_key = String_ES_Culture_telugu_Mas
@@ -5808,10 +4028,6 @@ defined_text = {
 		trigger = { culture = turkish }
 	}
 	text = {
-		localisation_key = String_ES_Culture_estonian_Mas
-		trigger = { culture = estonian }
-	}
-	text = {
 		localisation_key = String_ES_Culture_uyghur_Mas
 		trigger = { culture = uyghur }
 	}
@@ -5820,16 +4036,8 @@ defined_text = {
 		trigger = { culture = visigothic }
 	}
 	text = {
-		localisation_key = String_ES_Culture_volhynian_Mas
-		trigger = { culture = volhynian }
-	}
-	text = {
 		localisation_key = String_ES_Culture_welsh_Mas
 		trigger = { culture = welsh }
-	}
-	text = {
-		localisation_key = String_ES_Culture_zhangzhung_Mas
-		trigger = { culture = zhangzhung }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetCultureMas
@@ -5841,40 +4049,16 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_Culture_afghan_Femen
-		trigger = { culture = afghan is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_alan_Femen
 		trigger = { culture = alan is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_andalusian_Femen
-		trigger = { culture = andalusian is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_armenian_Femen
 		trigger = { culture = armenian is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_ashkenazi_Femen
-		trigger = { culture = ashkenazi is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_assamese_Femen
-		trigger = { culture = assamese is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_assyrian_Femen
-		trigger = { culture = assyrian is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_avar_Femen
 		trigger = { culture = avar is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_baloch_Femen
-		trigger = { culture = baloch is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_basque_Femen
@@ -5883,10 +4067,6 @@ defined_text = {
 	text = {
 		localisation_key = String_ES_Culture_bear_Femen
 		trigger = { culture = bear }
-	}
-	text = {
-		localisation_key = String_ES_Culture_bedouin_Femen
-		trigger = { culture = bedouin is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_bengali_Femen
@@ -5901,20 +4081,12 @@ defined_text = {
 		trigger = { culture = bohemian is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_bolghar_Femen
-		trigger = { culture = bolghar is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_breton_Femen
 		trigger = { culture = breton is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_bulgarian_Femen
 		trigger = { culture = bulgarian is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_castilian_Femen
-		trigger = { culture = castilian is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_cat_Femen
@@ -5941,24 +4113,12 @@ defined_text = {
 		trigger = { culture = dutch is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_egyptian_Femen
-		trigger = { culture = egyptian is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_english_Femen
-		trigger = { culture = english is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_ethiopian_Femen
 		trigger = { culture = ethiopian is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_finnish_Femen
 		trigger = { culture = finnish is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_french_Femen
-		trigger = { culture = french is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_frisian_Femen
@@ -5977,16 +4137,8 @@ defined_text = {
 		trigger = { culture = greek is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_gujarati_Femen
-		trigger = { culture = gujarati is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_han_Femen
 		trigger = { culture = han is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_hindustani_Femen
-		trigger = { culture = hindustani is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_horse_Femen
@@ -5997,10 +4149,6 @@ defined_text = {
 		trigger = { culture = hungarian is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_ilmenian_Femen
-		trigger = { culture = ilmenian is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_irish_Femen
 		trigger = { culture = irish is_female = no }
 	}
@@ -6009,32 +4157,12 @@ defined_text = {
 		trigger = { culture = italian is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_jurchen_Femen
-		trigger = { culture = jurchen is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_kannada_Femen
 		trigger = { culture = kannada is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_karluk_Femen
-		trigger = { culture = karluk is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_khanty_Femen
-		trigger = { culture = khanty is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_khazar_Femen
 		trigger = { culture = khazar is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_khitan_Femen
-		trigger = { culture = khitan is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_kirghiz_Femen
-		trigger = { culture = kirghiz is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_komi_Femen
@@ -6043,18 +4171,6 @@ defined_text = {
 	text = {
 		localisation_key = String_ES_Culture_kurdish_Femen
 		trigger = { culture = kurdish is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sami_Femen
-		trigger = { culture = sami is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_latgalian_Femen
-		trigger = { culture = latgalian is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_levantine_Femen
-		trigger = { culture = levantine is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_lithuanian_Femen
@@ -6069,36 +4185,12 @@ defined_text = {
 		trigger = { culture = berber is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_mande_Femen
-		trigger = { culture = mande is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_marathi_Femen
 		trigger = { culture = marathi is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_mongol_Femen
-		trigger = { culture = mongol is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_mordvin_Femen
-		trigger = { culture = mordvin is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_nahua_Femen
-		trigger = { culture = nahua is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_nepali_Femen
-		trigger = { culture = nepali is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_norman_Femen
 		trigger = { culture = norman is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_norse_Femen
-		trigger = { culture = norse is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_norwegian_Femen
@@ -6121,14 +4213,6 @@ defined_text = {
 		trigger = { culture = saxon is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_oriya_Femen
-		trigger = { culture = oriya is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_panjabi_Femen
-		trigger = { culture = panjabi is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_pecheneg_Femen
 		trigger = { culture = pecheneg is_female = no }
 	}
@@ -6145,28 +4229,12 @@ defined_text = {
 		trigger = { culture = polish is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_pomeranian_Femen
-		trigger = { culture = pomeranian is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_portuguese_Femen
-		trigger = { culture = portuguese is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_prussian_Femen
 		trigger = { culture = prussian is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_rajput_Femen
-		trigger = { culture = rajput is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_roman_Femen
 		trigger = { culture = roman is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_vlach_Femen
-		trigger = { culture = vlach is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_russian_Femen
@@ -6181,60 +4249,20 @@ defined_text = {
 		trigger = { culture = nenets is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_anglo_saxon_Femen
-		trigger = { culture = anglo_saxon is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_scottish_Femen
 		trigger = { culture = scottish is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sephardi_Femen
-		trigger = { culture = sephardi is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_serbian_Femen
 		trigger = { culture = serbian is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_severian_Femen
-		trigger = { culture = severian is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sindhi_Femen
-		trigger = { culture = sindhi is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_sinhala_Femen
 		trigger = { culture = sinhala is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_sogdian_Femen
-		trigger = { culture = sogdian is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_somali_Femen
-		trigger = { culture = somali is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_suebi_Femen
-		trigger = { culture = suebi is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sumpa_Femen
-		trigger = { culture = sumpa is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_swedish_Femen
 		trigger = { culture = swedish is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_tamil_Femen
-		trigger = { culture = tamil is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_tangut_Femen
-		trigger = { culture = tangut is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Culture_telugu_Femen
@@ -6249,10 +4277,6 @@ defined_text = {
 		trigger = { culture = turkish is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_estonian_Femen
-		trigger = { culture = estonian is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_uyghur_Femen
 		trigger = { culture = uyghur is_female = no }
 	}
@@ -6261,16 +4285,8 @@ defined_text = {
 		trigger = { culture = visigothic is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Culture_volhynian_Femen
-		trigger = { culture = volhynian is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Culture_welsh_Femen
 		trigger = { culture = welsh is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Culture_zhangzhung_Femen
-		trigger = { culture = zhangzhung is_female = no }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetCultureFemen
@@ -6282,40 +4298,16 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_Culture_afghan_PlFemen
-		trigger = { culture = afghan is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_alan_PlFemen
 		trigger = { culture = alan is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_andalusian_PlFemen
-		trigger = { culture = andalusian is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_armenian_PlFemen
 		trigger = { culture = armenian is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_ashkenazi_PlFemen
-		trigger = { culture = ashkenazi is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_assamese_PlFemen
-		trigger = { culture = assamese is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_assyrian_PlFemen
-		trigger = { culture = assyrian is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_avar_PlFemen
 		trigger = { culture = avar is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_baloch_PlFemen
-		trigger = { culture = baloch is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_basque_PlFemen
@@ -6324,10 +4316,6 @@ defined_text = {
 	text = {
 		localisation_key = String_ES_Culture_bear_PlFemen
 		trigger = { culture = bear }
-	}
-	text = {
-		localisation_key = String_ES_Culture_bedouin_PlFemen
-		trigger = { culture = bedouin is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_bengali_PlFemen
@@ -6342,20 +4330,12 @@ defined_text = {
 		trigger = { culture = bohemian is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_bolghar_PlFemen
-		trigger = { culture = bolghar is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_breton_PlFemen
 		trigger = { culture = breton is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_bulgarian_PlFemen
 		trigger = { culture = bulgarian is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_castilian_PlFemen
-		trigger = { culture = castilian is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_cat_PlFemen
@@ -6382,24 +4362,12 @@ defined_text = {
 		trigger = { culture = dutch is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_egyptian_PlFemen
-		trigger = { culture = egyptian is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_english_PlFemen
-		trigger = { culture = english is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_ethiopian_PlFemen
 		trigger = { culture = ethiopian is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_finnish_PlFemen
 		trigger = { culture = finnish is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_french_PlFemen
-		trigger = { culture = french is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_frisian_PlFemen
@@ -6418,16 +4386,8 @@ defined_text = {
 		trigger = { culture = greek is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_gujarati_PlFemen
-		trigger = { culture = gujarati is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_han_PlFemen
 		trigger = { culture = han is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_hindustani_PlFemen
-		trigger = { culture = hindustani is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_horse_PlFemen
@@ -6438,10 +4398,6 @@ defined_text = {
 		trigger = { culture = hungarian is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_ilmenian_PlFemen
-		trigger = { culture = ilmenian is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_irish_PlFemen
 		trigger = { culture = irish is_female = yes }
 	}
@@ -6450,32 +4406,12 @@ defined_text = {
 		trigger = { culture = italian is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_jurchen_PlFemen
-		trigger = { culture = jurchen is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_kannada_PlFemen
 		trigger = { culture = kannada is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_karluk_PlFemen
-		trigger = { culture = karluk is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_khanty_PlFemen
-		trigger = { culture = khanty is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_khazar_PlFemen
 		trigger = { culture = khazar is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_khitan_PlFemen
-		trigger = { culture = khitan is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_kirghiz_PlFemen
-		trigger = { culture = kirghiz is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_komi_PlFemen
@@ -6484,18 +4420,6 @@ defined_text = {
 	text = {
 		localisation_key = String_ES_Culture_kurdish_PlFemen
 		trigger = { culture = kurdish is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sami_PlFemen
-		trigger = { culture = sami is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_latgalian_PlFemen
-		trigger = { culture = latgalian is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_levantine_PlFemen
-		trigger = { culture = levantine is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_lithuanian_PlFemen
@@ -6510,36 +4434,12 @@ defined_text = {
 		trigger = { culture = berber is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_mande_PlFemen
-		trigger = { culture = mande is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_marathi_PlFemen
 		trigger = { culture = marathi is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_mongol_PlFemen
-		trigger = { culture = mongol is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_mordvin_PlFemen
-		trigger = { culture = mordvin is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_nahua_PlFemen
-		trigger = { culture = nahua is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_nepali_PlFemen
-		trigger = { culture = nepali is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_norman_PlFemen
 		trigger = { culture = norman is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_norse_PlFemen
-		trigger = { culture = norse is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_norwegian_PlFemen
@@ -6562,14 +4462,6 @@ defined_text = {
 		trigger = { culture = saxon is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_oriya_PlFemen
-		trigger = { culture = oriya is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_panjabi_PlFemen
-		trigger = { culture = panjabi is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_pecheneg_PlFemen
 		trigger = { culture = pecheneg is_female = yes }
 	}
@@ -6586,28 +4478,12 @@ defined_text = {
 		trigger = { culture = polish is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_pomeranian_PlFemen
-		trigger = { culture = pomeranian is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_portuguese_PlFemen
-		trigger = { culture = portuguese is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_prussian_PlFemen
 		trigger = { culture = prussian is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_rajput_PlFemen
-		trigger = { culture = rajput is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_roman_PlFemen
 		trigger = { culture = roman is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_vlach_PlFemen
-		trigger = { culture = vlach is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_russian_PlFemen
@@ -6622,60 +4498,20 @@ defined_text = {
 		trigger = { culture = nenets is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_anglo_saxon_PlFemen
-		trigger = { culture = anglo_saxon is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_scottish_PlFemen
 		trigger = { culture = scottish is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sephardi_PlFemen
-		trigger = { culture = sephardi is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_serbian_PlFemen
 		trigger = { culture = serbian is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_severian_PlFemen
-		trigger = { culture = severian is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sindhi_PlFemen
-		trigger = { culture = sindhi is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_sinhala_PlFemen
 		trigger = { culture = sinhala is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_sogdian_PlFemen
-		trigger = { culture = sogdian is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_somali_PlFemen
-		trigger = { culture = somali is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_suebi_PlFemen
-		trigger = { culture = suebi is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sumpa_PlFemen
-		trigger = { culture = sumpa is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_swedish_PlFemen
 		trigger = { culture = swedish is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_tamil_PlFemen
-		trigger = { culture = tamil is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_tangut_PlFemen
-		trigger = { culture = tangut is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Culture_telugu_PlFemen
@@ -6690,10 +4526,6 @@ defined_text = {
 		trigger = { culture = turkish is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_estonian_PlFemen
-		trigger = { culture = estonian is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_uyghur_PlFemen
 		trigger = { culture = uyghur is_female = yes }
 	}
@@ -6702,16 +4534,8 @@ defined_text = {
 		trigger = { culture = visigothic is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Culture_volhynian_PlFemen
-		trigger = { culture = volhynian is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Culture_welsh_PlFemen
 		trigger = { culture = welsh is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Culture_zhangzhung_PlFemen
-		trigger = { culture = zhangzhung is_female = yes }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetCulturePlFemen
@@ -6723,48 +4547,20 @@ defined_text = {
 	use_first_valid = yes
 
 	text = {
-		localisation_key = String_ES_Culture_afghan_PlMas
-		trigger = { culture = afghan }
-	}
-	text = {
 		localisation_key = String_ES_Culture_alan_PlMas
 		trigger = { culture = alan }
-	}
-	text = {
-		localisation_key = String_ES_Culture_andalusian_PlMas
-		trigger = { culture = andalusian }
 	}
 	text = {
 		localisation_key = String_ES_Culture_armenian_PlMas
 		trigger = { culture = armenian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_ashkenazi_PlMas
-		trigger = { culture = ashkenazi }
-	}
-	text = {
-		localisation_key = String_ES_Culture_assamese_PlMas
-		trigger = { culture = assamese }
-	}
-	text = {
-		localisation_key = String_ES_Culture_assyrian_Mas
-		trigger = { culture = assyrian }
-	}
-	text = {
 		localisation_key = String_ES_Culture_avar_PlMas
 		trigger = { culture = avar }
 	}
 	text = {
-		localisation_key = String_ES_Culture_baloch_PlMas
-		trigger = { culture = baloch }
-	}
-	text = {
 		localisation_key = String_ES_Culture_basque_PlMas
 		trigger = { culture = basque }
-	}
-	text = {
-		localisation_key = String_ES_Culture_bedouin_PlMas
-		trigger = { culture = bedouin }
 	}
 	text = {
 		localisation_key = String_ES_Culture_bengali_PlMas
@@ -6779,20 +4575,12 @@ defined_text = {
 		trigger = { culture = bohemian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_bolghar_PlMas
-		trigger = { culture = bolghar }
-	}
-	text = {
 		localisation_key = String_ES_Culture_breton_PlMas
 		trigger = { culture = breton }
 	}
 	text = {
 		localisation_key = String_ES_Culture_bulgarian_PlMas
 		trigger = { culture = bulgarian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_castilian_PlMas
-		trigger = { culture = castilian }
 	}
 	text = {
 		localisation_key = String_ES_Culture_cat_PlMas
@@ -6819,24 +4607,12 @@ defined_text = {
 		trigger = { culture = dutch }
 	}
 	text = {
-		localisation_key = String_ES_Culture_egyptian_PlMas
-		trigger = { culture = egyptian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_english_PlMas
-		trigger = { culture = english }
-	}
-	text = {
 		localisation_key = String_ES_Culture_ethiopian_PlMas
 		trigger = { culture = ethiopian }
 	}
 	text = {
 		localisation_key = String_ES_Culture_finnish_PlMas
 		trigger = { culture = finnish }
-	}
-	text = {
-		localisation_key = String_ES_Culture_french_PlMas
-		trigger = { culture = french }
 	}
 	text = {
 		localisation_key = String_ES_Culture_frisian_PlMas
@@ -6855,16 +4631,8 @@ defined_text = {
 		trigger = { culture = greek }
 	}
 	text = {
-		localisation_key = String_ES_Culture_gujarati_PlMas
-		trigger = { culture = gujarati }
-	}
-	text = {
 		localisation_key = String_ES_Culture_han_PlMas
 		trigger = { culture = han }
-	}
-	text = {
-		localisation_key = String_ES_Culture_hindustani_PlMas
-		trigger = { culture = hindustani }
 	}
 	text = {
 		localisation_key = String_ES_Culture_horse_PlMas
@@ -6875,10 +4643,6 @@ defined_text = {
 		trigger = { culture = hungarian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_ilmenian_PlMas
-		trigger = { culture = ilmenian }
-	}
-	text = {
 		localisation_key = String_ES_Culture_irish_PlMas
 		trigger = { culture = irish }
 	}
@@ -6887,32 +4651,12 @@ defined_text = {
 		trigger = { culture = italian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_jurchen_PlMas
-		trigger = { culture = jurchen }
-	}
-	text = {
 		localisation_key = String_ES_Culture_kannada_PlMas
 		trigger = { culture = kannada }
 	}
 	text = {
-		localisation_key = String_ES_Culture_karluk_PlMas
-		trigger = { culture = karluk }
-	}
-	text = {
-		localisation_key = String_ES_Culture_khanty_PlMas
-		trigger = { culture = khanty }
-	}
-	text = {
 		localisation_key = String_ES_Culture_khazar_PlMas
 		trigger = { culture = khazar }
-	}
-	text = {
-		localisation_key = String_ES_Culture_khitan_PlMas
-		trigger = { culture = khitan }
-	}
-	text = {
-		localisation_key = String_ES_Culture_kirghiz_PlMas
-		trigger = { culture = kirghiz }
 	}
 	text = {
 		localisation_key = String_ES_Culture_komi_PlMas
@@ -6921,18 +4665,6 @@ defined_text = {
 	text = {
 		localisation_key = String_ES_Culture_kurdish_PlMas
 		trigger = { culture = kurdish }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sami_PlMas
-		trigger = { culture = sami }
-	}
-	text = {
-		localisation_key = String_ES_Culture_latgalian_PlMas
-		trigger = { culture = latgalian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_levantine_PlMas
-		trigger = { culture = levantine }
 	}
 	text = {
 		localisation_key = String_ES_Culture_lithuanian_PlMas
@@ -6947,36 +4679,12 @@ defined_text = {
 		trigger = { culture = berber }
 	}
 	text = {
-		localisation_key = String_ES_Culture_mande_PlMas
-		trigger = { culture = mande }
-	}
-	text = {
 		localisation_key = String_ES_Culture_marathi_PlMas
 		trigger = { culture = marathi }
 	}
 	text = {
-		localisation_key = String_ES_Culture_mongol_PlMas
-		trigger = { culture = mongol }
-	}
-	text = {
-		localisation_key = String_ES_Culture_mordvin_PlMas
-		trigger = { culture = mordvin }
-	}
-	text = {
-		localisation_key = String_ES_Culture_nahua_PlMas
-		trigger = { culture = nahua }
-	}
-	text = {
-		localisation_key = String_ES_Culture_nepali_PlMas
-		trigger = { culture = nepali }
-	}
-	text = {
 		localisation_key = String_ES_Culture_norman_PlMas
 		trigger = { culture = norman }
-	}
-	text = {
-		localisation_key = String_ES_Culture_norse_PlMas
-		trigger = { culture = norse }
 	}
 	text = {
 		localisation_key = String_ES_Culture_norwegian_PlMas
@@ -6999,14 +4707,6 @@ defined_text = {
 		trigger = { culture = saxon }
 	}
 	text = {
-		localisation_key = String_ES_Culture_oriya_PlMas
-		trigger = { culture = oriya }
-	}
-	text = {
-		localisation_key = String_ES_Culture_panjabi_PlMas
-		trigger = { culture = panjabi }
-	}
-	text = {
 		localisation_key = String_ES_Culture_pecheneg_PlMas
 		trigger = { culture = pecheneg }
 	}
@@ -7023,28 +4723,12 @@ defined_text = {
 		trigger = { culture = polish }
 	}
 	text = {
-		localisation_key = String_ES_Culture_pomeranian_PlMas
-		trigger = { culture = pomeranian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_portuguese_PlMas
-		trigger = { culture = portuguese }
-	}
-	text = {
 		localisation_key = String_ES_Culture_prussian_PlMas
 		trigger = { culture = prussian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_rajput_PlMas
-		trigger = { culture = rajput }
-	}
-	text = {
 		localisation_key = String_ES_Culture_roman_PlMas
 		trigger = { culture = roman }
-	}
-	text = {
-		localisation_key = String_ES_Culture_vlach_PlMas
-		trigger = { culture = vlach }
 	}
 	text = {
 		localisation_key = String_ES_Culture_russian_PlMas
@@ -7059,60 +4743,20 @@ defined_text = {
 		trigger = { culture = nenets }
 	}
 	text = {
-		localisation_key = String_ES_Culture_anglo_saxon_PlMas
-		trigger = { culture = anglo_saxon }
-	}
-	text = {
 		localisation_key = String_ES_Culture_scottish_PlMas
 		trigger = { culture = scottish }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sephardi_PlMas
-		trigger = { culture = sephardi }
 	}
 	text = {
 		localisation_key = String_ES_Culture_serbian_PlMas
 		trigger = { culture = serbian }
 	}
 	text = {
-		localisation_key = String_ES_Culture_severian_PlMas
-		trigger = { culture = severian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sindhi_PlMas
-		trigger = { culture = sindhi }
-	}
-	text = {
 		localisation_key = String_ES_Culture_sinhala_PlMas
 		trigger = { culture = sinhala }
 	}
 	text = {
-		localisation_key = String_ES_Culture_sogdian_PlMas
-		trigger = { culture = sogdian }
-	}
-	text = {
-		localisation_key = String_ES_Culture_somali_PlMas
-		trigger = { culture = somali }
-	}
-	text = {
-		localisation_key = String_ES_Culture_suebi_PlMas
-		trigger = { culture = suebi }
-	}
-	text = {
-		localisation_key = String_ES_Culture_sumpa_PlMas
-		trigger = { culture = sumpa }
-	}
-	text = {
 		localisation_key = String_ES_Culture_swedish_PlMas
 		trigger = { culture = swedish }
-	}
-	text = {
-		localisation_key = String_ES_Culture_tamil_PlMas
-		trigger = { culture = tamil }
-	}
-	text = {
-		localisation_key = String_ES_Culture_tangut_PlMas
-		trigger = { culture = tangut }
 	}
 	text = {
 		localisation_key = String_ES_Culture_telugu_PlMas
@@ -7127,10 +4771,6 @@ defined_text = {
 		trigger = { culture = turkish }
 	}
 	text = {
-		localisation_key = String_ES_Culture_estonian_PlMas
-		trigger = { culture = estonian }
-	}
-	text = {
 		localisation_key = String_ES_Culture_uyghur_PlMas
 		trigger = { culture = uyghur }
 	}
@@ -7139,16 +4779,8 @@ defined_text = {
 		trigger = { culture = visigothic }
 	}
 	text = {
-		localisation_key = String_ES_Culture_volhynian_PlMas
-		trigger = { culture = volhynian }
-	}
-	text = {
 		localisation_key = String_ES_Culture_welsh_PlMas
 		trigger = { culture = welsh }
-	}
-	text = {
-		localisation_key = String_ES_Culture_zhangzhung_PlMas
-		trigger = { culture = zhangzhung }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetCulturePlMas
@@ -7615,16 +5247,8 @@ defined_text = {
 		trigger = { religion = hindu }
 	}
 	text = {
-		localisation_key = String_ES_GetHouseOfWorshipDelDela_Buddhist
-		trigger = { religion = buddhist }
-	}
-	text = {
 		localisation_key = String_ES_GetHouseOfWorshipDelDela_Jain
 		trigger = { religion = jain }
-	}
-	text = {
-		localisation_key = String_ES_GetHouseOfWorshipDelDela_Taoist
-		trigger = { religion = taoist }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetHouseOfWorshipDelDela
@@ -7660,16 +5284,8 @@ defined_text = {
 		trigger = { religion = hindu }
 	}
 	text = {
-		localisation_key = String_ES_GetHouseOfWorshipUnUna_Buddhist
-		trigger = { religion = buddhist }
-	}
-	text = {
 		localisation_key = String_ES_GetHouseOfWorshipUnUna_Jain
 		trigger = { religion = jain }
-	}
-	text = {
-		localisation_key = String_ES_GetHouseOfWorshipUnUna_Taoist
-		trigger = { religion = taoist }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetHouseOfWorshipUnUna
@@ -7705,20 +5321,12 @@ defined_text = {
 		trigger = { religion_group = zoroastrian_group is_female = no }
 	}
 	text = {
-		localisation_key = String_ES_Religion_buddhist_Mas
-		trigger = { religion = buddhist is_female = no }
-	}
-	text = {
 		localisation_key = String_ES_Religion_jain_Mas
 		trigger = { religion = jain is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Religion_hindu_Mas
 		trigger = { religion = hindu is_female = no }
-	}
-	text = {
-		localisation_key = String_ES_Religion_taoist_Mas
-		trigger = { religion = taoist is_female = no }
 	}
 	text = {
 		localisation_key = String_ES_Religion_norse_pagan_Mas
@@ -7794,20 +5402,12 @@ defined_text = {
 		trigger = { religion_group = zoroastrian_group is_female = yes }
 	}
 	text = {
-		localisation_key = String_ES_Religion_buddhist_Femen
-		trigger = { religion = buddhist is_female = yes }
-	}
-	text = {
 		localisation_key = String_ES_Religion_jain_Femen
 		trigger = { religion = jain is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Religion_hindu_Femen
 		trigger = { religion = hindu is_female = yes }
-	}
-	text = {
-		localisation_key = String_ES_Religion_taoist_Femen
-		trigger = { religion = taoist is_female = yes }
 	}
 	text = {
 		localisation_key = String_ES_Religion_norse_pagan_Femen
@@ -7871,26 +5471,16 @@ defined_text = {
 		localisation_key = String_ES_ScriptureDelDela_Bible
 		trigger = {
 			true_religion_group = christian
-			NOT = { true_religion = messalian }
 		}
-	}
-	text = {
-		localisation_key = String_ES_ScriptureDelDela_Asceticus
-		trigger = { true_religion = messalian }
 	}
 	text = {
 		localisation_key = String_ES_ScriptureDelDela_Koran
 		trigger = {
 			true_religion_group = muslim
 			NOR = {
-				true_religion = yazidi
 				true_religion = druze
 			}
 		}
-	}
-	text = {
-		localisation_key = String_ES_ScriptureDelDela_Book_Of_Illumination
-		trigger = { true_religion = yazidi }
 	}
 	text = {
 		localisation_key = String_ES_ScriptureDelDela_Epistles_Of_Wisdom
@@ -7904,20 +5494,11 @@ defined_text = {
 		localisation_key = String_ES_ScriptureDelDela_Gathas
 		trigger = {
 			true_religion_group = zoroastrian_group
-			NOT = { true_religion = mazdaki }
 		}
-	}
-	text = {
-		localisation_key = String_ES_ScriptureDelDela_Great_Secret
-		trigger = { true_religion = mazdaki }
 	}
 	text = {
 		localisation_key = String_ES_ScriptureDelDela_Mahabharata
 		trigger = { true_religion = hindu }
-	}
-	text = {
-		localisation_key = String_ES_ScriptureDelDela_Buddhavacana
-		trigger = { true_religion = buddhist }
 	}
 	text = {
 		localisation_key = String_ES_ScriptureDelDela_Mahabharata
@@ -7933,18 +5514,6 @@ defined_text = {
 			true_religion_group = pagan_group
 			true_norse_religion_trigger = no
 		}
-	}
-	text = {
-		localisation_key = String_ES_ScriptureDelDela_Gathas
-		trigger = { true_religion = khurmazta }
-	}
-	text = {
-		localisation_key = String_ES_ScriptureDelDela_MDODUS
-		trigger = { true_religion = bon_pagan }
-	}
-	text = {
-		localisation_key = String_ES_ScriptureDelDela_TAO_TE_CHING
-		trigger = { true_religion = taoist }
 	}
 	fallback_text = {
 		localisation_key = String_ES_FALLBACK_GetTrueReligionScriptureNameDelDela
