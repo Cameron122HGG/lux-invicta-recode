@@ -114,6 +114,7 @@ for key, (lf, la, lb, ltext) in li.items():
         mf, ma, mb, _ = mod[key]
         ms = rd(os.path.join(REPO, mf)); pre = ms[max(0, ma - 300):ma].rstrip().split('\n')[-1]
         if '# LI:' in pre: c = 'LI-wins block in mod (skip)'
+        elif '# LI:' in ms[ma:mb]: c = 'block carries an LI fix inside (skip)'
         else:
             body = nc(aio[key])
             listed = {e for lst in re.findall(r'\bevents\s*=\s*\{([^}]*)\}', body) for e in re.findall(r'[\w.]+', lst)}
