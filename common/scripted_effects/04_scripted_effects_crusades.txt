@@ -27,7 +27,7 @@ pledge_crusade_effect = {
 			trait = excommunicated
 		}
 		rightful_religious_head_scope = {
-			character_event = { id = HFP.41056 }
+			#character_event = { id = HFP.41056 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 	}
 
@@ -78,7 +78,7 @@ defender_unpledge_crusade_effect = {
 
 # Referenced by the "Contribute to Pot" button in the Crusade view for Crusades using the new Crusade system
 contribute_to_crusade_pot_effect = {
-	character_event = { id = HFP.41088 }
+	#character_event = { id = HFP.41088 } # Holy Fury event not in Lux Invicta (DLC switched off)
 }
 
 # Referenced by getting artifacts from a Crusade
@@ -399,7 +399,7 @@ crusade_give_artifact_effect = {
 
 # Referenced by the "Select Receiver Stance" button in the Crusade view for Crusades using the new Crusade system
 select_crusade_receiver_stance_effect = {
-	character_event = { id = HFP.41091 }
+	#character_event = { id = HFP.41091 } # Holy Fury event not in Lux Invicta (DLC switched off)
 }
 
 # Crusader King/Queen set up 
@@ -429,8 +429,8 @@ setting_up_the_crusader_kingdom_effect = {
 		}
 		add_trait = crusader_queen
 	}
-	character_event = { id = HFP.41090 days = 1 }
-	character_event = { id = HFP.41090 days = 3 }
+	#character_event = { id = HFP.41090 days = 1 } # Holy Fury event not in Lux Invicta (DLC switched off)
+	#character_event = { id = HFP.41090 days = 3 }
 
 	if = {
 		limit = {
@@ -641,7 +641,7 @@ crusader_commander_counter_positive_effect = {
 				}
 			}
 		}
-		narrative_event = { id = HF.49021 }
+		#narrative_event = { id = HF.49021 } # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 }
 
@@ -749,7 +749,7 @@ crusade_flavor_event_tombola_effect = {
 					has_character_flag = reconquista_flavor
 				}
 			}
-			character_event = { id = HFP.42201 }
+			#character_event = { id = HFP.42201 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# Seeing the local culture
 		3 = {
@@ -760,11 +760,11 @@ crusade_flavor_event_tombola_effect = {
 					}
 				}
 			}
-			character_event = { id = HFP.42202 }
+			#character_event = { id = HFP.42202 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# Dead Crusaders
 		3 = {
-			character_event = { id = HFP.42203 }
+			#character_event = { id = HFP.42203 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# Meeting caravan
 		3 = {
@@ -773,7 +773,7 @@ crusade_flavor_event_tombola_effect = {
 					has_character_modifier = crusade_event_meeting_caravan_cooldown
 				}
 			}
-			character_event = { id = HFP.42204 }
+			#character_event = { id = HFP.42204 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# Reminiscing about home
 		1 = {
@@ -782,11 +782,11 @@ crusade_flavor_event_tombola_effect = {
 					has_character_modifier = crusade_event_reminiscing_about_home_cooldown
 				}
 			}
-			character_event = { id = HFP.42205 }
+			#character_event = { id = HFP.42205 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# The Holy Comet
 		3 = {
-			character_event = { id = HFP.42206 }
+			#character_event = { id = HFP.42206 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# Questioning the faith
 		1 = {
@@ -795,7 +795,7 @@ crusade_flavor_event_tombola_effect = {
 					has_character_modifier = crusade_event_questioning_the_faith_cooldown
 				}
 			}
-			character_event = { id = HFP.42207 }
+			#character_event = { id = HFP.42207 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# The little group of Faithful
 		1 = {
@@ -803,19 +803,19 @@ crusade_flavor_event_tombola_effect = {
 				is_alternate_start = no
 				ai = no
 			}
-			character_event = { id = HFP.42208 }
+			#character_event = { id = HFP.42208 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# The little thief
 		2 = {
-			character_event = { id = HFP.42209 }
+			#character_event = { id = HFP.42209 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# The wise man
 		3 = {
-			character_event = { id = HFP.42210 }
+			#character_event = { id = HFP.42210 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# Coming across a local festival
 		3 = {
-			character_event = { id = HFP.42211 }
+			#character_event = { id = HFP.42211 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# Guided by God or Alcohol
 		2 = {
@@ -867,7 +867,7 @@ crusade_flavor_event_tombola_effect = {
 					}
 				}
 			}
-			character_event = { id = HFP.42212 }
+			#character_event = { id = HFP.42212 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# Meeting a Holy Order
 		3 = {
@@ -920,11 +920,11 @@ crusade_flavor_event_tombola_effect = {
 					}
 				}
 			}
-			character_event = { id = HFP.42213 }
+			#character_event = { id = HFP.42213 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		# Crusader Brothel
 		3 = {
-			character_event = { id = HFP.42214 }
+			#character_event = { id = HFP.42214 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 	}
 }

@@ -18751,7 +18751,7 @@ random_list = {
 			factor = 0.75
 			health = 5
 		} 
-		character_event = { id = HFP.20500  days = 35 random = 75 } #Critical failure: troubled pregnancy begins.
+		#character_event = { id = HFP.20500  days = 35 random = 75 } #Critical failure: troubled pregnancy begins. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 	}
 }
@@ -19121,7 +19121,7 @@ random_list = {
 			factor = 0.75
 			health = 5
 		} 
-		character_event = { id = HFP.20500  days = 35 random = 75 } #Critical failure: troubled pregnancy begins.
+		#character_event = { id = HFP.20500  days = 35 random = 75 } #Critical failure: troubled pregnancy begins. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 	}
 }
@@ -21013,7 +21013,7 @@ weight_trait_check_effect = {
 		remove_trait = is_fat
 		hidden_tooltip = { 
 			remove_weight_modifier_effect = yes
-			character_event = { id = HFP.20601 } #Notification
+			#character_event = { id = HFP.20601 } #Notification # Holy Fury event not in Lux Invicta (DLC switched off)
 		} 
 	}
 	if = { 
@@ -21025,7 +21025,7 @@ weight_trait_check_effect = {
 		add_trait = is_malnourished
 		hidden_tooltip = { 
 			remove_weight_modifier_effect = yes
-			character_event = { id = HFP.20602 } #Notification
+			#character_event = { id = HFP.20602 } #Notification # Holy Fury event not in Lux Invicta (DLC switched off)
 		} 
 	}
 	if = { 
@@ -21037,7 +21037,7 @@ weight_trait_check_effect = {
 		remove_trait = is_malnourished
 		hidden_tooltip = { 
 			remove_weight_modifier_effect = yes
-			character_event = { id = HFP.20603 } #Notification
+			#character_event = { id = HFP.20603 } #Notification # Holy Fury event not in Lux Invicta (DLC switched off)
 		} 
 	}
 	if = { 
@@ -21049,7 +21049,7 @@ weight_trait_check_effect = {
 		add_trait = is_fat
 		hidden_tooltip = { 
 			remove_weight_modifier_effect = yes
-			character_event = { id = HFP.20600 } #Notification
+			#character_event = { id = HFP.20600 } #Notification # Holy Fury event not in Lux Invicta (DLC switched off)
 		} 
 	}
 	if = { 
@@ -21063,7 +21063,7 @@ weight_trait_check_effect = {
 		#First time try to fire a special event if character meets any of the conditions, otherwise simply notify.
 		weight_flavor_conditions_effect = yes
 		add_trait = is_fat
-		hidden_tooltip = { character_event = { id = HFP.20600 } } #Notification
+		#hidden_tooltip = { character_event = { id = HFP.20600 } } #Notification # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 	if = { 
 		limit = {
@@ -21076,7 +21076,7 @@ weight_trait_check_effect = {
 		#First time try to fire a special event if character meets any of the conditions, otherwise simply notify.
 		weight_flavor_conditions_effect = yes
 		add_trait = is_malnourished
-		hidden_tooltip = { character_event = { id = HFP.20602 } } #Notification
+		#hidden_tooltip = { character_event = { id = HFP.20602 } } #Notification # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 
 }  
@@ -21394,7 +21394,7 @@ weight_flavor_conditions_effect = {
 			gain_weight_small_effect = yes
 		}
 		set_character_flag = flag_primed_physique
-		character_event = { id = HFP.20605 days = 10 }
+		#character_event = { id = HFP.20605 days = 10 } # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 	if = { #If already about to become malnourished and fulfilling one of the special conditions, fire the specific event to give more flavor.
 		limit = { 
@@ -21451,7 +21451,7 @@ weight_flavor_conditions_effect = {
 			lose_weight_small_effect = yes
 		}
 		set_character_flag = flag_primed_physique
-		character_event = { id = HFP.20628 days = 10 }
+		#character_event = { id = HFP.20628 days = 10 } # Holy Fury event not in Lux Invicta (DLC switched off)
 	}	
 }
 
@@ -21463,13 +21463,13 @@ this_post_weight_gain_flavor_effect = {
 			trigger = { 
 				trait = stressed
 			}
-			character_event = { id = HFP.20607 days = 50 random = 50 } #Lose stressed
+			#character_event = { id = HFP.20607 days = 50 random = 50 } #Lose stressed # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		5 = { 
 			trigger = { 
 				trait = depressed
 			}
-			character_event = { id = HFP.20608 days = 50 random = 50 } #Lose depressed
+			#character_event = { id = HFP.20608 days = 50 random = 50 } #Lose depressed # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		2 = { 
 			modifier = { 
@@ -21480,7 +21480,7 @@ this_post_weight_gain_flavor_effect = {
 				factor = 0.5
 				NOT = { trait = feeble }
 			}
-			character_event = { id = HFP.20609 days = 50 random = 50 } #Gain health
+			#character_event = { id = HFP.20609 days = 50 random = 50 } #Gain health # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		2 = { 
 			modifier = { 
@@ -21491,14 +21491,14 @@ this_post_weight_gain_flavor_effect = {
 				factor = 1.75
 				trait = sturdy
 			}
-			character_event = { id = HFP.20610 days = 50 random = 50 } #Lose health
+			#character_event = { id = HFP.20610 days = 50 random = 50 } #Lose health # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		3 = { 
 			modifier = { 
 				factor = 0.5
 				trait = greedy
 			}
-			character_event = { id = HFP.20611 days = 50 random = 50 } #become charitable, vassal opinion.
+			#character_event = { id = HFP.20611 days = 50 random = 50 } #become charitable, vassal opinion. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		5 = { 
 			trigger = { 
@@ -21509,7 +21509,7 @@ this_post_weight_gain_flavor_effect = {
 					trait = wroth
 				}
 			}
-			character_event = { id = HFP.20663 days = 50 random = 50 } #Become proud.
+			#character_event = { id = HFP.20663 days = 50 random = 50 } #Become proud. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		5 = { 
 			trigger = { 
@@ -21517,7 +21517,7 @@ this_post_weight_gain_flavor_effect = {
 					trait = wroth
 				}
 			}
-			character_event = { id = HFP.20664 days = 50 random = 50 } #Become patient.
+			#character_event = { id = HFP.20664 days = 50 random = 50 } #Become patient. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		1 = { 
 			trigger = { 
@@ -21527,7 +21527,7 @@ this_post_weight_gain_flavor_effect = {
 					trait = wroth
 				}
 			}
-			character_event = { id = HFP.20665 days = 50 random = 50 } #Become content.
+			#character_event = { id = HFP.20665 days = 50 random = 50 } #Become content. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 	}
 }
@@ -21539,13 +21539,13 @@ this_post_weight_loss_flavor_effect = {
 			trigger = { 
 				trait = stressed
 			}
-			character_event = { id = HFP.20607 days = 50 random = 50 } #Lose stressed
+			#character_event = { id = HFP.20607 days = 50 random = 50 } #Lose stressed # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		5 = { 
 			trigger = { 
 				trait = depressed
 			}
-			character_event = { id = HFP.20608 days = 50 random = 50 } #Lose depressed
+			#character_event = { id = HFP.20608 days = 50 random = 50 } #Lose depressed # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		2 = { 
 			modifier = { 
@@ -21556,7 +21556,7 @@ this_post_weight_loss_flavor_effect = {
 				factor = 0.5
 				NOT = { trait = feeble }
 			}
-			character_event = { id = HFP.20609 days = 50 random = 50 } #Gain health
+			#character_event = { id = HFP.20609 days = 50 random = 50 } #Gain health # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		2 = { 
 			modifier = { 
@@ -21567,14 +21567,14 @@ this_post_weight_loss_flavor_effect = {
 				factor = 1.75
 				trait = sturdy
 			}
-			character_event = { id = HFP.20610 days = 50 random = 50 } #Lose health
+			#character_event = { id = HFP.20610 days = 50 random = 50 } #Lose health # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		3 = { 
 			modifier = { 
 				factor = 0.5
 				trait = greedy
 			}
-			character_event = { id = HFP.20611 days = 50 random = 50 } #become charitable, vassal opinion.
+			#character_event = { id = HFP.20611 days = 50 random = 50 } #become charitable, vassal opinion. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		5 = { 
 			trigger = { 
@@ -21585,7 +21585,7 @@ this_post_weight_loss_flavor_effect = {
 					trait = wroth
 				}
 			}
-			character_event = { id = HFP.20663 days = 50 random = 50 } #Become proud.
+			#character_event = { id = HFP.20663 days = 50 random = 50 } #Become proud. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		5 = { 
 			trigger = { 
@@ -21593,7 +21593,7 @@ this_post_weight_loss_flavor_effect = {
 					trait = wroth
 				}
 			}
-			character_event = { id = HFP.20664 days = 50 random = 50 } #Become patient.
+			#character_event = { id = HFP.20664 days = 50 random = 50 } #Become patient. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		1 = { 
 			trigger = { 
@@ -21603,7 +21603,7 @@ this_post_weight_loss_flavor_effect = {
 					trait = wroth
 				}
 			}
-			character_event = { id = HFP.20665 days = 50 random = 50 } #Become content.
+			#character_event = { id = HFP.20665 days = 50 random = 50 } #Become content. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 	}
 }
@@ -22330,10 +22330,10 @@ child_of_destiny_journey_start_effect = {
 		limit = {
 			has_global_flag = cod_test_values
 		}
-		character_event = { id = HF.210 days = 1 } # The journey begins... Test Value
+		#character_event = { id = HF.210 days = 1 } # The journey begins... Test Value # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 	else = {
-		character_event = { id = HF.210 days = 200 random = 200 } # The journey begins...
+		#character_event = { id = HF.210 days = 200 random = 200 } # The journey begins... # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 }
 
@@ -22342,10 +22342,10 @@ child_of_destiny_journey_resume_effect = {
 		limit = {
 			has_global_flag = cod_test_values
 		}
-		character_event = { id = HF.210 days = 1 }  # Back to the journey tombola! Test Value
+		#character_event = { id = HF.210 days = 1 }  # Back to the journey tombola! Test Value # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 	else = {
-		character_event = { id = HF.210 days = 365 random = 500 } # Back to the journey tombola!
+		#character_event = { id = HF.210 days = 365 random = 500 } # Back to the journey tombola! # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 }
 
@@ -23400,7 +23400,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					factor = 1.5
 					trait = slothful
 				}
-				character_event = { id = HF.25603 days = 10 random = 5 }
+				#character_event = { id = HF.25603 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			15 = { #Co-hunter is in trouble.
 				trigger = { event_target:scoped_WL_co_hunter = { is_alive = yes } }
@@ -23428,7 +23428,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					factor = 1.5
 					event_target:scoped_WL_co_hunter = { trait = slothful }
 				}
-				character_event = { id = HF.25606 days = 10 random = 5 }
+				#character_event = { id = HF.25606 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			25 = { #Characters looking for tracks.
 				modifier = { 
@@ -23443,7 +23443,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					factor = 1.5
 					event_target:scoped_WL_co_hunter = { intrigue = 18 }
 				}
-				character_event = { id = HF.25608 days = 10 random = 5 }
+				#character_event = { id = HF.25608 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			25 = { #Characters need to examine carcass.
 				modifier = { 
@@ -23458,7 +23458,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					factor = 1.5
 					event_target:scoped_WL_co_hunter = { martial = 18 }
 				}
-				character_event = { id = HF.25609 days = 10 random = 5 }
+				#character_event = { id = HF.25609 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 
 			}
 			25 = { #Characters reflect upon target.
@@ -23474,7 +23474,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					factor = 1.5
 					event_target:scoped_WL_co_hunter = { learning = 18 }
 				}
-				character_event = { id = HF.25610 days = 10 random = 5 }
+				#character_event = { id = HF.25610 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 
 			}
 			25 = { #Characters persuade hermit for directions.
@@ -23490,7 +23490,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					factor = 1.5
 					event_target:scoped_WL_co_hunter = { diplomacy = 18 }
 				}
-				character_event = { id = HF.25611 days = 10 random = 5 }
+				#character_event = { id = HF.25611 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 
 			}
 			25 = { #Characters need to interpret old map.
@@ -23510,7 +23510,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					factor = 1.5
 					has_character_flag = flag_picked_ritual_co_hunter_smart
 				}
-				character_event = { id = HF.25612 days = 10 random = 5 }
+				#character_event = { id = HF.25612 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 
 			}
 			25 = { #Characters see bad omen.
@@ -23530,7 +23530,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					factor = 1.5
 					NOT = { piety = 150 }
 				}
-				character_event = { id = HF.25613 days = 10 random = 5 }
+				#character_event = { id = HF.25613 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			5 = { #Characters see good omen.
 				modifier = { 
@@ -23553,7 +23553,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					factor = 1.5
 					piety = 550
 				}
-				character_event = { id = HF.25614 days = 10 random = 5 }
+				#character_event = { id = HF.25614 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 
 			}
 
@@ -23573,7 +23573,7 @@ WL_ritual_hunt_flavor_events_effect = {
 					} 
 					event_target:scoped_WL_co_hunter = { is_alive = yes }
 				}
-				character_event = { id = HF.25615 days = 10 random = 5 }
+				#character_event = { id = HF.25615 days = 10 random = 5 } # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 		} 
 	}

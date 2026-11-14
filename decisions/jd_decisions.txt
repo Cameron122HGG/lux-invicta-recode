@@ -87,7 +87,7 @@ decisions = {
 						}
 					}
 				}
-				character_event = { id = HF.24240 tooltip = tooltip_evt_hf_24240 }
+				#character_event = { id = HF.24240 tooltip = tooltip_evt_hf_24240 } # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			custom_tooltip = {
 				text = adopt_chinese_imperialism_tt

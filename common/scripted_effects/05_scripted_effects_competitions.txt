@@ -8267,7 +8267,7 @@ warrior_lodge_arm_wrestling_first_round_effect = {
 					factor = 1.15 
 					event_target:arm_wrestling_fighter_1 = { has_character_modifier = tribal_festival_bought_bravery_amulet }
 				}
-				event_target:arm_wrestling_fighter_2 = { character_event = { id = HF.25205 days = 1 } } #First round sends event to underdog.
+				#event_target:arm_wrestling_fighter_2 = { character_event = { id = HF.25205 days = 1 } } #First round sends event to underdog. # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			50 = {
 				trigger = { 
@@ -8437,7 +8437,7 @@ warrior_lodge_arm_wrestling_first_round_effect = {
 					factor = 1.15 
 					event_target:arm_wrestling_fighter_2 = { has_character_modifier = tribal_festival_bought_bravery_amulet }
 				}
-				event_target:arm_wrestling_fighter_1 = { character_event = { id = HF.25205 days = 1 } } #First round sends event to underdog.
+				#event_target:arm_wrestling_fighter_1 = { character_event = { id = HF.25205 days = 1 } } #First round sends event to underdog. # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			50 = { #Safety cleanup for multiplayer.
 				trigger = { 
@@ -8633,7 +8633,7 @@ warrior_lodge_arm_wrestling_second_round_effect = {
 				}
 				event_target:arm_wrestling_fighter_1 = { save_event_target_as = wl_arm_wrestling_winner }
 				event_target:arm_wrestling_fighter_2 = { save_event_target_as = wl_arm_wrestling_loser }
-				event_target:wl_arm_wrestling_winner = { character_event = { id = HF.25215 } } #Second round sends event to winner.
+				#event_target:wl_arm_wrestling_winner = { character_event = { id = HF.25215 } } #Second round sends event to winner. # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			50 = {
 				trigger = { 
@@ -8814,7 +8814,7 @@ warrior_lodge_arm_wrestling_second_round_effect = {
 				}
 				event_target:arm_wrestling_fighter_2 = { save_event_target_as = wl_arm_wrestling_winner }
 				event_target:arm_wrestling_fighter_1 = { save_event_target_as = wl_arm_wrestling_loser }
-				event_target:wl_arm_wrestling_winner = { character_event = { id = HF.25215 } } #Second round sends event to winner.
+				#event_target:wl_arm_wrestling_winner = { character_event = { id = HF.25215 } } #Second round sends event to winner. # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			50 = { #Safety cleanup for multiplayer.
 				trigger = { 
@@ -9021,7 +9021,7 @@ post_arm_wrestling_flavor_effect = {
 					preferred_limit = { 
 						is_unattractive_trigger = no
 					}
-					character_event = { id = HF.25218 }
+					#character_event = { id = HF.25218 } # Holy Fury event not in Lux Invicta (DLC switched off)
 				} 
 			} 
 			15 = { #Friendship
@@ -9107,7 +9107,7 @@ post_arm_wrestling_flavor_effect = {
 						NOT = { age = 40 }
 						NOT = { trait = shy }
 					}
-					character_event = { id = HF.25222 }
+					#character_event = { id = HF.25222 } # Holy Fury event not in Lux Invicta (DLC switched off)
 				}
 			} 
 			50 = { #Nothing.
@@ -9820,7 +9820,7 @@ warrior_lodge_flyting_winner_selection_effect = { #ROOT and FROM are the contend
 				event_target:flyting_contender_2 = { has_character_flag = insulting_family_cruel }
 			}
 
-			event_target:flyting_contender_2 = { character_event = { id = HF.25262 } } 
+			#event_target:flyting_contender_2 = { character_event = { id = HF.25262 } }  # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		50 = { #flyting_contender_2 wins
 			modifier = { 
@@ -10151,7 +10151,7 @@ warrior_lodge_flyting_winner_selection_effect = { #ROOT and FROM are the contend
 				}
 				event_target:flyting_contender_1 = { has_character_flag = insulting_family_cruel }
 			}
-			event_target:flyting_contender_1 = { character_event = { id = HF.25262 } } 
+			#event_target:flyting_contender_1 = { character_event = { id = HF.25262 } }  # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 	}
 }
@@ -10497,7 +10497,7 @@ pick_potential_WL_drinking_finalists_effect = {
 				factor = 1.15 
 				event_target:warrior_lodge_drinking_finalist_1 = { has_character_modifier = tribal_festival_bought_bravery_amulet }
 			}
-			event_target:warrior_lodge_drinking_finalist_2 = { character_event = { id = HF.25288 } } #Send event to the guy about to lose.
+			#event_target:warrior_lodge_drinking_finalist_2 = { character_event = { id = HF.25288 } } #Send event to the guy about to lose. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		25 = {
 			trigger = { 
@@ -10614,14 +10614,14 @@ pick_potential_WL_drinking_finalists_effect = {
 				factor = 1.15 
 				event_target:warrior_lodge_drinking_finalist_2 = { has_character_modifier = tribal_festival_bought_bravery_amulet }
 			}
-			event_target:warrior_lodge_drinking_finalist_1 = { character_event = { id = HF.25288 } }
+			#event_target:warrior_lodge_drinking_finalist_1 = { character_event = { id = HF.25288 } } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		25 = { #Fallback, if no potential winner exists in the first place.
 			trigger = { 
 				event_target:warrior_lodge_drinking_finalist_1 = { is_alive = no }
 				event_target:warrior_lodge_drinking_finalist_2 = { is_alive = no }
 			}
-			event_target:WL_host_drinking_game = { character_event = { id = HF.25286 } } #Inform host that nobody won.
+			#event_target:WL_host_drinking_game = { character_event = { id = HF.25286 } } #Inform host that nobody won. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 	}
 }
@@ -10755,7 +10755,7 @@ pick_potential_WL_drinking_winner_effect = {
 				event_target:warrior_lodge_drinking_finalist_1 = { has_character_flag = flag_strong_boost_WL_drinking_game }
 			}
 			event_target:warrior_lodge_drinking_finalist_1 = { save_event_target_as = WL_drinking_contest_winner } #Loc purposes.
-			event_target:WL_drinking_contest_winner = { character_event = { id = HF.25292 } } #Winner.
+			#event_target:WL_drinking_contest_winner = { character_event = { id = HF.25292 } } #Winner. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		25 = {
 			trigger = { 
@@ -10881,14 +10881,14 @@ pick_potential_WL_drinking_winner_effect = {
 				event_target:warrior_lodge_drinking_finalist_2 = { has_character_flag = flag_strong_boost_WL_drinking_game }
 			}
 			event_target:warrior_lodge_drinking_finalist_2 = { save_event_target_as = WL_drinking_contest_winner } #Loc purposes.
-			event_target:WL_drinking_contest_winner = { character_event = { id = HF.25292 } } #Winner.
+			#event_target:WL_drinking_contest_winner = { character_event = { id = HF.25292 } } #Winner. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		25 = { #Fallback, if no potential winner exists in the first place.
 			trigger = { 
 				event_target:warrior_lodge_drinking_finalist_1 = { is_alive = no }
 				event_target:warrior_lodge_drinking_finalist_2 = { is_alive = no }
 			}
-			event_target:WL_host_drinking_game = { character_event = { id = HF.25286 } } #Inform host that nobody won.
+			#event_target:WL_host_drinking_game = { character_event = { id = HF.25286 } } #Inform host that nobody won. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		25 = { #Hero can spot the cheater.
 			trigger = { 
@@ -10944,7 +10944,7 @@ pick_potential_WL_drinking_winner_effect = {
 				factor = 1.25 
 				event_target:WL_host_drinking_game = { intrigue = 20 }
 			}
-			event_target:WL_host_drinking_game = { character_event = { id = HF.25289 } } #Inform host.
+			#event_target:WL_host_drinking_game = { character_event = { id = HF.25289 } } #Inform host. # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 	}
 	
