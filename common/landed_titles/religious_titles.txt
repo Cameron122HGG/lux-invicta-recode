@@ -1321,7 +1321,7 @@ e_shiite = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1334,7 +1334,7 @@ e_shiite = {
 			custom_tooltip = {
 				text = controls_jerusalem_damascus_baghdad
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1342,7 +1342,7 @@ e_shiite = {
 							}
 						}
 					}
-					809 = { # Damascus
+					755 = { # Damascus (LI: was 809, vanilla's number; LI's Damascus is 755)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1350,7 +1350,7 @@ e_shiite = {
 							}
 						}
 					}
-					693 = { # Baghdad
+					731 = { # Baghdad (LI: was 693, vanilla's number; LI's Baghdad is 731)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1400,7 +1400,7 @@ e_sunni = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1413,7 +1413,7 @@ e_sunni = {
 			custom_tooltip = {
 				text = controls_jerusalem_damascus_baghdad
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1421,7 +1421,7 @@ e_sunni = {
 							}
 						}
 					}
-					809 = { # Damascus
+					755 = { # Damascus (LI: was 809, vanilla's number; LI's Damascus is 755)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1429,7 +1429,7 @@ e_sunni = {
 							}
 						}
 					}
-					693 = { # Baghdad
+					731 = { # Baghdad (LI: was 693, vanilla's number; LI's Baghdad is 731)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1476,7 +1476,7 @@ e_umayyad = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1489,7 +1489,7 @@ e_umayyad = {
 			custom_tooltip = {
 				text = controls_jerusalem_cordoba
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1497,7 +1497,7 @@ e_umayyad = {
 							}
 						}
 					}
-					181 = { # Cordoba
+					192 = { # Cordoba (LI: was 181, vanilla's number; LI's Cordoba is 192)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1553,7 +1553,7 @@ d_athari = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1566,7 +1566,7 @@ d_athari = {
 			custom_tooltip = {
 				text = controls_jerusalem_damascus_baghdad
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1574,7 +1574,7 @@ d_athari = {
 							}
 						}
 					}
-					809 = { # Damascus
+					755 = { # Damascus (LI: was 809, vanilla's number; LI's Damascus is 755)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1582,7 +1582,7 @@ d_athari = {
 							}
 						}
 					}
-					693 = { # Baghdad
+					731 = { # Baghdad (LI: was 693, vanilla's number; LI's Baghdad is 731)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1635,7 +1635,7 @@ d_ashari = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1648,7 +1648,7 @@ d_ashari = {
 			custom_tooltip = {
 				text = controls_jerusalem_damascus_baghdad
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1656,7 +1656,7 @@ d_ashari = {
 							}
 						}
 					}
-					809 = { # Damascus
+					755 = { # Damascus (LI: was 809, vanilla's number; LI's Damascus is 755)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1664,7 +1664,7 @@ d_ashari = {
 							}
 						}
 					}
-					693 = { # Baghdad
+					731 = { # Baghdad (LI: was 693, vanilla's number; LI's Baghdad is 731)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1717,7 +1717,7 @@ d_haruri_caliphate = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1730,7 +1730,7 @@ d_haruri_caliphate = {
 			custom_tooltip = {
 				text = controls_jerusalem_damascus_baghdad
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1738,7 +1738,7 @@ d_haruri_caliphate = {
 							}
 						}
 					}
-					809 = { # Damascus
+					755 = { # Damascus (LI: was 809, vanilla's number; LI's Damascus is 755)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1746,7 +1746,7 @@ d_haruri_caliphate = {
 							}
 						}
 					}
-					693 = { # Baghdad
+					731 = { # Baghdad (LI: was 693, vanilla's number; LI's Baghdad is 731)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1799,7 +1799,7 @@ d_maturidi = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1812,7 +1812,7 @@ d_maturidi = {
 			custom_tooltip = {
 				text = controls_jerusalem_damascus_baghdad
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1820,7 +1820,7 @@ d_maturidi = {
 							}
 						}
 					}
-					809 = { # Damascus
+					755 = { # Damascus (LI: was 809, vanilla's number; LI's Damascus is 755)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1828,7 +1828,7 @@ d_maturidi = {
 							}
 						}
 					}
-					693 = { # Baghdad
+					731 = { # Baghdad (LI: was 693, vanilla's number; LI's Baghdad is 731)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1881,7 +1881,7 @@ d_murjiah = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1894,7 +1894,7 @@ d_murjiah = {
 			custom_tooltip = {
 				text = controls_jerusalem_damascus_baghdad
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1902,7 +1902,7 @@ d_murjiah = {
 							}
 						}
 					}
-					809 = { # Damascus
+					755 = { # Damascus (LI: was 809, vanilla's number; LI's Damascus is 755)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1910,7 +1910,7 @@ d_murjiah = {
 							}
 						}
 					}
-					693 = { # Baghdad
+					731 = { # Baghdad (LI: was 693, vanilla's number; LI's Baghdad is 731)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1963,7 +1963,7 @@ d_mutazil = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1976,7 +1976,7 @@ d_mutazil = {
 			custom_tooltip = {
 				text = controls_jerusalem_damascus_baghdad
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1984,7 +1984,7 @@ d_mutazil = {
 							}
 						}
 					}
-					809 = { # Damascus
+					755 = { # Damascus (LI: was 809, vanilla's number; LI's Damascus is 755)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -1992,7 +1992,7 @@ d_mutazil = {
 							}
 						}
 					}
-					693 = { # Baghdad
+					731 = { # Baghdad (LI: was 693, vanilla's number; LI's Baghdad is 731)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -2045,7 +2045,7 @@ d_zahiri = {
 							}
 						}
 					}
-					718 = { # Medina
+					724 = { # Medina (LI: was 718, vanilla's number; LI's Medina is 724)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -2058,7 +2058,7 @@ d_zahiri = {
 			custom_tooltip = {
 				text = controls_jerusalem_damascus_baghdad
 				hidden_tooltip = {
-					774 = { # Jerusalem
+					814 = { # Jerusalem (LI: was 774, vanilla's number; LI's Jerusalem is 814)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -2066,7 +2066,7 @@ d_zahiri = {
 							}
 						}
 					}
-					809 = { # Damascus
+					755 = { # Damascus (LI: was 809, vanilla's number; LI's Damascus is 755)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
@@ -2074,7 +2074,7 @@ d_zahiri = {
 							}
 						}
 					}
-					693 = { # Baghdad
+					731 = { # Baghdad (LI: was 693, vanilla's number; LI's Baghdad is 731)
 						owner = {
 							OR = {
 								is_liege_or_above = ROOT
