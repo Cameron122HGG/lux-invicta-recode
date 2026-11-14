@@ -117,8 +117,12 @@ def fold(n, ctx):
         return None
     if k in ANDS or k in UNITS or SCOPES_AS_AND:
         if any(v == 'F' for _, v in vals): return 'F'
-        for c, v in vals:
-            if v == 'T': drop.update(span(c)); stats['NOT removed'] += 1
+        for i, (c, v) in enumerate(vals):
+            if v != 'T': continue
+            # never remove a trigger_if / trigger_else_if that a trigger_else(_if) follows: the chain would break
+            nxt = vals[i + 1][0]['k'] if i + 1 < len(vals) else None
+            if c['k'] in ('trigger_if', 'trigger_else_if') and nxt in ('trigger_else', 'trigger_else_if'): continue
+            drop.update(span(c)); stats['NOT removed'] += 1
         return None
     return None
 def walk_units(items):
