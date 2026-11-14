@@ -1075,7 +1075,6 @@ province_event = {
 				}
 
 				owner = {
-					NOT = { religion = aztec_pagan }
 				}
 			}
 
@@ -1343,7 +1342,6 @@ narrative_event = {
 		trigger = {
 			has_power_omen_modifier_trigger = no
 			has_battle_omen_modifier_trigger = no
-			NOT = { has_landed_title = e_aztec_empire }
 		}
 	}
 
@@ -1357,7 +1355,6 @@ narrative_event = {
 				has_battle_omen_modifier_trigger = yes
 			}
 
-			NOT = { has_landed_title = e_aztec_empire }
 		}
 
 		# For the scrying outcome calculation...
