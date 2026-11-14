@@ -21,6 +21,16 @@ province_event = {
 
 	is_triggered_only = yes # on_rebel_revolt via TOG.999; MNM.20017, mnm_devil_worshipers_events.txt
 
+	trigger = { # LI: LI fires TOG.1000 from luxrevolt.1 (and MNM.20017), not via CleanSlate's TOG.999, so TOG.999's holding
+		# check is restored here: no peasant revolt where there are only nomad holdings (as in vanilla and CleanSlate)
+		OR = {
+			has_castle = yes
+			has_tribal = yes
+			has_temple = yes
+			has_city = yes
+		}
+	}
+
 	immediate = {
 		add_province_modifier = {
 			name = recent_county_uprising # -100% revolt risk
