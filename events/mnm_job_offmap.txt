@@ -5,6 +5,7 @@
 
 namespace = MNM
 
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.78000
 	title = MNM.78000.t
@@ -32,7 +33,6 @@ character_event = {
 	}
 
 	immediate = {
-
 		liege = {
 			# Pick best target, if no good one add a small general opinion bonus for a time. don't fire these events while that modifier is active
 			save_event_target_as = chancellor_employer
@@ -44,7 +44,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 40
 						}
 					}
@@ -55,7 +55,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 40
 						}
 					}
@@ -73,7 +73,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 40
 						}
 					}
@@ -88,11 +88,11 @@ character_event = {
 			else_if = {
 				limit = {
 					any_neighbor_independent_ruler = {
-						shares_realm_border_with = event_target:chancellor_employer
+						shares_realm_border_with = event_target:statecraft_target
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 40
 						}
 					}
@@ -100,11 +100,11 @@ character_event = {
 
 				random_neighbor_independent_ruler = {
 					limit = {
-						shares_realm_border_with = event_target:chancellor_employer
+						shares_realm_border_with = event_target:statecraft_target
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 40
 						}
 					}
@@ -120,7 +120,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 80
 						}
 					}
@@ -131,7 +131,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 80
 						}
 					}
@@ -149,7 +149,7 @@ character_event = {
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 80
 						}
 					}
@@ -164,11 +164,11 @@ character_event = {
 			else_if = {
 				limit = {
 					any_neighbor_independent_ruler = {
-						shares_realm_border_with = event_target:chancellor_employer
+						shares_realm_border_with = event_target:statecraft_target
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 80
 						}
 					}
@@ -176,11 +176,11 @@ character_event = {
 
 				random_neighbor_independent_ruler = {
 					limit = {
-						shares_realm_border_with = event_target:chancellor_employer
+						shares_realm_border_with = event_target:statecraft_target
 						is_inaccessible_or_incapable_trigger = no
 
 						opinion = {
-							who = event_target:chancellor_employer
+							who = event_target:statecraft_target
 							value < 80
 						}
 					}
@@ -462,6 +462,7 @@ character_event = {
 }
 
 # The Steward allows a smugglers ring to appear
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.78007
 	title = MNM.78007.t
@@ -479,6 +480,7 @@ character_event = {
 		liege = {
 			any_demesne_province = {
 				NOT = { has_province_modifier = smugglers_ring }
+				owned_by = PREV
 			}
 		}
 	}
@@ -768,6 +770,7 @@ character_event = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.70013
 	desc = MNM.70013.d
@@ -868,7 +871,11 @@ character_event = {
 			}
 
 			if = {
-				limit = { has_dharmic_religion_trigger = yes }
+				limit = {
+					has_dharmic_religion_trigger = yes
+					NOT = { religion = bon_pagan }
+				}
+
 				add_trait = kshatriya
 			}
 

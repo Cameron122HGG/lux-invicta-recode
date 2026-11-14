@@ -670,6 +670,7 @@ character_event = {
 ###############################################
 
 # Torture a prisoner!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 50010
 	desc = EVTDESC50010
@@ -689,6 +690,15 @@ character_event = {
 			practical_age >= 14
 			host = { character = ROOT }
 			NOT = { has_character_modifier = house_arrest }
+
+			trigger_if = {
+				limit = { has_character_flag = tortured }
+
+				had_character_flag = {
+					flag = tortured
+					years >= 2
+				}
+			}
 		}
 
 		OR = {
@@ -704,7 +714,8 @@ character_event = {
 
 		NOR = {
 			trait = kind
-			trait = just
+			trait = charitable
+			has_character_flag = no_torture
 		}
 	}
 
@@ -741,16 +752,50 @@ character_event = {
 		name = EVTOPTA50010 # Resist my foul impulse
 
 		trigger = {
-			NOT = { has_character_flag = demon_child_non_pagan }
+			NOR = {
+				trait = possessed
+				trait = lunatic
+				trait = impaler
+				has_character_flag = demon_child_non_pagan
+			}
 		}
 
 		piety = 10
+		set_character_flag = no_torture
+
+		hidden_effect = {
+			change_variable = {
+				which = lifestyle_martial
+				value = -1
+			}
+		}
 	}
 
 	option = {
 		name = EVTOPTB50010 # Oil up the rack!
 
 		pacifists_lose_piety_effect = yes
+		remove_trait_just_effect = yes
+
+		if = {
+			limit = {
+				NOT = { trait = cruel }
+			}
+
+			random = {
+				chance = 33
+
+				tooltip = {
+					remove_trait_silently_kind_effect = yes
+					add_trait = cruel
+				}
+
+				hidden_effect = {
+					remove_trait_silently_kind_effect = yes
+					add_trait_cruel_effect = yes
+				}
+			}
+		}
 
 		random_courtier = {
 			show_scope_change = no
@@ -760,6 +805,15 @@ character_event = {
 				practical_age >= 14
 				host = { character = ROOT }
 				NOT = { has_character_modifier = house_arrest }
+
+				trigger_if = {
+					limit = { has_character_flag = tortured }
+
+					had_character_flag = {
+						flag = tortured
+						years >= 2
+					}
+				}
 			}
 
 			random_list = {
@@ -791,6 +845,14 @@ character_event = {
 					}
 				}
 			}
+
+			opinion = {
+				name = opinion_hate
+				who = ROOT
+				years = 100
+			}
+
+			set_character_flag = tortured
 		}
 	}
 
@@ -983,6 +1045,7 @@ character_event = {
 ###############################################
 
 # Ruler is notified of the capture of an enemy commander
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 50020
 	title = captured_in_battle
@@ -1053,11 +1116,11 @@ character_event = {
 				}
 			}
 
-			event_target:captured_commander = {
-				character_event = { id = 50021 }
-			}
-
 			hidden_effect = {
+				event_target:captured_commander = {
+					character_event = { id = 50021 }
+				}
+
 				if = {
 					limit = { religion_has_ritual_sacrifice_trigger = yes }
 

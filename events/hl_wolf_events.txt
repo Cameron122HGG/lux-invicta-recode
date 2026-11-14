@@ -233,6 +233,7 @@ narrative_event = {
 }
 
 # Child (ruler or child to ruler) gets lost in woods. Is taken in and rescued by wolves..
+# LI: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = HL.1020
 	title = EVTTITLE_HL_1001
@@ -266,6 +267,8 @@ narrative_event = {
 		NOR = {
 			culture = khitan
 			any_sibling = { is_older_than = ROOT }
+			has_character_modifier = wolf_child
+			has_character_modifier = wolf_blood
 
 			any_close_relative = {
 				OR = {
@@ -2250,6 +2253,7 @@ character_event = {
 }
 
 # Check for Wolf's Blood inheritance
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = HL.1701
 
@@ -2263,6 +2267,7 @@ character_event = {
 					factor = 1.5
 
 					culture_group = altaic
+					NOT = { culture = khitan }
 				}
 
 				mult_modifier = {

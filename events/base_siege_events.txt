@@ -1115,6 +1115,7 @@ character_event = { # Other side gets event
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 62010
 	title = EVTNAME62010
@@ -1123,6 +1124,7 @@ character_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes # on_siege_pulse, random_events
+	notification = yes
 
 	trigger = {
 		siege = {

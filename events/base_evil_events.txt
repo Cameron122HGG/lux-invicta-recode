@@ -9,6 +9,7 @@
 # Adjusted by Henrik Fåhraeus
 
 # If in the red => increase revolt risk in a province.
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68000
 	desc = EVTDESC68000
@@ -27,27 +28,67 @@ province_event = {
 		# Lower if really badly in debt
 		mult_modifier = {
 			factor = 0.9
-			owner = { wealth < -50 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -0.25
+						min = -50
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.7
-			owner = { wealth <= -100 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -0.5
+						min = -100
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.5
-			owner = { wealth < -200 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -1
+						min = -200
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.3
-			owner = { wealth < -300 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -2.5
+						min = -300
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.1
-			owner = { wealth < -500 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -5
+						min = -500
+					}
+				}
+			}
 		}
 
 		# Traits affect this
@@ -59,6 +100,11 @@ province_event = {
 		mult_modifier = {
 			factor = 5.0
 			owner = { trait = just }
+		}
+
+		mult_modifier = {
+			factor = 2.0
+			owner = { trait = midas_touched }
 		}
 
 		mult_modifier = {
@@ -140,6 +186,7 @@ province_event = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68001
 	desc = EVTDESC68001
@@ -161,13 +208,28 @@ province_event = {
 		}
 
 		mult_modifier = {
+			factor = 0.5
+			owner = { realm_stewardship >= 40 }
+		}
+
+		mult_modifier = {
 			factor = 0.75
 			owner = { realm_intrigue >= 20 }
 		}
 
 		mult_modifier = {
 			factor = 0.75
+			owner = { realm_intrigue >= 40 }
+		}
+
+		mult_modifier = {
+			factor = 0.75
 			owner = { trait = just }
+		}
+
+		mult_modifier = {
+			factor = 0.75
+			owner = { trait = midas_touched }
 		}
 	}
 
@@ -210,6 +272,7 @@ province_event = {
 }
 
 # Establishment of thieves_guild in a province, if budget in the red
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68010
 	desc = EVTDESC68010
@@ -228,27 +291,67 @@ province_event = {
 		# Lower if really badly in debt
 		mult_modifier = {
 			factor = 0.9
-			owner = { wealth < -50 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -0.25
+						min = -50
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.7
-			owner = { wealth < -100 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -0.5
+						min = -100
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.5
-			owner = { wealth < -200 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -1
+						min = -200
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.3
-			owner = { wealth < -300 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -2.5
+						min = -300
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.1
-			owner = { wealth < -500 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -5
+						min = -500
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
@@ -276,6 +379,11 @@ province_event = {
 			owner = { realm_stewardship >= 25 }
 		}
 
+		mult_modifier = {
+			factor = 2.0
+			owner = { realm_stewardship >= 30 }
+		}
+
 		# Traits affect this
 		mult_modifier = {
 			factor = 1.5
@@ -285,6 +393,11 @@ province_event = {
 		mult_modifier = {
 			factor = 5.0
 			owner = { trait = just }
+		}
+
+		mult_modifier = {
+			factor = 2.0
+			owner = { trait = midas_touched }
 		}
 
 		mult_modifier = {
@@ -313,7 +426,7 @@ province_event = {
 		}
 
 		mult_modifier = {
-			factor = 0.1
+			factor = 0.3
 			owner = { trait = infirm }
 		}
 	}
@@ -331,10 +444,10 @@ province_event = {
 }
 
 # Destruction of thieves_guild in a province
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68011
 	desc = EVTDESC68011
-
 	picture = GFX_evt_burning_house
 
 	notification = yes
@@ -353,13 +466,33 @@ province_event = {
 		}
 
 		mult_modifier = {
+			factor = 0.5
+			owner = { realm_stewardship >= 30 }
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			owner = { realm_stewardship >= 40 }
+		}
+
+		mult_modifier = {
 			factor = 0.75
 			owner = { realm_intrigue >= 20 }
 		}
 
 		mult_modifier = {
 			factor = 0.75
+			owner = { realm_intrigue >= 40 }
+		}
+
+		mult_modifier = {
+			factor = 0.75
 			owner = { trait = just }
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			owner = { trait = midas_touched }
 		}
 	}
 
@@ -373,6 +506,7 @@ province_event = {
 }
 
 # Establishment of smugglers_ring in a province, if red budget
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68020
 	desc = EVTDESC68020
@@ -391,27 +525,67 @@ province_event = {
 		# Lower if really badly in debt
 		mult_modifier = {
 			factor = 0.9
-			owner = { wealth < -50 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -0.25
+						min = -50
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.7
-			owner = { wealth < -100 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -0.5
+						min = -100
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.5
-			owner = { wealth < -200 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -1
+						min = -200
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.3
-			owner = { wealth < -300 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -2.5
+						min = -300
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.1
-			owner = { wealth < -500 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -5
+						min = -500
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
@@ -439,6 +613,11 @@ province_event = {
 			owner = { realm_diplomacy >= 25 }
 		}
 
+		mult_modifier = {
+			factor = 3.0
+			owner = { realm_diplomacy >= 30 }
+		}
+
 		# Traits affect this
 		mult_modifier = {
 			factor = 1.5
@@ -448,6 +627,11 @@ province_event = {
 		mult_modifier = {
 			factor = 5.0
 			owner = { trait = just }
+		}
+
+		mult_modifier = {
+			factor = 2.0
+			owner = { trait = midas_touched }
 		}
 
 		mult_modifier = {
@@ -476,7 +660,7 @@ province_event = {
 		}
 
 		mult_modifier = {
-			factor = 0.1
+			factor = 0.3
 			owner = { trait = infirm }
 		}
 	}
@@ -494,6 +678,7 @@ province_event = {
 }
 
 # Destruction of smugglers_ring in a province
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68021
 	picture = GFX_evt_burning_house
@@ -676,13 +861,33 @@ province_event = {
 		}
 
 		mult_modifier = {
+			factor = 0.5
+			owner = { realm_diplomacy >= 30 }
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			owner = { realm_diplomacy >= 40 }
+		}
+
+		mult_modifier = {
 			factor = 0.75
 			owner = { realm_intrigue >= 20 }
 		}
 
 		mult_modifier = {
 			factor = 0.75
+			owner = { realm_intrigue >= 40 }
+		}
+
+		mult_modifier = {
+			factor = 0.25
 			owner = { trait = just }
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			owner = { trait = midas_touched }
 		}
 
 		mult_modifier = {
@@ -796,6 +1001,7 @@ province_event = {
 }
 
 # Establishment of highway_robber_band in a province, if red budget
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68030
 	desc = EVTDESC68030
@@ -813,27 +1019,67 @@ province_event = {
 
 		mult_modifier = {
 			factor = 0.9
-			owner = { wealth < -50 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -0.25
+						min = -50
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.7
-			owner = { wealth < -100 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -0.5
+						min = -100
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.5
-			owner = { wealth < -200 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -1
+						min = -200
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.3
-			owner = { wealth < -300 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -2.5
+						min = -300
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
 			factor = 0.1
-			owner = { wealth < -500 }
+
+			owner = {
+				NOT = {
+					scaled_wealth = {
+						value = -5
+						min = -500
+					}
+				}
+			}
 		}
 
 		mult_modifier = {
@@ -861,6 +1107,11 @@ province_event = {
 			owner = { realm_martial >= 25 }
 		}
 
+		mult_modifier = {
+			factor = 3.0
+			owner = { realm_martial >= 30}
+		}
+
 		# Traits affect this
 		mult_modifier = {
 			factor = 1.5
@@ -870,6 +1121,11 @@ province_event = {
 		mult_modifier = {
 			factor = 5.0
 			owner = { trait = just }
+		}
+
+		mult_modifier = {
+			factor = 2.0
+			owner = { trait = midas_touched }
 		}
 
 		mult_modifier = {
@@ -898,7 +1154,7 @@ province_event = {
 		}
 
 		mult_modifier = {
-			factor = 0.1
+			factor = 0.3
 			owner = { trait = infirm }
 		}
 	}
@@ -916,12 +1172,14 @@ province_event = {
 }
 
 # Destruction of highway_robber_band in a province
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68031
 	picture = GFX_evt_burning_house
 
 	desc = {
 		text = EVTDESC68031
+
 		trigger = {
 			NOR = {
 				trigger_if = {
@@ -955,8 +1213,10 @@ province_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC68031_RETINUE
+
 		trigger = {
 			OR = {
 				trigger_if = {
@@ -992,8 +1252,10 @@ province_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC68031_TEMPLE_GUARDS
+
 		trigger = {
 			OR = {
 				trigger_if = {
@@ -1027,8 +1289,10 @@ province_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC68031_FALLBACK
+
 		trigger = {
 			OR = {
 				trigger_if = {
@@ -1089,13 +1353,33 @@ province_event = {
 		}
 
 		mult_modifier = {
+			factor = 0.5
+			owner = { realm_martial >= 30 }
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			owner = { realm_martial >= 40 }
+		}
+
+		mult_modifier = {
 			factor = 0.75
 			owner = { realm_intrigue >= 20 }
 		}
 
 		mult_modifier = {
 			factor = 0.75
+			owner = { realm_intrigue >= 40 }
+		}
+
+		mult_modifier = {
+			factor = 0.75
 			owner = { trait = just }
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			owner = { trait = midas_touched }
 		}
 
 		mult_modifier = {

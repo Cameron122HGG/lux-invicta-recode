@@ -6344,6 +6344,7 @@ character_event = {
 #####################################################################
 # Influence events													#
 #####################################################################
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ZE.13615
 
@@ -6357,7 +6358,13 @@ character_event = {
 		is_inaccessible_trigger = no
 
 		educator = {
-			always = yes
+			OR = {
+				diplomacy >= 12
+				martial >= 12
+				stewardship >= 12
+				intrigue >= 12
+				learning >= 12
+			}
 		}
 
 		NOR = {
@@ -6381,21 +6388,10 @@ character_event = {
 					}
 				}
 
-				OR = {
-					NOR = {
-						trait = ambitious
-						is_rival = educator
-					}
-
-					NOR = {
-						trait = diligent
-						educator = { trait = stressed }
-					}
-
-					NOR = {
-						trait = patient
-						educator = { has_character_modifier = out_of_patience }
-					}
+				NAND = {
+					trait = ambitious
+					trait = diligent
+					trait = patient
 				}
 			}
 
@@ -6411,20 +6407,11 @@ character_event = {
 			random_list = {
 				20 = {
 					trigger = {
-						educator = {
-							diplomacy >= 12
+						educator = { diplomacy >= 12 }
 
-							OR = {
-								NOR = {
-									trait = trusting
-									ROOT = { trait = honest }
-								}
-
-								NOR = {
-									has_character_modifier = chattermouth
-									ROOT = { trait = gregarious }
-								}
-							}
+						NAND = {
+							trait = honest
+							trait = gregarious
 						}
 					}
 
@@ -6439,20 +6426,11 @@ character_event = {
 
 				20 = {
 					trigger = {
-						educator = {
-							martial >= 12
+						educator = { martial >= 12 }
 
-							OR = {
-								NOR = {
-									trait = stressed
-									ROOT = { trait = brave }
-								}
-
-								NOR = {
-									trait = cruel
-									ROOT = { trait = wroth }
-								}
-							}
+						NAND = {
+							trait = brave
+							trait = wroth
 						}
 					}
 
@@ -6467,19 +6445,11 @@ character_event = {
 
 				20 = {
 					trigger = {
-						educator = {
-							stewardship >= 12
+						educator = { stewardship >= 12 }
 
-							OR = {
-								NOR = {
-									holds_favor_on = ROOT
-									ROOT = { trait = just }
-								}
-
-								ROOT = {
-									NOT = { trait = temperate }
-								}
-							}
+						NAND = {
+							trait = just
+							trait = temperate
 						}
 					}
 
@@ -6494,20 +6464,11 @@ character_event = {
 
 				20 = {
 					trigger = {
-						educator = {
-							intrigue >= 12
+						educator = { intrigue >= 12 }
 
-							OR = {
-								NOR = {
-									trait = paranoid
-									ROOT = { trait = deceitful }
-								}
-
-								NOR = {
-									has_character_modifier = impious_teachings
-									ROOT = { trait = cynical }
-								}
-							}
+						NAND = {
+							trait = deceitful
+							trait = cynical
 						}
 					}
 
@@ -6522,19 +6483,11 @@ character_event = {
 
 				20 = {
 					trigger = {
-						educator = {
-							learning >= 12
+						educator = { learning >= 12 }
 
-							OR = {
-								NOR = {
-									trait = stubborn
-									ROOT = { trait = erudite }
-								}
-
-								ROOT = {
-									NOT = { trait = chaste }
-								}
-							}
+						NAND = {
+							trait = erudite
+							trait = chaste
 						}
 					}
 

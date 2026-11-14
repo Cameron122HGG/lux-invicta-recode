@@ -265,6 +265,7 @@ character_event = {
 }
 
 # For Recruit: Event notifying recruit that "Something must've gone wrong" (in case recruiter dies)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.6995
 	picture = GFX_evt_state_diplomacy
@@ -302,6 +303,13 @@ character_event = {
 		clr_character_flag = being_recruited_by_the_vodouns
 		clr_character_flag = being_recruited_by_the_bacchants
 		clr_character_flag = dw_recruitment_end_unable
+
+		# CK2Plus
+		clr_character_flag = being_recruited_by_the_cult_of_balor
+		clr_character_flag = being_recruited_by_the_jinn
+		clr_character_flag = being_recruited_by_the_titancult
+		clr_character_flag = being_recruited_by_cult_of_angra_mainyu
+		clr_character_flag = being_recruited_by_the_apepcult
 	}
 }
 
@@ -416,6 +424,7 @@ character_event = {
 }
 
 # For Recruit: Recruiter continues offering more radical ideas, gives strange idol
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7003
 	desc = EVTDESC_MNM_7003_A
@@ -538,6 +547,13 @@ character_event = {
 		clr_character_flag = being_recruited_by_the_plaguebringers
 		clr_character_flag = being_recruited_by_the_bacchants
 		clr_character_flag = being_recruited_by_the_vodouns
+
+		# CK2Plus
+		clr_character_flag = being_recruited_by_the_cult_of_balor
+		clr_character_flag = being_recruited_by_the_jinn
+		clr_character_flag = being_recruited_by_the_titancult
+		clr_character_flag = being_recruited_by_cult_of_angra_mainyu
+		clr_character_flag = being_recruited_by_the_apepcult
 
 		event_target:satanists_recruiter = {
 			character_event = { id = MNM.7004 }
@@ -837,6 +853,7 @@ character_event = {
 }
 
 # For Recruit: Joining begins (seek out books and knowledge on the occult)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7009
 	picture = GFX_evt_ritual_scroll
@@ -844,11 +861,36 @@ character_event = {
 
 	desc = {
 		text = EVTDESC_MNM_7009_A
-		trigger = { event_target:satanists_recruiter = { society_member_of = the_satanists } }
+		trigger = {
+			event_target:satanists_recruiter = {
+				OR = {
+					society_member_of = the_satanists
+					AND = {
+						society_member_of = arab_jinn_sorcerers
+						ROOT = { religion_group = muslim }
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESC_MNM_7009_PLAGUEBRINGER
+		trigger = { event_target:satanists_recruiter = { society_member_of = the_plaguebringers } }
 	}
 	desc = {
 		text = EVTDESC_MNM_7009_ALT
-		trigger = { event_target:satanists_recruiter = { NOT = { society_member_of = the_satanists } } }
+		trigger = {
+			event_target:satanists_recruiter = {
+				NOR = {
+					society_member_of = the_satanists
+					society_member_of = the_plaguebringers
+					AND = {
+						society_member_of = arab_jinn_sorcerers
+						ROOT = { religion_group = muslim }
+					}
+				}
+			}
+		}
 	}
 
 	hide_from = yes
@@ -943,10 +985,36 @@ character_event = {
 }
 
 # For Recruit: Seal it with blood (loyalty to grand master)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7010
 	picture = GFX_evt_dark_prayer
 	border = GFX_event_normal_frame_intrigue
+
+	desc = {
+		text = EVTDESC_MNM_7010_A
+		trigger = { event_target:satanists_inductor = { society_member_of = the_satanists } } # Recruiter reveals pentagram on their arm
+	}
+	desc = {
+		text = EVTDESC_MNM_7010_APEP
+		trigger = { event_target:satanists_inductor = { society_member_of = cult_of_apep } }
+	}
+	desc = {
+		text = EVTDESC_MNM_7010_BALOR
+		trigger = { event_target:satanists_inductor = { society_member_of = the_cult_of_balor } }
+	}
+	desc = {
+		text = EVTDESC_MNM_7010_ALT
+		trigger = {
+			event_target:satanists_inductor = {
+				NOR = {
+					society_member_of = the_satanists
+					society_member_of = cult_of_apep
+					society_member_of = the_cult_of_balor
+				}
+			}
+		}
+	}
 
 	desc = {
 		text = EVTDESC_MNM_7010_A
@@ -1211,6 +1279,7 @@ character_event = {
 }
 
 # For Recruit: Unable to continue induction notification
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.6993
 	picture = GFX_evt_dark_prayer
@@ -1250,6 +1319,13 @@ character_event = {
 		clr_character_flag = being_recruited_by_the_vodouns
 		clr_character_flag = being_recruited_by_the_bacchants
 		clr_character_flag = dw_recruitment_end_unable
+
+		# CK2Plus
+		clr_character_flag = being_recruited_by_the_cult_of_balor
+		clr_character_flag = being_recruited_by_the_jinn
+		clr_character_flag = being_recruited_by_the_titancult
+		clr_character_flag = being_recruited_by_the_apepcult
+		clr_character_flag = being_recruited_by_cult_of_angra_mainyu
 	}
 }
 
@@ -1509,6 +1585,7 @@ character_event = {
 }
 
 # You flee
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7019
 	picture = GFX_evt_secret_ceremony
@@ -1570,6 +1647,13 @@ character_event = {
 		clr_character_flag = being_recruited_by_the_plaguebringers
 		clr_character_flag = being_recruited_by_the_vodouns
 		clr_character_flag = being_recruited_by_the_bacchants
+
+		# CK2Plus
+		clr_character_flag = being_recruited_by_the_cult_of_balor
+		clr_character_flag = being_recruited_by_the_jinn
+		clr_character_flag = being_recruited_by_the_titancult
+		clr_character_flag = being_recruited_by_the_apepcult
+		clr_character_flag = being_recruited_by_cult_of_angra_mainyu
 	}
 
 	# Escape successfully
@@ -1611,6 +1695,7 @@ character_event = {
 }
 
 # Opt out failstate
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7020
 	desc = EVTDESC_MNM_7020
@@ -1632,6 +1717,13 @@ character_event = {
 		clr_character_flag = being_recruited_by_the_plaguebringers
 		clr_character_flag = being_recruited_by_the_vodouns
 		clr_character_flag = being_recruited_by_the_bacchants
+
+		# CK2Plus
+		clr_character_flag = being_recruited_by_the_cult_of_balor
+		clr_character_flag = being_recruited_by_the_jinn
+		clr_character_flag = being_recruited_by_the_titancult
+		clr_character_flag = being_recruited_by_the_apepcult
+		clr_character_flag = being_recruited_by_cult_of_angra_mainyu
 	}
 }
 
@@ -5457,6 +5549,7 @@ character_event = {
 }
 
 # Demonic pregnancy - Birth
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7508
 
@@ -5494,37 +5587,37 @@ character_event = {
 				character_event = { id = MNM.7511 days = 10 }
 			}
 
-			trigger_switch = {
-				on_trigger = society_member_of
-
-				the_satanists = {
-					ROOT = { set_character_flag = demonspawn_will_join_satanists }
-				}
-
-				the_cold_ones = {
-					ROOT = { set_character_flag = demonspawn_will_join_cold_ones }
-				}
-
-				the_plaguebringers = {
-					ROOT = { set_character_flag = demonspawn_will_join_plaguebringers }
-				}
-
-				the_cult_of_kali = {
-					ROOT = { set_character_flag = demonspawn_will_join_cult_of_kali }
-				}
-
-				the_trollcrafters = {
-					ROOT = { set_character_flag = demonspawn_will_join_trollcrafters }
-				}
-
-				the_bacchants = {
-					ROOT = { set_character_flag = demonspawn_will_join_bacchants }
-				}
-
-				the_vodouns = {
-					ROOT = { set_character_flag = demonspawn_will_join_vodouns }
-				}
-			}
+		#	trigger_switch = {
+		#		on_trigger = society_member_of
+		#
+		#		the_satanists = {
+		#			ROOT = { set_character_flag = demonspawn_will_join_satanists }
+		#		}
+		#
+		#		the_cold_ones = {
+		#			ROOT = { set_character_flag = demonspawn_will_join_cold_ones }
+		#		}
+		#
+		#		the_plaguebringers = {
+		#			ROOT = { set_character_flag = demonspawn_will_join_plaguebringers }
+		#		}
+		#
+		#		the_cult_of_kali = {
+		#			ROOT = { set_character_flag = demonspawn_will_join_cult_of_kali }
+		#		}
+		#
+		#		the_trollcrafters = {
+		#			ROOT = { set_character_flag = demonspawn_will_join_trollcrafters }
+		#		}
+		#
+		#		the_bacchants = {
+		#			ROOT = { set_character_flag = demonspawn_will_join_bacchants }
+		#		}
+		#
+		#		the_vodouns = {
+		#			ROOT = { set_character_flag = demonspawn_will_join_vodouns }
+		#		}
+		#	}
 		}
 
 		# random_list = {
@@ -7061,6 +7154,7 @@ character_event = {
 }
 
 # Satanic Orgy - Aftermath
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.20004
 	picture = GFX_evt_bad_news
@@ -7309,6 +7403,7 @@ character_event = {
 			limit = { has_character_flag = orgy_gain_homo_trait }
 			clr_character_flag = orgy_gain_homo_trait
 			add_trait = homosexual
+			set_character_flag = revealed_homosexual@ROOT
 		}
 		else_if = {
 			limit = { has_character_flag = orgy_lose_homo_trait }
@@ -7441,7 +7536,7 @@ character_event = {
 			limit = {
 				is_female = yes
 				practical_age < 45
-				fertility >= 0
+				fertility >= 0.4
 				is_pregnant = no
 
 				NOR = {
@@ -7453,30 +7548,28 @@ character_event = {
 					any_society_member = {
 						is_female = no
 						prisoner = no
+						fertility >= 1
 					}
 				}
 			}
 
 			hidden_effect = {
-				society = {
-					random_society_member = {
-						limit = {
-							is_female = no
-							prisoner = no
-						}
+				random = {
+					chance = 25
 
-						preferred_limit = {
-							fertility >= 1
-						}
+					society = {
+						random_society_member = {
+							limit = {
+								is_female = no
+								prisoner = no
+								fertility >= 1
+							}
 
-						save_event_target_as = sex_partner
+							save_event_target_as = impregnator
+						}
 					}
-				}
 
-				unprotected_sex_effect_event_target = yes
-
-				if = {
-					limit = { is_pregnant = yes }
+					impregnate_cuckoo = event_target:impregnator
 					set_character_flag = orgy_impregnated
 				}
 			}
@@ -7787,6 +7880,7 @@ character_event = {
 }
 
 # Home Invasion - Main event
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.20015
 	picture = GFX_evt_burning_house
@@ -7924,8 +8018,8 @@ character_event = {
 
 					OR = {
 						has_castle = yes
-						has_city = yes
 						has_temple = yes
+						has_city = yes
 						has_tribal = yes
 					}
 				}

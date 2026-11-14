@@ -1628,6 +1628,7 @@ character_event = {
 
 # Muslim ruler tries to convince a dynasty member to lose the 'Decadent' Trait
 # Fired from decision "convince_to_straighten_up"
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91350
 	desc = EVTDESC91350
@@ -1652,18 +1653,13 @@ character_event = {
 			}
 		}
 
-		character_event = {
-			id = 91371 # Clear flag negotiated_to_drop_decadence
-			years = 10
-		}
-
 		ai_chance = {
-			factor = 10
+			factor = 25
 
 			mult_modifier = {
 				factor = 2
 
-				opinion = {
+				personal_opinion = {
 					who = FROMFROM
 					value < 0
 				}
@@ -1672,7 +1668,7 @@ character_event = {
 			mult_modifier = {
 				factor = 2
 
-				opinion = {
+				personal_opinion = {
 					who = FROMFROM
 					value < -25
 				}
@@ -1681,7 +1677,7 @@ character_event = {
 			mult_modifier = {
 				factor = 4
 
-				opinion = {
+				personal_opinion = {
 					who = FROMFROM
 					value < -50
 				}
@@ -1708,7 +1704,7 @@ character_event = {
 			}
 
 			mult_modifier = {
-				factor = 1.5
+				factor = 2
 				trait = slothful
 			}
 
@@ -1725,6 +1721,61 @@ character_event = {
 			mult_modifier = {
 				factor = 1.5
 				intrigue >= 12
+			}
+
+			# CK2Plus
+			mult_modifier = {
+				factor = 3
+				is_ruler = yes
+			}
+
+			mult_modifier = {
+				factor = 3
+				higher_real_tier_than = COUNT
+			}
+
+			mult_modifier = {
+				factor = 3
+				higher_real_tier_than = DUKE
+			}
+
+			mult_modifier = {
+				factor = 10
+
+				OR = {
+					trait = lunatic
+					trait = possessed
+				}
+			}
+
+			mult_modifier = {
+				factor = 4
+				trait = imbecile
+			}
+
+			mult_modifier = {
+				factor = 4
+				trait = proud
+			}
+
+			mult_modifier = {
+				factor = 4
+				trait = paranoid
+			}
+
+			mult_modifier = {
+				factor = 2
+				is_dumb_trigger = yes
+			}
+
+			mult_modifier = {
+				factor = 2
+				trait = wroth
+			}
+
+			mult_modifier = {
+				factor = 2
+				trait = brave
 			}
 		}
 	}
@@ -1743,43 +1794,74 @@ character_event = {
 		}
 
 		remove_trait = decadent
-		set_character_flag = straightened_up
-		clr_character_flag = negotiated_to_drop_decadence
+		piety = 25
+		prestige = -100
 
 		ai_chance = {
 			factor = 5
 
 			mult_modifier = {
-				factor = 3
+				factor = 2
 
-				opinion = {
+				personal_opinion = {
 					who = FROMFROM
 					value >= 25
 				}
 			}
 
 			mult_modifier = {
-				factor = 3
+				factor = 2
 
-				opinion = {
+				personal_opinion = {
 					who = FROMFROM
 					value >= 50
 				}
 			}
 
 			mult_modifier = {
-				factor = 3
+				factor = 2
 
-				opinion = {
+				personal_opinion = {
 					who = FROMFROM
 					value >= 75
 				}
+			}
+
+			mult_modifier = {
+				factor = 4
+				trait = temperate
+			}
+
+			mult_modifier = {
+				factor = 4
+				trait = craven
+			}
+
+			mult_modifier = {
+				factor = 2
+				trait = humble
+			}
+
+			mult_modifier = {
+				factor = 2
+				trait = patient
+			}
+
+			mult_modifier = {
+				factor = 2
+				trait = diligent
+			}
+
+			mult_modifier = {
+				factor = 2
+				trait = trusting
 			}
 		}
 	}
 }
 
 # The decadent character refuses
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91351
 	desc = EVTDESC91351
@@ -1800,7 +1882,6 @@ character_event = {
 			any_dynasty_member = {
 				limit = {
 					is_playable = yes
-					uses_decadence = yes
 					is_offmap_ruler = no
 
 					NOR = {
@@ -1846,7 +1927,10 @@ character_event = {
 		name = EVTOPTC91351 # Theological Debate (learning)
 		tooltip_info = learning
 
-		trigger = { learning >= 12 }
+		trigger = {
+			learning >= 12
+			religion = FROM
+		}
 
 		FROM = {
 			show_scope_change = no
@@ -1858,7 +1942,7 @@ character_event = {
 			}
 		}
 
-		ai_chance = { factor = 1000 }
+		ai_chance = { factor = 100 }
 	}
 
 	option = {
@@ -2019,6 +2103,7 @@ character_event = {
 }
 
 # The decadent character refuses the diplomatic attempt
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91356
 	desc = EVTDESC91356
@@ -2038,7 +2123,6 @@ character_event = {
 		hidden_effect = {
 			any_dynasty_member = {
 				limit = {
-					uses_decadence = yes
 					is_playable = yes
 					is_offmap_ruler = no
 
@@ -2592,13 +2676,14 @@ character_event = {
 }
 
 # Other rulers of the dynasty are notified of the failure to straighten the character up
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91369
 	desc = EVTDESC91369
 	picture = GFX_evt_jugglers
 
-	is_triggered_only = yes
 	notification = yes
+	is_triggered_only = yes
 
 	ai = no
 
@@ -2636,6 +2721,7 @@ character_event = {
 }
 
 # The decadent character tries to bribe dynasty head
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91372
 	desc = EVTDESC91372
@@ -2664,31 +2750,30 @@ character_event = {
 			}
 		}
 
-		hidden_effect = {
-			any_dynasty_member = {
-				limit = {
-					uses_decadence = yes
-					is_playable = yes
-					is_offmap_ruler = no
-
-					NOR = {
-						trait = decadent
-						character = ROOT
-					}
-				}
-
-				opinion = {
-					name = opinion_takfir
-					who = event_target:takfir_target
-					years = 20
-				}
-
-				character_event = {
-					id = 91369 # Inform players
-					days = 1
-				}
-			}
-		}
+		# hidden_effect = {
+		# 	any_dynasty_member = {
+		# 		limit = {
+		# 			is_playable = yes
+		# 			is_offmap_ruler = no
+		#
+		# 			NOR = {
+		# 				trait = decadent
+		# 				character = ROOT
+		# 			}
+		# 		}
+		#
+		# 		opinion = {
+		# 			name = opinion_takfir
+		# 			who = event_target:takfir_target
+		# 			years = 20
+		# 		}
+		#
+		# 		character_event = {
+		# 			id = 91369 # Inform players
+		# 			days = 1
+		# 		}
+		# 	}
+		# }
 
 		ai_chance = { factor = 4 }
 	}
@@ -2705,7 +2790,6 @@ character_event = {
 		hidden_effect = {
 			any_dynasty_member = {
 				limit = {
-					uses_decadence = yes
 					is_playable = yes
 					is_offmap_ruler = no
 
@@ -2733,6 +2817,7 @@ character_event = {
 }
 
 # The decadent character justifies his decadence
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91373
 	desc = EVTDESC91373
@@ -2743,33 +2828,32 @@ character_event = {
 	option = {
 		name = EVTOPTA91373 # Accept
 
-		piety = 150
+		piety = 100
 
-		hidden_effect = {
-			any_dynasty_member = {
-				limit = {
-					uses_decadence = yes
-					is_playable = yes
-					is_offmap_ruler = no
-
-					NOR = {
-						trait = decadent
-						character = ROOT
-					}
-				}
-
-				opinion = {
-					name = opinion_takfir
-					who = event_target:takfir_target
-					years = 20
-				}
-
-				character_event = {
-					id = 91369 # Inform players
-					days = 1
-				}
-			}
-		}
+		# hidden_effect = {
+		# 	any_dynasty_member = {
+		# 		limit = {
+		# 			is_playable = yes
+		# 			is_offmap_ruler = no
+		#
+		# 			NOR = {
+		# 				trait = decadent
+		# 				character = ROOT
+		# 			}
+		# 		}
+		#
+		# 		opinion = {
+		# 			name = opinion_takfir
+		# 			who = event_target:takfir_target
+		# 			years = 20
+		# 		}
+		#
+		# 		character_event = {
+		# 			id = 91369 # Inform players
+		# 			days = 1
+		# 		}
+		# 	}
+		# }
 
 		ai_chance = { factor = 4 }
 	}
@@ -2787,7 +2871,6 @@ character_event = {
 			any_dynasty_member = {
 				limit = {
 					is_playable = yes
-					uses_decadence = yes
 					is_offmap_ruler = no
 
 					NOR = {
@@ -2878,6 +2961,7 @@ character_event = {
 }
 
 # Dynasty head is asked by wife to leave decadent character alone
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91375
 	desc = EVTDESC91375
@@ -2888,37 +2972,36 @@ character_event = {
 	option = {
 		name = EVTOPTA91373 # Accept
 
-		opinion = {
+		reverse_opinion = {
 			name = opinion_pleased
-			who = spouse
+			who = FROM
 			years = 20
 		}
 
-		hidden_effect = {
-			any_dynasty_member = {
-				limit = {
-					is_playable = yes
-					uses_decadence = yes
-					is_offmap_ruler = no
-
-					NOR = {
-						trait = decadent
-						character = ROOT
-					}
-				}
-
-				opinion = {
-					name = opinion_takfir
-					who = event_target:takfir_target
-					years = 20
-				}
-
-				character_event = {
-					id = 91369 # Inform players
-					days = 1
-				}
-			}
-		}
+		# hidden_effect = {
+		# 	any_dynasty_member = {
+		# 		limit = {
+		# 			is_playable = yes
+		# 			is_offmap_ruler = no
+		#
+		# 			NOR = {
+		# 				trait = decadent
+		# 				character = ROOT
+		# 			}
+		# 		}
+		#
+		# 		opinion = {
+		# 			name = opinion_takfir
+		# 			who = event_target:takfir_target
+		# 			years = 20
+		# 		}
+		#
+		# 		character_event = {
+		# 			id = 91369 # Inform players
+		# 			days = 1
+		# 		}
+		# 	}
+		# }
 
 		ai_chance = { factor = 4 }
 	}
@@ -2928,11 +3011,11 @@ character_event = {
 
 		reverse_opinion = {
 			name = opinion_very_disappointed
-			who = spouse
+			who = FROM
 			years = 20
 		}
 
-		reverse_opinion = {
+		opinion = {
 			name = opinion_takfir
 			who = FROMFROM
 			years = 20
@@ -2942,7 +3025,6 @@ character_event = {
 			any_dynasty_member = {
 				limit = {
 					is_playable = yes
-					uses_decadence = yes
 					is_offmap_ruler = no
 
 					NOR = {

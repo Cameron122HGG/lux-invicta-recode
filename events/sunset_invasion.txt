@@ -11,6 +11,7 @@ namespace = SSI
 
 # First Contact - Beads and Feathers
 # (There is another version of this event: SoA.3081 - triggered by a Demon Child.)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SSI.1
 
@@ -26,9 +27,16 @@ character_event = {
 
 		trigger_if = {
 			limit = {
-				has_game_rule = {
-					name = aztec_invasion
-					value = historical
+				OR = {
+					has_game_rule = {
+						name = aztec_invasion
+						value = historical
+					}
+
+					has_game_rule = {
+						name = aztec_invasion
+						value = plus
+					}
 				}
 			}
 
@@ -70,7 +78,24 @@ character_event = {
 
 		mult_modifier = {
 			factor = 2
+
 			year >= 1320
+
+			NOT = {
+				has_game_rule = {
+					name = aztec_invasion
+					value = plus
+				}
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.013
+
+			has_game_rule = {
+				name = aztec_invasion
+				value = plus
+			}
 		}
 
 		mult_modifier = {
@@ -90,98 +115,13 @@ character_event = {
 				value = delayed_random
 			}
 		}
-
-		# Prevent the randomized invasions from firing immediately after 50 years of game, see 'immediate' below
-		mult_modifier = {
-			factor = 0.6 # Equivalent to 40% chance of misfiring
-
-			year < 1300
-			total_years_played >= 50
-			total_years_played < 100
-
-			OR = {
-				has_game_rule = {
-					name = aztec_invasion
-					value = random
-				}
-
-				has_game_rule = {
-					name = aztec_invasion
-					value = delayed_random
-				}
-			}
-		}
-
-		mult_modifier = {
-			factor = 0.7 # Equivalent to 30% chance of misfiring
-
-			year < 1300
-			total_years_played >= 100
-			total_years_played < 150
-
-			OR = {
-				has_game_rule = {
-					name = aztec_invasion
-					value = random
-				}
-
-				has_game_rule = {
-					name = aztec_invasion
-					value = delayed_random
-				}
-			}
-		}
-
-		mult_modifier = {
-			factor = 0.85 # Equivalent to 15% chance of misfiring
-
-			year < 1300
-			total_years_played >= 150
-			total_years_played < 200
-
-			OR = {
-				has_game_rule = {
-					name = aztec_invasion
-					value = random
-				}
-
-				has_game_rule = {
-					name = aztec_invasion
-					value = delayed_random
-				}
-			}
-		}
-
-		mult_modifier = {
-			factor = 0.9625 # Equivalent to 3.75% chance of misfiring
-
-			year < 1300
-			total_years_played >= 200
-
-			OR = {
-				has_game_rule = {
-					name = aztec_invasion
-					value = random
-				}
-
-				has_game_rule = {
-					name = aztec_invasion
-					value = delayed_random
-				}
-			}
-		}
 	}
 
 	immediate = {
 		log = "AZTEC INVASION IMMEDIATE SSI.1"
 		set_global_flag = aztec_explorers
+		narrative_event = { id = SSI.2 }
 
-		activate_title = {
-			title = e_aztec_empire
-			status = yes
-		}
-
-		# Select first invasion location
 		random_province = {
 			limit = {
 				OR = {
@@ -205,51 +145,6 @@ character_event = {
 				id = SSI.3 # First Landing of the Aztecs
 				years = 2
 				random = 365
-			}
-
-			owner = {
-				character_event = { id = SSI.74 } # Notification
-
-				create_random_soldier = {
-					dynasty = 1035000 # Acatl
-					random_traits = yes
-					culture = nahua
-					religion = aztec_pagan
-				}
-
-				new_character = {
-					grant_title = e_aztec_empire
-					set_government_type = feudal_government
-
-					e_aztec_empire = {
-						add_law = {
-							law = succ_primogeniture
-							cooldown = no
-							opinion_effect = no
-						}
-
-						add_law = {
-							law = agnatic_succession
-							cooldown = no
-							opinion_effect = no
-						}
-
-						if = {
-							limit = { is_law_potential = crown_authority_0 }
-							add_law = crown_authority_1
-						}
-						else = {
-							add_law = revoke_title_law_2
-						}
-					}
-
-					set_defacto_liege = THIS
-
-					narrative_event = {
-						id = SSI.2
-						days = 7
-					}
-				}
 			}
 		}
 	}
@@ -1148,6 +1043,7 @@ narrative_event = {
 }
 
 # Second Landing of the Aztecs
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = SSI.5
 
@@ -1179,6 +1075,7 @@ province_event = {
 				}
 
 				owner = {
+					NOT = { religion = aztec_pagan }
 				}
 			}
 
@@ -1190,7 +1087,11 @@ province_event = {
 
 			e_aztec_empire = {
 				holder_scope = {
-					narrative_event = { id = SSI.6 }
+					narrative_event = {
+						id = SSI.6
+						days = 60
+						random = 15
+					}
 				}
 			}
 		}
@@ -1213,6 +1114,7 @@ character_event = {
 }
 
 # Second Landing of the Aztecs
+# LI: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = SSI.6
 	title = EVTNAME_SSI_006
@@ -1236,22 +1138,35 @@ narrative_event = {
 			prestige = 1
 		}
 
-		event_target:aztec_second_wave = {
-			kingdom = {
-				ROOT = {
-					war = {
-						casus_belli = tribal_invasion
-						target = PREVPREV # The top liege of the province owner
-						thirdparty_title = PREV # The de jure kingdom
+		# Player owns this province, and declares war manually
+		if = {
+			limit = { ai = yes }
+
+			event_target:aztec_second_wave = {
+				county = {
+					gain_title = ROOT
+
+					any_de_jure_vassal_title = {
+						gain_title = ROOT
+					}
+				}
+
+				kingdom = {
+					ROOT = {
+						war = {
+							casus_belli = tribal_invasion
+							target = PREVPREV # The top liege of the province owner
+							thirdparty_title = PREV # The de jure kingdom
+						}
 					}
 				}
 			}
 		}
 
+		# Spawn commanders
 		while = {
-			count = 12
+			count = 3
 
-			# Spawn commanders, plus a few spares
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -1268,7 +1183,6 @@ narrative_event = {
 			}
 
 			new_character = {
-				# Aged from 18 to 31
 				random_list = {
 					1 = { }
 					1 = { add_age = 1 }
@@ -1286,21 +1200,41 @@ narrative_event = {
 					1 = { add_age = 13 }
 				}
 			}
+		}
 
-			# Spawn armies
-			spawn_unit = {
-				province = event_target:aztec_second_wave
-				home = event_target:aztec_second_wave
+		# Spawn armies
+		while = {
+			count = 12
 
-				troops = {
-					heavy_infantry = { 2800 2800 }
-					light_infantry = { 1400 1400 }
-					archers = { 1400 1400 }
+			if = {
+				limit = { has_global_flag = better_armies_mode }
+
+				spawn_unit = {
+					province = event_target:aztec_second_wave
+					home = event_target:aztec_second_wave
+
+					troops = {
+						heavy_infantry = { 1500 1500 }
+						light_infantry = { 750 750 }
+						archers = { 750 750 }
+					}
+				}
+			}
+			else = {
+				spawn_unit = {
+					province = event_target:aztec_second_wave
+					home = event_target:aztec_second_wave
+
+					troops = {
+						heavy_infantry = { 2500 2500 }
+						light_infantry = { 1250 1250 }
+						archers = { 1250 1250 }
+					}
 				}
 			}
 		}
 
-		# Several chances for more troops
+		# Several chances for more troops and commanders
 		while = {
 			count = 3
 
@@ -1308,17 +1242,67 @@ narrative_event = {
 				chance = 50
 
 				while = {
-					count = 3
+					count = 4
 
-					spawn_unit = {
-						province = event_target:aztec_second_wave
-						home = event_target:aztec_second_wave
+					if = {
+						limit = { has_global_flag = better_armies_mode }
 
-						troops = {
-							heavy_infantry = { 2800 2800 }
-							light_infantry = { 1400 1400 }
-							archers = { 1400 1400 }
+						spawn_unit = {
+							province = event_target:aztec_second_wave
+							home = event_target:aztec_second_wave
+
+							troops = {
+								heavy_infantry = { 1500 1500 }
+								light_infantry = { 750 750 }
+								archers = { 750 750 }
+							}
 						}
+					}
+					else = {
+						spawn_unit = {
+							province = event_target:aztec_second_wave
+							home = event_target:aztec_second_wave
+
+							troops = {
+								heavy_infantry = { 2500 2500 }
+								light_infantry = { 1250 1250 }
+								archers = { 1250 1250 }
+							}
+						}
+					}
+				}
+
+				create_character = {
+					random_traits = yes
+					dynasty = random
+					religion = aztec_pagan
+					culture = nahua
+					female = no
+					age = 18
+
+					attributes = {
+						martial = 12
+					}
+
+					add_trait = brilliant_strategist
+				}
+
+				new_character = {
+					random_list = {
+						1 = { }
+						1 = { add_age = 1 }
+						1 = { add_age = 2 }
+						1 = { add_age = 3 }
+						1 = { add_age = 4 }
+						1 = { add_age = 5 }
+						1 = { add_age = 6 }
+						1 = { add_age = 7 }
+						1 = { add_age = 8 }
+						1 = { add_age = 9 }
+						1 = { add_age = 10 }
+						1 = { add_age = 11 }
+						1 = { add_age = 12 }
+						1 = { add_age = 13 }
 					}
 				}
 			}
@@ -1327,14 +1311,7 @@ narrative_event = {
 		# Ships
 		event_target:aztec_second_wave = {
 			if = {
-				limit = {
-					OR = {
-						province = c_vestisland
-						province = c_west_connacht
-						province = c_innse_gall
-						province = c_cornwall
-					}
-				}
+				limit = { is_coastal = yes }
 
 				sea_zone = {
 					ROOT = {
@@ -1355,11 +1332,18 @@ narrative_event = {
 	}
 
 	option = {
+		name = EVTOPTA_SSI_072
+
+		trigger = { has_landed_title = e_aztec_empire }
+	}
+
+	option = {
 		name = EVTOPTA_SSI_006
 
 		trigger = {
 			has_power_omen_modifier_trigger = no
 			has_battle_omen_modifier_trigger = no
+			NOT = { has_landed_title = e_aztec_empire }
 		}
 	}
 
@@ -1372,6 +1356,8 @@ narrative_event = {
 				has_power_omen_modifier_trigger = yes
 				has_battle_omen_modifier_trigger = yes
 			}
+
+			NOT = { has_landed_title = e_aztec_empire }
 		}
 
 		# For the scrying outcome calculation...

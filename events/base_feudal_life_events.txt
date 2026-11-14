@@ -568,6 +568,7 @@ character_event = {
 }
 
 # Cattle Rustling
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4035
 	desc = EVTDESC4035
@@ -583,6 +584,7 @@ character_event = {
 	in_command = no
 
 	trigger = {
+		always = no # Disabled in CK2Plus
 		real_tier = COUNT
 		in_seclusion = no
 		NOT = { has_character_modifier = the_cruel }
@@ -1591,6 +1593,7 @@ character_event = {
 }
 
 # Poachers: Liege
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4022
 	desc = EVTDESC4022
@@ -1632,19 +1635,19 @@ character_event = {
 
 	option = {
 		name = EVTOPTC4022 # Release them!
-		tooltip_info = arbitrary
+		tooltip_info = kind
 
 		trigger = {
-			trait = arbitrary
-			NOT = { trait = diligent }
+			trait = kind
 		}
 
+		piety = 10
 		prestige = -10
 
 		reverse_opinion = {
 			name = opinion_merciful
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 
@@ -1658,6 +1661,8 @@ character_event = {
 		}
 
 		pacifists_lose_piety_effect = yes
+		prestige = 20
+		piety = -10
 
 		FROM = {
 			show_scope_change = no
@@ -1674,14 +1679,15 @@ character_event = {
 
 	option = {
 		name = EVTOPTE4022 # Ears cut off
-		tooltip_info = diligent
+		tooltip_info = cruel
 
 		trigger = {
-			trait = diligent
-			NOT = { trait = arbitrary }
+			trait = cruel
 		}
 
 		pacifists_lose_piety_effect = yes
+		prestige = 20
+		piety = -10
 
 		FROM = {
 			show_scope_change = no
@@ -1925,6 +1931,7 @@ character_event = {
 }
 
 # Mercy, cried the thief
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4006
 	desc = EVTDESC4006
@@ -1935,13 +1942,17 @@ character_event = {
 	option = {
 		name = EVTOPTA4006
 
-		reverse_opinion = {
-			name = opinion_mocked
-			who = FROM
-			years = 1
-		}
-
 		ai_chance = { factor = 10 }
+
+		FROM = {
+			show_scope_change = no
+
+			opinion = {
+				name = opinion_mocked
+				who = ROOT
+				years = 10
+			}
+		}
 	}
 
 	option = {

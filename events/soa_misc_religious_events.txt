@@ -1739,6 +1739,7 @@ character_event = {
 }
 
 # Aztec becoming an unworthy priest
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.5305
 
@@ -1793,23 +1794,25 @@ character_event = {
 			}
 		}
 
-		# Wicked Head Priest!
-		if = {
-			limit = { controls_religion = yes }
+		hidden_effect = {
+			# Wicked Head Priest!
+			if = {
+				limit = { controls_religion = yes }
 
-			add_character_modifier = {
-				name = bad_rel_head
-				duration = -1
-				hidden = yes
-			}
+				add_character_modifier = {
+					name = bad_rel_head
+					duration = -1
+					hidden = yes
+				}
 
-			any_player = {
-				limit = { religion = ROOT }
+				any_player = {
+					limit = { religion = ROOT }
 
-				character_event = {
-					id = SoA.5322
-					days = 8
-					random = 7
+					character_event = {
+						id = SoA.5322
+						days = 8
+						random = 7
+					}
 				}
 			}
 		}
@@ -3918,6 +3921,7 @@ character_event = {
 }
 
 # Zealous character insults other religions
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.5420
 	desc = EVTDESC_SoA_5420
@@ -3937,6 +3941,14 @@ character_event = {
 		trait = zealous
 		trait = wroth
 		diplomacy < 5
+
+		any_realm_character = {
+			NOT = { religion_group = ROOT }
+			prisoner = no
+			is_adult = yes
+			is_incapable = no
+			NOT = { is_friend = ROOT }
+		}
 	}
 
 	option = {

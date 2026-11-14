@@ -805,12 +805,17 @@ character_event = {
 }
 
 # Hunt for boars for winter feast
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 72008
 	desc = EVTDESC72008
 	picture = GFX_evt_hunt
 
 	is_triggered_only = yes
+
+	immediate = {
+		set_character_flag = feast_boar_hunt
+	}
 
 	option = {
 		name = EVTOPTA72008
@@ -829,9 +834,16 @@ character_event = {
 			random_list = {
 				80 = { }
 				10 = { change_martial = 1 }
-				 7 = { add_trait_wounded_effect = yes }
-				 2 = { add_maimed_trait_effect = yes }
-				 1 = { death = { death_reason = death_accident_boar } }
+				7 = { add_trait_wounded_effect = yes }
+				2 = { add_maimed_trait_effect = yes }
+				1 = { death = { death_reason = death_accident_boar } }
+			}
+
+			hidden_effect = {
+				change_variable = {
+					which = lifestyle_martial
+					value = 1
+				}
 			}
 		}
 	}
@@ -842,6 +854,11 @@ character_event = {
 		trigger = {
 			any_child = {
 				practical_age >= 14
+				is_alive = yes
+				vassal_of = ROOT
+				is_abroad = no
+				prisoner = no
+				health_traits < 1
 
 				trigger_if = {
 					limit = { is_female = yes }
@@ -851,18 +868,17 @@ character_event = {
 						religion_is_matriarchal_trigger = yes
 					}
 				}
-
-				vassal_of = ROOT
-				is_abroad = no
-				prisoner = no
-				health_traits < 1
-				is_alive = yes
 			}
 		}
 
 		any_child = {
 			limit = {
 				practical_age >= 14
+				is_alive = yes
+				vassal_of = ROOT
+				is_abroad = no
+				prisoner = no
+				health_traits < 1
 
 				trigger_if = {
 					limit = { is_female = yes }
@@ -872,12 +888,6 @@ character_event = {
 						religion_is_matriarchal_trigger = yes
 					}
 				}
-
-				is_abroad = no
-				prisoner = no
-				vassal_of = ROOT
-				health_traits < 1
-				is_alive = yes
 			}
 
 			score_value = {
@@ -896,9 +906,16 @@ character_event = {
 			random_list = {
 				80 = { }
 				10 = { change_martial = 1 }
-				 7 = { add_trait_wounded_effect = yes }
-				 2 = { add_maimed_trait_effect = yes }
-				 1 = { death = { death_reason = death_accident_boar } }
+				7 = { add_trait_wounded_effect = yes }
+				2 = { add_maimed_trait_effect = yes }
+				1 = { death = { death_reason = death_accident_boar } }
+			}
+
+			hidden_effect = {
+				change_variable = {
+					which = lifestyle_martial
+					value = 1
+				}
 			}
 		}
 	}
@@ -927,9 +944,16 @@ character_event = {
 		random_list = {
 			80 = { }
 			10 = { change_martial = 1 }
-			 7 = { add_trait_wounded_effect = yes }
-			 2 = { add_maimed_trait_effect = yes }
-			 1 = { death = { death_reason = death_accident_boar } }
+			7 = { add_trait_wounded_effect = yes }
+			2 = { add_maimed_trait_effect = yes }
+			1 = { death = { death_reason = death_accident_boar } }
+		}
+
+		hidden_effect = {
+			change_variable = {
+				which = lifestyle_martial
+				value = 1
+			}
 		}
 	}
 

@@ -2239,76 +2239,1131 @@ narrative_event = {
 }
 
 # Character becomes misguided warrior
-narrative_event = {
+# LI: CK2Plus AIO version (step B, decision 5)
+character_event = {
 	id = ancrel.1240
-	title = TAILTEANNTITLE
-	desc = EVTDESCancrel.1240
-	picture = GFX_evt_athlete
 
-	has_character_flag = attending_tailteann
-	min_age = 16
-	only_men = yes
-	capable_only = yes
-	prisoner = no
-	
+	is_triggered_only = yes
+	hide_window = yes
+
 	trigger = {
-		trait = tough_soldier
+		has_character_flag = attending_tailteann
+		NOT = { has_character_flag = tailteann_has_ended }
+
 		top_liege = {
 			has_character_flag = tailteann_game_phase
-			NOT = {
-				has_character_flag = tailteann_has_ended
+			NOT = { has_character_flag = tailteann_has_ended }
+		}
+	}
+
+	immediate = {
+		random_list = {
+			500 = {	} # No event
+
+			1 = { # Character is killed
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_wound }
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 20
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 19
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 18
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 17
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 16
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 15
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 14
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 13
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 12
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 11
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 10
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 9
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 8
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 7
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 6
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 5
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 4
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 3
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 2
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 1
+				}
+
+				mult_modifier = {
+					factor = 0.5
+					trait = craven
+				}
+
+				mult_modifier = {
+					factor = 2
+					trait = brave
+				}
+
+				mult_modifier = {
+					factor = 2
+					is_maimed_trigger = yes
+				}
+
+				character_event = { id = ancrel.1230 }
+			}
+
+			2 = { # Character is maimed
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_wound }
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 20
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 19
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 18
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 17
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 16
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 15
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 14
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 13
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 12
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 11
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 10
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 9
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 8
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 7
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 6
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 5
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 4
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 3
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 2
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 1
+				}
+
+				mult_modifier = {
+					factor = 0.5
+					trait = craven
+				}
+
+				mult_modifier = {
+					factor = 2
+					trait = brave
+				}
+
+				mult_modifier = {
+					factor = 2
+					trait = wounded
+				}
+
+				character_event = { id = ancrel.1231 }
+			}
+
+			3 = { # Character is wounded
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_wound }
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 20
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 19
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 18
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 17
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 16
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 15
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 14
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 13
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 12
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 11
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 10
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 9
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 8
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 7
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 6
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 5
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 4
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 3
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 2
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 1
+				}
+
+				mult_modifier = {
+					factor = 0.5
+					trait = craven
+				}
+
+				mult_modifier = {
+					factor = 2
+					trait = brave
+				}
+
+				character_event = { id = ancrel.1232 }
+			}
+
+			10 = { # Character gets more fearful
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_fear }
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 20
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 19
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 18
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 17
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 16
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 15
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 14
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 13
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 12
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 11
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 10
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 9
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 8
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 7
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 6
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 5
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 4
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 3
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 2
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 1
+				}
+
+				character_event = { id = ancrel.1233 }
+			}
+
+			10 = { # Character gets braver
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_fear }
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 20
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 19
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 18
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 17
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 16
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 15
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 14
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 13
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 12
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					martial >= 11
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 10
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 9
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 8
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 7
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 6
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 5
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 4
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 3
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 2
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					martial < 1
+				}
+
+				character_event = { id = ancrel.1234 }
+			}
+
+			10 = { # Character gains a Marttial Education level
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_martial }
+
+					OR = {
+						trait = misguided_warrior
+						trait = tough_soldier
+						trait = skilled_tactician
+					}
+				}
+
+				character_event = { id = ancrel.1235 }
+			}
+
+			10 = { # Character loses a Martial Education level
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_martial }
+
+					OR = {
+						trait = tough_soldier
+						trait = skilled_tactician
+						trait = brilliant_strategist
+					}
+				}
+
+				character_event = { id = ancrel.1238 }
+			}
+
+			2 = { # Character becomes homosexual
+				trigger = {
+					NOR = {
+						trait = homosexual
+						trait = eunuch
+						trait = celibate
+						has_character_flag = attending_tailteann_gay
+					}
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					trait = hedonist
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = lustful
+				}
+
+				mult_modifier = {
+					factor = 0.5
+					trait = temperate
+				}
+
+				mult_modifier = {
+					factor = 0.33
+					trait = chaste
+				}
+
+				mult_modifier = {
+					factor = 0.33
+					trait = zealous
+				}
+
+				character_event = { id = ancrel.1241 }
+			}
+
+			2 = { # Character becomes great_pox
+				trigger = {
+					NOR = {
+						has_character_flag = attending_tailteann_syph
+						trait = eunuch
+						trait = celibate
+						trait = great_pox
+					}
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = drunkard
+				}
+
+				mult_modifier = {
+					factor = 2
+					trait = hedonist
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					trait = lustful
+				}
+
+				mult_modifier = {
+					factor = 0.5
+					trait = temperate
+				}
+
+				mult_modifier = {
+					factor = 0.33
+					trait = chaste
+				}
+
+				mult_modifier = {
+					factor = 0.33
+					trait = zealous
+				}
+
+				character_event = { id = ancrel.1242 }
+			}
+
+			3 = { # Character becomes drunkard
+				trigger = {
+					NOR = {
+						trait = drunkard
+						has_character_flag = attending_tailteann_drunk
+					}
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					trait = gluttonous
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = lustful
+				}
+
+				mult_modifier = {
+					factor = 0.33
+					trait = temperate
+				}
+
+				mult_modifier = {
+					factor = 0.5
+					trait = chaste
+				}
+
+				character_event = { id = ancrel.1243 }
+			}
+
+			3 = { # Character becomes duelist
+				trigger = {
+					lifestyle_traits < 1
+					martial >= 5
+					is_weak_trigger = no
+
+					NOR = {
+						has_dlc = "Way of Life"
+						has_character_flag = attending_tailteann_duelist
+						trait = content
+						trait = kind
+						trait = craven
+					}
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					trait = diligent
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					trait = wroth
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					trait = brave
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					is_strong_trigger = yes
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					martial >= 10
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					martial >= 15
+				}
+
+				mult_modifier = {
+					factor = 1.33
+					martial >= 20
+				}
+
+				character_event = { id = ancrel.1244 }
+			}
+
+			10 = { # Character gains intrigue
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_intrigue }
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = elusive_shadow
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = intricate_webweaver
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = flamboyant_schemer
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					trait = amateurish_plotter
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					has_education_intrigue_trigger = no
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = honest
+				}
+
+				mult_modifier = {
+					factor = 4
+					martial >= 10
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					martial < 5
+				}
+
+				character_event = { id = ancrel.1245 }
+			}
+
+			10 = { # Character loses intrigue
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_intrigue }
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					trait = elusive_shadow
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = intricate_webweaver
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = flamboyant_schemer
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = amateurish_plotter
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					has_education_intrigue_trigger = no
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = deceitful
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = honest
+				}
+
+				mult_modifier = {
+					factor = 4
+					martial >= 10
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					martial < 5
+				}
+
+				character_event = { id = ancrel.1246 }
+			}
+
+			10 = { # Character gains stewardship
+				trigger = {
+					is_ruler = yes
+					NOT = { has_character_flag = attending_tailteann_stew }
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = midas_touched
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = fortune_builder
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = thrifty_clerk
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					trait = indulgent_wastrel
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					has_education_stewardship_trigger = no
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = diligent
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = slothful
+				}
+
+				mult_modifier = {
+					factor = 4
+					martial >= 10
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					martial < 5
+				}
+
+				character_event = { id = ancrel.1247 }
+			}
+
+			10 = { # Character loses stewardship
+				trigger = {
+					is_ruler = yes
+					NOT = { has_character_flag = attending_tailteann_stew }
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					trait = midas_touched
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = fortune_builder
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = thrifty_clerk
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = indulgent_wastrel
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					has_education_stewardship_trigger = no
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = diligent
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = slothful
+				}
+
+				mult_modifier = {
+					factor = 4
+					martial >= 10
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					martial < 5
+				}
+
+				character_event = { id = ancrel.1248 }
+			}
+
+			10 = { # Character gains diplomacy
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_dip }
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = grey_eminence
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = charismatic_negotiator
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = underhanded_rogue
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					trait = naive_appeaser
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					has_education_diplomacy_trigger = no
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = gregarious
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = shy
+				}
+
+				mult_modifier = {
+					factor = 4
+					martial >= 10
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					martial < 5
+				}
+
+				character_event = { id = ancrel.1249 }
+			}
+
+			10 = { # Character loses diplomacy
+				trigger = {
+					NOT = { has_character_flag = attending_tailteann_dip }
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					trait = grey_eminence
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = charismatic_negotiator
+				}
+
+				mult_modifier = {
+					factor = 1.1
+					trait = underhanded_rogue
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = naive_appeaser
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					has_education_diplomacy_trigger = no
+				}
+
+				mult_modifier = {
+					factor = 0.9
+					trait = gregarious
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					trait = shy
+				}
+
+				mult_modifier = {
+					factor = 4
+					martial >= 10
+				}
+
+				mult_modifier = {
+					factor = 0.8
+					martial < 5
+				}
+
+				character_event = { id = ancrel.1250 }
 			}
 		}
-		NOR = {
-			has_character_flag = attending_tailteann_event
-			has_character_flag = tailteann_has_ended
-		}
-	}
 
-	mean_time_to_happen = {
-		months = 250
-		modifier = {
-			factor = 1.25
-			martial = 8
-		}
-		modifier = {
-			factor = 1.25
-			martial = 10
-		}
-		modifier = {
-			factor = 1.25
-			martial = 12
-		}
-		modifier = {
-			factor = 1.25
-			martial = 14
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 7 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 1 }
-		}
-	}
-	
-	immediate = {
-		set_character_flag = attending_tailteann_event
-	}
-
-	option = {
-		name = EVTOPTAancrel.1240
-		remove_trait = tough_soldier
-		add_trait = misguided_warrior
+		# repeat_event = {
+		#	id = ancrel.1261
+		#	days = 5
+		#	random = 5
+		# }
 	}
 }
 

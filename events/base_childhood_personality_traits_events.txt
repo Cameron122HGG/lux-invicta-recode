@@ -159,6 +159,7 @@ character_event = {
 
 # Event ID 2000-2009 is reserved for Gluttonous events #
 # Fosterling gains trait Gluttonous
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2000
 	desc = EVTDESC2000
@@ -186,7 +187,7 @@ character_event = {
 			opinion = {
 				name = opinion_happy_with_guardian
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 
@@ -226,7 +227,7 @@ character_event = {
 		reverse_opinion = {
 			name = opinion_sad
 			who = FROM
-			years = 2
+			years = 5
 		}
 
 		random = {
@@ -319,6 +320,7 @@ character_event = {
 			OR = {
 				religion_group = christian
 				religion_group = muslim
+				religion_group = jewish_group
 			}
 
 			NOT = { trait = cynical }
@@ -834,6 +836,7 @@ character_event = {
 
 # Event ID 2020-2029 is reserved for Greedy events #
 # Fosterling is Greedy
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2020
 	desc = EVTDESC2020
@@ -861,7 +864,7 @@ character_event = {
 			opinion = {
 				name = opinion_happy_with_guardian
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 
@@ -1496,6 +1499,7 @@ character_event = {
 
 # Event ID 2040-2049 is reserved for Slothful events #
 # Fosterling is slothful
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2040
 	desc = EVTDESC2040
@@ -1523,7 +1527,7 @@ character_event = {
 			opinion = {
 				name = opinion_happy_with_guardian
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 
@@ -1636,6 +1640,12 @@ character_event = {
 
 		trigger = {
 			NOT = { trait = cynical }
+
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
 		}
 
 		piety = 5
@@ -2186,6 +2196,7 @@ character_event = {
 
 # Event ID 2060-2069 is reserved for Envious events #
 # Fosterling is Envious
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2060
 	desc = EVTDESC2060
@@ -2331,6 +2342,12 @@ character_event = {
 
 		trigger = {
 			NOT = { trait = cynical }
+
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
 		}
 
 		piety = 5
@@ -2861,6 +2878,7 @@ character_event = {
 
 # Event ID 2080-2089 is reserved for Wroth events #
 # Fosterling is Wroth
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2080
 	desc = EVTDESC2080
@@ -2888,7 +2906,7 @@ character_event = {
 			opinion = {
 				name = opinion_happy_with_guardian
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 
@@ -2998,6 +3016,12 @@ character_event = {
 
 		trigger = {
 			NOT = { trait = cynical }
+
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
 		}
 
 		piety = 5
@@ -3499,6 +3523,7 @@ character_event = {
 
 # Event ID 2100-2109 is reserved for Proud events #
 # Fosterling is Proud
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2100
 	desc = EVTDESC2100
@@ -3526,7 +3551,7 @@ character_event = {
 			opinion = {
 				name = opinion_happy_with_guardian
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 
@@ -3636,6 +3661,12 @@ character_event = {
 
 		trigger = {
 			NOT = { trait = cynical }
+
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
 		}
 
 		piety = 5
@@ -4101,6 +4132,7 @@ character_event = {
 ### Event ID 2120-2129 is reserved for Deceitful events ###
 
 # Fosterling is Deceitful
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2120
 	desc = EVTDESC2120
@@ -4138,7 +4170,7 @@ character_event = {
 			opinion = {
 				name = opinion_happy_with_guardian
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 
@@ -7224,6 +7256,7 @@ character_event = {
 }
 
 # Fosterling gains trait Cruel
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2465
 	desc = EVTDESC2465
@@ -7253,7 +7286,7 @@ character_event = {
 			opinion = {
 				name = opinion_happy_with_guardian
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 
@@ -7365,6 +7398,12 @@ character_event = {
 
 		trigger = {
 			NOT = { trait = cynical }
+
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
 		}
 
 		piety = 5
@@ -16333,6 +16372,7 @@ character_event = {
 }
 
 # Ward is Ill
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 38233
 	desc = EVTDESC38233
@@ -16378,7 +16418,7 @@ character_event = {
 				opinion = {
 					name = opinion_mad_at_guardian
 					who = ROOT
-					years = 2
+					years = 5
 				}
 			}
 		}

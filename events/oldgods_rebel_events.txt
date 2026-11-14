@@ -187,6 +187,7 @@ character_event = {
 }
 
 # Peasant Rebels rise up to reinforce an ongoing provincial peasant revolt
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = TOG.1010
 	desc = EVTDESC_TOG_1010
@@ -196,6 +197,11 @@ province_event = {
 	is_triggered_only = yes # on_rebel_revolt via TOG.999
 
 	immediate = {
+		if = {
+			limit = { has_province_modifier = peasant_unrest }
+			remove_province_modifier = peasant_unrest
+		}
+
 		add_province_modifier = {
 			name = recent_county_uprising # -100% revolt risk
 			years = 5
@@ -230,8 +236,6 @@ province_event = {
 									value = very_powerful
 								}
 							}
-
-							spawn_peasant_reinforcements_effect = yes
 							spawn_peasant_reinforcements_effect = yes
 							spawn_peasant_reinforcements_effect = yes
 						}
@@ -242,9 +246,6 @@ province_event = {
 									value = extremely_powerful
 								}
 							}
-
-							spawn_peasant_reinforcements_effect = yes
-							spawn_peasant_reinforcements_effect = yes
 							spawn_peasant_reinforcements_effect = yes
 							spawn_peasant_reinforcements_effect = yes
 							spawn_peasant_reinforcements_effect = yes
@@ -463,6 +464,7 @@ character_event = {
 }
 
 # Heretic Rebels rise up to reinforce an ongoing heretic uprising
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = TOG.1030
 	desc = EVTDESC_TOG_1030
@@ -475,6 +477,11 @@ province_event = {
 		add_province_modifier = {
 			name = recent_county_uprising # -100% revolt risk
 			years = 5
+		}
+
+		if = {
+			limit = { has_province_modifier = religious_unrest }
+			remove_province_modifier = religious_unrest
 		}
 
 		owner = {
@@ -506,8 +513,6 @@ province_event = {
 									value = very_powerful
 								}
 							}
-
-							spawn_heretic_reinforcements_effect = yes
 							spawn_heretic_reinforcements_effect = yes
 							spawn_heretic_reinforcements_effect = yes
 						}
@@ -518,9 +523,6 @@ province_event = {
 									value = extremely_powerful
 								}
 							}
-
-							spawn_heretic_reinforcements_effect = yes
-							spawn_heretic_reinforcements_effect = yes
 							spawn_heretic_reinforcements_effect = yes
 							spawn_heretic_reinforcements_effect = yes
 							spawn_heretic_reinforcements_effect = yes
@@ -1055,6 +1057,7 @@ character_event = {
 
 # Religious Rebels rise up to reinforce an ongoing religious uprising
 # Triggered from "on_rebel_revolt"
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = TOG.1070
 	desc = EVTDESC_TOG_1070
@@ -1064,6 +1067,11 @@ province_event = {
 	is_triggered_only = yes # on_rebel_revolt via TOG.999
 
 	immediate = {
+		if = {
+			limit = { has_province_modifier = religious_unrest }
+			remove_province_modifier = religious_unrest
+		}
+
 		add_province_modifier = {
 			name = recent_county_uprising # -100% revolt risk
 			years = 5
@@ -1098,8 +1106,6 @@ province_event = {
 									value = very_powerful
 								}
 							}
-
-							spawn_religious_reinforcements_effect = yes
 							spawn_religious_reinforcements_effect = yes
 							spawn_religious_reinforcements_effect = yes
 						}
@@ -1110,9 +1116,6 @@ province_event = {
 									value = extremely_powerful
 								}
 							}
-
-							spawn_religious_reinforcements_effect = yes
-							spawn_religious_reinforcements_effect = yes
 							spawn_religious_reinforcements_effect = yes
 							spawn_religious_reinforcements_effect = yes
 							spawn_religious_reinforcements_effect = yes

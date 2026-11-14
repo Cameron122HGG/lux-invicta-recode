@@ -2700,6 +2700,7 @@ character_event = {
 }
 
 # Dwarf: is tossed by FROM
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 65066
 	desc = EVTDESC65066
@@ -2713,7 +2714,7 @@ character_event = {
 		opinion = {
 			name = opinion_tossed_me
 			who = FROM
-			years = 4
+			years = 5
 		}
 	}
 }

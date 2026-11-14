@@ -1387,6 +1387,7 @@ character_event = {
 }
 
 # On-action event: Pregnancy out of wedlock!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 401
 	desc = EVTDESC401
@@ -1420,8 +1421,7 @@ character_event = {
 			add_trait = pregnant
 		}
 
-		piety = -50
-		prestige = -50
+		piety = -25
 
 		if = {
 			limit = {
@@ -1429,7 +1429,7 @@ character_event = {
 
 				NOR = {
 					has_assigned_minor_title = title_appointed_regent
-					has_dynasty_flag = pregnancy_regent_warning
+					has_global_flag = pregnancy_regent_warning
 				}
 			}
 
@@ -1569,6 +1569,7 @@ character_event = {
 }
 
 # On-action event: Pregnancy in matrimony, with another father!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 402
 	desc = EVTDESC402
@@ -1615,7 +1616,7 @@ character_event = {
 
 				NOR = {
 					has_assigned_minor_title = title_appointed_regent
-					has_dynasty_flag = pregnancy_regent_warning
+					has_global_flag = pregnancy_regent_warning
 				}
 			}
 
@@ -3881,6 +3882,7 @@ character_event = {
 }
 
 # On-action event: Birth complications - Pointing out that the baby receives this event, and thus he is the one that has to 'decide' if his mother gets to die or not.
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 313
 
@@ -3915,7 +3917,62 @@ character_event = {
 
 		# Child born in good health?
 		random_list = {
-			80 = { } # All is well
+			50 = {
+				# All is well
+
+				mult_modifier = {
+					factor = 0.5
+
+					OR = {
+						trait = hunchback
+						trait = dwarf
+						trait = inbred
+					}
+				}
+
+				mult_modifier = {
+					factor = 4.0
+					is_strong_trigger = yes
+				}
+
+				mult_modifier = {
+					factor = 0.25
+					is_weak_trigger = yes
+				}
+			}
+
+			# CK2Plus
+			30 = {
+				trigger = {
+					mother = {
+						NOR = {
+							has_character_flag = gabriel_baby
+							has_character_flag = lucifer_baby
+							has_character_flag = iblis_baby
+							has_character_flag = thor_baby
+							has_character_flag = loki_baby
+							has_character_flag = tengri_baby
+							has_character_flag = erlik_baby
+						}
+					}
+				}
+
+				mult_modifier = { # Old remedy
+					factor = 0.25
+
+					mother = {
+						has_character_flag = flag_mother_dark_rest
+					}
+				}
+
+                if = {
+                    limit = { has_dlc = "Reapers" }
+                    add_symptom_effect = yes
+                }
+				else = {
+                    add_trait = ill
+                }
+			}
 
 			10 = {
 				trigger = {
@@ -3990,12 +4047,19 @@ character_event = {
 						}
 					}
 				}
+
+				mother = {
+					if = {
+						limit = { trait = pregnant }
+						remove_trait = pregnant
+					}
+				}
 			}
 		}
 
 		# Chance mother gets sick
 		random_list = {
-			80 = { # No complications
+			65 = { # No complications
 				trigger = {
 					mother = {
 						NOT = { trait = troubled_pregnancy }
@@ -4013,27 +4077,53 @@ character_event = {
 				}
 
 				mult_modifier = {
-					factor = 2.0
+					factor = 1.25
 					mother = { num_of_children >= 3 }
 				}
 
 				mult_modifier = {
-					factor = 0.85
+					factor = 0.75
 					mother = { practical_age >= 20 }
 				}
 
 				mult_modifier = {
-					factor = 0.85
+					factor = 0.75
 					mother = { practical_age >= 25 }
 				}
 
 				mult_modifier = {
-					factor = 0.85
+					factor = 0.75
 					mother = { practical_age >= 30 }
+				}
+
+				# CK2Plus
+				mult_modifier = {
+					factor = 0.5
+					mother = { practical_age >= 35 }
+				}
+
+				mult_modifier = {
+					factor = 0.5
+					mother = { practical_age >= 40 }
+				}
+
+				mult_modifier = {
+					factor = 1.5
+					mother = { is_strong_trigger = yes }
+				}
+
+				mult_modifier = {
+					factor = 0.25
+					mother = { is_ill = yes }
+				}
+
+				mult_modifier = {
+					factor = 0.5
+					mother = { is_weak_trigger = yes }
 				}
 			}
 
-			4 = { # Mother gets ill
+			55 = { # Mother gets ill
 				trigger = {
 					mother = {
 						is_ill = no
@@ -4047,7 +4137,7 @@ character_event = {
 				}
 
 				mult_modifier = {
-					factor = 2.0
+					factor = 25
 					mother = { health < 4.1 }
 				}
 
@@ -4056,12 +4146,24 @@ character_event = {
 					mother = { num_of_children < 2 }
 				}
 
+				# CK2Plus
+				mult_modifier = {
+					factor = 10
+					mother = { num_of_children < 1 }
+				}
+
 				mother = {
-					character_event = { id = 315 } # Mother ill after giving birth
+					if = {
+						limit = { is_ill = yes }
+						character_event = { id = 316 } # Gets pneumonia
+					}
+					else = {
+						character_event = { id = 315 } # Becomes ill
+					}
 				}
 			}
 
-			16 = { # Mother has troubled pregnancy
+			6 = { # Mother has troubled pregnancy
 				trigger = {
 					mother = {
 						OR = {
@@ -4077,12 +4179,12 @@ character_event = {
 				}
 
 				mult_modifier = {
-					factor = 2.0
+					factor = 1.5
 					mother = { health < 4.1 }
 				}
 
 				mult_modifier = {
-					factor = 6.0
+					factor = 2
 					mother = { health < 3.1 }
 				}
 
@@ -4139,29 +4241,6 @@ character_event = {
 					character_event = { id = 316 } # Troubled pregnancy gets worse
 				}
 			}
-
-		#	2 = { # Mother dies - Obsolete now
-		#		mother = {
-		#			death = {
-		#				death_reason = death_childbirth
-		#			}
-		#		}
-		#
-		#		mult_modifier = {
-		#			factor = 2.0
-		#			mother = { health < 4.1 }
-		#		}
-		#
-		#		mult_modifier = {
-		#			factor = 6.0
-		#			mother = { health < 3.1 }
-		#		}
-		#
-		#		mult_modifier = {
-		#			factor = 1.5
-		#			mother = { num_of_children < 2 }
-		#		}
-		#	}
 		}
 	}
 }
@@ -4363,6 +4442,7 @@ character_event = {
 }
 
 # Mother troubled after giving birth
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 316
 	picture = GFX_evt_illness
@@ -4379,6 +4459,10 @@ character_event = {
 	}
 
 	is_triggered_only = yes
+
+	trigger = {
+		immortal = no
+	}
 
 	option = {
 		name = EVTOPTA315
@@ -4587,8 +4671,8 @@ character_event = {
 			15 = { character_event = { id = HFP.20542 days = 12 random = 5 } } # hair loss
 			20 = { character_event = { id = HFP.20543 days = 12 random = 5 } } # blood
 			20 = { character_event = { id = HFP.20545 days = 12 random = 5 } } # recovers weakened
-			 2 = { character_event = { id = HFP.20546 days = 12 random = 5 } } # remains infirm
-			 3 = { character_event = { id = HFP.20547 days = 12 random = 5 } } # DEATH
+			2 = { character_event = { id = HFP.20546 days = 12 random = 5 } } # remains infirm
+			3 = { character_event = { id = HFP.20547 days = 12 random = 5 } } # DEATH
 		}
 	}
 }

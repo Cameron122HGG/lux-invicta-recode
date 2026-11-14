@@ -952,6 +952,7 @@ character_event = {
 }
 
 # Accused publicly!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.3014
 	desc = EVTDESC_SOA_3014
@@ -1003,12 +1004,14 @@ character_event = {
 		}
 
 		transfer_crown_on_abdication_effect = yes
-		abdicate = yes
 
-		if = {
-			limit = { religion_group = christian }
-			add_trait = nun
+		transfer_scaled_wealth = {
+			to = current_heir
+			value = all
 		}
+
+		abdicate = yes
+		add_ascetic_trait_effect = yes
 	}
 
 	option = {
@@ -2208,6 +2211,7 @@ character_event = {
 }
 
 # A witch nanny arrives at court
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.3071
 	desc = EVTDESC_SOA_3071
@@ -2259,10 +2263,7 @@ character_event = {
 				join_society = the_satanists
 			}
 
-			if = {
-				limit = { religion_group = christian }
-				add_trait = nun
-			}
+			add_ascetic_trait_effect = yes
 
 			opinion = {
 				name = opinion_the_chosen_one
@@ -2277,6 +2278,7 @@ character_event = {
 }
 
 # A witch nanny arrives at court
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.3072
 	desc = EVTDESC_SOA_3072
@@ -2328,10 +2330,7 @@ character_event = {
 				join_society = the_satanists
 			}
 
-			if = {
-				limit = { religion_group = christian }
-				add_trait = nun
-			}
+			add_ascetic_trait_effect = yes
 
 			opinion = {
 				name = opinion_the_chosen_one
@@ -2515,6 +2514,7 @@ narrative_event = {
 }
 
 # The Demon Child travels to the New World and returns as the Aztec Emperor (somewhat altered descriptions in the Sunset Invasion)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.3080
 
@@ -2568,6 +2568,8 @@ character_event = {
 		set_government_type = feudal_government
 
 		e_aztec_empire = {
+			set_title_flag = non_manual_law_change # No prestige loss
+
 			add_law = {
 				law = succ_primogeniture
 				cooldown = no
@@ -2587,6 +2589,8 @@ character_event = {
 			else = {
 				add_law = revoke_title_law_2
 			}
+
+			clr_title_flag = non_manual_law_change # No prestige loss
 		}
 
 		random_province = {

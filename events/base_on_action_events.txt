@@ -4257,6 +4257,7 @@ character_event = {
 # ROOT is the target title
 # new_character is the Enemy
 # FROM is the Pope/Caliph
+# LI: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = 534
 	title = EVTNAME534
@@ -4291,46 +4292,49 @@ narrative_event = {
 				NOT = { has_landed_title = ROOT }
 			}
 
-			trigger_if = {
-				limit = { has_global_flag = 4th_crusade_official }
+			OR = {
+				trigger_if = {
+					limit = { has_global_flag = 4th_crusade_official }
 
-				crusade_target_title = {
-					title = k_thrace
-				}
-				new_character = {
-					religion = FROM
-					has_landed_title = e_byzantium
-				}
-			}
-
-			AND = {
-				NAND = {
-					has_global_flag = 4th_crusade_official
 					crusade_target_title = {
 						title = k_thrace
 					}
 					new_character = {
+						religion = FROM
 						has_landed_title = e_byzantium
 					}
 				}
 
-				new_character = {
-					religion_group = FROM
+				AND = {
+					NAND = {
+						has_global_flag = 4th_crusade_official
+						crusade_target_title = {
+							title = k_thrace
+						}
+						new_character = {
+							has_landed_title = e_byzantium
+						}
+					}
+
+					new_character = {
+						religion_group = FROM
+					}
 				}
 			}
 		}
 	}
 
 	immediate = {
-		FROM = {
-			if = {
-				limit = {
-					has_global_flag = 4th_crusade_official
+		if = {
+			limit = {
+				has_global_flag = 4th_crusade_official
+
+				FROM = {
 					religion_group = christian
 				}
-
-				character_event = { id = HFP.41199 }
 			}
+
+			character_event = { id = HFP.41199 }
 		}
 	}
 

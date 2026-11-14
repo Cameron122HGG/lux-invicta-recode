@@ -87,6 +87,7 @@ narrative_event = {
 }
 
 # Informed about Restoration of Rome
+# LI: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = LoR.21
 	title = EVTNAMELoR.21
@@ -107,15 +108,26 @@ narrative_event = {
 		name = EVTOPTALoR.21
 
 		trigger = {
-			NOT = { has_landed_title = e_hre }
+			primary_title = {
+				NOR = {
+					has_title_flag = eastern_roman_successor
+					has_title_flag = western_roman_successor
+				}
+			}
 		}
 	}
 
 	option = {
 		name = EVTOPTBLoR.21
 
-		trigger = { has_landed_title = e_hre }
-
+		trigger = {
+			primary_title = {
+				OR = {
+					has_title_flag = eastern_roman_successor
+					has_title_flag = western_roman_successor
+				}
+			}
+		}
 		prestige = -500
 	}
 }

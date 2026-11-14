@@ -13514,6 +13514,7 @@ character_event = {
 }
 
 # Interaction: Blackmailing superior
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.6920
 	picture = GFX_evt_shady_meeting
@@ -13657,6 +13658,7 @@ character_event = {
 										}
 
 										add_trait = homosexual
+										set_character_flag = revealed_homosexual@ROOT
 									}
 								}
 							}

@@ -9,6 +9,7 @@
 # Written by Sara Wendel-Örtqvist
 
 # Sex Crusader Kings
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 6500
 	desc = EVTDESC6500
@@ -23,7 +24,6 @@ character_event = {
 
 	trigger = {
 		trait = indulgent_wastrel
-		personality_traits < 4
 		is_inaccessible_trigger = no
 		immortal = no
 

@@ -782,6 +782,7 @@ character_event = {
 }
 
 # Philosophical ponderings
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.5031
 	desc = EVTDESC_SoA_5031
@@ -793,27 +794,131 @@ character_event = {
 	option = {
 		name = EVTOPTA_SoA_5031
 
-		if = {
-			limit = {
-				lifestyle_traits < 1
-				NOT = { has_dlc = "Way of Life" }
+		random_list = {
+			10 = {
+				if = {
+					limit = { trait = celibate }
+					remove_trait = celibate
+				}
+				if = {
+					limit = { trait = hedonist }
+					remove_trait = hedonist
+				}
+				if = {
+					limit = { trait = gardener }
+					remove_trait = gardener
+				}
+				if = {
+					limit = { trait = mystic }
+					remove_trait = mystic
+				}
+				if = {
+					limit = { trait = impaler }
+					remove_trait = impaler
+				}
+				if = {
+					limit = { trait = duelist }
+					remove_trait = duelist
+				}
+				if = {
+					limit = { trait = hunter }
+					remove_trait = hunter
+				}
+				if = {
+					limit = { trait = poet }
+					remove_trait = poet
+				}
+				if = {
+					limit = { trait = falconer }
+					remove_trait = falconer
+				}
+				add_trait = scholar
 			}
-
-			random_list = {
-				10 = { add_trait = scholar }
-				10 = { add_trait = mystic }
-				10 = { add_trait_poet_effect = yes }
-				10 = { add_trait_fully_zealous_effect = yes }
-				10 = { add_trait_depressed_effect = yes }
-				50 = { }
+			10 = {
+				if = {
+					limit = { trait = celibate }
+					remove_trait = celibate
+				}
+				if = {
+					limit = { trait = hedonist }
+					remove_trait = hedonist
+				}
+				if = {
+					limit = { trait = scholar }
+					remove_trait = scholar
+				}
+				if = {
+					limit = { trait = gardener }
+					remove_trait = gardener
+				}
+				if = {
+					limit = { trait = impaler }
+					remove_trait = impaler
+				}
+				if = {
+					limit = { trait = duelist }
+					remove_trait = duelist
+				}
+				if = {
+					limit = { trait = hunter }
+					remove_trait = hunter
+				}
+				if = {
+					limit = { trait = poet }
+					remove_trait = poet
+				}
+				if = {
+					limit = { trait = falconer }
+					remove_trait = falconer
+				}
+				add_trait = mystic
 			}
-		}
-		else = {
-			random_list = {
-				20 = { add_trait_poet_effect = yes }
-				20 = { add_trait_fully_zealous_effect = yes }
-				10 = { add_trait_depressed_effect = yes }
-				50 = { }
+			10 = {
+				if = {
+					limit = { trait = celibate }
+					remove_trait = celibate
+				}
+				if = {
+					limit = { trait = hedonist }
+					remove_trait = hedonist
+				}
+				if = {
+					limit = { trait = scholar }
+					remove_trait = scholar
+				}
+				if = {
+					limit = { trait = gardener }
+					remove_trait = gardener
+				}
+				if = {
+					limit = { trait = mystic }
+					remove_trait = mystic
+				}
+				if = {
+					limit = { trait = impaler }
+					remove_trait = impaler
+				}
+				if = {
+					limit = { trait = duelist }
+					remove_trait = duelist
+				}
+				if = {
+					limit = { trait = hunter }
+					remove_trait = hunter
+				}
+				if = {
+					limit = { trait = falconer }
+					remove_trait = falconer
+				}
+				add_trait = poet
+			}
+			10 = {
+				add_trait = zealous
+			}
+			10 = {
+				add_trait = depressed
+			}
+			50 = {
 			}
 		}
 	}
@@ -1009,6 +1114,7 @@ character_event = {
 }
 
 # Moral choice - steal or give
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.5038
 	desc = EVTDESC_SoA_5038
@@ -1018,12 +1124,15 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_SoA_5038
+
+		piety = 10
 	}
 
 	option = {
 		name = EVTOPTB_SoA_5038
 
 		wealth = -10
+		piety = 10
 		add_trait_fully_silently_charitable_effect = yes
 	}
 

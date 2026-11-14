@@ -1582,6 +1582,7 @@ character_event = {
 }
 
 # You interpret the text
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4415
 	desc = EVTDESC_MNM_4415
@@ -1605,7 +1606,9 @@ character_event = {
 			text = EVTOPTA_MNM_4415_A
 			trigger = {
 				NOR = {
+					religion = buddhist
 					religion = jain
+					religion_openly_bon_or_reformed_trigger = yes
 				}
 			}
 		}
@@ -1613,7 +1616,9 @@ character_event = {
 			text = EVTOPTA_MNM_4415_B
 			trigger = {
 				OR = {
+					religion = buddhist
 					religion = jain
+					religion_openly_bon_or_reformed_trigger = yes
 				}
 			}
 		}
@@ -1638,6 +1643,7 @@ character_event = {
 }
 
 # You fail to interpret the text
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4416
 	desc = EVTDESC_MNM_4416
@@ -1661,7 +1667,9 @@ character_event = {
 			text = EVTOPTA_MNM_4416_A
 			trigger = {
 				NOR = {
+					religion = buddhist
 					religion = jain
+					religion_openly_bon_or_reformed_trigger = yes
 				}
 			}
 		}
@@ -1669,7 +1677,9 @@ character_event = {
 			text = EVTOPTA_MNM_4416_B
 			trigger = {
 				OR = {
+					religion = buddhist
 					religion = jain
+					religion_openly_bon_or_reformed_trigger = yes
 				}
 			}
 		}
@@ -1679,6 +1689,7 @@ character_event = {
 }
 
 # You get help
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4417
 	desc = EVTDESC_MNM_4417
@@ -1701,7 +1712,9 @@ character_event = {
 			text = EVTOPTA_MNM_4415_A
 			trigger = {
 				NOR = {
+					religion = buddhist
 					religion = jain
+					religion_openly_bon_or_reformed_trigger = yes
 				}
 			}
 		}
@@ -1709,7 +1722,9 @@ character_event = {
 			text = EVTOPTA_MNM_4415_B
 			trigger = {
 				OR = {
+					religion = buddhist
 					religion = jain
+					religion_openly_bon_or_reformed_trigger = yes
 				}
 			}
 		}

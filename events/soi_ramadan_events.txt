@@ -389,6 +389,7 @@ character_event = {
 }
 
 # Gain Temperate
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 88506
 	title = RAMADANTITLE
@@ -417,8 +418,7 @@ character_event = {
 		name = EVTOPTA88506
 
 		add_trait = temperate
-		decadence = -1
-		piety = 15
+		piety = 5
 	}
 }
 

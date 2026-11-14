@@ -333,6 +333,7 @@ character_event = {
 }
 
 # Secondary Wife thinks she should be First Wife
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89005
 	desc = EVTDESC89005
@@ -389,7 +390,7 @@ character_event = {
 			}
 		}
 
-		ai_chance = { factor = 40 }
+		ai_chance = { factor = 10 }
 	}
 
 	option = { # Woo husband
@@ -407,24 +408,29 @@ character_event = {
 			}
 		}
 
-		ai_chance = { factor = 40 }
+		ai_chance = { factor = 60 }
 	}
 
 	option = { # Do nothing
 		name = EVTOPTC89005
 
+		trigger = {
+			NOT = { trait = ambitious }
+		}
+
 		random = {
 			chance = 50
-			add_trait_fully_content_effect = yes
+			add_trait_content_effect = yes
 		}
 
 		piety = 20
 
-		ai_chance = { factor = 20 }
+		ai_chance = { factor = 30 }
 	}
 }
 
 # First Wife is murdered by Second Wife
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89006
 	desc = EVTDESC89006
@@ -434,6 +440,8 @@ character_event = {
 
 	option = { # Accept it
 		name = EVTOPTA89006
+
+		prestige = -25
 	}
 
 	option = { # Send killer to prison
@@ -491,6 +499,7 @@ character_event = {
 }
 
 # Husband is informed of failed murder attempt
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89008
 	desc = EVTDESC89008
@@ -531,6 +540,8 @@ character_event = {
 	option = { # Tell wife to fight own battles
 		name = EVTOPTC89008
 
+		prestige = -25
+
 		spouse = {
 			show_scope_change = no
 
@@ -564,10 +575,15 @@ character_event = {
 }
 
 # Second Wife tries to manipulate Husband
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89010
 	desc = EVTDESC89010
 	picture = GFX_evt_quarrel
+
+	immediate = {
+		set_character_flag = primary_wife_change
+	}
 
 	is_triggered_only = yes
 
@@ -614,6 +630,7 @@ character_event = {
 }
 
 # Former First Wife schemes against new First Wife
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89011
 	desc = EVTDESC89011
@@ -623,6 +640,14 @@ character_event = {
 
 	option = {
 		name = EVTOPTA89011
+
+		trigger = {
+			OR = {
+				trait = cruel
+				trait = deceitful
+				trait = lunatic
+			}
+		}
 
 		random = {
 			chance = 30

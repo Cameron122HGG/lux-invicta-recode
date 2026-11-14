@@ -4833,6 +4833,7 @@ character_event = {
 # }
 
 # Province converts to other religion!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RoI.3525
 	desc = EVTDESC_RoI_3525
@@ -4841,11 +4842,13 @@ character_event = {
 
 	is_triggered_only = yes # on_yearly_pulse, random_events
 
+	ai = no # For performance reasons
 	only_playable = yes
 	religion_group = indian_group
 	has_dlc = "Rajas of India"
 
 	trigger = {
+		always = no # Disabled in Plus
 		has_dharmic_religion_trigger = yes
 		NOT = { religion_authority >= 0.3 }
 
@@ -4864,8 +4867,8 @@ character_event = {
 		}
 
 		any_demesne_province = {
-			owned_by = ROOT
 			religion = ROOT
+			owned_by = PREV
 
 			OR = {
 				has_castle = yes
@@ -4879,8 +4882,8 @@ character_event = {
 	immediate = {
 		random_demesne_province = {
 			limit = {
-				owned_by = ROOT
 				religion = ROOT
+				owned_by = PREV
 
 				OR = {
 					has_castle = yes

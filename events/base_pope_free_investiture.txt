@@ -8,6 +8,7 @@
 # Written by Johan Andersson
 
 # The Pope singles out a Kingdom with Free Investiture (unless he has already targetted one)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 67000
 	desc = EVTDESC67000
@@ -31,10 +32,13 @@ character_event = {
 		NOT = { has_character_flag = pope_currently_demanding }
 
 		any_independent_ruler = {
-			has_law = investiture_law_1
 			higher_real_tier_than = DUKE
 			religion = ROOT
 			rightful_religious_head = ROOT
+
+			any_demesne_title = {
+				has_law = investiture_law_1
+			}
 
 			NOR = {
 				has_character_flag = pope_wants_our_law_changed
@@ -59,15 +63,22 @@ character_event = {
 
 		random_independent_ruler = {
 			limit = {
-				has_law = investiture_law_1
 				higher_real_tier_than = DUKE
 				religion = ROOT
 				rightful_religious_head = ROOT
+
+				any_demesne_title = {
+					has_law = investiture_law_1
+				}
 
 				NOR = {
 					has_character_flag = pope_wants_our_law_changed
 					has_character_flag = pope_respects_our_law
 				}
+			}
+
+			preferred_limit = {
+				real_tier = EMPEROR
 			}
 
 			save_event_target_as = target_ruler
@@ -89,6 +100,7 @@ character_event = {
 }
 
 # King/Emperor gets the papal emissary asking them to change laws!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 67001
 	desc = EVTDESC67001
@@ -97,21 +109,19 @@ character_event = {
 
 	is_triggered_only = yes
 
-	immediate = {
-		# No cheating by changing your primary title!
-		primary_title = {
-			save_event_target_as = current_primary_title
-		}
-	}
-
 	option = {
 		name = EVTOPTA67001 # Fold to demand
 
-		event_target:current_primary_title = {
+		random_demesne_title = {
+			limit = { has_law = investiture_law_1 }
+
+			set_title_flag = non_manual_law_change # No prestige loss
 			add_law_w_cooldown = investiture_law_0
+			clr_title_flag = non_manual_law_change # No prestige loss
 		}
 
-		piety = 25
+		piety = 50
+		prestige = -200
 
 		religion_authority = {
 			name = ruler_bowed_to_pope
@@ -128,7 +138,7 @@ character_event = {
 			opinion = {
 				name = pope_invest_approve
 				who = ROOT
-				years = 4
+				years = 5
 			}
 
 			character_event = { id = 67002 }
@@ -137,12 +147,13 @@ character_event = {
 		ai_chance = {
 			factor = 1
 
-			trigger = {
-				NOT = { trait = cynical }
+			mult_modifier = {
+				factor = 0.5
+				trait = cynical
 			}
 
 			mult_modifier = {
-				factor = 8
+				factor = 5
 				trait = zealous
 			}
 		}
@@ -151,7 +162,7 @@ character_event = {
 	option = {
 		name = EVTOPTB67001 # Refuse
 
-		piety = -25
+		piety = -50
 
 		religion_authority = {
 			name = ruler_defied_pope
@@ -175,6 +186,10 @@ character_event = {
 		ai_chance = {
 			factor = 1
 
+			trigger = {
+				NOT = { trait = zealous }
+			}
+
 			mult_modifier = {
 				factor = 1.5
 				trait = arbitrary
@@ -195,7 +210,7 @@ character_event = {
 	option = {
 		name = EVTOPTC67001 # Give gold to Pope
 
-		trigger = { wealth >= 200 }
+		trigger = { diplomacy >= 10 }
 
 		transfer_scaled_wealth = {
 			to = FROM
@@ -213,7 +228,7 @@ character_event = {
 		}
 
 		ai_chance = {
-			factor = 1
+			factor = 5
 
 			trigger = {
 				NOT = { trait = zealous }
@@ -223,6 +238,11 @@ character_event = {
 				factor = 3
 				trait = cynical
 			}
+
+			mult_modifier = {
+				factor = 0.1
+				wealth < 200
+			}
 		}
 	}
 
@@ -230,9 +250,9 @@ character_event = {
 		name = EVTOPTD67001 # Impress with Learning
 		tooltip_info = learning
 
-		trigger = { learning >= 16 }
+		trigger = { learning >= 10 }
 
-		piety = 1
+		piety = 10
 		set_character_flag = pope_respects_our_law
 		clr_character_flag = pope_wants_our_law_changed
 
@@ -241,7 +261,7 @@ character_event = {
 			character_event = { id = 67005 }
 		}
 
-		ai_chance = { factor = 5 }
+		ai_chance = { factor = 100 }
 	}
 }
 
@@ -704,6 +724,7 @@ character_event = {
 }
 
 # The Pope contacts a powerful (preferably rebellious) vassal of a liege who has refused to change investiture Law
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 67020
 	desc = EVTDESC67020
@@ -739,6 +760,18 @@ character_event = {
 				}
 			}
 		}
+	}
+
+	option = {
+		name = EVTOPTB67020
+
+		clr_character_flag = pope_currently_demanding
+
+		event_target:target_ruler = {
+			clr_character_flag = pope_we_refuse_law_changed
+		}
+
+		ai_chance = { factor = 0 }
 	}
 }
 

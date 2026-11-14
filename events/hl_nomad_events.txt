@@ -875,6 +875,7 @@ character_event = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = HL.4999
 
@@ -918,7 +919,7 @@ character_event = {
 
 					is_ruler = yes
 					is_landed = no
-					is_offmap_governor = no # offmap governors do not become nomads
+					NOT = { is_offmap_governor = yes } # offmap governors do not become nomads
 				}
 			}
 

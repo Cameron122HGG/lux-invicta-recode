@@ -185,7 +185,11 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `TECH_TEMPLE_CONSTRUCTION`). The 5 building files and `00_job_actions.txt` (AIO's
      `action_assist_arrest` lists event 940, which the mod lacks) were restored to their pre-batch
      state, and the tool now skips both folders and checks `events = { }` lists. Dead vanilla religions
-     in AIO's religion features, societies and religion triggers were trimmed.
+     in AIO's religion features, societies and religion triggers were trimmed. Re-run: 5,361 (clean).
+     **Batch 2 applied:** 184 events in 49 files. The tool now also skips blocks that carry an
+     `# LI:` fix inside them (so the `TOG.1000`/`HL.2000`/`100420` triggers and similar stay).
+     **Still to do in step B:** 443 definitions that need AIO content the mod lacks, and 543 that
+     use LI's world (hand port).
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.

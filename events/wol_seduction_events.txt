@@ -799,6 +799,7 @@ character_event = {
 }
 
 # The seducer is blackmailed
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = WoL.56
 	border = GFX_event_letter_frame_intrigue
@@ -845,6 +846,20 @@ letter_event = {
 				to = event_target:scandal_discoverer
 				value = 0.2
 			}
+		}
+
+		if = {
+			limit = {
+				event_target:scandal_discoverer = {
+					OR = {
+						has_character_flag = scandal_temp_m_homo
+						has_character_flag = scandal_temp_f_homo
+					}
+				}
+			}
+
+			set_character_flag = gay_blackmailed_by_@event_target:scandal_discoverer
+			event_target:seduced = { set_character_flag = gay_blackmailed_by_@event_target:scandal_discoverer }
 		}
 
 		event_target:scandal_discoverer = {
@@ -2498,6 +2513,7 @@ character_event = {
 ######################################
 
 # Opinion booster - Love Letter
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.200
 	title = EVTTITLE_WOL_200
@@ -2517,6 +2533,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC_WOL_200_CR
 		trigger = {
@@ -2546,39 +2563,11 @@ character_event = {
 			NOT = { is_close_relative = event_target:seducer }
 		}
 
-		if = {
-			limit = {
-				has_opinion_modifier = {
-					name = opinion_seduced_repelled
-					who = event_target:seducer
-				}
-			}
-
-			remove_opinion = {
-				name = opinion_seduced_repelled
-				who = event_target:seducer
-			}
-		}
-		else = {
-			opinion = {
-				name = opinion_seduced_attracted
-				who = event_target:seducer
-			}
-		}
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.201
-				tooltip = EVTTOOLTIP_WoL_201
-			}
-		}
-
 		ai_chance = {
 			factor = 100
 
 			seduction_favorable_opinion_common_score = yes
+			plus_seduction_common_score = yes
 
 			mult_modifier = {
 				factor = 1.25
@@ -2595,12 +2584,6 @@ character_event = {
 				trait = lustful
 			}
 		}
-	}
-
-	option = {
-		name = EVTOPTB_WOL_200 # How delightfully perverted!
-
-		trigger = { is_close_relative = event_target:seducer }
 
 		if = {
 			limit = {
@@ -2630,20 +2613,60 @@ character_event = {
 				tooltip = EVTTOOLTIP_WoL_201
 			}
 		}
+	}
+
+	option = {
+		name = EVTOPTB_WOL_200 # How delightfully perverted!
+
+		trigger = {
+			is_close_relative = event_target:seducer
+		}
 
 		ai_chance = {
 			factor = 100
 
 			seduction_favorable_opinion_common_score = yes
+			plus_seduction_common_score = yes
 
 			mult_modifier = {
-				factor = 0.5
+				factor = 0.1
 
 				NOR = {
 					trait = arbitrary
 					trait = lustful
 					trait = hedonist
 				}
+
+				religion_has_incest = no
+			}
+		}
+
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					name = opinion_seduced_repelled
+					who = event_target:seducer
+				}
+			}
+
+			remove_opinion = {
+				name = opinion_seduced_repelled
+				who = event_target:seducer
+			}
+		}
+		else = {
+			opinion = {
+				name = opinion_seduced_attracted
+				who = event_target:seducer
+			}
+		}
+
+		event_target:seducer = {
+			show_scope_change = no
+
+			character_event = {
+				id = WoL.201
+				tooltip = EVTTOOLTIP_WoL_201
 			}
 		}
 	}
@@ -2651,15 +2674,9 @@ character_event = {
 	option = {
 		name = EVTOPTC_WOL_200 # What a fool!
 
-		trigger = { is_married = no }
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.202
-				tooltip = EVTTOOLTIP_WoL_202
-			}
+		trigger = {
+			is_married = no
+			is_consort = no
 		}
 
 		ai_chance = {
@@ -2670,12 +2687,24 @@ character_event = {
 				trait = cruel
 			}
 		}
+
+		event_target:seducer = {
+			show_scope_change = no
+
+			character_event = {
+				id = WoL.202
+				tooltip = EVTTOOLTIP_WoL_202
+			}
+		}
 	}
 
 	option = {
 		name = EVTOPTD_WOL_200 # I am married!
 
-		trigger = { is_married = yes }
+		trigger = {
+			is_married = yes
+			is_consort = yes
+		}
 
 		event_target:seducer = {
 			show_scope_change = no
@@ -2688,6 +2717,7 @@ character_event = {
 
 		ai_chance = {
 			factor = 100
+
 			seduction_faithful_spouse_score = yes
 		}
 	}
@@ -2730,7 +2760,9 @@ character_event = {
 
 		ai_chance = {
 			factor = 50
+
 			seduction_offended_score = yes
+			plus_seduction_offended_score = yes
 		}
 	}
 
@@ -2772,6 +2804,7 @@ character_event = {
 			factor = 100
 
 			seduction_offended_score = yes
+			plus_seduction_offended_score = yes
 
 			mult_modifier = {
 				factor = 2
@@ -2781,32 +2814,37 @@ character_event = {
 					trait = lustful
 					trait = hedonist
 				}
+
+				religion_has_incest = no
 			}
 		}
 	}
 
 	option = {
-		name = EVTOPTREFUSE_WOL100
+	 	name = EVTOPTREFUSE_WOL100
 
-		opinion = {
-			name = opinion_seduced_refused
-			who = event_target:seducer
-			years = 5
-		}
+		trigger = { always = no } # Plus uses something else
 
-		add_character_modifier = {
-			name = dismissed_proposal
-			years = 5
-		}
+	 	opinion = {
+	 		name = opinion_seduced_refused
+	 		who = event_target:seducer
+	 		years = 5
+	 	}
 
-		event_target:seducer = {
-			character_event = { id = WoL.120 }
-		}
+	 	add_character_modifier = {
+	 		name = dismissed_proposal
+	 		years = 5
+	 	}
 
-		ai_chance = {
-			factor = 50
+	 	event_target:seducer = {
+	 		character_event = { id = WoL.120 }
+	 	}
+
+	 	ai_chance = {
+	 		factor = 50
+
 			seduction_refusal_score = yes
-		}
+	 	}
 	}
 }
 
@@ -3009,6 +3047,7 @@ character_event = {
 }
 
 # Opinion booster - Gift (necklace or sword)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.210
 	title = EVTTITLE_WOL_210
@@ -3030,6 +3069,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC_WOL_210_CR
 		trigger = {
@@ -3044,6 +3084,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC_WOL_210_M
 		trigger = {
@@ -3059,6 +3100,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC_WOL_210_CR_M
 		trigger = {
@@ -3120,6 +3162,7 @@ character_event = {
 			factor = 100
 
 			seduction_favorable_opinion_common_score = yes
+			plus_seduction_common_score = yes
 
 			mult_modifier = {
 				factor = 1.25
@@ -3134,6 +3177,29 @@ character_event = {
 			mult_modifier = {
 				factor = 3
 				trait = lustful
+			}
+
+			# CK2Plus
+			mult_modifier = {
+				factor = 0.1
+
+				same_sex = event_target:seducer
+				NOT = { trait = homosexual }
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				NOT = { religion = event_target:seducer }
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				NOT = { culture = event_target:seducer }
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				NOT = { culture_group = event_target:seducer }
 			}
 		}
 	}
@@ -3176,6 +3242,7 @@ character_event = {
 			factor = 100
 
 			seduction_favorable_opinion_common_score = yes
+			plus_seduction_common_score = yes
 
 			mult_modifier = {
 				factor = 0.5
@@ -3185,6 +3252,8 @@ character_event = {
 					trait = lustful
 					trait = hedonist
 				}
+
+				religion_has_incest = no
 			}
 		}
 	}
@@ -3192,7 +3261,10 @@ character_event = {
 	option = {
 		name = EVTOPTC_WOL_200 # What a fool!
 
-		trigger = { is_married = no }
+		trigger = {
+			is_married = no
+			is_consort = no
+		}
 
 		event_target:seducer = {
 			show_scope_change = no
@@ -3216,7 +3288,12 @@ character_event = {
 	option = {
 		name = EVTOPTD_WOL_200 # I am married
 
-		trigger = { is_married = yes }
+		trigger = {
+			OR = {
+				is_married = yes
+				is_consort = yes
+			}
+		}
 
 		event_target:seducer = {
 			show_scope_change = no
@@ -3229,6 +3306,7 @@ character_event = {
 
 		ai_chance = {
 			factor = 100
+
 			seduction_faithful_spouse_score = yes
 		}
 	}
@@ -3271,7 +3349,9 @@ character_event = {
 
 		ai_chance = {
 			factor = 50
+
 			seduction_offended_score = yes
+			plus_seduction_offended_score = yes
 		}
 	}
 
@@ -3313,6 +3393,7 @@ character_event = {
 			factor = 100
 
 			seduction_offended_score = yes
+			plus_seduction_offended_score = yes
 
 			mult_modifier = {
 				factor = 2
@@ -3322,12 +3403,16 @@ character_event = {
 					trait = lustful
 					trait = hedonist
 				}
+
+				religion_has_incest = no
 			}
 		}
 	}
 
 	option = {
 		name = EVTOPTREFUSE_WOL100
+
+		trigger = { always = no } # Plus uses something else
 
 		opinion = {
 			name = opinion_seduced_refused
@@ -3346,6 +3431,7 @@ character_event = {
 
 		ai_chance = {
 			factor = 50
+
 			seduction_refusal_score = yes
 		}
 	}
@@ -3586,6 +3672,7 @@ character_event = {
 }
 
 # Opinion booster - Gossip
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.220
 	title = EVTTITLE_WOL_220
@@ -3607,6 +3694,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC_WOL_220_CR
 		trigger = {
@@ -3621,6 +3709,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC_WOL_220_M
 		trigger = {
@@ -3636,6 +3725,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC_WOL_220_CR_M
 		trigger = {
@@ -3699,11 +3789,7 @@ character_event = {
 			factor = 100
 
 			seduction_favorable_opinion_common_score = yes
-
-			mult_modifier = {
-				factor = 1.25
-				trait = arbitrary
-			}
+			plus_seduction_common_score = yes
 
 			mult_modifier = {
 				factor = 2
@@ -3755,6 +3841,7 @@ character_event = {
 			factor = 100
 
 			seduction_favorable_opinion_common_score = yes
+			plus_seduction_common_score = yes
 
 			mult_modifier = {
 				factor = 0.5
@@ -3764,6 +3851,8 @@ character_event = {
 					trait = lustful
 					trait = hedonist
 				}
+
+				religion_has_incest = no
 			}
 		}
 	}
@@ -3771,7 +3860,10 @@ character_event = {
 	option = {
 		name = EVTOPTC_WOL_200 # What a fool!
 
-		trigger = { is_married = no }
+		trigger = {
+			is_married = no
+			is_consort = no
+		}
 
 		event_target:seducer = {
 			show_scope_change = no
@@ -3795,7 +3887,12 @@ character_event = {
 	option = {
 		name = EVTOPTD_WOL_200 # I am married
 
-		trigger = { is_married = yes }
+		trigger = {
+			OR = {
+				is_married = yes
+				is_consort = yes
+			}
+		}
 
 		event_target:seducer = {
 			show_scope_change = no
@@ -3808,6 +3905,7 @@ character_event = {
 
 		ai_chance = {
 			factor = 100
+
 			seduction_faithful_spouse_score = yes
 		}
 	}
@@ -3850,7 +3948,9 @@ character_event = {
 
 		ai_chance = {
 			factor = 50
+
 			seduction_offended_score = yes
+			plus_seduction_offended_score = yes
 		}
 	}
 
@@ -3892,6 +3992,7 @@ character_event = {
 			factor = 100
 
 			seduction_offended_score = yes
+			plus_seduction_offended_score = yes
 
 			mult_modifier = {
 				factor = 2
@@ -3901,12 +4002,16 @@ character_event = {
 					trait = lustful
 					trait = hedonist
 				}
+
+				religion_has_incest = no
 			}
 		}
 	}
 
 	option = {
 		name = EVTOPTREFUSE_WOL100
+
+		trigger = { always = no } # Plus uses something else
 
 		opinion = {
 			name = opinion_seduced_refused
@@ -3925,6 +4030,7 @@ character_event = {
 
 		ai_chance = {
 			factor = 50
+
 			seduction_refusal_score = yes
 		}
 	}
@@ -4139,6 +4245,7 @@ character_event = {
 ######################################################
 # Seduction - Dance
 ######################################################
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.300
 	title = EVTTITLE_WOL_300
@@ -4160,6 +4267,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC_WOL_300_CR
 		trigger = {
@@ -4173,6 +4281,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC_WOL_300_M
 		trigger = {
@@ -4247,7 +4356,7 @@ character_event = {
 		}
 
 		ai_chance = {
-			factor = 100
+			factor = 75
 
 			mult_modifier = {
 				factor = 0.5
@@ -4259,7 +4368,7 @@ character_event = {
 			}
 
 			mult_modifier = {
-				factor = 0.5
+				factor = 0.1
 
 				is_close_relative = event_target:seducer
 				religion_has_incest = no
@@ -4309,6 +4418,173 @@ character_event = {
 					}
 				}
 			}
+
+			# CK2Plus
+			mult_modifier = {
+				factor = 0.75
+
+				is_married = yes
+				NOT = { is_married = event_target:seducer }
+
+				any_spouse = {
+					reverse_opinion = {
+						who = ROOT
+						value >= 25
+					}
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.75
+
+				is_married = yes
+				NOT = { is_married = event_target:seducer }
+
+				any_spouse = {
+					reverse_opinion = {
+						who = ROOT
+						value >= 50
+					}
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.5
+
+				is_married = yes
+				NOT = { is_married = event_target:seducer }
+
+				any_spouse = {
+					reverse_opinion = {
+						who = ROOT
+						value >= 75
+					}
+				}
+			}
+
+			mult_modifier = {
+				factor = 1.25
+
+				is_married = yes
+
+				NOR = {
+					is_married = event_target:seducer
+
+					any_spouse = {
+						reverse_opinion = {
+							who = ROOT
+							value >= -25
+						}
+					}
+				}
+			}
+
+			mult_modifier = {
+				factor = 1.25
+				is_married = yes
+
+				NOR = {
+					is_married = event_target:seducer
+
+					any_spouse = {
+						reverse_opinion = {
+							who = ROOT
+							value >= -50
+						}
+					}
+				}
+			}
+
+			mult_modifier = {
+				factor = 1.5
+				is_married = yes
+
+				NOR = {
+					is_married = event_target:seducer
+
+					any_spouse = {
+						reverse_opinion = {
+							who = ROOT
+							value >= -75
+						}
+					}
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.5
+
+				has_lover = yes
+
+				any_lover = {
+					reverse_opinion = {
+						who = ROOT
+						value >= 25
+					}
+				}
+
+				NOR = {
+					trait = lustful
+					trait = hedonist
+					trait = deceitful
+				}
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				event_target:seducer = { diplomacy >= 12 }
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				event_target:seducer = { diplomacy >= 15 }
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				event_target:seducer = { diplomacy >= 18 }
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				event_target:seducer = { diplomacy < 8 }
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				event_target:seducer = { diplomacy < 6 }
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				event_target:seducer = { diplomacy < 4 }
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				event_target:seducer = { diplomacy < 2 }
+			}
+
+			mult_modifier = {
+				factor = 0.1
+				NOT = { trait = homosexual }
+				same_sex = event_target:seducer
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				NOT = { religion = event_target:seducer }
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				NOT = { culture = event_target:seducer }
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				NOT = { culture_group = event_target:seducer }
+			}
 		}
 	}
 
@@ -4317,6 +4593,7 @@ character_event = {
 
 		trigger = {
 			is_married = no
+			is_consort = no
 
 			age_diff = {
 				who = event_target:seducer
@@ -4530,6 +4807,8 @@ character_event = {
 	option = {
 		name = EVTOPTREFUSE_WOL100
 
+		trigger = { always = no } # Plus uses something else
+
 		opinion = {
 			name = opinion_seduced_refused
 			who = event_target:seducer
@@ -4547,6 +4826,7 @@ character_event = {
 
 		ai_chance = {
 			factor = 50
+
 			seduction_refusal_score = yes
 		}
 	}
@@ -9076,6 +9356,7 @@ character_event = {
 ######################################################
 
 # Flirting at confession - attraction vs priest
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.500
 	desc = EVTDESC_WOL_500
@@ -9095,6 +9376,15 @@ character_event = {
 		has_focus = focus_seduction
 		is_ill = no
 		has_regent = no
+
+		trigger_if = {
+			limit = { has_lover = yes }
+
+			OR = {
+				trait = lustful
+				trait = hedonist
+			}
+		}
 
 		any_realm_character = {
 			is_priest = yes
@@ -9260,6 +9550,7 @@ character_event = {
 }
 
 # Female: Seduce handsome guard. Can appear at court (chance of Syphilitic, Cruel, Pregnancy).
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.520
 	desc = EVTDESC_WOL_520
@@ -9286,6 +9577,15 @@ character_event = {
 		}
 		trigger_else = {
 			trait = homosexual
+		}
+
+		trigger_if = {
+			limit = { has_lover = yes }
+
+			OR = {
+				trait = lustful
+				trait = hedonist
+			}
 		}
 
 		NOT = { has_character_modifier = hidden_seduced_bodyguard }
@@ -9375,6 +9675,7 @@ character_event = {
 				if = {
 					limit = { same_sex = ROOT }
 					add_trait = homosexual
+					set_character_flag = revealed_homosexual@ROOT
 				}
 
 				opinion = {
@@ -9614,6 +9915,7 @@ character_event = {
 }
 
 # Lunatics: Seduction of a rose bush.
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.560
 	desc = EVTDESC_WOL_560
@@ -9629,6 +9931,7 @@ character_event = {
 	trigger = {
 		has_focus = focus_seduction
 		trait = lunatic
+		is_adult = yes
 		is_ill = no
 		is_incapable = no
 		has_regent = no
@@ -9852,6 +10155,7 @@ character_event = {
 }
 
 # Lunatics: Seduction of a centaur.
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.570
 	desc = EVTDESC_WOL_570
@@ -9867,6 +10171,7 @@ character_event = {
 	trigger = {
 		has_focus = focus_seduction
 		trait = lunatic
+		is_adult = yes
 		is_ill = no
 		is_incapable = no
 		has_regent = no

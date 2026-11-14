@@ -129,41 +129,39 @@ character_event = {
 }
 
 # The Vestalis Maxima should be the guardian of all underage Vestalis
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.2120
+
+	is_triggered_only = yes # on_yearly_childhood_pulse
 	hide_window = yes
-	
-	
-	
-	mean_time_to_happen = {
-		days = 1
-	}
+
+	only_women = yes
 
 	trigger = {
+		religion_openly_hellenic_or_reformed_trigger = yes
 		has_minor_title = title_vestalis_maxima
-		host = {
-			any_courtier = {
+
+		top_liege = {
+			any_realm_character = {
 				has_minor_title = title_vestalis
-				age = 6
-				NOR = {
-					age = 16
-					guardian = { character = ROOT }
-				}
+				age >= 6
+				is_adult = no
+				NOT = { educator = { character = ROOT } }
 			}
 		}
 	}
 
 	immediate = {
-		host = {
-			any_courtier = {
+		top_liege = {
+			random_realm_character = {
 				limit = {
 					has_minor_title = title_vestalis
-					age = 6
-					NOR = {
-						age = 16
-						guardian = { character = ROOT }
-					}
+					age >= 6
+					is_adult = no
+					NOT = { educator = { character = ROOT } }
 				}
+
 				set_guardian = ROOT
 			}
 		}
@@ -203,21 +201,19 @@ character_event = {
 }
 
 # Cleanup when a Vestalis lost her title by some way other than retiring
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.2122
+
+	is_triggered_only = yes # on_yearly_pulse
 	hide_window = yes
 
-	mean_time_to_happen = {
-		days = 1
-	}
+	has_character_flag = flag_vestalis
 
 	trigger = {
-		has_character_flag = flag_vestalis
-		NOT = { 
-			OR = {
-				has_minor_title = title_vestalis 
-				has_minor_title = title_vestalis_maxima 
-			 }
+		NOR = {
+			has_minor_title = title_vestalis
+			has_minor_title = title_vestalis_maxima
 		}
 	}
 
@@ -226,22 +222,31 @@ character_event = {
 		remove_trait = vestalis
 		recalc_succession = yes
 		clr_character_flag = flag_vestalis
+
+		change_variable = {
+			which = global_num_vestales
+			value = -1
+		}
 	}
 }
 
 #[on_death] Cleanup when a Vestalis dies
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.2123
+
+	is_triggered_only = yes # on_death
 	hide_window = yes
 
-	is_triggered_only = yes
-
-	trigger = {
-		has_character_flag = flag_vestalis
-	}
+	has_character_flag = flag_vestalis
 
 	immediate = {
 		clr_character_flag = flag_vestalis
+
+		change_variable = {
+			which = global_num_vestales
+			value = -1
+		}
 	}
 }
 

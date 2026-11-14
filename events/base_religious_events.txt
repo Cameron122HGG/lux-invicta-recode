@@ -303,6 +303,7 @@ character_event = {
 }
 
 # Pope urges to root out heresy in province
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39403
 	desc = EVTDESC39403
@@ -319,6 +320,7 @@ character_event = {
 				limit = {
 					religion_group = christian
 					is_heretic = yes
+					NOT = { has_province_modifier = force_converting }
 					owned_by = PREV
 
 					owner = {
@@ -392,6 +394,7 @@ character_event = {
 }
 
 # Letter from the pope about a heretic advisor
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 39441
 	desc = EVTDESC39441
@@ -402,10 +405,9 @@ letter_event = {
 
 	lacks_dlc = "Sons of Abraham"
 	only_playable = yes
-	religion_group = christian
 
 	trigger = {
-		is_catholic_branch = yes
+		is_heretic = no
 
 		rightful_religious_head_scope = {
 			is_incapable = no
@@ -415,7 +417,7 @@ letter_event = {
 
 		any_voter = {
 			is_heretic = yes
-			religion_group = christian
+			religion_group = ROOT
 			prisoner = no
 		}
 	}
@@ -439,7 +441,7 @@ letter_event = {
 		random_voter = {
 			limit = {
 				is_heretic = yes
-				religion_group = christian
+				religion_group = ROOT
 				prisoner = no
 			}
 
@@ -450,7 +452,22 @@ letter_event = {
 	option = {
 		name = EVTOPTA39441 # Imprison
 
-		reverse_imprison = event_target:heretic_to_target
+		event_target:heretic_to_target = {
+			show_scope_change = no
+
+			imprison = yes
+
+			opinion = {
+				name = opinion_arrest_attempt
+				who = ROOT
+				years = 20
+			}
+		}
+
+		reverse_remove_opinion = {
+			name = pope_heretic_removal_disapprove
+			who = event_target:the_pope
+		}
 
 		if = {
 			limit = {
@@ -474,6 +491,11 @@ letter_event = {
 
 	option = {
 		name = EVTOPTB39441 # Ignore Pope
+
+		reverse_remove_opinion = {
+			name = pope_heretic_removal_approve
+			who = event_target:the_pope
+		}
 
 		reverse_opinion = {
 			name = pope_heretic_removal_disapprove
@@ -605,6 +627,7 @@ letter_event = {
 }
 
 # Heresy spreads to a neighboring province
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 39001
 	desc = EVTDESC39001
@@ -622,6 +645,7 @@ province_event = {
 			province = c_roma
 			province = c_thrake
 			province = c_mecca
+			province = c_medina
 		}
 
 		any_neighbor_province = {
@@ -631,7 +655,7 @@ province_event = {
 	}
 
 	mean_time_to_happen = {
-		years = 100
+		months = 1000
 
 		mult_modifier = {
 			factor = 2
@@ -642,14 +666,10 @@ province_event = {
 			}
 		}
 
+		# CK2Plus
 		mult_modifier = {
-			factor = 2.0
-			religion_authority >= 0.6
-		}
-
-		mult_modifier = {
-			factor = 2.0
-			religion_authority >= 0.8
+			factor = 0.75
+			NOT = { religion_authority >= 0.1 }
 		}
 
 		mult_modifier = {
@@ -659,7 +679,32 @@ province_event = {
 
 		mult_modifier = {
 			factor = 0.75
+			NOT = { religion_authority >= 0.3 }
+		}
+
+		mult_modifier = {
+			factor = 0.75
 			NOT = { religion_authority >= 0.4 }
+		}
+
+		mult_modifier = {
+			factor = 1.25
+			religion_authority >= 0.7
+		}
+
+		mult_modifier = {
+			factor = 1.25
+			religion_authority >= 0.8
+		}
+
+		mult_modifier = {
+			factor = 1.25
+			religion_authority >= 0.9
+		}
+
+		mult_modifier = {
+			factor = 1.25
+			religion_authority >= 1.0
 		}
 
 		mult_modifier = {
@@ -686,6 +731,17 @@ province_event = {
 				has_owner = yes
 				is_heresy_of = ROOT
 				has_province_modifier = heretic_stronghold
+			}
+		}
+
+		# CK2Plus
+		mult_modifier = {
+			factor = 0.5
+
+			any_neighbor_province = {
+				has_owner = yes
+				is_heresy_of = ROOT
+				owner = { is_heresy_of = ROOT }
 			}
 		}
 	}
@@ -1545,6 +1601,7 @@ character_event = {
 }
 
 # Bishop in prison whines to pope..
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39220
 	desc = EVTDESC39220
@@ -1558,30 +1615,38 @@ character_event = {
 	prisoner = yes
 
 	trigger = {
-		is_catholic_branch = yes
+		# is_catholic_branch = yes
 		is_theocracy = yes
-		is_antipope = no
-		controls_religion = no
+		# is_antipope = no
+		# controls_religion = no
+		is_heretic = no
 
 		host = {
 			religion = ROOT
 
-			rightful_religious_head_scope = {
-				controls_religion = yes
-			}
+			# rightful_religious_head_scope = {
+			#	controls_religion = yes
+			# }
 		}
 
-		NOT = { has_character_flag = nag_pope_to_help_me }
+		NOR = {
+			has_character_flag = nag_pope_to_help_me
+			rightful_religious_head = ROOT # Not a religious head, antipope or autocephalous patriarch
+		}
 	}
 
 	immediate = {
 		set_character_flag = nag_pope_to_help_me
+
+		rightful_religious_head_scope = {
+			save_event_target_as = rightful_rel_head
+		}
 	}
 
 	option = {
 		name = EVTOPTA39220 # Write a letter to the Pope
 
-		religion_head = {
+		rightful_religious_head_scope = {
 			show_scope_change = no
 
 			character_event = {
@@ -2088,6 +2153,7 @@ character_event = {
 }
 
 # Pope/Patriarch demands that a ruler not have heathens employed.
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39240
 	desc = EVTDESC39240
@@ -2103,7 +2169,7 @@ character_event = {
 		}
 		name = {
 			text = EVTOPTA39260
-			trigger = { is_orthodox_branch = yes }
+			trigger = { is_catholic_branch = no }
 		}
 
 		FROM = {
@@ -2139,6 +2205,7 @@ character_event = {
 }
 
 # Demands is coming on us about
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39241
 	picture = GFX_evt_emissary
@@ -2167,6 +2234,8 @@ character_event = {
 
 	option = {
 		name = EVTOPTA39241 # Banish
+
+		trigger = { always = no } # Disabled in CK2Plus
 
 		clr_character_flag = pope_dislikes_heathen_employed
 
@@ -2198,7 +2267,17 @@ character_event = {
 
 		clr_character_flag = pope_dislikes_heathen_employed
 
-		reverse_imprison = event_target:heathen_to_target
+		event_target:heathen_to_target = {
+			show_scope_change = no
+
+			imprison = yes
+
+			opinion = {
+				name = opinion_arrest_attempt
+				who = ROOT
+				years = 20
+			}
+		}
 
 		FROM = {
 			show_scope_change = no
@@ -4213,6 +4292,7 @@ character_event = {
 }
 
 # Vassals receive letter
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 39617
 	desc = EVTDESC_39617
@@ -4223,40 +4303,69 @@ letter_event = {
 	option = {
 		name = EVTOPTA_39617 # Convert
 
-		# Workaround for automatic usurpation of theocratic characters
-		FROM = {
-			religion_scope = {
-				save_event_target_as = target_religion
+		tooltip = {
+			religion = FROM
+		}
+
+		if = {
+			limit = { higher_real_tier_than = COUNT }
+
+			religion_authority = {
+				name = ruler_converted_from
+			}
+
+			FROM = {
+				show_scope_change = no
+
+				religion_authority = {
+					name = ruler_converted_to
+				}
 			}
 		}
 
-		convert_religion_failsafe_effect = yes
+		hidden_effect = {
+			# Workaround for automatic usurpation of theocratic characters
+			FROM = {
+				religion_scope = {
+					save_event_target_as = target_religion
+				}
+			}
+
+			convert_religion_failsafe_effect = yes
+		}
+
 		prestige = -250
 
-		any_courtier = {
-			limit = { is_close_relative = ROOT }
-
-			# Workaround for automatic usurpation of theocratic characters
-			ROOT = {
-				religion_scope = {
-					save_event_target_as = target_religion
+		hidden_effect = {
+			any_courtier = {
+				limit = {
+					dynasty = ROOT
+					is_ruler = no
+					is_adult = no
 				}
+
+				# Workaround for automatic usurpation of theocratic characters
+				ROOT = {
+					religion_scope = {
+						save_event_target_as = target_religion
+					}
+				}
+
+				convert_religion_failsafe_effect = yes
 			}
 
-			convert_religion_failsafe_effect = yes
-		}
+			any_spouse = {
+				limit = { is_consort = no }
 
-		any_spouse = {
-			limit = { is_consort = no }
-
-			# Workaround for automatic usurpation of theocratic characters
-			ROOT = {
-				religion_scope = {
-					save_event_target_as = target_religion
+				# Workaround for automatic usurpation of theocratic characters
+				ROOT = {
+					religion_scope = {
+						save_event_target_as = target_religion
+					}
 				}
-			}
 
-			convert_religion_failsafe_effect = yes
+				convert_religion_failsafe_effect = yes
+			}
 		}
 
 		if = {
@@ -4424,6 +4533,36 @@ letter_event = {
 					culture_group = north_germanic # Vikings do like their alcohol
 				}
 			}
+
+			# CK2Plus
+			mult_modifier = {
+				factor = 3
+
+				culture_group = east_slavic # Historical outcome
+
+				FROM = {
+					is_orthodox_branch = yes
+					is_heretic = no
+				}
+			}
+
+			mult_modifier = {
+				factor = 3
+
+				culture_group = north_germanic # Historical outcome
+
+				FROM = {
+					is_catholic_branch = yes
+					is_heretic = no
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.3
+
+				culture_group = altaic
+				year < 1200
+			}
 		}
 	}
 
@@ -4450,6 +4589,7 @@ letter_event = {
 }
 
 # Courtier converts (hidden)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39610
 
@@ -4488,8 +4628,19 @@ character_event = {
 
 		convert_religion_failsafe_effect = yes
 
-		liege = {
-			character_event = { id = 39602 }
+		if = {
+			limit = {
+				OR = {
+					is_close_relative = liege
+					dynasty = liege
+					is_voter = yes
+					is_ruler = yes
+				}
+			}
+
+			liege = {
+				character_event = { id = 39602 }
+			}
 		}
 	}
 }

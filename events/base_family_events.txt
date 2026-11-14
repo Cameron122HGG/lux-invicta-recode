@@ -113,6 +113,7 @@ character_event = {
 }
 
 # Liege responds to the request
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 37001
 	desc = EVTDESC37001
@@ -137,6 +138,38 @@ character_event = {
 			character_event = {
 				id = 37002
 				tooltip = EVTTOOLTIP37002
+			}
+		}
+
+		ai_chance = {
+			factor = 10
+
+			mult_modifier = {
+				factor = 0.25
+				demesne_efficiency >= 1.5
+			}
+
+			mult_modifier = {
+				factor = 0.25
+				demesne_efficiency >= 2.0
+			}
+
+			mult_modifier = {
+				factor = 5
+				demesne_efficiency < 1.1
+			}
+
+			mult_modifier = {
+				factor = 0.1
+
+				primary_title = {
+					has_law = succ_gavelkind
+				}
+			}
+
+			mult_modifier = {
+				factor = 10
+				FROM = { is_primary_heir = yes }
 			}
 		}
 	}
@@ -204,6 +237,7 @@ character_event = {
 }
 
 # The relative is filled with anticipation
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 37002
 	desc = EVTDESC37002
@@ -226,7 +260,7 @@ character_event = {
 		opinion = {
 			name = opinion_promised_title
 			who = FROM
-			years = 1
+			years = 3
 		}
 
 		set_character_flag = flag_promised_title
@@ -419,6 +453,7 @@ character_event = {
 }
 
 # Relative reminds liege of promised title
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 37005
 	desc = EVTDESC37005
@@ -444,6 +479,8 @@ character_event = {
 		has_ambition = obj_wants_landed_title
 
 		liege = {
+			war = no
+
 			any_demesne_title = {
 				can_be_given_away = yes
 				real_tier = COUNT

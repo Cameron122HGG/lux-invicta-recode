@@ -2148,6 +2148,7 @@ character_event = {
 }
 
 ### The captain gain mercenary traditions from being on the field
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = HL.10600
 
@@ -2166,9 +2167,9 @@ character_event = {
 		primary_title = {
 			NOT = { has_title_flag = ze_dyn_merc }
 
-			band_creator = {
-				is_alive = yes
-			}
+			# band_creator = {
+			#	is_alive = yes
+			# }
 		}
 
 		NOT = { trait = craven }
@@ -2226,6 +2227,7 @@ character_event = {
 }
 
 ### Curious about tales from dad's past for ward
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = HL.10610
 	desc = EVTDESC_HL_10610
@@ -2251,7 +2253,7 @@ character_event = {
 			}
 		}
 
-		guardian = {
+		educator = {
 			is_incapable = no
 			prisoner = no
 		}
@@ -2260,7 +2262,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_HL_10610
 
-		guardian = {
+		educator = {
 			if = {
 				limit = { is_father = ROOT }
 				character_event = { id = HL.10612 }

@@ -15,6 +15,7 @@
 ###################################
 
 # Vassal wants to be guardian for liege's child
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2480
 	desc = EVTDESC2480
@@ -29,6 +30,7 @@ character_event = {
 	only_capable = yes
 
 	trigger = {
+		always = no # Not used in Plus
 		independent = no
 		health >= 4
 

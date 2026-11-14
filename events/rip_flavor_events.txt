@@ -8862,6 +8862,7 @@ letter_event = {
 }
 
 # Vassal agrees, asking for money
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30003
 	desc = EVTDESC_RIP_30003
@@ -8892,6 +8893,8 @@ letter_event = {
 
 		FROM = {
 			show_scope_change = no
+
+			set_character_flag = no_whitepeace_prison
 
 			any_war = {
 				limit = {
@@ -9010,6 +9013,7 @@ letter_event = {
 }
 
 # Vassal agrees, asking for a Favor
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30007
 	desc = EVTDESC_RIP_30007
@@ -9042,6 +9046,7 @@ letter_event = {
 			show_scope_change = no
 
 			add_favor = ROOT
+			set_character_flag = no_whitepeace_prison
 
 			any_war = {
 				limit = {
@@ -9107,6 +9112,7 @@ letter_event = {
 }
 
 # Vassal is asked by Liege to stop war of aggression against another vassal - can't refuse since the liege calls in a favor
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30010
 	desc = EVTDESC_RIP_30010
@@ -9116,6 +9122,8 @@ letter_event = {
 
 	option = {
 		name = EVTOPTA_RIP_30010
+
+		set_character_flag = no_whitepeace_prison
 
 		any_war = {
 			limit = {
@@ -10129,6 +10137,7 @@ letter_event = {
 }
 
 # Vassal agrees, asking for money
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30043
 	desc = EVTDESC_RIP_30043
@@ -10149,7 +10158,9 @@ letter_event = {
 			show_scope_change = no
 
 			primary_title = {
+				set_title_flag = non_manual_law_change # No prestige loss
 				add_law_w_cooldown = succ_gavelkind
+				clr_title_flag = non_manual_law_change # No prestige loss
 			}
 
 			letter_event = { id = RIP.30044 }
@@ -10263,6 +10274,7 @@ letter_event = {
 }
 
 # Vassal agrees, asking for a Favor
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30047
 	desc = EVTDESC_RIP_30047
@@ -10286,7 +10298,9 @@ letter_event = {
 			letter_event = { id = RIP.30048 }
 
 			primary_title = {
+				set_title_flag = non_manual_law_change # No prestige loss
 				add_law_w_cooldown = succ_gavelkind
+				clr_title_flag = non_manual_law_change # No prestige loss
 			}
 
 			set_character_flag = liege_forced_succ_law
@@ -10345,6 +10359,7 @@ letter_event = {
 }
 
 # Vassal is asked by Liege to institute Gavelkind Law - can't refuse since the liege calls in a favor
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30050
 	desc = EVTDESC_RIP_30050
@@ -10356,7 +10371,9 @@ letter_event = {
 		name = EVTOPTA_RIP_30010
 
 		primary_title = {
+			set_title_flag = non_manual_law_change # No prestige loss
 			add_law_w_cooldown = succ_gavelkind
+			clr_title_flag = non_manual_law_change # No prestige loss
 		}
 
 		set_character_flag = liege_forced_succ_law
@@ -10370,7 +10387,10 @@ letter_event = {
 				years = 10
 			}
 
-			remove_favor = ROOT
+			tooltip = {
+				remove_favor = ROOT
+			}
+
 			letter_event = { id = RIP.30051 }
 		}
 	}

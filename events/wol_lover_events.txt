@@ -877,6 +877,7 @@ character_event = {
 }
 
 # The spouse responds to the cruel admission
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.1009
 	desc = EVTDESC_WOL_1009
@@ -897,7 +898,7 @@ character_event = {
 
 		if = {
 			limit = {
-				NOT = { trait = arbitrary }
+				NOT = { trait = depressed }
 			}
 
 			random = {
@@ -2943,6 +2944,7 @@ character_event = {
 }
 
 # Duel: Accuser wins!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.1036
 	picture = GFX_evt_family_feud_republic
@@ -2969,154 +2971,154 @@ character_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				combat_rating_diff = {
-					character = event_target:adulterer
-					value < -30
-				}
-			}
-
-			random_list = {
-				70 = { set_character_flag = enemy_yields }
-
-				15 = {
-					set_character_flag = enemy_wounded
-
-					event_target:adulterer = {
-						add_trait = wounded
-					}
-				}
-
-				10 = {
-					set_character_flag = enemy_maimed
-
-					event_target:adulterer = {
-						maim_hand_effect = yes
-					}
-				}
-
-				5 = { set_character_flag = enemy_killed }
-			}
-
-			random = {
-				chance = 75
-
-				random_list = {
-					50 = { add_trait_wounded_effect = yes }
-					50 = { maim_hand_effect = yes }
-				}
-			}
-		}
-
-		else_if = {
-			limit = {
-				combat_rating_diff = {
-					character = event_target:adulterer
-					value < 0
-				}
-			}
-
-			random_list = {
-				50 = { set_character_flag = enemy_yields }
-
-				25 = {
-					set_character_flag = enemy_wounded
-
-					event_target:adulterer = {
-						add_trait = wounded
-					}
-				}
-
-				15 = {
-					set_character_flag = enemy_maimed
-
-					event_target:adulterer = {
-						maim_hand_effect = yes
-					}
-				}
-
-				10 = { set_character_flag = enemy_killed }
-			}
-
-			random = {
-				chance = 50
-
-				random_list = {
-					75 = { add_trait_wounded_effect = yes }
-					25 = { maim_hand_effect = yes }
-				}
-			}
-		}
-
-		else_if = {
-			limit = {
-				combat_rating_diff = {
-					character = event_target:adulterer
-					value < 30
-				}
-			}
-
-			random_list = {
-				25 = { set_character_flag = enemy_yields }
-
-				40 = {
-					set_character_flag = enemy_wounded
-
-					event_target:adulterer = {
-						add_trait = wounded
-					}
-				}
-
-				20 = {
-					set_character_flag = enemy_maimed
-
-					event_target:adulterer = {
-						maim_hand_effect = yes
-					}
-				}
-
-				15 = { set_character_flag = enemy_killed }
-			}
-
-			random = {
-				chance = 25
-
-				random_list = {
-					90 = { add_trait_wounded_effect = yes }
-					10 = { maim_hand_effect = yes }
-				}
-			}
-		}
-
-		else = {
-			random_list = {
-				10 = { set_character_flag = enemy_yields }
-
-				45 = {
-					set_character_flag = enemy_wounded
-
-					event_target:adulterer = {
-						add_trait = wounded
-					}
-				}
-
-				25 = {
-					set_character_flag = enemy_maimed
-
-					event_target:adulterer = {
-						maim_hand_effect = yes
-					}
-				}
-
-				20 = { set_character_flag = enemy_killed }
-			}
-
-			random = {
-				chance = 10
-				add_trait_wounded_effect = yes
-			}
-		}
+	#	if = {
+	#		limit = {
+	#			combat_rating_diff = {
+	#				character = event_target:adulterer
+	#				value < -30
+	#			}
+	#		}
+	#
+	#		random_list = {
+	#			70 = { set_character_flag = enemy_yields }
+	#
+	#			15 = {
+	#				set_character_flag = enemy_wounded
+	#
+	#				event_target:adulterer = {
+	#					add_trait = wounded
+	#				}
+	#			}
+	#
+	#			10 = {
+	#				set_character_flag = enemy_maimed
+	#
+	#				event_target:adulterer = {
+	#					maim_hand_effect = yes
+	#				}
+	#			}
+	#
+	#			5 = { set_character_flag = enemy_killed }
+	#		}
+	#
+	#		random = {
+	#			chance = 75
+	#
+	#			random_list = {
+	#				50 = { add_trait_wounded_effect = yes }
+	#				50 = { maim_hand_effect = yes }
+	#			}
+	#		}
+	#	}
+	#
+	#	else_if = {
+	#		limit = {
+	#			combat_rating_diff = {
+	#				character = event_target:adulterer
+	#				value < 0
+	#			}
+	#		}
+	#
+	#		random_list = {
+	#			50 = { set_character_flag = enemy_yields }
+	#
+	#			25 = {
+	#				set_character_flag = enemy_wounded
+	#
+	#				event_target:adulterer = {
+	#					add_trait = wounded
+	#				}
+	#			}
+	#
+	#			15 = {
+	#				set_character_flag = enemy_maimed
+	#
+	#				event_target:adulterer = {
+	#					maim_hand_effect = yes
+	#				}
+	#			}
+	#
+	#			10 = { set_character_flag = enemy_killed }
+	#		}
+	#
+	#		random = {
+	#			chance = 50
+	#
+	#			random_list = {
+	#				75 = { add_trait_wounded_effect = yes }
+	#				25 = { maim_hand_effect = yes }
+	#			}
+	#		}
+	#	}
+	#
+	#	else_if = {
+	#		limit = {
+	#			combat_rating_diff = {
+	#				character = event_target:adulterer
+	#				value < 30
+	#			}
+	#		}
+	#
+	#		random_list = {
+	#			25 = { set_character_flag = enemy_yields }
+	#
+	#			40 = {
+	#				set_character_flag = enemy_wounded
+	#
+	#				event_target:adulterer = {
+	#					add_trait = wounded
+	#				}
+	#			}
+	#
+	#			20 = {
+	#				set_character_flag = enemy_maimed
+	#
+	#				event_target:adulterer = {
+	#					maim_hand_effect = yes
+	#				}
+	#			}
+	#
+	#			15 = { set_character_flag = enemy_killed }
+	#		}
+	#
+	#		random = {
+	#			chance = 25
+	#
+	#			random_list = {
+	#				90 = { add_trait_wounded_effect = yes }
+	#				10 = { maim_hand_effect = yes }
+	#			}
+	#		}
+	#	}
+	#
+	#	else = {
+	#		random_list = {
+	#			10 = { set_character_flag = enemy_yields }
+	#
+	#			45 = {
+	#				set_character_flag = enemy_wounded
+	#
+	#				event_target:adulterer = {
+	#					add_trait = wounded
+	#				}
+	#			}
+	#
+	#			25 = {
+	#				set_character_flag = enemy_maimed
+	#
+	#				event_target:adulterer = {
+	#					maim_hand_effect = yes
+	#				}
+	#			}
+	#
+	#			20 = { set_character_flag = enemy_killed }
+	#		}
+	#
+	#		random = {
+	#			chance = 10
+	#			add_trait_wounded_effect = yes
+	#		}
+	#	}
 	}
 
 	desc = {
@@ -3137,7 +3139,9 @@ character_event = {
 	}
 	desc = {
 		text = EVTDESC_WOL_1036_MAIM
-		trigger = { is_maimed_trigger = yes }
+		trigger = {
+			is_maimed_trigger = yes
+		}
 	}
 
 	option = {
@@ -3339,6 +3343,7 @@ character_event = {
 }
 
 # Duel: Defender wins!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.1039
 	picture = GFX_evt_family_feud_republic
@@ -3362,154 +3367,154 @@ character_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				combat_rating_diff = {
-					character = event_target:accuser
-					value < -30
-				}
-			}
-
-			random_list = {
-				70 = { set_character_flag = enemy_yields }
-
-				15 = {
-					set_character_flag = enemy_wounded
-
-					event_target:accuser = {
-						add_trait = wounded
-					}
-				}
-
-				10 = {
-					set_character_flag = enemy_maimed
-
-					event_target:accuser = {
-						maim_hand_effect = yes
-					}
-				}
-
-				5 = { set_character_flag = enemy_killed }
-			}
-
-			random = {
-				chance = 75
-
-				random_list = {
-					50 = { add_trait_wounded_effect = yes }
-					50 = { maim_hand_effect = yes }
-				}
-			}
-		}
-
-		else_if = {
-			limit = {
-				combat_rating_diff = {
-					character = FROM
-					value < 0
-				}
-			}
-
-			random_list = {
-				50 = { set_character_flag = enemy_yields }
-
-				25 = {
-					set_character_flag = enemy_wounded
-
-					event_target:accuser = {
-						add_trait = wounded
-					}
-				}
-
-				15 = {
-					set_character_flag = enemy_maimed
-
-					event_target:accuser = {
-						maim_hand_effect = yes
-					}
-				}
-
-				10 = { set_character_flag = enemy_killed }
-			}
-
-			random = {
-				chance = 50
-
-				random_list = {
-					75 = { add_trait_wounded_effect = yes }
-					25 = { maim_hand_effect = yes }
-				}
-			}
-		}
-
-		else_if = {
-			limit = {
-				combat_rating_diff = {
-					character = event_target:accuser
-					value < 30
-				}
-			}
-
-			random_list = {
-				25 = { set_character_flag = enemy_yields }
-
-				40 = {
-					set_character_flag = enemy_wounded
-
-					event_target:accuser = {
-						add_trait = wounded
-					}
-				}
-
-				20 = {
-					set_character_flag = enemy_maimed
-
-					event_target:accuser = {
-						maim_hand_effect = yes
-					}
-				}
-
-				15 = { set_character_flag = enemy_killed }
-			}
-
-			random = {
-				chance = 25
-
-				random_list = {
-					90 = { add_trait_wounded_effect = yes }
-					10 = { maim_hand_effect = yes }
-				}
-			}
-		}
-
-		else = {
-			random_list = {
-				10 = { set_character_flag = enemy_yields }
-
-				45 = {
-					set_character_flag = enemy_wounded
-
-					event_target:accuser = {
-						add_trait = wounded
-					}
-				}
-
-				25 = {
-					set_character_flag = enemy_maimed
-
-					event_target:accuser = {
-						maim_hand_effect = yes
-					}
-				}
-
-				20 = { set_character_flag = enemy_killed }
-			}
-
-			random = {
-				chance = 10
-				add_trait_wounded_effect = yes
-			}
-		}
+	#	if = {
+	#		limit = {
+	#			combat_rating_diff = {
+	#				character = event_target:accuser
+	#				value < -30
+	#			}
+	#		}
+	#
+	#		random_list = {
+	#			70 = { set_character_flag = enemy_yields }
+	#
+	#			15 = {
+	#				set_character_flag = enemy_wounded
+	#
+	#				event_target:accuser = {
+	#					add_trait = wounded
+	#				}
+	#			}
+	#
+	#			10 = {
+	#				set_character_flag = enemy_maimed
+	#
+	#				event_target:accuser = {
+	#					maim_hand_effect = yes
+	#				}
+	#			}
+	#
+	#			5 = { set_character_flag = enemy_killed }
+	#		}
+	#
+	#		random = {
+	#			chance = 75
+	#
+	#			random_list = {
+	#				50 = { add_trait_wounded_effect = yes }
+	#				50 = { maim_hand_effect = yes }
+	#			}
+	#		}
+	#	}
+	#
+	#	else_if = {
+	#		limit = {
+	#			combat_rating_diff = {
+	#				character = FROM
+	#				value < 0
+	#			}
+	#		}
+	#
+	#		random_list = {
+	#			50 = { set_character_flag = enemy_yields }
+	#
+	#			25 = {
+	#				set_character_flag = enemy_wounded
+	#
+	#				event_target:accuser = {
+	#					add_trait = wounded
+	#				}
+	#			}
+	#
+	#			15 = {
+	#				set_character_flag = enemy_maimed
+	#
+	#				event_target:accuser = {
+	#					maim_hand_effect = yes
+	#				}
+	#			}
+	#
+	#			10 = { set_character_flag = enemy_killed }
+	#		}
+	#
+	#		random = {
+	#			chance = 50
+	#
+	#			random_list = {
+	#				75 = { add_trait_wounded_effect = yes }
+	#				25 = { maim_hand_effect = yes }
+	#			}
+	#		}
+	#	}
+	#
+	#	else_if = {
+	#		limit = {
+	#			combat_rating_diff = {
+	#				character = event_target:accuser
+	#				value < 30
+	#			}
+	#		}
+	#
+	#		random_list = {
+	#			25 = { set_character_flag = enemy_yields }
+	#
+	#			40 = {
+	#				set_character_flag = enemy_wounded
+	#
+	#				event_target:accuser = {
+	#					add_trait = wounded
+	#				}
+	#			}
+	#
+	#			20 = {
+	#				set_character_flag = enemy_maimed
+	#
+	#				event_target:accuser = {
+	#					maim_hand_effect = yes
+	#				}
+	#			}
+	#
+	#			15 = { set_character_flag = enemy_killed }
+	#		}
+	#
+	#		random = {
+	#			chance = 25
+	#
+	#			random_list = {
+	#				90 = { add_trait_wounded_effect = yes }
+	#				10 = { maim_hand_effect = yes }
+	#			}
+	#		}
+	#	}
+	#
+	#	else = {
+	#		random_list = {
+	#			10 = { set_character_flag = enemy_yields }
+	#
+	#			45 = {
+	#				set_character_flag = enemy_wounded
+	#
+	#				event_target:accuser = {
+	#					add_trait = wounded
+	#				}
+	#			}
+	#
+	#			25 = {
+	#				set_character_flag = enemy_maimed
+	#
+	#				event_target:accuser = {
+	#					maim_hand_effect = yes
+	#				}
+	#			}
+	#
+	#			20 = { set_character_flag = enemy_killed }
+	#		}
+	#
+	#		random = {
+	#			chance = 10
+	#			add_trait_wounded_effect = yes
+	#		}
+	#	}
 	}
 
 	desc = {

@@ -223,6 +223,7 @@ character_event = {
 }
 
 # Employer of spurned spouse notified of annulled marriage
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ZE.1012
 	title = EVTTITLE_ZE_1011
@@ -241,7 +242,7 @@ character_event = {
 			event_target:target_spurned_spouse = {
 				show_scope_change = no
 
-				remove_spouse = FROMFROMFROM
+				remove_spouse = event_target:target_refused_daughter
 			}
 
 			opinion = {

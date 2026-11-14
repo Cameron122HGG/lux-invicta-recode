@@ -8,6 +8,7 @@
 ###################################
 
 # Regent embezzles money
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61000
 	desc = EVTDESC61000
@@ -24,9 +25,18 @@ character_event = {
 		has_minor_title = title_regent
 		independent = no
 
+		OR = {
+			trait = greedy
+			trait = deceitful
+			trait = envious
+			trait = arbitrary
+			trait = ambitious
+		}
+
 		NOR = {
 			trait = charitable
 			trait = honest
+			trait = just
 		}
 
 		liege = {
@@ -38,12 +48,12 @@ character_event = {
 		factor = 1
 
 		mult_modifier = {
-			factor = 4
+			factor = 2
 			trait = greedy
 		}
 
 		mult_modifier = {
-			factor = 4
+			factor = 1.33
 			trait = deceitful
 		}
 
@@ -79,7 +89,13 @@ character_event = {
 		}
 
 		random_list = {
-			50 = { } # Got away with it!
+			50 = {
+				mult_modifier = {
+					factor = 2.0
+					has_job_title = job_treasurer
+				}
+				# Got away with it!
+			}
 
 			40 = {
 				liege = {
@@ -235,6 +251,7 @@ character_event = {
 ### NEW REGENCY EVENTS ###
 
 # Regency: Regent steals holding.
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61100
 	desc = EVTDESC61100
@@ -249,13 +266,35 @@ character_event = {
 	trigger = {
 		has_minor_title = title_regent
 		independent = no
-		is_feudal = yes
 		NOT = { trait = honest }
 
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+
 		liege = {
-			demesne_size >= 5
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
+			}
+
+			OR = {
+				demesne_size >= 5
+				over_max_demesne_size >= 1
+			}
+
 			is_adult = yes
 			is_incapable = yes
+
+			any_demesne_title = {
+				can_be_given_away = yes
+				lower_real_tier_than = DUKE
+
+				location = {
+					is_capital = no
+				}
+			}
 		}
 	}
 
@@ -268,7 +307,7 @@ character_event = {
 		}
 
 		mult_modifier = {
-			factor = 4
+			factor = 1.33
 			trait = deceitful
 		}
 
@@ -291,6 +330,28 @@ character_event = {
 			factor = 0.5
 			trait = just
 		}
+
+		# CK2Plus
+		mult_modifier = {
+			factor = 2
+			trait = ambitious
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			liege = {
+				any_demesne_title = {
+					claimed_by = ROOT
+					can_be_given_away = yes
+					lower_real_tier_than = DUKE
+
+					location = {
+						is_capital = no
+					}
+				}
+			}
+		}
 	}
 
 	option = {
@@ -304,18 +365,50 @@ character_event = {
 				tooltip = EVTTOOLTIP61101
 			}
 		}
+
+		ai_chance = {
+			factor = 90
+
+			trigger = {
+				OR = {
+					trait = ambitious
+
+					NOR = {
+						trait = just
+						trait = content
+						trait = humble
+						over_max_demesne_size >= 1
+					}
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.5
+
+				trait = kind
+				NOT = { trait = ambitious }
+			}
+
+			mult_modifier = {
+				factor = 0.5
+
+				trait = charitable
+				NOT = { trait = ambitious }
+			}
+		}
 	}
 
 	option = {
 		name = EVTOPTB61100 # Do not grab holding
 
-		piety = 40
+		ai_chance = { factor = 10 }
 
-		ai_chance = { factor = 0 }
+		piety = 40
 	}
 }
 
 # Regency: Ruler informed of holding loss
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61101
 	desc = EVTDESC61101
@@ -325,21 +418,30 @@ character_event = {
 
 	option = {
 		name = EVTOPTA61101
-	}
 
-	option = {
-		name = EVTOPTB61101
-	}
-
-	after = {
 		random_demesne_title = {
 			show_scope_change = no
 
 			limit = {
 				lower_real_tier_than = DUKE
+				can_be_given_away = yes
 
 				location = {
 					is_capital = no
+				}
+			}
+
+			preferred_limit = {
+				claimed_by = FROM
+			}
+
+			preferred_limit = {
+				real_tier = COUNT
+
+				location = {
+					any_neighbor_province = {
+						owned_by = FROM
+					}
 				}
 			}
 
@@ -349,6 +451,7 @@ character_event = {
 }
 
 # Regency: Regent gives Ruler's money to charity
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61105
 	desc = EVTDESC61105
@@ -364,6 +467,12 @@ character_event = {
 	trigger = {
 		has_minor_title = title_regent
 		independent = no
+
+		OR = {
+			trait = charitable
+			trait = kind
+			trait = zealous
+		}
 
 		liege = {
 			is_incapable = yes
@@ -443,6 +552,7 @@ character_event = {
 }
 
 # Regency: Regent is a better administrator than you ever were
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61110
 	desc = EVTDESC61110
@@ -454,14 +564,19 @@ character_event = {
 	min_age = 16
 	prisoner = no
 	only_rulers = yes
-	only_capable = no
 
 	trigger = {
-		stewardship < 6
+		is_incapable = yes
 
 		any_courtier_or_vassal = {
 			has_minor_title = title_regent
 			stewardship >= 13
+
+			attribute_diff = {
+				character = ROOT
+				attribute = stewardship
+				value >= 6
+			}
 		}
 	}
 
@@ -489,6 +604,7 @@ character_event = {
 ### REGENCY SERIES, OLD RULER HUMILIATED ###
 
 # Regency: Regent humiliates Ruler
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61120
 	desc = EVTDESC61120
@@ -526,12 +642,12 @@ character_event = {
 		}
 
 		mult_modifier = {
-			factor = 4
+			factor = 2
 			trait = envious
 		}
 
 		mult_modifier = {
-			factor = 2
+			factor = 1.33
 			trait = deceitful
 		}
 
@@ -752,6 +868,7 @@ character_event = {
 }
 
 # Regency: Vassal defeats Regent, becomes new Regent
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61125
 	desc = EVTDESC61125
@@ -780,6 +897,7 @@ character_event = {
 				show_scope_change = no
 
 				give_minor_title = title_regent
+				clear_event_target = valiant_vassal
 			}
 		}
 	}
@@ -930,6 +1048,7 @@ character_event = {
 }
 
 # Regency: Ruler, if child, kills Regent
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61135
 	desc = EVTDESC61135
@@ -946,7 +1065,17 @@ character_event = {
 	trigger = {
 		has_regent = yes
 		is_nomadic = no
-		NOT = { has_character_flag = pushed_regent }
+
+		NOT = {
+			trait = kind
+			trait = just
+			has_character_flag = pushed_regent
+		}
+
+		any_courtier = {
+			has_minor_title = title_regent
+			ai = yes
+		}
 	}
 
 	weight_multiplier = {
@@ -1026,19 +1155,29 @@ character_event = {
 			}
 		}
 
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 20 }
 	}
 
 	option = {
 		name = EVTOPTB61135
 
 		piety = 30
+
+		ai_chance = {
+			factor = 80
+
+			mult_modifier = {
+				factor = 0.25
+				trait = cruel
+			}
+		}
 	}
 }
 
 ### REGENCY SERIES, YOUNG RULER DECLARED INSANE ###
 
 # Regency: Regent attempts to declare ruler insane when he's not
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61140
 	desc = EVTDESC61140
@@ -1067,7 +1206,17 @@ character_event = {
 			NOT = { trait = lunatic }
 		}
 
+		OR = {
+			trait = envious
+			trait = deceitful
+			trait = ambitious
+			trait = greedy
+		}
+
 		NOR = {
+			trait = kind
+			trait = just
+			trait = content
 			has_character_flag = declared_ruler_insane
 			has_minor_title = title_ruler_consort
 		}
@@ -1082,7 +1231,7 @@ character_event = {
 		}
 
 		mult_modifier = {
-			factor = 4
+			factor = 1.33
 			trait = deceitful
 		}
 
@@ -1103,7 +1252,7 @@ character_event = {
 
 		mult_modifier = {
 			factor = 0.5
-			trait = just
+			trait = humble
 		}
 	}
 
@@ -1127,7 +1276,7 @@ character_event = {
 				}
 
 				liege = {
-					character_event = { id = 61151 }
+					character_event = {	id = 61151 }
 				}
 			}
 
@@ -1138,7 +1287,7 @@ character_event = {
 				}
 
 				liege = {
-					character_event = { id = 61150 }
+					character_event = {	id = 61150 }
 				}
 			}
 		}
@@ -1588,6 +1737,7 @@ character_event = {
 }
 
 # Regency: Ruler escapes from tower
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61165
 	desc = EVTDESC61165
@@ -1605,7 +1755,7 @@ character_event = {
 
 		mult_modifier = {
 			factor = 7
-			is_smart_trigger = yes
+			trait = genius
 		}
 
 		mult_modifier = {
@@ -1645,6 +1795,16 @@ character_event = {
 		mult_modifier = {
 			factor = 0.2
 			trait = imbecile
+		}
+
+		# CK2Plus
+		mult_modifier = {
+			factor = 3
+
+			OR = {
+				trait = quick
+				trait = shrewd
+			}
 		}
 	}
 
@@ -1714,6 +1874,7 @@ character_event = {
 ### REGENCY SERIES, REGENT TRIES TO KILL YOUNG RULER ###
 
 ## Regent sends Ruler to scrub roof
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61190
 	desc = EVTDESC61190
@@ -1731,29 +1892,34 @@ character_event = {
 		liege = {
 			is_adult = no
 			practical_age >= 5
-		}
 
-		OR = {
-			is_primary_heir = liege
+			NOR = {
+				is_child_of = ROOT
+				is_parent_of = ROOT
+				is_married = ROOT
+			}
 
-			liege = {
-				ROOT = {
-					any_child = {
-						is_primary_heir = PREVPREV
-					}
+			any_demesne_title = {
+				current_heir = {
+					character = ROOT
+					is_child_of = ROOT
 				}
 			}
 		}
 
 		opinion = {
 			who = liege
-			value < -5
+			value < 0
 		}
 
 		NOR = {
+			trait = kind
+			trait = just
+			trait = honest
+			trait = content
+			trait = patient
 			has_character_flag = regent_schemer
-			has_minor_title = title_queen_mother
-			has_minor_title = title_ruler_consort
+			has_character_flag = no_regent_schemer
 		}
 	}
 
@@ -1761,12 +1927,12 @@ character_event = {
 		factor = 1
 
 		mult_modifier = {
-			factor = 4
+			factor = 2
 			trait = envious
 		}
 
 		mult_modifier = {
-			factor = 4
+			factor = 1.33
 			trait = deceitful
 		}
 
@@ -1782,7 +1948,35 @@ character_event = {
 
 		mult_modifier = {
 			factor = 0.5
-			trait = kind
+			trait = craven
+		}
+
+		# CK2Plus
+		mult_modifier = {
+			factor = 0.5
+
+			opinion = {
+				who = liege
+				value >= -25
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			opinion = {
+				who = liege
+				value >= -50
+			}
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			opinion = {
+				who = liege
+				value < -75
+			}
 		}
 	}
 
@@ -1806,6 +2000,7 @@ character_event = {
 		name = EVTOPTB61190
 
 		piety = 20
+		set_character_flag = no_regent_schemer
 
 		ai_chance = { factor = 0 }
 	}
@@ -1841,6 +2036,7 @@ character_event = {
 }
 
 ## Ruler scrubs roof successfully
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61192
 	desc = EVTDESC61192
@@ -1853,11 +2049,13 @@ character_event = {
 
 		piety = 20
 
-		event_target:regent_schemer = {
-			character_event = {
-				id = 61195
-				days = 18
-				random = 10
+		hidden_effect = {
+			event_target:regent_schemer = {
+				character_event = {
+					id = 61195
+					days = 18
+					random = 10
+				}
 			}
 		}
 	}
@@ -1929,6 +2127,7 @@ character_event = {
 }
 
 ## Ruler returns from forest
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61197
 	desc = EVTDESC61197
@@ -1941,11 +2140,13 @@ character_event = {
 
 		prestige = 20
 
-		event_target:regent_schemer = {
-			character_event = {
-				id = 61200
-				days = 18
-				random = 10
+		hidden_effect = {
+			event_target:regent_schemer = {
+				character_event = {
+					id = 61200
+					days = 18
+					random = 10
+				}
 			}
 		}
 	}
@@ -2017,6 +2218,7 @@ character_event = {
 }
 
 ## Ruler survives the carriage ride
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61202
 	desc = EVTDESC61202
@@ -2029,11 +2231,13 @@ character_event = {
 
 		prestige = 20
 
-		event_target:regent_schemer = {
-			character_event = {
-				id = 61205
-				days = 18
-				random = 10
+		hidden_effect = {
+			event_target:regent_schemer = {
+				character_event = {
+					id = 61205
+					days = 18
+					random = 10
+				}
 			}
 		}
 	}
@@ -2105,6 +2309,7 @@ character_event = {
 }
 
 ## Ruler survives guard
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61207
 	desc = EVTDESC61207
@@ -2115,15 +2320,17 @@ character_event = {
 	option = {
 		name = EVTOPTA61207
 
-		prestige = 20
-
-		event_target:regent_schemer = {
-			character_event = {
-				id = 61210
-				days = 18
-				random = 10
+		hidden_effect = {
+			event_target:regent_schemer = {
+				character_event = {
+					id = 61210
+					days = 18
+					random = 10
+				}
 			}
 		}
+
+		prestige = 20
 	}
 }
 
@@ -2517,6 +2724,7 @@ character_event = {
 }
 
 ## Regent is informed that Courtier is trying to plead case at court
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61216
 	desc = EVTDESC61216
@@ -2524,87 +2732,195 @@ character_event = {
 
 	is_triggered_only = yes
 
-	option = {
-		name = EVTOPTA61216
-		tooltip_info = duelist
-
-		trigger = { trait = duelist }
-
-		show_portrait = FROM
-		show_portrait = event_target:scoped_regent
-
-		custom_tooltip = {
-			text = EVTTOOLTIP61221
-
-			# REQUIRED event targets for setting up duel evaluation!
-			save_event_target_as = combatant_1			# The person issuing the duel...
-			set_character_flag = flag_duel_no_draws		# Prevents duel from ending in a draw.
-
-			FROM = {
-				save_event_target_as = combatant_2						# The target of the duel...
-				set_character_flag = flag_courtier_challenging_regent	# Needed for follow-up event in case of victory.
-				set_character_flag = flag_duel_no_backsies				# Make the challenged party unable to decline the duel.
-				set_character_flag = flag_duel_no_draws					# Prevents duel from ending in a draw.
-			}
-		}
-
-		pacifists_lose_piety_effect = yes
-
-		add_character_modifier = {
-			name = recent_duel_timer
-			years = 1
-			hidden = yes
-		}
-
-		event_target:combatant_2 = {
-			character_event = { id = HFP.10095 }
-		}
-
-	#	FROM = {
-	#		show_scope_change = no
+	# option = {
+	# 	name = EVTOPTA61216
+	# 	tooltip_info = duelist
 	#
-	#		character_event = {
-	#			id = 61222
-	#			tooltip = EVTTOOLTIP61221
-	#		}
-	#	}
-
-		ai_chance = { factor = 80 }
-	}
+	# 	trigger = { trait = duelist }
+	#
+	# 	show_portrait = FROM
+	# 	show_portrait = event_target:scoped_regent
+	#
+	# 	custom_tooltip = {
+	# 		text = EVTTOOLTIP61221
+	#
+	# 		# REQUIRED event targets for setting up duel evaluation!
+	# 		save_event_target_as = combatant_1			# The person issuing the duel...
+	# 		set_character_flag = flag_duel_no_draws		# Prevents duel from ending in a draw.
+	#
+	# 		FROM = {
+	# 			save_event_target_as = combatant_2						# The target of the duel...
+	# 			set_character_flag = flag_courtier_challenging_regent	# Needed for follow-up event in case of victory.
+	# 			set_character_flag = flag_duel_no_backsies				# Make the challenged party unable to decline the duel.
+	# 			set_character_flag = flag_duel_no_draws					# Prevents duel from ending in a draw.
+	# 		}
+	# 	}
+	#
+	# 	pacifists_lose_piety_effect = yes
+	#
+	# 	add_character_modifier = {
+	# 		name = recent_duel_timer
+	# 		years = 1
+	# 		hidden = yes
+	# 	}
+	#
+	# 	event_target:combatant_2 = {
+	# 		character_event = { id = HFP.10095 }
+	# 	}
+	#
+	# #	FROM = {
+	# #		show_scope_change = no
+	# #
+	# #		character_event = {
+	# #			id = 61222
+	# #			tooltip = EVTTOOLTIP61221
+	# #		}
+	# #	}
+	#
+	# 	ai_chance = { factor = 80 }
+	# }
 
 	option = {
 		name = EVTOPTB61216
 
 		random_list = {
-			60 = { # Remains Regent
+			50 = { # Remains Regent
 				mult_modifier = {
 					factor = 1.25
-					diplomacy >= 12
+					liege = { is_close_relative = ROOT }
 				}
 
 				mult_modifier = {
-					factor = 1.25
-					diplomacy >= 14
+					factor = 0.75
+					liege = { is_close_relative = FROM }
 				}
 
 				mult_modifier = {
-					factor = 1.25
-					diplomacy >= 16
+					factor = 0.8
+					FROM = {
+						OR = {
+							trait = quick
+							trait = shrewd
+						}
+					}
 				}
 
 				mult_modifier = {
-					factor = 1.25
-					diplomacy >= 18
+					factor = 0.6
+					FROM = { trait = genius }
 				}
 
 				mult_modifier = {
-					factor = 1.25
-					diplomacy >= 20
+					factor = 1.2
+					OR = {
+						trait = quick
+						trait = shrewd
+					}
 				}
 
 				mult_modifier = {
-					factor = 1.5
-					diplomacy >= 25
+					factor = 1.65
+					trait = genius
+				}
+
+				mult_modifier = {
+					factor = 0.8
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value <= 2
+					}
+				}
+
+				mult_modifier = {
+					factor = 0.8
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value <= 4
+					}
+				}
+
+				mult_modifier = {
+					factor = 0.8
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value <= 6
+					}
+				}
+
+				mult_modifier = {
+					factor = 0.8
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value <= 8
+					}
+				}
+
+				mult_modifier = {
+					factor = 0.8
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value <= 10
+					}
+				}
+
+				mult_modifier = {
+					factor = 1.2
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value >= 2
+					}
+				}
+
+				mult_modifier = {
+					factor = 1.2
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value >= 4
+					}
+				}
+
+				mult_modifier = {
+					factor = 1.2
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value >= 6
+					}
+				}
+
+				mult_modifier = {
+					factor = 1.2
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value >= 8
+					}
+				}
+
+				mult_modifier = {
+					factor = 1.2
+
+					attribute_diff = {
+						character = FROM
+						attribute = intrigue
+						value >= 10
+					}
 				}
 
 				character_event = {
@@ -2617,35 +2933,30 @@ character_event = {
 				}
 			}
 
-			40 = { # Loses Regency
+			50 = { # Loses Regency
 				mult_modifier = {
-					factor = 1.25
-					FROM = { diplomacy >= 12 }
+					factor = 1.2
+					FROM = { plot_power >= 1.0 }
 				}
 
 				mult_modifier = {
-					factor = 1.25
-					FROM = { diplomacy >= 14 }
+					factor = 1.2
+					FROM = { plot_power >= 1.25 }
 				}
 
 				mult_modifier = {
-					factor = 1.25
-					FROM = { diplomacy >= 16 }
+					factor = 1.2
+					FROM = { plot_power >= 1.5 }
 				}
 
 				mult_modifier = {
-					factor = 1.25
-					FROM = { diplomacy >= 18 }
+					factor = 1.2
+					FROM = { plot_power >= 1.75 }
 				}
 
 				mult_modifier = {
-					factor = 1.25
-					FROM = { diplomacy >= 20 }
-				}
-
-				mult_modifier = {
-					factor = 1.5
-					FROM = { diplomacy >= 25 }
+					factor = 1.2
+					FROM = { plot_power >= 2.0 }
 				}
 
 				character_event = {
@@ -2654,12 +2965,12 @@ character_event = {
 				}
 
 				FROM = {
-					character_event = { id = 61217 }
+					character_event = {	id = 61217 }
 				}
 			}
 		}
 
-		ai_chance = { factor = 20 }
+		ai_chance = { factor = 100 }
 	}
 
 	option = {
@@ -2679,6 +2990,7 @@ character_event = {
 }
 
 ## Courtier informed he/she won the case and is now new regent
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61217
 	desc = EVTDESC61217
@@ -2692,12 +3004,14 @@ character_event = {
 		give_minor_title = title_regent
 
 		liege = {
+			clr_character_flag = regent_replace_attempt
 			character_event = { id = 61236 }
 		}
 	}
 }
 
 ## Courtier informed he/she lost the case at court
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61218
 	desc = EVTDESC61218
@@ -2709,6 +3023,7 @@ character_event = {
 		name = EVTOPTA61218
 
 		prestige = -40
+		cancel_plot = yes
 
 		reverse_opinion = {
 			name = opinion_angry
@@ -3954,6 +4269,7 @@ character_event = {
 ## Queen or Queen Mother takes over Regency ##
 
 ## Queen takes over regency.
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61237
 	desc = EVTDESC61237
@@ -3968,6 +4284,7 @@ character_event = {
 	is_married = yes
 
 	trigger = {
+		always = no
 		has_minor_title = title_ruler_consort
 		NOT = { has_minor_title = title_regent }
 
@@ -4111,6 +4428,7 @@ character_event = {
 
 ## The Regent Lowers Crown Authority in a Kingdom or Empire
 # CleanSlate: Event merged with event 61302
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61300
 	picture = GFX_evt_courtiers_talking
@@ -4217,6 +4535,8 @@ character_event = {
 					}
 				}
 
+				set_title_flag = non_manual_law_change # No prestige loss
+
 				trigger_switch = {
 					on_trigger = has_law
 
@@ -4225,6 +4545,8 @@ character_event = {
 					crown_authority_3 = { add_law = crown_authority_2 }
 					crown_authority_4 = { add_law = crown_authority_3 }
 				}
+
+				clr_title_flag = non_manual_law_change # No prestige loss
 			}
 
 			character_event = { id = 61301 }

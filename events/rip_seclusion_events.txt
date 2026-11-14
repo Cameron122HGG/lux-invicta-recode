@@ -1048,6 +1048,7 @@ character_event = {
 }
 
 # Courtier ate your food
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.11554
 	desc = RIP.11554.d
@@ -1203,12 +1204,16 @@ character_event = {
 		event_target:target_greedy_courtier = {
 			show_scope_change = no
 
-			death = {
-				death_reason = death_execution_eaten_unknown
-				killer = ROOT
+			tooltip = {
+				death = {
+					death_reason = death_execution_eaten_unknown
+					killer = ROOT
+				}
 			}
 
 			hidden_effect = {
+				death = { death_reason = death_execution_eaten }
+
 				if = {
 					limit = {
 						is_ironman = yes
@@ -3203,6 +3208,7 @@ character_event = {
 }
 
 # Ambush succeeds: Somebody was captured!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.12054
 	desc = EVTDESC_RIP_12054
@@ -3465,6 +3471,7 @@ character_event = {
 			if = {
 				limit = { same_sex = ROOT }
 				add_trait = homosexual
+				set_character_flag = revealed_homosexual@ROOT
 			}
 			else = {
 				remove_trait = homosexual

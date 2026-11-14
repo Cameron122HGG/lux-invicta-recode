@@ -3125,6 +3125,7 @@ character_event = {
 }
 
 # Demon - homosexual
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 6225
 	desc = EVTDESC6225
@@ -3137,6 +3138,7 @@ character_event = {
 		name = EVTOPTA6225
 
 		add_trait = homosexual
+		set_character_flag = revealed_homosexual@ROOT
 	}
 }
 

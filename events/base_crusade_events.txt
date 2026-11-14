@@ -168,6 +168,7 @@ character_event = {
 }
 
 # Pope lifts Excommunication (AI characters only)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8306
 
@@ -177,8 +178,6 @@ character_event = {
 	religion_group = christian
 
 	trigger = {
-		is_catholic_branch = yes
-
 		any_war = {
 			OR = {
 				using_cb = crusade
@@ -191,6 +190,7 @@ character_event = {
 		any_independent_ruler = {
 			if = {
 				limit = {
+					religion = ROOT
 					excommunicated_for = ROOT
 					ai = yes
 
@@ -212,6 +212,7 @@ character_event = {
 
 			any_realm_lord = {
 				limit = {
+					religion = ROOT
 					excommunicated_for = ROOT
 					ai = yes
 
@@ -239,6 +240,7 @@ character_event = {
 # Character becomes zealous
 # on_battle_won
 # FROM = opposing army's owner
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8310
 	desc = EVTDESC8310
@@ -248,14 +250,12 @@ character_event = {
 	is_triggered_only = yes # on_battle_won, random_events
 	hide_from = yes
 
-	religion_group = christian
 	min_age = 16
 	only_capable = yes
 	prisoner = no
 
 	trigger = {
 		has_called_crusade = yes
-		is_catholic_branch = yes
 
 		NOR = {
 			trait = zealous
@@ -264,6 +264,8 @@ character_event = {
 
 		OR = {
 			any_war = {
+				attacker = { religion = ROOT }
+
 				OR = {
 					using_cb = crusade
 					using_cb = new_crusade
@@ -271,9 +273,9 @@ character_event = {
 			}
 
 			any_liege = {
-				religion = ROOT
-
 				any_war = {
+					attacker = { religion = ROOT }
+
 					OR = {
 						using_cb = crusade
 						using_cb = new_crusade
@@ -297,6 +299,7 @@ character_event = {
 # Character becomes cynical
 # on_battle_lost
 # FROM = opposing army's owner
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8320
 	desc = EVTDESC8320
@@ -305,14 +308,12 @@ character_event = {
 
 	is_triggered_only = yes # on_battle_lost, random_events
 
-	religion_group = christian
 	min_age = 16
 	only_capable = yes
 	prisoner = no
 
 	trigger = {
 		has_called_crusade = yes
-		is_catholic_branch = yes
 
 		NOR = {
 			trait = cynical
@@ -321,6 +322,8 @@ character_event = {
 
 		OR = {
 			any_war = {
+				attacker = { religion = ROOT }
+
 				OR = {
 					using_cb = crusade
 					using_cb = new_crusade
@@ -328,9 +331,9 @@ character_event = {
 			}
 
 			any_liege = {
-				religion = ROOT
-
 				any_war = {
+					attacker = { religion = ROOT }
+
 					OR = {
 						using_cb = crusade
 						using_cb = new_crusade
@@ -354,6 +357,7 @@ character_event = {
 # Conquers the crusade target
 # on_siege_won_leader
 # FROM = barony won
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8330
 	desc = EVTDESC8330
@@ -368,6 +372,8 @@ character_event = {
 
 		OR = {
 			any_war = {
+				attacker = { religion = ROOT }
+
 				OR = {
 					using_cb = crusade
 					using_cb = new_crusade
@@ -376,6 +382,8 @@ character_event = {
 
 			any_liege = {
 				any_war = {
+					attacker = { religion = ROOT }
+
 					OR = {
 						using_cb = crusade
 						using_cb = new_crusade
@@ -471,6 +479,7 @@ letter_event = {
 # Finds the Spear of Destiny / Holy Lance
 # on_siege_won_leader
 # FROM = barony won
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8340
 	desc = EVTDESC8340
@@ -483,7 +492,7 @@ character_event = {
 
 	trigger = {
 		FROM = { title = b_jerusalem }
-		is_catholic_branch = yes
+		is_heretic = no
 
 		OR = {
 			any_war = {
@@ -537,6 +546,7 @@ character_event = {
 # Finds the Holy Grail
 # on_siege_won_leader
 # FROM = barony won
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8342
 	desc = EVTDESC8342
@@ -549,7 +559,7 @@ character_event = {
 
 	trigger = {
 		FROM = { title = b_syrcaesarea }
-		is_catholic_branch = yes
+		is_heretic = no
 
 		OR = {
 			any_war = {
@@ -617,6 +627,7 @@ character_event = {
 # Loses the crusade target's capital
 # on_siege_lost_leader
 # FROM = barony lost
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8350
 	desc = EVTDESC8350
@@ -630,6 +641,8 @@ character_event = {
 
 		OR = {
 			any_war = {
+				attacker = { religion = ROOT }
+
 				OR = {
 					using_cb = crusade
 					using_cb = new_crusade
@@ -638,6 +651,8 @@ character_event = {
 
 			any_liege = {
 				any_war = {
+					attacker = { religion = ROOT }
+
 					OR = {
 						using_cb = crusade
 						using_cb = new_crusade
@@ -729,6 +744,7 @@ letter_event = {
 ### Pope Disappointed ###
 
 # Pope is concerned that an independent ruler is not participating in crusade
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8400
 	desc = EVTDESC8400
@@ -753,7 +769,10 @@ character_event = {
 			NOR = {
 				crusade_target = {
 					holder_scope = {
-						reverse_has_truce = PREVPREV
+						OR = {
+							reverse_has_truce = PREVPREV
+							has_non_aggression_pact_with = PREVPREV
+						}
 					}
 				}
 
@@ -798,6 +817,15 @@ character_event = {
 		}
 	}
 
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = zealous
+		}
+	}
+
 	immediate = {
 		random_independent_ruler = {
 			limit = {
@@ -809,7 +837,10 @@ character_event = {
 				NOR = {
 					crusade_target = {
 						holder_scope = {
-							reverse_has_truce = PREVPREV
+							OR = {
+								reverse_has_truce = PREVPREV
+								has_non_aggression_pact_with = PREVPREV
+							}
 						}
 					}
 
@@ -1624,6 +1655,7 @@ letter_event = {
 ### Pope Offers to Forgive Excommunicated ###
 
 # Pope finds an excommunicated Catholic
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8460
 	desc = EVTDESC8460
@@ -1647,7 +1679,10 @@ character_event = {
 			NOR = {
 				crusade_target = {
 					holder_scope = {
-						reverse_has_truce = PREVPREV
+						OR = {
+							reverse_has_truce = PREVPREV
+							has_non_aggression_pact_with = PREVPREV
+						}
 					}
 				}
 
@@ -1678,7 +1713,10 @@ character_event = {
 				NOR = {
 					crusade_target = {
 						holder_scope = {
-							reverse_has_truce = PREVPREV
+							OR = {
+								reverse_has_truce = PREVPREV
+								has_non_aggression_pact_with = PREVPREV
+							}
 						}
 					}
 

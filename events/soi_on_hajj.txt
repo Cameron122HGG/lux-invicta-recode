@@ -1352,6 +1352,7 @@ character_event = {
 ### Closer to Mecca
 
 # Oasis
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 86825
 	desc = EVTDESC86825
@@ -1363,6 +1364,20 @@ character_event = {
 	option = {
 		name = EVTOPTA86825
 
+		trigger = {
+			trigger_if = {
+				limit = { trait = depressed }
+				random >= 25
+			}
+			trigger_else_if = {
+				limit = { trait = stressed }
+				random >= 50
+			}
+			trigger_else = {
+				random >= 67
+			}
+		}
+
 		character_event = {
 			id = 86826
 			tooltip = EVTTOOLTIP86826
@@ -1371,6 +1386,20 @@ character_event = {
 
 	option = {
 		name = EVTOPTB86825
+
+		trigger = {
+			trigger_if = {
+				limit = { trait = depressed }
+				random < 25
+			}
+			trigger_else_if = {
+				limit = { trait = stressed }
+				random < 50
+			}
+			trigger_else = {
+				random < 67
+			}
+		}
 
 		character_event = {
 			id = 86827
@@ -1440,6 +1469,7 @@ character_event = {
 }
 
 # Camels
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 86835
 	desc = EVTDESC86835
@@ -1451,14 +1481,14 @@ character_event = {
 	option = {
 		name = EVTOPTA86835
 
-		piety = 15
+		piety = 25
 		health = -1
 	}
 
 	option = {
 		name = EVTOPTB86835
 
-		piety = -15
+		piety = -25
 	}
 }
 

@@ -516,6 +516,7 @@ character_event = {
 }
 
 # A young woman has been seduced by a hedge knight
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 71004
 	desc = EVTDESC71004
@@ -532,6 +533,8 @@ character_event = {
 			fertility = 0.6
 			female = no
 			age = 24
+			culture = ROOT
+			religion = ROOT
 		}
 
 		new_character = {

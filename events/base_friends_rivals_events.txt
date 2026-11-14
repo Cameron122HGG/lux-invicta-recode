@@ -13,12 +13,13 @@
 ##################################################
 
 ### You've made friends with another child in the court ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100000
 	desc = EVTDESC100000
 	picture = GFX_evt_child_sword
 
-	is_triggered_only = yes # on_yearly_childhood_pulse, random_events, friends_rivals
+	is_triggered_only = yes
 
 	min_age = 4
 	max_age = 14
@@ -36,6 +37,7 @@ character_event = {
 		}
 
 		any_host_courtier = {
+			same_sex = ROOT
 			practical_age >= 4
 			practical_age < 14
 			num_of_friends < 2
@@ -64,6 +66,7 @@ character_event = {
 	immediate = {
 		any_host_courtier = {
 			limit = {
+				same_sex = ROOT
 				practical_age >= 4
 				practical_age < 14
 				num_of_friends < 2
@@ -181,6 +184,7 @@ character_event = {
 }
 
 ### One of the other children in court is very shy and would rather read than play with us ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100005
 	desc = EVTDESC100005
@@ -210,12 +214,12 @@ character_event = {
 
 		any_host_courtier = {
 			trait = shy
-			practical_age >= 6
 			practical_age < 15
 			num_of_friends < 2
 			num_of_rivals < 2
-			at_location = ROOT
 			is_incapable = no
+			at_location = ROOT
+			practical_age >= 6
 			is_inaccessible_trigger = no
 
 			trigger_if = {
@@ -1811,6 +1815,7 @@ character_event = {
 }
 
 ### Flirtatious girl - new friend or rival? ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100040
 	desc = EVTDESC100040
@@ -1903,6 +1908,20 @@ character_event = {
 			}
 
 			save_event_target_as = target_courtier
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = ambitious
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cruel
 		}
 	}
 
@@ -2078,6 +2097,7 @@ character_event = {
 }
 
 ### A girl at court is very flirtatious and seems to get away with everything... ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100050
 	desc = EVTDESC100050
@@ -2162,6 +2182,30 @@ character_event = {
 			}
 
 			save_event_target_as = target_courtier
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = envious
 		}
 	}
 
@@ -2368,6 +2412,7 @@ character_event = {
 }
 
 ### Someone defeated me in swordplay! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100060
 	desc = EVTDESC100060
@@ -2448,6 +2493,30 @@ character_event = {
 		}
 	}
 
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = brave
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = craven
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = ambitious
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = content
+		}
+	}
+
 	option = {
 		name = EVTOPTA100060
 
@@ -2506,6 +2575,7 @@ character_event = {
 }
 
 ### Someone does not like me and keeps picking on me! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100065
 	desc = EVTDESC100065
@@ -2555,6 +2625,30 @@ character_event = {
 				who = ROOT
 				value < 10
 			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = brave
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = rowdy
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = craven
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = timid
 		}
 	}
 
@@ -2795,6 +2889,7 @@ character_event = {
 }
 
 ### I can't stand someone! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100070
 	desc = EVTDESC100070
@@ -2876,6 +2971,30 @@ character_event = {
 			}
 
 			save_event_target_as = target_courtier
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 0.5
+			trait = honest
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = deceitful
+		}
+
+		mult_modifier = {
+			factor = 2
+			intrigue >= 5
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			intrigue < 5
 		}
 	}
 
@@ -3121,6 +3240,7 @@ character_event = {
 }
 
 ### Someone does not believe in God! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100080
 	desc = EVTDESC100080
@@ -3136,6 +3256,7 @@ character_event = {
 
 	trigger = {
 		trait = zealous
+		religion = location
 		num_of_friends < 2
 		num_of_rivals < 2
 		is_inaccessible_trigger = no
@@ -3166,6 +3287,40 @@ character_event = {
 				is_rival = ROOT
 				character = ROOT
 			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			piety >= 50
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			piety < 50
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = diligent
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = slothful
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = ambitious
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = content
 		}
 	}
 
@@ -3355,6 +3510,7 @@ character_event = {
 }
 
 ### My embroidery is not as good as someone else's! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100090
 	desc = EVTDESC100090
@@ -3448,6 +3604,20 @@ character_event = {
 			}
 
 			save_event_target_as = embroidery_prodigy
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 0.33
+			trait = envious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = kind
 		}
 	}
 
@@ -3669,6 +3839,7 @@ character_event = {
 }
 
 ### Someone stole my doll! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100100
 	desc = EVTDESC100100
@@ -3717,6 +3888,50 @@ character_event = {
 				who = ROOT
 				value < 10
 			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = humble
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = timid
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = affectionate
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = envious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = rowdy
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = brooding
 		}
 	}
 
@@ -4272,6 +4487,7 @@ character_event = {
 }
 
 ### Learn from the best (and take his job) ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100110
 	desc = EVTDESC100110
@@ -4279,7 +4495,7 @@ character_event = {
 
 	is_triggered_only = yes # on_yearly_pulse, random_events, friends_rivals_adults
 
-	only_playable = yes
+	only_rulers = yes
 	# only_men = yes
 	min_age = 16
 	prisoner = no
@@ -4312,27 +4528,22 @@ character_event = {
 
 				trigger_if = {
 					limit = { has_job_title = job_chancellor }
-
 					ROOT = { has_ambition = obj_become_chancellor }
 				}
 				trigger_else_if = {
 					limit = { has_job_title = job_marshal }
-
 					ROOT = { has_ambition = obj_become_marshal }
 				}
 				trigger_else_if = {
 					limit = { has_job_title = job_treasurer }
-
 					ROOT = { has_ambition = obj_become_treasurer }
 				}
 				trigger_else_if = {
 					limit = { has_job_title = job_spymaster }
-
 					ROOT = { has_ambition = obj_become_spymaster }
 				}
 				trigger_else = {
 					has_job_title = job_spiritual
-
 					ROOT = { has_ambition = obj_become_spiritual }
 				}
 
@@ -4342,6 +4553,66 @@ character_event = {
 					is_rival = ROOT
 				}
 			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = ambitious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 2
+			OR = {
+				trait = quick
+				trait = shrewd
+			}
+		}
+
+		mult_modifier = {
+			factor = 3
+			trait = genius
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = diligent
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = slothful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			OR = {
+				trait = slow
+				trait = dull
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.2
+			trait = imbecile
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = content
 		}
 	}
 
@@ -4357,26 +4628,23 @@ character_event = {
 				limit = {
 					trigger_if = {
 						limit = { has_job_title = job_chancellor }
-
 						ROOT = { has_ambition = obj_become_chancellor }
 					}
 					trigger_else_if = {
 						limit = { has_job_title = job_marshal }
-
 						ROOT = { has_ambition = obj_become_marshal }
 					}
 					trigger_else_if = {
 						limit = { has_job_title = job_treasurer }
-
 						ROOT = { has_ambition = obj_become_treasurer }
 					}
 					trigger_else_if = {
 						limit = { has_job_title = job_spymaster }
-
 						ROOT = { has_ambition = obj_become_spymaster }
 					}
 					trigger_else = {
 						has_job_title = job_spiritual
+						ROOT = { has_ambition = obj_become_spiritual }
 					}
 				}
 
@@ -4646,6 +4914,7 @@ character_event = {
 }
 
 ### Sharing the wonders of childbearing has made you a new friend ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100115
 	desc = EVTDESC100115
@@ -4689,6 +4958,50 @@ character_event = {
 				is_friend = ROOT
 				is_rival = ROOT
 			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = honest
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = shy
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = deceitful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cruel
 		}
 	}
 
@@ -5059,6 +5372,7 @@ character_event = {
 }
 
 ### I'm at war and need help! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100160
 	desc = EVTDESC100160
@@ -5083,14 +5397,30 @@ character_event = {
 
 		any_friend = {
 			is_ruler = yes
+			scaled_wealth = 0.5
 			war = no
 			prisoner = no
+			NOT = { has_character_modifier = friend_at_war_timer }
 			is_inaccessible_trigger = no
 
 			NOR = {
 				is_vassal_or_below_of = ROOT
 				is_liege_or_above_of = ROOT
 			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 0.2
+			trait = proud
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
 		}
 	}
 
@@ -9582,6 +9912,7 @@ character_event = {
 }
 
 # Liege decides if ROOT is allowed to duel
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100411
 	desc = EVTDESC100411
@@ -9649,6 +9980,14 @@ character_event = {
 				random = 7
 				tooltip = EVTTOOLTIP100413
 			}
+
+			hidden_effect = {
+				clr_character_flag = duel_rival
+
+				event_target:duel_rival = {
+					clr_character_flag = duel_rival
+				}
+			}
 		}
 
 		ai_chance = { factor = 50 }
@@ -9669,6 +10008,14 @@ character_event = {
 				days = 7
 				random = 7
 			}
+
+			hidden_effect = {
+				clr_character_flag = duel_rival
+
+				event_target:duel_rival = {
+					clr_character_flag = duel_rival
+				}
+			}
 		}
 
 		ai_chance = {
@@ -9676,7 +10023,10 @@ character_event = {
 
 			mult_modifier = {
 				factor = 0.01
-				FROM = { is_ruler = yes }
+
+				FROM = {
+					is_ruler = yes
+				}
 			}
 		}
 	}
