@@ -334,7 +334,7 @@ targeted_decisions = {
 	            }
 	        }
 	        hidden_tooltip = {
-	            character_event = { id = HFP.10095 } #Duel evaluation (hidden) + result event as follow-up.
+	            #character_event = { id = HFP.10095 } #Duel evaluation (hidden) + result event as follow-up. # Holy Fury event not in Lux Invicta (DLC switched off)
 	        }
 	    }
 	    

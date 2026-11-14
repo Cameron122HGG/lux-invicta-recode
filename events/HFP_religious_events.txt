@@ -1135,7 +1135,7 @@ character_event = {
 						who = FROM
 					}
 				}
-				FROM = { letter_event = { id = HFP.23020 } } #I want to be independent.
+				#FROM = { letter_event = { id = HFP.23020 } } #I want to be independent. # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 			10 = { #Requests Vassalization.
 				trigger = { 
@@ -1381,7 +1381,7 @@ character_event = {
 						who = FROM
 					}
 				}
-				FROM = { letter_event = { id = HFP.23022 } } #Request Vassalization.
+				#FROM = { letter_event = { id = HFP.23022 } } #Request Vassalization. # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 		}
 	}

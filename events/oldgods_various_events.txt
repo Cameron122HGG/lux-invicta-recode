@@ -151,14 +151,14 @@ character_event = {
 		liege = {
 			if = {
 				limit = { NOT = { character = ROOT } }
-				character_event = { id = HFP.11002 } # (Opponent (liege) is informed that their commander has been killed)
+				#character_event = { id = HFP.11002 } # (Opponent (liege) is informed that their commander has been killed) # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 		}
 		FROMFROM = {
 			if = {
 				limit = { NOT = { is_vassal_or_below = ROOT } }
 				set_character_flag = temp_battle_kill_242
-				character_event = { id = HFP.11003 }
+				#character_event = { id = HFP.11003 } # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 		}
 #		FROM = { Outcommented because arcane magic script??

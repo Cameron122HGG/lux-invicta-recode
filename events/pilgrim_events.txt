@@ -315,7 +315,7 @@ character_event = {
 		trigger = {
 			has_dlc = "Holy Fury"
 		}
-		hidden_tooltip = { character_event = { id = HF.41300  days = 15} }
+		#hidden_tooltip = { character_event = { id = HF.41300  days = 15} } # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 }
 
@@ -471,7 +471,7 @@ character_event = {
 		trigger = {
 			has_dlc = "Holy Fury"
 		}
-		hidden_tooltip = { character_event = { id = HF.41300  days = 15} }
+		#hidden_tooltip = { character_event = { id = HF.41300  days = 15} } # Holy Fury event not in Lux Invicta (DLC switched off)
 	}
 }
 

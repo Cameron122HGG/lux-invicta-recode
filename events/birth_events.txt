@@ -1080,7 +1080,7 @@ character_event = {
 						has_dynasty_flag = pregnancy_regent_warning 
 					} 
 				}
-				character_event = { id = HFP.20400 } 
+				#character_event = { id = HFP.20400 }  # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 		}
 		hidden_tooltip = { 
@@ -1193,7 +1193,7 @@ character_event = {
 						factor = 3
 						has_character_modifier = withdrawal_symptoms
 					}
-					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+					#character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy # Holy Fury event not in Lux Invicta (DLC switched off)
 				}
 			}
 		}
@@ -1285,7 +1285,7 @@ character_event = {
 					NOT = { any_courtier = { has_minor_title = title_appointed_regent } 
 					has_global_flag = pregnancy_regent_warning } 
 					}
-				character_event = { id = HFP.20400 } 
+				#character_event = { id = HFP.20400 }  # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 		}
 		hidden_tooltip = { 
@@ -1386,7 +1386,7 @@ character_event = {
 						factor = 3
 						has_character_modifier = withdrawal_symptoms
 					}
-					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+					#character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy # Holy Fury event not in Lux Invicta (DLC switched off)
 				}
 			}
 		}
@@ -1436,7 +1436,7 @@ character_event = {
 					NOT = { any_courtier = { has_minor_title = title_appointed_regent } 
 					has_global_flag = pregnancy_regent_warning } 
 					}
-				character_event = { id = HFP.20400 } 
+				#character_event = { id = HFP.20400 }  # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
 		}
 		hidden_tooltip = { 
@@ -1537,7 +1537,7 @@ character_event = {
 						factor = 3
 						has_character_modifier = withdrawal_symptoms
 					}
-					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+					#character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy # Holy Fury event not in Lux Invicta (DLC switched off)
 				}
 			}
 		}
@@ -2622,7 +2622,7 @@ character_event = {
 						factor = 3
 						has_character_modifier = withdrawal_symptoms
 					}
-					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+					#character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy # Holy Fury event not in Lux Invicta (DLC switched off)
 				}
 			}
 		}
@@ -2804,7 +2804,7 @@ character_event = {
 						factor = 3
 						has_character_modifier = withdrawal_symptoms
 					}
-					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+					#character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy # Holy Fury event not in Lux Invicta (DLC switched off)
 				}
 			}
 		}
@@ -3520,7 +3520,7 @@ character_event = {
 						} 
 					}
 				}
-			character_event = { id = HFP.20538 days = 1 }
+			#character_event = { id = HFP.20538 days = 1 } # Holy Fury event not in Lux Invicta (DLC switched off)
 		}
 		random_list = {
 			80 = {
@@ -3988,15 +3988,15 @@ character_event = {
 			if = { 
 				limit = { is_married = yes } 
 				spouse = {
-					 character_event = { id = HFP.20552 } 
+					 #character_event = { id = HFP.20552 }  # Holy Fury event not in Lux Invicta (DLC switched off)
 				}
 			}
 		}
 		hidden_tooltip = { 
 			random_list = { 
-				30 = { character_event = { id = HFP.20541 days = 12 random = 5 } } #fever
-				15 = { character_event = { id = HFP.20542 days = 12 random = 5 } } #hair loss
-				20 = { character_event = { id = HFP.20543 days = 12 random = 5 } } #blood
+				30 = { } # was: 30 = { character_event = { id = HFP.20541 days = 12 random = 5 } } #fever (Holy Fury event not in Lux Invicta (DLC switched off))
+				15 = { } # was: 15 = { character_event = { id = HFP.20542 days = 12 random = 5 } } #hair loss (Holy Fury event not in Lux Invicta (DLC switched off))
+				20 = { } # was: 20 = { character_event = { id = HFP.20543 days = 12 random = 5 } } #blood (Holy Fury event not in Lux Invicta (DLC switched off))
 				10 = { 
 
 				modifier = { 
@@ -4143,10 +4143,10 @@ character_event = {
 					factor = 1.5
 					persistent_event_target:pregnancy_regent_physician_per = { learning = 25 }
 				}
-					character_event = { id = HFP.20544 days = 12 random = 5 } } #recovers completely
-				20 = { character_event = { id = HFP.20545 days = 12 random = 5 } } #recovers weakened
-				2 = { character_event = { id = HFP.20546 days = 12 random = 5 } } #remains infirm
-				3 = { character_event = { id = HFP.20547 days = 12 random = 5 } } #DEATH
+					} # was: character_event = { id = HFP.20544 days = 12 random = 5 } #recovers completely (Holy Fury event not in Lux Invicta (DLC switched off))
+				20 = { } # was: 20 = { character_event = { id = HFP.20545 days = 12 random = 5 } } #recovers weakened (Holy Fury event not in Lux Invicta (DLC switched off))
+				2 = { } # was: 2 = { character_event = { id = HFP.20546 days = 12 random = 5 } } #remains infirm (Holy Fury event not in Lux Invicta (DLC switched off))
+				3 = { } # was: 3 = { character_event = { id = HFP.20547 days = 12 random = 5 } } #DEATH (Holy Fury event not in Lux Invicta (DLC switched off))
 			}
 		}
 	}

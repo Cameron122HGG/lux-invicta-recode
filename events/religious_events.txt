@@ -4111,7 +4111,7 @@ character_event = {
 				}
 			}
 			custom_tooltip = { text = send_baptism_request }
-			FROM = { liege = { letter_event = { id = HF.20024 } } }
+			#FROM = { liege = { letter_event = { id = HF.20024 } } } # Holy Fury event not in Lux Invicta (DLC switched off)
 			#break = yes
 		}
 		
