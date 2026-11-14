@@ -1320,27 +1320,37 @@ character_event = {
 }
 
 # Muslim becoming a wicked caliph
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5301
 	desc = EVTDESC_SoA_5301
-	picture = GFX_evt_scandal
+	picture = GFX_evt_courtiers_looking_scandalized
 	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes # on_bi_yearly_pulse
+	
+	is_triggered_only = yes
 
 	only_playable = yes
-	religion_group = muslim
-	has_dlc = "Sons of Abraham"
 	min_age = 16
 	only_capable = yes
-	prisoner = no
-
+	prisoner = no	
+	religion_group = muslim
+	
 	trigger = {
+		NOR = {
+			intrigue = 3
+			diplomacy = 3
+			trait = bad_priest_muslim
+		}
 		controls_religion = yes
-		intrigue < 3
-		diplomacy < 3
-		NOT = { trait = bad_priest_muslim }
-
+		has_dlc = "Sons of Abraham"
+		OR = {
+			has_landed_title = e_sunni
+			has_landed_title = e_shiite
+			has_landed_title = e_umayyad
+			has_landed_title = d_muslim_aliite_reformed
+			has_landed_title = d_muslim_domination_reformed
+			has_landed_title = d_muslim_sufi_reformed
+		}
 		OR = {
 			trait = cynical
 			trait = lustful
@@ -1358,71 +1368,61 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_SoA_5301
-
 		add_trait = bad_priest_muslim
-
 		if = {
-			limit = { can_apply_average_nickname_trigger = yes }
-
-			trigger_switch = {
-				on_trigger = trait
-
-				possessed = { give_nickname = nick_the_bewitched }
-				lunatic = { give_nickname = nick_the_mad }
-				fallback = { give_nickname = nick_the_wicked }
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				NOT = { trait = possessed }
+				NOT = { trait = lunatic }
 			}
+			give_nickname = nick_the_wicked
 		}
-
-		# Wicked Caliph!
 		if = {
-			limit = { controls_religion = yes }
-
-			add_character_modifier = {
-				name = bad_rel_head
-				duration = -1
-				hidden = yes
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = possessed
 			}
-
-			any_player = {
-				limit = { religion = ROOT }
-
-				character_event = {
-					id = SoA.5314
-					days = 8
-					random = 7
-				}
+			give_nickname = nick_the_bewitched
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = lunatic
 			}
+			give_nickname = nick_the_mad
 		}
 	}
 }
 
 # Norse becoming an unworthy priest
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5302
 	desc = EVTDESC_SoA_5302
-	picture = GFX_evt_scandal
+	picture = GFX_evt_courtiers_looking_scandalized
 	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
 
-	is_triggered_only = yes # on_bi_yearly_pulse
-
-	religion_group = pagan_group
 	min_age = 16
 	only_capable = yes
-	prisoner = no
-	has_dlc = "Sons of Abraham"
-
+	prisoner = no	
+	
 	trigger = {
-		religion_openly_norse_or_reformed_trigger = yes
-
+		NOR = {
+			intrigue = 3
+			diplomacy = 3
+			trait = bad_priest_norse
+		}
+		LI_norse_pagan_trigger = yes
 		OR = {
 			is_priest = yes
 			controls_religion = yes
 		}
-
-		intrigue < 3
-		diplomacy < 3
-		NOT = { trait = bad_priest_norse }
-
+		has_dlc = "Sons of Abraham"
 		OR = {
 			trait = cynical
 			trait = gluttonous
@@ -1440,72 +1440,60 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_SoA_5302
-
 		add_trait = bad_priest_norse
-
 		if = {
 			limit = {
 				is_ruler = yes
-				can_apply_average_nickname_trigger = yes
+				has_nickname = no
+				NOT = { trait = possessed }
+				NOT = { trait = lunatic }
 			}
-
-			trigger_switch = {
-				on_trigger = trait
-
-				possessed = { give_nickname = nick_the_bewitched }
-				lunatic = { give_nickname = nick_the_mad }
-				fallback = { give_nickname = nick_the_unready }
-			}
+			give_nickname = nick_the_unready
 		}
-
-		# Wicked Fylkir!
 		if = {
-			limit = { controls_religion = yes }
-
-			add_character_modifier = {
-				name = bad_rel_head
-				duration = -1
-				hidden = yes
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = possessed
 			}
-
-			any_player = {
-				limit = { religion = ROOT }
-
-				character_event = {
-					id = SoA.5316
-					days = 8
-					random = 7
-				}
+			give_nickname = nick_the_bewitched
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = lunatic
 			}
+			give_nickname = nick_the_mad
 		}
 	}
 }
 
 # Tengri becoming an unworthy priest
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5303
 
-	is_triggered_only = yes # on_bi_yearly_pulse
 	hide_window = yes
-
-	religion_group = pagan_group
+	
+	is_triggered_only = yes
+	
 	min_age = 16
 	only_capable = yes
-	prisoner = no
-	has_dlc = "Sons of Abraham"
+	prisoner = no	
+	religion_group = tengri_group
 
 	trigger = {
-		religion_openly_tengri_or_reformed_trigger = yes
-
+		NOR = {
+			intrigue = 3
+			diplomacy = 3
+			trait = bad_priest_tengri
+		}
 		OR = {
+
 			is_priest = yes
 			controls_religion = yes
 		}
-
-		intrigue < 3
-		diplomacy < 3
-		NOT = { trait = bad_priest_tengri }
-
 		OR = {
 			trait = cynical
 			trait = arbitrary
@@ -1517,45 +1505,35 @@ character_event = {
 			trait = lunatic
 			trait = cruel
 		}
+		has_dlc = "Sons of Abraham"
 	}
 
 	immediate = {
 		add_trait = bad_priest_tengri
-
 		if = {
 			limit = {
 				is_ruler = yes
-				can_apply_average_nickname_trigger = yes
+				has_nickname = no
+				NOT = { trait = possessed }
+				NOT = { trait = lunatic }
 			}
-
-			trigger_switch = {
-				on_trigger = trait
-
-				possessed = { give_nickname = nick_the_bewitched }
-				lunatic = { give_nickname = nick_the_mad }
-				fallback = { give_nickname = nick_the_wicked }
-			}
+			give_nickname = nick_the_wicked
 		}
-
-		# Wicked Head Priest!
 		if = {
-			limit = { controls_religion = yes }
-
-			add_character_modifier = {
-				name = bad_rel_head
-				duration = -1
-				hidden = yes
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = possessed
 			}
-
-			any_player = {
-				limit = { religion = ROOT }
-
-				character_event = {
-					id = SoA.5318
-					days = 8
-					random = 7
-				}
+			give_nickname = nick_the_bewitched
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				has_nickname = no
+				trait = lunatic
 			}
+			give_nickname = nick_the_mad
 		}
 	}
 }
@@ -1854,29 +1832,44 @@ character_event = {
 ###########################################
 
 # Cluny priests are very influential
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5340
 
-	is_triggered_only = yes # on_yearly_pulse, random_events, influential_monasteries
 	hide_window = yes
 
 	only_rulers = yes
-	religion_group = christian
-	has_dlc = "Sons of Abraham"
 	min_age = 16
 	ai = yes
 	only_capable = yes
 	prisoner = no
+	religion_group = christian
 
 	trigger = {
-		has_landed_title = b_cluny
 		is_priest = yes
-		year >= 950
-		is_catholic_branch = yes
-		controls_religion = no
-		is_antipope = no
+		year = 950
+		OR = {
+			religion = catholic
+			is_heresy_of = catholic
+			religion = unctionist
+			religion = pelagian
+			religion = semipelagian
+			religion = arian
+			is_heresy_of = arian
+		}
+		has_landed_title = b_cluny
+		NOR = {
+			has_landed_title = k_papal_state
+			any_claim = { title = k_papal_state }
+		}
+		
+		has_dlc = "Sons of Abraham"
 	}
-
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
 	immediate = {
 		piety = 50
 		prestige = 25
@@ -1884,94 +1877,93 @@ character_event = {
 }
 
 # Donate to Cluny Abbey
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5341
 	title = EVTNAME_SoA_5341
 	desc = EVTDESC_SoA_5341
 	picture = GFX_evt_monastery_monks
 	border = GFX_event_narrative_frame_religion
-	portrait = event_target:bishop_of_cluny
-
-	is_triggered_only = yes # on_bi_yearly_pulse, random_events, monk_flavour
 
 	only_playable = yes
-	religion_group = christian
-	has_dlc = "Sons of Abraham"
 	min_age = 16
 	only_capable = yes
 	prisoner = no
+	religion_group = christian
 
 	trigger = {
-		is_catholic_branch = yes
-		wealth >= 200
-		year >= 950
-
+		wealth = 200
+		has_dlc = "Sons of Abraham"
+		year = 950
+		OR = {
+			religion = catholic
+			is_heresy_of = catholic
+			religion = unctionist
+			religion = pelagian
+			religion = semipelagian
+			religion = arian
+			is_heresy_of = arian
+		}
 		b_cluny = {
 			holder_scope = {
-				religion = ROOT
 				is_priest = yes
-				controls_religion = no
-				is_antipope = no
+				religion = ROOT
+				NOR = {
+					has_landed_title = k_papal_state
+					any_claim = { title = k_papal_state }
+				}
 			}
 		}
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 3.3
+	
+	mean_time_to_happen = {
+		months = 2000
+		modifier = {
+			factor = 0.3
 			has_focus = focus_theology
 		}
 	}
-
-	immediate = {
-		b_cluny = {
-			holder_scope = {
-				save_event_target_as = bishop_of_cluny
-			}
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_SoA_5341
-
+		ai_chance = {
+			factor = 20
+		}
 		if = {
-			limit = { wealth < 600 }
-
-			transfer_scaled_wealth = {
-				to = event_target:bishop_of_cluny
-				value = 1
-				min = 100
-				max = 100
-			}
-
+			limit = { NOT = { wealth = 600 } }
+			wealth = -100
 			prestige = 50
 			piety = 50
-		}
-		else = {
-			transfer_scaled_wealth = {
-				to = event_target:bishop_of_cluny
-				value = 1
-				min = 300
-				max = 300
+			b_cluny = {
+				holder_scope = {
+					wealth = 100
+				}
 			}
-
+		}
+		if = {
+			limit = {
+				wealth = 600
+			}
+			wealth = -300
 			prestige = 100
 			piety = 100
+			b_cluny = {
+				holder_scope = {
+					wealth = 300
+				}
+			}
 		}
-
-		ai_chance = { factor = 20 }
 	}
-
 	option = {
 		name = EVTOPTB_SoA_5341
-
-		ai_chance = { factor = 80 }
+		ai_chance = {
+			factor = 80
+		}
 	}
 }
 
 # Visit Cluny?
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5342
 	title = EVTNAME_SoA_5342
@@ -1979,61 +1971,60 @@ narrative_event = {
 	picture = GFX_evt_monastery_monks
 	border = GFX_event_narrative_frame_religion
 
-	is_triggered_only = yes # on_bi_yearly_pulse, random_events, monk_flavour
-
 	ai = no
-	religion_group = christian
-	has_dlc = "Sons of Abraham"
-	min_age = 16
-	only_capable = yes
 	prisoner = no
-	in_command = no
-
+	only_capable = yes
+	min_age = 16
+	religion_group = christian
+	
 	trigger = {
-		is_catholic_branch = yes
-		year >= 950
+		has_dlc = "Sons of Abraham"
+		year = 950
+		in_command = no
 		NOT = { trait = blinded }
-		is_inaccessible_trigger = no
-
-		distance = {
-			where = b_cluny
-			value < 300 # Not too far away
-		}
-
 		b_cluny = {
 			holder_scope = {
 				is_priest = yes
 				religion = ROOT
-				controls_religion = no
-				is_antipope = no
+				NOR = {
+					has_landed_title = k_papal_state
+					any_claim = { title = k_papal_state }
+				}
 			}
 		}
+		OR = {
+			religion = catholic
+			is_heresy_of = catholic
+			religion = unctionist
+			religion = pelagian
+			religion = semipelagian
+			religion = arian
+			is_heresy_of = arian
+		}
+		distance = {
+			where = 225	# Cluny
+			value = 300	# Not too far away
+		}
+		NOT = { has_character_flag = do_not_disturb }
+		is_inaccessible_trigger = no
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 2
+	
+	mean_time_to_happen = {
+		months = 2000
+		modifier = {
+			factor = 0.5
 			has_focus = focus_theology
 		}
 	}
 
 	option = {
 		name = EVTOPTA_SoA_5342
-
 		wealth = -10
 		set_character_flag = do_not_disturb
-
-		narrative_event = {
-			id = SoA.5343
-			days = 10
-		}
+		hidden_tooltip = { narrative_event = { id = SoA.5343 days = 10 } }
 	}
-
 	option = {
 		name = EVTOPTB_SoA_5342
-
 		piety = -5
 	}
 }
@@ -2123,26 +2114,39 @@ narrative_event = {
 ###########################################
 
 # Priests at Mount Athos are very influential
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5344
 
-	is_triggered_only = yes # on_yearly_pulse, random_events, influential_monasteries
 	hide_window = yes
 
 	only_rulers = yes
-	religion_group = christian
-	has_dlc = "Sons of Abraham"
 	ai = yes
 	only_capable = yes
 	prisoner = no
+	religion_group = christian
 
 	trigger = {
-		has_landed_title = b_mntathos
-		is_orthodox_branch = yes
+		has_dlc = "Sons of Abraham"
+		year = 885
 		is_priest = yes
-		year >= 885
+		has_landed_title = b_mntathos
+		OR = {
+			religion = orthodox
+			is_heresy_of = orthodox
+			religion = nestorian
+			is_heresy_of = nestorian
+			religion = monophysite
+			is_heresy_of = monophysite
+			religion = solomonic_christ
+			is_heresy_of = solomonic_christ
+		}
 	}
-
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
 	immediate = {
 		piety = 50
 		prestige = 25
@@ -2150,6 +2154,7 @@ character_event = {
 }
 
 # Donate to Mount Athos monasteries
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5345
 	title = EVTNAME_SoA_5345
@@ -2157,84 +2162,72 @@ narrative_event = {
 	picture = GFX_evt_monastery_monks
 	border = GFX_event_narrative_frame_religion
 
-	is_triggered_only = yes # on_bi_yearly_pulse, random_events, monk_flavour
-
 	only_playable = yes
-	religion_group = christian
-	has_dlc = "Sons of Abraham"
 	min_age = 16
 	only_capable = yes
 	prisoner = no
+	religion_group = christian
 
 	trigger = {
-		is_orthodox_branch = yes
-		wealth >= 200
-		year >= 885
-
+		wealth = 200
+		has_dlc = "Sons of Abraham"
+		year = 885
 		b_mntathos = {
 			holder_scope = {
 				is_priest = yes
 				religion = ROOT
 			}
 		}
+		OR = {
+			religion = orthodox
+			is_heresy_of = orthodox
+			religion = nestorian
+			is_heresy_of = nestorian
+			religion = monophysite
+			is_heresy_of = monophysite
+			religion = solomonic_christ
+			is_heresy_of = solomonic_christ
+		}
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 3.3
+	
+	mean_time_to_happen = {
+		months = 2000
+		modifier = {
+			factor = 0.3
 			has_focus = focus_theology
 		}
 	}
-
-	immediate = {
-		b_mntathos = {
-			holder_scope = {
-				save_event_target_as = bishop_of_mntathos
-			}
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_SoA_5345
-
+		ai_chance = {
+			factor = 20
+		}
 		if = {
-			limit = { wealth < 600 }
-
-			transfer_scaled_wealth = {
-				to = event_target:bishop_of_mntathos
-				value = 1
-				min = 100
-				max = 100
-			}
-
+			limit = { NOT = { wealth = 600 } }
+			wealth = -100
 			prestige = 50
 			piety = 50
 		}
-		else = {
-			transfer_scaled_wealth = {
-				to = event_target:bishop_of_mntathos
-				value = 1
-				min = 300
-				max = 300
+		if = {
+			limit = {
+				wealth = 600
 			}
-
+			wealth = -300
 			prestige = 100
 			piety = 100
 		}
-
-		ai_chance = { factor = 20 }
 	}
-
 	option = {
 		name = EVTOPTB_SoA_5345
-
-		ai_chance = { factor = 80 }
+		ai_chance = {
+			factor = 80
+		}
 	}
 }
 
 # Visit Mount Athos?
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5346
 	title = EVTNAME_SoA_5346
@@ -2242,60 +2235,60 @@ narrative_event = {
 	picture = GFX_evt_icon
 	border = GFX_event_narrative_frame_religion
 
-	is_triggered_only = yes # on_bi_yearly_pulse, random_events, monk_flavour
-
 	ai = no
-	religion_group = christian
-	has_dlc = "Sons of Abraham"
 	prisoner = no
 	only_capable = yes
 	only_men = yes
 	min_age = 16
-	in_command = no
-
+	religion_group = christian
+	
 	trigger = {
-		is_orthodox_branch = yes
-		NOT = { trait = blinded }
-		is_inaccessible_trigger = no
-		year >= 885
-
-		distance = {
-			where = b_mntathos
-			value < 300 # Not too far away
+		has_dlc = "Sons of Abraham"
+		year = 885
+		in_command = no
+		NOR = {
+			trait = blinded
+			has_character_flag = do_not_disturb
 		}
-
+		is_inaccessible_trigger = no
 		b_mntathos = {
 			holder_scope = {
 				is_priest = yes
 				religion = ROOT
 			}
 		}
+		OR = {
+			religion = orthodox
+			is_heresy_of = orthodox
+			religion = nestorian
+			is_heresy_of = nestorian
+			religion = monophysite
+			is_heresy_of = monophysite
+			religion = solomonic_christ
+			is_heresy_of = solomonic_christ
+		}
+		distance = {
+			where = 491	# Mount Athos
+			value = 300	# Not too far away
+		}
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 2
+	
+	mean_time_to_happen = {
+		months = 2000
+		modifier = {
+			factor = 0.5
 			has_focus = focus_theology
 		}
 	}
 
 	option = {
 		name = EVTOPTA_SoA_5346
-
 		wealth = -10
 		set_character_flag = do_not_disturb
-
-		narrative_event = {
-			id = SoA.5347
-			days = 10
-		}
+		hidden_tooltip = { narrative_event = { id = SoA.5347 days = 10 } }
 	}
-
 	option = {
 		name = EVTOPTB_SoA_5346
-
 		piety = -5
 	}
 }
@@ -3256,30 +3249,31 @@ narrative_event = {
 ###########################################
 
 # Massacre at Beziers - fires from on_siege_over_winner
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5400
 	title = EVTNAME_SoA_5400
 	desc = EVTDESC_SoA_5400
 	picture = GFX_evt_burning_house
 	border = GFX_event_narrative_frame_war
-
-	is_triggered_only = yes # on_siege_over_winner, random_events
+	
+	is_triggered_only = yes
 
 	only_rulers = yes
-	has_dlc = "Sons of Abraham"
-
+	
 	trigger = {
+		has_dlc = "Sons of Abraham"
 		any_war = {
-			OR = {
-				using_cb = crusade
-				using_cb = new_crusade
+			custom_tooltip = {
+				text = WAGING_CRUSADE
+				hidden_tooltip = {
+					crusade_trigger = yes
+				}
 			}
 		}
-
 		top_liege = {
 			is_parent_religion = ROOT
 		}
-
 		FROM = {
 			holder_scope = {
 				is_heretic = yes
@@ -3287,39 +3281,36 @@ narrative_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA_SoA_5400
-
-		add_trait_fully_silently_cruel_effect = yes
+		if = {
+			limit = { NOT = { trait = cruel } }
+			add_trait = cruel
+		}
 		wealth = 30
-
 		FROM = {
-			show_scope_change = no
-
 			destroy_random_building = yes
 			destroy_random_building = yes
-
 			holder_scope = {
 				any_courtier = {
-					limit = { at_location = FROM }
-
+					limit = {
+						at_location = FROM
+					}
 					random = {
 						chance = 50
-
 						death = {
 							death_reason = death_murder
 							killer = ROOT
 						}
 					}
 				}
-
 				if = {
-					limit = { at_location = FROM }
-
+					limit = {
+						at_location = FROM
+					}
 					random = {
 						chance = 50
-
 						death = {
 							death_reason = death_murder
 							killer = ROOT
@@ -3329,13 +3320,19 @@ narrative_event = {
 			}
 		}
 	}
-
 	option = {
 		name = EVTOPTB_SoA_5400
-
-		random = {
-			chance = 30
-			add_trait_fully_kind_effect = yes
+		if = {
+			limit = { NOT = { trait = kind } }
+			random = {
+				chance = 30
+				add_trait = kind
+				hidden_tooltip = {
+					character_event = {
+						id = 38268 #Notify Kind
+					}
+				}
+			}
 		}
 	}
 }

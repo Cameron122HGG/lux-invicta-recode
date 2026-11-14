@@ -2768,87 +2768,111 @@ character_event = {
 }
 
 # Childless marriage
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 64090
 	desc = EVTDESC64090
 	picture = GFX_evt_lovers
-
-	is_triggered_only = yes # on_yearly_pulse, random_events, base_lover_events
-
-	only_rulers = yes
-	is_married = yes
+	
 	min_age = 25
 	max_age = 40
-	only_capable = yes
+	only_rulers = yes
+	capable_only = yes
 	prisoner = no
 	lacks_dlc = "Way of Life"
 	war = no
-	in_command = no
-
+	is_married = yes
+	
 	trigger = {
-		has_children = no
-		is_lover = spouse
-
+		in_command = no
+		NOT = {
+			num_of_children = 1
+		}
 		spouse = {
-			has_children = no
 			is_alive = yes
 			is_abroad = no
 			prisoner = no
-		}
-	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 2
-			fertility < 0.40
-		}
-	}
-
-	option = {
-		name = {
-			text = EVTOPTA64090 # Ask for God's help with our childless marriage
-			trigger = {
-				NOT = { religion_group = muslim }
+			any_lover = { character = ROOT }
+			
+			NOT = {
+				num_of_children = 1
 			}
 		}
-		name = {
-			text = EVTOPTC64090 # Ask for Allah's help with our childless marriage
-			trigger = { religion_group = muslim }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 0.5
+			NOT = {
+				fertility = 0.4
+			}
 		}
-
+	}
+	
+	option = {
+		name = "EVTOPTA64090" #Ask for God's help with our childless marriage
 		trigger = {
 			NOR = {
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
+				religion_group = muslim
 			}
 		}
-
-		spouse = {
-			show_scope_change = no
-
-			random_list = {
-				70 = { }
-				20 = { fertility = 0.20 }
-				10 = { fertility = 0.10 }
+		random_list = {
+			70 = {
+			}
+			20 = {
+				spouse = {
+					fertility = 0.2
+				}
+			}
+			10 = {
+				spouse = {
+					fertility = 0.1
+				}
 			}
 		}
 	}
-
 	option = {
-		name = EVTOPTB64090 # Meet with X every night
-
-		add_trait_silently_stressed_effect = yes
-
-		spouse = {
-			show_scope_change = no
-
-			random_list = {
-				40 = { }
-				30 = { fertility = 0.20 }
-				20 = { fertility = 0.10 }
-				10 = { health = -2 }
+		name = "EVTOPTB64090" #Meet with X every night
+		add_trait = stressed
+		random_list = {
+			40 = {
+			}
+			30 = {
+				spouse = {
+					fertility = 0.2
+				}
+			}
+			20 = {
+				spouse = {
+					fertility = 0.1
+				}
+			}
+			10 = {
+				health = -2
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC64090" #Ask for Allah's help with our childless marriage
+		trigger = {
+			religion_group = muslim
+		}
+		random_list = {
+			70 = {
+			}
+			20 = {
+				spouse = {
+					fertility = 0.2
+				}
+			}
+			10 = {
+				spouse = {
+					fertility = 0.1
+				}
 			}
 		}
 	}

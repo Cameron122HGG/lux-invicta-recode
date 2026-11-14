@@ -474,41 +474,43 @@ aryika = {
 	female_compliment = COMPL_NUN
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 bhikkhu = {
-	religious = yes # Lost immediately on religion change
-	cannot_marry = yes
-	cannot_inherit = yes
-	customizer = no
-	random = no
-
 	potential = {
 		is_ruler = no
 		is_female = no
-		religion = buddhist
+		LI_bud_trigger = yes
 	}
-
+	
 	monthly_character_piety = 0.3
 	same_religion_opinion = 5
-
-	male_compliment = COMPL_MONK
-}
-
-bhikkhuni = {
+	
 	religious = yes # Lost immediately on religion change
 	cannot_marry = yes
 	cannot_inherit = yes
 	customizer = no
 	random = no
+	
+	male_compliment = COMPL_MONK
+}
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+bhikkhuni = {
 	potential = {
 		is_ruler = no
 		is_female = yes
-		religion = buddhist
+		LI_bud_trigger = yes
 	}
-
+	
 	monthly_character_piety = 0.3
 	same_religion_opinion = 5
-
+	
+	religious = yes # Lost immediately on religion change
+	cannot_marry = yes
+	cannot_inherit = yes
+	customizer = no
+	random = no
+	
 	female_compliment = COMPL_NUN
 }
 
@@ -880,59 +882,56 @@ svetambara_jain = {
 }
 
 # Hindu Caste System
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 brahmin = {
-	# religious = yes
-	customizer = no
-	random = no
-
+	potential = {
+		caste_religions_trigger = yes
+	}
 	opposites = {
 		kshatriya
 		vaishya
 	}
-
-	potential = {
-		has_dharmic_religion_trigger = yes
-	}
-
+	
 	caste_tier = 3
 
 	monthly_character_piety = 0.1
-}
 
-kshatriya = {
-	# religious = yes
 	customizer = no
 	random = no
+}
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+kshatriya = {
+	potential = {
+		caste_religions_trigger = yes
+	}
 	opposites = {
 		brahmin
 		vaishya
-	}
-
-	potential = {
-		has_dharmic_religion_trigger = yes
 	}
 
 	caste_tier = 2
 
 	monthly_character_prestige = 0.1
-}
 
-vaishya = {
-	# religious = yes
 	customizer = no
 	random = no
+}
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+vaishya = {
+	potential = {
+		caste_religions_trigger = yes
+	}
 	opposites = {
 		brahmin
 		kshatriya
 	}
 
-	potential = {
-		has_dharmic_religion_trigger = yes
-	}
-
 	caste_tier = 1
 
 	monthly_character_wealth = 0.03
+	
+	customizer = no
+	random = no
 }

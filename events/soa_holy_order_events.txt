@@ -13,341 +13,76 @@ namespace = SoA
 ### Borrowing from holy orders
 
 # The Grand Master demands one of your sons due to debt
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = SoA.1003
-	border = GFX_event_letter_frame_religion
-	portrait = event_target:demanding_grandmaster
-
 	desc = {
-		text = EVTDESC_SOA_1003
-		trigger = {
-			has_character_flag = demand_from_knights_templar
-
+        text = EVTDESC_SOA_1003
+        trigger = {
 			NOT = {
 				has_alternate_start_parameter = {
 					key = religion_names
 					value = random
 				}
 			}
-		}
-	}
+        }
+    }
 	desc = {
-		text = EVTDESC_SOA_1203
-		trigger = {
-			OR = {
-				has_character_flag = demand_from_bektashi
-				has_character_flag = demand_from_assassins
-			}
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_CM_4303
-		trigger = {
-			has_character_flag = demand_from_haruriyyah
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = HOLY_ORDER_DEMAND_SON_ALT
-		trigger = {
+        text = HOLY_ORDER_DEMAND_SON_ALT
+        trigger = {
 			has_alternate_start_parameter = {
 				key = religion_names
 				value = random
 			}
-		}
-	}
+        }
+    }
+	border = GFX_event_letter_frame_religion
 
-	is_triggered_only = yes # on_yearly_pulse, random_events, holy_order_loan
-
-	only_playable = yes
-	min_age = 16
-
-	trigger = {
-		trigger_if = {
-			limit = { has_character_modifier = borrowed_from_knights_templar }
-
-			religion = d_knights_templar
-			has_dlc = "Sons of Abraham"
-
-			NOR = {
-				has_character_flag = sent_son_to_d_knights_templar
-				has_character_modifier = expelled_d_knights_templar
-
-				any_liege = {
-					has_character_modifier = expelled_d_knights_templar
-				}
-			}
-		}
-		trigger_else_if = {
-			limit = { has_character_modifier = borrowed_from_bektashi }
-
-			religion = d_bektashi
-			has_dlc = "Sons of Abraham"
-
-			NOR = {
-				has_character_flag = sent_son_to_d_bektashi
-				has_character_modifier = expelled_d_bektashi
-
-				any_liege = {
-					has_character_modifier = expelled_d_bektashi
-				}
-			}
-		}
-		trigger_else_if = {
-			limit = { has_character_modifier = borrowed_from_assassins }
-
-			religion = d_fedayeen
-			has_dlc = "Sons of Abraham"
-
-			NOR = {
-				has_character_flag = sent_son_to_d_fedayeen
-				has_character_modifier = expelled_d_fedayeen
-
-				any_liege = {
-					has_character_modifier = expelled_d_fedayeen
-				}
-			}
-		}
-		trigger_else = {
-			has_character_modifier = borrowed_from_haruriyyah
-			religion = d_fedayeen
-			has_dlc = "Charlemagne"
-
-			NOR = {
-				has_character_flag = sent_son_to_d_haruriyyah
-				has_character_modifier = expelled_d_haruriyyah
-
-				any_liege = {
-					has_character_modifier = expelled_d_haruriyyah
-				}
-			}
-		}
-
-		any_child = {
-			vassal_of = ROOT
-			is_female = no
-			is_adult = yes
-			religion = ROOT
-			NOT = { is_primary_heir = ROOT }
-			is_ruler = no
-			prisoner = no
-			is_incapable = no
-		}
-	}
-
-	immediate = {
-		random_child = {
-			limit = {
-				vassal_of = ROOT
-				is_female = no
-				is_adult = yes
-				religion = ROOT
-				NOT = { is_primary_heir = ROOT }
-				is_ruler = no
-				prisoner = no
-				is_incapable = no
-			}
-
-			save_event_target_as = demanded_child
-		}
-
-		if = {
-			limit = {
-				has_character_modifier = borrowed_from_knights_templar
-				religion = d_knights_templar
-				has_dlc = "Sons of Abraham"
-				NOT = { has_character_flag = sent_son_to_d_knights_templar }
-			}
-
-			set_character_flag = demand_from_knights_templar
-
-			d_knights_templar = {
-				save_event_target_as = demanding_holy_order
-
-				holder_scope = {
-					save_event_target_as = demanding_grandmaster
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				has_character_modifier = borrowed_from_bektashi
-				religion = d_bektashi
-				has_dlc = "Sons of Abraham"
-				NOT = { has_character_flag = sent_son_to_d_bektashi }
-			}
-
-			set_character_flag = demand_from_bektashi
-
-			d_bektashi = {
-				save_event_target_as = demanding_holy_order
-
-				holder_scope = {
-					save_event_target_as = demanding_grandmaster
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				has_character_modifier = borrowed_from_assassins
-				religion = d_fedayeen
-				has_dlc = "Sons of Abraham"
-				NOT = { has_character_flag = sent_son_to_d_fedayeen }
-			}
-
-			set_character_flag = demand_from_assassins
-
-			d_fedayeen = {
-				save_event_target_as = demanding_holy_order
-
-				holder_scope = {
-					save_event_target_as = demanding_grandmaster
-				}
-			}
-		}
-		else = {
-			set_character_flag = demand_from_haruriyyah
-
-			d_fedayeen = {
-				save_event_target_as = demanding_holy_order
-
-				holder_scope = {
-					save_event_target_as = demanding_grandmaster
-				}
-			}
-		}
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = EVTOPTA_SOA_1003 # Agree
-
-		set_character_flag = sent_son_to_@event_target:demanding_holy_order
-		piety = 100
-
-		event_target:demanded_child = {
-			show_scope_change = no
-
-			hidden_effect = {
-				clear_wealth = yes
-			}
-
-			# Christians divorce and become celibate
-			if = {
-				limit = { religion_group = christian }
-
-				add_trait_silently_celibate_effect = yes
-
-				any_spouse = {
-					show_scope_change = no
-
-					PREV = {
-						show_scope_change = no
-
-						remove_spouse = PREV
-					}
-
-					character_event = { id = SoA.2862 }
-				}
-
-				any_consort = {
-					show_scope_change = no
-
-					PREV = {
-						show_scope_change = no
-
-						remove_consort = PREV
-					}
-				}
-			}
-			# Muslims are disinherited instead
-			else_if = {
-				limit = { religion_group = muslim }
-				add_trait = disinherited # invisible trait
-			}
-
-			move_character = event_target:demanding_grandmaster
-			end_inaccessibility_effect = yes # removes in_hiding or in_seclusion
+		ai_chance = {
+			factor = 100
 		}
 
-		ai_chance = { factor = 100 }
+		set_character_flag = sent_son_to_holy_order
+
+		piety = 100
+
+		event_target:holy_order = {
+			holder_scope = {
+				FROMFROM = {
+					hidden_tooltip = {
+						clear_wealth = PREV
+					}
+					spouse = {
+						remove_spouse = spouse
+						hidden_tooltip = { character_event = { id = SoA.2862 } }
+					}
+					move_character = PREV
+					add_trait = celibate
+					end_inaccessibility_effect = yes #removes in_hiding or in_seclusion
+
+				}
+			}
+		}
 	}
 
 	option = {
 		name = EVTOPTB_SOA_1003 # Pay them back
-
-		transfer_scaled_wealth = {
-			to = event_target:demanding_grandmaster
-			value = 1
-			min = 300
-			max = 300
+		wealth = -300
+		hidden_tooltip = {
+			remove_borrowed_from_holy_order_effect = yes
 		}
-
-		hidden_effect = {
-			remove_character_modifier = borrowed_from_knights_templar
-			remove_character_modifier = borrowed_from_bektashi
-			remove_character_modifier = borrowed_from_assassins
-			remove_character_modifier = borrowed_from_haruriyyah
+		FROM = {
+			wealth = 300
 		}
 	}
 
 	option = {
 		name = EVTOPTC_SOA_1003 # Refuse
-
-		trigger = {
-			NOT = { has_character_modifier = borrowed_from_assassins }
-		}
-
 		piety = -1000
-	}
-
-	option = {
-		name = EVTOPTC_SOA_1003 # Refuse
-
-		trigger = { has_character_modifier = borrowed_from_assassins }
-
-		if = {
-			limit = { has_dlc = "Mystics" }
-
-			piety = -200
-			set_character_flag = assassins_refused_to_pay_debt
-		}
-		else = {
-			piety = -1000
-		}
-
-		ai_chance = {
-			factor = 3
-
-			trigger = { has_dlc = "Mystics" }
-
-			mult_modifier = {
-				factor = 2
-				wealth < 300
-			}
-
-			mult_modifier = {
-				factor = 2
-				trait = greedy
-			}
-
-			mult_modifier = {
-				factor = 2
-				is_impious_trigger = yes
-			}
-		}
 	}
 }
 
@@ -466,363 +201,50 @@ letter_event = {
 }
 
 # The Grand Master demands the right to build a castle in your demesne
-letter_event = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+character_event = {
 	id = SoA.1020
-	border = GFX_event_letter_frame_religion
-	portrait = event_target:target_grandmaster
-
-	desc = {
-		text = EVTDESC_SOA_1023
-		trigger = {
-			event_target:target_holy_order = { title = d_knights_templar }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1223
-		trigger = {
-			event_target:target_holy_order = {
-				OR = {
-					title = d_bektashi
-					title = d_fedayeen
-				}
-			}
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_CM_4323
-		trigger = {
-			event_target:target_holy_order = { title = d_haruriyyah }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = HOLY_ORDER_BUILD_CASTLE_ALT
-		trigger = {
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
-			}
-		}
-	}
-
-	is_triggered_only = yes # on_yearly_pulse, random_events, holy_order_loan
-
-	only_playable = yes
-	has_dlc = "Sons of Abraham"
+	
+	hide_window = yes
+	
 	min_age = 16
+	only_playable = yes
 
 	trigger = {
-		trigger_if = {
-			limit = { has_character_modifier = borrowed_from_knights_templar }
-
-			d_knights_templar = {
-				holder_scope = {
-					religion = ROOT
-					wealth >= 300
-				}
-			}
-
-			NOR = {
-				has_character_flag = sent_son_to_d_knights_templar
-				has_character_modifier = expelled_d_knights_templar
-
-				any_liege = {
-					has_character_modifier = expelled_d_knights_templar
-				}
-			}
-		}
-		trigger_else_if = {
-			limit = { has_character_modifier = borrowed_from_bektashi }
-
-			d_bektashi = {
-				holder_scope = {
-					religion = ROOT
-					wealth >= 300
-				}
-			}
-
-			NOR = {
-				has_character_flag = sent_son_to_d_bektashi
-				has_character_modifier = expelled_d_bektashi
-
-				any_liege = {
-					has_character_modifier = expelled_d_bektashi
-				}
-			}
-		}
-		trigger_else_if = {
-			limit = { has_character_modifier = borrowed_from_assassins }
-
-			d_fedayeen = {
-				holder_scope = {
-					religion = ROOT
-					wealth >= 300
-				}
-			}
-
-			NOR = {
-				has_character_flag = sent_son_to_d_fedayeen
-				has_character_modifier = expelled_d_fedayeen
-
-				any_liege = {
-					has_character_modifier = expelled_d_fedayeen
-				}
-			}
-		}
-		trigger_else = {
-			has_character_modifier = borrowed_from_assassins
-
-			d_fedayeen = {
-				holder_scope = {
-					religion = ROOT
-					wealth >= 300
-				}
-			}
-
-			NOR = {
-				has_character_flag = sent_son_to_d_haruriyyah
-				has_character_modifier = expelled_d_haruriyyah
-
-				any_liege = {
-					has_character_modifier = expelled_d_haruriyyah
-				}
-			}
-		}
+		has_holy_order_trigger = yes
+		borrowed_from_holy_order_trigger = yes
+		NOT = { has_character_flag = sent_son_to_holy_order }
 
 		any_demesne_province = {
 			has_empty_holding = yes
-			owned_by = PREV
-
-			OR = {
-				has_castle = yes
-				has_temple = yes
-				has_city = yes
-				has_tribal = yes
+		}
+		
+		event_target:holy_order = {
+			holder_scope = {
+				wealth = 300
 			}
 		}
+		has_dlc = "Sons of Abraham"
+		
+		expelled_holy_order_trigger = no
+		NOT = {
+			any_liege = {
+				expelled_holy_order_trigger = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
 	}
 
 	immediate = {
 		random_demesne_province = {
 			limit = {
 				has_empty_holding = yes
-				owned_by = PREV
-
-				OR = {
-					has_castle = yes
-					has_temple = yes
-					has_city = yes
-					has_tribal = yes
-				}
 			}
-
-			save_event_target_as = target_province
-		}
-
-		if = {
-			limit = {
-				has_character_modifier = borrowed_from_knights_templar
-
-				d_knights_templar = {
-					holder_scope = {
-						religion = ROOT
-						wealth >= 300
-					}
-				}
-
-				NOR = {
-					has_character_flag = sent_son_to_d_knights_templar
-					has_character_modifier = expelled_d_knights_templar
-
-					any_liege = {
-						has_character_modifier = expelled_d_knights_templar
-					}
-				}
-			}
-
-			d_knights_templar = {
-				save_event_target_as = target_holy_order
-			}
-		}
-		else_if = {
-			limit = {
-				has_character_modifier = borrowed_from_bektashi
-
-				d_bektashi = {
-					holder_scope = {
-						religion = ROOT
-						wealth >= 300
-					}
-				}
-
-				NOR = {
-					has_character_flag = sent_son_to_d_bektashi
-					has_character_modifier = expelled_d_bektashi
-
-					any_liege = {
-						has_character_modifier = expelled_d_bektashi
-					}
-				}
-			}
-
-			d_bektashi = {
-				save_event_target_as = target_holy_order
-			}
-		}
-		else_if = {
-			limit = {
-				has_character_modifier = borrowed_from_assassins
-
-				d_fedayeen = {
-					holder_scope = {
-						religion = ROOT
-						wealth >= 300
-					}
-				}
-
-				NOR = {
-					has_character_flag = sent_son_to_d_fedayeen
-					has_character_modifier = expelled_d_fedayeen
-
-					any_liege = {
-						has_character_modifier = expelled_d_fedayeen
-					}
-				}
-			}
-
-			d_fedayeen = {
-				save_event_target_as = target_holy_order
-			}
-		}
-		else = {
-			d_haruriyyah = {
-				save_event_target_as = target_holy_order
-			}
-		}
-
-		event_target:target_holy_order = {
-			holder_scope = {
-				save_event_target_as = target_grandmaster
-			}
-		}
-	}
-
-	option = {
-		name = EVTOPTA_SOA_1023 # Agree
-
-		hidden_effect = {
-			remove_character_modifier = borrowed_from_knights_templar
-			remove_character_modifier = borrowed_from_bektashi
-			remove_character_modifier = borrowed_from_assassins
-			remove_character_modifier = borrowed_from_haruriyyah
-
-			event_target:target_grandmaster = {
-				wealth = -300
-			}
-
-			event_target:target_province = {
-				province_event = { id = SoA.1024 }
-			}
-		}
-
-		piety = 100
-
-		ai_chance = { factor = 10 }
-	}
-
-	option = {
-		name = EVTOPTB_SOA_1003 # Pay them back
-
-		transfer_scaled_wealth = {
-			to = event_target:target_grandmaster
-			value = 1
-			min = 300
-			max = 300
-		}
-
-		hidden_effect = {
-			remove_character_modifier = borrowed_from_knights_templar
-			remove_character_modifier = borrowed_from_bektashi
-			remove_character_modifier = borrowed_from_assassins
-			remove_character_modifier = borrowed_from_haruriyyah
-		}
-
-		ai_chance = {
-			factor = 5
-
-			trigger = { wealth >= 300 }
-		}
-	}
-
-	option = {
-		name = EVTOPTC_SOA_1003 # Refuse
-
-		trigger = {
-			event_target:target_holy_order = {
-				NOT = { title = d_fedayeen }
-			}
-		}
-
-		piety = -1000
-	}
-
-	option = {
-		name = EVTOPTC_SOA_1003 # Refuse
-
-		trigger = {
-			event_target:target_holy_order = {
-				title = d_fedayeen
-			}
-		}
-
-		if = {
-			limit = { has_dlc = "Mystics" }
-
-			piety = -200
-			set_character_flag = assassins_refused_to_pay_debt
-		}
-		else = {
-			piety = -1000
-		}
-
-		ai_chance = {
-			factor = 3
-
-			trigger = { has_dlc = "Mystics" }
-
-			mult_modifier = {
-				factor = 2
-				wealth < 300
-			}
-
-			mult_modifier = {
-				factor = 2
-				trait = greedy
-			}
-
-			mult_modifier = {
-				factor = 2
-				is_impious_trigger = yes
+			province_event = {
+				id = SoA.1021
 			}
 		}
 	}
@@ -937,398 +359,2723 @@ letter_event = {
 ### Expelling holy orders
 
 # Expelling a Holy Order confirmation event
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.2990
-	border = GFX_event_normal_frame_religion
-	desc = EVTDESC_SOA_2990
-
-	picture = {
-		picture = GFX_evt_crusaders
-		trigger = { religion_group = christian }
+	border = "GFX_event_normal_frame_religion"
+	title = expel_holy_order
+	picture = GFX_evt_crusaders
+	
+	desc = {
+		trigger = {
+			religion_group = christian
+		}
+		text = EVTDESC_SOA_2990
+		picture = "GFX_evt_crusaders"
 	}
-	picture = {
-		picture = GFX_evt_moors
+	desc = {
 		trigger = {
 			OR = {
 				religion_group = muslim
 				religion_group = zoroastrian_group
+				religion_group = berberpagan_group
+				religion_group = arabpagan_group
+				religion_group = palmyranpagan_group
+				religion_group = yazd_group
+				religion_group = mand_group
+				religion_group = mani_group
 			}
 		}
+		text = EVTDESC_SOA_2990
+		picture = "GFX_evt_moors"
 	}
-	picture = {
-		picture = GFX_evt_vikings_arriving_oldgods
-		trigger = {
-			religion_group = pagan_group
-			religion_openly_aztec_or_reformed_trigger = no
-		}
-	}
-	picture = {
-		picture = GFX_evt_battle_mesoamerican
-		trigger = { religion_openly_aztec_or_reformed_trigger = yes }
-	}
-	picture = {
-		picture = GFX_evt_synagogue
-		trigger = { religion_group = jewish_group }
-	}
-
-	title = { # Knights Templar
-		text = expel_the_knights_templar
-		trigger = { has_character_flag = expel_the_knights_templar_check }
-	}
-	title = { # Knights Hospitaler
-		text = expel_the_knights_hospitaller
-		trigger = { has_character_flag = expel_the_knights_hospitaller_check }
-	}
-	title = { # Teutonic Order
-		text = expel_the_teutonic_order
+	desc = {
 		trigger = {
 			OR = {
-				has_character_flag = expel_the_teutonic_order_check
-				has_character_flag = expel_the_teutonic_state_check
+				religion_group = baltic_group
+				religion_group = finnish_group
+				religion_group = norsegerman_group
+				religion_group = pagan_group
+				religion_group = mithra_group
+				religion_group = slavic_group
+				religion_group = zal_group
 			}
 		}
+		text = EVTDESC_SOA_2990
+		picture = "GFX_evt_vikings_arriving_oldgods"
 	}
-	title = { # Jomsvikings
-		text = expel_the_jomsvikings
-		trigger = { has_character_flag = expel_the_jomsvikings_check }
+	desc = {
+		trigger = {
+			OR = {
+				religion_group = bantu_group
+				religion_group = east_african_group
+				religion_group = serer_group
+			}
+		}
+		text = EVTDESC_SOA_2990
+		picture = GFX_evt_travel_west_african
 	}
-	title = { # Hashshashin
-		text = expel_the_assassins
-		trigger = { has_character_flag = expel_the_assassins_check }
+	desc = {
+		trigger = {
+			religion = aztec
+		}
+		text = EVTDESC_SOA_2990
+		picture = "GFX_evt_battle_mesoamerican"
 	}
-	title = { # Bektashi
-		text = expel_the_bektashi
-		trigger = { has_character_flag = expel_the_bektashi_check }
+	desc = {
+		trigger = {
+			OR = {
+				religion_group = jewish_group
+				religion_group = abrahamic_group
+			}
+		}
+		text = EVTDESC_SOA_2990
+		picture = "GFX_evt_synagogue"
 	}
-	title = { # Haruriyyah
-		text = expel_the_haruriyyah
-		trigger = { has_character_flag = expel_the_haruriyyah_check }
+	desc = {
+		trigger = {
+			OR = {
+				religion_group = egyptian_group
+				religion_group = luwian_group
+			}
+		}
+		text = EVTDESC_SOA_2990
+		picture = GFX_evt_ancient_egypt
 	}
-	title = { # Holy Sepulchre
-		text = expel_the_holy_sepulchre
-		trigger = { has_character_flag = expel_the_holy_sepulchre_check }
+	desc = {
+		trigger = {
+			OR = {
+				religion_group = bud_group
+				religion_group = indian_group
+			}
+		}
+		text = EVTDESC_SOA_2990
+		picture = GFX_evt_roi_elephants_battle
 	}
-	title = { # Saint Anthony
-		text = expel_saint_anthony
-		trigger = { has_character_flag = expel_saint_anthony_check }
+	desc = {
+		trigger = {
+			religion_group = celtic_group
+		}
+		text = EVTDESC_SOA_2990
+		picture = GFX_evt_celtic_warriors
 	}
-	title = { # Immortals
-		text = expel_immortals
-		trigger = { has_character_flag = expel_immortals_check }
+	desc = {
+		trigger = {
+			religion_group = chinese_group
+		}
+		text = EVTDESC_SOA_2990
+		picture = GFX_evt_silkroad_han_traders
 	}
-	title = { # Zealots
-		text = expel_zealots
-		trigger = { has_character_flag = expel_zealots_check }
+	desc = {
+		trigger = {
+			OR = {
+				religion_group = graecoroman_group
+				religion_group = neoplato_group
+				religion_group = sol_group
+			}
+		}
+		text = EVTDESC_SOA_2990
+		picture = GFX_evt_hippodrome_byzantine
 	}
-	title = { # Sky Lords
-		text = expel_sky_lords
-		trigger = { has_character_flag = expel_sky_lords_check }
+	desc = {
+		trigger = {
+			religion_group = inuit_group
+		}
+		text = EVTDESC_SOA_2990
+		picture = GFX_evt_rainstorm
 	}
-	title = { # Spirit Guardians
-		text = expel_spirit_guardians
-		trigger = { has_character_flag = expel_spirit_guardians_check }
+	desc = {
+		trigger = {
+			religion_group = tengri_group
+		}
+		text = EVTDESC_SOA_2990
+		picture = GFX_evt_mongols
 	}
-	title = { # Warriors of Perun
-		text = expel_warriors_perun
-		trigger = { has_character_flag = expel_warriors_perun_check }
-	}
-	title = { # Chosen of Perkunas
-		text = expel_chosen_perkunas
-		trigger = { has_character_flag = expel_chosen_perkunas_check }
-	}
-	title = { # Sons of Kaleva
-		text = expel_sons_kaleva
-		trigger = { has_character_flag = expel_sons_kaleva_check }
-	}
-	title = { # Huitzilopochtli
-		text = expel_huitzilopochtli
-		trigger = { has_character_flag = expel_huitzilopochtli_check }
-	}
-	title = { # Knights of Santiago
-		text = expel_knights_santiago
-		trigger = { has_character_flag = expel_knights_santiago_check }
-	}
-	title = { # Knights of Calatrava
-		text = expel_knights_calatrava
-		trigger = { has_character_flag = expel_knights_calatrava_check }
-	}
-	title = { # Order of St Addai
-		text = expel_order_of_addai
-		trigger = { has_character_flag = expel_order_of_addai_check }
-	}
-	title = { # Zun Warriors
-		text = expel_zun_warriors
-		trigger = { has_character_flag = expel_zun_warriors_check }
-	}
-
-	is_triggered_only = yes # expel_*, holy_order_decisions.txt
-
+	
+	only_rulers = yes
+	
+	is_triggered_only = yes
+	
 	option = {
-		name = EVTOPTA_SOA_2990
-
+		name = "EVTOPTA_SOA_2990"
 		piety = -1000
-
+		
 		religion_authority = {
-			name = holy_order_expelled
+			modifier = holy_order_expelled
 			years = 20
 		}
-
-		if = {
-			limit = { has_character_modifier = donated_to_holy_order }
-			remove_character_modifier = donated_to_holy_order
-		}
-
 		custom_tooltip = {
 			text = expelling_holy_order_event_tooltip_a
-
-			letter_event = { id = SoA.1061 }
-
-			trigger_switch = {
-				on_trigger = has_character_flag
-
-				expel_the_knights_templar_check = {
-					add_character_modifier = {
-						name = expelled_d_knights_templar
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_the_knights_hospitaller_check = {
-					add_character_modifier = {
-						name = expelled_d_knights_hospitaller
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_the_teutonic_order_check = {
-					add_character_modifier = {
-						name = expelled_d_teutonic_order
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_the_teutonic_state_check = {
-					add_character_modifier = {
-						name = expelled_k_teutonic_state
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_the_jomsvikings_check = {
-					add_character_modifier = {
-						name = expelled_d_jomsvikings
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_the_assassins_check = {
-					add_character_modifier = {
-						name = expelled_d_fedayeen
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_the_bektashi_check = {
-					add_character_modifier = {
-						name = expelled_d_bektashi
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_the_haruriyyah_check = {
-					add_character_modifier = {
-						name = expelled_d_haruriyyah
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_the_holy_sepulchre_check = {
-					add_character_modifier = {
-						name = expelled_d_holy_sepulchre
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_saint_anthony_check = {
-					add_character_modifier = {
-						name = expelled_d_saint_anthony
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_immortals_check = {
-					add_character_modifier = {
-						name = expelled_d_immortals
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_zealots_check = {
-					add_character_modifier = {
-						name = expelled_d_zealots
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_sky_lords_check = {
-					add_character_modifier = {
-						name = expelled_d_sky_lords
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_spirit_guardians_check = {
-					add_character_modifier = {
-						name = expelled_d_spirit_guardians
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_warriors_perun_check = {
-					add_character_modifier = {
-						name = expelled_d_warriors_perun
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_chosen_perkunas_check = {
-					add_character_modifier = {
-						name = expelled_d_chosen_perkunas
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_sons_kaleva_check = {
-					add_character_modifier = {
-						name = expelled_d_sons_kaleva
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_huitzilopochtli_check = {
-					add_character_modifier = {
-						name = expelled_d_knights_santiago
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_knights_santiago_check = {
-					add_character_modifier = {
-						name = expelled_d_knights_calatrava
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_knights_calatrava_check = {
-					add_character_modifier = {
-						name = expelled_d_knights_templar
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_order_of_addai_check = {
-					add_character_modifier = {
-						name = expelled_d_saint_addai
-						duration = -1
-						inherit = yes
-					}
-				}
-
-				expel_zun_warriors_check = {
-					add_character_modifier = {
-						name = expelled_d_zun_warriors
-						duration = -1
-						inherit = yes
-					}
-				}
-			}
 		}
-
-		event_target:target_grandmaster = {
-			show_scope_change = no
-
-			opinion = {
-				name = opinion_expelled_from_realm
-				who = ROOT
-			}
-
-			if = {
-				limit = { is_vassal_or_below_of = ROOT }
-				set_defacto_liege = THIS
-			}
-
-			hidden_effect = {
-				any_title_under = {
-					show_scope_change = no # doesn't work, so tooltip is hideous, tooltip above already covers this
-
-					limit = {
-						real_tier = BARON
-
-						location = {
-							owner = {
-								OR = {
-									character = FROM
-									is_vassal_or_below_of = FROM
-								}
+		trigger_switch = {
+			on_trigger = has_character_flag
+			expel_d_holyadoptionist_check = {
+				hidden_tooltip = {
+					d_holyadoptionist = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060
 							}
 						}
 					}
-
-					usurp_title = ROOT
+					add_character_modifier = {
+						name = expelled_d_holyadoptionist
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyadoptionist_check
+				}
+			}
+			expel_d_holyalexandros_check = {
+				hidden_tooltip = {
+					d_holyalexandros = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyalexandros
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyalexandros_check
+				}
+			}
+			expel_d_holyalmaqah_check = {
+				hidden_tooltip = {
+					add_character_modifier = {
+						name = expelled_d_holyalmaqah
+						duration = -1
+						inherit = yes
+					}
+					d_holyalmaqah = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060
+							}
+						}
+					}
+					clr_character_flag = expel_d_holyalmaqah_check
+				}
+			}
+			expel_d_holyapollinarist_check = {
+				hidden_tooltip = {
+					d_holyapollinarist = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.1560: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyapollinarist
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyapollinarist_check
+				}
+			}
+			expel_d_holyarian_check = {
+				hidden_tooltip = {
+					d_holyarian = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.1460: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					
+					add_character_modifier = {
+						name = expelled_d_holyarian
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyarian_check
+				}
+			}
+			expel_d_holyashari_check = {
+				hidden_tooltip = {
+					d_holyashari = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.1460: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					
+					add_character_modifier = {
+						name = expelled_d_holyashari
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyashari_check
+				}
+			}
+			expel_d_holyathari_check = {
+				hidden_tooltip = {
+					d_holyathari = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.1460: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					
+					add_character_modifier = {
+						name = expelled_d_holyathari
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyathari_check
+				}
+			}
+			expel_d_holyaudianist_check = {
+				hidden_tooltip = {
+					d_holyaudianist = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.1660: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyaudianist
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyaudianist_check
+				}
+			}
+			expel_d_holyaztec_check = {
+				hidden_tooltip = {
+					d_holyaztec = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.1760: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyaztec
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyaztec_check
+				}
+			}
+			expel_d_holybud_bahusrutiya_check = {
+				hidden_tooltip = {
+					d_holybud_bahusrutiya = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.1860: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybud_bahusrutiya
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybud_bahusrutiya_check
+				}
+			}
+			expel_d_holybud_mahayana_check = {
+				hidden_tooltip = {
+					d_holybud_mahayana = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.1960: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybud_mahayana
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybud_mahayana_check
+				}
+			}
+			expel_d_holybud_pratyeka_check = {
+				hidden_tooltip = {
+					d_holybud_pratyeka = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.2060: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybud_pratyeka
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybud_pratyeka_check
+				}
+			}
+			expel_d_holybud_pureland_check = {
+				hidden_tooltip = {
+					d_holybud_pureland = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.2160: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybud_pureland
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybud_pureland_check
+				}
+			}
+			expel_d_holybud_sthaviravada_check = {
+				hidden_tooltip = {
+					d_holybud_sthaviravada = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.2260: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybud_sthaviravada
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybud_sthaviravada_check
+				}
+			}
+			expel_d_holybud_vajrayana_check = {
+				hidden_tooltip = {
+					d_holybud_vajrayana = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.2360: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybud_vajrayana
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybud_vajrayana_check
+				}
+			}
+			expel_d_holycatholic_check = {
+				hidden_tooltip = {
+					d_holycatholic = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.2460: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holycatholic
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holycatholic_check
+				}
+			}
+			expel_d_holydonatist_check = {
+				hidden_tooltip = {
+					d_holydonatist = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.2560: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holydonatist
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holydonatist_check
+				}
+			}
+			expel_d_holyharuri_check = {
+				hidden_tooltip = {
+					d_holyharuri = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.2660: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyharuri
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyharuri_check
+				}
+			}
+			expel_d_holyhindu_check = {
+				hidden_tooltip = {
+					d_holyhindu = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.2760: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyhindu
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyhindu_check
+				}
+			}
+			expel_d_holyhurufi_check = {
+				hidden_tooltip = {
+					d_holyhurufi = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was SoA.2860: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyhurufi
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyhurufi_check
+				}
+			}
+			expel_d_holyiconoclast_check = {
+				hidden_tooltip = {
+					d_holyiconoclast = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyiconoclast
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyiconoclast_check
+				}
+			}
+			expel_d_holyilm_islam_check = {
+				hidden_tooltip = {
+					d_holyilm_islam = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyilm_islam
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyilm_islam_check
+				}
+			}
+			expel_d_holyindoh_bud_check = {
+				hidden_tooltip = {
+					d_holyindoh_bud = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyindoh_bud
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyindoh_bud_check
+				}
+			}
+			expel_d_holyindoh_confucian_check = {
+				hidden_tooltip = {
+					d_holyindoh_confucian = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyindoh_confucian
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyindoh_confucian_check
+				}
+			}
+			expel_d_holyindoh_hindu_check = {
+				hidden_tooltip = {
+					d_holyindoh_hindu = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyindoh_hindu
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyindoh_hindu_check
+				}
+			}
+			expel_d_holyindoh_zor_check = {
+				hidden_tooltip = {
+					d_holyindoh_zor = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyindoh_zor
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyindoh_zor_check
+				}
+			}
+			expel_d_holyjain_check = {
+				hidden_tooltip = {
+					d_holyjain = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyjain
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyjain_check
+				}
+			}
+			expel_d_holyjud_zion_check = {
+				hidden_tooltip = {
+					d_holyjud_zion = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyjud_zion
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyjud_zion_check
+				}
+			}
+			expel_d_holyjupiter_check = {
+				hidden_tooltip = {
+					d_holyjupiter = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyjupiter
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyjupiter_check
+				}
+			}
+			expel_d_holyluwian_check = {
+				hidden_tooltip = {
+					d_holyluwian = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyluwian
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyluwian_check
+				}
+			}
+			expel_d_holymani_check = {
+				hidden_tooltip = {
+					d_holymani = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymani
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymani_check
+				}
+			}
+			expel_d_holymani_mithra_check = {
+				hidden_tooltip = {
+					d_holymani_mithra = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymani_mithra
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymani_mithra_check
+				}
+			}
+			expel_d_holymaturidi_check = {
+				hidden_tooltip = {
+					d_holymaturidi = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymaturidi
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymaturidi_check
+				}
+			}
+			expel_d_holymelkite_check = {
+				hidden_tooltip = {
+					d_holymelkite = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymelkite
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymelkite_check
+				}
+			}
+			expel_d_holymithra_check = {
+				hidden_tooltip = {
+					d_holymithra = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymithra
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymithra_check
+				}
+			}
+			expel_d_holymithra_christ_check = {
+				hidden_tooltip = {
+					d_holymithra_christ = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymithra_christ
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymithra_christ_check
+				}
+			}
+			expel_d_holymithra_sol_check = {
+				hidden_tooltip = {
+					d_holymithra_sol = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymithra_sol
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymithra_sol_check
+				}
+			}
+			expel_d_holymonophysite_check = {
+				hidden_tooltip = {
+					d_holymonophysite = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymonophysite
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymonophysite_check
+				}
+			}
+			expel_d_holymonothelite_check = {
+				hidden_tooltip = {
+					d_holymonothelite = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymonothelite
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymonothelite_check
+				}
+			}
+			expel_d_holymurjiah_check = {
+				hidden_tooltip = {
+					d_holymurjiah = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymurjiah
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymurjiah_check
+				}
+			}
+			expel_d_holymutazil_check = {
+				hidden_tooltip = {
+					d_holymutazil = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymutazil
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymutazil_check
+				}
+			}
+			expel_d_holymwari_check = {
+				hidden_tooltip = {
+					d_holymwari = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymwari
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymwari_check
+				}
+			}
+			expel_d_holyneoplato_check = {
+				hidden_tooltip = {
+					d_holyneoplato = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyneoplato
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyneoplato_check
+				}
+			}
+			expel_d_holynestorian_check = {
+				hidden_tooltip = {
+					d_holynestorian = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holynestorian
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holynestorian_check
+				}
+			}
+			expel_d_holynyau_check = {
+				hidden_tooltip = {
+					d_holynyau = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holynyau
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holynyau_check
+				}
+			}
+			expel_d_holyorthodox_check = {
+				hidden_tooltip = {
+					d_holyorthodox = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyorthodox
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyorthodox_check
+				}
+			}
+			expel_d_holypelagian_check = {
+				hidden_tooltip = {
+					d_holypelagian = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holypelagian
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holypelagian_check
+				}
+			}
+			expel_d_holyplato_christ_check = {
+				hidden_tooltip = {
+					d_holyplato_christ = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyplato_christ
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyplato_christ_check
+				}
+			}
+			expel_d_holyplato_christ_check = {
+				hidden_tooltip = {
+					d_holyplato_christ = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyplato_christ
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyplato_islam_check
+				}
+			}
+			expel_d_holysabellianist_check = {
+				hidden_tooltip = {
+					d_holysabellianist = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysabellianist
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysabellianist_check
+				}
+			}
+			expel_d_holysemipelagian_check = {
+				hidden_tooltip = {
+					d_holysemipelagian = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysemipelagian
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysemipelagian_check
+				}
+			}
+			expel_d_holyshiite_check = {
+				hidden_tooltip = {
+					d_holyshiite = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyshiite
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyshiite_check
+				}
+			}
+			expel_d_holysol_check = {
+				hidden_tooltip = {
+					d_holysol = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysol
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysol_check
+				}
+			}
+			expel_d_holysol_apollo_check = {
+				hidden_tooltip = {
+					d_holysol_apollo = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysol_apollo
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysol_apollo_check
+				}
+			}
+			expel_d_holysol_christ_check = {
+				hidden_tooltip = {
+					d_holysol_christ = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysol_christ
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysol_christ_check
+				}
+			}
+			expel_d_holysol_mani_check = {
+				hidden_tooltip = {
+					d_holysol_mani = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysol_mani
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysol_mani_check
+				}
+			}
+			expel_d_holysolomonic_alexandros_check = {
+				hidden_tooltip = {
+					d_holysolomonic_alexandros = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysolomonic_alexandros
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysolomonic_alexandros_check
+				}
+			}
+			expel_d_holysolomonic_christ_check = {
+				hidden_tooltip = {
+					d_holysolomonic_christ = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysolomonic_christ
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysolomonic_christ_check
+				}
+			}
+			expel_d_holysunni_check = {
+				hidden_tooltip = {
+					d_holysunni = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysunni
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysunni_check
+				}
+			}
+			expel_d_holyunctionist_check = {
+				hidden_tooltip = {
+					d_holyunctionist = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyunctionist
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyunctionist_check
+				}
+			}
+			expel_d_holyyoruba_check = {
+				hidden_tooltip = {
+					d_holyyoruba = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyyoruba
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyyoruba_check
+				}
+			}
+			expel_d_holyzahiri_check = {
+				hidden_tooltip = {
+					d_holyzahiri = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzahiri
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzahiri_check
+				}
+			}
+			expel_d_holyzal_check = {
+				hidden_tooltip = {
+					d_holyzal = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzal
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzal_check
+				}
+			}
+			expel_d_holyzal_christ_check = {
+				hidden_tooltip = {
+					d_holyzal_christ = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzal_christ
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzal_christ_check
+				}
+			}
+			expel_d_holyzal_mani_check = {
+				hidden_tooltip = {
+					d_holyzal_mani = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzal_mani
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzal_mani_check
+				}
+			}
+			expel_d_holyzor_hindu_check = {
+				hidden_tooltip = {
+					d_holyzor_hindu = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzor_hindu
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzor_hindu_check
+				}
+			}
+			expel_d_holyzoroastrian_check = {
+				hidden_tooltip = {
+					d_holyzoroastrian = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzoroastrian
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzoroastrian_check
+				}
+			}
+			expel_d_holyahriman_reformed_check = {
+				hidden_tooltip = {
+					d_holyahriman_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyahriman_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyahriman_reformed_check
+				}
+			}
+			expel_d_holyamun_reformed_check = {
+				hidden_tooltip = {
+					d_holyamun_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyamun_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyamun_reformed_check
+				}
+			}
+			expel_d_holyarab_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holyarab_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyarab_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyarab_pagan_reformed_check
+				}
+			}
+			expel_d_holyaten_reformed_check = {
+				hidden_tooltip = {
+					d_holyaten_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyaten_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyaten_reformed_check
+				}
+			}
+			expel_d_holybaal_monotheistic_reformed_check = {
+				hidden_tooltip = {
+					d_holybaal_monotheistic_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybaal_monotheistic_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybaal_monotheistic_reformed_check
+				}
+			}
+			expel_d_holybaltic_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holybaltic_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybaltic_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybaltic_pagan_reformed_check
+				}
+			}
+			expel_d_holybantu_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holybantu_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybantu_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybantu_pagan_reformed_check
+				}
+			}
+			expel_d_holyberber_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holyberber_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyberber_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyberber_pagan_reformed_check
+				}
+			}
+			expel_d_holybon_reformed_check = {
+				hidden_tooltip = {
+					d_holybon_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybon_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybon_reformed_check
+				}
+			}
+			expel_d_holybud_zen_reformed_check = {
+				hidden_tooltip = {
+					d_holybud_zen_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybud_zen_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybud_zen_reformed_check
+				}
+			}
+			expel_d_holybud_zor_reformed_check = {
+				hidden_tooltip = {
+					d_holybud_zor_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holybud_zor_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holybud_zor_reformed_check
+				}
+			}
+			expel_d_holycathar_reformed_check = {
+				hidden_tooltip = {
+					d_holycathar_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holycathar_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holycathar_reformed_check
+				}
+			}
+			expel_d_holyceltic_christ_reformed_check = {
+				hidden_tooltip = {
+					d_holyceltic_christ_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyceltic_christ_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyceltic_christ_reformed_check
+				}
+			}
+			expel_d_holyceltic_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holyceltic_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyceltic_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyceltic_pagan_reformed_check
+				}
+			}
+			expel_d_holychristian_populist_reformed_check = {
+				hidden_tooltip = {
+					d_holychristian_populist_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holychristian_populist_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holychristian_populist_reformed_check
+				}
+			}
+			expel_d_holychumbylat_reformed_check = {
+				hidden_tooltip = {
+					d_holychumbylat_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holychumbylat_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holychumbylat_reformed_check
+				}
+			}
+			expel_d_holycybele_reformed_check = {
+				hidden_tooltip = {
+					d_holycybele_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holycybele_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holycybele_reformed_check
+				}
+			}
+			expel_d_holydruze_reformed_check = {
+				hidden_tooltip = {
+					d_holydruze_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holydruze_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holydruze_reformed_check
+				}
+			}
+			expel_d_holyerlik_reformed_check = {
+				hidden_tooltip = {
+					d_holyerlik_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyerlik_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyerlik_reformed_check
+				}
+			}
+			expel_d_holyethiopian_war_reformed_check = {
+				hidden_tooltip = {
+					d_holyethiopian_war_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyethiopian_war_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyethiopian_war_reformed_check
+				}
+			}
+			expel_d_holyfinnish_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holyfinnish_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyfinnish_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyfinnish_pagan_reformed_check
+				}
+			}
+			expel_d_holygerman_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holygerman_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holygerman_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holygerman_pagan_reformed_check
+				}
+			}
+			expel_d_holygraeco_roman_reformed_check = {
+				hidden_tooltip = {
+					d_holygraeco_roman_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holygraeco_roman_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holygraeco_roman_reformed_check
+				}
+			}
+			expel_d_holyiberian_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holyiberian_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyiberian_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyiberian_pagan_reformed_check
+				}
+			}
+			expel_d_holyilluyanka_reformed_check = {
+				hidden_tooltip = {
+					d_holyilluyanka_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyilluyanka_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyilluyanka_reformed_check
+				}
+			}
+			expel_d_holyindohelen_reformed_check = {
+				hidden_tooltip = {
+					d_holyindohelen_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyindohelen_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyindohelen_reformed_check
+				}
+			}
+			expel_d_holyinuit_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holyinuit_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyinuit_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyinuit_pagan_reformed_check
+				}
+			}
+			expel_d_holyisis_reformed_check = {
+				hidden_tooltip = {
+					d_holyisis_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyisis_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyisis_reformed_check
+				}
+			}
+			expel_d_holyjud_ark_reformed_check = {
+				hidden_tooltip = {
+					d_holyjud_ark_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyjud_ark_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyjud_ark_reformed_check
+				}
+			}
+			expel_d_holyjudaism_reformed_check = {
+				hidden_tooltip = {
+					d_holyjudaism_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyjudaism_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyjudaism_reformed_check
+				}
+			}
+			expel_d_holykubera_reformed_check = {
+				hidden_tooltip = {
+					d_holykubera_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holykubera_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holykubera_reformed_check
+				}
+			}
+			expel_d_holylubu_reformed_check = {
+				hidden_tooltip = {
+					d_holylubu_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holylubu_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holylubu_reformed_check
+				}
+			}
+			expel_d_holymand_ruha_reformed_check = {
+				hidden_tooltip = {
+					d_holymand_ruha_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymand_ruha_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymand_ruha_reformed_check
+				}
+			}
+			expel_d_holymandaean_reformed_check = {
+				hidden_tooltip = {
+					d_holymandaean_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymandaean_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymandaean_reformed_check
+				}
+			}
+			expel_d_holymani_germanic_reformed_check = {
+				hidden_tooltip = {
+					d_holymani_germanic_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymani_germanic_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymani_germanic_reformed_check
+				}
+			}
+			expel_d_holymani_slavic_reformed_check = {
+				hidden_tooltip = {
+					d_holymani_slavic_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymani_slavic_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymani_slavic_reformed_check
+				}
+			}
+			expel_d_holymari_christ_reformed_check = {
+				hidden_tooltip = {
+					d_holymari_christ_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymari_christ_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymari_christ_reformed_check
+				}
+			}
+			expel_d_holymazdakism_reformed_check = {
+				hidden_tooltip = {
+					d_holymazdakism_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymazdakism_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymazdakism_reformed_check
+				}
+			}
+			expel_d_holymontanist_reformed_check = {
+				hidden_tooltip = {
+					d_holymontanist_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymontanist_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymontanist_reformed_check
+				}
+			}
+			expel_d_holymurugan_reformed_check = {
+				hidden_tooltip = {
+					d_holymurugan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymurugan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymurugan_reformed_check
+				}
+			}
+			expel_d_holymuslim_aliite_reformed_check = {
+				hidden_tooltip = {
+					d_holymuslim_aliite_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymuslim_aliite_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymuslim_aliite_reformed_check
+				}
+			}
+			expel_d_holymuslim_domination_reformed_check = {
+				hidden_tooltip = {
+					d_holymuslim_domination_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymuslim_domination_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymuslim_domination_reformed_check
+				}
+			}
+			expel_d_holymuslim_sufi_reformed_check = {
+				hidden_tooltip = {
+					d_holymuslim_sufi_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymuslim_sufi_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holymuslim_sufi_reformed_check
+				}
+			}
+			expel_d_holynasrani_reformed_check = {
+				hidden_tooltip = {
+					d_holynasrani_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holymuslim_sufi_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holynasrani_reformed_check
+				}
+			}
+			expel_d_holynorse_christ_reformed_check = {
+				hidden_tooltip = {
+					d_holynorse_christ_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holynorse_christ_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holynorse_christ_reformed_check
+				}
+			}
+			expel_d_holynorse_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holynorse_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holynorse_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holynorse_pagan_reformed_check
+				}
+			}
+			expel_d_holynorthern_sun_reformed_check = {
+				hidden_tooltip = {
+					d_holynorthern_sun_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holynorthern_sun_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holynorthern_sun_reformed_check
+				}
+			}
+			expel_d_holynyakalagan_reformed_check = {
+				hidden_tooltip = {
+					d_holynyakalagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holynyakalagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holynyakalagan_reformed_check
+				}
+			}
+			expel_d_holypriscillian_reformed_check = {
+				hidden_tooltip = {
+					d_holypriscillian_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holypriscillian_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holypriscillian_reformed_check
+				}
+			}
+			expel_d_holyragnarok_reformed_check = {
+				hidden_tooltip = {
+					d_holyragnarok_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyragnarok_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyragnarok_reformed_check
+				}
+			}
+			expel_d_holysaura_reformed_check = {
+				hidden_tooltip = {
+					d_holysaura_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysaura_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysaura_reformed_check
+				}
+			}
+			expel_d_holyserer_reformed_check = {
+				hidden_tooltip = {
+					d_holyserer_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyserer_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyserer_reformed_check
+				}
+			}
+			expel_d_holyset_reformed_check = {
+				hidden_tooltip = {
+					d_holyset_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyset_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyset_reformed_check
+				}
+			}
+			expel_d_holysethian_reformed_check = {
+				hidden_tooltip = {
+					d_holysethian_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysethian_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysethian_reformed_check
+				}
+			}
+			expel_d_holyslavic_christian_reformed_check = {
+				hidden_tooltip = {
+					d_holyslavic_christian_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyslavic_christian_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyslavic_christian_reformed_check
+				}
+			}
+			expel_d_holyslavic_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holyslavic_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyslavic_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyslavic_pagan_reformed_check
+				}
+			}
+			expel_d_holysol_boreas_reformed_check = {
+				hidden_tooltip = {
+					d_holysol_boreas_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysol_boreas_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysol_boreas_reformed_check
+				}
+			}
+			expel_d_holysol_islam_reformed_check = {
+				hidden_tooltip = {
+					d_holysol_islam_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysol_islam_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysol_islam_reformed_check
+				}
+			}
+			expel_d_holysol_sahara_reformed_check = {
+				hidden_tooltip = {
+					d_holysol_sahara_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holysol_sahara_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holysol_sahara_reformed_check
+				}
+			}
+			expel_d_holytao_reformed_check = {
+				hidden_tooltip = {
+					d_holytao_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holytao_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holytao_reformed_check
+				}
+			}
+			expel_d_holytarhunt_reformed_check = {
+				hidden_tooltip = {
+					d_holytarhunt_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holytarhunt_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holytarhunt_reformed_check
+				}
+			}
+			expel_d_holyteiwaz_reformed_check = {
+				hidden_tooltip = {
+					d_holyteiwaz_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyteiwaz_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyteiwaz_reformed_check
+				}
+			}
+			expel_d_holytengri_bud_reformed_check = {
+				hidden_tooltip = {
+					d_holytengri_bud_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holytengri_bud_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holytengri_bud_reformed_check
+				}
+			}
+			expel_d_holytengri_confucian_reformed_check = {
+				hidden_tooltip = {
+					d_holytengri_confucian_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holytengri_confucian_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holytengri_confucian_reformed_check
+				}
+			}
+			expel_d_holytengri_mani_reformed_check = {
+				hidden_tooltip = {
+					d_holytengri_mani_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holytengri_mani_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holytengri_mani_reformed_check
+				}
+			}
+			expel_d_holytengri_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holytengri_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holytengri_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holytengri_pagan_reformed_check
+				}
+			}
+			expel_d_holytengri_rod_reformed_check = {
+				hidden_tooltip = {
+					d_holytengri_rod_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holytengri_rod_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holytengri_rod_reformed_check
+				}
+			}
+			expel_d_holyvattisenyaly_reformed_check = {
+				hidden_tooltip = {
+					d_holyvattisenyaly_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyvattisenyaly_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyvattisenyaly_reformed_check
+				}
+			}
+			expel_d_holyvidharma_reformed_check = {
+				hidden_tooltip = {
+					d_holyvidharma_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyvidharma_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyvidharma_reformed_check
+				}
+			}
+			expel_d_holyvoipel_reformed_check = {
+				hidden_tooltip = {
+					d_holyvoipel_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyvoipel_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyvoipel_reformed_check
+				}
+			}
+			expel_d_holyyazdanism_reformed_check = {
+				hidden_tooltip = {
+					d_holyyazdanism_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyyazdanism_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyyazdanism_reformed_check
+				}
+			}
+			expel_d_holyzande_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holyzande_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzande_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzande_pagan_reformed_check
+				}
+			}
+			expel_d_holyzor_angra_reformed_check = {
+				hidden_tooltip = {
+					d_holyzor_angra_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzor_angra_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzor_angra_reformed_check
+				}
+			}
+			expel_d_holyzulu_pagan_reformed_check = {
+				hidden_tooltip = {
+					d_holyzulu_pagan_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzulu_pagan_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzulu_pagan_reformed_check
+				}
+			}
+			expel_d_holyzurvanism_reformed_check = {
+				hidden_tooltip = {
+					d_holyzurvanism_reformed = {
+						holder_scope = {
+							character_event = {
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
+							}
+						}
+					}
+					add_character_modifier = {
+						name = expelled_d_holyzurvanism_reformed
+						duration = -1
+						inherit = yes
+					}
+					clr_character_flag = expel_d_holyzurvanism_reformed_check
 				}
 			}
 		}
 	}
-
 	option = { # Allow them to stay
-		name = EVTOPTB_SOA_2990
-
-		custom_tooltip = { text = expelling_holy_order_event_tooltip_b }
-	}
-
-	after = {
-		clr_character_flag = expel_the_knights_templar_check
-		clr_character_flag = expel_the_knights_hospitaller_check
-		clr_character_flag = expel_the_teutonic_order_check
-		clr_character_flag = expel_the_teutonic_state_check
-		clr_character_flag = expel_the_jomsvikings_check
-		clr_character_flag = expel_the_assassins_check
-		clr_character_flag = expel_the_bektashi_check
-		clr_character_flag = expel_the_haruriyyah_check
-		clr_character_flag = expel_the_holy_sepulchre_check
-		clr_character_flag = expel_saint_anthony_check
-		clr_character_flag = expel_immortals_check
-		clr_character_flag = expel_zealots_check
-		clr_character_flag = expel_sky_lords_check
-		clr_character_flag = expel_spirit_guardians_check
-		clr_character_flag = expel_warriors_perun_check
-		clr_character_flag = expel_chosen_perkunas_check
-		clr_character_flag = expel_sons_kaleva_check
-		clr_character_flag = expel_huitzilopochtli_check
-		clr_character_flag = expel_knights_santiago_check
-		clr_character_flag = expel_knights_calatrava_check
-		clr_character_flag = expel_order_of_addai_check
-		clr_character_flag = expel_zun_warriors_check
+		name = "EVTOPTB_SOA_2990"
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_b
+		}
+		hidden_tooltip = {
+			clr_character_flag = expel_d_holyadoptionist_check
+			clr_character_flag = expel_d_holyalexandros_check
+			clr_character_flag = expel_d_holyalmaqah_check
+			clr_character_flag = expel_d_holyapollinarist_check
+			clr_character_flag = expel_d_holyarian_check
+			clr_character_flag = expel_d_holyashari_check
+			clr_character_flag = expel_d_holyathari_check
+			clr_character_flag = expel_d_holyaudianist_check
+			clr_character_flag = expel_d_holyaztec_check
+			clr_character_flag = expel_d_holybud_bahusrutiya_check
+			clr_character_flag = expel_d_holybud_mahayana_check
+			clr_character_flag = expel_d_holybud_pratyeka_check
+			clr_character_flag = expel_d_holybud_pureland_check
+			clr_character_flag = expel_d_holybud_sthaviravada_check
+			clr_character_flag = expel_d_holybud_vajrayana_check
+			clr_character_flag = expel_d_holycatholic_check
+			clr_character_flag = expel_d_holydonatist_check
+			clr_character_flag = expel_d_holyharuri_check
+			clr_character_flag = expel_d_holyhindu_check
+			clr_character_flag = expel_d_holyhurufi_check
+			clr_character_flag = expel_d_holyiconoclast_check
+			clr_character_flag = expel_d_holyilm_islam_check
+			clr_character_flag = expel_d_holyindoh_bud_check
+			clr_character_flag = expel_d_holyindoh_confucian_check
+			clr_character_flag = expel_d_holyindoh_hindu_check
+			clr_character_flag = expel_d_holyindoh_zor_check
+			clr_character_flag = expel_d_holyjain_check
+			clr_character_flag = expel_d_holyjud_zion_check
+			clr_character_flag = expel_d_holyjupiter_check
+			clr_character_flag = expel_d_holyluwian_check
+			clr_character_flag = expel_d_holymani_check
+			clr_character_flag = expel_d_holymani_mithra_check
+			clr_character_flag = expel_d_holymaturidi_check
+			clr_character_flag = expel_d_holymelkite_check
+			clr_character_flag = expel_d_holymithra_check
+			clr_character_flag = expel_d_holymithra_christ_check
+			clr_character_flag = expel_d_holymithra_sol_check
+			clr_character_flag = expel_d_holymonophysite_check
+			clr_character_flag = expel_d_holymonothelite_check
+			clr_character_flag = expel_d_holymurjiah_check
+			clr_character_flag = expel_d_holymutazil_check
+			clr_character_flag = expel_d_holymwari_check
+			clr_character_flag = expel_d_holyneoplato_check
+			clr_character_flag = expel_d_holynestorian_check
+			clr_character_flag = expel_d_holynyau_check
+			clr_character_flag = expel_d_holyorthodox_check
+			clr_character_flag = expel_d_holypelagian_check
+			clr_character_flag = expel_d_holyplato_christ_check
+			clr_character_flag = expel_d_holyplato_islam_check
+			clr_character_flag = expel_d_holysabellianist_check
+			clr_character_flag = expel_d_holysemipelagian_check
+			clr_character_flag = expel_d_holyshiite_check
+			clr_character_flag = expel_d_holysol_check
+			clr_character_flag = expel_d_holysol_apollo_check
+			clr_character_flag = expel_d_holysol_christ_check
+			clr_character_flag = expel_d_holysol_mani_check
+			clr_character_flag = expel_d_holysolomonic_alexandros_check
+			clr_character_flag = expel_d_holysolomonic_christ_check
+			clr_character_flag = expel_d_holysunni_check
+			clr_character_flag = expel_d_holyunctionist_check
+			clr_character_flag = expel_d_holyyoruba_check
+			clr_character_flag = expel_d_holyzahiri_check
+			clr_character_flag = expel_d_holyzal_check
+			clr_character_flag = expel_d_holyzal_christ_check
+			clr_character_flag = expel_d_holyzal_mani_check
+			clr_character_flag = expel_d_holyzor_hindu_check
+			clr_character_flag = expel_d_holyzoroastrian_check
+			clr_character_flag = expel_d_holyahriman_reformed_check
+			clr_character_flag = expel_d_holyamun_reformed_check
+			clr_character_flag = expel_d_holyarab_pagan_reformed_check
+			clr_character_flag = expel_d_holyaten_reformed_check
+			clr_character_flag = expel_d_holybaal_monotheistic_reformed_check
+			clr_character_flag = expel_d_holybaltic_pagan_reformed_check
+			clr_character_flag = expel_d_holybantu_pagan_reformed_check
+			clr_character_flag = expel_d_holyberber_pagan_reformed_check
+			clr_character_flag = expel_d_holybud_zen_reformed_check
+			clr_character_flag = expel_d_holybud_zor_reformed_check
+			clr_character_flag = expel_d_holycathar_reformed_check
+			clr_character_flag = expel_d_holyceltic_christ_reformed_check
+			clr_character_flag = expel_d_holyceltic_pagan_reformed_check
+			clr_character_flag = expel_d_holychristian_populist_reformed_check
+			clr_character_flag = expel_d_holychumbylat_reformed_check
+			clr_character_flag = expel_d_holycybele_reformed_check
+			clr_character_flag = expel_d_holydruze_reformed_check
+			clr_character_flag = expel_d_holyerlik_reformed_check
+			clr_character_flag = expel_d_holyethiopian_war_reformed_check
+			clr_character_flag = expel_d_holyfinnish_pagan_reformed_check
+			clr_character_flag = expel_d_holygerman_pagan_reformed_check
+			clr_character_flag = expel_d_holygraeco_roman_reformed_check
+			clr_character_flag = expel_d_holyiberian_pagan_reformed_check
+			clr_character_flag = expel_d_holyilluyanka_reformed_check
+			clr_character_flag = expel_d_holyindohelen_reformed_check
+			clr_character_flag = expel_d_holyinuit_pagan_reformed_check
+			clr_character_flag = expel_d_holyisis_reformed_check
+			clr_character_flag = expel_d_holyjud_ark_reformed_check
+			clr_character_flag = expel_d_holyjudaism_reformed_check
+			clr_character_flag = expel_d_holykubera_reformed_check
+			clr_character_flag = expel_d_holylubu_reformed_check
+			clr_character_flag = expel_d_holymand_ruha_reformed_check
+			clr_character_flag = expel_d_holymandaean_reformed_check
+			clr_character_flag = expel_d_holymani_germanic_reformed_check
+			clr_character_flag = expel_d_holymani_slavic_reformed_check
+			clr_character_flag = expel_d_holymari_christ_reformed_check
+			clr_character_flag = expel_d_holymazdakism_reformed_check
+			clr_character_flag = expel_d_holymontanist_reformed_check
+			clr_character_flag = expel_d_holymurugan_reformed_check
+			clr_character_flag = expel_d_holymuslim_aliite_reformed_check
+			clr_character_flag = expel_d_holymuslim_domination_reformed_check
+			clr_character_flag = expel_d_holymuslim_sufi_reformed_check
+			clr_character_flag = expel_d_holynasrani_reformed_check
+			clr_character_flag = expel_d_holynorse_christ_reformed_check
+			clr_character_flag = expel_d_holynorse_pagan_reformed_check
+			clr_character_flag = expel_d_holynorthern_sun_reformed_check
+			clr_character_flag = expel_d_holynyakalagan_reformed_check
+			clr_character_flag = expel_d_holypriscillian_reformed_check
+			clr_character_flag = expel_d_holyragnarok_reformed_check
+			clr_character_flag = expel_d_holysaura_reformed_check
+			clr_character_flag = expel_d_holyserer_reformed_check
+			clr_character_flag = expel_d_holyset_reformed_check
+			clr_character_flag = expel_d_holysethian_reformed_check
+			clr_character_flag = expel_d_holyslavic_christian_reformed_check
+			clr_character_flag = expel_d_holyslavic_pagan_reformed_check
+			clr_character_flag = expel_d_holysol_boreas_reformed_check
+			clr_character_flag = expel_d_holysol_islam_reformed_check
+			clr_character_flag = expel_d_holysol_sahara_reformed_check
+			clr_character_flag = expel_d_holytao_reformed_check
+			clr_character_flag = expel_d_holytarhunt_reformed_check
+			clr_character_flag = expel_d_holyteiwaz_reformed_check
+			clr_character_flag = expel_d_holytengri_bud_reformed_check
+			clr_character_flag = expel_d_holytengri_confucian_reformed_check
+			clr_character_flag = expel_d_holytengri_mani_reformed_check
+			clr_character_flag = expel_d_holytengri_pagan_reformed_check
+			clr_character_flag = expel_d_holytengri_rod_reformed_check
+			clr_character_flag = expel_d_holyvattisenyaly_reformed_check
+			clr_character_flag = expel_d_holyvidharma_reformed_check
+			clr_character_flag = expel_d_holyvoipel_reformed_check
+			clr_character_flag = expel_d_holyyazdanism_reformed_check
+			clr_character_flag = expel_d_holyzande_pagan_reformed_check
+			clr_character_flag = expel_d_holyzor_angra_reformed_check
+			clr_character_flag = expel_d_holyzulu_pagan_reformed_check
+			clr_character_flag = expel_d_holyzurvanism_reformed_check
+		}
 	}
 }
 
@@ -1568,12 +3315,10 @@ letter_event = {
 ### Random holy order events
 
 # The son of a ruler volunteers to join a holy order
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.1030
-
-	is_triggered_only = yes # on_bi_yearly_pulse, random_events, holy_order_volunteer
 	hide_window = yes
-
 	only_men = yes
 	min_age = 16
 	max_age = 45
@@ -1582,998 +3327,116 @@ character_event = {
 
 	trigger = {
 		is_ruler = no
-		martial >= 5
+		has_holy_order_trigger = yes
 
-		### There's a holy order of ROOTs religion ###
-		# TODO: Add Dharmic holy orders
+		martial = 5
+
+		# is_title_active = d_knights_templar
 
 		OR = {
-			# Christian orders
-			trigger_if = {
-				limit = { is_title_active = d_knights_templar }
-
-				religion = d_knights_templar
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_knights_templar
-
-					any_liege = {
-						has_character_modifier = expelled_d_knights_templar
-					}
-				}
+			father_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
 			}
-
-			trigger_if = {
-				limit = { is_title_active = d_knights_hospitaller }
-
-				religion = d_knights_hospitaller
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_knights_hospitaller
-
-					any_liege = {
-						has_character_modifier = expelled_d_knights_hospitaller
-					}
-				}
+			mother_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
 			}
-
-			trigger_if = {
-				limit = { is_title_active = d_teutonic_order }
-
-				religion = d_teutonic_order
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_teutonic_order
-
-					any_liege = {
-						has_character_modifier = expelled_d_teutonic_order
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = k_teutonic_state }
-
-				religion = k_teutonic_state
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_k_teutonic_state
-
-					any_liege = {
-						has_character_modifier = expelled_k_teutonic_state
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_knights_santiago }
-
-				religion = d_knights_santiago
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_knights_santiago
-
-					any_liege = {
-						has_character_modifier = expelled_d_knights_santiago
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_knights_calatrava }
-
-				religion = d_knights_calatrava
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_knights_calatrava
-
-					any_liege = {
-						has_character_modifier = expelled_d_knights_calatrava
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_saint_addai }
-
-				religion = d_saint_addai
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_saint_addai
-
-					any_liege = {
-						has_character_modifier = expelled_d_saint_addai
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_holy_sepulchre }
-
-				religion = d_holy_sepulchre
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_holy_sepulchre
-
-					any_liege = {
-						has_character_modifier = expelled_d_holy_sepulchre
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_saint_anthony }
-
-				religion = d_saint_anthony
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_saint_anthony
-
-					any_liege = {
-						has_character_modifier = expelled_d_saint_anthony
-					}
-				}
-			}
-
-			# Muslim orders
-			trigger_if = {
-				limit = { is_title_active = d_bektashi }
-
-				religion = d_bektashi
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_bektashi
-
-					any_liege = {
-						has_character_modifier = expelled_d_bektashi
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_fedayeen }
-
-				religion = d_fedayeen
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_fedayeen
-
-					any_liege = {
-						has_character_modifier = expelled_d_fedayeen
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_haruriyyah }
-
-				religion = d_haruriyyah
-				has_dlc = "Charlemagne"
-
-				NOR = {
-					has_character_modifier = expelled_d_haruriyyah
-
-					any_liege = {
-						has_character_modifier = expelled_d_haruriyyah
-					}
-				}
-			}
-
-			# Zoroastrian orders
-			trigger_if = {
-				limit = { is_title_active = d_immortals }
-
-				religion = d_immortals
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_immortals
-
-					any_liege = {
-						has_character_modifier = expelled_d_immortals
-					}
-				}
-			}
-
-			# Jewish orders
-			trigger_if = {
-				limit = { is_title_active = d_zealots }
-
-				religion = d_zealots
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_zealots
-
-					any_liege = {
-						has_character_modifier = expelled_d_zealots
-					}
-				}
-			}
-
-			# Pagan orders
-			trigger_if = {
-				limit = { is_title_active = d_jomsvikings }
-
-				religion = d_jomsvikings
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_jomsvikings
-
-					any_liege = {
-						has_character_modifier = expelled_d_jomsvikings
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_sky_lords }
-
-				religion = d_sky_lords
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_sky_lords
-
-					any_liege = {
-						has_character_modifier = expelled_d_sky_lords
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_spirit_guardians }
-
-				religion = d_spirit_guardians
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_spirit_guardians
-
-					any_liege = {
-						has_character_modifier = expelled_d_spirit_guardians
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_warriors_perun }
-
-				religion = d_warriors_perun
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_warriors_perun
-
-					any_liege = {
-						has_character_modifier = expelled_d_warriors_perun
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_chosen_perkunas }
-
-				religion = d_chosen_perkunas
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_chosen_perkunas
-
-					any_liege = {
-						has_character_modifier = expelled_d_chosen_perkunas
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_sons_kaleva }
-
-				religion = d_sons_kaleva
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_sons_kaleva
-
-					any_liege = {
-						has_character_modifier = expelled_d_sons_kaleva
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = { is_title_active = d_huitzilopochtli }
-
-				religion = d_huitzilopochtli
-				has_dlc = "Sons of Abraham"
-
-				NOR = {
-					has_character_modifier = expelled_d_huitzilopochtli
-
-					any_liege = {
-						has_character_modifier = expelled_d_huitzilopochtli
-					}
-				}
-			}
-
-			AND = {
-				is_title_active = d_zun_warriors
-				religion = d_zun_warriors
-				has_dlc = "Charlemagne"
-
-				NOR = {
-					has_character_modifier = expelled_d_zun_warriors
-
-					any_liege = {
-						has_character_modifier = expelled_d_zun_warriors
-					}
-				}
-			}
-		}
-
-		# Liege is in the same religion branch
-		OR = {
-			religion = liege
-			is_heresy_of = liege
-			is_parent_religion = liege
 		}
 
 		liege = {
-			# Only sons and brothers will ask
-			OR = {
-				is_parent_of = ROOT
-				sibling = ROOT
+			holy_order = no
+			liege = {
+				holy_order = no
 			}
-
-			higher_real_tier_than = BARON
 		}
-
+		
+		has_dlc = "Sons of Abraham"
+		
+		expelled_holy_order_trigger = no
 		NOR = {
 			any_liege = {
-				holy_order = yes
+				expelled_holy_order_trigger = yes
 			}
-
 			any_spouse = {
 				OR = {
 					is_landed = yes
-
-					# Won't happen if spouse is pregnant with non-bastard child
-					trigger_if = {
-						limit = { is_pregnant = yes }
-						father_of_unborn = { character = ROOT }
+					AND = {
+						is_pregnant = yes
+					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
 					}
 				}
 			}
 		}
 	}
 
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 4
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 0.25
 			trait = zealous
 		}
-
-		mult_modifier = {
-			factor = 2
+		modifier = {
+			factor = 0.5
 			trait = celibate
 		}
-
-		mult_modifier = {
-			factor = 2
+		modifier = {
+			factor = 0.5
 			trait = homosexual
 		}
-
-		mult_modifier = {
-			factor = 1.43
+		modifier = {
+			factor = 0.7
 			trait = content
 		}
-
-		mult_modifier = {
-			factor = 1.33
+		modifier = {
+			factor = 0.75
 			trait = chaste
 		}
-
-		mult_modifier = {
-			factor = 1.33
-			age < 25
+		modifier = {
+			factor = 0.75
+			NOT = { age = 25 }
 		}
-
-		mult_modifier = {
-			factor = 0.67
+		modifier = {
+			factor = 1.5
 			trait = slothful
 		}
-
-		mult_modifier = {
-			factor = 0.5
+		modifier = {
+			factor = 2.0
 			trait = lustful
 		}
-
-		mult_modifier = {
-			factor = 0.5
+		modifier = {
+			factor = 2.0
 			trait = cynical
 		}
-
-		mult_modifier = {
-			factor = 0.5
+		modifier = {
+			factor = 2.0
 			trait = hedonist
 		}
-
-		mult_modifier = {
-			factor = 0.5
+		modifier = {
+			factor = 2.0
 			trait = ambitious
 		}
-
-		mult_modifier = {
-			factor = 0.5
-			any_heir_title = { always = yes }
+		modifier = {
+			factor = 2.0
+			any_heir_title = {
+				always = yes
+			}
 		}
-
-		mult_modifier = {
-			factor = 0.5
+		modifier = {
+			factor = 2.0
 			is_primary_heir = yes
 		}
-
-		mult_modifier = {
-			factor = 0.5
-
+		modifier = {
+			factor = 2
 			any_spouse = {
-				reverse_opinion = {
-					who = ROOT
-					value >= 100
-				}
+				reverse_opinion = { who = ROOT value = 100 }
 			}
 		}
 	}
-
+	
 	immediate = {
-		# Select a holy order to join
-		# TODO: Add Dharmic holy orders
-		random_list = {
-			1 = {
-				trigger = {
-					is_title_active = d_knights_templar
-					religion = d_knights_templar
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_knights_templar
-
-						any_liege = {
-							has_character_modifier = expelled_d_knights_templar
-						}
-					}
-				}
-
-				# Prefer the other holy orders
-				mult_modifier = {
-					factor = 3.0
-
-					NOR = {
-						# Teutonic Order/State
-						culture_group = north_germanic
-						culture_group = central_germanic
-						culture_group = magyar
-						culture_group = south_slavic
-						culture_group = west_slavic
-
-						# Knights of Santiago/Calatrava
-						culture_group = iberian
-						culture = andalusian
-					}
-				}
-
-				d_knights_templar = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_knights_hospitaller
-					religion = d_knights_hospitaller
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_knights_hospitaller
-
-						any_liege = {
-							has_character_modifier = expelled_d_knights_hospitaller
-						}
-					}
-				}
-
-				# Prefer the other holy orders
-				mult_modifier = {
-					factor = 3.0
-
-					NOR = {
-						# Teutonic Order/State
-						culture_group = north_germanic
-						culture_group = central_germanic
-						culture_group = magyar
-						culture_group = south_slavic
-						culture_group = west_slavic
-
-						# Knights of Santiago/Calatrava
-						culture_group = iberian
-						culture = andalusian
-					}
-				}
-
-				d_knights_hospitaller = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_teutonic_order
-					religion = d_teutonic_order
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_teutonic_order
-
-						any_liege = {
-							has_character_modifier = expelled_d_teutonic_order
-						}
-					}
-				}
-
-				# Prefer the Teutonic Order
-				mult_modifier = {
-					factor = 3.0
-
-					OR = {
-						culture_group = north_germanic
-						culture_group = central_germanic
-						culture_group = magyar
-						culture_group = south_slavic
-						culture_group = west_slavic
-					}
-				}
-
-				d_teutonic_order = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = k_teutonic_state
-					religion = k_teutonic_state
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_teutonic_order
-
-						any_liege = {
-							has_character_modifier = expelled_d_teutonic_order
-						}
-					}
-				}
-
-				# Prefer the Teutonic State
-				mult_modifier = {
-					factor = 3.0
-
-					OR = {
-						culture_group = north_germanic
-						culture_group = central_germanic
-						culture_group = magyar
-						culture_group = south_slavic
-						culture_group = west_slavic
-					}
-				}
-
-				k_teutonic_state = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_knights_santiago
-					religion = d_knights_santiago
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_knights_santiago
-
-						any_liege = {
-							has_character_modifier = expelled_d_knights_santiago
-						}
-					}
-				}
-
-				# Prefer the Knights of Santiago/Calatrava
-				mult_modifier = {
-					factor = 3.0
-
-					OR = {
-						culture_group = iberian
-						culture = andalusian
-					}
-				}
-
-				d_knights_santiago = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_knights_calatrava
-					religion = d_knights_calatrava
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_knights_calatrava
-
-						any_liege = {
-							has_character_modifier = expelled_d_knights_calatrava
-						}
-					}
-				}
-
-				# Prefer the Knights of Santiago/Calatrava
-				mult_modifier = {
-					factor = 3.0
-
-					OR = {
-						culture_group = iberian
-						culture = andalusian
-					}
-				}
-
-				d_knights_calatrava = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_saint_addai
-					religion = d_saint_addai
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_saint_addai
-
-						any_liege = {
-							has_character_modifier = expelled_d_saint_addai
-						}
-					}
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_holy_sepulchre
-					religion = d_holy_sepulchre
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_holy_sepulchre
-
-						any_liege = {
-							has_character_modifier = expelled_d_holy_sepulchre
-						}
-					}
-				}
-
-				d_holy_sepulchre = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_saint_anthony
-					religion = d_saint_anthony
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_saint_anthony
-
-						any_liege = {
-							has_character_modifier = expelled_d_saint_anthony
-						}
-					}
-				}
-
-				d_saint_anthony = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			# Muslim orders
-			1 = {
-				trigger = {
-					is_title_active = d_bektashi
-					religion = d_bektashi
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_bektashi
-
-						any_liege = {
-							has_character_modifier = expelled_d_bektashi
-						}
-					}
-				}
-
-				d_bektashi = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_fedayeen
-					religion = d_fedayeen
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_fedayeen
-
-						any_liege = {
-							has_character_modifier = expelled_d_fedayeen
-						}
-					}
-				}
-
-				d_fedayeen = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_haruriyyah
-					religion = d_haruriyyah
-					has_dlc = "Charlemagne"
-
-					NOR = {
-						has_character_modifier = expelled_d_haruriyyah
-
-						any_liege = {
-							has_character_modifier = expelled_d_haruriyyah
-						}
-					}
-				}
-
-				d_haruriyyah = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			# Zoroastrian orders
-			1 = {
-				trigger = {
-					is_title_active = d_immortals
-					religion = d_immortals
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_immortals
-
-						any_liege = {
-							has_character_modifier = expelled_d_immortals
-						}
-					}
-				}
-
-				d_immortals = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			# Jewish orders
-			1 = {
-				trigger = {
-					is_title_active = d_zealots
-					religion = d_zealots
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_zealots
-
-						any_liege = {
-							has_character_modifier = expelled_d_zealots
-						}
-					}
-				}
-
-				d_zealots = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			# Pagan orders
-			1 = {
-				trigger = {
-					is_title_active = d_jomsvikings
-					religion = d_jomsvikings
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_jomsvikings
-
-						any_liege = {
-							has_character_modifier = expelled_d_jomsvikings
-						}
-					}
-				}
-
-				d_jomsvikings = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_sky_lords
-					religion = d_sky_lords
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_sky_lords
-
-						any_liege = {
-							has_character_modifier = expelled_d_sky_lords
-						}
-					}
-				}
-
-				d_sky_lords = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_spirit_guardians
-					religion = d_spirit_guardians
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_spirit_guardians
-
-						any_liege = {
-							has_character_modifier = expelled_d_spirit_guardians
-						}
-					}
-				}
-
-				d_spirit_guardians = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_warriors_perun
-					religion = d_warriors_perun
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_warriors_perun
-
-						any_liege = {
-							has_character_modifier = expelled_d_warriors_perun
-						}
-					}
-				}
-
-				d_warriors_perun = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_chosen_perkunas
-					religion = d_chosen_perkunas
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_chosen_perkunas
-
-						any_liege = {
-							has_character_modifier = expelled_d_chosen_perkunas
-						}
-					}
-				}
-
-				d_chosen_perkunas = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_sons_kaleva
-					religion = d_sons_kaleva
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_sons_kaleva
-
-						any_liege = {
-							has_character_modifier = expelled_d_sons_kaleva
-						}
-					}
-				}
-
-				d_sons_kaleva = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_huitzilopochtli
-					religion = d_huitzilopochtli
-					has_dlc = "Sons of Abraham"
-
-					NOR = {
-						has_character_modifier = expelled_d_huitzilopochtli
-
-						any_liege = {
-							has_character_modifier = expelled_d_huitzilopochtli
-						}
-					}
-				}
-
-				d_huitzilopochtli = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-
-			1 = {
-				trigger = {
-					is_title_active = d_zun_warriors
-					religion = d_zun_warriors
-					has_dlc = "Charlemagne"
-
-					NOR = {
-						has_character_modifier = expelled_d_zun_warriors
-
-						any_liege = {
-							has_character_modifier = expelled_d_zun_warriors
-						}
-					}
-				}
-
-				d_zun_warriors = {
-					save_event_target_as = holy_order_to_join
-				}
-			}
-		}
-
-		event_target:holy_order_to_join = {
-			holder_scope = {
-				save_event_target_as = order_target
-			}
-		}
-
 		liege = {
-			character_event = { id = SoA.1031 }
+			character_event = {
+				id = SoA.1031
+			}
 		}
 	}
 }
@@ -3218,472 +4081,61 @@ character_event = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = SoA.1053
-	border = GFX_event_letter_frame_religion
-	portrait = event_target:target_grandmaster
-
 	desc = {
-		text = EVTDESC_SOA_1053
-		trigger = {
-			event_target:target_grandmaster = { title = d_knights_templar }
-
+        text = EVTDESC_SOA_1053
+        trigger = {
 			NOT = {
 				has_alternate_start_parameter = {
 					key = religion_names
 					value = random
 				}
 			}
-		}
-	}
+        }
+    }
 	desc = {
-		text = EVTDESC_SOA_1153
-		trigger = {
-			event_target:target_grandmaster = { title = d_knights_hospitaller }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1053
-		trigger = {
-			event_target:target_grandmaster = { title = d_knights_santiago }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1053
-		trigger = {
-			event_target:target_grandmaster = { title = d_knights_calatrava }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1053
-		trigger = {
-			event_target:target_grandmaster = { title = d_saint_addai }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	# desc = {
-	#	text = EVTDESC_SOA_1353
-	#	trigger = {
-	#		event_target:target_grandmaster = {
-	#			OR = {
-	#				title = d_teutonic_order
-	#				title = k_teutonic_state
-	#			}
-	#		}
-	#
-	#		NOT = {
-	#			has_alternate_start_parameter = {
-	#				key = religion_names
-	#				value = random
-	#			}
-	#		}
-	#	}
-	# }
-	desc = {
-		text = EVTDESC_SOA_1253
-		trigger = {
-			event_target:target_grandmaster = { title = d_bektashi }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1253
-		trigger = {
-			event_target:target_grandmaster = { title = d_fedayeen }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_CM_4353
-		trigger = {
-			event_target:target_grandmaster = { title = d_haruriyyah }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1553
-		trigger = {
-			event_target:target_grandmaster = { title = d_jomsvikings }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1653
-		trigger = {
-			event_target:target_grandmaster = { title = d_holy_sepulchre }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1053
-		trigger = {
-			event_target:target_grandmaster = { title = d_saint_anthony }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1853
-		trigger = {
-			event_target:target_grandmaster = { title = d_immortals }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_1953
-		trigger = {
-			event_target:target_grandmaster = { title = d_zealots }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_2053
-		trigger = {
-			event_target:target_grandmaster = { title = d_sky_lords }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_2153
-		trigger = {
-			event_target:target_grandmaster = { title = d_spirit_guardians }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_2253
-		trigger = {
-			event_target:target_grandmaster = { title = d_warriors_perun }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_2353
-		trigger = {
-			event_target:target_grandmaster = { title = d_chosen_perkunas }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_2453
-		trigger = {
-			event_target:target_grandmaster = { title = d_sons_kaleva }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_SOA_2553
-		trigger = {
-			event_target:target_grandmaster = { title = d_huitzilopochtli }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = EVTDESC_CM_4010
-		trigger = {
-			event_target:target_grandmaster = { title = d_zun_warriors }
-
-			NOT = {
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-	}
-	desc = {
-		text = HOLY_ORDER_BUILD_CASTLE_FOR_MONEY_ALT
-		trigger = {
+        text = HOLY_ORDER_BUILD_CASTLE_FOR_MONEY_ALT
+        trigger = {
 			has_alternate_start_parameter = {
 				key = religion_names
 				value = random
 			}
-		}
-	}
+        }
+    }
+	border = GFX_event_letter_frame_religion
 
 	is_triggered_only = yes
 
 	option = {
 		name = EVTOPTA_SOA_1023 # Agree
-
-		hidden_effect = {
-			event_target:target_holy_order = {
-				trigger_switch = {
-					on_trigger = title
-
-					d_knights_templar     = { ROOT = { remove_character_modifier = expelled_d_knights_templar } }
-					d_knights_hospitaller = { ROOT = { remove_character_modifier = expelled_d_knights_hospitaller } }
-				#	d_teutonic_order      = { ROOT = { remove_character_modifier = expelled_d_teutonic_order } }
-				#	k_teutonic_state      = { ROOT = { remove_character_modifier = expelled_k_teutonic_state } }
-					d_knights_santiago    = { ROOT = { remove_character_modifier = expelled_d_knights_santiago } }
-					d_knights_calatrava   = { ROOT = { remove_character_modifier = expelled_d_knights_calatrava } }
-					d_holy_sepulchre      = { ROOT = { remove_character_modifier = expelled_d_holy_sepulchre } }
-					d_saint_anthony       = { ROOT = { remove_character_modifier = expelled_d_saint_anthony } }
-					d_saint_addai         = { ROOT = { remove_character_modifier = expelled_d_saint_addai } }
-					d_bektashi            = { ROOT = { remove_character_modifier = expelled_d_bektashi } }
-					d_fedayeen            = { ROOT = { remove_character_modifier = expelled_d_fedayeen } }
-					d_haruriyyah          = { ROOT = { remove_character_modifier = expelled_d_haruriyyah } }
-					d_jomsvikings         = { ROOT = { remove_character_modifier = expelled_d_jomsvikings } }
-					d_immortals           = { ROOT = { remove_character_modifier = expelled_d_immortals } }
-					d_zealots             = { ROOT = { remove_character_modifier = expelled_d_zealots } }
-					d_sky_lords           = { ROOT = { remove_character_modifier = expelled_d_sky_lords } }
-					d_spirit_guardians    = { ROOT = { remove_character_modifier = expelled_d_spirit_guardians } }
-					d_warriors_perun      = { ROOT = { remove_character_modifier = expelled_d_warriors_perun } }
-					d_chosen_perkunas     = { ROOT = { remove_character_modifier = expelled_d_chosen_perkunas } }
-					d_sons_kaleva         = { ROOT = { remove_character_modifier = expelled_d_sons_kaleva } }
-					d_huitzilopochtli     = { ROOT = { remove_character_modifier = expelled_d_huitzilopochtli } }
-				}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				expelled_holy_order_trigger = yes
 			}
+		}
 
-			event_target:target_province = {
+		hidden_tooltip = {
+			FROMFROM = {
 				province_event = { id = SoA.1054 }
 			}
+			remove_expelled_holy_order_effect = yes
 		}
 
 		piety = 200
 		wealth = 100
-
-		ai_chance = {
-			factor = 80
-
-			trigger = {
-				trigger_if = {
-					limit = { event_target:target_holy_order = { title = d_knights_templar } }
-					NOT = { has_character_modifier = expelled_d_knights_templar }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_knights_hospitaller } }
-					NOT = { has_character_modifier = expelled_d_knights_hospitaller }
-				}
-			#	trigger_else_if = {
-			#		limit = { event_target:target_holy_order = { title = d_teutonic_order } }
-			#		NOT = { has_character_modifier = expelled_d_teutonic_order }
-			#	}
-			#	trigger_else_if = {
-			#		limit = { event_target:target_holy_order = { title = k_teutonic_state } }
-			#		NOT = { has_character_modifier = expelled_k_teutonic_state }
-			#	}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_knights_santiago } }
-					NOT = { has_character_modifier = expelled_d_knights_santiago }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_knights_calatrava } }
-					NOT = { has_character_modifier = expelled_d_knights_calatrava }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_holy_sepulchre } }
-					NOT = { has_character_modifier = expelled_d_holy_sepulchre }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_saint_anthony } }
-					NOT = { has_character_modifier = expelled_d_saint_anthony }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_saint_addai } }
-					NOT = { has_character_modifier = expelled_d_saint_addai }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_bektashi } }
-					NOT = { has_character_modifier = expelled_d_bektashi }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_fedayeen } }
-					NOT = { has_character_modifier = expelled_d_fedayeen }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_haruriyyah } }
-					NOT = { has_character_modifier = expelled_d_haruriyyah }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_immortals } }
-					NOT = { has_character_modifier = expelled_d_immortals }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_zealots } }
-					NOT = { has_character_modifier = expelled_d_zealots }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_jomsvikings } }
-					NOT = { has_character_modifier = expelled_d_jomsvikings }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_sky_lords } }
-					NOT = { has_character_modifier = expelled_d_sky_lords }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_spirit_guardians } }
-					NOT = { has_character_modifier = expelled_d_spirit_guardians }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_warriors_perun } }
-					NOT = { has_character_modifier = expelled_d_warriors_perun }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_chosen_perkunas } }
-					NOT = { has_character_modifier = expelled_d_chosen_perkunas }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_sons_kaleva } }
-					NOT = { has_character_modifier = expelled_d_sons_kaleva }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_huitzilopochtli } }
-					NOT = { has_character_modifier = expelled_d_huitzilopochtli }
-				}
-				trigger_else_if = {
-					limit = { event_target:target_holy_order = { title = d_zun_warriors } }
-					NOT = { has_character_modifier = expelled_d_zun_warriors }
-				}
-			}
-
-			mult_modifier = {
-				factor = 0.01
-
-				event_target:target_holy_order = {
-					title = d_jomsvikings
-				}
-
-				event_target:target_province = {
-					region = world_europe_north
-				}
-			}
-
-		#	mult_modifier = {
-		#		factor = 0.05
-		#
-		#		event_target:target_holy_order = {
-		#			OR = {
-		#				title = d_teutonic_order
-		#				title = k_teutonic_state
-		#			}
-		#		}
-		#
-		#		NOT = { culture_group = central_germanic }
-		#	}
-		}
 	}
 
-	option = { # Refuse
-		# Use a random one from the events Paradox created
-		name = EVTOPTB_SOA_1031
-		name = EVTOPTB_SOA_1153
-		name = EVTOPTB_SOA_1353
-		name = EVTOPTB_SOA_1553
+	option = {
+		name = EVTOPTB_SOA_1031 # Refuse
+		ai_chance = {
+			factor = 20
+		}
 
 		piety = -100
-
-		ai_chance = { factor = 20 }
 	}
 }
 

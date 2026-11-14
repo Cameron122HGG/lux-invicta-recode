@@ -1767,27 +1767,49 @@ character_event = {
 ###########################################
 
 # Religious ceremony - liege
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.1170
 
-	is_triggered_only = yes
 	hide_window = yes
+
+	is_triggered_only = yes
 
 	immediate = {
 		if = {
-			limit = { has_character_modifier = holding_diwali_feast }
-
-			trigger_switch = {
-				on_trigger = religion
-
-				hindu    = { character_event = { id = RoI.1171 } }
-				buddhist = { character_event = { id = RoI.1173 } }
-				jain     = { character_event = { id = RoI.1175 } }
+			limit = {
+				has_character_modifier = holding_diwali_feast
+				OR = {
+					religion = hindu
+					religion_group = indohelen_group
+				}
 			}
+			character_event = { id = RoI.1171 } # Hindu
 		}
-		else_if = {
-			limit = { has_character_modifier = holding_kali_puja_feast }
-			character_event = { id = RoI.1177 }
+		if = {
+			limit = {
+				has_character_modifier = holding_diwali_feast
+				OR = {
+				religion_group = bud_group
+				religion = indoh_bud
+				religion = tengri_bud
+				religion = tengri_bud_reformed
+				}
+			}
+			character_event = { id = RoI.1173 } # Buddhist
+		}
+		if = {
+			limit = {
+				has_character_modifier = holding_diwali_feast
+				religion = jain
+			}
+			character_event = { id = RoI.1175 } # Jain
+		}
+		if = {
+			limit = {
+				has_character_modifier = holding_kali_puja_feast
+			}
+			character_event = { id = RoI.1177 } # Kali Puja
 		}
 	}
 }

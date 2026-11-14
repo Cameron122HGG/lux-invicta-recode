@@ -89,287 +89,252 @@ targeted_decisions = {
 		}
 	}
 
-	stable_attribute_improvement_decision = {
-		diplomacy_icon = GFX_stable_prestige_icon_decision
-
-		filter = court_including_me
-		ai_target_filter = court_including_me
-		ai_check_interval = 50
-
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+stable_attribute_improvement_decision = {
 		only_playable = yes
-
+		ai_check_interval = 50 #check only once every 50 months.
+	    diplomacy_icon = GFX_stable_prestige_icon_decision
+	
+		filter = court
+		ai_target_filter = court
+	
 		from_potential = {
-			has_dlc = "Holy Fury"
-			is_adult = yes
+			is_playable = yes
 			is_incapable = no
 			prisoner = no
-			religion_is_stable_trigger = yes
+			is_adult = yes
+			OR = {
+				has_religion_feature = religion_stable
+				has_religion_feature = religion_feature_slavic
+				has_religion_feature = religion_feature_finnish
+				religion_group = slavic_group
+				religion_group = finnish_group
+			}
+			has_dlc = "Holy Fury"
 		}
-
+	
 		potential = {
 			prisoner = no
 			is_incapable = no
 			is_adult = yes
+			OR = {
+				character = FROM
+				liege = { character = FROM } 
+			}
 		}
-
+		
 		allow = {
 			FROM = {
-				piety >= 150
-
-				trigger_if = {
-					limit = { has_character_modifier = stable_attribute_improvement_cooldown }
-
-					custom_tooltip = {
-						text = tooltip_stable_attribute_improvement_cooldown
-						always = no
-					}
-				}
-			}
-
-			ROOT = {
-				show_only_failed_conditions = yes
-
-				trigger_if = {
-					limit = { has_character_modifier = stable_attribute_improvement_target_cooldown }
-
-					custom_tooltip = {
-						text = tooltip_attribute_improvement_target_cooldown
-						always = no
-					}
-				}
-
-				religion = FROM
-				diplomatic_immunity = no
-
-				trigger_if = {
-					limit = { is_female = yes }
-					religion_is_patriarchal_trigger = no
-				}
-				trigger_else = {
-					religion_is_matriarchal_trigger = no
-				}
-
-				# Either self-improving, or MUST have +1 point in one of the possible attributes compared to the target
 				custom_tooltip = {
-					text = tooltip_attribute_requirements_to_improve
-
-					FROM = {
-						OR = {
-							character = ROOT
-							combat_rating > ROOT
-							diplomacy > ROOT
-							martial > ROOT
-							stewardship > ROOT
-							intrigue > ROOT
-							learning > ROOT
-						}
+					text = tooltip_stable_attribute_improvement_cooldown
+					NOT = { has_character_modifier = stable_attribute_improvement_cooldown }
+				}
+				piety = 150
+			}
+			ROOT = { 
+				custom_tooltip = { 
+					text = tooltip_attribute_improvement_target_cooldown 
+					NOT = { has_character_modifier = stable_attribute_improvement_target_cooldown }
+				} 
+			}
+			ROOT = { 
+				religion = FROM
+				NOT = { diplomatic_immunity = yes }
+				OR = { 
+					AND = { 
+						is_female = yes 
+						NOT = { has_religion_feature = religion_patriarchal } 
 					}
+					AND = { 
+						is_female = no
+						NOT = { has_religion_feature = religion_matriarchal } 
+					}
+				}
+				custom_tooltip = { 
+					text = tooltip_attribute_requirements_to_improve #Either self-improving, or MUST have +1 point in one of the possible attributes compared to the target.
+					OR = { 
+						FROM = { combat_rating_diff = { who = ROOT value = 1 } }
+						FROM = { attribute_diff = { attribute = diplomacy character = ROOT value = 1 } }
+						FROM = { attribute_diff = { attribute = martial character = ROOT value = 1 } }
+						FROM = { attribute_diff = { attribute = stewardship character = ROOT value = 1 } }
+						FROM = { attribute_diff = { attribute = intrigue character = ROOT value = 1 } }
+						FROM = { attribute_diff = { attribute = learning character = ROOT value = 1 } }
+					} 
 				}
 			}
 		}
-
+		
 		effect = {
-			FROM = {
-				show_scope_change = no
-
+			FROM = { 
 				piety = -150
-
-				if = {
+				if = { 
 					limit = { character = ROOT }
 					prestige = -500
 				}
 			}
-
-			custom_tooltip = {
+			custom_tooltip = { 
 				text = tooltip_stable_attribute_improvement_effect
-
+			}
+			hidden_tooltip = {
 				FROM = {
 					add_character_modifier = {
 						name = stable_attribute_improvement_cooldown
-						years = 5
+						duration = 1825
 						hidden = yes
 					}
-
-					character_event = { id = HF.23760 } # Pick attribute to improve
-
-					if = { # Chance for Family Bloodline
-						limit = {
-							is_close_relative = ROOT
-							higher_real_tier_than = COUNT
-
-							NOT = {
-								any_owned_bloodline = {
-									has_bloodline_flag = created_bloodline
-									bloodline_is_active_for = PREV
-								}
-							}
-						}
-
-						if = {
-							limit = {
-								# 5 x 8 = 40 years to achieve
-								check_variable = {
-									which = stable_family_variable
-									value < 8
-								}
-							}
-
-							change_variable = {
-								which = stable_family_variable
-								value = 1
-							}
-						}
-						else = {
-							narrative_event = {
-								id = HF.23770 # Gain Family Bloodline
-								days = 15
-								random = 15
-							}
-						}
-					}
-					else_if = { # Chance for Benevolent Bloodline when using action on councilmembers
-						limit = {
-							higher_real_tier_than = COUNT
-
+					character_event = { id = HF.23760 }  
+					if = { #Chance for Family Bloodline when using action on councilmembers.
+						limit = { 
+							higher_tier_than = COUNT 
 							ROOT = {
-								is_councillor = yes
-								NOT = { character = PREV }
+								is_close_relative = FROM
+								NOT = { character = FROM }
 							}
-
-							NOT = {
-								any_owned_bloodline = {
+							NOT = { check_variable = { which = stable_family_variable value = 8 } } #5 x 8 = 40 years to achieve.
+						}
+						change_variable = { which = stable_family_variable value = 1 }
+					}
+					else_if = { 
+						limit = { 
+							higher_tier_than = COUNT 
+							check_variable = { which = stable_family_variable value = 8 }
+							NOT = { 
+								any_owned_bloodline = { 
 									has_bloodline_flag = created_bloodline
-									bloodline_is_active_for = PREV
 								}
 							}
 						}
-
-						if = {
-							limit = {
-								# 5 x 8 = 40 years to achieve
-								check_variable = {
-									which = stable_benevolent_variable
-									value < 8
+						narrative_event = { id = HF.23770 days = 15 random = 15 }
+					}
+					else_if = { #Chance for benevolent Bloodline when using action on councilmembers.
+						limit = { 
+							higher_tier_than = COUNT 
+							ROOT = {
+								NOT = { character = FROM }
+								OR = { 
+									has_job_title = job_chancellor
+									has_job_title = job_marshal
+									has_job_title = job_treasurer
+									has_job_title = job_spymaster
+									has_job_title = job_spiritual
 								}
 							}
-
-							change_variable = {
-								which = stable_benevolent_variable
-								value = 1
+							NOT = { check_variable = { which = stable_benevolent_variable value = 8 } } #5 x 8 = 40 years to achieve.
+						}
+						change_variable = { which = stable_benevolent_variable value = 1 }
+					}
+					else_if = { 
+						limit = { 
+							higher_tier_than = COUNT 
+							check_variable = { which = stable_benevolent_variable value = 8 }
+							NOT = { 
+								any_owned_bloodline = { 
+									has_bloodline_flag = created_bloodline
+								}
 							}
 						}
-						else = {
-							narrative_event = {
-								id = HF.23771 # Gain Benevolent Bloodline
-								days = 15
-								random = 15
-							}
-						}
+						narrative_event = { id = HF.23771 days = 15 random = 15 }
 					}
 				}
-
-				# Other AI shouldn't target a recent target
-				add_character_modifier = {
-					name = stable_attribute_improvement_target_cooldown
-					years = 5
-					hidden = yes
-				}
-
-				character_event = {
-					id = HF.23772 # Delayed safety flag clean-up
-					days = 75
+				hidden_tooltip = {
+					ROOT = {
+						add_character_modifier = { 		#Other AI shouldn't target a recent target.
+							name = stable_attribute_improvement_target_cooldown
+							duration = 1825
+							hidden = yes
+						}
+						character_event = { id = HF.23772 days = 75 } #Delayed safety flag cleanup.
+					}
 				}
 			}
-		}
 
+		}
+		revoke_allowed = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
-
-			trigger = {
-				FROM = {
-					NOR = {
-						trait = slothful
-						is_rival = ROOT
-					}
-				}
+			modifier = {
+				factor = 0
+				FROM = { trait = slothful }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				FROM = { trait = diligent }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
-				character = FROM
 				FROM = { trait = ambitious }
+				ROOT = { character = ROOT }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
-				is_councillor = yes
-				NOT = { character = FROM }
-
-				FROM = {
-					OR = {
-						trait = kind
+				FROM = { 
+					OR = { 
+						trait = kind 
 						trait = charitable
 						trait = content
 					}
 				}
+				ROOT = { 
+					OR = { 
+						has_job_title = job_chancellor
+						has_job_title = job_marshal
+						has_job_title = job_treasurer
+						has_job_title = job_spymaster
+						has_job_title = job_spiritual
+					}
+				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
-				is_close_relative = FROM
-				NOT = { character = FROM }
-
-				FROM = {
-					OR = {
-						trait = kind
+				FROM = { 
+					OR = { 
+						trait = kind 
 						trait = charitable
 						trait = content
 						has_focus = focus_family
 					}
 				}
+				ROOT = { 
+					is_close_relative = FROM
+				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
-
-				FROM = {
-					is_married = ROOT
-
-					OR = {
+				FROM = { 
+					OR = { 
 						trait = ambitious
 						trait = envious
 						trait = wroth
 						has_focus = focus_family
 					}
 				}
+				ROOT = { 
+					is_married = FROM
+				}
 			}
-
-			mult_modifier = {
+			modifier = {
+				factor = 0
+				is_rival = FROM
+			}
+			modifier = {
 				factor = 2
 				is_friend = FROM
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				is_lover = FROM
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				is_primary_heir = FROM
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = stressed
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = depressed
 			}
@@ -381,42 +346,61 @@ decisions = {
 
 
 
-	determine_zodiac_sign_decision = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+determine_zodiac_sign_decision = {
+		#only_playable = yes
 		is_high_prio = yes
-
+		#ai_check_interval = 200 #check only once every 200 months.
 		ai = no
-
 		potential = {
 			is_adult = yes
-			religion_has_astrology_trigger = yes
-			has_any_astrology_trait_trigger = no
+			NOR = { 
+				trait = zodiac_aquarius
+				trait = zodiac_aries
+				trait = zodiac_cancer
+				trait = zodiac_capricorn
+				trait = zodiac_gemini
+				trait = zodiac_leo
+				trait = zodiac_libra
+				trait = zodiac_pisces
+				trait = zodiac_sagittarius
+				trait = zodiac_scorpio
+				trait = zodiac_taurus
+				trait = zodiac_virgo
+			}
+			OR = {
+				religion_group = graecoroman_group
+				religion_group = indohelen_group
+				has_religion_feature = religion_astrology 
+			}
 			NOT = { has_character_flag = flag_child_forsaken_zodiac }
 		}
-
+		
 		allow = {
 			prisoner = no
-			is_incapable = no
-			learning >= 6
+			NOT = { trait = incapable }
+			learning = 6
 		}
-
+		
 		effect = {
 			custom_tooltip = {
 				text = gain_zodiac_trait_effect_tt
-
+			}
+			hidden_tooltip = {
 				add_western_zodiac_trait_effect = yes
-				character_event = { id = HFP.23925 } # Notify, show trait gain
+				character_event = { id = HFP.23925 }
 			}
 		}
-
+		revoke_allowed = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
 				trait = cynical
 			}
@@ -625,114 +609,93 @@ decisions = {
 
 title_decisions = {
 
-	hellenic_dedicate_temple = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+hellenic_dedicate_temple = {
 		filter = sub_realm_owned
 		ai_target_filter = vassal_owned
-		ai_check_interval = 120
-
 		is_high_prio = yes
-
-		only_playable = yes
-
+		ai_check_interval = 120 #check only once every 120 months.
+		
 		from_potential = {
 			has_dlc = "Holy Fury"
-			higher_real_tier_than = BARON
-			religion_openly_hellenic_or_reformed_trigger = yes
-			is_tribal = no
-			is_nomadic = no
-
+			is_playable = yes
+			higher_tier_than = BARON
+			OR = {
+				religion_group = graecoroman_group
+				religion_group = indohelen_group
+			}
 			NOR = {
+				is_tribal = yes
+				is_nomadic = yes
 				has_character_flag = flag_dedicating_temple
-
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
+			}
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
-
+		
 		potential = {
-			holding_type = temple
-
-			NOR = {
-				has_title_flag = flag_dedicated_to_zeus
-				has_title_flag = flag_dedicated_to_poseidon
-				has_title_flag = flag_dedicated_to_hades
-				has_title_flag = flag_dedicated_to_hermes
-				has_title_flag = flag_dedicated_to_demeter
-				has_title_flag = flag_dedicated_to_athena
-				has_title_flag = flag_dedicated_to_apollo
-				has_title_flag = flag_dedicated_to_arthemis
-				has_title_flag = flag_dedicated_to_ares
-				has_title_flag = flag_dedicated_to_aphrodite
-				has_title_flag = flag_dedicated_to_ephaestus
-				has_title_flag = flag_dedicated_to_hestia
+			tier = BARON # holding_type only works on baronies; the decision filter also lists counties and duchies
+			holding_type = temple 
+			NOR = { 
+				has_flag = flag_dedicated_to_zeus
+				has_flag = flag_dedicated_to_poseidon
+				has_flag = flag_dedicated_to_hades
+				has_flag = flag_dedicated_to_hermes
+				has_flag = flag_dedicated_to_demeter
+				has_flag = flag_dedicated_to_athena
+				has_flag = flag_dedicated_to_apollo
+				has_flag = flag_dedicated_to_arthemis
+				has_flag = flag_dedicated_to_ares
+				has_flag = flag_dedicated_to_aphrodite
+				has_flag = flag_dedicated_to_ephaestus
+				has_flag = flag_dedicated_to_hestia
 			}
 		}
-
+		
 		allow = {
-			FROM = {
-				wealth >= 250
-				piety  >= 200
-
-				trigger_if = {
-					limit = { has_character_modifier = recently_dedicated_temple_cooldown }
-
-					custom_tooltip = {
-						text = tooltip_not_dedicated_temple_recently
-						always = no
+			FROM = { wealth = 250 }
+			FROM = { piety = 200 }
+			has_siege = no
+			custom_tooltip = { 
+				text = tooltip_temple_must_have_priest
+				hidden_tooltip = { 
+					owner = { 
+						is_theocracy = yes 
+						religion = FROM 	#Temple must have an hellenic priest.
 					}
 				}
 			}
-
-			has_siege = no
-
-			custom_tooltip = {
-				text = tooltip_temple_must_have_priest
-
-				# Temple must have an Hellenic priest
-				holder_scope = {
-					is_theocracy = yes
-					religion = FROM
+			custom_tooltip = { 
+				text = tooltip_not_dedicated_temple_recently
+				hidden_tooltip = { 
+					FROM = { 
+						NOT = { 
+							has_character_modifier = recently_dedicated_temple_cooldown
+						}
+					}
 				}
 			}
 		}
-
+		
 		effect = {
-			custom_tooltip = {
-				text = tooltip_hellenic_dedicate_temple
-
-				save_event_target_as = scoped_temple_barony
-
-				FROM = {
-					set_character_flag = flag_dedicating_temple
-					character_event = { id = HF.23200 } # Pick a god category
-				}
+			custom_tooltip = { 
+				text = tooltip_hellenic_dedicate_temple 
 			}
-
+			FROM = { 
+				set_character_flag = flag_dedicating_temple 
+				character_event = { id = HF.23200 }
+			}
+			
 		}
-
+		revoke_allowed = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
-
-			trigger = {
-				# Better to have the AI only dedicate one per lifetime, otherwise it might leave the player out of options
-				FROM = {
-					NOR = {
-						has_character_modifier = dedicated_to_zeus
-						has_character_modifier = dedicated_to_poseidon
-						has_character_modifier = dedicated_to_hades
-						has_character_modifier = dedicated_to_hermes
-						has_character_modifier = dedicated_to_demeter
-						has_character_modifier = dedicated_to_athena
-						has_character_modifier = dedicated_to_apollo
-						has_character_modifier = dedicated_to_arthemis
-						has_character_modifier = dedicated_to_ares
-						has_character_modifier = dedicated_to_aphrodite
-						has_character_modifier = dedicated_to_ephaestus
-						has_character_modifier = dedicated_to_hestia
-					}
-				}
+			modifier = {
+				factor = 0
+				ruler_has_dedicated_temple_trigger = yes #Better to have the AI only dedicate one per lifetime, otherwise it might leave the player out of options.
 			}
 		}
 	}

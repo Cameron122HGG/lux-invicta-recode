@@ -10,49 +10,43 @@
 namespace = TOG
 
 # You summon your vassals to a Blot
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.600
 	desc = EVTDESC_TOG_600
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes # hold_blot, minor_decisions.txt
+	
+	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
 	option = {
 		name = EVTOPTA_TOG_600
-
 		any_vassal = {
 			limit = {
-				block_general_event_trigger = no
+				nm_trigger = yes
+				NOT = { is_inaccessible_trigger = yes }
+				age = 16
+				prisoner = no
 				war = no
+				NOT = { trait = incapable }
 			}
-
-			if = {
-				limit = { religion_openly_norse_or_reformed_trigger = yes }
-
-				character_event = {
-					id = TOG.601
-					tooltip = EVTTOOLTIP_TOG_601
-				}
-
-				character_event = {
-					id = TOG.605 # Blot begins
-					days = 10
-				}
-			}
-			else = {
-				character_event = {
-					id = TOG.602
-					tooltip = EVTTOOLTIP_TOG_602
-				}
-			}
+			character_event = { id = TOG.601 tooltip = EVTTOOLTIP_TOG_601 }
+			hidden_tooltip = { character_event = { id = TOG.605 days = 10 } }
 		}
-
-		character_event = {
-			id = TOG.604 # Blot begins
-			days = 10
+		any_vassal = {
+			limit = {
+				nm_trigger = no
+				NOT = { is_inaccessible_trigger = yes }
+				age = 16
+				prisoner = no
+				war = no
+				NOT = { trait = incapable }
+			}
+			character_event = { id = TOG.602 tooltip = EVTTOOLTIP_TOG_602 }
 		}
+		hidden_tooltip = { character_event = { id = TOG.604 days = 10 } }
 	}
 }
 

@@ -1744,206 +1744,106 @@ letter_event = {
 }
 
 # Give land to an unlanded friend for a favor
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = ZE.22702
 	desc = EVTDESC_ZE_22702
 	picture = GFX_evt_council_agreement
-	portrait = event_target:target_unlanded_friend
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	only_playable = yes
-	has_dlc = "Conclave"
-	min_age = 16
-	only_capable = yes
-	prisoner = no
-	war = no
-
-	trigger = {
-		is_nomadic = no
-		is_inaccessible_trigger = no
-		higher_real_tier_than = COUNT
-
-		any_demesne_title = {
-			real_tier = COUNT
-			can_be_given_away = yes
-			is_feudal = yes
-
-			location = {
-				is_capital = no
-			}
-		}
-
-		any_friend = {
-			is_ruler = no
-			has_inheritance_blocker = no
-			block_general_event_trigger = no
-
-			trigger_if = {
-				limit = { is_female = yes }
-
-				ROOT = {
-					OR = {
-						has_law = enatic_succession
-						has_law = enatic_cognatic_succession
-						has_law = true_cognatic_succession
-					}
-				}
-			}
-			trigger_else = {
-				ROOT = {
-					OR = {
-						has_law = agnatic_succession
-						has_law = cognatic_succession
-						has_law = true_cognatic_succession
-					}
-				}
-			}
-
-			NOR = {
-				vassal_of = ROOT
-				is_close_relative = ROOT
-				owes_favor_to = ROOT
-				trait = celibate
-
-				any_heir_title = {
-					always = yes
-				}
-			}
-		}
-	}
-
-	immediate = {
-		random_friend = {
-			limit = {
-				is_ruler = no
-				has_inheritance_blocker = no
-				block_general_event_trigger = no
-
-				trigger_if = {
-					limit = { is_female = yes }
-
-					ROOT = {
-						OR = {
-							has_law = enatic_succession
-							has_law = enatic_cognatic_succession
-							has_law = true_cognatic_succession
-						}
-					}
-				}
-				trigger_else = {
-					ROOT = {
-						OR = {
-							has_law = agnatic_succession
-							has_law = cognatic_succession
-							has_law = true_cognatic_succession
-						}
-					}
-				}
-
-				NOR = {
-					vassal_of = ROOT
-					is_close_relative = ROOT
-					owes_favor_to = ROOT
-					trait = celibate
-
-					any_heir_title = {
-						always = yes
-					}
-				}
-			}
-
-			save_event_target_as = target_unlanded_friend
-		}
-
-		random_demesne_title = {
-			limit = {
-				real_tier = COUNT
-				can_be_given_away = yes
-				is_feudal = yes
-
-				location = {
-					is_capital = no
-				}
-			}
-
-			save_event_target_as = target_friend_land
-		}
-	}
-
+	is_triggered_only = yes
+	
 	# Give friend land
 	option = {
 		name = EVTOPTA_ZE_22702
-
-		event_target:target_unlanded_friend = {
-			show_scope_change = no
-
-			opinion = {
-				name = opinion_loyal_servant
-				who = ROOT
-				years = 100
-			}
-
-			reverse_add_favor = ROOT
-
-			hidden_effect = {
-				set_correct_feudal_government_type_effect = yes
-			}
-
-			grant_title = event_target:target_friend_land
-
-		}
-
-		custom_tooltip = {
-			text = indebted_to_family_tooltip
-
-			hidden_effect = {
-				generate_tooltip = no
-
-				any_dynasty_member = {
-					event_target:target_unlanded_friend = {
-						opinion = {
-							name = opinion_loyal_servant
-							who = PREV
-							years = 100
-						}
-					}
-				}
-			}
-		}
-
-		add_trait_fully_silently_charitable_effect = yes
-
+		
 		ai_chance = {
 			factor = 50
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 0.5
 				trait = greedy
 			}
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 0.5
 				trait = paranoid
 			}
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 2
 				trait = charitable
 			}
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 2
 				trait = kind
 			}
 		}
+		
+		event_target:target_unlanded_friend = {
+			opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				months = 1200
+			}
+			reverse_add_favor = ROOT
+			hidden_tooltip = {
+				if = {
+					limit = {
+						religion_group = muslim
+					}
+					set_government_type = muslim_government
+				}
+				else_if = {
+					limit = {
+						oriental_monarchy_government_trigger = yes
+					}
+					set_government_type = oriental_monarchy_government
+				}
+				else_if = {
+					limit = {
+						classical_government = yes
+					}
+					set_government_type = oriental_monarchy_government
+				}
+				else = {
+					set_government_type = feudal_government
+				}
+			}
+			grant_title = event_target:target_friend_land
+		}
+		custom_tooltip = {
+			text = indebted_to_family_tooltip
+			hidden_tooltip = {
+				any_dynasty_member = {
+					event_target:target_unlanded_friend = {
+						opinion = {
+							who = PREV
+							modifier = opinion_loyal_servant
+							months = 1200
+						}
+					}
+				}
+			}
+		}
+		If = {
+			limit = {
+				NOT = {
+					trait = charitable
+				}
+			}
+			add_trait = charitable
+		}
 	}
-
+	
 	# Deny friend land
 	option = {
 		name = EVTOPTB_ZE_22702
-
-		ai_chance = { factor = 50 }
+		
+		ai_chance = {
+			factor = 50
+		}
+		
 	}
 }
 

@@ -688,58 +688,59 @@ character_event = { # Blame game starts
 #	}
 # }
 
-character_event = { # Head of religion chimes in. Could be a player.
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+character_event = { #head of religion chimes in. could be player.
 	id = RIP.13401
-	desc = RIP.13401.d
 	picture = GFX_evt_end_of_days
 	border = GFX_event_normal_frame_religion
-
+	desc = RIP.13401.d
+	
 	is_triggered_only = yes
+	
+	immediate = {
+		
+	}	
 
-	option = { # Leave off the Jews
+	option = {
 		name = RIP.13401.a
-
+		#leave off the jews
 		FROM = {
 			letter_event = { id = RIP.13404 }
 		}
-
 		ai_chance = {
 			factor = 50
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-
 				OR = {
 					trait = zealous
 					trait = cynical
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
+				factor = 10
+				trait = tolerant
+			}
+			modifier = {
 				factor = 2
 				is_virtous = yes
 			}
-		}
+		}			
 	}
 
-	option = { # Yeah, Jews are to blame
+	option = {
 		name = RIP.13401.b
-
+		#yeah, jews are to blame
 		trigger = {
-			NOR = {
-				religion_group = jewish_group
-				trait = sympathy_judaism
+			NOT = {
+				trait = tolerant
 			}
 		}
-
 		FROM = {
 			letter_event = { id = RIP.13405 }
 		}
-
 		ai_chance = {
 			factor = 50
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				is_wicked = yes
 			}

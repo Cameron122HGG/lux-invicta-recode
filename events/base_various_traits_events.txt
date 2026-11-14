@@ -349,81 +349,61 @@ character_event = {
 
 ### Stressed: Learning ###
 # CleanSlate: Merged with event 65166
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 65009
 	desc = EVTDESC65009
-
-	picture = {
-		picture = GFX_evt_bishop
-		trigger = {
-			NOT = { religion_group = muslim }
-		}
-	}
-	picture = {
-		picture = GFX_evt_jerusalem_captured_muslims
-		trigger = { religion_group = muslim }
-	}
-
-	is_triggered_only = yes # on_bi_yearly_pulse, random_events
-
-	only_playable = yes
-	only_men = yes # TODO: Does this need to be gender locked?
-	only_capable = yes
+	picture = GFX_evt_bishop
+	
+	only_men = yes
+	capable_only = yes
+	only_rulers = yes
 	prisoner = no
-
+	
+	is_triggered_only = yes
+	
 	trigger = {
-		trait = stressed
-
 		NOR = {
-			religion = buddhist
+			religion_group = muslim
+			religion_group = bud_group
 			religion = jain
 		}
-
-		learning >= 2
-		learning < 10
-
+		trait = stressed
+		learning = 2
+		NOT = {
+			learning = 10
+		}
 		job_spiritual = {
-			learning >= 10
+			learning = 10
 		}
 	}
-
+	
 	weight_multiplier = {
 		factor = 1
 	}
-
+	
 	option = {
 		name = EVTOPTA65009
-
 		random = {
 			chance = 25
-
+			
 			change_learning = -1
-			remove_trait_stressed_effect = yes
+			remove_trait = stressed
 		}
-
 		job_spiritual = {
-			show_scope_change = no
-
 			opinion = {
-				name = trusting_pos
+				modifier = trusting_pos
 				who = ROOT
 				years = 5
 			}
-
 			character_event = {
 				id = 65010
 				tooltip = EVTTOOLTIP65010
 			}
 		}
 	}
-
 	option = {
 		name = EVTOPTB65009
-
-		if = {
-			limit = { religion_group = muslim }
-			piety = -5
-		}
 	}
 }
 
@@ -1863,82 +1843,71 @@ character_event = {
 }
 
 # I want to stop drinking
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 65049
 	desc = EVTDESC65049
 	picture = GFX_evt_drunk
-
-	is_triggered_only = yes # on_bi_yearly_pulse, random_events
-
-	only_capable = yes
+	
+	capable_only = yes
 	prisoner = no
+	
+	is_triggered_only = yes
 
 	trigger = {
 		trait = drunkard
-
-		NOR = {
-			trait = content
-			trait = stressed
-		}
+		NOT = { trait = content	}
+		NOT = { trait = stressed }
 	}
-
+	
 	weight_multiplier = {
 		factor = 1
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
-
 			OR = {
 				trait = gluttonous
 				trait = slothful
 			}
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 5
-
 			OR = {
 				trait = ambitious
 				trait = diligent
 			}
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 10
 			has_ambition = obj_buddhist_stop_drinking
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTA65049 # Work hard with the sword
-
-		trigger = { is_female = no }
-
+		name = EVTOPTA65049	#Work hard with the sword
+		trigger = {
+			is_female = no
+		}
 		change_martial = 1
 		prestige = 5
 		remove_trait = drunkard
 	}
-
 	option = {
-		name = EVTOPTB65049 # Embroidery will take my mind off it
-
-		trigger = { is_female = yes }
-
+		name = EVTOPTB65049	#Embroidery will take my mind off it.
+		trigger = {
+			is_female = yes
+		}
 		change_intrigue = 1
 		prestige = 5
 		remove_trait = drunkard
 	}
-
 	option = {
-		name = EVTOPTC65049 # God cures me!
-
+		name = EVTOPTC65049	#God cures me!
 		trigger = {
 			NOR = {
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
 		piety = 5
 		change_learning = 1
 		remove_trait = drunkard
@@ -1946,62 +1915,61 @@ character_event = {
 }
 
 # Drink myself to an early grave
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 65050
 	desc = EVTDESC65050
 	picture = GFX_evt_illness
-
-	is_triggered_only = yes # on_bi_yearly_pulse, random_events
-
-	only_capable = yes
+	
+	capable_only = yes
 	prisoner = no
+	
+	is_triggered_only = yes
 
 	trigger = {
+		NOT = {
+			uses_decadence = yes
+		}
 		trait = drunkard
-		uses_decadence = no
-		health >= 0
+		health = 0
+		NOT = { trait = incapable }
 	}
-
+	
 	weight_multiplier = {
 		factor = 1
-
-		mult_modifier = {
+		modifier = {
 			factor = 2
 			trait = gluttonous
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 2
 			trait = slothful
-		}
+		}		
 	}
-
+	
 	option = {
-		name = EVTOPTA65050 # But the wine..
-
+		name = EVTOPTA65050	#but the wine..
 		health = -1
 		fertility = -0.05
 	}
-
 	option = {
-		name = {
-			text = EVTOPTB65050 # Ask priests for advice
-			trigger = {
-				NOT = { religion_group = muslim }
-			}
-		}
-		name = {
-			text = EVTOPTC65050 # Ask Imam for advice
-			trigger = { religion_group = muslim }
-		}
-
+		name = EVTOPTB65050	#ask priests for advice.
 		trigger = {
 			NOR = {
-				religion = buddhist
+				religion_group = muslim
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
+		piety = 5
+		health = -0.5
+		prestige = -10
+	}
+	option = {
+		name = EVTOPTC65050	#ask Imam for advice.
+		trigger = {
+			religion_group = muslim
+		}
 		piety = 5
 		health = -0.5
 		prestige = -10

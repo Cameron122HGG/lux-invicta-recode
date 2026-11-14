@@ -682,117 +682,117 @@ character_event = {
 # Hidden. Fired from on_offmap_yearly_pulse.
 # Root = Governor
 # From = Offmap
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50120
 
-	is_triggered_only = yes # on_offmap_yearly_pulse, random_events
-	hide_window = yes
-
 	has_dlc = "Jade Dragon"
 
+	is_triggered_only = yes
+	hide_window = yes
+	
 	trigger = {
 		FROM = {
 			is_offmap_tag = offmap_china
-
 			NOR = {
 				has_status = china_unrest
 				has_status = china_mongol_invasion # Resolution handled by JD.50160
 				has_status = china_jurchen_invasion # Resolution handled by JD.50200
 				has_status = china_civil_war # Resolution handled by JD.50300
 			}
-
-			# Famines last for at least 4 years
-			trigger_if = {
-				limit = {
-					has_status = china_famine
-					has_offmap_flag = china_had_famine
-				}
-
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 4 }
-			}
-			# Plagues last for at least 2 years
-			trigger_else_if = {
-				limit = {
-					has_status = china_plague
-					has_offmap_flag = china_had_plague
-				}
-
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 2 }
-			}
 		}
 	}
-
+    
 	weight_multiplier = {
 		factor = 1
-
-		mult_modifier = { # Slightly less likely to get unrest if things are fine
+		modifier = { # Slightly less likely to get unrest if things are fine
 			factor = 0.75
 			FROM = {
 				has_status = china_stable
 			}
 		}
-		mult_modifier = { # Golden ages are very unlikely to end with Unrest
+		modifier = { # Golden ages are very unlikely to end with Unrest
 			factor = 0.01
 			FROM = { has_status = china_golden_age }
 		}
-		mult_modifier = { # Slightly more likely to get Unrest if non-Chinese emperor
-			factor = 1.25
+		modifier = { # Famines last for at least 4 years
+			factor = 0
 			FROM = {
-				holder_scope = {
-					NOT = { culture_group = chinese_group }
+				has_status = china_famine
+				has_offmap_flag = china_had_famine
+				NOT = {
+					had_offmap_tmp_flag = { flag = china_had_famine years = 4 }
 				}
 			}
 		}
-		mult_modifier = {
+		modifier = { # Plagues last for at least 2 years
+			factor = 0
+			FROM = {
+				has_status = china_plague
+				has_offmap_flag = china_had_plague
+				NOT = {
+					had_offmap_tmp_flag = { flag = china_had_plague years = 2 }
+				}
+			}
+		}
+		modifier = { # Slightly more likely to get Unrest if non-Chinese emperor
+			factor = 1.25
+			FROM = {
+				NOT = {
+					culture_group = chinese
+				}
+			}
+		}
+		modifier = {
 			factor = 1.25
 			FROM = {
 				has_status = china_famine
 				has_offmap_flag = china_had_famine
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 6 }
+				had_offmap_tmp_flag = { flag = china_had_famine years = 6 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.25
 			FROM = {
 				has_status = china_plague
 				has_offmap_flag = china_had_plague
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 3 }
+				had_offmap_tmp_flag = { flag = china_had_plague years = 3 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_famine
 				has_offmap_flag = china_had_famine
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 8 }
+				had_offmap_tmp_flag = { flag = china_had_famine years = 8 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_plague
 				has_offmap_flag = china_had_plague
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 5 }
+				had_offmap_tmp_flag = { flag = china_had_plague years = 5 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
 			FROM = {
 				has_status = china_famine
 				has_offmap_flag = china_had_famine
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 10 }
+				had_offmap_tmp_flag = { flag = china_had_famine years = 10 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
 			FROM = {
 				has_status = china_plague
 				has_offmap_flag = china_had_plague
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 7 }
+				had_offmap_tmp_flag = { flag = china_had_plague years = 7 }
 			}
 		}
 	}
-
+	
 	immediate = {
 		FROM = {
 			set_offmap_flag = china_had_unrest
@@ -805,148 +805,156 @@ character_event = {
 # Hidden. Fired from on_offmap_yearly_pulse.
 # Root = Governor
 # From = Offmap
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50140
 
-	is_triggered_only = yes # on_offmap_yearly_pulse, random_events
-	hide_window = yes
-
 	has_dlc = "Jade Dragon"
 
+	is_triggered_only = yes
+	hide_window = yes
+	
 	trigger = {
 		FROM = {
 			is_offmap_tag = offmap_china
-
 			NOR = {
-				offmap_ruler = { culture = mongol }
 				has_status = china_mongol_invasion # Resolution handled by JD.50160
 				has_status = china_jurchen_invasion # Resolution handled by JD.50200
 				has_status = china_civil_war # Resolution handled by JD.50300
 			}
-
-			trigger_if = {
-				limit = { has_offmap_flag = china_invaded_player_dynasty }
-				had_offmap_tmp_flag = { flag = china_invaded_player_dynasty years >= 200 }
-			}
-
-			# Famines last for at least 4 years
-			trigger_if = {
-				limit = {
-					has_status = china_famine
-					has_offmap_flag = china_had_famine
-				}
-
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 4 }
-			}
-			# Plagues last for at least 2 years
-			trigger_else_if = {
-				limit = {
-					has_status = china_plague
-					has_offmap_flag = china_had_plague
-				}
-
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 2 }
+			OR = {
+				NOT = { has_offmap_flag = china_invaded_player_dynasty }
+				had_offmap_tmp_flag = { flag = china_invaded_player_dynasty years = 200 }
 			}
 		}
 	}
-
+	
 	weight_multiplier = {
 		factor = 1
-
-		mult_modifier = { # Unrest increases the chance of an invasion
+		modifier = { # Unrest increases the chance of an invasion
 			factor = 3
 			FROM = {
 				has_status = china_unrest
 				has_offmap_flag = china_had_unrest
-				had_offmap_tmp_flag = { flag = china_had_unrest years >= 2 }
+				had_offmap_tmp_flag = { flag = china_had_unrest years = 2 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_unrest
 				has_offmap_flag = china_had_unrest
-				had_offmap_tmp_flag = { flag = china_had_unrest years >= 4 }
+				had_offmap_tmp_flag = { flag = china_had_unrest years = 4 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_unrest
 				has_offmap_flag = china_had_unrest
-				had_offmap_tmp_flag = { flag = china_had_unrest years >= 6 }
+				had_offmap_tmp_flag = { flag = china_had_unrest years = 6 }
 			}
 		}
-		mult_modifier = {
+		modifier = { # Famines last for at least 4 years
+			factor = 0
+			FROM = {
+				has_status = china_famine
+				has_offmap_flag = china_had_famine
+				NOT = {
+					had_offmap_tmp_flag = { flag = china_had_famine years = 4 }
+				}
+			}
+		}
+		modifier = { # Plagues last for at least 2 years
+			factor = 0
+			FROM = {
+				has_status = china_plague
+				has_offmap_flag = china_had_plague
+				NOT = {
+					had_offmap_tmp_flag = { flag = china_had_plague years = 2 }
+				}
+			}
+		}
+		modifier = {
 			factor = 1.25
 			FROM = {
 				has_status = china_famine
 				has_offmap_flag = china_had_famine
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 6 }
+				had_offmap_tmp_flag = { flag = china_had_famine years = 6 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.25
 			FROM = {
 				has_status = china_plague
 				has_offmap_flag = china_had_plague
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 3 }
+				had_offmap_tmp_flag = { flag = china_had_plague years = 3 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_famine
 				has_offmap_flag = china_had_famine
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 8 }
+				had_offmap_tmp_flag = { flag = china_had_famine years = 8 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_plague
 				has_offmap_flag = china_had_plague
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 5 }
+				had_offmap_tmp_flag = { flag = china_had_plague years = 5 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
 			FROM = {
 				has_status = china_famine
 				has_offmap_flag = china_had_famine
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 10 }
+				had_offmap_tmp_flag = { flag = china_had_famine years = 10 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
 			FROM = {
 				has_status = china_plague
 				has_offmap_flag = china_had_plague
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 7 }
+				had_offmap_tmp_flag = { flag = china_had_plague years = 7 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
+			factor = 0
+			FROM = {
+				offmap_ruler = {
+					culture = xiongnu
+				}
+			}
+		}
+		modifier = {
 			factor = 0.3
-			NOT = { has_global_flag = mongol_horde_united }
+			NOT = { 
+				has_global_flag = mongol_empire_arrival
+			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			FROM = { has_status = china_golden_age }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			FROM = { has_offmap_flag = china_mongols_won_1 }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 0.25
 			FROM = { has_offmap_flag = china_mongols_won_2 }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 0.1
 			FROM = { has_offmap_flag = china_mongols_won_3 }
 		}
 	}
-
+	
 	immediate = {
 		FROM = {
 			set_offmap_flag = no_status_news
@@ -954,13 +962,11 @@ character_event = {
 			set_offmap_flag = china_mongol_invasion
 			clr_offmap_flag = no_status_news
 		}
-
 		any_player = {
 			limit = {
 				has_offmap_news_enabled = FROM
 				is_within_diplo_range = ROOT
 			}
-
 			narrative_event = { id = JD.50141 }
 		}
 	}
@@ -1022,88 +1028,84 @@ narrative_event = {
 # Hidden. Fired from on_offmap_yearly_pulse
 # Root = Governor
 # From = Offmap
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50160
 
-	is_triggered_only = yes # on_offmap_yearly_pulse, random_events
-	hide_window = yes
-
 	has_dlc = "Jade Dragon"
 
+	is_triggered_only = yes
+	hide_window = yes
+	
 	trigger = {
 		FROM = {
 			is_offmap_tag = offmap_china
 			has_status = china_mongol_invasion
 		}
 	}
-
+	
 	weight_multiplier = {
 		factor = 1
-
-		mult_modifier = {
+		modifier = {
 			factor = 2
-			FROM = { had_offmap_tmp_flag = { flag = china_mongol_invasion years >= 2 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_mongol_invasion years = 2 } }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
-			FROM = { had_offmap_tmp_flag = { flag = china_mongol_invasion years >= 4 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_mongol_invasion years = 4 } }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
-			FROM = { had_offmap_tmp_flag = { flag = china_mongol_invasion years >= 8 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_mongol_invasion years = 8 } }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 5
-			FROM = { had_offmap_tmp_flag = { flag = china_mongol_invasion years >= 10 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_mongol_invasion years = 10 } }
 		}
 	}
-
+	
 	immediate = {
 		random_list = {
 			100 = { # China won!
-				mult_modifier = {
+				modifier = {
 					factor = 3
-					FROM = { prev_status = china_golden_age }
+					FROM = {
+						prev_status = china_golden_age
+					}
 				}
-
+				
 				FROM = {
 					set_offmap_flag = no_status_news
 					set_status = china_stable
 					clr_offmap_flag = no_status_news
-
-					trigger_switch = {
-						on_trigger = has_offmap_flag
-
-						china_badly_beaten_1 = {
-							clr_offmap_flag = china_badly_beaten_1
-						}
-
-						china_badly_beaten_2 = {
-							clr_offmap_flag = china_badly_beaten_2
-							set_offmap_flag = china_badly_beaten_1
-						}
-
-						china_badly_beaten_3 = {
-							clr_offmap_flag = china_badly_beaten_3
-							set_offmap_flag = china_badly_beaten_2
-						}
+					
+					if = {
+						limit = { has_offmap_flag = china_badly_beaten_1 }
+						clr_offmap_flag = china_badly_beaten_1
+					}
+					if = {
+						limit = { has_offmap_flag = china_badly_beaten_2 }
+						clr_offmap_flag = china_badly_beaten_2
+						set_offmap_flag = china_badly_beaten_1
+					}
+					if = {
+						limit = { has_offmap_flag = china_badly_beaten_3 }
+						clr_offmap_flag = china_badly_beaten_3
+						set_offmap_flag = china_badly_beaten_2
 					}
 				}
-
+				
 				any_player = {
 					limit = {
 						has_offmap_news_enabled = FROM
 						is_within_diplo_range = ROOT
 					}
-
 					narrative_event = { id = JD.50161 }
 				}
 			}
-
 			100 = { # Mongols won!
-				mult_modifier = {
+				modifier = {
 					factor = 3
-
 					FROM = {
 						OR = {
 							prev_status = china_unrest
@@ -1112,103 +1114,114 @@ character_event = {
 						}
 					}
 				}
-
-				mult_modifier = { # The Borjigins are more likely to win
-					factor = 5
-					NOT = { has_global_flag = borjigin_china }
-
-					any_independent_ruler = {
-						OR = {
-							dynasty = 11100
-							dynasty = 1051210
-						}
-
-						has_landed_title = e_mongol_empire
-						ai = yes
-					}
-				}
-
+				# modifier = { # The Borjigins are more likely to win
+					# factor = 5
+					# NOT = {
+						# has_global_flag = borjigin_china
+					# }
+					# any_independent_ruler = {
+						# OR = {
+							# dynasty = 11100
+							# dynasty = 1051210
+						# }
+						# has_landed_title = e_mongol_empire
+						# ai = yes
+					# }
+				# }
+				
 				FROM = {
 					set_offmap_flag = no_status_news
 					set_status = china_unrest
 					set_offmap_flag = china_had_unrest
 					clr_offmap_flag = no_status_news
-
+				
 					set_offmap_flag = china_expansionist_trend # Likely for the new ruler to pick Expansionist policy
 					clr_offmap_flag = china_badly_beaten_3
 					clr_offmap_flag = china_badly_beaten_2
 					clr_offmap_flag = china_badly_beaten_1
-
+					
 					if = {
-						limit = { has_offmap_flag = china_mongols_won_2 }
+						limit = {
+							has_offmap_flag = china_mongols_won_2
+						}
 						set_offmap_flag = china_mongols_won_3
 						clr_offmap_flag = china_mongols_won_2
 					}
-					else_if = {
-						limit = { has_offmap_flag = china_mongols_won_1 }
+					
+					if = {
+						limit = {
+							has_offmap_flag = china_mongols_won_1
+						}
 						set_offmap_flag = china_mongols_won_2
 						clr_offmap_flag = china_mongols_won_1
 					}
-					else_if = {
+					
+					if = {
 						limit = {
-							NOT = { has_offmap_flag = china_mongols_won_3 }
+							NOR = {
+								has_offmap_flag = china_mongols_won_1
+								has_offmap_flag = china_mongols_won_2
+								has_offmap_flag = china_mongols_won_3
+							}
 						}
-
 						set_offmap_flag = china_mongols_won_1
 					}
-
+					
 					set_offmap_flag = no_succession_news
 				}
-
-				if = { # If the Borjigin's are around, it's guaranteed to be a Borjigin emperor
-					limit = {
-						NOT = { has_global_flag = borjigin_china }
-
-						any_independent_ruler = {
-							OR = {
-								dynasty = 11100
-								dynasty = 1051210
-							}
-
-							has_landed_title = e_mongol_empire
-							ai = yes
-						}
-					}
-
-					random_independent_ruler = {
-						limit = {
-							OR = {
-								dynasty = 11100
-								dynasty = 1051210
-							}
-
-							has_landed_title = e_mongol_empire
-							ai = yes
-						}
-						save_event_target_as = mongol_china_invader
-					}
-				}
-
+				
+				# if = { # If the Borjigin's are around, it's guaranteed to be a Borjigin emperor
+					# limit = {
+						# NOT = {
+							# has_global_flag = borjigin_china
+						# }
+						# any_independent_ruler = {
+							# OR = {
+								# dynasty = 11100
+								# dynasty = 1051210
+							# }
+							# has_landed_title = e_mongol_empire
+							# ai = yes
+						# }
+					# }
+					# random_independent_ruler = {
+						# limit = {
+							# OR = {
+								# dynasty = 11100
+								# dynasty = 1051210
+							# }
+							# has_landed_title = e_mongol_empire
+							# ai = yes
+						# }
+						# save_event_target_as = mongol_china_invader
+					# }
+				# }
+				
 				# A new ruler ascends to the Dragon Throne. The fallout is handled by JD.10005 and JD.50000 (from 'on_offmap_ruler_changed')
 				random_list = {
 					100 = {
-						mult_modifier = {
+						modifier = {
 							factor = 2
-							year >= 1200
+							year = 1200
 						}
-
 						if = { # Borjigin Emperor if they are around
 							limit = {
-								NOT = { has_global_flag = borjigin_china }
-								event_target:mongol_china_invader = { is_alive = yes }
+								NOT = {
+									has_global_flag = borjigin_china
+								}
+								event_target:mongol_china_invader = {
+									is_alive = yes
+								}
 							}
-
 							random_list = {
-								50 = {
-									trigger = {
-										gender_equality_trigger = yes
+								0 = {
+									additive_modifier = {
+										value = 50
+										has_game_rule = {
+											name = gender
+											value = all
+										}
 									}
-
 									create_character = {
 										age = 20
 										random_traits = yes
@@ -1216,11 +1229,8 @@ character_event = {
 										religion = event_target:mongol_china_invader
 										culture = event_target:mongol_china_invader
 										dynasty = event_target:mongol_china_invader
-										add_trait = brilliant_strategist
-
-										attributes = {
-											martial = 10
-										}
+										trait = brilliant_strategist
+										martial = 10
 									}
 								}
 								50 = {
@@ -1231,36 +1241,34 @@ character_event = {
 										religion = event_target:mongol_china_invader
 										culture = event_target:mongol_china_invader
 										dynasty = event_target:mongol_china_invader
-										add_trait = brilliant_strategist
-
-										attributes = {
-											martial = 10
-										}
+										trait = brilliant_strategist
+										martial = 10
 									}
 								}
 							}
 							new_character = {
 								if = {
 									limit = {
-										event_target:mongol_china_invader = { age >= 36 }
+										event_target:mongol_china_invader = {
+											age = 36
+										}
 									}
-
 									set_father = event_target:mongol_china_invader
 								}
 								else_if = {
 									limit = {
 										event_target:mongol_china_invader = {
-											age < 36
-											father_even_if_dead = { age >= 36 }
+											NOT = { age = 36 }
+											father_even_if_dead = {
+												age = 36
+											}
 										}
 									}
-
 									event_target:mongol_china_invader = {
 										father_even_if_dead = {
 											save_event_target_as = mongol_china_invader_father
 										}
 									}
-
 									set_father = event_target:mongol_china_invader_father
 								}
 								else = {
@@ -1272,47 +1280,43 @@ character_event = {
 										culture = event_target:mongol_china_invader
 										dynasty = event_target:mongol_china_invader
 									}
-
 									new_character = {
 										death = { death_reason = death_in_china_historic }
 										save_event_target_as = new_china_ruler_father
 									}
-
 									set_father = event_target:new_china_ruler_father
 								}
-
 								FROM = {
 									set_offmap_holder = PREV
 								}
 							}
-
 							offmap_china = { # Mongols take all western protectorate lands for themselves
 								governor = {
 									any_vassal = {
 										set_defacto_liege = event_target:mongol_china_invader
 									}
-
 									any_demesne_title = {
-										limit = { lower_real_tier_than = EMPEROR }
+										limit = {
+											NOT = {
+												tier = EMPEROR
+											}
+										}
 										grant_title = event_target:mongol_china_invader
 									}
 								}
 							}
-
 							event_target:mongol_china_invader = { # The Borjigin who invaded China gets a bunch of Grace, Prestige, Gold, a Peace Deal and a few Siege Engineers when winning
 								wealth = 1000
 								prestige = 1000
-
 								add_offmap_currency = {
 									offmap = offmap_china
 									value = 5000
 								}
 								add_character_modifier = {
+									inherit = yes
 									name = peace_deal_with_china
 									years = 50
-									inherit = yes
 								}
-
 								create_random_soldier = {
 									age = 30
 									dynasty = actually_culture
@@ -1320,7 +1324,6 @@ character_event = {
 									culture = ROOT
 									female = no
 									random_traits = yes
-
 									attributes = {
 										diplomacy = 2
 										learning = 2
@@ -1329,21 +1332,19 @@ character_event = {
 										martial = 12
 									}
 								}
-
 								new_character = {
 									set_character_flag = originated_from_chinese_court
 									set_character_flag = no_court_invites
 									set_character_flag = taught_chinese_strategy
-
+									
 									remove_trait = weak
 									remove_trait = slow
 									remove_trait = imbecile
 									remove_trait = dull
 									remove_trait = craven
-
+									
 									add_trait = sapper
 								}
-
 								create_random_soldier = {
 									age = 30
 									dynasty = actually_culture
@@ -1351,7 +1352,6 @@ character_event = {
 									culture = ROOT
 									female = no
 									random_traits = yes
-
 									attributes = {
 										diplomacy = 2
 										learning = 2
@@ -1360,21 +1360,19 @@ character_event = {
 										martial = 12
 									}
 								}
-
 								new_character = {
 									set_character_flag = originated_from_chinese_court
 									set_character_flag = no_court_invites
 									set_character_flag = taught_chinese_strategy
-
+									
 									remove_trait = weak
 									remove_trait = slow
 									remove_trait = imbecile
 									remove_trait = dull
 									remove_trait = craven
-
+									
 									add_trait = sapper
 								}
-
 								create_random_soldier = {
 									age = 30
 									dynasty = actually_culture
@@ -1382,7 +1380,6 @@ character_event = {
 									culture = ROOT
 									female = no
 									random_traits = yes
-
 									attributes = {
 										diplomacy = 2
 										learning = 2
@@ -1391,63 +1388,56 @@ character_event = {
 										martial = 12
 									}
 								}
-
 								new_character = {
 									set_character_flag = originated_from_chinese_court
 									set_character_flag = no_court_invites
 									set_character_flag = taught_chinese_strategy
-
+									
 									remove_trait = weak
 									remove_trait = slow
 									remove_trait = imbecile
 									remove_trait = dull
 									remove_trait = craven
-
+									
 									add_trait = sapper
 								}
 							}
-
 							set_global_flag = borjigin_china
 						}
 						else = { # If no Borjigins, business as usual
 							random_list = {
-								50 = {
-									trigger = {
-										gender_equality_trigger = yes
+								0 = {
+									additive_modifier = {
+										value = 50
+										has_game_rule = {
+											name = gender
+											value = all
+										}
 									}
-
 									create_character = {
 										age = 35
 										random_traits = yes
 										female = yes
-										religion = taoist # A bit strange, but necessary
+										religion = tao # A bit strange, but necessary
 										culture = mongol
 										dynasty = actually_culture
-										add_trait = brilliant_strategist
-
-										attributes = {
-											martial = 10
-										}
+										trait = brilliant_strategist
+										martial = 10
 									}
 								}
-
 								50 = {
 									create_character = {
 										age = 35
 										random_traits = yes
 										female = no
-										religion = taoist # A bit strange, but necessary
+										religion = tao # A bit strange, but necessary
 										culture = mongol
 										dynasty = actually_culture
-										add_trait = brilliant_strategist
-
-										attributes = {
-											martial = 10
-										}
+										trait = brilliant_strategist
+										martial = 10
 									}
 								}
 							}
-
 							new_character = {
 								create_character = {
 									age = 60
@@ -1457,77 +1447,78 @@ character_event = {
 									culture = THIS
 									dynasty = THIS
 								}
-
 								new_character = {
 									death = { death_reason = death_in_china_historic }
 									save_event_target_as = new_china_ruler_father
 								}
-
 								set_father = event_target:new_china_ruler_father
-
 								FROM = {
 									set_offmap_holder = PREV
 								}
-
 								random_list = {
-									100 = { }
-									 10 = { religion = tengri_pagan }
-									 10 = { religion = buddhist }
-									  5 = { religion = nestorian }
-									  5 = { religion = sunni }
+									100 = {
+									
+									}
+									10 = {
+										religion = tengri_pagan
+									}
+									10 = {
+										religion = buddhist
+									}
+									5 = {
+										religion = nestorian
+									}
+									5 = {
+										religion = sunni
+									}
 								}
 							}
 						}
 					}
-
 					35 = {
-						trigger = {
-							NOT = { event_target:mongol_china_invader = { is_alive = yes } }
-						}
-
-						mult_modifier = {
+						modifier = {
 							factor = 3
-							year < 1200
+							NOT = { year = 1200 }
 						}
-
+						modifier = {
+							factor = 0
+							event_target:mongol_china_invader = {
+								is_alive = yes
+							}
+						}
 						random_list = {
-							50 = {
-								trigger = {
-									gender_equality_trigger = yes
+							0 = {
+								additive_modifier = {
+									value = 50
+									has_game_rule = {
+										name = gender
+										value = all
+									}
 								}
-
 								create_character = {
 									age = 35
 									random_traits = yes
 									female = yes
-									religion = taoist # A bit strange, but necessary
-									culture = khitan
+									religion = tao # A bit strange, but necessary
+									culture = xiongnu
 									dynasty = actually_culture
-									add_trait = brilliant_strategist
-
-									attributes = {
-										martial = 10
-									}
+									trait = brilliant_strategist
+									martial = 10
 								}
 							}
-
 							50 = {
 								create_character = {
 									age = 35
 									random_traits = yes
 									female = no
-									religion = taoist # A bit strange, but necessary
-									culture = khitan
+									religion = tao # A bit strange, but necessary
+									culture = xiongnu
 									dynasty = actually_culture
-									add_trait = brilliant_strategist
-
-									attributes = {
-										martial = 10
-									}
+									trait = brilliant_strategist
+									martial = 10
 								}
 							}
 						}
-
 						new_character = {
 							create_character = {
 								age = 60
@@ -1537,71 +1528,73 @@ character_event = {
 								culture = THIS
 								dynasty = THIS
 							}
-
 							new_character = {
 								death = { death_reason = death_in_china_historic }
 								save_event_target_as = new_china_ruler_father
 							}
-
 							set_father = event_target:new_china_ruler_father
-
 							FROM = {
 								set_offmap_holder = PREV
 							}
-
 							random_list = {
-								100 = { }
-								 10 = { religion = tengri_pagan }
-								 10 = { religion = buddhist }
-								  5 = { religion = nestorian }
-								  5 = { religion = sunni }
+								100 = {
+								
+								}
+								10 = {
+									religion = tengri_pagan
+								}
+								10 = {
+									religion = buddhist
+								}
+								5 = {
+									religion = nestorian
+								}
+								5 = {
+									religion = sunni
+								}
 							}
 						}
 					}
-
 					25 = {
-						trigger = {
-							NOT = { event_target:mongol_china_invader = { is_alive = yes } }
+						modifier = {
+							factor = 0
+							event_target:mongol_china_invader = {
+								is_alive = yes
+							}
 						}
-
 						random_list = {
-							50 = {
-								trigger = {
-									gender_equality_trigger = yes
+							0 = {
+								additive_modifier = {
+									value = 50
+									has_game_rule = {
+										name = gender
+										value = all
+									}
 								}
-
 								create_character = {
 									age = 35
 									random_traits = yes
 									female = yes
-									religion = taoist # A bit strange, but necessary
-									culture = uyghur
+									religion = tao # A bit strange, but necessary
+									culture = xiongnu
 									dynasty = actually_culture
-									add_trait = brilliant_strategist
-
-									attributes = {
-										martial = 10
-									}
+									trait = brilliant_strategist
+									martial = 10
 								}
 							}
-
 							50 = {
 								create_character = {
 									age = 35
 									random_traits = yes
 									female = no
-									religion = taoist # A bit strange, but necessary
-									culture = uyghur
+									religion = tao # A bit strange, but necessary
+									culture = xiongnu
 									dynasty = actually_culture
-									add_trait = brilliant_strategist
-
-									attributes = {
-										martial = 10
-									}
+									trait = brilliant_strategist
+									martial = 10
 								}
 							}
 						}
-
 						new_character = {
 							create_character = {
 								age = 60
@@ -1611,71 +1604,73 @@ character_event = {
 								culture = THIS
 								dynasty = THIS
 							}
-
 							new_character = {
 								death = { death_reason = death_in_china_historic }
 								save_event_target_as = new_china_ruler_father
 							}
-
 							set_father = event_target:new_china_ruler_father
-
 							FROM = {
 								set_offmap_holder = PREV
 							}
-
 							random_list = {
-								100 = { }
-								 10 = { religion = tengri_pagan }
-								 10 = { religion = buddhist }
-								  5 = { religion = nestorian }
-								  5 = { religion = sunni }
+								100 = {
+								
+								}
+								10 = {
+									religion = tengri_pagan
+								}
+								10 = {
+									religion = buddhist
+								}
+								5 = {
+									religion = nestorian
+								}
+								5 = {
+									religion = sunni
+								}
 							}
 						}
 					}
-
 					25 = {
-						trigger = {
-							NOT = { event_target:mongol_china_invader = { is_alive = yes } }
+						modifier = {
+							factor = 0
+							event_target:mongol_china_invader = {
+								is_alive = yes
+							}
 						}
-
 						random_list = {
-							50 = {
-								trigger = {
-									gender_equality_trigger = yes
+							0 = {
+								additive_modifier = {
+									value = 50
+									has_game_rule = {
+										name = gender
+										value = all
+									}
 								}
-
 								create_character = {
 									age = 35
 									random_traits = yes
 									female = yes
-									religion = taoist # A bit strange, but necessary
+									religion = tao # A bit strange, but necessary
 									culture = kirghiz
 									dynasty = actually_culture
-									add_trait = brilliant_strategist
-
-									attributes = {
-										martial = 10
-									}
+									trait = brilliant_strategist
+									martial = 10
 								}
 							}
-
 							50 = {
 								create_character = {
 									age = 35
 									random_traits = yes
 									female = no
-									religion = taoist # A bit strange, but necessary
+									religion = tao # A bit strange, but necessary
 									culture = kirghiz
 									dynasty = actually_culture
-									add_trait = brilliant_strategist
-
-									attributes = {
-										martial = 10
-									}
+									trait = brilliant_strategist
+									martial = 10
 								}
 							}
 						}
-
 						new_character = {
 							create_character = {
 								age = 60
@@ -1685,67 +1680,69 @@ character_event = {
 								culture = THIS
 								dynasty = THIS
 							}
-
 							new_character = {
 								death = { death_reason = death_in_china_historic }
 								save_event_target_as = new_china_ruler_father
 							}
-
 							set_father = event_target:new_china_ruler_father
-
 							FROM = {
 								set_offmap_holder = PREV
 							}
-
 							random_list = {
-								100 = { }
-								 10 = { religion = tengri_pagan }
-								 10 = { religion = buddhist }
-								  5 = { religion = nestorian }
-								  5 = { religion = sunni }
+								100 = {
+								
+								}
+								10 = {
+									religion = tengri_pagan
+								}
+								10 = {
+									religion = buddhist
+								}
+								5 = {
+									religion = nestorian
+								}
+								5 = {
+									religion = sunni
+								}
 							}
 						}
 					}
 				}
-
+				
 				any_player = {
 					limit = {
 						has_offmap_news_enabled = FROM
 						is_within_diplo_range = ROOT
 					}
-
 					narrative_event = { id = JD.50162 }
 				}
 
-				if = {
-					limit = {
-						NOR = {
+				random_list = {
+					50 = {
+						modifier = {
+							factor = 0
 							has_game_rule = {
 								name = chinese_invasions
 								value = none
 							}
-
+						}
+						character_event = { id = JD.10113 days = 15 } #Spawns a Displaced Prince adventurer...
+						set_character_flag = spawning_a_displaced_royal
+						log = "China Logging:"
+						log = "Attempting to spawn a Displaced Prince, as aftermath to event JD.50160 (end of Being Invaded by Mongols). Character should spawn in 15 days."
+					}
+					50 = {
+						modifier = {
+							factor = 0
 							has_game_rule = {
-								name = adventurers
+								name = chinese_invasions
 								value = none
 							}
 						}
-					}
-
-					random_list = {
-						50 = {
-							character_event = { id = JD.10113 days = 15 } #Spawns a Displaced Prince adventurer...
-							set_character_flag = spawning_a_displaced_royal
-							log = "China Logging:"
-							log = "Attempting to spawn a Displaced Prince, as aftermath to event JD.50160 (end of Being Invaded by Mongols). Character should spawn in 15 days."
-						}
-
-						50 = {
-							character_event = { id = JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
-							set_character_flag = spawning_a_jurchen_invader
-							log = "China Logging:"
-							log = "Attempting to spawn a Jurchen Invader, as aftermath to event JD.50160 (end of Being Invaded by Mongols). Character should spawn in 15 days."
-						}
+						character_event = { id =  JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
+						set_character_flag = spawning_a_jurchen_invader
+						log = "China Logging:"
+						log = "Attempting to spawn a Jurchen Invader, as aftermath to event JD.50160 (end of Being Invaded by Mongols). Character should spawn in 15 days."
 					}
 				}
 			}
@@ -1807,144 +1804,150 @@ narrative_event = {
 # Hidden. Fired from on_offmap_yearly_pulse.
 # Root = Governor
 # From = Offmap
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50180
 
-	is_triggered_only = yes # on_offmap_yearly_pulse, random_events
-	hide_window = yes
-
 	has_dlc = "Jade Dragon"
 
+	is_triggered_only = yes
+	hide_window = yes
+	
 	trigger = {
 		FROM = {
 			is_offmap_tag = offmap_china
-
 			NOR = {
-				offmap_ruler = { culture = jurchen }
 				has_status = china_mongol_invasion # Resolution handled by JD.50160
 				has_status = china_jurchen_invasion # Resolution handled by JD.50200
 				has_status = china_civil_war # Resolution handled by JD.50300
 			}
-
-			trigger_if = {
-				limit = { has_offmap_flag = china_invaded_player_dynasty }
-				had_offmap_tmp_flag = { flag = china_invaded_player_dynasty years >= 200 }
-			}
-
-			# Famines last for at least 4 years
-			trigger_if = {
-				limit = {
-					has_status = china_famine
-					has_offmap_flag = china_had_famine
-				}
-
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 4 }
-			}
-			# Plagues last for at least 2 years
-			trigger_else_if = {
-				limit = {
-					has_status = china_plague
-					has_offmap_flag = china_had_plague
-				}
-
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 2 }
+			OR = {
+				NOT = { has_offmap_flag = china_invaded_player_dynasty }
+				had_offmap_tmp_flag = { flag = china_invaded_player_dynasty years = 200 }
 			}
 		}
 	}
-
+	
 	weight_multiplier = {
 		factor = 1
-
-		mult_modifier = { # Unrest increases the chance of an invasion
+		modifier = { # Unrest increases the chance of an invasion
 			factor = 3
 			FROM = {
 				has_status = china_unrest
 				has_offmap_flag = china_had_unrest
-				had_offmap_tmp_flag = { flag = china_had_unrest years >= 2 }
+				had_offmap_tmp_flag = { flag = china_had_unrest years = 2 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_unrest
 				has_offmap_flag = china_had_unrest
-				had_offmap_tmp_flag = { flag = china_had_unrest years >= 4 }
+				had_offmap_tmp_flag = { flag = china_had_unrest years = 4 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_unrest
 				has_offmap_flag = china_had_unrest
-				had_offmap_tmp_flag = { flag = china_had_unrest years >= 6 }
+				had_offmap_tmp_flag = { flag = china_had_unrest years = 6 }
 			}
 		}
-		mult_modifier = {
+		modifier = { # Famines last for at least 4 years
+			factor = 0
+			FROM = {
+				has_status = china_famine
+				has_offmap_flag = china_had_famine
+				NOT = {
+					had_offmap_tmp_flag = { flag = china_had_famine years = 2 }
+				}
+			}
+		}
+		modifier = { # Plagues last for at least 2 years
+			factor = 0
+			FROM = {
+				has_status = china_plague
+				has_offmap_flag = china_had_plague
+				NOT = {
+					had_offmap_tmp_flag = { flag = china_had_plague years = 2 }
+				}
+			}
+		}
+		modifier = {
 			factor = 1.25
 			FROM = {
 				has_status = china_famine
 				has_offmap_flag = china_had_famine
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 6 }
+				had_offmap_tmp_flag = { flag = china_had_famine years = 6 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.25
 			FROM = {
 				has_status = china_plague
 				has_offmap_flag = china_had_plague
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 3 }
+				had_offmap_tmp_flag = { flag = china_had_plague years = 3 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_famine
 				has_offmap_flag = china_had_famine
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 8 }
+				had_offmap_tmp_flag = { flag = china_had_famine years = 8 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			FROM = {
 				has_status = china_plague
 				has_offmap_flag = china_had_plague
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 5 }
+				had_offmap_tmp_flag = { flag = china_had_plague years = 5 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
 			FROM = {
 				has_status = china_famine
 				has_offmap_flag = china_had_famine
-				had_offmap_tmp_flag = { flag = china_had_famine years >= 10 }
+				had_offmap_tmp_flag = { flag = china_had_famine years = 10 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
 			FROM = {
 				has_status = china_plague
 				has_offmap_flag = china_had_plague
-				had_offmap_tmp_flag = { flag = china_had_plague years >= 7 }
+				had_offmap_tmp_flag = { flag = china_had_plague years = 7 }
 			}
 		}
-		mult_modifier = {
+		modifier = {
+			factor = 0
+			FROM = {
+				offmap_ruler = {
+					culture = xiongnu
+				}
+			}
+		}
+		modifier = {
 			factor = 0.5
 			FROM = { has_status = china_golden_age }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			FROM = { has_offmap_flag = china_mongols_won_1 }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 0.25
 			FROM = { has_offmap_flag = china_mongols_won_2 }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 0.1
 			FROM = { has_offmap_flag = china_mongols_won_3 }
 		}
 	}
-
+	
 	immediate = {
 		FROM = {
 			set_offmap_flag = no_status_news
@@ -1952,13 +1955,11 @@ character_event = {
 			set_offmap_flag = china_jurchen_invasion
 			clr_offmap_flag = no_status_news
 		}
-
 		any_player = {
 			limit = {
 				has_offmap_news_enabled = FROM
 				is_within_diplo_range = ROOT
 			}
-
 			narrative_event = { id = JD.50181 }
 		}
 	}
@@ -2020,88 +2021,85 @@ narrative_event = {
 # Hidden. Fired from on_offmap_yearly_pulse
 # Root = Governor
 # From = Offmap
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50200
 
-	is_triggered_only = yes # on_offmap_yearly_pulse, random_events
-	hide_window = yes
-
 	has_dlc = "Jade Dragon"
 
+	is_triggered_only = yes
+	hide_window = yes
+	
 	trigger = {
 		FROM = {
 			is_offmap_tag = offmap_china
 			has_status = china_jurchen_invasion
 		}
 	}
-
+	
 	weight_multiplier = {
 		factor = 1
-
-		mult_modifier = {
+		modifier = {
 			factor = 2
-			FROM = { had_offmap_tmp_flag = { flag = china_jurchen_invasion years >= 2 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_jurchen_invasion years = 2 } }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
-			FROM = { had_offmap_tmp_flag = { flag = china_jurchen_invasion years >= 4 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_jurchen_invasion years = 4 } }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
-			FROM = { had_offmap_tmp_flag = { flag = china_jurchen_invasion years >= 8 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_jurchen_invasion years = 8 } }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 5
-			FROM = { had_offmap_tmp_flag = { flag = china_jurchen_invasion years >= 10 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_jurchen_invasion years = 10 } }
 		}
 	}
-
+	
 	immediate = {
 		random_list = {
 			100 = { # China won!
-				mult_modifier = {
+				#trigger = { always = no }
+				modifier = {
 					factor = 3
-					FROM = { prev_status = china_golden_age }
+					FROM = {
+						prev_status = china_golden_age
+					}
 				}
-
+				
 				FROM = {
 					set_offmap_flag = no_status_news
 					set_status = china_stable
 					clr_offmap_flag = no_status_news
-
-					trigger_switch = {
-						on_trigger = has_offmap_flag
-
-						china_badly_beaten_1 = {
-							clr_offmap_flag = china_badly_beaten_1
-						}
-
-						china_badly_beaten_2 = {
-							clr_offmap_flag = china_badly_beaten_2
-							set_offmap_flag = china_badly_beaten_1
-						}
-
-						china_badly_beaten_3 = {
-							clr_offmap_flag = china_badly_beaten_3
-							set_offmap_flag = china_badly_beaten_2
-						}
+					
+					if = {
+						limit = { has_offmap_flag = china_badly_beaten_1 }
+						clr_offmap_flag = china_badly_beaten_1
+					}
+					if = {
+						limit = { has_offmap_flag = china_badly_beaten_2 }
+						clr_offmap_flag = china_badly_beaten_2
+						set_offmap_flag = china_badly_beaten_1
+					}
+					if = {
+						limit = { has_offmap_flag = china_badly_beaten_3 }
+						clr_offmap_flag = china_badly_beaten_3
+						set_offmap_flag = china_badly_beaten_2
 					}
 				}
-
+				
 				any_player = {
 					limit = {
 						has_offmap_news_enabled = FROM
 						is_within_diplo_range = ROOT
 					}
-
 					narrative_event = { id = JD.50201 }
 				}
 			}
-
 			100 = { # Jurchen won!
-				mult_modifier = {
+				modifier = {
 					factor = 3
-
 					FROM = {
 						OR = {
 							prev_status = china_unrest
@@ -2110,92 +2108,93 @@ character_event = {
 						}
 					}
 				}
-
+				
 				FROM = {
 					set_offmap_flag = no_status_news
 					set_status = china_unrest
 					set_offmap_flag = china_had_unrest
 					clr_offmap_flag = no_status_news
-
+				
 					clr_offmap_flag = china_badly_beaten_3
 					clr_offmap_flag = china_badly_beaten_2
 					clr_offmap_flag = china_badly_beaten_1
-
+					
 					if = {
-						limit = { has_offmap_flag = china_mongols_won_2 }
+						limit = {
+							has_offmap_flag = china_mongols_won_2
+						}
 						set_offmap_flag = china_mongols_won_3
 						clr_offmap_flag = china_mongols_won_2
 					}
-
-					else_if = {
-						limit = { has_offmap_flag = china_mongols_won_1 }
+					
+					if = {
+						limit = {
+							has_offmap_flag = china_mongols_won_1
+						}
 						set_offmap_flag = china_mongols_won_2
 						clr_offmap_flag = china_mongols_won_1
 					}
-
-					else_if = {
+					
+					if = {
 						limit = {
-							NOT = { has_offmap_flag = china_mongols_won_3 }
+							NOR = {
+								has_offmap_flag = china_mongols_won_1
+								has_offmap_flag = china_mongols_won_2
+								has_offmap_flag = china_mongols_won_3
+							}
 						}
 						set_offmap_flag = china_mongols_won_1
 					}
-
+					
 					set_offmap_flag = no_succession_news
 				}
-
+				
 				# A new ruler ascends to the Dragon Throne. The fallout is handled by JD.10005 and JD.50000 (from 'on_offmap_ruler_changed')
 				create_character = { #The father
 					age = 60
 					random_traits = yes
 					female = no
 					religion = THIS
-					culture = jurchen
+					culture = xiongnu
 					dynasty = THIS
 				}
-
 				new_character = {
 					PREV = { set_father = PREV }
 					death = { death_reason = death_in_china_historic }
 				}
-
 				random_list = {
-					50 = {
-						trigger = {
-							gender_equality_trigger = yes
+					0 = {
+						additive_modifier = {
+							value = 50
+							has_game_rule = {
+								name = gender
+								value = all
+							}
 						}
-
 						create_character = {
 							age = 30
 							random_traits = yes
 							female = yes
-							religion = taoist # A bit strange, but necessary
-							culture = jurchen
+							religion = tao # A bit strange, but necessary
+							culture = xiongnu
 							dynasty = actually_culture
-							add_trait = brilliant_strategist
-
-							attributes = {
-								martial = 10
-							}
+							trait = brilliant_strategist
+							martial = 10
 						}
 					}
-
 					50 = {
 						create_character = {
 							age = 30
 							random_traits = yes
 							female = no
-							religion = taoist # A bit strange, but necessary
-							culture = jurchen
+							religion = tao # A bit strange, but necessary
+							culture = xiongnu
 							dynasty = actually_culture
-							add_trait = brilliant_strategist
-
-							attributes = {
-								martial = 10
-							}
+							trait = brilliant_strategist
+							martial = 10
 						}
 					}
 				}
-
 				new_character = {
 					create_character = {
 						age = 60
@@ -2205,65 +2204,67 @@ character_event = {
 						culture = THIS
 						dynasty = THIS
 					}
-
 					new_character = {
 						death = { death_reason = death_in_china_historic }
 						save_event_target_as = new_china_ruler_father
 					}
-
 					set_father = event_target:new_china_ruler_father
-
 					FROM = {
 						set_offmap_holder = PREV
 					}
-
 					random_list = {
-						100 = { }
-						 10 = { religion = tengri_pagan }
-						 10 = { religion = buddhist }
-						  5 = { religion = nestorian }
-						  5 = { religion = sunni }
+						100 = {
+						
+						}
+						10 = {
+							religion = tengri_pagan
+						}
+						10 = {
+							religion = buddhist
+						}
+						5 = {
+							religion = nestorian
+						}
+						5 = {
+							religion = sunni
+						}
 					}
 				}
-
+  			
 				any_player = {
 					limit = {
 						has_offmap_news_enabled = FROM
 						is_within_diplo_range = ROOT
 					}
-
 					narrative_event = { id = JD.50202 }
 				}
-
-				if = {
-					limit = {
-						NOR = {
+				
+				random_list = {
+					50 = {
+						modifier = {
+							factor = 0
 							has_game_rule = {
 								name = chinese_invasions
 								value = none
 							}
-
+						}
+						character_event = { id = JD.10113 days = 15 } #Spawns a Displaced Prince adventurer...
+						set_character_flag = spawning_a_displaced_royal
+						log = "China Logging:"
+						log = "Attempting to spawn a Displaced Prince, as aftermath to event JD.50200 (end of Being Invaded by Jurchens). Character should spawn in 15 days."
+					}
+					50 = {
+						modifier = {
+							factor = 0
 							has_game_rule = {
-								name = adventurers
+								name = chinese_invasions
 								value = none
 							}
 						}
-					}
-
-					random_list = {
-						50 = {
-							character_event = { id = JD.10113 days = 15 } #Spawns a Displaced Prince adventurer...
-							set_character_flag = spawning_a_displaced_royal
-							log = "China Logging:"
-							log = "Attempting to spawn a Displaced Prince, as aftermath to event JD.50200 (end of Being Invaded by Jurchens). Character should spawn in 15 days."
-						}
-
-						50 = {
-							character_event = { id = JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
-							set_character_flag = spawning_a_jurchen_invader
-							log = "China Logging:"
-							log = "Attempting to spawn a Jurchen Invader, as aftermath to event JD.50200 (end of Being Invaded by Mongols). Character should spawn in 15 days."
-						}
+						character_event = { id =  JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
+						set_character_flag = spawning_a_jurchen_invader
+						log = "China Logging:"
+						log = "Attempting to spawn a Jurchen Invader, as aftermath to event JD.50200 (end of Being Invaded by Mongols). Character should spawn in 15 days."
 					}
 				}
 			}
@@ -2606,46 +2607,52 @@ narrative_event = {
 # Hidden. Fired from on_offmap_yearly_pulse
 # Root = Governor
 # From = Offmap
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50300
 
-	is_triggered_only = yes # on_offmap_yearly_pulse, random_events
-	hide_window = yes
-
 	has_dlc = "Jade Dragon"
 
+	is_triggered_only = yes
+	hide_window = yes
+	
 	trigger = {
 		FROM = {
 			is_offmap_tag = offmap_china
 			has_status = china_civil_war
-			had_offmap_tmp_flag = { flag = china_civil_war years >= 2 }
 		}
 	}
-
+	
 	weight_multiplier = {
 		factor = 1
-
-		mult_modifier = {
-			factor = 2
-			FROM = { had_offmap_tmp_flag = { flag = china_civil_war years >= 3 } }
+		modifier = {
+			factor = 0
+			FROM = {
+				NOT = {
+					had_offmap_tmp_flag = { flag = china_civil_war years = 2 }
+				}
+			}
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
-			FROM = { had_offmap_tmp_flag = { flag = china_civil_war years >= 5 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_civil_war years = 3 } }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2
-			FROM = { had_offmap_tmp_flag = { flag = china_civil_war years >= 8 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_civil_war years = 5 } }
 		}
-		mult_modifier = {
+		modifier = {
+			factor = 2
+			FROM = { had_offmap_tmp_flag = { flag = china_civil_war years = 8 } }
+		}
+		modifier = {
 			factor = 5
-			FROM = { had_offmap_tmp_flag = { flag = china_civil_war years >= 10 } }
+			FROM = { had_offmap_tmp_flag = { flag = china_civil_war years = 10 } }
 		}
 	}
-
+	
 	immediate = {
 		clr_offmap_flag = china_civil_war
-
 		random_list = {
 			70 = { # The loyalists won!
 				FROM = {
@@ -2653,127 +2660,113 @@ character_event = {
 					set_status = china_stable
 					clr_offmap_flag = no_status_news
 				}
-
+				
 				any_player = {
 					limit = {
 						has_offmap_news_enabled = FROM
 						is_within_diplo_range = ROOT
 					}
-
 					narrative_event = { id = JD.50301 }
 				}
-
-				if = {
-					limit = {
-						NOR = {
+				random_list = {
+					50 = {
+						modifier = {
+							factor = 0
 							has_game_rule = {
 								name = chinese_invasions
 								value = none
 							}
-
+						}
+						character_event = { id =  JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
+						set_character_flag = spawning_a_jurchen_invader
+						log = "China Logging:"
+						log = "Attempting to spawn a Jurchen Invader, as aftermath to event JD.50300 (end of Civil War - the loyalists won). Character should spawn in 15 days."
+					}
+					50 = {
+						trigger = {
+							OR = {
+								NOT = { has_global_flag = rebel_general_invasion_success }
+								had_global_flag = { flag = rebel_general_invasion_success days = 54750 }
+							}
+						}
+						modifier = {
+							factor = 0
 							has_game_rule = {
-								name = adventurers
+								name = chinese_invasions
 								value = none
 							}
 						}
-					}
-
-					random_list = {
-						50 = {
-							character_event = { id = JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
-							set_character_flag = spawning_a_jurchen_invader
-							log = "China Logging:"
-							log = "Attempting to spawn a Jurchen Invader, as aftermath to event JD.50300 (end of Civil War - the loyalists won). Character should spawn in 15 days."
-						}
-
-						50 = {
-							trigger = {
-								trigger_if = {
-									limit = { has_global_flag = rebel_general_invasion_success }
-									had_global_flag = { flag = rebel_general_invasion_success years >= 150 }
-								}
-							}
-
-							character_event = { id = JD.60200 days = 15 } #Spawns a Rebel General
-							set_character_flag = spawning_a_rebel_general
-							log = "China Logging:"
-							log = "Attempting to spawn a Rebel General, as aftermath to event JD.50300 (end of Civil War - the loyalists won). Character should spawn in 15 days."
-						}
+						character_event = { id = JD.60200 days = 15 } #Spawns a Rebel General
+						set_character_flag = spawning_a_rebel_general
+						log = "China Logging:"
+						log = "Attempting to spawn a Rebel General, as aftermath to event JD.50300 (end of Civil War - the loyalists won). Character should spawn in 15 days."
 					}
 				}
 			}
 			100 = { # The rebels won - new Dynasty!
-				mult_modifier = {
+				modifier = {
 					factor = 2.5
-
 					FROM = {
 						holder_scope = {
-							NOT = { culture_group = chinese_group } # A foreign dynasty is more likely to be ousted
+							NOT = { culture_group = chinese } # A foreign dynasty is more likely to be ousted
 						}
 					}
 				}
-
+				
 				FROM = {
 					set_offmap_flag = no_status_news
-
 					random_list = {
 						50 = { set_status = china_stable }
 						50 = { set_status = china_unrest set_offmap_flag = china_had_unrest }
 					}
-
 					clr_offmap_flag = no_status_news
+					
 					set_offmap_flag = no_succession_news
-
+					
 					if = {
 						limit = {
 							holder_scope = {
-								NOT = { culture_group = chinese_group }
+								NOT = { culture_group = chinese }
 							}
 						}
-
 						set_offmap_flag = foreign_dynasty_ousted
 					}
 				}
-
+				
 				# A new ruler ascends to the Dragon Throne. The fallout is handled by JD.10005 and JD.50000 (from 'on_offmap_ruler_changed')
 				random_list = {
-					50 = {
-						trigger = {
-							gender_equality_trigger = yes
+					0 = {
+						additive_modifier = {
+							value = 50
+							has_game_rule = {
+								name = gender
+								value = all
+							}
 						}
-
 						create_character = {
 							age = 30
 							random_traits = yes
 							female = yes
-							religion = taoist # A bit strange, but necessary
+							religion = tao # A bit strange, but necessary
 							culture = han
 							dynasty = actually_culture
-							add_trait = brilliant_strategist
-
-							attributes = {
-								martial = 10
-							}
+							trait = brilliant_strategist
+							martial = 10
 						}
 					}
-
 					50 = {
 						create_character = {
 							age = 30
 							random_traits = yes
 							female = no
-							religion = taoist # A bit strange, but necessary
+							religion = tao # A bit strange, but necessary
 							culture = han
 							dynasty = actually_culture
-							add_trait = brilliant_strategist
-
-							attributes = {
-								martial = 10
-							}
+							trait = brilliant_strategist
+							martial = 10
 						}
 					}
 				}
-
 				new_character = {
 					create_character = {
 						age = 60
@@ -2783,114 +2776,101 @@ character_event = {
 						culture = THIS
 						dynasty = THIS
 					}
-
 					new_character = {
 						death = { death_reason = death_in_china_historic }
 						save_event_target_as = new_china_ruler_father
 					}
-
 					set_father = event_target:new_china_ruler_father
-
 					FROM = {
 						set_offmap_holder = PREV
 					}
 				}
-
+  			
 				any_player = {
 					limit = {
 						has_offmap_news_enabled = FROM
 						is_within_diplo_range = ROOT
 					}
-
 					narrative_event = { id = JD.50302 }
 				}
-
+				
 				FROM = { clr_offmap_flag = foreign_dynasty_ousted }
 
-				if = {
-					limit = {
-						NOR = {
+				random_list = {
+					50 = {
+						modifier = {
+							factor = 0
 							has_game_rule = {
 								name = chinese_invasions
 								value = none
 							}
-
+						}
+						character_event = { id = JD.10113 days = 15 } #Spawns a Displaced Prince adventurer...
+						set_character_flag = spawning_a_displaced_royal
+						log = "China Logging:"
+						log = "Attempting to spawn a Displaced Prince, as aftermath to event JD.50300 (end of Civil War - the rebels won). Character should spawn in 15 days."
+					}
+					50 = {
+						modifier = {
+							factor = 0
 							has_game_rule = {
-								name = adventurers
+								name = chinese_invasions
 								value = none
 							}
 						}
-					}
-
-					random_list = {
-						50 = {
-							character_event = { id = JD.10113 days = 15 } #Spawns a Displaced Prince adventurer...
-							set_character_flag = spawning_a_displaced_royal
-							log = "China Logging:"
-							log = "Attempting to spawn a Displaced Prince, as aftermath to event JD.50300 (end of Civil War - the rebels won). Character should spawn in 15 days."
-						}
-
-						50 = {
-							character_event = { id = JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
-							set_character_flag = spawning_a_jurchen_invader
-							log = "China Logging:"
-							log = "Attempting to spawn a Jurchen Invader, as aftermath to event JD.50300 (end of Civil War - the rebels won). Character should spawn in 15 days."
-						}
+						character_event = { id = JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
+						set_character_flag = spawning_a_jurchen_invader
+						log = "China Logging:"
+						log = "Attempting to spawn a Jurchen Invader, as aftermath to event JD.50300 (end of Civil War - the rebels won). Character should spawn in 15 days."
 					}
 				}
 			}
 			70 = { # The rebels won - old Dynasty pretender
-				mult_modifier = {
+				modifier = {
 					factor = 0.5
-
 					FROM = {
 						holder_scope = {
-							NOT = { culture_group = chinese_group }
+							NOT = { culture_group = chinese }
 						}
 					}
 				}
-
+				
 				FROM = {
 					set_offmap_flag = no_status_news
 					set_status = china_stable
 					clr_offmap_flag = no_status_news
+					
 					set_offmap_flag = no_succession_news
-
 					holder_scope = {
-						death = { death_reason = death_offmap }
+						death = {
+							death_reason = death_offmap
+						}
 					}
 				}
-
+				
 				any_player = {
 					limit = {
 						has_offmap_news_enabled = FROM
 						is_within_diplo_range = ROOT
 					}
-
 					narrative_event = { id = JD.50303 days = 1 }
 				}
-
-				if = {
-					limit = {
-						NOR = {
+				random_list = {
+					90 = {
+						modifier = {
+							factor = 0
 							has_game_rule = {
 								name = chinese_invasions
 								value = none
 							}
-
-							has_game_rule = {
-								name = adventurers
-								value = none
-							}
 						}
-					}
-
-					random = {
-						chance = 90
-						character_event = { id = JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
+						character_event = { id =  JD.10109 days = 15 } #Spawns a Jurchen tribe leader...
 						set_character_flag = spawning_a_jurchen_invader
 						log = "China Logging:"
 						log = "Attempting to spawn a Jurchen Invader, as aftermath to event JD.50300 (end of Civil War - the rebels won (old dynasty pretender)). Character should spawn in 15 days."
+					}
+					10 = {
+						#nothing happens...
 					}
 				}
 			}

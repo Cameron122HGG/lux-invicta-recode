@@ -374,74 +374,59 @@ targeted_decisions = {
 }
 
 decisions = {
-	increase_mercenary_size = {
-		ai_check_interval = 18
-
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+increase_mercenary_size = {
 		only_playable = yes
-
+		ai_check_interval = 18
 		potential = {
+			is_playable = yes
 			prisoner = no
-			wealth >= 25
-
+			wealth = 25
 			OR = {
 				has_dlc = "Horse Lords"
-
 				any_owned_bloodline = {
 					has_bloodline_flag = bloodline_mercenary_traditions
-					bloodline_is_active_for = PREV
 				}
 			}
-
 			primary_title = {
 				mercenary = yes
 				adventurer = yes
 				NOT = { has_title_flag = ze_dyn_merc }
-
 				band_creator = {
 					OR = {
-						is_nomadic = yes
+						government = nomadic_government
 						has_character_modifier = mercenary_traditions
-
 						any_owned_bloodline = {
 							has_bloodline_flag = bloodline_mercenary_traditions
-							bloodline_is_active_for = PREV
 						}
 					}
 				}
 			}
 		}
-
 		allow = {
+			always = yes
 		}
-
 		effect = {
 			wealth = -25
-
 			primary_title = {
 				change_title_army_size = 0.05 # Increase of percentage
-
+	
 				band_creator = {
 					if = {
 						limit = { is_alive = yes }
-						#character_event = { id = 10700 } # Notify # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+						character_event = { id = HL.10700 }
 					}
 				}
 			}
 		}
-
+		revoke_allowed = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
 
-			trigger = {
-				trigger_if = {
-					limit = { trait = greedy }
-					trait = ambitious
-				}
-			}
-
-			mult_modifier = {
-				factor = 0.25
-
+			modifier = {
+				factor = 0.025
 				primary_title = {
 					band_creator = {
 						is_alive = yes
@@ -449,155 +434,161 @@ decisions = {
 				}
 			}
 
-			mult_modifier = {
+			modifier = {
+				factor = 0
+				NOT = { trait = ambitious }
+				trait = greedy
+			}
+
+			modifier = {
 				factor = 2
 				trait = proud
 			}
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 2
 				trait = ambitious
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 2
-				wealth >= 200
+				wealth = 200
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 2
-				wealth >= 400
+				wealth = 400
+			}
+
+			modifier = {
+				factor = 3
+				wealth = 800
+			}
+
+			modifier = {
+				factor = 4
+				wealth = 1200
+			}
+
+			modifier = {
+				factor = 5
+				wealth = 1600
 			}
 		}
 	}
 
-	carousing_with_the_men = {
-		ai_check_interval = 10
-
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+carousing_with_the_men = {
 		only_playable = yes
-
+		ai_check_interval = 10
 		potential = {
 			is_ruler = yes
 			has_character_flag = is_mercenary_leader
-
 			primary_title = {
-				mercenary = yes
 				NOT = { has_title_flag = ze_dyn_merc }
-
+				mercenary = yes
 				band_creator = {
-					is_alive = yes
-
+					is_alive = yes	
 					OR = {
-						is_nomadic = yes
+						government = nomadic_government
 						has_character_modifier = mercenary_traditions
-
 						any_owned_bloodline = {
 							has_bloodline_flag = bloodline_mercenary_traditions
-							bloodline_is_active_for = PREV
 						}
 					}
 				}
 			}
 		}
-
 		allow = {
 			prisoner = no
+			wealth = 25
 			NOT = { trait = chaste }
-			wealth >= 25
 		}
-
 		effect = {
-			random_list = {
-				53 = { }
-
-				40 = {
-					primary_title = {
+			wealth = -25
+			prestige = 10
+			primary_title = {
+				random_list = {
+					53 = {}
+					40 = {
 						change_title_army_size = 0.02 # Increase of percentage
 					}
-				}
-
-				5 = { add_trait = drunkard }
-
-				2 = {
-					tooltip = { add_trait = lovers_pox }
-
-					character_event = {
-						id = 6359 # Gives lover's pox
-						days = 15
-						random = 5
+					5 = { ROOT = { add_trait = drunkard } }
+					2 = { 
+						ROOT = { 
+							tooltip = { add_trait = lovers_pox }
+							hidden_tooltip = { character_event = { id = 6359 days = 15 random = 5 } }  #Gives lover's pox
+						}
 					}
 				}
-			}
 
-			# Tooltip is in event below
-			hidden_effect = {
-				wealth = -25
-				prestige = 10
-
-				primary_title = {
-					band_creator = {
-						#character_event = { id = 10701 } # Notify # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-					}
+				band_creator = {
+					character_event = { id = HL.10701 }
 				}
 			}
-
 		}
-
+		revoke_allowed = {
+			always = no
+		}
 		ai_will_do = {
-			factor = 0.15
+			factor = 1
 
-			trigger = {
-				NOT = { trait = greedy }
+			modifier = {
+				factor = 0.015
 			}
 
-			mult_modifier = {
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+
+			modifier = {
 				factor = 2
 				trait = lustful
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = gluttonous
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = hedonist
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = charitable
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 2
-				wealth >= 200
+				wealth = 200
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 2
-				wealth >= 400
+				wealth = 400
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 3
-				wealth >= 800
+				wealth = 800
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 4
-				wealth >= 1200
+				wealth = 1200
 			}
 
-			mult_modifier = {
+			modifier = {
 				factor = 5
-				wealth >= 1600
+				wealth = 1600
 			}
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 0.1
-
 				primary_title = {
 					band_creator = {
 						is_alive = no

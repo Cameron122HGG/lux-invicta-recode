@@ -151,25 +151,22 @@ wonder_pyramid_giza = {
 }
 
 # A2. Stonehenge
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_pagan_stones_stonehenge = {
 	picture = GFX_wonder_strip_pagan_stones
 	allow_construction = no
-
-	potential = { always = no }
-
+	potential = {
+	}
 	active = {
 		ROOT = {
-			religion_group = pagan_group
+			LI_pagan_trigger = yes
 		}
 	}
-
 	flags = {
 		is_historical
 		is_destructible
 		cost_low
-		pagan_stones
 	}
-
 	available_upgrades = {
 		# UNIQUE:
 		upgrade_runestones
@@ -185,11 +182,9 @@ wonder_pagan_stones_stonehenge = {
 		upgrade_road_tolls
 		upgrade_tavern
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -198,19 +193,15 @@ wonder_pagan_stones_stonehenge = {
 		restore_cost_flat = 400
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -219,19 +210,15 @@ wonder_pagan_stones_stonehenge = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -240,19 +227,15 @@ wonder_pagan_stones_stonehenge = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -261,10 +244,8 @@ wonder_pagan_stones_stonehenge = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
@@ -783,28 +764,33 @@ wonder_apostolic_palace = {
 }
 
 # A7. House of Wisdom
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_house_of_wisdom = {
 	picture = GFX_wonder_strip_library
 	allow_construction = no
-
-	potential = { always = no }
-
+	potential = {
+	}
 	active = {
 		trigger_if = {
-			limit = { is_unreformed_pagan_trigger = yes }
-			ROOT = { is_not_unreformed_pagan_trigger = yes }
+			limit = {
+				LI_pagan_trigger = yes
+				is_reformed_religion = no
+			}
+			ROOT = {
+				OR = {
+					is_reformed_religion = yes
+					NOT = { LI_pagan_trigger = yes }
+				}
+			}
 		}
 	}
-
 	flags = {
 		is_historical
 		inspires_learning
 		cost_low
 		gives_artifact
 		gives_artifact_book
-		grand_library
 	}
-
 	available_upgrades = {
 		# UNIQUE:
 		upgrade_collection_drama
@@ -828,11 +814,9 @@ wonder_house_of_wisdom = {
 		upgrade_road_tolls
 		upgrade_tavern
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 300
 		gold_cost_flat = 2000
 		gold_cost_ticking = 3
@@ -841,20 +825,16 @@ wonder_house_of_wisdom = {
 		restore_cost_flat = 400
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -863,20 +843,16 @@ wonder_house_of_wisdom = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -885,20 +861,16 @@ wonder_house_of_wisdom = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -907,11 +879,9 @@ wonder_house_of_wisdom = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}

@@ -9,28 +9,42 @@
 ##################################################
 
 # 5A. Grand University
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_university = {
 	picture = GFX_wonder_strip_university
-
 	potential = {
 		is_nomadic = no
-		is_not_unreformed_pagan_trigger = yes
-	}
-
-	active = {
-		ROOT = {
-			is_not_unreformed_pagan_trigger = yes
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			religion_group = jewish_group
+			religion_group = zoroastrian_group
+			religion_group = bud_group
+			LI_pagan_trigger = yes
+		}
+		trigger_if = {
+			limit = {
+				LI_pagan_trigger = yes
+			}
+			is_reformed_religion = yes
 		}
 	}
-
+	active = {
+		trigger_if = {
+			limit = {
+				LI_pagan_trigger = yes
+			}
+			ROOT = {
+				is_reformed_religion = yes
+			}
+		}
+	}
 	flags = {
 		inspires_learning
 		cost_high
 		gives_artifact
 		gives_artifact_book
-		grand_university
 	}
-
 	available_upgrades = {
 		# UNIQUE:
 		upgrade_great_seminars
@@ -53,15 +67,13 @@ wonder_university = {
 		upgrade_road_tolls
 		upgrade_tavern
 	}
-
 	stage = {
 		allow = {
-			FROMFROMFROM = {
-				TECH_CULTURE_FLEX >= 3
-				TECH_LEGALISM >= 3
+			FROMFROMFROM = { 
+				TECH_CULTURE_FLEX = 3
+				TECH_LEGALISM = 3
 			}
 		}
-
 		build_time = 350
 		gold_cost_flat = 1500
 		gold_cost_ticking = 3
@@ -70,24 +82,20 @@ wonder_university = {
 		restore_cost_flat = 400
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
-			FROMFROMFROM = {
-				TECH_CULTURE_FLEX >= 3
-				TECH_LEGALISM >= 3
+			FROMFROMFROM = { 
+				TECH_CULTURE_FLEX = 3
+				TECH_LEGALISM = 3
 			}
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -96,24 +104,20 @@ wonder_university = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
-			FROMFROMFROM = {
-				TECH_CULTURE_FLEX >= 3
-				TECH_LEGALISM >= 3
+			FROMFROMFROM = { 
+				TECH_CULTURE_FLEX = 3
+				TECH_LEGALISM = 3
 			}
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -122,24 +126,20 @@ wonder_university = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
-			FROMFROMFROM = {
-				TECH_CULTURE_FLEX >= 3
-				TECH_LEGALISM >= 3
+			FROMFROMFROM = { 
+				TECH_CULTURE_FLEX = 3
+				TECH_LEGALISM = 3
 			}
 		}
-
 		build_time = 300
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -148,13 +148,11 @@ wonder_university = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 			military_techpoints = 0.02
 			economy_techpoints = 0.02
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
@@ -162,28 +160,44 @@ wonder_university = {
 }
 
 # 5B. Grand Library
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_library = {
 	picture = GFX_wonder_strip_library
-
 	potential = {
 		is_nomadic = no
-		is_not_unreformed_pagan_trigger = yes
-	}
-
-	active = {
-		ROOT = {
-			is_not_unreformed_pagan_trigger = yes
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			religion_group = jewish_group
+			religion_group = zoroastrian_group
+			religion_group = bud_group
+			LI_pagan_trigger = yes
+		}
+		trigger_if = {
+			limit = {
+				LI_pagan_trigger = yes
+			}
+			ROOT = {
+				is_reformed_religion = yes
+			}
 		}
 	}
-
+	active = {
+		trigger_if = {
+			limit = {
+				LI_pagan_trigger = yes
+			}
+			ROOT = {
+				is_reformed_religion = yes
+			}
+		}
+	}
 	flags = {
 		inspires_learning
 		cost_high
 		gives_artifact
 		gives_artifact_bells
-		grand_library
 	}
-
 	available_upgrades = {
 		# UNIQUE:
 		upgrade_collection_drama
@@ -206,11 +220,9 @@ wonder_library = {
 		upgrade_road_tolls
 		upgrade_tavern
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 320
 		gold_cost_flat = 2000
 		gold_cost_ticking = 3
@@ -219,20 +231,16 @@ wonder_library = {
 		restore_cost_flat = 400
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.1
 		}
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 320
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -241,20 +249,16 @@ wonder_library = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			culture_techpoints = 0.05
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.2
 		}
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 320
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -263,20 +267,16 @@ wonder_library = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			tech_growth_modifier_culture = 0.25
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.3
 		}
 	}
-
 	stage = {
 		allow = {
 		}
-
 		build_time = 320
 		gold_cost_flat = 1000
 		gold_cost_ticking = 3
@@ -285,12 +285,10 @@ wonder_library = {
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
 		upgrade_slots = 2
-
 		local_modifier = {
 			tech_growth_modifier_economy = 0.25
 			tech_growth_modifier_military = 0.25
 		}
-
 		owner_modifier = {
 			monthly_character_prestige = 0.4
 		}

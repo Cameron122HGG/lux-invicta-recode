@@ -30,167 +30,59 @@ namespace = LoR
 ### Roman Empire Restored
 
 # The Restoration of Rome
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = LoR.20
 	title = EVTNAMELoR.20
-	picture = GFX_evt_rome_restored_byzantine
-
 	desc = {
 		text = EVTDESCLoR.20
-		trigger = { is_alternate_start = no }
+		trigger = { 
+			is_alternate_start = no
+		}
 	}
 	desc = {
 		text = EVTDESCLoR20_HF
-		trigger = { is_alternate_start = yes }
+		trigger = { 
+			is_alternate_start = yes
+		}
 	}
-
-	is_triggered_only = yes # restore_roman_empire, realm_decisions.txt
-
+	
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
 	immediate = {
 		if = {
 			limit = {
 				ai = no
-			#	is_ironman = yes # Also used in death_text
 			}
-
 			set_character_flag = achievement_legacy_of_rome
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.20
-
-		hidden_effect = {
+		hidden_tooltip = {
 			primary_title = {
 				any_direct_de_jure_vassal_title = {
 					de_jure_liege = e_roman_empire
 				}
 			}
-
-			if = {
-				limit = { NOT = { is_title_active = e_roman_empire } }
-
-				activate_title = {
-					title = e_roman_empire
-					status = yes
-				}
-			}
 		}
-
-		grant_title = e_roman_empire
-
-		hidden_effect = {
-			e_roman_empire = {
-				copy_title_laws = e_byzantium
-				copy_title_history = e_byzantium
-				make_primary_title = yes
-			}
-
-			destroy_landed_title = e_byzantium
-
-			activate_title = {
-				title = e_byzantium
-				status = no
-			}
-
-			any_player = {
+		hidden_tooltip = {
+			any_playable_ruler = {
 				limit = {
-					NOT = { character = ROOT }
+					NOR = {
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman
+					}
+					ai = no
 				}
-
 				narrative_event = { id = LoR.21 }
 			}
-
-			if = { # Hellenic Resurgence
-				limit = {
-					has_dlc = "Holy Fury"
-					religion_group = christian
-
-					has_game_rule = {
-						name = hellenism_rule
-						value = on
-					}
-
-					OR = {
-						culture = greek
-						culture = italian
-						culture = roman
-					}
-				}
-
-				character_event = {
-					id = HF.23106
-					days = 15
-				}
-			}
-
-			if = { # Burn and Rebuild Rome
-				limit = {
-					has_dlc = "Holy Fury"
-
-					c_roma = {
-						location = {
-							# Check if Gengis Khan or whomever hasn't already leveled the place
-							any_province_holding = {
-								holding_type = temple
-								count >= 2
-							}
-						}
-					}
-				}
-
-				c_roma = { # Ping by province to ensure event fires in case the emperor dies in the meantime
-					location = {
-						province_event = {
-							id = HF.23100
-							days = 155
-						}
-					}
-				}
-			}
 		}
-
 		add_trait = augustus
-
-		if = {
-			limit = { can_apply_cool_nickname_trigger = yes }
-			give_nickname = nick_the_glorious
-		}
-
-		if = { # New Imperial Bloodline
-			limit = {
-				has_dlc = "Holy Fury"
-				is_alternate_start = no
-
-				OR = {
-					religion_group = christian
-					religion_openly_hellenic_or_reformed_trigger = yes
-				}
-
-				NOT = {
-					any_owned_bloodline = {
-						has_bloodline_flag = roman_bloodline # Not if already member of a famous historical Roman Bloodline
-						bloodline_is_active_for = PREV
-					}
-				}
-			}
-
-			if = {
-				limit = { is_female = no }
-
-				create_bloodline = {
-					type = roman_emperor_bloodline
-				}
-			}
-			else = {
-				create_bloodline = {
-					type = roman_emperor_bloodline
-					inheritance = matrilineal
-				}
-			}
-
-			sound_effect = bloodline_added
-		}
+		give_nickname = nick_the_glorious
 	}
 }
 
@@ -234,37 +126,49 @@ narrative_event = {
 
 
 # Triumph Expected
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.30
 	desc = EVTDESCLoR.30
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	hide_from = yes
+	
 	is_triggered_only = yes
-
+	
+	trigger = {
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman
+			has_landed_title = e_roman_empire
+			AND = {
+				OR = {
+					culture = roman
+					culture = romanobrython
+					culture = romanogothic
+					culture = galloroman
+					culture = greek
+				}
+				independent = yes
+				higher_tier_than = duke
+			}
+		}
+#		religion_group = christian
+	}
+	
 	option = {
 		name = EVTOPTALoR.30
-
-		character_event = {
-			id = LoR.31
-			days = 12
-			tooltip = EVTTOOLTIPLoR.31
-		}
-
+		character_event = { id = LoR.31 days = 12 tooltip = EVTTOOLTIPLoR.31 }
 		scaled_wealth = -0.3
 		prestige = 75
 	}
-
 	option = {
 		name = EVTOPTBLoR.30
-
 		scaled_wealth = -0.1
 		prestige = 25
 	}
-
 	option = {
 		name = EVTOPTCLoR.30
-
 		prestige = -30
 	}
 }

@@ -272,24 +272,24 @@ decisions = {
 
 
 	# African Flavor
-	tell_a_story_decision = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+tell_a_story_decision = {
+    	only_playable = yes
 		ai_check_interval = 36
 
-		only_playable = yes
-
 		potential = {
+			age = 10
 			has_dlc = "Holy Fury"
 			is_landed = yes
-			capital_scope = { region = world_africa }
-			age >= 10
 			is_lowborn = no
-
+			capital_scope = { region = world_africa }
 			OR = {
-				religion_openly_west_african_or_reformed_trigger = yes
-				culture = berber
-				culture_group = east_african
-				culture_group = central_african
-				culture_group = west_african
+				religion_group = serer_group
+				culture = maghreb_arabic
+				culture_group = bantu
+				culture_group = nilo_saharan
+				culture_group = congo_nigerian
+				culture_group = ethiopic
 			}
 		}
 
@@ -301,44 +301,42 @@ decisions = {
 						is_nomadic = yes
 					}
 				}
-
 				scaled_wealth = {
 					value = 0.1
-					min =   1
+					min = 1
 					max = 450
 				}
 			}
-			trigger_else = {
+			trigger_if = {
+				limit = {
+					NOR = {
+						is_tribal = yes
+						is_nomadic = yes
+					}
+				}
 				scaled_wealth = {
 					value = 1
-					min =  15
+					min = 15
 					max = 450
 				}
 			}
 
 			custom_tooltip = {
 				text = not_recently_told_a_story_tt
-
-				NOR = {
-					has_character_modifier = told_story_nr_1
-					has_character_modifier = told_story_nr_2
-					has_character_modifier = told_story_nr_3
-					has_character_modifier = told_story_nr_4
-					has_character_modifier = told_story_nr_5
-					has_character_modifier = told_story_nr_6
-					has_character_flag = choosing_a_story_flag
-				}
+				NOT = { has_character_modifier = told_story_nr_1 }
+				NOT = { has_character_modifier = told_story_nr_2 }
+				NOT = { has_character_modifier = told_story_nr_3 }
+				NOT = { has_character_modifier = told_story_nr_4 }
+				NOT = { has_character_modifier = told_story_nr_5 }
+				NOT = { has_character_modifier = told_story_nr_6 }
+				NOT = { has_character_flag = choosing_a_story_flag }
 			}
 		}
 
 		effect = {
 			custom_tooltip = {
 				text = choose_a_story_tt
-
-				set_character_flag = choosing_a_story_flag
-				character_event = { id = HF.15000 } # send storytelling-choice event...
 			}
-
 			if = {
 				limit = {
 					OR = {
@@ -346,60 +344,59 @@ decisions = {
 						is_nomadic = yes
 					}
 				}
-
 				scaled_wealth = {
 					value = -0.1
-					min =   -1
+					min = -1
 					max = -450
 				}
 			}
 			else = {
 				scaled_wealth = {
 					value = -1
-					min =  -15
+					min = -15
 					max = -450
 				}
 			}
+
+			set_character_flag = choosing_a_story_flag
+			character_event = { id = HF.15000 } #send storytelling-choice event...
+		}
+		
+		revoke_allowed = {
+			always = no
 		}
 
 		ai_will_do = {
 			factor = 1
-
-			trigger = { war = no }
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
-
-				is_theocracy = no
-
-				trigger_if = {
-					limit = { is_republic = yes }
-					is_patrician = no
+				NOR = {
+					government = theocracy_government
+					government = republic_government
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-
 				any_artifact = {
 					has_artifact_flag = book
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
 				trait = slothful
 			}
-
-			mult_modifier = {
+			modifier = {
+				factor = 0
+				war = yes
+			}
+			modifier = {
 				factor = 0.1
 				is_inaccessible_trigger = yes
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				is_learned_trigger = no
 			}
 		}
-	}
+    }
 }

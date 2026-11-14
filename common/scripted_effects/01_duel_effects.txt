@@ -258,133 +258,106 @@ apply_degree_of_dishonorable_duel_effect = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 apply_any_applicable_harsh_penalties_effect = {
 	if = {
 		limit = {
 			NOT = {
 				has_game_rule = {
-					name = dueling
-					value = unrestricted
-				}
+	                name = dueling
+	                value = unrestricted
+	            }
 			}
 		}
-
-		if = { # If BOTH a female target and a priest...!
+		if = { #If BOTH a female target and a priest...!
 			limit = {
-				is_female = yes
-				is_priest = yes
-				is_member_of_roots_warrior_lodge_trigger = no
-
-				# FROM and ROOT do NOT both have gender equality in some form
-				NAND = {
-					OR = {
-						trait = brave
-						gender_equality_trigger = yes
-						religion_group = pagan_group
-						is_nomadic = yes
-						religion = buddhist
-						religion = bogomilist
-					}
-
-					event_target:combatant_1 = { # Same as FROM in this case
-						OR = {
-							gender_equality_trigger = yes
-							religion_group = pagan_group
-							is_nomadic = yes
-							religion = buddhist
-							religion = bogomilist
-						}
-					}
-				}
-
-				event_target:combatant_1 = {
-					NOT = { religion_group = pagan_group }
-				}
+				is_female = yes #She's a woman
+				NOT = { is_member_of_roots_warrior_lodge_trigger = yes } #She is not a warrior
+		                            
+	            #FROM and ROOT do NOT have gender equality in some form
+	            NAND = {
+	                OR = {
+	                    trait = brave #She is brave
+	                    gender_equality_trigger = yes
+	                    LI_pagan_trigger = yes
+	                    is_nomadic = yes
+	                    LI_bud_trigger = yes
+	                    religion = bogomilist
+	                }
+	                event_target:combatant_1 = { #Same as "FROM" in this case
+	                    OR = {
+	                        gender_equality_trigger = yes
+	                        LI_pagan_trigger = yes
+	                        is_nomadic = yes
+	                        LI_bud_trigger = yes
+	                        religion = bogomilist
+	                    }
+	                }
+	            }
+	            is_priest = yes #They are a priest
+	            NOT = { event_target:combatant_1 = { LI_pagan_trigger = yes } } #Attacker is NOT pagan
 			}
-
 			custom_tooltip = { text = dueling_inappropriate_target_tt }
-
 			# Instead of blocking the action completely...
 			event_target:combatant_1 = {
 				show_scope_change = no
-
-				if = {
-					limit = { can_apply_average_nickname_trigger = yes }
-					give_nickname = nick_priest_hater
-				}
-
+				give_nickname = nick_priest_hater
 				add_character_modifier = {
-					name = uncivilized_dueler
+					modifier = uncivilized_dueler
 					years = 10
 				}
 			}
 		}
-
-		else_if = { # If you're fighting a woman, and it'd be frowned upon within your religion/culture/laws because patriarchy
+		else_if = { #If you're fighting a woman, and it'd be frowned upon within your religion/culture/laws because patriarchy
 			limit = {
-				is_female = yes
-				is_member_of_roots_warrior_lodge_trigger = no
-
-				# FROM and ROOT do NOT both have gender equality of some form
-				NAND = {
-					OR = {
-						trait = brave
-						gender_equality_trigger = yes
-						religion_group = pagan_group
-						is_nomadic = yes
-						religion = buddhist
-						religion = bogomilist
-					}
-
-					event_target:combatant_1 = { # Same as FROM in this case
-						OR = {
-							gender_equality_trigger = yes
-							religion_group = pagan_group
-							is_nomadic = yes
-							religion = buddhist
-							religion = bogomilist
-						}
-					}
-				}
+				is_female = yes #She's a woman
+				NOT = { is_member_of_roots_warrior_lodge_trigger = yes } #She is not a warrior
+		                            
+	            #FROM and ROOT do NOT have gender equality in some form
+	            NAND = {
+	                OR = {
+	                    trait = brave #She is brave
+	                    gender_equality_trigger = yes
+	                    LI_pagan_trigger = yes
+	                    is_nomadic = yes
+	                    LI_bud_trigger = yes
+	                    religion = bogomilist
+	                }
+	                event_target:combatant_1 = { #Same as "FROM" in this case
+	                    OR = {
+	                        gender_equality_trigger = yes
+	                        LI_pagan_trigger = yes
+	                        is_nomadic = yes
+	                        LI_bud_trigger = yes
+	                        religion = bogomilist
+	                    }
+	                }
+	            }
 			}
-
 			custom_tooltip = { text = dueling_inappropriate_target_tt }
-
 			# Instead of blocking the action completely...
 			event_target:combatant_1 = {
 				show_scope_change = no
-
 				add_character_modifier = {
-					name = uncivilized_dueler
+					modifier = uncivilized_dueler
 					years = 10
 				}
 			}
 		}
-
-		else_if = { # If they are a priest of some kind, while challenger is not pagan (as pagans don't care), fighting priests is frowned upon...
+		else = { #If they are a priest of some kind, while challenger is not pagan (as pagans don't care), fighting priests is frowned upon...
 			limit = {
-				is_priest = yes
-				is_member_of_any_warrior_lodge_trigger = no
-
-				event_target:combatant_1 = {
-					NOT = { religion_group = pagan_group }
-				}
+				is_member_of_any_warrior_lodge_trigger = no #They are not a warrior
+	            is_priest = yes #They are a priest
+	            NOT = { event_target:combatant_1 = { LI_pagan_trigger = yes } } #Attacker is NOT pagan
 			}
-
 			custom_tooltip = { text = dueling_inappropriate_target_tt }
-
 			event_target:combatant_1 = {
 				show_scope_change = no
-
-				if = {
-					limit = { can_apply_average_nickname_trigger = yes }
-					give_nickname = nick_priest_hater
-				}
-
 				add_character_modifier = {
-					name = uncivilized_dueler
+					modifier = uncivilized_dueler
 					years = 5
 				}
+				give_nickname = nick_priest_hater
 			}
 		}
 	}
@@ -580,11 +553,10 @@ evaluate_duel_result_score_effect = {
 }
 
 # Used in HFP.10100
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 evaluate_extra_duel_result_score_effect = { # [SPECIAL CIRCUMSTANCES - OPTIONAL]
-	### Disclaimer:
-	#	Assumes combatant_1 is ROOT
-	#	combatant_2 is referred to by its event_target-name
-
+	### Disclaimer: Assumes combatant_1 is ROOT. combatant_2 is referred to as its event_target-name.
+	
 	###############################################################
 	# 1. Extra bonuses to the duel score
 	# 2. Extra minuses to the duel score
@@ -594,183 +566,146 @@ evaluate_extra_duel_result_score_effect = { # [SPECIAL CIRCUMSTANCES - OPTIONAL]
 	################################################################
 	# 1. BONUSES ADDED:	adds to the score...
 	################################################################
-
 	if = {
-		limit = { religion_group = pagan_group }
-
+		limit = { LI_pagan_trigger = yes }
 		change_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 3
 		}
 	}
-
 	if = {
 		limit = { trait = wroth }
-
 		change_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 1
 		}
 	}
-
-	if = { # If you go after your rival, small bonus...
-		limit = { is_rival = event_target:combatant_2 }
-
+	if = { #If you go after your rival, small bonus...
+		limit = {
+			event_target:combatant_2 = { is_rival = event_target:combatant_1 }
+		}
 		change_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 5
 		}
 	}
-
-	if = { # If you go after someone who is romantically interested in you, small bonus (they might get distracted)...
+	if = { #If you go after someone who is romantically interested in you, small bonus (they might get distracted)...
 		limit = {
-			reverse_has_opinion_modifier = {
-				who = event_target:combatant_2
-				name = opinion_budding_romance
+			event_target:combatant_2 = {
+				has_opinion_modifier = { who = event_target:combatant_1 modifier = opinion_budding_romance }
+				NOT = { is_lover = event_target:combatant_1 }
 			}
-
-			NOT = { is_lover = event_target:combatant_2 }
 		}
-
 		change_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 6
 		}
 	}
-
-	if = { # If you go after someone whom you hate, small bonus (if you are not stressed/depressed)...
+	if = { #If you go after someone whom you hate, small bonus (if you are not stressed/depressed)...
 		limit = {
 			event_target:combatant_2 = {
 				root_has_terrible_opinion_modifier_of_this_trigger = yes
 			}
-
-			NOR = {
-				trait = stressed
-				trait = depressed
-			}
+			NOT = { trait = stressed }
+			NOT = { trait = depressed }
 		}
-
 		change_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 12
 		}
 	}
-
-	if = { # If you go after someone whom you have no feelings towards really, small bonus...
+	if = { #If you go after someone whom you have no feelings towards really, small bonus...
 		limit = {
-			opinion = {
-				who = event_target:combatant_2
-				value < 0
-			}
+			NOT = { opinion = { who = event_target:combatant_2 value = 0 } }
 		}
-
 		change_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 1
 		}
 	}
-
 	#... fill up with more things...
 
 	################################################################
 	# 2. MINUSES ADDED: Withdraws numbers from the score...
 	################################################################
-
 	if = {
-		limit = { event_target:combatant_2 = { trait = wroth } }
+		limit = {
+			event_target:combatant_2 = { trait = wroth }
+		}
 		subtract_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 1
 		}
 	}
-
 	if = {
-		limit = { event_target:combatant_2 = { religion_group = pagan_group } }
-
+		limit = { event_target:combatant_2 = { LI_pagan_trigger = yes } }
 		subtract_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 3
 		}
 	}
-
-	if = { # If you go after someone you care about, small malus...
+	if = { #If you go after someone you care about, small malus...
 		limit = {
 			OR = {
 				is_friend = event_target:combatant_2
 				is_lover = event_target:combatant_2
 			}
 		}
-
 		subtract_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 3
 		}
 	}
-
-	if = { # If you go after someone you are romantically interested in, small malus (you might get distracted)...
+	if = { #If you go after someone you are romantically interested in, small malus (you might get distracted)...
 		limit = {
-			has_opinion_modifier = {
-				name = opinion_budding_romance
-				who = event_target:combatant_2
-			}
-
+			has_opinion_modifier = { who = event_target:combatant_2 modifier = opinion_budding_romance }
 			NOT = { is_lover = event_target:combatant_2 }
 		}
-
 		subtract_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 3
 		}
 	}
-
-	if = { # If you go after someone whom you hate, while you are stressed/depressed...
+	if = { #If you go after someone whom you hate, while you are stressed/depressed...
 		limit = {
 			event_target:combatant_2 = {
 				root_has_terrible_opinion_modifier_of_this_trigger = yes
 			}
-
 			OR = {
 				trait = stressed
 				trait = depressed
 			}
 		}
-
 		subtract_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 6
 		}
 	}
-
-	if = { # If you are stressed AND depressed, malus...
+	if = { #If you are stressed AND depressed, malus...
 		limit = {
 			trait = stressed
 			trait = depressed
 		}
-
 		subtract_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 12
 		}
 	}
-
-	if = { # If you go after someone who has no feelings towards you really, small malus (ie bonus for them)...
+	if = { #If you go after someone who has no feelings towards you really, small malus (ie bonus for them)...
 		limit = {
-			reverse_opinion = {
-				who = event_target:combatant_1
-				value < 5
+			event_target:combatant_2 = {
+				NOT = { opinion = { who = event_target:combatant_1 value = 5 } }
 			}
 		}
-
 		subtract_variable = {
-			which = duel_result_score # (50 + X) - Y
+			which = duel_result_score #(50 + X) - Y
 			value = 1
 		}
 	}
-
-	# fill up with more things...
+	#fill up with more things...
 
 	################################################################
-	# 2. SPECIAL FLAGS SET: Has a chance of opening up new text and
+	# 2. SPECIAL FLAGS SET: Has a chance of opening up new text and 
 	#	 effects in the results... (for overview, see below)
 
 	################################################################
@@ -786,56 +721,51 @@ evaluate_extra_duel_result_score_effect = { # [SPECIAL CIRCUMSTANCES - OPTIONAL]
 	if = {
 		limit = {
 			OR = {
-				intrigue >= 15
+				intrigue = 15
 				trait = elusive_shadow
 				trait = master_schemer
 			}
 		}
-
-		set_character_flag = intrigue_options_available # currently only for the attacker
+		set_character_flag = intrigue_options_available #currently only for the attacker
 	}
-
 	if = {
-		limit = { is_friend = event_target:combatant_2 }
-
+		limit = {
+			event_target:combatant_2 = { is_friend = ROOT }
+		}
 		set_character_flag = is_friendly_fight
 		event_target:combatant_2 = { set_character_flag = is_friendly_fight }
 	}
-
 	if = {
-		limit = { is_close_relative = event_target:combatant_2 }
-
+		limit = {
+			event_target:combatant_2 = { is_close_relative = ROOT }
+		}
 		set_character_flag = is_family_fight
 		event_target:combatant_2 = { set_character_flag = is_family_fight }
 	}
-
 	if = {
-		limit = { is_rival = event_target:combatant_2 }
-
+		limit = {
+			event_target:combatant_2 = { is_rival = ROOT }
+		}
 		set_character_flag = is_rival_fight
 		event_target:combatant_2 = { set_character_flag = is_rival_fight }
 	}
-
-	if = {
+	if = { 
 		limit = {
 			event_target:combatant_2 = {
 				NOT = { is_lover = ROOT }
-
-				trigger_if = {
-					limit = { is_close_relative = ROOT }
-
-					religion_has_incest = yes
-					ROOT = { religion_has_incest = yes }
+				OR = {
+					ROOT = { has_religion_feature = religion_feature_zun }
+					ROOT = { has_religion_feature = religion_holy_family }
+					# ROOT = { religion = messalian }
+					ROOT = { religion = zoroastrian }
+					NOT = { is_close_relative = ROOT }
 				}
-
 				possibly_romantically_interested_in_each_other_trigger = yes
 			}
 		}
-
 		set_character_flag = fight_could_spark_romance
 		event_target:combatant_2 = { set_character_flag = fight_could_spark_romance }
 	}
-
 	if = {
 		limit = {
 			event_target:combatant_2 = {
@@ -845,31 +775,19 @@ evaluate_extra_duel_result_score_effect = { # [SPECIAL CIRCUMSTANCES - OPTIONAL]
 				}
 			}
 		}
-
 		set_character_flag = fight_could_spark_rivalry
 		event_target:combatant_2 = { set_character_flag = fight_could_spark_rivalry }
 	}
-
 	if = {
 		limit = {
 			event_target:combatant_2 = {
 				NOT = { is_friend = ROOT }
-
-				opinion = {
-					who = ROOT
-					value >= 5
-				}
-
-				reverse_opinion = {
-					who = ROOT
-					value >= 5
-				}
-
+				opinion = { who = ROOT value = 5 }
+				reverse_opinion = { who = ROOT value = 5 }
 				this_has_terrible_opinion_modifier_of_root_trigger = no
 				root_has_terrible_opinion_modifier_of_this_trigger = no
 			}
 		}
-
 		set_character_flag = fight_could_spark_friendship
 		event_target:combatant_2 = { set_character_flag = fight_could_spark_friendship }
 	}

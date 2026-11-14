@@ -11,94 +11,104 @@
 ###################################################
 
 # Relative demands inheritance due to ambition
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 37000
 	desc = EVTDESC37000
-
-	picture = {
-		picture = GFX_evt_daughter_asking_mother
-		trigger = { is_female = yes }
-	}
-	picture = {
-		picture = GFX_evt_son_asking_father
-		trigger = { is_female = no }
-	}
-
-	is_triggered_only = yes # 00_ambitions.txt, obj_wants_landed_title, creation_effect; event 37004
-
-	only_capable = yes
+	picture = GFX_evt_son_asking_father
+	
+	min_age = 16
+	only_men = yes
+	capable_only = yes
 	prisoner = no
-	lacks_dlc = "Conclave"
-
+	lacks_dlc = "Zeus"
+	
 	trigger = {
 		has_ambition = obj_wants_landed_title
 		independent = no
-
-		trigger_if = {
-			limit = { is_female = yes }
-
-			OR = {
-				has_law = enatic_succession
-				has_law = enatic_cognatic_succession
-				has_law = true_cognatic_succession
-			}
-		}
-		trigger_else = {
-			OR = {
-				has_law = agnatic_succession
-				has_law = cognatic_succession
-				has_law = true_cognatic_succession
-			}
-		}
-
 		liege = {
-			is_close_relative = ROOT
-
-			trigger_if = {
-				limit = { ai = no }
+			OR = {
 				war = no
+				ai = yes
 			}
-
+			is_close_relative = ROOT
 			any_demesne_title = {
 				can_be_given_away = yes
-				real_tier = COUNT
+				tier = count
 				is_feudal = yes
-
 				location = {
 					is_capital = no
 				}
 			}
 		}
-
-		NOR = {
-			has_character_flag = flag_denied_title
-			has_character_flag = flag_promised_title
+		NOT = { has_character_flag = flag_denied_title }
+		NOT = { has_character_flag = flag_promised_title }
+		OR = {
+			NOT = { has_character_flag = flag_later_title }
+			had_character_flag = { flag = flag_later_title days = 1825 }
 		}
 	}
-
-	fail_trigger_effect = {
-		if = {
-			limit = { has_ambition = obj_wants_landed_title }
-
-			repeat_event = {
-				id = 37000
-				months = 3
-			}
+	
+	mean_time_to_happen = {
+		months = 9
+		
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.5
+			trait = diligent
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = impatient
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = hardworking
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = obstinate
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = confident
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = arrogant
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = rebellious
+		}	
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = selfish
+		}	
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = pompous
+			}	
+		modifier = {	## added by Ash
+			factor = 1.5
+			trait = arrogant
+		}	
+		modifier = {
+			factor = 5.0
+			trait = slothful
+		}
+		modifier = {
+			factor = 5.0
+			trait = content
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA37000 # Ask liege for a title
-
-		liege = {
-			show_scope_change = no
-
-			character_event = {
-				id = 37001
-				days = 3
-				tooltip = EVTTOOLTIP37001
-			}
-		}
+		liege = { character_event = { id = 37001 days = 3 tooltip = EVTTOOLTIP37001 } }
 	}
 }
 
@@ -1210,45 +1220,87 @@ character_event = {
 }
 
 # Relative reminds liege of promised marriage
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 37054
 	desc = EVTDESC37054
 	picture = GFX_evt_marriage
-
-	is_triggered_only = yes
-
-	has_character_flag = flag_promised_marriage
-	only_capable = yes
+	
+	min_age = 16
+	capable_only = yes
 	prisoner = no
-	lacks_dlc = "Conclave"
+	lacks_dlc = "Zeus"
 	is_married = no
-
+	
 	trigger = {
-		has_ambition = obj_get_married
-		is_close_relative = liege
-
-		has_opinion_modifier = {
-			name = opinion_promised_marriage
-			who = liege
-		}
-
 		is_ruler = no
 		is_betrothed = no
-		NOT = { trait = bastard }
-	}
-
-	option = {
-		name = EVTOPTA37054 # Ask dad
-
+		NOT = {
+			trait = bastard
+		}
+		has_ambition = obj_get_married
 		liege = {
-			show_scope_change = no
-
-			character_event = {
-				id = 37055
-				days = 3
-				tooltip = EVTTOOLTIP37055
+			is_close_relative = ROOT
+			ROOT = {
+				has_opinion_modifier = { who = PREV modifier = opinion_promised_marriage }
 			}
 		}
+		had_character_flag = { flag = flag_promised_marriage days = 365 }
+	}
+	
+	mean_time_to_happen = {
+		months = 4
+		
+		modifier = {
+			factor = 0.25
+			is_female = yes
+			trait = lustful
+		}
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = slothful
+		}
+		modifier = {
+			factor = 5.0
+			trait = content
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = impatient
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = restless
+		}
+				modifier = {	## added by Ash
+			factor = 0.7
+			trait = stubborn
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = romantic
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = vain
+		}
+		modifier = {	## added by Ash
+			factor = 5.0
+			trait = procrastinator
+		}
+		modifier = {	## added by Ash
+			factor = 5.0
+			trait = stoic
+		}	
+	}
+	
+	option = {
+		name = EVTOPTA37054 # Ask dad
+		liege = { character_event = { id = 37055 days = 3 tooltip = EVTTOOLTIP37055 } }
 	}
 }
 
@@ -1402,129 +1454,131 @@ character_event = {
 }
 
 # Relative who was denied decides to marry in secret
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 37056
+	desc = EVTDESC37056
 	picture = GFX_evt_marriage
-
-	desc = {
-		text = EVTDESC37056
-		trigger = { is_female = no }
-	}
-	desc = {
-		text = EVTDESC37056_B
-		trigger = { is_female = yes }
-	}
-
-	is_triggered_only = yes
-
-	has_character_flag = flag_denied_marriage
-	lacks_dlc = "Conclave"
-	is_married = no
-	only_capable = yes
+	
+	min_age = 16
+	only_men = yes
+	capable_only = yes
 	prisoner = no
-
+	has_character_flag = flag_denied_marriage
+	lacks_dlc = "Zeus"
+	
 	trigger = {
-		has_ambition = obj_get_married
 		is_ruler = no
 		is_betrothed = no
-
+		has_ambition = obj_get_married
 		any_courtier = {
-			is_opposite_sex = ROOT
-			practical_age < 40
+			is_female = yes
+			NOT = { age = 40 }
 			can_marry = ROOT
 		}
 	}
-
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 0.25
+			trait = lustful
+		}
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = slothful
+		}
+		modifier = {
+			factor = 5.0
+			trait = content
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = romantic
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = vain
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = lively
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			trait = rebellious
+		}
+		modifier = {	## added by Ash
+			factor = 5.0
+			trait = procrastinator
+		}
+		modifier = {	## added by Ash
+			factor = 5.0
+			trait = stoic
+		}	
+	}
+	
 	option = {
 		name = EVTOPTA37056 # I'm getting married right now
-
 		random_courtier = {
-			show_scope_change = no
-
 			limit = {
-				is_opposite_sex = ROOT
-				practical_age < 40
+				is_female = yes
+				NOT = { age = 40 }
 				can_marry = ROOT
 			}
-
-			if = {
-				limit = { is_female = yes }
-				add_spouse = ROOT
-			}
-			else = {
-				add_spouse_matrilineal = ROOT
-			}
+			add_spouse = ROOT
 		}
-
-		liege = {
-			show_scope_change = no
-
-			character_event = {
-				id = 37057
-				tooltip = EVTTOOLTIP37057
-			}
-		}
+		liege = { character_event = { id = 37057 tooltip = EVTTOOLTIP37057 } }
 	}
 }
 
 # The liege is informed of the secret marriage
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 37057
+	desc = EVTDESC37057
 	picture = GFX_evt_marriage
-
-	desc = {
-		text = EVTDESC37057
-		trigger = { FROM = { is_female = no } }
-	}
-	desc = {
-		text = EVTDESC37057_B
-		trigger = { FROM = { is_female = yes } }
-	}
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37057 # Ah well
 		tooltip_info = kind
-
-		trigger = { trait = kind }
+		trigger = {
+			trait = kind
+		}
 	}
-
+	
 	option = {
 		name = EVTOPTB37057 # The insolence!
-
 		trigger = {
 			NOT = { trait = kind }
 		}
-
 		opinion = {
-			name = opinion_secret_marriage
 			who = FROM
-			years = 5
+			modifier = opinion_secret_marriage
+			months = 60
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTC37057 # They will both pay for this!
-
+		#tooltip_info = 
 		trigger = {
 			OR = {
 				trait = wroth
 				trait = envious
+				trait = callous
+				trait = harsh
 			}
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			imprison = ROOT
-
-			spouse = {
-				show_scope_change = no
-
-				imprison = ROOT
-			}
-		}
+		FROM = { imprison = ROOT }
+		FROM = { spouse = { imprison = ROOT } }
 	}
 }
 

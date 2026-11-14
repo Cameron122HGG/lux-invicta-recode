@@ -91,342 +91,325 @@ change_council_job_potential_trigger = {
 }
 
 # THIS is potential councillor
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_chancellor_trigger = {
-	independent = no
-	prisoner = no
-	is_incapable = no
-
-	NOR = {
-		trait = in_hiding
-		has_character_modifier = resigned_in_anger
-
-		reverse_has_opinion_modifier = {
-			name = opinion_resigned_from_council
-			who = liege
-		}
-	}
-
-	trigger_if = {
-		limit = { NOT = { has_character_flag = special_chancellor } }
-
-		is_adult = yes
-
-		trigger_if = {
-			limit = {
-				NOT = { trait = horse }
-			}
-
-			trigger_if = {
-				limit = { is_female = yes }
-
-				liege = {
+	OR = {
+		AND = {
+			OR = {
+				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
+					is_female = no 
+					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+				}
+				AND = {
+					is_female = yes 
+					OR = { 
+						liege = { has_religion_feature = religion_matriarchal } 
+						liege = { has_religion_feature = religion_equal } 
+					} 
+				}
+				trait = horse # So we can have female glitterhoofs! :D
+				AND = {
+					feminist_religions_trigger = yes
+					liege = { religion = ROOT }
+				}
+				AND = {
+					liege = {
+						primary_title = {
+							OR = {
+								has_law = status_of_women_2
+								has_law = status_of_women_3
+							}
+						}
+					}
 					OR = {
-						religion_is_matriarchal_trigger = yes
-						religion_is_equal_trigger = yes
-
-						# Some religions don't mind so much who does what
-						trigger_if = {
-							limit = { religion_is_feminist = yes }
-							religion = PREV
-						}
-
-						# Laws permitting
-						trigger_if = {
-							limit = {
-								OR = {
-									has_law = status_of_women_2
-									has_law = status_of_women_3
-								}
-							}
-
-							PREV = {
-								OR = {
-									dynasty = PREV
-									is_close_relative = PREV
-									is_married = PREV
-									is_consort = PREV
-									is_landed = yes
-									trait = nun
-								}
+						liege = {
+							OR = {
+								dynasty = ROOT
+								is_close_relative = ROOT
+								any_spouse = { character = ROOT }
+								any_consort = { character = ROOT }
 							}
 						}
-						trigger_else = {
-							has_law = status_of_women_4
-						}
-
-						# Other conditions under which females can be employed
-						has_game_rule = {
-							name = gender
-							value = all
-						}
+						is_landed = yes
+						trait = nun
+						
+					}
+				}
+				OR = {
+					AND = { 
+						is_female = yes
+						liege = { primary_title = { has_law = status_of_women_4 } } 
+					}
+					has_game_rule = {
+						name = gender
+						value = all
 					}
 				}
 			}
-			trigger_else = {
-				liege = {
-					religion_is_matriarchal_trigger = no
-				}
-			}
+			is_adult = yes
 		}
+		has_character_flag = special_chancellor
+	}
+	
+	independent = no
+	prisoner = no
+	NOT = { trait = incapable }
+	NOT = { trait = in_hiding }
+	NOT = { has_character_modifier = resigned_in_anger }
+	NOT = { 
+		liege = { 
+			has_opinion_modifier = {
+				who = ROOT	
+				modifier = opinion_resigned_from_council 
+			} 
+		} 
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_marshal_trigger = {
-	independent = no
-	prisoner = no
-	is_incapable = no
-
-	NOR = {
-		trait = in_hiding
-		has_character_modifier = resigned_in_anger
-
-		reverse_has_opinion_modifier = {
-			name = opinion_resigned_from_council
-			who = liege
-		}
-	}
-
-	trigger_if = {
-		limit = { NOT = { has_character_flag = special_marshal } }
-
-		is_adult = yes
-
-		trigger_if = {
-			limit = { religion = hindu }
-			trait = kshatriya
-		}
-		trigger_if = {
-			limit = {
-				NOT = { trait = horse }
-			}
-
-			trigger_if = {
-				limit = { is_female = yes }
-
-				liege = {
-					OR = {
-						religion_is_matriarchal_trigger = yes
-						religion_is_equal_trigger = yes
-
-						# Some religions don't mind so much who does what
-						trigger_if = {
-							limit = { religion_is_feminist = yes }
-							religion = PREV
-						}
-
-						# Laws permitting
-						trigger_if = {
-							limit = { has_law = status_of_women_3 }
-
-							PREV = {
-								OR = {
-									dynasty = PREV
-									is_close_relative = PREV
-									is_married = PREV
-									is_consort = PREV
-									is_landed = yes
-									trait = nun
-								}
+	OR = {
+		AND = {
+			OR = {
+				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
+					is_female = no 
+					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+				}
+				AND = {
+					is_female = yes 
+					OR = { 
+						liege = { has_religion_feature = religion_matriarchal } 
+						liege = { has_religion_feature = religion_equal }  
+					} 
+				}
+				trait = horse # So we can have female glitterhoofs! :D
+				AND = {
+					feminist_religions_trigger = yes
+					liege = { religion = PREV }
+				}
+				AND = {
+					liege = {
+						primary_title = {
+							OR = {
+								has_law = status_of_women_3
 							}
 						}
-						trigger_else = {
-							has_law = status_of_women_4
+					}
+					OR = {
+						liege = {
+							OR = {
+								dynasty = ROOT
+								is_close_relative = ROOT
+								any_spouse = { character = ROOT }
+								any_consort = { character = ROOT }
+							}
 						}
-
-						# Other conditions under which females can be employed
-						has_game_rule = {
-							name = gender
-							value = all
-						}
+						is_landed = yes
+						
+					}
+				}
+				OR = {
+					AND = { 
+						is_female = yes
+						liege = { primary_title = { has_law = status_of_women_4 } } 
+					}
+					has_game_rule = {
+						name = gender
+						value = all
 					}
 				}
 			}
-			trigger_else = {
-				liege = {
-					religion_is_matriarchal_trigger = no
-				}
+			OR = {
+				NOT = { religion = hindu }
+				trait = kshatriya
 			}
+			is_adult = yes
 		}
+		has_character_flag = special_marshal
+	}
+	
+	independent = no
+	prisoner = no
+	NOT = { trait = incapable }
+	NOT = { trait = in_hiding }
+	NOT = { has_character_flag = guru }
+	NOT = { has_character_modifier = resigned_in_anger }
+	NOT = { 
+		liege = { 
+			has_opinion_modifier = {
+				who = ROOT	
+				modifier = opinion_resigned_from_council 
+			} 
+		} 
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_treasurer_trigger = {
-	independent = no
-	prisoner = no
-	is_incapable = no
-
-	NOR = {
-		trait = in_hiding
-		has_character_modifier = resigned_in_anger
-
-		reverse_has_opinion_modifier = {
-			name = opinion_resigned_from_council
-			who = liege
-		}
-	}
-
-	trigger_if = {
-		limit = { NOT = { has_character_flag = special_treasurer } }
-
-		is_adult = yes
-
-		trigger_if = {
-			limit = {
-				NOT = { trait = horse }
-			}
-
-			trigger_if = {
-				limit = { is_female = yes }
-
-				liege = {
+	OR = {
+		AND = {
+			OR = {
+				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
+					is_female = no 
+					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+				}
+				AND = {
+					is_female = yes 
+					OR = { 
+						liege = { has_religion_feature = religion_matriarchal } 
+						liege = { has_religion_feature = religion_equal } 
+					} 
+				}
+				trait = horse # So we can have female glitterhoofs! :D
+				AND = {
+					feminist_religions_trigger = yes
+					liege = { religion = PREV }
+				}
+				AND = {
+					liege = {
+						primary_title = {
+							OR = {
+								has_law = status_of_women_2
+								has_law = status_of_women_3
+							}
+						}
+					}
 					OR = {
-						religion_is_matriarchal_trigger = yes
-						religion_is_equal_trigger = yes
-
-						# Some religions don't mind so much who does what
-						trigger_if = {
-							limit = { religion_is_feminist = yes }
-							religion = PREV
-						}
-
-						# Laws permitting
-						trigger_if = {
-							limit = {
-								OR = {
-									has_law = status_of_women_2
-									has_law = status_of_women_3
-								}
-							}
-
-							PREV = {
-								OR = {
-									dynasty = PREV
-									is_close_relative = PREV
-									is_married = PREV
-									is_consort = PREV
-									is_landed = yes
-									trait = nun
-								}
+						liege = {
+							OR = {
+								dynasty = ROOT
+								is_close_relative = ROOT
+								any_spouse = { character = ROOT }
+								any_consort = { character = ROOT }
 							}
 						}
-						trigger_else = {
-							has_law = status_of_women_4
-						}
-
-						# Other conditions under which females can be employed
-						has_game_rule = {
-							name = gender
-							value = all
-						}
+						is_landed = yes
+						trait = nun
+						
+					}
+				}
+				OR = {
+					AND = { 
+						is_female = yes
+						liege = { primary_title = { has_law = status_of_women_4 } } 
+					}
+					has_game_rule = {
+						name = gender
+						value = all
 					}
 				}
 			}
-			trigger_else = {
-				liege = {
-					religion_is_matriarchal_trigger = no
-				}
-			}
+			is_adult = yes
 		}
+		has_character_flag = special_treasurer
+	}
+	
+	independent = no
+	prisoner = no
+	NOT = { trait = incapable }
+	NOT = { trait = in_hiding }
+	NOT = { has_character_flag = guru }
+	NOT = { has_character_modifier = resigned_in_anger }
+	NOT = { 
+		liege = { 
+			has_opinion_modifier = {
+				who = ROOT	
+				modifier = opinion_resigned_from_council 
+			} 
+		} 
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_spymaster_trigger = {
-	independent = no
-	prisoner = no
-	is_incapable = no
-
-	NOR = {
-		trait = in_hiding
-		has_character_modifier = resigned_in_anger
-
-		reverse_has_opinion_modifier = {
-			name = opinion_resigned_from_council
-			who = liege
-		}
-	}
-
-	trigger_if = {
-		limit = { NOT = { has_character_flag = special_spymaster } }
-
-		is_adult = yes
-
-		trigger_if = {
-			limit = {
-				NOT = { trait = horse }
-			}
-
-			trigger_if = {
-				limit = { is_female = yes }
-
-				liege = {
+	OR = {
+		AND = {
+			OR = {
+				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
+					is_female = no 
+					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+				}
+				AND = {
+					is_female = yes 
+					OR = { 
+						liege = { has_religion_feature = religion_matriarchal } 
+						liege = { has_religion_feature = religion_equal } 
+					} 
+				}
+				trait = horse # So we can have female glitterhoofs! :D
+				liege = { 
+					NOR = {
+						liege = { has_religion_feature = religion_matriarchal } 
+						liege = { has_religion_feature = religion_patriarchal } 
+					}
 					OR = {
-						# Special conditions for spymaster position
-						trigger_if = {
-							limit = {
-								OR = {
-									is_married = PREV
-									is_mother = PREV
-								}
-							}
-							religion_is_patriarchal_trigger = no
-						}
-
-						religion_is_matriarchal_trigger = yes
-						religion_is_equal_trigger = yes
-
-						# Some religions don't mind so much who does what
-						trigger_if = {
-							limit = { religion_is_feminist = yes }
-							religion = PREV
-						}
-						trigger_else_if = {
-							limit = {
-								religion_group = pagan_group
-								religion_is_patriarchal_trigger = no
-							}
-
-							religion_group = PREV
-						}
-
-						# Laws permitting
-						trigger_if = {
-							limit = {
-								OR = {
-									has_law = status_of_women_1
-									has_law = status_of_women_2
-									has_law = status_of_women_3
-								}
-							}
-
-							PREV = {
-								OR = {
-									dynasty = PREV
-									is_close_relative = PREV
-									is_married = PREV
-									is_consort = PREV
-									is_landed = yes
-									trait = nun
-								}
-							}
-						}
-						trigger_else = {
-							has_law = status_of_women_4
-						}
-
-						# Other conditions under which females can be employed
-						has_game_rule = {
-							name = gender
-							value = all
+						mother = { character = ROOT }
+						any_spouse = { character = ROOT }
+					}
+				}
+				AND = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = PREV
+						NOR = {
+							liege = { has_religion_feature = religion_matriarchal } 
+							liege = { has_religion_feature = religion_patriarchal } 
 						}
 					}
 				}
-			}
-			trigger_else = {
-				liege = {
-					religion_is_matriarchal_trigger = no
+				AND = {
+					liege = {
+						primary_title = {
+							OR = {
+								has_law = status_of_women_1
+								has_law = status_of_women_2
+								has_law = status_of_women_3
+							}
+						}
+					}
+					OR = {
+						liege = {
+							OR = {
+								dynasty = ROOT
+								is_close_relative = ROOT
+								any_spouse = { character = ROOT }
+								any_consort = { character = ROOT }
+							}
+						}
+						is_landed = yes
+						trait = nun
+						
+					}
+				}
+				OR = {
+					AND = { 
+						is_female = yes
+						liege = { primary_title = { has_law = status_of_women_4 } } 
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
 				}
 			}
+			is_adult = yes
 		}
+		has_character_flag = special_spymaster
+	}
+	
+	independent = no
+	prisoner = no
+	NOT = { trait = incapable }
+	NOT = { trait = in_hiding }
+	NOT = { has_character_flag = guru }
+	NOT = { has_character_modifier = resigned_in_anger }
+	NOT = { 
+		liege = { 
+			has_opinion_modifier = {
+				who = ROOT	
+				modifier = opinion_resigned_from_council 
+			} 
+		} 
 	}
 }
 
@@ -515,124 +498,121 @@ can_be_spiritual_trigger = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_councilmember_king_trigger = {
-	is_adult = yes
 	independent = no
 	prisoner = no
-	is_incapable = no
-
-	NOR = {
-		trait = in_hiding
-		has_character_modifier = resigned_in_anger
-
-		reverse_has_opinion_modifier = {
-			name = opinion_resigned_from_council
-			who = liege
-		}
+	NOT = { trait = incapable }
+	NOT = { trait = in_hiding }
+	NOT = { has_character_modifier = resigned_in_anger }
+	NOT = { 
+		liege = { 
+			has_opinion_modifier = {
+				modifier = opinion_resigned_from_council 
+				who = ROOT
+			}
+		} 
 	}
-
-	trigger_if = {
-		limit = { is_female = yes }
-
-		liege = {
-			OR = {
-				religion_is_matriarchal_trigger = yes
-				religion_is_equal_trigger = yes
-
-				# Some religions don't mind so much who does what
-				trigger_if = {
-					limit = { religion_is_feminist = yes }
-					religion = PREV
-				}
-
-				# Laws permitting
-				trigger_if = {
-					limit = {
+	AND = {
+		OR = {
+			AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
+				is_female = no 
+				NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+			}
+			AND = {
+				is_female = yes 
+				NOT = { liege = { has_religion_feature = religion_patriarchal } } 
+			}
+			AND = {
+				feminist_religions_trigger = yes
+				liege = { religion = ROOT }
+			}
+			AND = {
+				is_female = yes
+				liege = {
+					primary_title = {
 						OR = {
 							has_law = status_of_women_1
 							has_law = status_of_women_2
 							has_law = status_of_women_3
 						}
 					}
-
-					PREV = { is_landed = yes }
 				}
-				trigger_else = {
-					has_law = status_of_women_4
+				is_landed = yes
+			}
+			OR = {
+				AND = { 
+					is_female = yes
+					liege = { primary_title = { has_law = status_of_women_4 } } 
 				}
-
-				# Other conditions under which females can be employed
 				has_game_rule = {
 					name = gender
 					value = all
 				}
 			}
 		}
-	}
-	trigger_else = {
-		liege = {
-			religion_is_matriarchal_trigger = no
-		}
+		is_adult = yes
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_councilmember_emperor_trigger = {
-	is_adult = yes
 	independent = no
 	prisoner = no
-	is_incapable = no
-
-	NOR = {
-		trait = in_hiding
-		has_character_modifier = resigned_in_anger
-
-		reverse_has_opinion_modifier = {
-			name = opinion_resigned_from_council
-			who = liege
-		}
+	NOT = { trait = incapable }
+	NOT = { trait = in_hiding }
+	NOT = { has_character_modifier = resigned_in_anger }
+	NOT = { 
+		liege = { 
+			has_opinion_modifier = {
+				who = ROOT	
+				modifier = opinion_resigned_from_council 
+			} 
+		} 
 	}
-
-	trigger_if = {
-		limit = { is_female = yes }
-
-		liege = {
+	OR = {
+		AND = {
 			OR = {
-				religion_is_matriarchal_trigger = yes
-				religion_is_equal_trigger = yes
-
-				# Some religions don't mind so much who does what
-				trigger_if = {
-					limit = { religion_is_feminist = yes }
-					religion = PREV
+				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
+					is_female = no 
+					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
 				}
-
-				# Laws permitting
-				trigger_if = {
-					limit = {
-						OR = {
-							has_law = status_of_women_1
-							has_law = status_of_women_2
-							has_law = status_of_women_3
+				AND = {
+					is_female = yes 
+					OR = { 
+						liege = { has_religion_feature = religion_matriarchal } 
+						liege = { has_religion_feature = religion_equal }  
+					} 
+				}
+				AND = {
+					feminist_religions_trigger = yes
+					liege = { religion = PREV }
+				}
+				AND = {
+					is_female = yes
+					liege = {
+						primary_title = {
+							OR = {
+								has_law = status_of_women_1
+								has_law = status_of_women_2
+								has_law = status_of_women_3
+							}
 						}
 					}
-
-					PREV = { is_landed = yes }
+					is_landed = yes
 				}
-				trigger_else = {
-					has_law = status_of_women_4
-				}
-
-				# Other conditions under which females can be employed
-				has_game_rule = {
-					name = gender
-					value = all
+				OR = {
+					AND = { 
+						is_female = yes
+						liege = { primary_title = { has_law = status_of_women_4 } } 
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
 				}
 			}
-		}
-	}
-	trigger_else = {
-		liege = {
-			religion_is_matriarchal_trigger = no
+			is_adult = yes
 		}
 	}
 }
@@ -737,93 +717,92 @@ can_still_be_commander_byzantine_trigger = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_still_be_marshal_byzantine_trigger = {
-	liege = {
+	liege = { 
 		character = FROMFROM
-		government = roman_imperial_government
+		has_law = succ_byzantine_elective
 	}
-
-	NOR = {
+	NOR = { 
 		war_with = FROMFROM
-
-		any_liege = {
+		any_liege = {  
 			war_with = FROMFROM
 		}
 	}
-
-	trigger_if = {
-		limit = {
-			NOT = { has_character_flag = special_marshal }
-		}
-
-		trigger_if = {
-			limit = { is_female = yes }
-
-			liege = {
-				OR = {
-					religion_is_matriarchal_trigger = yes
-					religion_is_equal_trigger = yes
-
-					# Some religions don't mind so much who does what
-					trigger_if = {
-						limit = { religion_is_feminist = yes }
-						religion = PREV
-					}
-
-					# Laws permitting
-					trigger_if = {
-						limit = { has_law = status_of_women_3 }
-
-						PREV = {
+	OR = {
+		AND = {
+			OR = {
+				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
+					is_female = no 
+					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+				}
+				AND = {
+					is_female = yes 
+					OR = { 
+						liege = { has_religion_feature = religion_matriarchal } 
+						liege = { has_religion_feature = religion_equal } 
+					} 
+				}
+				trait = horse # So we can have female glitterhoofs! :D
+				AND = {
+					feminist_religions_trigger = yes
+					liege = { religion = PREV }
+				}
+				AND = {
+					liege = {
+						primary_title = {
 							OR = {
-								dynasty = PREV
-								is_close_relative = PREV
-								is_married = PREV
-								is_consort = PREV
-								is_landed = yes
-								trait = nun
+								has_law = status_of_women_3
 							}
 						}
 					}
-					trigger_else = {
-						has_law = status_of_women_4
+					OR = {
+						liege = {
+							OR = {
+								dynasty = ROOT
+								is_close_relative = ROOT
+								any_spouse = { character = ROOT }
+								any_consort = { character = ROOT }
+							}
+						}
+						is_landed = yes
+						
 					}
-
-					# Other conditions under which females can be employed
+				}
+				OR = {
+					AND = { 
+						is_female = yes
+						liege = { primary_title = { has_law = status_of_women_4 } } 
+					}
 					has_game_rule = {
 						name = gender
 						value = all
 					}
 				}
 			}
-		}
-		trigger_else = {
-			liege = {
-				religion_is_matriarchal_trigger = no
+			OR = {
+				NOT = { religion = hindu }
+				trait = kshatriya
 			}
+			is_adult = yes
 		}
-
-		trigger_if = {
-			limit = { religion = hindu }
-			NOT = { trait = kshatriya }
-		}
-
-		is_adult = yes
+		has_character_flag = special_marshal
 	}
-
+	
 	independent = no
 	prisoner = no
-	is_incapable = no
-
-	NOR = {
-		trait = in_hiding
-		has_character_modifier = guru
-		has_character_modifier = resigned_in_anger
-
-		reverse_has_opinion_modifier = {
-			name = opinion_resigned_from_council
-			who = liege
-		}
+	NOT = { trait = incapable }
+ 	NOT = { trait = sick_incapable }
+	NOT = { trait = in_hiding }
+	NOT = { has_character_flag = guru }
+	NOT = { has_character_modifier = resigned_in_anger }
+	NOT = { 
+		liege = { 
+			has_opinion_modifier = {
+				who = ROOT	
+				modifier = opinion_resigned_from_council 
+			} 
+		} 
 	}
 }
 

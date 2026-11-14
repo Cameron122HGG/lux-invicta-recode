@@ -804,38 +804,31 @@ character_event = {
 }
 
 # Becomes zealous
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = CM.6106
 	desc = EVTDESC_CM_6106
 	picture = GFX_evt_bishop
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	min_age = 10
+	
+	is_triggered_only = yes
 
 	trigger = {
 		trait = in_hiding
-
-		trigger_if = {
-			limit = { trait = cynical }
-
-			OR = {
-				trait = stressed
-				trait = depressed
-			}
-		}
-
 		NOR = {
-			religion = buddhist
+			religion_group = bud_group
 			trait = zealous
 			trait = brave
 		}
+		OR = {
+			NOT = { trait = cynical }
+			trait = stressed
+			trait = depressed
+		}
+		age = 10
 	}
-
+	
 	option = {
 		name = EVTOPTA_CM_6106
-
-		remove_trait_silently_cynical_effect = yes
 		add_trait = zealous
 	}
 }

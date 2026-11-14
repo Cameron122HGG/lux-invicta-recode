@@ -13,59 +13,47 @@ namespace = LoR
 ### Foul Play
 
 # Approached Sabotage
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = LoR.400
 	title = EVTNAMELoR.400
 	desc = EVTDESCLoR.400
 	picture = GFX_evt_emissary_byzantine
-
-	is_triggered_only = yes # on_five_year_pulse, random_events, lor_byzantine_events
-
-	ai = no
+	
 	min_age = 16
 	max_age = 60
-	only_capable = yes
+	capable_only = yes
+	only_playable = yes
 	prisoner = no
-	in_command = no
-	has_dlc = "Legacy of Rome"
-
+	only_men = yes
+	ai = no
+	
 	trigger = {
-		capital_scope = {
-			province = c_constantinopolis
-		}
-
+		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
+			has_landed_title = e_roman
 			has_landed_title = e_roman_empire
 		}
-
-		OR = {
-			religion_group = christian
-			religion_openly_hellenic_or_reformed_trigger = yes
-		}
-
 		NOT = { has_global_flag = hippodrome_scheme }
-		is_inaccessible_trigger = no
+		in_command = no
+		capital_scope = { province_id = 517 }	#Konstantinoupolis
+		NOT = { is_inaccessible_trigger = yes }
 	}
-
+	
+	mean_time_to_happen = {
+		months = 780
+	}
+	
 	option = { # Agree
 		name = EVTOPTALoR.400
-
-		narrative_event = {
-			id = LoR.401
-			days = 32
-			tooltip = EVTTOOLTIPLoR.401
-		}
-
+		narrative_event = { id = LoR.401 days = 32 tooltip = EVTTOOLTIPLoR.401 }
 		set_global_flag = hippodrome_scheme
 		set_global_flag = hippodrome_scheme_ongoing
 	}
-
 	option = { # Refuse
 		name = EVTOPTBLoR.400
-
 		custom_tooltip = { text = hippodrome_refuse }
-
 		set_global_flag = hippodrome_scheme
 	}
 }

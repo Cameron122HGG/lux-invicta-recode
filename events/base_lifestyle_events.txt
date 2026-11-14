@@ -11,141 +11,116 @@
 ########################################################################################
 # Scholar/Mystic - New Book
 ########################################################################################
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5000
-	desc = EVTDESC5000
+	desc = "EVTDESC5000"
 	picture = GFX_evt_library
-
-	is_triggered_only = yes # on_yearly_pulse, random_events, base_lifestyle_events
-
+	
 	min_age = 25
-	lacks_dlc = "Way of Life"
-	only_capable = yes
+	capable_only = yes
 	prisoner = no
-	in_command = no
-
+	lacks_dlc = "Way of Life"
+	
 	trigger = {
-		lifestyle_traits < 1
-
-		NOR = {
-			trait = blinded
+		NOT = { trait = blinded }
+		in_command = no
+		NOT = {
+			lifestyle_traits = 1
+		}
+		NOT = {
 			has_character_flag = LE_ST
 		}
 	}
-
+	
 	immediate = {
 		set_character_flag = LE_ST
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 1.33
-			learning >= 10
-		}
-
-		mult_modifier = {
-			factor = 1.33
-			learning >= 9
-		}
-
-		mult_modifier = {
-			factor = 1.33
-			learning >= 8
-		}
-
-		mult_modifier = {
-			factor = 0.83
+	
+	mean_time_to_happen = {
+		months = 260
+		
+		modifier = {
+			factor = 1.2
 			trait = content
 		}
-
-		mult_modifier = {
-			factor = 0.7
+		modifier = {
+			factor = 0.75
+			learning = 10
+		}
+		modifier = {
+			factor = 0.75
+			learning = 9
+		}
+		modifier = {
+			factor = 0.75
+			learning = 8
+		}
+		modifier = {
+			factor = 1.4
 			trait = cynical
 		}
-
-		mult_modifier = {
-			factor = 5
+		modifier = {
+			factor = 0.2
 			trait = ambitious
 		}
-
-		mult_modifier = {
-			factor = 2.5
+		modifier = {
+			factor = 0.4
 			trait = zealous
 		}
-
-		mult_modifier = {
-			factor = 0.9
+		modifier = {
+			factor = 1.1
 			trait = detached_priest
 		}
-
-		mult_modifier = {
-			factor = 1.33
+		modifier = {
+			factor = 0.75
 			trait = scholarly_theologian
 		}
-
-		mult_modifier = {
-			factor = 2
+		modifier = {			### FROM 0.5 TO 0.6 - BY ASH
+			factor = 0.6
 			trait = mastermind_theologian
 		}
+		modifier = {			### ADDED BY ASH - MAKING SOME TRAITS MORE INFLUENTIAL
+			factor = 0.5
+			trait = philosophical
+		}
+		modifier = {			### ADDED BY ASH - MAKING IT HARDER FOR MARTIAL PEOPLE ACQUIRYING MYSTIC/SCHOLAR
+			factor = 4.0
+			trait = tough_soldier
+		}
+		modifier = {			### ADDED BY ASH - MAKING IT HARDER FOR MARTIAL PEOPLE ACQUIRYING MYSTIC/SCHOLAR
+			factor = 4.0
+			trait = skilled_tactician
+		}
+		modifier = {			### ADDED BY ASH - MAKING IT HARDER FOR MARTIAL PEOPLE ACQUIRYING MYSTIC/SCHOLAR
+			factor = 4.0
+			trait = brilliant_strategist
+		}
+		modifier = {			### ADDED BY ASH - MAKING IT HARDER FOR PLAIN/SHALLOW PEOPLE ACQUIRYING MYSTIC/SCHOLAR
+			factor = 8.0
+			trait = plain
+		}
+		modifier = {			### ADDED BY ASH - MAKING IT HARDER FOR PLAIN/SHALLOW PEOPLE ACQUIRYING MYSTIC/SCHOLAR
+			factor = 8.0
+			trait = shallow
+		}
 	}
-
+	
 	option = {
-		name = EVTOPTA5000
-
+		name = "EVTOPTA5000"			
 		piety = 20
-
 		character_event = {
 			id = 5002
 			days = 10
-			tooltip = EVTTOOLTIP5002
+			tooltip = "EVTTOOLTIP5002"
 		}
 	}
-
+	
 	option = {
-
-		name = EVTOPTB5000
-
+		name = "EVTOPTB5000"
 		add_character_modifier = {
 			name = illumination
 			duration = -1
-		}
-
-		if = {
-			limit = {
-				OR = {
-					trait = ambitious
-					trait = zealous
-				}
-			}
-
-			character_event = {
-				id = 5001
-				months = 8
-				random = 180
-			}
-		}
-		else_if = {
-			limit = {
-				OR = {
-					trait = content
-					trait = cynical
-				}
-			}
-
-			character_event = {
-				id = 5001
-				years = 2
-				random = 1095 # 3 years
-			}
-		}
-		else = {
-			character_event = {
-				id = 5001
-				years = 1
-				random = 730 # 2 years
-			}
 		}
 	}
 }
@@ -2117,23 +2092,23 @@ character_event = {
 # Celibate/Hedonist - Start
 ########################################################################################
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5060
 	desc = EVTDESC5060
 	picture = GFX_evt_brothel
-
-	is_triggered_only = yes # on_yearly_pulse, random_events, base_lifestyle_events
-
-	lacks_dlc = "Way of Life"
+	
 	min_age = 25
-	only_capable = yes
+	capable_only = yes
 	prisoner = no
-
+	religion_group = christian
+	lacks_dlc = "Way of Life"
+	
 	trigger = {
-		lifestyle_traits < 1
-
-		NOR = {
-			religion_group = muslim
+		NOT = {
+			lifestyle_traits = 1
+		}
+		NOT = {
 			has_character_flag = LE_ST
 		}
 	}
@@ -2142,435 +2117,324 @@ character_event = {
 		set_character_flag = LE_ST
 	}
 
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 0.83
+	mean_time_to_happen = {
+		months = 260
+	
+		modifier = {
+			factor = 0.9   ### change from 1.2 to 0.9 -- by ash
 			trait = detached_priest
 		}
-
-		mult_modifier = {
-			factor = 3
+		modifier = {
+			factor = 0.3
 			trait = dutiful_cleric
 		}
-
-		mult_modifier = {
-			factor = 0.7
+		modifier = {
+			factor = 0.8  ### change from 1.4 to 0.8 -- by ash
 			trait = scholarly_theologian
 		}
-
-		mult_modifier = {
-			factor = 2
-			trait = mastermind_theologian
+		modifier = {
+			factor = 0.5
+			trait = mastermind_theologian	
 		}
-
-		mult_modifier = {
-			factor = 4
-			trait = gregarious
+		modifier = {
+			factor = 0.25
+			trait = gregarious	
+		}
+		modifier = {			### ADDED BY ASH - MAKING ARCHETYPES INFLUENTIAL
+			factor = 0.5
+			trait = chaste
+		}	
+		modifier = {			### ADDED BY ASH - MAKING ARCHETYPES INFLUENTIAL
+			factor = 0.5
+			trait = lustful
+		}	
+		modifier = {			### ADDED BY ASH - MAKING ARCHETYPES INFLUENTIAL
+			factor = 0.5
+			trait = sensual
+		}		
+		modifier = {
+			factor = 0.7
+			has_ambition = obj_find_hobby
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTA5060
-
+		name = "EVTOPTA5060"
 		add_character_modifier = {
 			name = one_hedonist
 			duration = -1
 		}
-
-		if = {
-			limit = { has_education_learning_trigger = yes }
-
-			character_event = {
-				id = 5061
-				years = 2
-				random = 1095 # 3 years
-			}
-		}
-		else = {
-			character_event = {
-				id = 5061
-				years = 1
-				random = 730 # 2 years
-			}
-		}
 	}
-
 	option = {
-		name = EVTOPTB5060
-
+		name = "EVTOPTB5060"
 		add_character_modifier = {
 			name = one_celibate
 			duration = -1
-		}
-
-		if = {
-			limit = { has_education_learning_trigger = yes }
-
-			character_event = {
-				id = 5062
-				months = 8
-				random = 180
-			}
-		}
-		else = {
-			character_event = {
-				id = 5062
-				years = 1
-				random = 730 # 2 years
-			}
 		}
 	}
 }
 
 # On the road towards Hedonism
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5061
-	desc = EVTDESC5061
-	picture = GFX_evt_brothel
-
-	is_triggered_only = yes
-
-	has_character_flag = LE_ST
-	lacks_dlc = "Way of Life"
-	only_capable = yes
+	desc = "EVTDESC5061"
+	picture = "GFX_evt_brothel"
+	
+	min_age = 25
+	capable_only = yes
 	prisoner = no
-
+	lacks_dlc = "Way of Life"
+	
 	trigger = {
 		has_character_modifier = one_hedonist
-		lifestyle_traits < 1
-
+		NOT = {
+			lifestyle_traits = 1
+		}
 		OR = {
 			trait = chaste
 			trait = lustful
+			trait = sensual
+			trait = zealous
 		}
 	}
 
-	fail_trigger_effect = {
-		if = {
-			limit = {
-				has_character_flag = LE_ST
-				has_character_modifier = one_hedonist
-				lifestyle_traits < 1
-			}
-
-			repeat_event = {
-				id = 5061
-				months = 1
-			}
+	mean_time_to_happen = {
+		months = 36
+	
+		modifier = {
+			factor = 1.2
+			trait = detached_priest
+		}
+		modifier = {
+			factor = 1.3
+			trait = dutiful_cleric
+		}
+		modifier = {
+			factor = 1.4
+			trait = scholarly_theologian
+		}
+		modifier = {
+			factor = 1.5
+			trait = mastermind_theologian	
+		}
+		modifier = {
+			factor = 2.5
+			trait = chaste			### ADDED BY ASH
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTA5061
-
+		name = "EVTOPTA5061"
 		remove_character_modifier = one_hedonist
-
 		add_character_modifier = {
-			name = sweet_temptation
+			name = "sweet_temptation"
 			duration = -1
 		}
-
-		if = {
-			limit = { trait = lustful }
-
-			character_event = {
-				id = 5063
-				months = 8
-				random = 180
-			}
-		}
-		else_if = {
-			limit = { trait = chaste }
-
-			character_event = {
-				id = 5063
-				years = 2
-				random = 1095 # 3 years
-			}
-		}
-		else = {
-			character_event = {
-				id = 5063
-				years = 1
-				random = 730 # 2 years
-			}
-		}
 	}
-
 	option = {
-		name = EVTOPTB5061
-
+		name = "EVTOPTB5061"
 		remove_character_modifier = one_hedonist
-
 		add_character_modifier = {
-			name = stay_strong
+			name = "stay_strong"
 			duration = -1
-		}
-
-		if = {
-			limit = { trait = chaste }
-
-			character_event = {
-				id = 5064
-				months = 8
-				random = 180
-			}
-		}
-		else_if = {
-			limit = { trait = lustful }
-
-			character_event = {
-				id = 5063
-				years = 2
-				random = 1095 # 3 years
-			}
-		}
-		else = {
-			character_event = {
-				id = 5064
-				years = 1
-				random = 730 # 2 years
-			}
 		}
 	}
 }
 
 # On the road towards Celibacy
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5062
-	desc = EVTDESC5062
-	picture = GFX_evt_heretic
-
-	is_triggered_only = yes
-
-	has_character_flag = LE_ST
-	lacks_dlc = "Way of Life"
-	only_capable = yes
+	desc = "EVTDESC5062"
+	picture = "GFX_evt_heretic"
+	
+	min_age = 25
+	capable_only = yes
 	prisoner = no
-
+	lacks_dlc = "Way of Life"
+	
 	trigger = {
 		has_character_modifier = one_celibate
-		lifestyle_traits < 1
-
 		OR = {
+			trait = sensual
 			trait = chaste
 			trait = lustful
 		}
-	}
-
-	fail_trigger_effect = {
-		if = {
-			limit = {
-				has_character_flag = LE_ST
-				has_character_modifier = one_celibate
-				lifestyle_traits < 1
-			}
-
-			repeat_event = {
-				id = 5062
-				months = 1
-			}
+		NOT = {
+			lifestyle_traits = 1
 		}
 	}
 
+	mean_time_to_happen = {
+		months = 36
+	
+		modifier = {
+			factor = 0.2
+			trait = detached_priest
+		}
+		modifier = {
+			factor = 0.3
+			trait = dutiful_cleric
+		}
+		modifier = {
+			factor = 0.4
+			trait = scholarly_theologian
+		}
+		modifier = {
+			factor = 0.5
+			trait = mastermind_theologian	
+		}
+		modifier = {
+			factor = 0.5
+			trait = spiritual	
+		}
+	}
+	
 	option = {
-		name = EVTOPTA5062
-
+		name = "EVTOPTA5062"
 		remove_character_modifier = one_celibate
-
 		add_character_modifier = {
-			name = sweet_temptation
+			name = "sweet_temptation"
 			duration = -1
 		}
-
-		if = {
-			limit = { trait = lustful }
-
-			character_event = {
-				id = 5063
-				months = 8
-				random = 180
-			}
-		}
-		else_if = {
-			limit = { trait = chaste }
-
-			character_event = {
-				id = 5063
-				years = 2
-				random = 1095 # 3 years
-			}
-		}
-		else = {
-			character_event = {
-				id = 5063
-				years = 1
-				random = 730 # 2 years
-			}
-		}
 	}
-
 	option = {
-		name = EVTOPTB5062
-
+		name = "EVTOPTB5062"
 		remove_character_modifier = one_celibate
-
 		add_character_modifier = {
-			name = stay_strong
+			name = "stay_strong"
 			duration = -1
-		}
-
-		if = {
-			limit = { trait = chaste }
-
-			character_event = {
-				id = 5064
-				months = 8
-				random = 180
-			}
-		}
-		else_if = {
-			limit = { trait = lustful }
-
-			character_event = {
-				id = 5064
-				years = 2
-				random = 1095 # 3 years
-			}
-		}
-		else = {
-			character_event = {
-				id = 5064
-				years = 1
-				random = 730 # 2 years
-			}
 		}
 	}
 }
 
 # Sweet Temptation
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5063
-	desc = EVTDESC5063
-	picture = GFX_evt_brothel
-
-	is_triggered_only = yes
-
-	has_character_flag = LE_ST
-	lacks_dlc = "Way of Life"
-	only_capable = yes
+	desc = "EVTDESC5063"
+	picture = "GFX_evt_brothel"
+	
+	min_age = 25
+	capable_only = yes
 	prisoner = no
-
+	lacks_dlc = "Way of Life"
+	
 	trigger = {
 		has_character_modifier = sweet_temptation
-		lifestyle_traits < 1
-	}
-
-	fail_trigger_effect = {
-		if = {
-			limit = {
-				has_character_flag = LE_ST
-				has_character_modifier = sweet_temptation
-				lifestyle_traits < 1
-			}
-
-			repeat_event = {
-				id = 5063
-				months = 1
-			}
+		NOT = {
+			lifestyle_traits = 1
 		}
 	}
-
+	
+	mean_time_to_happen = {
+		months = 36
+		
+		modifier = {
+			factor = 0.5
+			trait = lustful
+		}
+		
+		modifier = {
+			factor = 0.5  		### ADDED BY ASH
+			trait = sensual
+		}
+		
+		modifier = {
+			factor = 2.0		### CHANGED FROM 1.5 TO 2.0   BY ASH
+			trait = chaste
+		}
+		
+		modifier = {
+			factor = 2.0		### CHANGED FROM 1.5 TO 2.0   BY ASH
+			trait = spiritual
+		}
+	}
+	
 	option = {
-		name = EVTOPTA5063
-
+		name = "EVTOPTA5063"
 		character_event = {
 			id = 5065
 			days = 30
-			tooltip = EVTTOOLTIP5065
+			tooltip = "EVTTOOLTIP5065"
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTB5063
-
+		name = "EVTOPTB5063"
 		character_event = {
 			id = 5066
 			days = 30
-			tooltip = EVTTOOLTIP5066
+			tooltip = "EVTTOOLTIP5066"
 		}
 	}
 }
 
 # Stay Strong
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5064
-	desc = EVTDESC5064
-	picture = GFX_evt_heretic
-
-	is_triggered_only = yes # 00_ambitions.txt, obj_buddhist_abstain_sexual_excess, creation_effect; elsewhere in the event chain
-
-	lacks_dlc = "Way of Life"
+	desc = "EVTDESC5064"
+	picture = "GFX_evt_heretic"
+	
 	min_age = 25
-	only_capable = yes
+	capable_only = yes
 	prisoner = no
-
+	lacks_dlc = "Way of Life"
+	
 	trigger = {
 		OR = {
-			has_ambition = obj_buddhist_abstain_sexual_excess
-
 			AND = {
-				has_character_flag = LE_ST
 				has_character_modifier = stay_strong
-				lifestyle_traits < 1
-			}
-		}
-	}
-
-	fail_trigger_effect = {
-		if = {
-			limit = {
-				OR = {
-					has_ambition = obj_buddhist_abstain_sexual_excess
-
-					AND = {
-						has_character_flag = LE_ST
-						has_character_modifier = stay_strong
-						lifestyle_traits < 1
-					}
+				NOT = {
+					lifestyle_traits = 1
 				}
 			}
-
-			repeat_event = {
-				id = 5063
-				months = 1
-			}
+			has_ambition = obj_buddhist_abstain_sexual_excess
 		}
 	}
-
+	
+	mean_time_to_happen = {
+		months = 36
+		
+		modifier = {
+			factor = 1.5
+			trait = lustful
+		}
+		
+		modifier = {
+			factor = 2.0  		### ADDED BY ASH
+			trait = sensual
+		}
+		
+		modifier = {
+			factor = 0.5
+			trait = chaste
+		}
+		modifier = {
+			factor = 5
+			has_ambition = obj_buddhist_abstain_sexual_excess
+		}
+	}
+	
 	option = {
-		name = EVTOPTA5064
-
+		name = "EVTOPTA5064"
 		piety = 10
-
 		character_event = {
 			id = 5065
 			days = 30
-			tooltip = EVTTOOLTIP5065
+			tooltip = "EVTTOOLTIP5065"
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTB5064
-
+		name = "EVTOPTB5064"
 		prestige = 10
-
 		character_event = {
 			id = 5066
 			days = 30
-			tooltip = EVTTOOLTIP5066
+			tooltip = "EVTTOOLTIP5066"
 		}
 	}
 }
@@ -2782,226 +2646,222 @@ character_event = {
 }
 
 # Towards Hedonism!
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5071
-	desc = EVTDESC5071
+	desc = "EVTDESC5071"
 	picture = GFX_evt_sultan
-
-	is_triggered_only = yes
-
+	
+	min_age = 25
+	capable_only = yes
+	prisoner = no
+	religion_group = muslim
 	has_character_flag = LE_ST
 	lacks_dlc = "Way of Life"
-	religion_group = muslim
-	only_capable = yes
-	prisoner = no
-
+	
 	trigger = {
-		lifestyle_traits < 1
-		has_character_modifier = muslim_hedonist
-	}
-
-	fail_trigger_effect = {
-		if = {
-			limit = {
-				NOT = { religion_group = muslim }
-			}
-
-			clr_character_flag = LE_ST
-			remove_character_modifier = muslim_hedonist
+		NOT = {
+			lifestyle_traits = 1
 		}
-		else_if = {
-			limit = {
-				has_character_flag = LE_ST
-				lifestyle_traits < 1
+		NOT = {
+			has_character_modifier = muslim_poet
+		}
+		OR = {
+			AND = {
+				had_character_flag = {
+					flag = LE_ST
+					days = 30
+				}
 				has_character_modifier = muslim_hedonist
 			}
-
-			repeat_event = {
-				id = 5071
-				months = 1
+			had_character_flag = {
+				flag = changed_to_hedonism
+				days = 30
 			}
 		}
 	}
-
+	
+	mean_time_to_happen = {
+		months = 24
+		
+		modifier = {
+			factor = 0.5
+			trait = gluttonous
+		}
+		modifier = {
+			factor = 0.5
+			trait = sensual   ### added BY ASH
+		}
+		modifier = {
+			factor = 2
+			trait = temperate
+		}
+	}
+	
 	option = {
-		name = EVTOPTA5071
-
+		name = "EVTOPTA5071"
 		remove_character_modifier = muslim_hedonist
 		set_character_flag = changed_to_poet
-
 		add_character_modifier = {
 			name = muslim_poet
 			duration = -1
 		}
-
 		piety = 10
-
-		if = {
-			limit = { trait = zealous }
-
-			character_event = {
-				id = 5072
-				months = 8
-				random = 180
-			}
-		}
-		else_if = {
-			limit = { trait = slothful }
-
-			character_event = {
-				id = 5072
-				years = 2
-				random = 1095 # 3 years
-			}
-		}
-		else = {
-			character_event = {
-				id = 5072
-				years = 1
-				random = 548 # 1.5 years
-			}
-		}
 	}
-
+	
 	option = {
-		name = EVTOPTB5071
-
+		name = "EVTOPTB5071"
 		character_event = {
 			id = 5073
 			days = 20
 			random = 20
-			tooltip = EVTTOOLTIP5073
+			tooltip = "EVTTOOLTIP5073"
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTC5071
-
+		name = "EVTOPTC5071"
 		remove_character_modifier = muslim_hedonist
 		clr_character_flag = LE_ST
-
 		if = {
 			limit = {
-				NOT = { trait = content }
+				NOT = {
+					trait = content
+				}
 			}
-
-			add_trait_fully_silently_content_effect = yes
+			add_trait = content
+			break = yes
 		}
-		else_if = {
-			limit = { trait = diligent }
-			remove_trait = diligent
+		if = {
+			limit = {
+				trait = content
+			}
+			if = {
+				limit = {
+					trait = diligent
+				}
+				remove_trait = diligent
+			}
+			if = {
+				limit = {
+					trait = hardworking
+				}
+				remove_trait = hardworking
+			}
 		}
 	}
 }
 
 # Towards Poetry!
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5072
-	desc = EVTDESC5072
+	desc = "EVTDESC5072"
 	picture = GFX_evt_recieve_letter
-
-	is_triggered_only = yes
-
+	
+	min_age = 25
+	capable_only = yes
+	prisoner = no
+	religion_group = muslim
 	has_character_flag = LE_ST
 	lacks_dlc = "Way of Life"
-	religion_group = muslim
-	only_capable = yes
-	prisoner = no
-
+	
 	trigger = {
-		lifestyle_traits < 1
-		has_character_modifier = muslim_poet
-	}
-
-	fail_trigger_effect = {
-		if = {
-			limit = {
-				NOT = { religion_group = muslim }
-			}
-
-			clr_character_flag = LE_ST
-			remove_character_modifier = muslim_poet
+		NOT = {
+			lifestyle_traits = 1
 		}
-		else_if = {
-			limit = {
-				has_character_flag = LE_ST
-				lifestyle_traits < 1
+		NOT = {
+			has_character_modifier = muslim_hedonist
+		}
+		OR = {
+			AND = {
+				had_character_flag = {
+					flag = LE_ST
+					days = 30
+				}
 				has_character_modifier = muslim_poet
 			}
-
-			repeat_event = {
-				id = 5071
-				months = 1
+			had_character_flag = {
+				flag = changed_to_poet
+				days = 30
 			}
 		}
 	}
-
+	
+	mean_time_to_happen = {
+		months = 24
+		
+		modifier = {
+			factor = 0.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.5
+			trait = romantic
+		}
+		modifier = {
+			factor = 0.5
+			trait = pessimistic
+		}
+		modifier = {
+			factor = 2
+			trait = slothful
+		}
+		modifier = {
+			factor = 2
+			trait = procrastinator
+		}
+	}
+	
 	option = {
-		name = EVTOPTA5072
-
+		name = "EVTOPTA5072"
 		remove_character_modifier = muslim_poet
 		set_character_flag = changed_to_hedonism
-
 		add_character_modifier = {
 			name = muslim_hedonist
 			duration = -1
 		}
-
 		piety = -10
-
-		if = {
-			limit = { trait = gluttonous }
-
-			character_event = {
-				id = 5071
-				months = 8
-				random = 180
-			}
-		}
-		else_if = {
-			limit = { trait = temperate }
-
-			character_event = {
-				id = 5071
-				years = 2
-				random = 1095 # 3 years
-			}
-		}
-		else = {
-			character_event = {
-				id = 5071
-				years = 1
-				random = 548 # 1.5 years
-			}
-		}
 	}
-
+	
 	option = {
-		name = EVTOPTB5072
-
+		name = "EVTOPTB5072"
 		character_event = {
 			id = 5074
 			days = 20
 			random = 20
-			tooltip = EVTTOOLTIP5074
+			tooltip = "EVTTOOLTIP5074"
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTC5072
-
+		name = "EVTOPTC5072"
 		clr_character_flag = LE_ST
-
 		if = {
 			limit = {
-				NOT = { trait = content }
+				NOT = {
+					trait = content
+				}
 			}
-
-			add_trait_fully_silently_content_effect = yes
+			add_trait = content
+			break = yes
 		}
-		else_if = {
-			limit = { trait = diligent }
-			remove_trait = diligent
+		if = {
+			limit = {
+				trait = content
+			}
+			if = {
+				limit = {
+					trait = diligent
+				}
+				remove_trait = diligent
+			}
+			if = {
+				limit = {
+					trait = hardworking
+				}
+				remove_trait = hardworking
+			}
 		}
 	}
 }
@@ -3296,62 +3156,72 @@ character_event = {
 }
 
 # Convinced/Not convinced?
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5081
-	desc = EVTDESC5081
+	desc = "EVTDESC5081"
 	picture = GFX_evt_shadowy_cabal
-
-	is_triggered_only = yes
-
-	has_character_flag = LE_ST
-	religion_group = muslim
-	only_capable = yes
+	
+	min_age = 25
+	capable_only = yes
 	prisoner = no
-	in_command = no
-
+	religion_group = muslim
+	
 	trigger = {
 		has_character_modifier = aspiring_faqih
-		NOT = { trait = scholar }
-	}
-
-	fail_trigger_effect = {
-		if = {
-			limit = {
-				NOT = { religion_group = muslim }
-			}
-
-			clr_character_flag = LE_ST
-			remove_character_modifier = aspiring_faqih
+		in_command = no
+		had_character_flag = {
+			flag = LE_ST
+			days = 180
 		}
-		else_if = {
-			limit = {
-				has_character_flag = LE_ST
-				has_character_modifier = aspiring_faqih
-				NOT = { trait = scholar }
-			}
-
-			repeat_event = {
-				id = 5081
-				months = 1
-			}
+		NOT = {
+			trait = scholar
 		}
 	}
-
+	
+	immediate = {
+		set_character_flag = LE_ST
+	}
+	
+	mean_time_to_happen = {
+		months = 260
+		
+		modifier = {
+			factor = 0.7
+			trait = scholar
+		}
+		modifier = {
+			factor = 0.7
+			trait = just
+		}
+		modifier = {
+			factor = 0.7
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.7
+			trait = philosophical
+		}
+		modifier = {
+			factor = 2
+			trait = cynical
+		}
+		modifier = {
+			factor = 2
+			trait = slothful
+		}
+		modifier = {
+			factor = 2
+			trait = content
+		}
+	}
+	
 	option = {
-		name = EVTOPTA5081
-
+		name = "EVTOPTA5081"
 		prestige = 10
-
-		character_event = {
-			id = 5082
-			months = 6
-			random = 180
-		}
 	}
-
 	option = {
-		name = EVTOPTB5081
-
+		name = "EVTOPTB5081"
 		remove_character_modifier = aspiring_faqih
 		clr_character_flag = LE_ST
 	}

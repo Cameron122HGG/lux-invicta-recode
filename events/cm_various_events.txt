@@ -77,176 +77,79 @@ character_event = {
 # Knight is guardian to your child - child gains traits #
 #########################################################
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = CM.2020
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	
 	hide_window = yes
 
-	ai = no
-	has_dlc = "Charlemagne"
-	min_age = 16
-	only_capable = yes
-	prisoner = no
-	in_command = no
-
+	is_triggered_only = yes
+	
 	trigger = {
-		is_inaccessible_trigger = no
-
+		has_dlc = "Charlemagne"
+		ai = no
+		age = 16
+		is_female = no
+		NOT = { trait = incapable }
+		prisoner = no
+		in_command = no
+		NOT = { has_character_flag = do_not_disturb }
 		any_child = {
-			age >= 9
-
-			trigger_if = {
-				limit = { is_female = yes }
-				gender_equality_trigger = yes
+			age = 9
+			OR = {
+				is_female = no
+				feminist_religions_trigger = yes
+				father = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+				}
+				mother = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+				}
+				has_game_rule = {
+					name = gender
+					value = all
+				}
 			}
-
 			guardian = {
 				has_character_flag = hero_knight
 				NOT = { has_character_flag = knight_adventure }
 				prisoner = no
 			}
-
-			# To qualify for at least one event
-			OR = {
-				AND = {
-					NOT = { trait = brave }
-
-					guardian = {
-						NOT = { trait = craven }
-					}
-				}
-
-				is_strong_trigger = no
-
-				AND = {
-					lifestyle_traits < 1
-					NOT = { has_dlc = "Way of Life" }
-				}
-
-				AND = {
-					NOT = { trait = just }
-
-					guardian = {
-						NOT = { trait = arbitrary }
-					}
-				}
-
-				AND = {
-					NOT = { trait = wounded }
-					can_be_maimed_trigger = yes
-				}
-			}
 		}
 	}
-
+	
 	immediate = {
 		random_child = {
 			limit = {
-				age >= 9
-
-				trigger_if = {
-					limit = { is_female = yes }
-					gender_equality_trigger = yes
+				age = 9
+				OR = {
+					is_female = no
+					feminist_religions_trigger = yes
+					father = {
+						primary_title = {
+							has_law = status_of_women_4
+						}
+					}
+					mother = {
+						primary_title = {
+							has_law = status_of_women_4
+						}
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
 				}
-
 				guardian = {
 					has_character_flag = hero_knight
-					NOT = { has_character_flag = knight_adventure }
 					prisoner = no
 				}
-
-				# To qualify for at least one event
-				OR = {
-					AND = {
-						NOT = { trait = brave }
-
-						guardian = {
-							NOT = { trait = craven }
-						}
-					}
-
-					is_strong_trigger = no
-
-					AND = {
-						lifestyle_traits < 1
-						NOT = { has_dlc = "Way of Life" }
-					}
-
-					AND = {
-						NOT = { trait = just }
-
-						guardian = {
-							NOT = { trait = arbitrary }
-						}
-					}
-
-					AND = {
-						NOT = { trait = wounded }
-						can_be_maimed_trigger = yes
-					}
-				}
 			}
-
-			save_event_target_as = target_child
-
-			random_list = {
-				10 = {
-					trigger = {
-						NOT = { trait = brave }
-
-						guardian = {
-							NOT = { trait = craven }
-						}
-					}
-
-					ROOT = {
-						character_event = { id = CM.2022 } # Brave
-					}
-				}
-
-				10 = {
-					trigger = { is_strong_trigger = no }
-
-					ROOT = {
-						character_event = { id = CM.2024 } # Strong
-					}
-				}
-
-				10 = {
-					trigger = {
-						lifestyle_traits < 1
-						NOT = { has_dlc = "Way of Life" }
-					}
-
-					ROOT = {
-						character_event = { id = CM.2026 } # Duelist
-					}
-				}
-
-				10 = {
-					trigger = {
-						NOT = { trait = just }
-
-						guardian = {
-							NOT = { trait = arbitrary }
-						}
-					}
-
-					ROOT = {
-						character_event = { id = CM.2028 } # Just
-					}
-				}
-
-				1 = {
-					trigger = {
-						NOT = { trait = wounded }
-						can_be_maimed_trigger = yes
-					}
-
-					character_event = { id = CM.2029 } # Wounded or maimed
-				}
-			}
+			character_event = { id = CM.2021 }
 		}
 	}
 }

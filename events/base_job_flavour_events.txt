@@ -1295,84 +1295,87 @@ character_event = {
 ### Lord Spiritual ###
 
 # Lord Spiritual finds infidel
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 75040
-	desc = EVTDESC75040
+	desc = "EVTDESC75040"
 	picture = GFX_evt_heretic
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	has_job_title = yes
-	only_capable = yes
-
+	
+	capable_only = yes
+	
+	is_triggered_only = yes
+	
 	trigger = {
+		independent = no
 		has_job_title = job_spiritual
 		trait = zealous
-		religion = liege
-
+		trait = sectarian_heavy
 		liege = {
 			is_nomadic = no
-
+			religion = ROOT
+			NOT = {
+				character = ROOT
+			}
 			any_courtier = {
-				is_adult = yes
-				prisoner = no
-
-				NOR = {
+				age = 16
+				NOT = {
 					religion_group = ROOT
+				}
+				NOT = {
 					has_character_flag = banished_religion
 				}
+				NOT = {
+					character = ROOT
+				}
+				prisoner = no
 			}
 		}
 	}
-
+	
 	weight_multiplier = {
-		factor = 1
+		days = 1
 	}
-
+	
 	immediate = {
 		liege = {
 			random_courtier = {
 				limit = {
-					is_adult = yes
-					prisoner = no
-
-					NOR = {
+					age = 16
+					NOT = {
 						religion_group = ROOT
+					}
+					NOT = {
 						has_character_flag = banished_religion
 					}
+					NOT = {
+						character = ROOT
+					}
+					prisoner = no
 				}
-
 				save_event_target_as = target_infidel
 			}
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTA75040 # Demand to liege that vassal should be burned at the stake
-
+		name = "EVTOPTA75040" #Demand to liege that vassal should be burned at the stake
 		liege = {
-			show_scope_change = no
-
 			character_event = {
 				id = 75041
 				days = 1
 				random = 2
-				tooltip = EVTTOOLTIP75041
+				tooltip = "EVTTOOLTIP75041"
 			}
 		}
 	}
-
 	option = {
-		name = EVTOPTB75040 # Demand to liege that X should be exiled.
-
+		name = "EVTOPTB75040" #Demand to liege that X should be exiled.
 		liege = {
-			show_scope_change = no
-
 			character_event = {
 				id = 75042
 				days = 1
 				random = 2
-				tooltip = EVTTOOLTIP75042
+				tooltip = "EVTTOOLTIP75042"
 			}
 		}
 	}
@@ -1622,74 +1625,73 @@ character_event = {
 }
 
 # Lord Spiritual finds a heretic
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 75050
-	desc = EVTDESC75050
+	desc = "EVTDESC75050"
 	picture = GFX_evt_heretic
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	has_job_title = yes
-	only_capable = yes
-
+	
+	capable_only = yes
+	
+	is_triggered_only = yes
+	
 	trigger = {
+		independent = no
 		has_job_title = job_spiritual
 		trait = zealous
-		religion = liege
-
+		OR = {
+			trait = sectarian_light
+			trait = sectarian_heavy
+		}
 		liege = {
+			religion = ROOT
+			NOT = {
+				character = ROOT
+			}
 			any_courtier = {
+				age = 16
 				is_heresy_of = ROOT
-				is_adult = yes
 				prisoner = no
 			}
 		}
 	}
-
+	
 	weight_multiplier = {
-		factor = 1
+		days = 1
 	}
-
+	
 	immediate = {
 		liege = {
 			random_courtier = {
 				limit = {
+					age = 16
 					is_heresy_of = ROOT
-					is_adult = yes
 					prisoner = no
 				}
-
 				save_event_target_as = target_heretic
 			}
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTA75050 # Demand to liege that vassal should be burned at the stake
-
+		name = "EVTOPTA75050" #Demand to liege that vassal should be burned at the stake
 		liege = {
-			show_scope_change = no
-
 			character_event = {
 				id = 75051
 				days = 1
 				random = 2
-				tooltip = EVTTOOLTIP75051
+				tooltip = "EVTTOOLTIP75051"
 			}
 		}
 	}
-
 	option = {
-		name = EVTOPTB75050 # Demand to liege that X should be exiled.
-
+		name = "EVTOPTB75050" #Demand to liege that X should be exiled.
 		liege = {
-			show_scope_change = no
-
 			character_event = {
 				id = 75052
 				days = 1
 				random = 2
-				tooltip = EVTTOOLTIP75052
+				tooltip = "EVTTOOLTIP75052"
 			}
 		}
 	}

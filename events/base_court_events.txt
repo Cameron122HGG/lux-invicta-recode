@@ -8,289 +8,313 @@
 # Written by Johan Andersson
 
 # A famous writer proposes to compose your family chronicles
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73000
 	desc = EVTDESC73000
 	picture = GFX_evt_monk
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	only_playable = yes
+	
+	is_triggered_only = yes
+	
 	min_age = 16
+	only_playable = yes
 	prisoner = no
-
+	
 	trigger = {
-		NOR = {
-			trait = proud
-			trait = humble
-		}
+		NOT = { trait = proud }
+		NOT = { trait = humble }
 	}
 
 	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
+		days = 1
+		modifier = {
 			factor = 2.0
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {	## added by Ash
+			factor = 1.25
+			trait = confident
+		}
+		modifier = {	## added by Ash
+			factor = 1.25
+			trait = arrogant
+		}
+		modifier = {	## added by Ash
+			factor = 1.25
+			trait = vain
+		}
+		modifier = {	## added by Ash
+			factor = 1.5
+			trait = lively
+		}
+		modifier = {	## added by Ash
+			factor = 1.25
+			trait = friendly
+		}
+		modifier = {	## added by Ash
+			factor = 1.25
+			trait = quipster
+		}
+		modifier = {	## added by Ash
+			factor = 1.25
+			trait = magnetic
+		}
+		modifier = {	## added by Ash
+			factor = 1.25
+			trait = gullible
+		}
+		modifier = {
 			factor = 0.1
 			trait = shy
-		}
-
-		mult_modifier = {
+		}		
+		modifier = {
 			factor = 0.8
 			trait = stressed
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.8
 			trait = depressed
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
 			trait = lunatic
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
 			trait = possessed
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.9
 			is_ill = yes
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.8
 			trait = pneumonic
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.8
 			trait = great_pox
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = leper
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.9
 			trait = wounded
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.8
 			is_maimed_trigger = yes
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = infirm
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.4
-			is_incapable = yes
+			trait = incapable
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = drunkard
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = consumption
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = slow_fever
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = camp_fever
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = bubonic_plague
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = measles
-		}
-
-		mult_modifier = {
+		}		
+		modifier = {
 			factor = 0.5
 			trait = smallpox
 		}
-	}
-
+		
+	}	
+	
 	option = {
-		name = EVTOPTA73000 # Give him patronage
-
+		name = EVTOPTA73000 #Give him patronage
 		scaled_wealth = -0.2
 		prestige = 25
-
 		random = {
 			chance = 15
-
-			add_trait_fully_proud_effect = yes
+			add_trait = proud 
+			hidden_tooltip = { character_event = { id = 38261 }  }
 		}
-	}
-
+	}	
 	option = {
-		name = EVTOPTB73000 # Ignore him
-
+		name = EVTOPTB73000 #Ignore him
 		custom_tooltip = {
 			text = ALL_DYNASTY_MEMBERS_MINUS_5
-
-			any_dynasty_member = {
-				limit = {
-					NOT = { character = ROOT }
-				}
-
-				opinion = {
-					name = disrespects_dynasty
-					who = ROOT
-					years = 10
+			hidden_tooltip = {
+				any_dynasty_member = {
+					limit = {
+						NOT = {
+							character = ROOT
+						}
+					}
+					opinion = {
+						who = ROOT
+						modifier = disrespects_dynasty
+						months = 120
+					}
 				}
 			}
 		}
-
 		random = {
 			chance = 15
-			add_trait_fully_humble_effect = yes
+			add_trait = humble 
+			hidden_tooltip = { character_event = { id = 38260 }  }
 		}
-
-	}
+		
+	}	
 }
 
 # Your young wife takes a passion for romantic poetry. She keeps reading any sort of romantic poetry she can get hold of.
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73001
 	desc = EVTDESC73001
 	picture = GFX_evt_courtiers_talking
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+	
+	is_triggered_only = yes
+	
+	min_age = 16
 	only_playable = yes
+	prisoner = no
 	only_men = yes
 	is_married = yes
-	min_age = 16
-	prisoner = no
-
+	
 	trigger = {
 		spouse = {
-			age < 21
-			fertility >= 0.15
-			is_ruler = no
 			is_abroad = no
 			prisoner = no
+			is_alive = yes
+			NOT = { age = 21 }
+			NOT = { demesne_size = 1 }
+			fertility = 0.15
 		}
 	}
 
 	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
+		days = 1
+		modifier = {
 			factor = 4.0
 			spouse = { is_pregnant = yes }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			spouse = { trait = poet }
 		}
-
-		mult_modifier = {
+		modifier = {	## added by Ash
+			factor = 2.0
+			spouse = { trait = romantic }
+		}
+		modifier = {	## added by Ash
+			factor = 2.0
+			spouse = { trait = books }
+		}
+#		modifier = {	## added by Ash - not likely for energetic, confident, hardworking
+#			factor = 0.2
+#			spouse = { trait = ybileblood }
+#		}
+#		modifier = {	## added by Ash -  - not likely for dogmatic, pompous, hardworking
+#			factor = 0.2
+#			spouse = { trait = ybilebbile }
+#		}
+#		modifier = {	## added by Ash  - not likely for plain, reserved, unfriendly
+#			factor = 0.2
+#			spouse = { trait = bbileblood }
+#		}
+		modifier = {
 			factor = 1.5
 			trait = gregarious
 		}
-	}
-
+	}	
+	
 	option = {
 		name = EVTOPTA73001 # Help her, by getting her more to read.
-
 		wealth = -10
-
 		spouse = {
-			show_scope_change = no
-
 			fertility = 0.1
-			add_trait_fully_silently_lustful_effect = yes
-
+			if = {
+				limit = {
+					NOT = {
+						trait = lustful
+					}
+				}
+				add_trait = lustful
+			}
 			opinion = {
-				name = spouse_encouraged
 				who = ROOT
-				years = 1
+				modifier = spouse_encouraged
+				months = 12
 			}
 		}
-	}
-
+	}	
 	option = {
-		name = EVTOPTB73001 # That is her interest, not mine.
-
+		name = EVTOPTB73001 # That is her interests, not mine.
 		piety = 5
-
 		spouse = {
-			show_scope_change = no
-
 			fertility = -0.1
-
 			opinion = {
-				name = spouse_ignores_me
 				who = ROOT
-				years = 1
+				modifier = spouse_ignores_me
+				months = 12
 			}
-		}
+		}		
 	}
-
 	option = {
 		name = {
 			text = EVTOPTC73001 # These are books created by satan!
-			trigger = { religion_group = christian }
+			trigger = {
+				religion_group = christian
+			}
 		}
 		name = {
 			text = EVTOPTD73001 # These are books created by Shaytan!
-			trigger = { religion_group = muslim }
+			trigger = {
+				religion_group = muslim
+			}
 		}
-
 		trigger = {
 			OR = {
 				religion_group = christian
 				religion_group = muslim
 			}
 		}
-
-		spouse = {
-			show_scope_change = no
-
-			if = {
-				limit = {
-					NOT = { religion_group = muslim }
-				}
-
-				add_trait_fully_silently_chaste_effect = yes
-			}
-		}
-
-		piety = 10
-
 		ai_chance = {
 			factor = 1
-
-			trigger = { trait = zealous }
+			modifier = {
+				factor = 0
+				NOT= { trait = zealous }
+			}
 		}
+		spouse = {
+			if = {
+				limit = {
+					NOT = {
+						religion_group = muslim
+					}
+				}
+				add_trait = chaste
+			}
+		}
+		piety = 10
 	}
 }
 
@@ -362,432 +386,432 @@ character_event = {
 }
 
 # The Peasants wants to organise a great carnival and ask for your funding
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73003
 	desc = EVTDESC73003
 	picture = GFX_evt_emissary
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	only_playable = yes
-	religion_group = christian
+	
+	is_triggered_only = yes
+	
 	min_age = 16
+	only_playable = yes
 	prisoner = no
-	in_command = no
-
+	religion_group = christian
+	
 	trigger = {
-		real_tier = COUNT
-		wealth >= 50
+		in_command = no
+		tier = count
+		wealth = 50
 	}
 
 	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
+		days = 1
+		modifier = {
 			factor = 1.5
 			trait = kind
 		}
-	}
-
+	}	
+	
 	option = {
 		name = EVTOPTA73003 # We are rich, we can support this.
-
 		wealth = -25
-
 		if = {
 			limit = { trait = greedy }
 			prestige = -5
 		}
-	}
-
+	}	
 	option = {
 		name = EVTOPTB73003 # They are just peasants..
-
+		trigger = {
+			NOT = { trait = charitable }
+		}
+		if = {
+			limit = { trait = just }		### added by Ash
+			remove_trait = just
+		}
+		if = {
+			limit = { trait = noblespirit }		### added by Ash
+			remove_trait = noblespirit
+		}		
 		random_demesne_province = {
-			show_scope_change = no
-
-			limit = { owned_by = PREV }
-
 			add_province_modifier = {
 				name = peasants_scorned
-				months = 4
+				duration = 120
 			}
 		}
-
-		remove_trait_silently_just_effect = yes
-	}
+	}	
 }
 
 ## A talented artist proposes to paint a portrait of your father
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73004
 	desc = EVTDESC73004
 	picture = GFX_evt_monk
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	only_playable = yes
+	
+	is_triggered_only = yes
+	
 	min_age = 16
+	only_playable = yes
 	prisoner = no
-	in_command = no
-
+	
 	trigger = {
+		in_command = no
 		father_even_if_dead = {
 			is_alive = no
-			higher_real_tier_than = COUNT
+			primary_title = {
+				higher_tier_than = COUNT
+			}
 		}
 	}
 
 	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
+		days = 1
+		modifier = {
 			factor = 2.0
-			trait = ambitious
-		}
-
-		mult_modifier = {
-			factor = 0.1
-			trait = shy
-		}
-	}
-
-	option = {
-		name = EVTOPTA73004 # This will be grand in the main hall
-
-		scaled_wealth = -0.15
-		prestige = 25
-	}
-
-	option = {
-		name = EVTOPTB73004 # This is a waste of money
-
-		any_dynasty_member = {
-			show_scope_change = no
-
-			opinion = {
-				name = disrespects_dynasty
-				who = ROOT
-				years = 10
+			OR = {
+				trait = ambitious
+				trait = pompous
+				trait = fanciful
+				trait = frivolous
 			}
 		}
-	}
+		modifier = {
+			factor = 0.1
+			OR = {
+				trait = shy
+				trait = plain
+			}
+		}		
+	}	
+	
+	option = {
+		name = EVTOPTA73004 #This will be grand in the main hall
+		scaled_wealth = -0.15
+		prestige = 25
+	}	
+	option = {
+		name = EVTOPTB73004 #This is a waste of money
+		any_dynasty_member = {
+			opinion = {
+				who = ROOT
+				modifier = disrespects_dynasty
+				months = 120
+			}
+		}
+	}	
 }
 
 # Luxury clothes are trendy at the moment. What about keeping your courtiers busy by changing the fashion at court?
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73005
 	desc = EVTDESC73005
 	picture = GFX_evt_courtiers_talking
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	only_playable = yes
+	
+	is_triggered_only = yes
+	
 	min_age = 16
+	only_playable = yes
 	prisoner = no
-	in_command = no
-
+	
 	trigger = {
+		in_command = no
 		OR = {
 			trait = attractive
 			trait = ugly
+			trait = frivolous
+			trait = fanciful
+			trait = pompous
 		}
-
-		NOR = {
-			trait = humble
-			trait = uncouth
-		}
+		NOT = {	trait = humble	}
 	}
 
 	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
+		days = 1
+		modifier = {
 			factor = 2.0
 			trait = proud
 			trait = attractive
+			trait = frivolous
+			trait = fanciful
+			trait = pompous
 		}
-
-		mult_modifier = {
-			factor = 2.0
-			trait = groomed
-		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.8
 			trait = stressed
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.8
 			trait = depressed
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
 			trait = lunatic
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
 			trait = possessed
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.9
 			is_ill = yes
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.8
 			trait = pneumonic
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.8
 			trait = great_pox
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = leper
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.9
 			trait = wounded
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.8
 			is_maimed_trigger = yes
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = infirm
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.4
-			is_incapable = yes
+			trait = incapable
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = drunkard
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = consumption
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = slow_fever
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = camp_fever
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = bubonic_plague
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			trait = measles
-		}
-
-		mult_modifier = {
+		}		
+		modifier = {
 			factor = 0.5
 			trait = smallpox
 		}
-	}
-
+	}	
+	
 	option = {
-		name = EVTOPTA73005 # Introduce fashion at the court
-
+		name = EVTOPTA73005 #Introduce fashion at the court
 		if = {
-			limit = { has_fair_trait_trigger = yes }
-
+			limit = { trait = attractive }
 			random = {
 				chance = 10
-				add_trait_fully_proud_effect = yes
+				add_trait = proud 
+				hidden_tooltip = { character_event = { id = 38261 }  }
 			}
 		}
-
+#		if = {
+#			limit = { 
+#			trait = bbileybile
+#			NOT = { num_traits = 7 } 
+#			}
+#			random = {		### added by Ash
+#				chance = 50
+#				add_trait = vain #### Risk of adding "vain"
+#				hidden_tooltip = { character_event = { id = ffnotific.81 }  }
+#			}
+#		}
 		scaled_wealth = -0.2
 		prestige = 5
 		piety = -5
-
 		any_courtier = {
-			show_scope_change = no
-
 			wealth = -5
 			prestige = 5
 			piety = -5
 		}
-	}
-
+		
+	}	
 	option = {
-		name = EVTOPTB73005 # There are better ways of spending the taxes
-
+		name = EVTOPTB73005 #There are better ways of spending the taxes
 		piety = 5
 		prestige = 10
-
+		
 		random = {
 			chance = 15
-
-			add_trait_fully_humble_effect = yes
+			add_trait = humble 
+			hidden_tooltip = { character_event = { id = 38260 }  }
 		}
-	}
+#		if = {	### added by Ash
+#			limit = { 
+#				trait = bbilephlegm
+#				NOT = { num_traits = 7 } 
+#			}
+#			random = {
+#				chance = 50
+#				add_trait = frugal #### Risk of adding "frugal"
+#				remove_trait = charitable
+#				hidden_tooltip = { character_event = { id = ffnotific.58 }  }
+#			}
+#		}
+#		if = {	### added by Ash
+#			limit = { 
+#				trait = phlegmybile
+#				NOT = { num_traits = 7 } 
+#			}
+#			random = {
+#				chance = 30  #### Risk of adding "good with money"
+#				add_trait = money 
+#				hidden_tooltip = { character_event = { id = ffnotific.32 }  }
+#			}
+#		}
+	}	
 }
 
 # Your son has got a servant maid pregnant
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73006
 	desc = EVTDESC73006
 	picture = GFX_evt_pregnancy
 	border = GFX_event_normal_frame_intrigue
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	only_playable = yes
-	only_men = yes
+	
+	is_triggered_only = yes
+	
 	min_age = 16
+	only_playable = yes
 	prisoner = no
-
+	only_men = yes
+	
 	trigger = {
 		any_child = {
-			is_female = no
-			age < 21
 			is_married = no
-			is_ruler = no
-			is_adult = yes
-			has_inheritance_blocker = no
-
-			NOR = {
-				trait = chaste
-				trait = celibate
-			}
+			is_female = no
+			age = 16
+			NOT = { age = 21 }
+			NOT = { demesne_size = 1 }
+			NOT = { trait = chaste }
+			NOT = { trait = celibate }
+			NOT = { trait = eunuch }
+			NOT = { is_ascetic_trigger = yes }
 		}
 	}
-
 	immediate = {
 		random_child = {
 			limit = {
-				is_female = no
-				age < 21
 				is_married = no
-				is_adult = yes
-				is_ruler = no
-				has_inheritance_blocker = no
-
-				NOR = {
-					trait = chaste
-					trait = celibate
-				}
+				is_female = no
+				age = 16
+				NOT = { age = 21 }
+				NOT = { demesne_size = 1 }
+				NOT = { trait = chaste }
+				NOT = { trait = celibate }
+				NOT = { trait = eunuch }
+				NOT = { is_ascetic_trigger = yes }
 			}
-
 			save_event_target_as = knocked_up_maid
 		}
+
 	}
-
 	option = {
-		name = EVTOPTA73006 # That's my boy
-
+		name = EVTOPTA73006 #That's my boy
 		trigger = {
 			NOR = {
 				trait = chaste
 				trait = celibate
+				trait = eunuch
+				trait = spiritual
+				trait = dogmatic
 			}
 		}
-
 		piety = -10
-
 		event_target:knocked_up_maid = {
-			show_scope_change = no
-
 			opinion = {
-				name = approves_of_my_behaviour
+				modifier = approves_of_my_behaviour
 				who = ROOT
 				years = 2
-			}
-
-			add_trait_fully_silently_lustful_effect = yes
+			}			
+			add_trait = lustful
 		}
 	}
-
 	option = {
-		name = EVTOPTB73006 # Force him to adopt the child to prevent scandal
-
+		name = EVTOPTB73006 #Force him to adopt the child to prevent scandal
 		piety = 10
-
 		event_target:knocked_up_maid = {
-			show_scope_change = no
-
 			opinion = {
-				name = resentful_of_my_behaviour
+				modifier = resentful_of_my_behaviour
 				who = ROOT
 				years = 2
-			}
-
+			}	
 			create_character = {
 				age = 0
 				trait = bastard
 			}
-
 			new_character = {
-				set_father = PREV
+				set_father = prev
 				dynasty = father
 			}
-
 			prestige = -5
 		}
 	}
-
 	option = {
-		name = EVTOPTC73006 # Give him a beating for messing with inferiors
-
-		pacifists_lose_piety_effect = yes
-
+		name = EVTOPTC73006 #Give him a beating for messing with inferiors
+		trigger = {
+			NOR = {
+				trait = noblespirit
+				trait = submissive
+			}
+		}
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		event_target:knocked_up_maid = {
-			show_scope_change = no
-
 			opinion = {
-				name = resentful_of_my_behaviour
+				modifier = resentful_of_my_behaviour
 				who = ROOT
 				years = 2
 			}
-
-			add_trait_fully_silently_wroth_effect = yes
-			add_trait_fully_silently_ambitious_effect = yes
+			add_trait = wroth
+			add_trait = ambitious
 		}
 	}
-
 	option = {
-		name = EVTOPTD73006 # Send him to confess his sins
-
+		name = EVTOPTD73006 #Send him to confess his sins
 		trigger = {
 			OR = {
 				religion_group = christian
 				religion_group = muslim
 			}
 		}
-
 		event_target:knocked_up_maid = {
-			show_scope_change = no
-
-			trigger_switch = {
-				on_trigger = religion_group
-
-				christian = { add_trait_fully_silently_chaste_effect = yes }
-				muslim = { piety = -10 }
+			if = {
+				limit = {
+					religion_group = christian
+				}
+				add_trait = chaste
+			}
+			if = {
+				limit = {
+					religion_group = muslim
+				}
+				piety = -10
 			}
 		}
 	}
@@ -914,55 +938,57 @@ character_event = {
 }
 
 # A famous herald proposed his service
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73008
 	desc = EVTDESC73008
 	picture = GFX_evt_emissary
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	ai = no
-#	only_playable = yes
+	
+	is_triggered_only = yes
+	
 	min_age = 16
+	only_playable = yes
 	prisoner = no
-
+	ai = no
+	
 	trigger = {
-		capital_scope = {
-			TECH_NOBLE_CUSTOMS >= 4
-		}
+		is_landed = yes
+		capital_scope = { TECH_NOBLE_CUSTOMS = 4 }
 	}
-
+	
 	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
+		days = 1
+		modifier = {
 			factor = 0.05
 			trait = shy
-		}
-
-		mult_modifier = {
+		}	
+		modifier = {
 			factor = 1.25
 			trait = gregarious
 		}
+		modifier = {	## added by Ash
+			factor = 1.5
+			trait = magnetic
+		}
+		modifier = {	## added by Ash
+			factor = 0.2
+			trait = unfriendly
+		}		
 	}
-
 	option = {
-		name = EVTOPTA73008 # Hire him
-
+		name = EVTOPTA73008 #Hire him.
 		create_random_diplomat = {
 			random_traits = yes
 			dynasty = random
 			female = no
 		}
-
 		scaled_wealth = -0.1
 	}
-
 	option = {
-		name = EVTOPTB73008 # Not interested
-
+		name = EVTOPTB73008 #Not interested
 		prestige = -5
 	}
+
 }
 
 # A destitute noble from a former enemy court ask for permanent hospitality
@@ -1141,237 +1167,241 @@ character_event = {
 }
 
 # I've been readin 'Ars Moriendi', and it claims that death is not something to be afraid of.
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73010
 	desc = EVTDESC73010
 	picture = GFX_evt_library
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	only_playable = yes
-	religion_group = christian
+	
 	min_age = 55
+	only_playable = yes
 	prisoner = no
-	only_capable = yes
-
+	capable_only = yes
+	
+	is_triggered_only = yes
+	
 	trigger = {
-		year >= 1415
-		is_catholic_branch = yes
+		year = 1350
+		OR = {
+			religion = catholic
+			religion = cathar
+			religion = fraticelli
+			religion = waldensian
+#			religion = lollard
+		}
 		NOT = { has_character_flag = ars_moriendi }
 	}
-
+	
 	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
+		days = 1	
+		modifier = {
 			factor = 1.5
-			practical_age >= 58
+			age = 58
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
-			practical_age >= 62
+			age = 62
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 100.0
-			practical_age >= 65
+			age = 65
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 5.0
 			trait = zealous
 		}
-
-		mult_modifier = {
+		modifier = {		### added by Ash
+			factor = 5.0
+			trait = pessimistic
+		}
+		modifier = {		### added by Ash
+			factor = 2.0
+			trait = tolerant
+		}
+		
+		modifier = {		### added by Ash
+			factor = 2.0
+			trait = philosophical
+		}
+		modifier = {		### added by Ash
+			factor = 2.0
+			trait = stoic
+		}
+		modifier = {
 			factor = 1.25
 			trait = stressed
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.25
 			trait = depressed
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = lunatic
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = possessed
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.1
 			is_ill = yes
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.25
 			trait = pneumonic
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.25
 			trait = great_pox
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = leper
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.15
 			trait = wounded
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.25
 			is_maimed_trigger = yes
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = infirm
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 3.0
-			is_incapable = yes
+			trait = incapable
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.1
 			trait = drunkard
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.1
 			trait = consumption
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.1
 			trait = slow_fever
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = camp_fever
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = bubonic_plague
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.1
 			trait = measles
-		}
-
-		mult_modifier = {
+		}		
+		modifier = {
 			factor = 1.1
 			trait = smallpox
-		}
+		}		
 	}
-
+	
 	immediate = {
 		set_character_flag = ars_moriendi
 	}
-
+	
 	option = {
-		name = EVTOPTA73011 # I am avoiding temptation
-
+		name = EVTOPTA73011 #I am avoiding temptation.
 		trigger = {
 			NOT = { trait = cynical }
-			has_vice_trigger = no
-		}
+			NOT = { trait = lustful }
+			NOT = { trait = gluttonous }
+			NOT = { trait = greedy }
+			NOT = { trait = slothful }
+			NOT = { trait = envious }
+			NOT = { trait = wroth }
+			NOT = { trait = proud }
 
+		}
 		health = -1
 		piety = 100
 	}
-
 	option = {
-		name = EVTOPTB73011 # Forgive me father, for I have sinned
-
+		name = EVTOPTB73011 #Forgive me father, for I have sinned.
 		trigger = {
 			NOT = { trait = cynical }
-			has_vice_trigger = yes
+			OR = {
+				trait = lustful
+				trait = gluttonous
+				trait = greedy
+				trait = slothful
+				trait = envious
+				trait = wroth
+				trait = proud
+			}
 		}
-
 		if = {
-			limit = { trait = lustful }
-
+			limit = {
+				trait = lustful
+			}
 			remove_trait = lustful
 			piety = -20
 		}
-
 		if = {
-			limit = { trait = gluttonous }
-
+			limit = {
+				trait = gluttonous
+			}
 			remove_trait = gluttonous
-			lose_weight_small_effect = yes
-			weight_trait_check_effect = yes
 			piety = -20
 		}
-
 		if = {
-			limit = { trait = greedy }
-
+			limit = {
+				trait = greedy
+			}
 			remove_trait = greedy
 			piety = -20
-		}
-
+		}		
 		if = {
-			limit = { trait = slothful }
-
+			limit = {
+				trait = slothful
+			}
 			remove_trait = slothful
 			piety = -20
-		}
-
+		}		
 		if = {
-			limit = { trait = envious }
-
+			limit = {
+				trait = envious
+			}
 			remove_trait = envious
 			piety = -20
-		}
-
+		}		
 		if = {
-			limit = { trait = wroth }
-
+			limit = {
+				trait = wroth
+			}
 			remove_trait = wroth
 			piety = -20
 		}
-
 		if = {
-			limit = { trait = proud }
-
+			limit = {
+				trait = proud
+			}
 			remove_trait = proud
 			piety = -20
-		}
+		}				
 	}
-
 	option = {
-		name = EVTOPTC73011 # I do not fear death...
+		name = EVTOPTC73011 	#I do not fear death...
 		tooltip_info = cynical
-
-		trigger = {
-			trait = cynical
+		trigger = { 
+			trait = cynical 
 			NOT = { trait = craven }
 		}
-
 		piety = -5
 		prestige = 5
 		health = -2
 	}
-
 	option = {
-		name = EVTOPTD73011 # I am just a poor sinner..
-
+		name = EVTOPTD73011 #I am just a poor sinner..
 		piety = -10
 		health = -2
 	}
@@ -2091,23 +2121,77 @@ letter_event = {
 
 
 ### Lord Spiritual ###
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73230
-	desc = EVTDESC73230 # I want to be lord_spiritual, I am better...
+	desc = EVTDESC73230	#I want to be lord_spiritual, I am better...
 	picture = GFX_evt_spymaster
 
-	is_triggered_only = yes
-
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	lacks_dlc = "Zeus"
+	
+	trigger = {
+		NOT = {
+			religion_group = muslim
+		}
+		OR = {
+			is_theocracy = yes
+			AND = {
+				is_ruler = no
+				NOR = {
+					religion = orthodox
+					is_heresy_of = orthodox
+					religion = solomonic_christ
+					is_heresy_of = solomonic_christ
+				}
+			}
+		}
+		independent = no
+		is_councillor = no
+		NOT = { liege = { has_character_flag = asked_lord_spiritual_petition } }
+		NOT = { has_character_flag = asked_for_job }
+		liege = {
+			NOT = { character = ROOT }
+			job_spiritual = {
+				same_liege = ROOT
+				NOT = { learning = ROOT }
+				NOT = { has_minor_title = title_regent }
+				NOT = { ROOT = { religion_head = { character = PREVPREV } } }  # Won't claim to be a better chaplain than your religious head...
+			}
+			religion = ROOT
+			NOT = {
+				ROOT = {
+					is_liege_of = PREV
+				}
+			}
+		}
+		can_hold_title = job_spiritual
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 0.25
+			trait = ambitious
+		}
+	}
+	immediate = {
+		set_character_flag = asked_for_job
+		liege = {  set_character_flag = asked_lord_spiritual_petition }
+	}
+	
 	option = {
 		name = EVTOPTA73230
-
-		FROM = {
-			show_scope_change = no
-
-			letter_event = {
-				id = 73231
-				tooltip = EVTTOOLTIP73231
+		if = {
+			limit = {
+				NOT = {
+					religion_group = muslim
+				}
 			}
+			liege = { letter_event = { id = 73231 tooltip = EVTTOOLTIP73231 } }
 		}
 	}
 }

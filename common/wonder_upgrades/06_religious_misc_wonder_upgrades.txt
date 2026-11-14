@@ -403,33 +403,22 @@ upgrade_overseer_of_rites = {
 ############### Pagan Stones ###############
 ##########################################
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_runestones = {
 	picture = GFX_upgrade_icon_stones
 
 	potential = {
-		religion_openly_norse_or_reformed_trigger = yes
+		LI_pagan_trigger = yes
 	}
-
-	allow = {
-		religion_openly_norse_or_reformed_trigger = yes
-	}
-
-	active = {
-		religion_openly_norse_or_reformed_trigger = yes
-	}
+	allow = { LI_pagan_trigger = yes }
+	active = { LI_pagan_trigger = yes }
 
 	flags = {
 		is_plural
-		runestones
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
-	local_modifier = {
-	}
-
 	owner_modifier = {
 		dynasty_opinion = 3
 	}

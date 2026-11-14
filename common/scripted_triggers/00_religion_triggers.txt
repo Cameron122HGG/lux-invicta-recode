@@ -117,21 +117,20 @@ could_be_temporal_religious_head_trigger = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_minor_deity_trigger = {
 	OR = {
 		has_character_modifier = follower_of_perun
 		has_character_modifier = follower_of_veles
 		has_character_modifier = follower_of_jarilo
 		has_character_modifier = follower_of_morana
-		has_character_modifier = follower_of_ayyur
-		has_character_modifier = follower_of_anansi
-		has_character_modifier = follower_of_dan
-		has_character_modifier = follower_of_bida
-		has_character_modifier = follower_of_tsumburbura
-		has_character_modifier = follower_of_dongo
+		has_character_modifier = follower_of_yemoja
+		has_character_modifier = follower_of_ekwensu
+		has_character_modifier = follower_of_orunmila
+		has_character_modifier = follower_of_shango
 		has_character_modifier = follower_of_ukko
 		has_character_modifier = follower_of_akka
-		has_character_modifier = follower_of_taipo_and_mielikki
+		has_character_modifier = follower_of_taipo_and_mielikki 
 		has_character_modifier = follower_of_lempo
 		has_character_modifier = follower_of_dievas
 		has_character_modifier = follower_of_velnias
@@ -175,40 +174,28 @@ is_norse_secret_religious_society_member_trigger = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_slavic_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
-
-	OR = {
-		society_member_of = secret_religious_society_slavic_pagan_reformed
-		society_member_of = secret_religious_society_slavic_pagan
-	}
+	secret_religion_group = slavic_group
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_tengri_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
-
-	OR = {
-		society_member_of = secret_religious_society_tengri_pagan_reformed
-		society_member_of = secret_religious_society_tengri_pagan
-	}
+	secret_religion_group = tengri_group
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_baltic_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
-
-	OR = {
-		society_member_of = secret_religious_society_baltic_pagan_reformed
-		society_member_of = secret_religious_society_baltic_pagan
-	}
+	secret_religion_group = baltic_group
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_finnish_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
-
-	OR = {
-		society_member_of = secret_religious_society_finnish_pagan_reformed
-		society_member_of = secret_religious_society_finnish_pagan
-	}
+	secret_religion_group = finnish_group
 }
 
 is_west_african_secret_religious_society_member_trigger = {
@@ -229,13 +216,10 @@ is_zun_secret_religious_society_member_trigger = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_aztec_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
-
-	OR = {
-		society_member_of = secret_religious_society_aztec_reformed
-		society_member_of = secret_religious_society_aztec
-	}
+	secret_religion_group = aztec_group
 }
 
 is_bon_secret_religious_society_member_trigger = {
@@ -256,59 +240,297 @@ is_taoist_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_society_taoist
 }
 
-has_sympathy_for_true_religion_of_prev_trigger = {
-	trigger_if = {
-		limit = { PREV = { true_religion_group = christian } }
-		trait = sympathy_christendom
-	}
-	trigger_else_if = {
-		limit = { PREV = { true_religion_group = muslim } }
-		trait = sympathy_islam
-	}
-	trigger_else_if = {
-		limit = { PREV = { true_religion_group = pagan_group } }
-		trait = sympathy_pagans
-	}
-	trigger_else_if = {
-		limit = { PREV = { true_religion_group = zoroastrian_group } }
-		trait = sympathy_zoroastrianism
-	}
-	trigger_else_if = {
-		limit = { PREV = { true_religion_group = jewish_group } }
-		trait = sympathy_judaism
-	}
-	trigger_else = {
-		PREV = { true_religion_group = indian_group }
-		trait = sympathy_indian
-	}
-}
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+has_sympathy_for_true_religion_of_prev_trigger = { 
+	 OR = {
+		 AND = {
+			 trait = sympathy_abrahamics
+			 PREV = { true_religion_group_abrahamic_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_anatolians
+			 PREV = { true_religion_group_anatolian_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_arabpagans
+			 PREV = { true_religion_group_arabpagan_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_aztecs
+			 PREV = { true_religion_group_aztec_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_baltics
+			 PREV = { true_religion_group_baltic_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_bantus
+			 PREV = { true_religion_group_bantu_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_berbers
+			 PREV = { true_religion_group_berberpagan_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_buddhists
+			 PREV = { true_religion_group_bud_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_celtics
+			 PREV = { true_religion_group_celtic_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_chinese
+			 PREV = { true_religion_group_chinese_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_christendom
+			 PREV = { true_religion_group_christian_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_east_africans
+			 PREV = { true_religion_group_east_african_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_egyptian
+			 PREV = { true_religion_group_egyptian_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_finnish
+			 PREV = { true_religion_group_finnish_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_graecoroman
+			 PREV = { true_religion_group_graecoroman_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_indian
+			 PREV = { true_religion_group_indian_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_indohellens
+			 PREV = { true_religion_group_indohelen_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_inuit
+			 PREV = { true_religion_group_inuit_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_islam
+			 PREV = { true_religion_group_muslim_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_judaism
+			 PREV = { true_religion_group_jewish_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_luwians
+			 PREV = { true_religion_group_luwian_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_mande
+			 PREV = { true_religion_group_mand_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_manichaeans
+			 PREV = { true_religion_group_mani_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_mithraics
+			 PREV = { true_religion_group_mithra_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_nordic
+			 PREV = { true_religion_group_norsegerman_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_pagans
+			 PREV = { true_religion_group_pagan_group_trigger = yes } 
+		 }
+		 AND = {
+			 trait = sympathy_palmyrans
+			 PREV = { true_religion_group_palmyranpagan_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_platonics
+			 PREV = { true_religion_group_neoplato_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_sererics
+			 PREV = { true_religion_group_serer_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_slavics
+			 PREV = { true_religion_group_slavic_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_sol
+			 PREV = { true_religion_group_sol_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_tengri
+			 PREV = { true_religion_group_tengri_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_yazd
+			 PREV = { true_religion_group_yazd_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_zal
+			 PREV = { true_religion_group_zal_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_zoroastrianism
+			 PREV = { true_religion_group_zoroastrian_group_trigger = yes }
+		 }
+	 }
+ }
 
-has_sympathy_for_true_religion_of_root_trigger = {
-	trigger_if = {
-		limit = { ROOT = { true_religion_group = christian } }
-		trait = sympathy_christendom
-	}
-	trigger_else_if = {
-		limit = { ROOT = { true_religion_group = muslim } }
-		trait = sympathy_islam
-	}
-	trigger_else_if = {
-		limit = { ROOT = { true_religion_group = pagan_group } }
-		trait = sympathy_pagans
-	}
-	trigger_else_if = {
-		limit = { ROOT = { true_religion_group = zoroastrian_group } }
-		trait = sympathy_zoroastrianism
-	}
-	trigger_else_if = {
-		limit = { ROOT = { true_religion_group = jewish_group } }
-		trait = sympathy_judaism
-	}
-	trigger_else = {
-		ROOT = { true_religion_group = indian_group }
-		trait = sympathy_indian
-	}
-}
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+has_sympathy_for_true_religion_of_root_trigger = { 
+	 OR = {
+		 AND = {
+			 trait = sympathy_abrahamics
+			 ROOT = { true_religion_group_abrahamic_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_anatolians
+			 ROOT = { true_religion_group_anatolian_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_arabpagans
+			 ROOT = { true_religion_group_arabpagan_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_aztecs
+			 ROOT = { true_religion_group_aztec_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_baltics
+			 ROOT = { true_religion_group_baltic_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_bantus
+			 ROOT = { true_religion_group_bantu_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_berbers
+			 ROOT = { true_religion_group_berberpagan_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_buddhists
+			 ROOT = { true_religion_group_bud_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_celtics
+			 ROOT = { true_religion_group_celtic_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_chinese
+			 ROOT = { true_religion_group_chinese_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_christendom
+			 ROOT = { true_religion_group_christian_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_east_africans
+			 ROOT = { true_religion_group_east_african_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_egyptian
+			 ROOT = { true_religion_group_egyptian_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_finnish
+			 ROOT = { true_religion_group_finnish_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_graecoroman
+			 ROOT = { true_religion_group_graecoroman_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_indian
+			 ROOT = { true_religion_group_indian_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_indohellens
+			 ROOT = { true_religion_group_indohelen_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_inuit
+			 ROOT = { true_religion_group_inuit_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_islam
+			 ROOT = { true_religion_group_muslim_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_judaism
+			 ROOT = { true_religion_group_jewish_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_luwians
+			 ROOT = { true_religion_group_luwian_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_mande
+			 ROOT = { true_religion_group_mand_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_manichaeans
+			 ROOT = { true_religion_group_mani_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_mithraics
+			 ROOT = { true_religion_group_mithra_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_nordic
+			 ROOT = { true_religion_group_norsegerman_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_pagans
+			 ROOT = { true_religion_group_pagan_group_trigger = yes } 
+		 }
+		 AND = {
+			 trait = sympathy_palmyrans
+			 ROOT = { true_religion_group_palmyranpagan_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_platonics
+			 ROOT = { true_religion_group_neoplato_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_sererics
+			 ROOT = { true_religion_group_serer_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_slavics
+			 ROOT = { true_religion_group_slavic_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_sol
+			 ROOT = { true_religion_group_sol_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_tengri
+			 ROOT = { true_religion_group_tengri_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_yazd
+			 ROOT = { true_religion_group_yazd_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_zal
+			 ROOT = { true_religion_group_zal_group_trigger = yes }
+		 }
+		 AND = {
+			 trait = sympathy_zoroastrianism
+			 ROOT = { true_religion_group_zoroastrian_group_trigger = yes }
+		 }
+	 }
+ }
 
 has_sympathy_for_true_religion_of_from_trigger = {
 	trigger_if = {
@@ -418,294 +640,362 @@ has_sympathy_for_public_religion_of_from_trigger = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_in_prevs_interesting_society_trigger = {
-	# Christian
-	trigger_if = {
-		limit = { society_member_of = secret_religious_society_catholic }
-		PREV = { interested_in_society = secret_religious_society_catholic }
+	OR = {
+		AND = {
+			society_member_of = secret_religious_society_antinomian
+			PREV = { interested_in_society = secret_religious_society_antinomian }
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_cathar }
-		PREV = { interested_in_society = secret_religious_society_cathar }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_aten
+    		PREV = { interested_in_society = secret_religious_society_aten }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_fraticelli }
-		PREV = { interested_in_society = secret_religious_society_fraticelli }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_batembuzi
+    		PREV = { interested_in_society = secret_religious_society_batembuzi }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_waldensian }
-		PREV = { interested_in_society = secret_religious_society_waldensian }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_bud_bahusrutiya
+    		PREV = { interested_in_society = secret_religious_society_bud_bahusrutiya }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_lollard }
-		PREV = { interested_in_society = secret_religious_society_lollard }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_bud_mahayana
+    		PREV = { interested_in_society = secret_religious_society_bud_mahayana }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_orthodox }
-		PREV = { interested_in_society = secret_religious_society_orthodox }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_cathar
+    		PREV = { interested_in_society = secret_religious_society_cathar }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_miaphysite }
-		PREV = { interested_in_society = secret_religious_society_miaphysite }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_dionysos
+    		PREV = { interested_in_society = secret_religious_society_dionysos }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_monophysite }
-		PREV = { interested_in_society = secret_religious_society_monophysite }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_donatist
+    		PREV = { interested_in_society = secret_religious_society_donatist }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_bogomilist }
-		PREV = { interested_in_society = secret_religious_society_bogomilist }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_druze
+    		PREV = { interested_in_society = secret_religious_society_druze }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_monothelite }
-		PREV = { interested_in_society = secret_religious_society_monothelite }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_erlik
+    		PREV = { interested_in_society = secret_religious_society_erlik }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_iconoclast }
-		PREV = { interested_in_society = secret_religious_society_iconoclast }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_haruri
+    		PREV = { interested_in_society = secret_religious_society_haruri }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_paulician }
-		PREV = { interested_in_society = secret_religious_society_paulician }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_hubal
+    		PREV = { interested_in_society = secret_religious_society_hubal }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_nestorian }
-		PREV = { interested_in_society = secret_religious_society_nestorian }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_hurufi
+    		PREV = { interested_in_society = secret_religious_society_hurufi }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_messalian }
-		PREV = { interested_in_society = secret_religious_society_messalian }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_ibadi
+    		PREV = { interested_in_society = secret_religious_society_ibadi }	
+		}
 	}
-
-	# Muslim
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_sunni }
-		PREV = { interested_in_society = secret_religious_society_sunni }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_iconoclast
+    		PREV = { interested_in_society = secret_religious_society_iconoclast }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_zikri }
-		PREV = { interested_in_society = secret_religious_society_zikri }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_illuyanka
+    		PREV = { interested_in_society = secret_religious_society_illuyanka }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_yazidi }
-		PREV = { interested_in_society = secret_religious_society_yazidi }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_irminsul
+    		PREV = { interested_in_society = secret_religious_society_irminsul }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_ibadi }
-		PREV = { interested_in_society = secret_religious_society_ibadi }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_jud_sabaoth
+    		PREV = { interested_in_society = secret_religious_society_jud_sabaoth }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_kharijite }
-		PREV = { interested_in_society = secret_religious_society_kharijite }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_kharijite
+    		PREV = { interested_in_society = secret_religious_society_kharijite }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_shiite }
-		PREV = { interested_in_society = secret_religious_society_shiite }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_mand_ruha
+    		PREV = { interested_in_society = secret_religious_society_mand_ruha }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_druze }
-		PREV = { interested_in_society = secret_religious_society_druze }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_mani_ahriman
+    		PREV = { interested_in_society = secret_religious_society_mani_ahriman }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_hurufi }
-		PREV = { interested_in_society = secret_religious_society_hurufi }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_mazdakism
+    		PREV = { interested_in_society = secret_religious_society_mazdakism }	
+		}
 	}
-
-	# Jewish
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_jewish }
-		PREV = { interested_in_society = secret_religious_society_jewish }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_melkite
+    		PREV = { interested_in_society = secret_religious_society_melkite }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_karaite }
-		PREV = { interested_in_society = secret_religious_society_karaite }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_montanist
+    		PREV = { interested_in_society = secret_religious_society_montanist }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_samaritan }
-		PREV = { interested_in_society = secret_religious_society_samaritan }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_norse_war
+    		PREV = { interested_in_society = secret_religious_society_norse_war }	
+		}
 	}
-
-	# Zoroastrian
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_zoroastrian }
-		PREV = { interested_in_society = secret_religious_society_zoroastrian }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_pelagian
+    		PREV = { interested_in_society = secret_religious_society_pelagian }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_mazdaki }
-		PREV = { interested_in_society = secret_religious_society_mazdaki }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_plato_christ
+    		PREV = { interested_in_society = secret_religious_society_plato_christ }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_manichaean }
-		PREV = { interested_in_society = secret_religious_society_manichaean }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_plato_islam
+    		PREV = { interested_in_society = secret_religious_society_plato_islam }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_khurmazta }
-		PREV = { interested_in_society = secret_religious_society_khurmazta }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_priscillian 
+    		PREV = { interested_in_society = secret_religious_society_priscillian  }	
+		}
 	}
-
-	# Eastern
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_taoist }
-		PREV = { interested_in_society = secret_religious_society_taoist }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_qarmatian
+    		PREV = { interested_in_society = secret_religious_society_qarmatian }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_hindu }
-		PREV = { interested_in_society = secret_religious_society_hindu }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_ragnarok
+    		PREV = { interested_in_society = secret_religious_society_ragnarok }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_buddhist }
-		PREV = { interested_in_society = secret_religious_society_buddhist }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_saule
+    		PREV = { interested_in_society = secret_religious_society_saule }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_jain }
-		PREV = { interested_in_society = secret_religious_society_jain }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_saura
+    		PREV = { interested_in_society = secret_religious_society_saura }	
+		}
 	}
-
-	# Pagan
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_norse_pagan }
-		PREV = { interested_in_society = secret_religious_society_norse_pagan }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_set
+    		PREV = { interested_in_society = secret_religious_society_set }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_norse_pagan_reformed }
-		PREV = { interested_in_society = secret_religious_society_norse_pagan_reformed }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_sol_christ
+    		PREV = { interested_in_society = secret_religious_society_sol_christ }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_slavic_pagan }
-		PREV = { interested_in_society = secret_religious_society_slavic_pagan }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_sufi
+    		PREV = { interested_in_society = secret_religious_society_sufi }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_slavic_pagan_reformed }
-		PREV = { interested_in_society = secret_religious_society_slavic_pagan_reformed }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_tengri_ahriman
+    		PREV = { interested_in_society = secret_religious_society_tengri_ahriman }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_tengri_pagan }
-		PREV = { interested_in_society = secret_religious_society_tengri_pagan }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_vidharma
+    		PREV = { interested_in_society = secret_religious_society_vidharma }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_tengri_pagan_reformed }
-		PREV = { interested_in_society = secret_religious_society_tengri_pagan_reformed }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_yahyanism
+    		PREV = { interested_in_society = secret_religious_society_yahyanism }	
+		}
 	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_baltic_pagan }
-		PREV = { interested_in_society = secret_religious_society_baltic_pagan }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_baltic_pagan_reformed }
-		PREV = { interested_in_society = secret_religious_society_baltic_pagan_reformed }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_finnish_pagan }
-		PREV = { interested_in_society = secret_religious_society_finnish_pagan }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_finnish_pagan_reformed }
-		PREV = { interested_in_society = secret_religious_society_finnish_pagan_reformed }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_west_african_pagan }
-		PREV = { interested_in_society = secret_religious_society_west_african_pagan }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_west_african_pagan_reformed }
-		PREV = { interested_in_society = secret_religious_society_west_african_pagan_reformed }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_zun_pagan }
-		PREV = { interested_in_society = secret_religious_society_zun_pagan }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_zun_pagan_reformed }
-		PREV = { interested_in_society = secret_religious_society_zun_pagan_reformed }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_bon_pagan }
-		PREV = { interested_in_society = secret_religious_society_bon_pagan }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_bon_pagan_reformed }
-		PREV = { interested_in_society = secret_religious_society_bon_pagan_reformed }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_aztec_pagan }
-		PREV = { interested_in_society = secret_religious_society_aztec_pagan }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_aztec_pagan_reformed }
-		PREV = { interested_in_society = secret_religious_society_aztec_pagan_reformed }
-	}
-	trigger_else_if = {
-		limit = { society_member_of = secret_religious_society_hellenic_pagan }
-		PREV = { interested_in_society = secret_religious_society_hellenic_pagan }
-	}
-	trigger_else = {
-		society_member_of = secret_religious_society_hellenic_pagan_reformed
-		PREV = { interested_in_society = secret_religious_society_hellenic_pagan_reformed }
+	OR = {
+		AND = {	
+			society_member_of = secret_religious_society_zor_angra
+    		PREV = { interested_in_society = secret_religious_society_zor_angra }
+		}
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_norse_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_norse_or_reformed_tooltip
-
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
+		hidden_trigger = {
+			OR = {
+				religion = norse_christ
+				religion = norse_pagan
+				religion = norse_war
+				religion = nott
+				religion = ragnarok
+				religion = sol_norse
+				religion = sowilo
+				religion = norse_christ_reformed
+				religion = norse_pagan_reformed
+				religion = ragnarok_reformed
+			}
 		}
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_baltic_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_baltic_or_reformed_tooltip
-
-		OR = {
-			religion = baltic_pagan
-			religion = baltic_pagan_reformed
+		hidden_trigger = {
+			OR = {
+				religion = dievas
+				religion = peckols
+				religion = perkunas
+				religion = baltic_pagan_reformed
+			}
 		}
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_finnish_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_finnish_or_reformed_tooltip
-
-		OR = {
-			religion = finnish_pagan
-			religion = finnish_pagan_reformed
+		hidden_trigger = {
+			OR = {
+				religion = finnish_pagan
+				religion = finnish_pagan_reformed
+				religion = chumbylat_reformed
+				religion = voipel_reformed
+				religion = ilmatar
+				religion = jumala
+				religion = chumbylat
+				religion = voipel
+			}
 		}
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_slavic_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_slavic_or_reformed_tooltip
-
-		OR = {
-			religion = slavic_pagan
-			religion = slavic_pagan_reformed
+		hidden_trigger = {
+			OR = {
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+				religion = perun
+				religion = veles
+				religion = rod
+				religion = svaroh
+				religion = dazhbog
+				religion = svetovid
+			}
 		}
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_tengri_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_tengri_or_reformed_tooltip
-
-		OR = {
-			religion = tengri_pagan
-			religion = tengri_pagan_reformed
+		hidden_trigger = {
+			OR = {
+				religion = tengri_pagan
+				religion = tengri_pagan_reformed
+				religion = erlik_reformed
+				religion = tengri_bud_reformed
+				religion = tengri_confucian_reformed
+				religion = tengri_mani_reformed
+				religion = tengri_rod_reformed
+				religion = vattisenyaly_reformed
+				religion = tengri_ahriman
+				religion = tengri_bud
+				religion = tengri_confucian
+				religion = tengri_mani
+				religion = tengri_rod
+				religion = vattisenyaly
+				religion = erlik
+			}
 		}
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_west_african_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_west_african_or_reformed_tooltip
-
-		OR = {
-			religion = west_african_pagan
-			religion = west_african_pagan_reformed
+		hidden_trigger = {
+			OR = {
+				religion = serer_reformed
+				religion = mande_pagan
+				religion = yoruba
+				religion = nyame
+				religion = anansi
+			}
 		}
 	}
 }

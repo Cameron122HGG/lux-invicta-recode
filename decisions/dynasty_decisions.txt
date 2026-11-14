@@ -312,379 +312,375 @@ targeted_decisions = {
 	}
 
 	# Unhardcoded decision
-	order_to_take_vows = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+order_to_take_vows = {
+		only_playable = yes
 		filter = court
 		ai_target_filter = court
-		ai_check_interval = 120
-
-		only_playable = yes
-
+		ai_check_interval = 120 #Check every 120 months
+		
 		from_potential = {
-			has_dlc = "Sons of Abraham"
-			is_adult = yes
-			prisoner = no
+			is_playable = yes
 			has_regent = no
-			mercenary = no
-			holy_order = no
-
-			OR = {
-				trigger_if = {
-					limit = { is_alternate_start = no }
-
-					OR = {
-						religion_group = christian
-						has_dharmic_religion_trigger = yes
-						religion = manichaean
-					}
-				}
-
-				religion_is_monastic_trigger = yes
-			}
-		}
-
-		potential = {
-			host = { character = FROM }
-			religion = FROM
-			is_ruler = no
+			prisoner = no
 			is_adult = yes
-			is_incapable = no
-			is_not_ascetic_trigger = yes
+			has_dlc = "Sons of Abraham"
+			OR = {
+				AND = { 
+					religion_group = christian
+					is_alternate_start = no
+				}
+				AND = { 
+					religion = hindu
+					is_alternate_start = no
+				}
+				AND = { 
+					religion = jain
+					is_alternate_start = no
+				}
+				AND = { 
+					religion = mani
+					is_alternate_start = no
+				}
+				has_religion_feature = religion_monastic
+				has_religion_feature = religion_feature_west_african
+			}
 		}
-
+		
+		potential = {
+			is_adult = yes
+			is_ruler = no
+			religion = FROM
+			NOR = { 
+				trait = incapable 
+				trait = monk
+				trait = nun
+				trait = muni
+				trait = aryika
+				trait = bhikkhu
+				trait = bhikkhuni
+				trait = sanyasi
+				trait = sanyasini
+			}
+			host = { character = FROM }
+		}
+		
 		allow = {
-			trigger_if = {
-				limit = {
-					dynasty = FROM
-
-					any_owned_bloodline = {
-						has_bloodline_flag = bloodline_easy_monks
-						bloodline_is_active_for = FROM
-						bloodline_is_active_for = ROOT
-					}
+			OR = { 
+				AND = { 
+					is_married = no
+					custom_tooltip = {
+						text = NOT_HEIR_TITLE_TT
+						NOT = {
+                        	any_heir_title = { 
+                            	always = yes
+                            }
+                        }
+                    }
 				}
-
-				# Matilda's Bloodline
-				custom_tooltip = {
-					text = BLOODLINE_EASIER_VOWS_TOOLTIP
-				}
+				prisoner = yes
 			}
-			trigger_else = {
-				OR = {
-					prisoner = yes
-
-					AND = {
-						is_heir = no
-						is_married = no
-					}
-				}
-			}
-
-			FROM = {
-				piety >= 50
-			}
+			FROM = { piety = 50 }
 		}
 
 		effect = {
-			FROM = {
-				show_scope_change = no
-				piety = -50
+			FROM = { piety = -50 }
+			add_ascetic_trait_effect = yes #Adds religion-based monk-traits.
+			if = { #For pagans and Altstart
+				limit = { 
+					NOR = { 
+						religion_group = christian 
+						religion = hindu
+						religion = jain
+					} 
+					is_female = no
+				}
+				add_trait = monk
 			}
-
-			add_ascetic_trait_effect = yes # Adds religion-based monk-traits
-
-			# Prisoners are freed upon taking the vows
+			if = {
+				limit = { 
+					NOR = { 
+						religion_group = christian 
+						religion = hindu
+						religion = jain
+					} 
+					is_female = yes
+				}
+				add_trait = nun
+			}
 			if = {
 				limit = { prisoner = yes }
-				imprison = no
+				prisoner = no
 			}
-
-			# The vows mean no marriage
 			if = {
 				limit = { is_married = yes }
-
-				any_spouse = {
-					show_scope_change = no
-
-					remove_spouse = ROOT
+				any_spouse = { remove_spouse = ROOT }
+			}
+			if = { #Make them actually become monks/nuns if you have Societies.
+				limit = { 
+					has_dlc = "Mystics"	
+					is_in_society = no		
+					religion = catholic
 				}
-			}
-
-			# No betrothal
-			if = {
-				limit = { is_betrothed = yes }
-
-				break_betrothal = yes
-			}
-
-			# And no consorts
-			if = {
-				limit = {
-					any_consort = {
-						always = yes
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					random_list = { 
+						50 = { join_society = monastic_order_benedictine } 
+						50 = { join_society = monastic_order_dominican } 
 					}
 				}
-
-				any_consort = {
-					show_scope_change = no
-					remove_consort = ROOT
-				}
 			}
-
-			# Monks and Mystics actually join societies
 			if = {
-				limit = {
-					has_dlc = "Mystics"
+				limit = { 
+					has_dlc = "Mystics" 
 					is_in_society = no
-					is_heretic = no
+					religion = orthodox
 				}
-
-				if = {
-					limit = { is_catholic_branch = yes }
-
-					custom_tooltip = {
-						text = tooltip_vows_monk_joins_society
-
-						random_list = {
-							50 = {
-								trigger = { religion = catholic }
-								join_society = monastic_order_benedictine
-							}
-							50 = { join_society = monastic_order_dominican }
-						}
-					}
-				}
-				else_if = {
-					limit = { is_orthodox_branch = yes }
-
-					custom_tooltip = {
-						text = tooltip_vows_monk_joins_society
-						join_society = monastic_order_orthodox
-					}
-				}
-				else_if = {
-					limit = { is_nestorian_branch = yes }
-
-					custom_tooltip = {
-						text = tooltip_vows_monk_joins_society
-						join_society = monastic_order_nestorian
-					}
-				}
-				else_if = {
-					limit = { is_miaphysite_branch = yes }
-
-					custom_tooltip = {
-						text = tooltip_vows_monk_joins_society
-						join_society = monastic_order_monophysite
-					}
-				}
-				else_if = {
-					limit = { religion = hindu }
-
-					custom_tooltip = {
-						text = tooltip_vows_monk_joins_society
-						join_society = monastic_order_hindu
-					}
-				}
-				else_if = {
-					limit = { religion = buddhist }
-
-					custom_tooltip = {
-						text = tooltip_vows_monk_joins_society
-						join_society = monastic_order_buddhist
-					}
-				}
-				else_if = {
-					limit = { religion = jain }
-
-					custom_tooltip = {
-						text = tooltip_vows_monk_joins_society
-						join_society = monastic_order_jain
-					}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_orthodox
 				}
 			}
-
-			# Moves to Theocracy
 			if = {
-				limit = {
-					any_realm_lord = {
-						is_theocracy = yes
-						religion = ROOT
-					}
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = nestorian
 				}
-
-				custom_tooltip = {
-					text = tooltip_vows_monk_goes_to_theocracy
-
-					random_realm_lord = {
-						limit = {
-							is_theocracy = yes
-							religion = ROOT
-						}
-
-						preferred_limit = {
-							reverse_opinion = {
-								who = FROM
-								value >= 20
-							}
-							vassal_of = FROM
-							# The one they just joined
-							same_society_as = ROOT
-						}
-
-						preferred_limit = {
-							vassal_of = FROM
-							# The one they just joined
-							same_society_as = ROOT
-						}
-
-						preferred_limit = {
-							# The one they just joined
-							same_society_as = ROOT
-						}
-
-						preferred_limit = {
-							vassal_of = FROM
-						}
-
-						ROOT = { move_character = PREV }
-					}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_nestorian
 				}
 			}
-
-			# People have opinions
 			if = {
-				limit = {
-					dynasty = FROM
-					NOT = { trait = zealous }
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = monophysite
 				}
-
-				opinion = {
-					name = opinion_cloistered_me_family
-					who = FROM
-					years = 20
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_monophysite
 				}
 			}
-			else_if = {
-				limit = {
-					NOR = {
-						dynasty = FROM
-						trait = zealous
+			if = {
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = hindu 
+				}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_hindu
+				}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = jain
+				}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_jain
+				}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = adoptionist 
+				}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_adoptionist
+				}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = apollinarist 
+				}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_apollinarist
+				}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = iconoclast 
+				}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_iconoclast
+				}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = melkite 
+				}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_melkite
+				}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = monothelite 
+				}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_monothelite
+				}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = montanist 
+				}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_montanist
+				}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Mystics" 
+					is_in_society = no
+					religion = pelagian 
+				}
+				custom_tooltip = { text = tooltip_vows_monk_joins_society }
+				hidden_tooltip = { 
+					join_society = monastic_order_pelagian
+				}
+			}
+			if = {
+				limit = { 
+					any_realm_lord = { is_theocracy = yes religion = ROOT }
+				}
+				custom_tooltip = { text = tooltip_vows_monk_goes_to_theocracy }
+				hidden_tooltip = { 
+					random_realm_lord = { 
+						limit = { is_theocracy = yes religion = ROOT }
+						preferred_limit = { 
+							reverse_opinion = { who = FROM value = 20 }
+							vassal_of = FROM
+							same_society_as = ROOT #The one he just joined.
+						} 
+						preferred_limit = { 
+							vassal_of = FROM
+							same_society_as = ROOT #The one he just joined.
+						} 
+						preferred_limit = { 
+							same_society_as = ROOT #The one he just joined.
+						} 
+						preferred_limit = { 
+							vassal_of = FROM
+						} 
+						ROOT = { 
+							move_character = PREV
+						} 
 					}
 				}
-
-				opinion = {
-					name = opinion_cloistered_me
-					who = FROM
-					years = 20
-				}
 			}
-
-			# Child reacts
+			if = {
+				limit = { NOR = { trait = zealous dynasty = FROM } }
+				opinion = { modifier = opinion_cloistered_me who = FROM years = 20 }
+			}
+			if = {
+				limit = { NOT = { trait = zealous } dynasty = FROM }
+				opinion = { modifier = opinion_cloistered_me_family who = FROM years = 20 }
+			}
 			if = {
 				limit = { is_child_of = FROM }
-
-				FROM = {
-					character_event = { id = HFP.23001 }
-				}
+				hidden_tooltip = { FROM = { character_event = { id = HFP.23001 } } }
 			}
+			
 		}
-
+		
+		revoke_allowed = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
-
-			trigger = {
-				FROM = {
-					opinion = {
-						who = ROOT
-						value < 50
-					}
-
-					# If I'm a good ruler...
-					trigger_if = {
-						limit = { is_benevolent_trigger = yes }
-
-						# ...you must not be a dynastic heir
-						NAND = {
-							is_parent_of = ROOT
-							dynasty = ROOT
-
-							opinion = {
-								who = ROOT
-								value >= 0
-							}
-						}
-					}
-					trigger_else = {
-						# Otherwise I must not hate you enough to send you off
-						OR = {
-							ROOT = { prisoner = no }
-							is_parent_of = ROOT
-
-							opinion = {
-								who = ROOT
-								value >= -20
-							}
-						}
+			modifier = { #Hate you too much to just send you off.
+				factor = 0
+				prisoner = yes
+				NOT = { is_child_of = FROM }
+				FROM = { is_benevolent_trigger = no }
+				NOT = {
+					reverse_opinion = {
+						who = FROM
+						value = -20
 					}
 				}
 			}
-
-			# Must protect the line
-			mult_modifier = {
+			modifier = { #Like him too much to do it.
+				factor = 0
+				reverse_opinion = {
+					who = FROM
+					value = 50
+				}
+			}
+			modifier = { #I'm a good ruler and he is a dynastic heir.
+				factor = 0
+				is_child_of = FROM
+				dynasty = FROM
+				FROM = { is_benevolent_trigger = yes }
+				reverse_opinion = {
+					who = FROM
+					value = 0
+				}
+			}
+			modifier = { #Must protect the line.
 				factor = 5
-
-				ROOT = {
-					is_child_of = FROM
-					NOT = { dynasty = FROM }
-				}
+				is_child_of = FROM
+				NOT = { dynasty = FROM }
 			}
-
-			# Hate you
-			mult_modifier = {
+			modifier = { #Hate you.
 				factor = 5
-
-				ROOT = {
-					is_child_of = FROM
-					is_rival = FROM
-				}
+				is_child_of = FROM
+				is_rival = FROM
 			}
-
-			# There are better spares
-			mult_modifier = {
+			modifier = { #There are better spares.
 				factor = 20
-
-				ROOT = {
-					is_child_of = FROM
-
-					OR = {
-						has_negative_congenital_trigger = yes
-						has_infertile_trait_trigger = yes
-						has_severe_disability_trigger = yes
-					}
+				is_child_of = FROM
+				OR = { 
+					has_negative_congenital_trigger = yes
+					has_infertile_trait_trigger = yes
+					has_severe_disability_trigger = yes
 				}
-
-				FROM = {
-					any_child = {
+				FROM = { 
+					any_child = { 
 						is_alive = yes
-						has_negative_congenital_trigger = no
-						has_infertile_trait_trigger = no
-						has_severe_disability_trigger = no
+						NOR = { 
+							character = ROOT 
+							has_negative_congenital_trigger = yes
+							has_infertile_trait_trigger = yes
+							has_severe_disability_trigger = yes
+						}
 					}
 				}
 			}
-
-			# Must keep the realm from falling to evil
-			mult_modifier = {
+			modifier = { #Must preserve the realm from falling to evil.
 				factor = 5
-
-				ROOT = { is_evil_trigger = yes }
-
-				FROM = {
-					is_benevolent_trigger = yes
-
-					any_child = {
+				is_evil_trigger = yes
+				FROM = { 
+					is_benevolent_trigger = yes 
+					any_child = { 
 						is_alive = yes
-						is_evil_trigger = no
+						NOR = { 
+							character = ROOT 
+							is_evil_trigger = yes
+						}
 					}
 				}
 			}

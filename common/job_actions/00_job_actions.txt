@@ -73,112 +73,43 @@ action_clan_sentiment = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 action_fabricate_claims = {
 	attribute = diplomacy
-
+	
 	potential = {
-		FROM = { is_nomadic = no }
+		FROM = {
+			is_nomadic = no
+			OR = {
+				scholarly_soul_trigger = yes
+				statist_soul_trigger = yes
+				has_law = sovereignty_title_law_1
+				has_law = sovereignty_title_law_2
+				AND = {
+					traditional_soul_trigger = yes
+					OR = {
+						has_law = tradition_control_3
+						has_law = tradition_control_4
+					}
+				}
+			}
+		}	
 	}
-
+	
 	trigger = {
-		has_owner = yes
-		is_within_diplo_range = FROM
+		any_province_lord = {
+			NOT = { character = FROM }
+			FROM = {
+				job_chancellor = {
+					NOT = { character = PREVPREV } # Can't be sent to improve relations with himself...
 
-		OR = {
-			county = {
-				NOT = { claimed_by = FROM } # liege
-
-				holder_scope = {
-					NOR = {
-						character = FROM
-
-						FROM = {
-							job_chancellor = {
-								character = PREVPREV # Not the chancellor's own titles
-							}
-						}
-
-						# Not the Pope if liege is catholic
-						trigger_if = {
-							limit = { controls_religion = yes }
-							religion = catholic
-							religion = FROM
-						}
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = {
-					FROM = {
-						job_chancellor = { diplomacy >= 15 }
-					}
-				}
-
-				duchy = {
-					NOT = { claimed_by = FROM } # liege
-
-					holder_scope = {
-						NOR = {
-							character = FROM
-
-							FROM = {
-								job_chancellor = {
-									character = PREVPREV # Not the chancellor's own titles
-								}
-							}
-
-							# Not the Pope if liege is catholic
-							trigger_if = {
-								limit = { controls_religion = yes }
-								religion = catholic
-								religion = FROM
-							}
-						}
-					}
-				}
-			}
-
-			trigger_if = {
-				limit = {
-					FROM = {
-						has_ambition = obj_become_king
-						NOT = { has_character_flag = kingdom_claimed_with_ambition }
-					}
-				}
-
-				kingdom = {
-					NOT = { claimed_by = FROM }
-
-					holder_scope = {
-						owns = ROOT
-
-						NOR = {
-							character = FROM
-
-							FROM = {
-								job_chancellor = {
-									character = PREVPREV # Not the chancellor's own titles
-								}
-							}
-
-							# Not the Pope if liege is catholic
-							trigger_if = {
-								limit = { controls_religion = yes }
-								religion = catholic
-								religion = FROM
-							}
-						}
-					}
 				}
 			}
 		}
+		is_within_diplo_range = FROM
 	}
-
-	events = {
-		chancellor.201 # The Chancellor fabricates a claim for his liege on a landed noble's title
-		chancellor.301 # A Noble finds out that the Chancellor is trying to fabricate claims
-	}
+	
+	events = { 913 914 }
 }
 
 action_sow_dissent = {
@@ -339,9 +270,9 @@ action_oversee_construction = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 action_advance_eco_tech = {
 	attribute = stewardship
-	tech_growth_modifier_economy = 0.05
 
 	potential = {
 		FROM = {
@@ -353,11 +284,12 @@ action_advance_eco_tech = {
 		any_province_lord = {
 			character = FROM
 		}
-
 		technology_can_spread = yes
 	}
-
-	events = { }
+	
+	tech_growth_modifier_economy = 0.05
+	
+	events = { 320500 320502 }  #### from CK2+ (by Ash)
 }
 
 action_build_legend = {
@@ -657,90 +589,104 @@ action_organize_army = {
 }
 
 # Court Chaplain
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 action_inquisition = {
 	attribute = learning
-
+	
 	potential = {
 	}
-
+	
 	trigger = {
-		num_of_settlements >= 1
-
-		trigger_if = {
-			limit = {
-				owner = {
-					religion_group = pagan_group
-					NOT = { religion = FROM }
+		FROM = {
+			NOR = {
+				trait = tolerant_ruler
+				liege = {
+					trait = tolerant_ruler
 				}
 			}
-
-			FROM = {
-				job_spiritual = {
-					NOT = { has_character_modifier = spiritual_refused_pagans } # See Event ZE.5040
+			top_liege = {
+				NAND = {
+					trait = tolerant_ruler
+					religion_group = FROM
 				}
+			} #allows foreign vassals to spread their different faiths but not the main religion's ones to overwrite them 
+		}
+		num_of_settlements = 1
+		NAND = {
+			FROM = { job_spiritual = { has_character_modifier = spiritual_refused_pagans } }  # See Event ZE.5040
+			owner = {
+				accepts_missionaries_trigger = yes
 			}
 		}
-
 		OR = {
-			proselytize_convert_independent_trigger = yes
-
+			owner = {
+				independent = yes
+				NOT = { religion = FROM }
+				accepts_missionaries_trigger = yes
+				is_reformed_religion = no
+				capital_scope = {
+					province = ROOT
+				}
+				controls_religion = no
+				FROM = {
+					higher_tier_than = COUNT
+					OR = {
+						independent = yes
+						higher_tier_than = DUKE
+					}
+					missionary_religions_trigger = yes
+				}
+				NOT = {
+					has_opinion_modifier = { who = FROM modifier = opinion_sent_preacher }
+				}
+			 is_within_diplo_range = FROM	
+			}
 			any_province_lord = {
 				OR = {
 					character = FROM
-					is_vassal_or_below_of = FROM
+					is_liege_or_above = FROM
 				}
 			}
 		}
 	}
-
+	
 	display_on_map = {
 		tooltip = JOB_PROSELYTIZE_SAME_RELIGION
-		color = { 0 0 255 }
-
 		trigger = {
 			religion = FROM
-
 			any_province_lord = {
 				OR = {
 					character = FROM
-					is_vassal_or_below_of = FROM
+					is_liege_or_above = FROM
 				}
 			}
 		}
+		color = { 0 0 255 }
 	}
-
+	
 	display_on_map = {
 		tooltip = JOB_PROSELYTIZE_DIFFERENT_RELIGION
-		color = { 0 255 0 }
-
 		trigger = {
 			NOT = { religion = FROM }
-
 			any_province_lord = {
 				OR = {
 					character = FROM
-					is_vassal_or_below_of = FROM
+					is_liege_or_above = FROM
 				}
 			}
 		}
+		color = { 0 255 0 }
 	}
-
+	
 	display_on_map = {
 		tooltip = JOB_PROSELYTIZE_CONVERT_INDEPENDENT
-		color = { 255 35 35 }
-
 		trigger = {
 			proselytize_convert_independent_trigger = yes
 		}
+		color = { 255 35 35 }
 	}
 
-	events = {
-		lordspiritual.001 # The Lord Spiritual converts a province!
-		lordspiritual.101 # The Lord Spiritual converts a subject character
-		lordspiritual.201 # The Lord Spiritual is attacked by heathens (Gets away, is wounded, Is killed)
-		lordspiritual.301 # The Lord Spiritual suspects a subject character of heresy
-	#	lordspiritual.401 # Increased revolt risk
-	}
+	events = { 900 901 902 903 }
 }
 
 action_improve_rel_relations = {
@@ -800,13 +746,23 @@ action_advance_cul_tech = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 action_build_zeal = {
 	attribute = learning
-	monthly_character_piety = 0.05
 
 	potential = {
 		FROM = {
 			is_tribal = yes
+			NOR = {
+				trait = tolerant_ruler
+				liege = { trait = tolerant_ruler }
+			}
+			top_liege = {
+				NAND = {
+					trait = tolerant_ruler
+					religion_group = FROM
+				}
+			}
 		}
 	}
 
@@ -815,10 +771,10 @@ action_build_zeal = {
 			is_capital = PREV
 		}
 	}
-
-	events = {
-		lordspiritual.1301 # The Court Priest has managed to raise an eager force of holy warriors
-	}
+	
+	monthly_character_piety = 0.05
+	
+	events = { 20218 }
 }
 
 action_hunt_heretics = {

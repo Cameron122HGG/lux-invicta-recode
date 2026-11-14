@@ -489,81 +489,64 @@ is_allowed_sparring_duels_trigger = {
 	}
 }
 
-this_can_duel_with_from_trigger = {
-	trigger_if = {
-		limit = { is_female = yes }
-
-		OR = {
-			is_member_of_roots_warrior_lodge_trigger = yes
-
-			# Both FROM and ROOT have gender equality
-			AND = {
-				OR = {
-					trait = brave
-					gender_equality_trigger = yes
-					religion_is_matriarchal_trigger = yes
-					religion_group = pagan_group
-					is_nomadic = yes
-					religion = buddhist
-					religion = bogomilist
-				}
-
-				FROM = {
-					OR = {
-						gender_equality_trigger = yes
-						religion_is_matriarchal_trigger = yes
-						religion_group = pagan_group
-						is_nomadic = yes
-						religion = buddhist
-						religion = bogomilist
-					}
-				}
-			}
-		}
-	}
-
-	FROM = {
-		is_within_diplo_range = ROOT
-
-		trigger_if = {
-			limit = { is_female = yes }
-
-			OR = {
-				is_member_of_roots_warrior_lodge_trigger = yes
-
-				# Both FROM and ROOT have gender equality
-				AND = {
-					OR = {
-						trait = brave
-						gender_equality_trigger = yes
-						religion_is_matriarchal_trigger = yes
-						religion_group = pagan_group
-						is_nomadic = yes
-						religion = buddhist
-						religion = bogomilist
-					}
-
-					ROOT = {
-						OR = {
-							gender_equality_trigger = yes
-							religion_is_matriarchal_trigger = yes
-							religion_group = pagan_group
-							is_nomadic = yes
-							religion = buddhist
-							religion = bogomilist
-						}
-					}
-				}
-			}
-		}
-	}
-
-	is_incapable = no
-
-	NOR = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+this_can_duel_with_from_trigger = { 
+	NOR = { 
+		trait = incapable
 		has_character_modifier = bedridden_illness
 		has_character_modifier = severe_illness
 	}
+	OR = {
+	    is_female = no
+	 	is_member_of_roots_warrior_lodge_trigger = yes
+	    #Both FROM and ROOT have gender equality
+	    AND = {
+	        OR = {
+	            trait = brave
+	            gender_equality_trigger = yes
+	            has_religion_feature = religion_matriarchal
+	            LI_pagan_trigger = yes
+	            is_nomadic = yes
+	            religion_group = bud_group
+	        }
+	        FROM = {
+	            OR = {
+	  	            gender_equality_trigger = yes
+	           		has_religion_feature = religion_matriarchal
+	                LI_pagan_trigger = yes
+	                is_nomadic = yes
+	                religion_group = bud_group
+	            }
+	        }
+	    }
+	}
+	FROM = { 
+  		is_within_diplo_range = ROOT
+        OR = {
+   			is_female = no
+			is_member_of_roots_warrior_lodge_trigger = yes
+	        #Both FROM and ROOT have gender equality
+            AND = {
+                OR = {
+ 	                trait = brave
+                    gender_equality_trigger = yes
+	            	has_religion_feature = religion_matriarchal
+                    LI_pagan_trigger = yes
+					is_nomadic = yes
+					religion_group = bud_group
+                }
+                ROOT = {
+                    OR = {
+      	                gender_equality_trigger = yes
+	            		has_religion_feature = religion_matriarchal
+                        LI_pagan_trigger = yes
+						is_nomadic = yes
+						religion_group = bud_group
+                    }
+                }
+            }
+        }
+    }
 }
 
 # To make sure characters have a chance of gaining a lover from dueling them (used as a modifier weight)...

@@ -447,40 +447,36 @@ character_event = {
 }
 
 # The visit went well
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
-	id = JD.20004
-	desc = EVTDESC_JD_20004
-	picture = GFX_evt_china_diplomatic_success
-	border = GFX_event_normal_frame_diplomacy
-
-	is_triggered_only = yes
-
+    id = JD.20004
 	has_dlc = "Jade Dragon"
+    desc = EVTDESC_JD_20004
+    picture = GFX_evt_china_diplomatic_success
+    border = GFX_event_normal_frame_diplomacy
 
-	option = {
-		name = EVTOPTA_JD_20004
-
-		add_grace_minor_effect = yes
+    is_triggered_only = yes
+    
+    option = { 
+        name = EVTOPTA_JD_20004
+        add_grace_minor_effect = yes
 		sound_effect = china_grace_gain
+        
+        event_target:corresponding_councilor = {
+            show_portrait = yes
+        }
 
-		event_target:chinese_guest = {
-			show_portrait = yes
-			clear_persistent_event_target = host_of_chinese_diplomat
-		}
-
-		hidden_effect = {
-			random = {
-				chance = 20
-
-				mult_modifier = {
-					factor = 0.1
-					any_artifact = { has_artifact_flag = chinese }
-				}
-
-				character_event = { id = JD.60004 days = 1 }
-			}
-		}
-	}
+        hidden_effect = {
+            random = {
+                chance = 20
+                modifier = {
+                    factor = 0.1
+                    any_artifact = { has_artifact_flag = chinese }
+                }
+                character_event = { id = JD.60004 days = 1 }
+            }
+        }
+    }
 }
 
 # Falling stars
@@ -647,65 +643,60 @@ character_event = {
 }
 
 # You learn about languages!
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
-	id = JD.20007
-	desc = EVTDESC_JD_20007
-	picture = GFX_evt_chinese_bureaucrat
-	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes
-
+    id = JD.20007
 	has_dlc = "Jade Dragon"
+    desc = EVTDESC_JD_20007
+    picture = GFX_evt_chinese_bureaucrat
+    border = GFX_event_normal_frame_religion
 
-	trigger = {
-		event_target:chinese_guest = {
-			is_alive = yes
-			prisoner = no
-		}
-	}
-
-	option = {
-		name = EVTOPTA_JD_20007
-
-		custom_tooltip = { text = EVTOPTA_JD_20007_TT }
-
-		if = {
-			limit = { has_character_modifier = student_of_language }
-
-			hidden_effect = { remove_character_modifier = student_of_language }
-
-			add_character_modifier = {
-				name = multilingual
-				duration = -1
-			}
-		}
-		else = {
-			add_character_modifier = {
-				name = student_of_language
-				duration = -1
-			}
-		}
-
-		add_grace_major_effect = yes
+    is_triggered_only = yes
+    
+    option = { 
+        name = EVTOPTA_JD_20007
 		sound_effect = china_grace_gain
+        custom_tooltip = { text = EVTOPTA_JD_20007_TT }
 
-		hidden_effect = {
-			random = {
-				chance = 30
+        if = {
+            limit = {
+                has_character_modifier = student_of_language
+            }
+            add_character_modifier = {
+                name = multilingual
+                duration = -1
+            }
+            hidden_effect = {
+                remove_character_modifier = student_of_language
+            }
+        }
+        if = {
+            limit = {
+                NOR = {
+                    has_character_modifier = student_of_language
+                    has_character_modifier = multilingual
+                }
+            }
+            
+            add_character_modifier = {
+                name = student_of_language
+                duration = -1
+            }
+        }
+        
+        add_grace_major_effect = yes
 
-				mult_modifier = {
-					factor = 0.1
-					any_artifact = { has_artifact_flag = chinese }
-				}
-
-				character_event = { id = JD.60004 days = 1 }
-			}
-
-			event_target:chinese_guest = {
-				clear_persistent_event_target = host_of_chinese_diplomat
-			}
-		}
-	}
+        hidden_effect = {
+            random = {
+                chance = 30
+                modifier = {
+                    factor = 0.1
+                    any_artifact = { has_artifact_flag = chinese }
+                }
+                character_event = { id = JD.60004 days = 1 }
+            }
+        }
+    }
 }
 
 # You fell asleep!
@@ -741,48 +732,34 @@ character_event = {
 }
 
 # You greet them nicely
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
-	id = JD.20009
-	desc = EVTDESC_JD_20009
-	picture = GFX_evt_chinese_bureaucrat
-	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes
-
+    id = JD.20009
 	has_dlc = "Jade Dragon"
+    desc = EVTDESC_JD_20009
+    picture = GFX_evt_chinese_bureaucrat
+    border = GFX_event_normal_frame_religion
 
-	trigger = {
-		event_target:chinese_guest = {
-			is_alive = yes
-			prisoner = no
-		}
-	}
-
-	option = {
-		name = EVTOPTA_JD_20009
-
-		custom_tooltip = { text = EVTOPTA_JD_20009_TT }
-
-		add_grace_medium_effect = yes
+    is_triggered_only = yes
+    
+    option = { 
+        name = EVTOPTA_JD_20009
+        custom_tooltip = { text = EVTOPTA_JD_20009_TT }
 		sound_effect = china_grace_gain
+        
+        add_grace_medium_effect = yes
 
-		hidden_effect = {
-			random = {
-				chance = 20
-
-				mult_modifier = {
-					factor = 0.1
-					any_artifact = { has_artifact_flag = chinese }
-				}
-
-				character_event = { id = JD.60004 days = 1 }
-			}
-
-			event_target:chinese_guest = {
-				clear_persistent_event_target = host_of_chinese_diplomat
-			}
-		}
-	}
+        hidden_effect = {
+            random = {
+                chance = 20
+                modifier = {
+                    factor = 0.1
+                    any_artifact = { has_artifact_flag = chinese }
+                }
+                character_event = { id = JD.60004 days = 1 }
+            }
+        }
+    }
 }
 
 # You greet them awkwardly
@@ -848,60 +825,33 @@ character_event = {
 }
 
 # Deep meaningful insight
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
-	id = JD.20012
-	picture = GFX_evt_garden
-	border = GFX_event_normal_frame_diplomacy
-
-	desc = {
-		text = EVTDESC_JD_20012
-		trigger = {
-			offmap_china = { offmap_ruler = { NOT = { culture = ROOT } } }
-		}
-	}
-	desc = {
-		text = EVTDESC_JD_20012_B
-		trigger = {
-			offmap_china = { offmap_ruler = { culture = ROOT } }
-		}
-	}
-
-	is_triggered_only = yes
-
+    id = JD.20012
 	has_dlc = "Jade Dragon"
+    desc = EVTDESC_JD_20012
+    picture = GFX_evt_garden
+    border = GFX_event_normal_frame_diplomacy
 
-	trigger = {
-		event_target:chinese_guest = {
-			is_alive = yes
-			prisoner = no
-		}
-	}
-
-	option = {
-		name = EVTOPTA_JD_20012
-
-		custom_tooltip = { text = EVTOPTA_JD_20012_tt }
-
-		add_grace_medium_effect = yes
+    is_triggered_only = yes
+    
+    option = { 
+        name = EVTOPTA_JD_20012
 		sound_effect = china_grace_gain
+        custom_tooltip = { text = EVTOPTA_JD_20012_tt }
+        add_grace_medium_effect = yes
 
-		hidden_effect = {
-			random = {
-				chance = 30
-
-				mult_modifier = {
-					factor = 0.1
-					any_artifact = { has_artifact_flag = chinese }
-				}
-
-				character_event = { id = JD.60004 days = 1 }
-			}
-
-			event_target:chinese_guest = {
-				clear_persistent_event_target = host_of_chinese_diplomat
-			}
-		}
-	}
+        hidden_effect = {
+            random = {
+                chance = 30
+                modifier = {
+                    factor = 0.1
+                    any_artifact = { has_artifact_flag = chinese }
+                }
+                character_event = { id = JD.60004 days = 1 }
+            }
+        }
+    }
 }
 
 # Cleanup
@@ -957,270 +907,251 @@ character_event = {
 ### Mini-Expedition to China ####
 
 # Your courtier wants to travel to China!
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
-	id = JD.10011
-	desc = EVTDESC_JD_10011
-	picture = GFX_evt_china_open
-	border = GFX_event_normal_frame_diplomacy
-	portrait = event_target:adventurous_spirit
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+    id = JD.10011
 	has_dlc = "Jade Dragon"
-	only_playable = yes
-	min_age = 13
-	only_capable = yes
-	prisoner = no
-	war = no
+    desc = EVTDESC_JD_10011
+    picture = GFX_evt_china_open
+    border = GFX_event_normal_frame_diplomacy
+    is_triggered_only = yes
 
-	trigger = {
-		china_diplo_interaction_trigger = yes
-		is_inaccessible_trigger = no
-		mercenary = no
+    immediate = {
+        offmap_china = {
+            governor = {
+                save_event_target_as = the_protector_general
+            }
+        }
 
-		NOR = {
-			has_character_flag = chinese_governor_councilor_guest
-			has_character_flag = is_sending_someone_to_china
-		}
+        #Saves home court in case of death of ROOT...
+        capital_scope = {
+            save_event_target_as = original_court_province_target
+        }
 
-		offmap_china = {
-			NOR = {
-				has_status = china_civil_war
-				has_status = china_plague
-			}
-		}
-
-		any_courtier = {
-			count >= 2
-
-			ai = yes
-			is_ruler = no
-			is_heir = no
-			block_general_event_trigger = no
-
-			NOR = {
-				culture_group = chinese_group
-				has_minor_title = title_commander
-			}
-		}
-	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = { # more likely if China is doing great
-			factor = 1.5
-			china_is_fine_trigger = yes
-		}
-		mult_modifier = { # less likely if China is NOT doing great
-			factor = 0.5
-			china_is_suffering_trigger = yes
-		}
-		mult_modifier = { # less likely if China is isolationist
-			factor = 0.5
-			offmap_china = { has_policy = china_isolationist }
-		}
-	}
-
-	immediate = {
-		offmap_china = {
-			governor = {
-				save_event_target_as = the_protector_general
-			}
-		}
-
-		# Saves home court in case of death of ROOT...
-		capital_scope = {
-			save_event_target_as = original_court_province_target
-		}
-
-		any_courtier = {
-			limit = {
-				ai = yes
-				is_ruler = no
-				is_heir = no
-				block_general_event_trigger = no
-
-				NOR = {
-					culture_group = chinese_group
+        #Find a suitable back-up for the journey... (preferably a spouse, then a lover, then a friend, and in worst case, some random person at court)
+        random_courtier = {
+            limit = {
+                ai = yes
+				NOT = {
+					culture_group = chinese
+				}
+                is_landed = no
+                block_general_event_trigger = no
+				NOT = {
 					has_minor_title = title_commander
-					has_character_flag = originated_from_chinese_court
 				}
-			}
-
-			score_value = { # Prioritizes selecting an interesting courtier...
-				value = 10
-				interesting_courtier_selection_score = yes
-
-				additive_modifier = {
-					value = 1000
-					is_liked_by_China_trigger = yes
+                NOT = { has_character_flag = wants_to_travel_0 }
+                NOT = { has_character_flag = wants_to_travel_1 }
+                NOT = { has_character_flag = wants_to_travel_2 }
+                NOT = { has_character_flag = originated_from_chinese_court }
+            }
+            save_event_target_as = back_up_target_1
+            set_character_flag = wants_to_travel_1
+        }
+        random_courtier = {
+            limit = {
+                ai = yes
+				NOT = {
+					culture_group = chinese
 				}
-			}
-
-			save_event_target_as = adventurous_spirit
-		}
-
-		# Find a suitable back-up for the journey... (preferably a spouse, then a lover, then a friend, and in worst case, some random person at court)
-		any_courtier = {
-			limit = {
-				ai = yes
-				is_ruler = no
-				block_general_event_trigger = no
-
-				NOR = {
-					culture_group = chinese_group
+                is_landed = no
+                is_friend = ROOT
+                block_general_event_trigger = no
+				NOT = {
 					has_minor_title = title_commander
-					has_character_flag = originated_from_chinese_court
-					character = event_target:adventurous_spirit
 				}
-			}
-
-			score_value = { # Prioritizes selecting an interesting courtier...
-				value = 10
-				interesting_courtier_selection_score = yes
-
-				additive_modifier = {
-					value = 4000
-					is_married = ROOT
+                NOT = { has_character_flag = wants_to_travel_0 }
+                NOT = { has_character_flag = wants_to_travel_1 }
+                NOT = { has_character_flag = wants_to_travel_2 }
+                NOT = { has_character_flag = originated_from_chinese_court }
+            }
+            save_event_target_as = back_up_target_1
+            set_character_flag = wants_to_travel_1
+        }
+        random_courtier = {
+            limit = {
+                ai = yes
+				NOT = {
+					culture_group = chinese
 				}
-				additive_modifier = {
-					value = 2000
-					is_lover = ROOT
-				}
-				additive_modifier = {
-					value = 1000
-					is_friend = ROOT
-					NOT = { is_lover = ROOT }
-				}
-			}
-
-			save_event_target_as = back_up_target_1
-		}
-
-		# Find a suitable second back-up for the journey... (preferably a child who's not an heir, otherwise a grown-up un-landed child, and in worst case, some random person at court)
-		any_courtier = {
-			limit = {
-				ai = yes
-				is_ruler = no
-				block_general_event_trigger = no
-
-				NOR = {
-					culture_group = chinese_group
+                is_landed = no
+                any_lover = { character = ROOT }
+                block_general_event_trigger = no
+				NOT = {
 					has_minor_title = title_commander
-					has_character_flag = originated_from_chinese_court
-					character = event_target:adventurous_spirit
-					character = event_target:back_up_target_1
 				}
-			}
-
-			score_value = { # Prioritizes selecting an interesting courtier...
-				value = 10
-				interesting_courtier_selection_score = yes
-
-				additive_modifier = {
-					value = 2000
-					is_child_of = ROOT
-					NOT = { is_heir = ROOT }
+                NOT = { has_character_flag = wants_to_travel_0 }
+                NOT = { has_character_flag = wants_to_travel_1 }
+                NOT = { has_character_flag = wants_to_travel_2 }
+                NOT = { has_character_flag = originated_from_chinese_court }
+            }
+            save_event_target_as = back_up_target_1
+            set_character_flag = wants_to_travel_1
+        }
+        random_courtier = {
+            limit = {
+                ai = yes
+				NOT = {
+					culture_group = chinese
 				}
-				additive_modifier = {
-					value = 1000
-					is_child_of = ROOT
+                is_landed = no
+                any_spouse = { character = ROOT }
+                block_general_event_trigger = no
+				NOT = {
+					has_minor_title = title_commander
 				}
-			}
+                NOT = { has_character_flag = wants_to_travel_0 }
+                NOT = { has_character_flag = wants_to_travel_1 }
+                NOT = { has_character_flag = wants_to_travel_2 }
+                NOT = { has_character_flag = originated_from_chinese_court }
+            }
+            save_event_target_as = back_up_target_1
+            set_character_flag = wants_to_travel_1
+        }
 
-			save_event_target_as = back_up_target_2
-		}
-
-		set_character_flag = is_sending_someone_to_china
-	}
-
-	option = {
-		name = EVTOPTA_JD_10011
-
-		custom_tooltip = { text = EVTOPTA_JD_10011_TT }
-
-		event_target:adventurous_spirit = {
-			show_scope_change = no
-
-			check_likes_or_dislikes_THIS_effect = yes
-
-			add_character_modifier = {
-				name = out_traveling
-				years = 1
-			}
-		}
-	}
-
-	option = {
-		name = EVTOPTB_JD_10011
-
-		trigger = { event_target:back_up_target_1 = { always = yes } }
-
-		custom_tooltip = { text = EVTOPTB_JD_10011_TT }
-
-		event_target:back_up_target_1 = {
-			show_scope_change = no
-
-			check_likes_or_dislikes_THIS_effect = yes
-
-			add_character_modifier = {
-				name = out_traveling
-				years = 1
-			}
-
-			save_event_target_as = adventurous_spirit
-		}
-	}
-
-	option = {
-		name = EVTOPTC_JD_10011
-
-		trigger = { event_target:back_up_target_2 = { always = yes } }
-
-		custom_tooltip = { text = EVTOPTC_JD_10011_TT }
-
-		event_target:back_up_target_2 = {
-			show_scope_change = no
-
-			check_likes_or_dislikes_THIS_effect = yes
-
-			add_character_modifier = {
-				name = out_traveling
-				years = 1
-			}
-
-			save_event_target_as = adventurous_spirit
-		}
-	}
-
-	option = {
-		name = EVTOPTD_JD_10011
-
-		custom_tooltip = { text = EVTOPTD_JD_10011_TT }
-
-		clr_character_flag = is_sending_someone_to_china
-	}
-
-	after = {
-		hidden_effect = {
-			if = {
-				limit = { has_character_flag = is_sending_someone_to_china }
-
-				event_target:adventurous_spirit = {
-					force_host = event_target:the_protector_general
-
-					character_event = {
-						id = JD.10012
-						days = 200
-						random = 160
-					}
+        #Find a suitable second back-up for the journey... (preferably a child who's not an heir, otherwise a grown-up un-landed child, and in worst case, some random person at court)
+        random_courtier = {
+            limit = {
+                ai = yes
+				NOT = {
+					culture_group = chinese
 				}
+                is_landed = no
+                block_general_event_trigger = no
+				NOT = {
+					has_minor_title = title_commander
+				}
+                NOT = { has_character_flag = wants_to_travel_0 }
+                NOT = { has_character_flag = wants_to_travel_1 }
+                NOT = { has_character_flag = wants_to_travel_2 }
+                NOT = { has_character_flag = originated_from_chinese_court }
+            }
+            save_event_target_as = back_up_target_2
+            set_character_flag = wants_to_travel_2
+        }
+        random_courtier = {
+            limit = {
+                ai = yes
+				NOT = {
+					culture_group = chinese
+				}
+                is_landed = no
+                is_child_of = ROOT
+                block_general_event_trigger = no
+				NOT = {
+					has_minor_title = title_commander
+				}
+                NOT = { has_character_flag = wants_to_travel_0 }
+                NOT = { has_character_flag = wants_to_travel_1 }
+                NOT = { has_character_flag = wants_to_travel_2 }
+                NOT = { has_character_flag = originated_from_chinese_court }
+            }
+            save_event_target_as = back_up_target_2
+            set_character_flag = wants_to_travel_2
+        }
+        random_courtier = {
+            limit = {
+                ai = yes
+				NOT = {
+					culture_group = chinese
+				}
+                is_landed = no
+                is_child_of = ROOT
+                NOT = { is_heir = ROOT }
+                block_general_event_trigger = no
+				NOT = {
+					has_minor_title = title_commander
+				}
+                NOT = { has_character_flag = wants_to_travel_0 }
+                NOT = { has_character_flag = wants_to_travel_1 }
+                NOT = { has_character_flag = wants_to_travel_2 }
+                NOT = { has_character_flag = originated_from_chinese_court }
+            }
+            save_event_target_as = back_up_target_2
+            set_character_flag = wants_to_travel_2
+        }
+        set_character_flag = is_sending_someone_to_china
+    }
 
-				character_event = { id = JD.10020 days = 370 } # Fallback event (in case the traveler has died)
-			}
-		}
-	}
+    option = {
+        name = EVTOPTA_JD_10011
+        custom_tooltip = { text = EVTOPTA_JD_10011_TT }
+
+
+        event_target:adventurous_spirit = {
+            #show_scope_change = no
+            check_likes_or_dislikes_THIS_effect = yes
+            add_character_modifier = {
+                name = out_traveling
+                duration = 365
+            }
+            hidden_effect = { character_event = { id = JD.10012 days = 200 random = 160 } }
+        }
+    }
+
+    option = {
+        name = EVTOPTB_JD_10011
+        custom_tooltip = { text = EVTOPTB_JD_10011_TT }
+
+
+        event_target:back_up_target_1 = {
+            #show_scope_change = no
+            check_likes_or_dislikes_THIS_effect = yes
+            add_character_modifier = {
+                name = out_traveling
+                duration = 365
+            }
+            save_event_target_as = adventurous_spirit
+            hidden_effect = { character_event = { id = JD.10012 days = 200 random = 160 } }
+        }
+        trigger = {
+            event_target:back_up_target_1 = { always = yes }
+        }
+    }
+
+    option = {
+        name = EVTOPTC_JD_10011
+        custom_tooltip = { text = EVTOPTC_JD_10011_TT }
+
+
+        event_target:back_up_target_2 = {
+            #show_scope_change = no
+            check_likes_or_dislikes_THIS_effect = yes
+            add_character_modifier = {
+                name = out_traveling
+                duration = 365
+            }
+            save_event_target_as = adventurous_spirit
+            hidden_effect = { character_event = { id = JD.10012 days = 200 random = 160 } }
+        }
+        
+        trigger = {
+            event_target:back_up_target_2 = { always = yes }
+        }
+    }
+
+    option = {      
+        name = EVTOPTD_JD_10011
+        custom_tooltip = { text = EVTOPTD_JD_10011_TT }
+        clr_character_flag = is_sending_someone_to_china
+    }
+
+    after = {
+        hidden_effect = {
+            any_courtier = {
+                clr_character_flag = wants_to_travel_0
+                clr_character_flag = wants_to_travel_1
+                clr_character_flag = wants_to_travel_2
+            }
+            if = {
+                limit = { has_character_flag = is_sending_someone_to_china }
+                event_target:adventurous_spirit = {
+                    force_host = event_target:the_protector_general
+                }
+                character_event = { id = JD.10020 days = 370 } #Fallback event (in case the traveler has died)
+            }
+        }
+    }
 }
 
 # Delayed ping event and tombola for figuring out how the journey went... (fires for the traveler)
@@ -5995,242 +5926,234 @@ character_event = { # Accept Teacher into Court
 
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { # Radhanite Merchant
 	id = JD.7010
 	desc = EVTDESC_JD_7010
-	picture = GFX_evt_jewish_market
-
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	has_dlc = "Jade Dragon"
-	min_age = 16
+    picture = GFX_evt_jewish_market
+	
 	only_playable = yes
 	only_capable = yes
-	prisoner = no
-	war = no
+    has_dlc = "Jade Dragon"
+    prisoner = no
+    war = no
+    min_age = 16
 
+	is_triggered_only = yes
+	
 	trigger = {
 		NOR = {
 			has_character_flag = radhanite_visit
 			has_character_modifier = expelled_jewish
-
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
-			}
 		}
-
 		any_realm_province = {
 			trade_route = silk_road
-			held_under_PREV = yes
-
 			NOR = {
 				has_province_modifier = radhanite_favor
 				has_province_modifier = radhanite_favor_big
 			}
-
 			any_province_holding = {
 				holding_type = city
-				holder_scope = { real_tier = BARON }
-				holder_scope = { tier = BARON }
+				holder_scope = {
+					tier = BARON
+				}
 			}
 		}
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 2
-
-			any_owned_bloodline = {
-				has_bloodline_flag = jewish_saintly_bloodline
-			}
-		}
-	}
-
+	
 	immediate = {
-		create_random_steward = {
-			random_traits = yes
-			dynasty = actually_culture
-			female = no
-			age = 33
-			culture = ashkenazi
-			religion = jewish
-			flag = ai_flag_refuse_conversion
-
-			attributes = {
-				diplomacy = 2
-				learning = 2
-				stewardship = 14
-				intrigue = 2
-				martial = 2
-			}
-		}
-
-		new_character = {
-			remove_trait = slow
-			remove_trait = imbecile
-			remove_trait = dull
-			add_trait = shrewd
-
-			wealth = 50
-
-			save_event_target_as = radhanite_merchant
-		}
-
-		random_realm_province = {
-			limit = {
-				trade_route = silk_road
-				held_under_PREV = yes
-
-				NOR = {
-					has_province_modifier = radhanite_favor
-					has_province_modifier = radhanite_favor_big
-				}
-
-				any_province_holding = {
-					holding_type = city
-					holder_scope = { real_tier = BARON }
+		hidden_effect = {
+			create_random_steward = {
+				random_traits = yes
+				dynasty = actually_culture
+				female = no
+				age = 33
+				culture = jewish
+				religion = judaism
+				flag = ai_flag_refuse_conversion
+				attributes = {
+					diplomacy = 2
+					learning = 2
+					stewardship = 14
+					intrigue = 2
+					martial = 2
 				}
 			}
-
-			save_event_target_as = radhanite_location
-
-			random_province_holding = {
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				
+				wealth = 50
+				
+				add_trait = shrewd
+				
+				save_event_target_as = radhanite_merchant
+			}
+			random_realm_province = {
 				limit = {
-					holding_type = city
-					holder_scope = { real_tier = BARON }
+					trade_route = silk_road
+					NOR = {
+						has_province_modifier = radhanite_favor
+						has_province_modifier = radhanite_favor_big
+					}
+					any_province_holding = {
+						holding_type = city
+						holder_scope = {
+							tier = BARON
+						}
+					}
 				}
-
-				save_event_target_as = radhanite_location_barony
-
+				save_event_target_as = radhanite_location
+			}
+			event_target:radhanite_location = {
+				random_province_holding = {
+					limit = {
+						holding_type = city
+						holder_scope = {
+							tier = BARON
+						}
+					}
+					save_event_target_as = radhanite_location_barony
+				}
+			}
+			event_target:radhanite_location_barony = {
 				holder_scope = {
 					save_event_target_as = radhanite_location_barony_holder
 				}
 			}
 		}
-
+		
 		set_character_flag = radhanite_visit
 	}
-
+	
 	option = { # Accept offer
 		name = EVTOPTA_JD_7010
-
-		custom_tooltip = { text = EVTOPTA_JD_7010_TT }
-
-		show_portrait = event_target:radhanite_merchant
-
+		custom_tooltip = {
+			text = EVTOPTA_JD_7010_TT
+		}
+		event_target:radhanite_merchant = {
+			show_portrait = yes
+		}
 		transfer_scaled_wealth = {
 			to = event_target:radhanite_merchant
 			value = 0.5
 			min = 100
 		}
-
 		event_target:radhanite_location = {
-			show_scope_change = no
-
 			add_province_modifier = {
 				name = radhanite_favor
 				years = 50
 			}
 		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			trigger = { wealth >= 200 }
+			modifier = {
+				factor = 0
+				NOT = {
+					wealth = 200
+				}
+			}
 		}
 	}
-
+	
 	option = { # Bring him over for... dinner
 		name = EVTOPTB_JD_7010
 		tooltip_info = cannibal
-
-		trigger = { trait = cannibal }
-
+		trigger = {
+			trait = cannibal
+		}
 		event_target:radhanite_merchant = {
-			show_scope_change = no
-
 			death = {
 				death_reason = death_execution_eaten
 				killer = ROOT
 			}
 		}
-
 		wealth = 50
-
-		remove_trait_silently_stressed_effect = yes
-		remove_trait_silently_depressed_effect = yes
-
-		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				trait = stressed
+			}
+			remove_trait = stressed
+		}
+		if = {
+			limit = {
+				trait = depressed
+			}
+			remove_trait = depressed
+		}
+		ai_chance = { 
+			factor = 100
+		}
 	}
 
 	option = { # One-up the radhanite
 		name = EVTOPTC_JD_7010
-
 		trigger = {
-			event_target:radhanite_location = { always = yes }
-			event_target:radhanite_location_barony = { always = yes }
-			event_target:radhanite_location_barony_holder = { always = yes }
+			event_target:radhanite_location = {
+				always = yes
+			}
+			event_target:radhanite_location_barony = {
+				always = yes
+			}
+			event_target:radhanite_location_barony_holder = {
+				is_alive = yes
+			}
 		}
-
-		custom_tooltip = { text = EVTOPTC_JD_7010_TT }
-
+		custom_tooltip = {
+			text = EVTOPTC_JD_7010_TT
+		}
 		prestige = -100
-
 		transfer_scaled_wealth = {
 			to = event_target:radhanite_merchant
 			value = 0.5
 			min = 100
 		}
-
 		event_target:radhanite_merchant = {
-			show_scope_change = no
-
 			usurp_title = event_target:radhanite_location_barony
-
 			opinion = {
-				name = opinion_loyal_servant
+				modifier = opinion_loyal_servant
 				who = ROOT
 				years = 100
 			}
 		}
-
 		event_target:radhanite_location = {
-			show_scope_change = no
-
 			add_province_modifier = {
 				name = radhanite_favor_big
 				years = 100
 			}
 		}
-
-		reverse_opinion = {
-			name = opinion_outraged
-			who = event_target:radhanite_location_barony_holder
-			years = 100
-		}
-
-		ai_chance = {
-			factor = 5
-
-			trigger = { wealth >= 200 }
-		}
-	}
-
-	option = { # Politely decline
-		name = EVTOPTD_JD_7010
-
-		custom_tooltip = { text = EVTOPTD_JD_7010_TT }
-
-		hidden_effect = {
-			event_target:radhanite_merchant = {
-				leave_court_and_die_effect = yes
+		event_target:radhanite_location_barony_holder = {
+			opinion = {
+				who = ROOT
+				years = 100
+				modifier = opinion_outraged
 			}
 		}
-
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 0
+				NOT = {
+					wealth = 200
+				}
+			}
+		}
+	}
+	
+	option = { # Politely decline
+		name = EVTOPTD_JD_7010
+		custom_tooltip = {
+			text = EVTOPTD_JD_7010_TT
+			hidden_effect = {
+				event_target:radhanite_merchant = {
+					leave_court_and_die_effect = yes
+				}
+			}
+		}
+		ai_chance = { 
+			factor = 100
+		}
 	}
 
 }

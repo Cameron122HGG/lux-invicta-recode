@@ -1382,79 +1382,28 @@ character_event = {
 }
 
 # Family member marries foreign woman
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = REP.413
 	desc = EVTDESC_REP_413
 	picture = GFX_evt_marriage
-	portrait = event_target:dynasty_member
-
+	
 	is_triggered_only = yes
-
-	trigger = {
-		NOT = { culture = mande }
-
-		any_courtier = {
-			dynasty = ROOT
-			is_female = no
-			age >= 18
-			can_marry = yes
-			is_incapable = no
-			prisoner = no
-			is_primary_heir = no
-			is_pretender = no
-			is_ruler = no
-			ai = yes
-
-			NOR = {
-				is_child_of = ROOT
-				trait = chaste
-				trait = celibate
-				culture = mande
-			}
-		}
-	}
-
-	immediate = {
-		random_courtier_or_vassal = {
-			limit = {
-				dynasty = ROOT
-				is_female = no
-				age >= 18
-				can_marry = yes
-				is_incapable = no
-				prisoner = no
-				is_primary_heir = no
-				is_pretender = no
-				ai = yes
-
-				NOR = {
-					is_child_of = ROOT
-					trait = chaste
-					trait = celibate
-					culture = mande
-				}
-			}
-
-			save_event_target_as = dynasty_member
-		}
-
-		create_character = {
-			random_traits = yes
-			dynasty = none
-			female = yes
-			age = 26
-			religion = event_target:dynasty_member
-			culture = mande
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_REP_413
-
-		event_target:dynasty_member = {
-			show_scope_change = no
-
-			add_spouse = new_character
+		FROM = {
+			create_character = {
+				random_traits = yes
+				dynasty = NONE
+				female = yes
+				age = 26
+				religion = FROM
+				culture = serer
+			}
+			new_character = {
+				add_spouse = PREV
+			}
 		}
 	}
 }

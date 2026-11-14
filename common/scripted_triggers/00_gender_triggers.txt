@@ -7,13 +7,21 @@
 
 # preferred_gender_based_on_laws_trigger
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 gender_equality_trigger = {
 	OR = {
-		religion_is_feminist = yes
-		religion_is_equal_trigger = yes
-		has_law = status_of_women_4
-
-		# CleanSlate: Requires Conclave DLC
+		feminist_religions_trigger = yes
+		has_religion_feature = religion_equal
+		AND = {
+			is_landed = yes
+			primary_title = { 
+				has_law = status_of_women_4 
+			}
+		}
+		AND = {
+			is_landed = no
+			liege = { primary_title = { has_law = status_of_women_4 } }
+		}
 		has_game_rule = {
 			name = gender
 			value = all
@@ -43,6 +51,7 @@ male_can_hold_minor_title_trigger = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 female_can_hold_minor_title_trigger = {
 	trigger_if = {
 		limit = {
@@ -53,47 +62,49 @@ female_can_hold_minor_title_trigger = {
 				}
 			}
 		}
-
 		is_female = yes
-
 		OR = {
 			custom_tooltip = {
 				text = tooltip_feminist_liege_vanilla_religion
-
-				OR = {
-					religion = cathar
-					religion = messalian
-					religion = bogomilist
-					religion = mazdaki
+				AND = {
+					feminist_religions_trigger = yes
+					liege = { religion = ROOT }
 				}
-
-				religion = liege
 			}
-
 			custom_tooltip = {
 				text = tooltip_feminist_liege_religion_feature
-
-				OR = {
-					religion_is_matriarchal_trigger = yes
-					religion_is_equal_trigger = yes
-				}
-
-				liege = {
+				AND = {
 					OR = {
-						religion_is_matriarchal_trigger = yes
-						religion_is_equal_trigger = yes
+						has_religion_feature = religion_equal
+						has_religion_feature = religion_matriarchal
+					}
+					liege = {
+						has_religion_feature = religion_equal
+						has_religion_feature = religion_matriarchal
 					}
 				}
 			}
-
-			has_law = status_of_women_3
-			has_law = status_of_women_4
+			primary_title = {
+				OR = {
+					has_law = status_of_women_4 
+					has_law = status_of_women_3 
+				}
+			}
+			liege = {
+				primary_title = {
+					OR = {
+						has_law = status_of_women_4
+						has_law = status_of_women_3
+					}
+				}
+			}
 		}
 	}
 }
 
 # Currently only used under a custom tooltip, but need not be
 # TODO: Should probably replace trigger_ifs with custom tooltips
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 female_can_hold_minor_commander_title_trigger = {
 	trigger_if = {
 		limit = {
@@ -104,54 +115,45 @@ female_can_hold_minor_commander_title_trigger = {
 				}
 			}
 		}
-
 		is_female = yes
-
 		OR = {
 			has_character_flag = special_marshal
-
-			# TODO: Add custom tooltip here?
-			trigger_if = {
-				limit = {
-					OR = {
-						trait = shieldmaiden
-						is_member_of_any_warrior_lodge_trigger = yes
-					}
-				}
-
-				religion = liege
+			AND = {
+				trait = shieldmaiden
+				liege = { religion = ROOT }
 			}
-
+			AND = {
+				is_member_of_any_warrior_lodge_trigger = yes
+				liege = { religion = ROOT }
+			}
 			custom_tooltip = {
 				text = tooltip_feminist_liege_vanilla_religion
-
-				OR = {
-					religion = cathar
-					religion = messalian
-					religion = bogomilist
-					religion = mazdaki
+				AND = {
+					feminist_religions_trigger = yes
+					liege = { religion = ROOT }
 				}
-
-				religion = liege
 			}
-
 			custom_tooltip = {
 				text = tooltip_feminist_liege_religion_feature
-
-				OR = {
-					religion_is_matriarchal_trigger = yes
-					religion_is_equal_trigger = yes
-				}
-
-				liege = {
+				AND = {
 					OR = {
-						religion_is_matriarchal_trigger = yes
-						religion_is_equal_trigger = yes
+						has_religion_feature = religion_equal
+						has_religion_feature = religion_matriarchal
+					}
+					liege = {
+						has_religion_feature = religion_equal
+						has_religion_feature = religion_matriarchal
 					}
 				}
 			}
-
-			has_law = status_of_women_4
+			primary_title = {
+				has_law = status_of_women_4 
+			}
+			liege = {
+				primary_title = {
+					has_law = status_of_women_4
+				}
+			}
 		}
 	}
 }

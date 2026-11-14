@@ -3,528 +3,590 @@
 namespace = HF
 
 # on_five_years pulse handling the AI picking a Swaying target
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21998
-
-	is_triggered_only = yes # on_five_year_pulse
 	hide_window = yes
-
 	only_playable = yes
-	has_dlc = "Holy Fury"
+
 	ai = yes
-	only_capable = yes
-	prisoner = no
-	min_age = 16
 
 	trigger = {
+		has_dlc = "Holy Fury"
+		NOT = { trait = incapable }
+		prisoner = no
+		is_adult = yes
 		is_landed = yes
 		is_inaccessible_trigger = no
-
-		NOT = {
-			persistent_event_target:sway_target = {
+		NOT = {	
+			persistent_event_target:sway_target = {	
 				is_alive = yes
 			}
 		}
 	}
 
-	immediate = {
-		if = {
+	is_triggered_only = yes
+
+	immediate = { 
+		if = { 
 			limit = { persistent_event_target:sway_target = { always = yes } }
-
-			persistent_event_target:sway_target = {
-				clr_character_flag = flag_character_being_swayed
-			}
-
-			remove_special_interest = persistent_event_target:sway_target
+			persistent_event_target:sway_target = { clr_character_flag = flag_character_being_swayed } 
+			remove_special_interest = persistent_event_target:sway_target 
 		}
-
 		random_realm_character = {
-			limit = {
+			limit = { 
+				is_inaccessible_trigger = no
+				is_adult = yes
+				NOT = { trait = incapable }
 				OR = {
 					vassal_of = ROOT
 					is_heir = ROOT
-					has_job_title = yes
+					has_job_title = job_chancellor
+					has_job_title = job_marshal 
+					has_job_title = job_treasurer
+					has_job_title = job_spymaster
+					has_job_title = job_spiritual
 				}
-
-				is_adult = yes
-				is_inaccessible_trigger = no
-				is_incapable = no
-
-				trigger_if = {
-					limit = {
-						NOT = { religion_group = ROOT }
+				OR = {
+					religion_group = ROOT
+					AND = {
+						religion_group = abrahamic_group
+						ROOT = { trait = sympathy_abrahamics }
 					}
-
-					trigger_if = {
-						limit = { religion_group = christian }
+					AND = {
+						religion_group = anatolian_group
+						ROOT = { trait = sympathy_anatolians }
+					}
+					AND = {
+						religion_group = arabpagan_group
+						ROOT = { trait = sympathy_arabpagans }
+					}
+					AND = {
+						religion_group = aztec_group
+						ROOT = { trait = sympathy_aztecs }
+					}
+					AND = {
+						religion_group = baltic_group
+						ROOT = { trait = sympathy_baltics }
+					}
+					AND = {
+						religion_group = bantu_group
+						ROOT = { trait = sympathy_bantus }
+					}
+					AND = {
+						religion_group = berberpagan_group
+						ROOT = { trait = sympathy_berbers }
+					}
+					AND = {
+						religion_group = bud_group
+						ROOT = { trait = sympathy_buddhists }
+					}
+					AND = {
+						religion_group = celtic_group
+						ROOT = { trait = sympathy_celtics }
+					}
+					AND = {
+						religion_group = chinese_group
+						ROOT = { trait = sympathy_chinese }
+					}
+					AND = {
+						religion_group = christian
 						ROOT = { trait = sympathy_christendom }
 					}
-					trigger_else_if = {
-						limit = { religion_group = muslim }
-						ROOT = { trait = sympathy_islam }
+					AND = {
+						religion_group = east_african_group
+						ROOT = { trait = sympathy_east_africans }
 					}
-					trigger_else_if = {
-						limit = { religion_group = pagan_group }
-						ROOT = { trait = sympathy_pagans }
+					AND = {
+						religion_group = egyptian_group
+						ROOT = { trait = sympathy_egyptian }
 					}
-					trigger_else_if = {
-						limit = { religion_group = zoroastrian_group }
-						ROOT = { trait = sympathy_zoroastrianism }
+					AND = {
+						religion_group = finnish_group
+						ROOT = { trait = sympathy_finnish }
 					}
-					trigger_else_if = {
-						limit = { religion_group = jewish_group }
-						ROOT = { trait = sympathy_judaism }
+					AND = {
+						religion_group = graecoroman_group
+						ROOT = { trait = sympathy_graecoroman }
 					}
-					trigger_else = {
+					AND = {
 						religion_group = indian_group
 						ROOT = { trait = sympathy_indian }
 					}
-				}
-
-				NOR = {
-					has_opinion_modifier = {
-						name = opinion_rebuked_swayer_cooldown
-						who = ROOT
+					AND = {
+						religion_group = indohelen_group
+						ROOT = { trait = sympathy_indohellens }
 					}
-
+					AND = {
+						religion_group = inti_group
+						ROOT = { trait = sympathy_intis }
+					}
+					AND = {
+						religion_group = inuit_group
+						ROOT = { trait = sympathy_inuit }
+					}
+					AND = {
+						religion_group = jewish_group
+						ROOT = { trait = sympathy_judaism }
+					}
+					AND = {
+						religion_group = luwian_group
+						ROOT = { trait = sympathy_luwians }
+					}
+					AND = {
+						religion_group = mand_group
+						ROOT = { trait = sympathy_mande }
+					}
+					AND = {
+						religion_group = mani_group
+						ROOT = { trait = sympathy_manichaeans }
+					}
+					AND = {
+						religion_group = mithra_group
+						ROOT = { trait = sympathy_mithraics }
+					}
+					AND = {
+						religion_group = muslim
+						ROOT = { trait = sympathy_islam }
+					}
+					AND = {
+						religion_group = neoplato_group
+						ROOT = { trait = sympathy_platonics }
+					}
+					AND = {
+						religion_group = norsegerman_group
+						ROOT = { trait = sympathy_nordic }
+					}
+					AND = {
+						religion_group = pagan_group
+						ROOT = { trait = sympathy_pagans }
+					}
+					AND = {
+						religion_group = palmyranpagan_group
+						ROOT = { trait = sympathy_palmyrans }
+					}
+					AND = {
+						religion_group = serer_group
+						ROOT = { trait = sympathy_sererics }
+					}
+					AND = {
+						religion_group = slavic_group
+						ROOT = { trait = sympathy_slavics }
+					}
+					AND = {
+						religion_group = sol_group
+						ROOT = { trait = sympathy_sol }
+					}
+					AND = {
+						religion_group = tengri_group
+						ROOT = { trait = sympathy_tengri }
+					}
+					AND = {
+						religion_group = yazd_group
+						ROOT = { trait = sympathy_yazd }
+					}
+					AND = {
+						religion_group = zal_group
+						ROOT = { trait = sympathy_zal }
+					}
+					AND = {
+						religion_group = zoroastrian_group
+						ROOT = { trait = sympathy_zoroastrianism }
+					}
+				}
+				NOR = {
+					has_opinion_modifier = { who = ROOT modifier = opinion_rebuked_appeaser_cooldown }
 					is_lover = ROOT
 					is_rival = ROOT
 					is_friend = ROOT
 					has_character_flag = flag_character_being_swayed
 					has_character_flag = flag_character_being_antagonized
-
-					trigger_if = {
-						limit = { religion_group = pagan_group }
+					AND = {
+						religion_group = pagan_group
 						NOT = { religion = ROOT }
 						ROOT = { trait = zealous }
 					}
 				}
 			}
-
-			random = {
-				chance = 70
-
-				mult_modifier = {
-					factor = 3 # Vassal of player more likely to suck up to him.
-					ai = no
-					is_liege_of = ROOT
-				}
-
-				# Soft AI triggers
-				mult_modifier = {
-					factor = 0.5
-					lower_real_tier_than = DUKE
-				}
-
-				mult_modifier = {
-					factor = 0.5
-					lower_real_tier_than = COUNT
-				}
-
-				# Evil claimant to my title
-				mult_modifier = {
-					factor = 0.1
-					any_claim = { holder = ROOT }
-				}
-
-				# Trait modifiers
-				mult_modifier = {
-					factor = 0.25
-					ROOT = { trait = shy }
-				}
-
-				mult_modifier = {
-					factor = 3
-					ROOT = { trait = gregarious }
-				}
-
-				mult_modifier = {
-					factor = 3
-					ROOT = { trait = socializer }
-				}
-
-				mult_modifier = {
-					factor = 2
-					ROOT = { trait = hedonist }
-				}
-
-				mult_modifier = {
-					factor = 2
-					ROOT = { has_focus = focus_carousing }
-				}
-
-				mult_modifier = {
-					factor = 2
-					ROOT = {
-						has_focus = focus_family
-						is_close_relative = PREV
-					}
-				}
-
-				# Trait compatibility modifiers
-				mult_modifier = {
-					factor = 7
-
-					calc_true_if = {
-						amount >= 4
-
-						AND = {
-							trait = lustful
-							ROOT = { trait = lustful }
-						}
-
-						AND = {
-							trait = gluttonous
-							ROOT = { trait = gluttonous }
-						}
-
-						AND = {
-							trait = greedy
-							ROOT = { trait = greedy }
-						}
-
-						AND = {
-							trait = slothful
-							ROOT = { trait = slothful }
-						}
-
-						AND = {
-							trait = wroth
-							ROOT = { trait = wroth }
-						}
-
-						AND = {
-							trait = envious
-							ROOT = { trait = envious }
-						}
-
-						AND = {
-							trait = proud
-							ROOT = { trait = proud }
-						}
-
-						AND = {
-							trait = chaste
-							ROOT = { trait = chaste }
-						}
-
-						AND = {
-							trait = temperate
-							ROOT = { trait = temperate }
-						}
-
-						AND = {
-							trait = charitable
-							ROOT = { trait = charitable }
-						}
-
-						AND = {
-							trait = diligent
-							ROOT = { trait = diligent }
-						}
-
-						AND = {
-							trait = patient
-							ROOT = { trait = patient }
-						}
-
-						AND = {
-							trait = kind
-							ROOT = { trait = kind }
-						}
-
-						AND = {
-							trait = humble
-							ROOT = { trait = humble }
-						}
-
-						AND = {
-							trait = deceitful
-							ROOT = { trait = deceitful }
-						}
-
-						AND = {
-							trait = honest
-							ROOT = { trait = honest }
-						}
-
-						AND = {
-							trait = brave
-							ROOT = { trait = brave }
-						}
-
-						AND = {
-							trait = craven
-							ROOT = { trait = craven }
-						}
-
-						AND = {
-							trait = gregarious
-							ROOT = { trait = gregarious }
-						}
-
-						AND = {
-							trait = ambitious
-							ROOT = { trait = ambitious }
-						}
-
-						AND = {
-							trait = content
-							ROOT = { trait = content }
-						}
-
-						AND = {
-							trait = arbitrary
-							ROOT = { trait = arbitrary }
-						}
-
-						AND = {
-							trait = just
-							ROOT = { trait = just }
-						}
-
-						AND = {
-							trait = cynical
-							ROOT = { trait = cynical }
-						}
-
-						AND = {
-							trait = zealous
-							ROOT = { trait = zealous }
-						}
-
-						AND = {
-							trait = paranoid
-							ROOT = { trait = paranoid }
-						}
-
-						AND = {
-							trait = trusting
-							ROOT = { trait = trusting }
-						}
-
-						AND = {
-							trait = cruel
-							ROOT = { trait = cruel }
-						}
-
-						AND = {
-							trait = erudite
-							ROOT = { trait = erudite }
-						}
-
-						AND = {
-							trait = stubborn
-							ROOT = { trait = stubborn }
-						}
-
-						AND = {
-							trait = hedonist
-							ROOT = { trait = hedonist }
-						}
-
-						AND = {
-							trait = scholar
-							ROOT = { trait = scholar }
-						}
-
-						AND = {
-							trait = gardener
-							ROOT = { trait = gardener }
-						}
-
-						AND = {
-							trait = mystic
-							ROOT = { trait = mystic }
-						}
-
-						AND = {
-							trait = impaler
-							ROOT = { trait = impaler }
-						}
-
-						AND = {
-							trait = duelist
-							ROOT = { trait = duelist }
-						}
-
-						AND = {
-							trait = hunter
-							ROOT = { trait = hunter }
-						}
-
-						AND = {
-							trait = master_seducer
-							ROOT = { trait = master_seducer }
-						}
-
-						AND = {
-							trait = master_seductress
-							ROOT = { trait = master_seductress }
-						}
-
-						AND = {
-							trait = administrator
-							ROOT = { trait = administrator }
-						}
-
-						AND = {
-							trait = architect
-							ROOT = { trait = architect }
-						}
-
-						AND = {
-							trait = strategist
-							ROOT = { trait = strategist }
-						}
-
-						AND = {
-							trait = socializer
-							ROOT = { trait = socializer }
-						}
-
-						AND = {
-							trait = master_schemer
-							ROOT = { trait = master_schemer }
-						}
-
-						AND = {
-							trait = theologian
-							religion = ROOT
-							ROOT = { trait = theologian }
-						}
-
-						AND = {
-							trait = game_master
-							ROOT = { trait = game_master }
-						}
-					}
-				}
-
-				# Opinion modifiers
-				mult_modifier = {
-					factor = 1.25
-
-					reverse_opinion = {
-						who = ROOT
-						value >= 30
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.25
-
-					reverse_opinion = {
-						who = ROOT
-						value >= 50
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.5
-
-					reverse_opinion = {
-						who = ROOT
-						value >= 70
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.75
-
-					reverse_opinion = {
-						who = ROOT
-						value >= 100
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.5
-
-					opinion = {
-						who = ROOT
-						value < 0
-					}
-
-					reverse_opinion = {
-						who = ROOT
-						value >= 30
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.5
-
-					opinion = {
-						who = ROOT
-						value < -20
-					}
-
-					reverse_opinion = {
-						who = ROOT
-						value >= 30
-					}
-				}
-
-				mult_modifier = {
-					factor = 2
-
-					opinion = {
-						who = ROOT
-						value < -40
-					}
-
-					reverse_opinion = {
-						who = ROOT
-						value >= 30
-					}
-				}
-
-				mult_modifier = {
-					factor = 2
-
-					opinion = {
-						who = ROOT
-						value < -60
-					}
-
-					reverse_opinion = {
-						who = ROOT
-						value >= 30
-					}
-				}
-
-				mult_modifier = {
-					factor = 3
-
-					opinion = {
-						who = ROOT
-						value < -80
-					}
-
-					reverse_opinion = {
-						who = ROOT
-						value >= 30
-					}
-				}
-
-				ROOT = {
-					save_persistent_event_target = {
-						name = sway_target
-						scope = PREV
-					}
-
-					add_special_interest = {
-						who = persistent_event_target:sway_target
-						key = swaying_target_key
-					}
-
-					persistent_event_target:sway_target = {
-						set_character_flag = flag_character_being_swayed # Only used for AI weights
+			save_event_target_as = potential_swayed
+		}
+		if = { limit = { event_target:potential_swayed = { is_alive = yes } } #Prevent script asserts in case of no character being scoped to.
+		random = {
+			chance = 70
+			modifier = {
+				factor = 3 #Vassal of player more likely to suck up to him.
+				event_target:potential_antagonized = { vassal_of = ROOT ai = no }
+			}
+			#Soft AI triggers
+			modifier = {
+				factor = 0.5
+				event_target:potential_swayed = { lower_tier_than = DUKE }
+			}
+			modifier = {
+				factor = 0.5
+				event_target:potential_swayed = { lower_tier_than = COUNT }
+			}
+			#Evil claimant to my title.
+			modifier = {
+				factor = 0.1
+				event_target:potential_swayed = { 
+					any_claim = {
+						holder_scope = { character = ROOT }
 					}
 				}
 			}
+			#Trait modifiers
+			modifier = {
+				factor = 0.25
+				ROOT = { trait = shy }
+			}
+			modifier = {
+				factor = 3
+				ROOT = { trait = gregarious }
+			}
+			modifier = {
+				factor = 3
+				ROOT = { trait = socializer }
+			}
+			modifier = {
+				factor = 2
+				ROOT = { trait = hedonist }
+			}
+			modifier = {
+				factor = 2
+				ROOT = { has_focus = focus_carousing }
+			}
+			modifier = {
+				factor = 2
+				ROOT = { 
+					has_focus = focus_family
+					is_close_relative = event_target:potential_swayed
+				}
+			}
+			#Trait compatibility modifiers
+			modifier = {
+				factor = 7
+				calc_true_if = { 
+					amount = 4
+					event_target:potential_swayed = { 
+						trait = lustful
+						ROOT = { trait = lustful }
+					}
+					event_target:potential_swayed = { 
+						trait = gluttonous
+						ROOT = { trait = gluttonous }
+					}
+					event_target:potential_swayed = { 
+						trait = greedy
+						ROOT = { trait = greedy }
+					}
+					event_target:potential_swayed = { 
+						trait = slothful
+						ROOT = { trait = slothful }
+					}
+					event_target:potential_swayed = { 
+						trait = wroth
+						ROOT = { trait = wroth }
+					}
+					event_target:potential_swayed = { 
+						trait = envious
+						ROOT = { trait = envious }
+					}
+					event_target:potential_swayed = { 
+						trait = proud
+						ROOT = { trait = proud }
+					}
+					event_target:potential_swayed = { 
+						trait = chaste
+						ROOT = { trait = chaste }
+					}
+					event_target:potential_swayed = { 
+						trait = temperate
+						ROOT = { trait = temperate }
+					}
+					event_target:potential_swayed = { 
+						trait = charitable
+						ROOT = { trait = charitable }
+					}
+					event_target:potential_swayed = { 
+						trait = diligent
+						ROOT = { trait = diligent }
+					}
+					event_target:potential_swayed = { 
+						trait = patient
+						ROOT = { trait = patient }
+					}
+					event_target:potential_swayed = { 
+						trait = kind
+						ROOT = { trait = kind }
+					}
+					event_target:potential_swayed = { 
+						trait = humble
+						ROOT = { trait = humble }
+					}
+					event_target:potential_swayed = { 
+						trait = deceitful
+						ROOT = { trait = deceitful }
+					}
+					event_target:potential_swayed = { 
+						trait = honest
+						ROOT = { trait = honest }
+					}
+					event_target:potential_swayed = { 
+						trait = brave
+						ROOT = { trait = brave }
+					}
+					event_target:potential_swayed = { 
+						trait = craven
+						ROOT = { trait = craven }
+					}
+					event_target:potential_swayed = { 
+						trait = gregarious
+						ROOT = { trait = gregarious }
+					}
+					event_target:potential_swayed = { 
+						trait = ambitious
+						ROOT = { trait = ambitious }
+					}
+					event_target:potential_swayed = { 
+						trait = content
+						ROOT = { trait = content }
+					}
+					event_target:potential_swayed = { 
+						trait = arbitrary
+						ROOT = { trait = arbitrary }
+					}
+					event_target:potential_swayed = { 
+						trait = just
+						ROOT = { trait = just }
+					}
+					event_target:potential_swayed = { 
+						trait = cynical
+						ROOT = { trait = cynical }
+					}
+					event_target:potential_swayed = { 
+						trait = zealous
+						ROOT = { trait = zealous }
+					}
+					event_target:potential_swayed = { 
+						trait = paranoid
+						ROOT = { trait = paranoid }
+					}
+					event_target:potential_swayed = { 
+						trait = trusting
+						ROOT = { trait = trusting }
+					}
+					event_target:potential_swayed = { 
+						trait = cruel
+						ROOT = { trait = cruel }
+					}
+					event_target:potential_swayed = { 
+						trait = erudite
+						ROOT = { trait = erudite }
+					}
+					event_target:potential_swayed = { 
+						trait = stubborn
+						ROOT = { trait = stubborn }
+					}
+					event_target:potential_swayed = { 
+						trait = hedonist
+						ROOT = { trait = hedonist }
+					}
+					event_target:potential_swayed = { 
+						trait = scholar
+						ROOT = { trait = scholar }
+					}
+					event_target:potential_swayed = { 
+						trait = gardener
+						ROOT = { trait = gardener }
+					}
+					event_target:potential_swayed = { 
+						trait = mystic
+						ROOT = { trait = mystic }
+					}
+					event_target:potential_swayed = { 
+						trait = impaler
+						ROOT = { trait = impaler }
+					}
+					event_target:potential_swayed = { 
+						trait = duelist
+						ROOT = { trait = duelist }
+					}
+					event_target:potential_swayed = { 
+						trait = hunter
+						ROOT = { trait = hunter }
+					}
+					event_target:potential_swayed = { 
+						trait = master_seducer
+						ROOT = { trait = master_seducer }
+					}
+					event_target:potential_swayed = { 
+						trait = master_seductress
+						ROOT = { trait = master_seductress }
+					}
+					event_target:potential_swayed = { 
+						trait = administrator
+						ROOT = { trait = administrator }
+					}
+					event_target:potential_swayed = { 
+						trait = architect
+						ROOT = { trait = architect }
+					}
+					event_target:potential_swayed = { 
+						trait = strategist
+						ROOT = { trait = strategist }
+					}
+					event_target:potential_swayed = { 
+						trait = socializer
+						ROOT = { trait = socializer }
+					}
+					event_target:potential_swayed = { 
+						trait = master_schemer
+						ROOT = { trait = master_schemer }
+					}
+					event_target:potential_swayed = { 
+						trait = theologian
+						religion = ROOT
+						ROOT = { trait = theologian }
+					}
+					event_target:potential_swayed = { 
+						trait = game_master
+						ROOT = { trait = game_master }
+					}
+				}
+			}
+
+			#Opinion modifiers
+			modifier = {
+				factor = 1.25
+				ROOT = {
+					opinion = {
+						who = event_target:potential_swayed
+						value = 30
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				ROOT = {
+					opinion = {
+						who = event_target:potential_swayed
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				ROOT = {
+					opinion = {
+						who = event_target:potential_swayed
+						value = 70
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				ROOT = {
+					opinion = {
+						who = event_target:potential_swayed
+						value = 100
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				event_target:potential_swayed = {	
+					NOT = {
+						opinion = {
+							who = ROOT
+							value = 0
+						}
+					}
+				}
+				ROOT = {
+					opinion = {
+						who = event_target:potential_swayed
+						value = 30
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				event_target:potential_swayed = {
+					NOT = {
+						opinion = {
+							who = ROOT
+							value = -20
+						}
+					}
+				}
+				ROOT = {
+					opinion = {
+						who = event_target:potential_swayed
+						value = 30
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				event_target:potential_swayed = {
+					NOT = {
+						opinion = {
+							who = ROOT
+							value = -40
+						}
+					}
+				}
+				ROOT = {
+					opinion = {
+						who = event_target:potential_swayed
+						value = 30
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				event_target:potential_swayed = {
+					NOT = {
+						opinion = {
+							who = ROOT
+							value = -60
+						}
+					}
+				}
+				ROOT = {
+					opinion = {
+						who = event_target:potential_swayed
+						value = 30
+					}
+				}
+			}
+			modifier = {
+				factor = 3
+				event_target:potential_swayed = {
+					NOT = {
+						opinion = {
+							who = FROM
+							value = -80
+						}
+					}
+				}
+				ROOT = {
+					opinion = {
+						who = event_target:potential_swayed
+						value = 30
+					}
+				}
+			}
+			save_persistent_event_target = {
+				name = sway_target
+				scope = event_target:potential_swayed
+			}
+			add_special_interest = { who = persistent_event_target:sway_target key = swaying_target_key } 
+			persistent_event_target:sway_target = { set_character_flag = flag_character_being_swayed } #Only used for AI weights.
 		}
+		} #if
+		
 	}
 }
 
@@ -6915,538 +6977,1142 @@ character_event = {
 ## Kind event
 
 # Swayer: Kind-based options
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21076
-	portrait = persistent_event_target:sway_target
-
 	desc = {
 		text = EVTDESCAHFP21076
-		trigger = {
-			trait = gregarious
+		trigger = { 
 			NOT = { trait = kind }
+			trait = gregarious
 		}
 	}
 	desc = {
 		text = EVTDESCBHFP21076
-		trigger = { trait = kind }
+		trigger = { 
+			trait = kind
+		}
 	}
-
-	picture = {
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
 		picture = GFX_evt_daughter_asking_mother
-		trigger = { religion_is_matriarchal_trigger = yes }
 	}
-	picture = {
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
 		picture = GFX_evt_son_asking_father
-		trigger = { religion_is_matriarchal_trigger = no }
 	}
 
+	trigger = { 
+		FROM = { 
+			is_alive = yes 
+		} 
+	}
 	is_triggered_only = yes
 
-	option = { # Ask for friendship
+	option = { #Ask for friendship
 		name = EVTOPTAHFP21076
-
-		set_character_flag = flag_sway_kind_approach
-
-		persistent_event_target:sway_target = {
-			show_scope_change = no
-
-			character_event = {
-				id = HF.21077
-				tooltip = tooltip_21076_A
-			}
-		}
-
+		custom_tooltip = { text = tooltip_21076_A }
+		set_character_flag = flag_appease_kind_approach
 		tiered_prestige_negative_effect = yes
-
-		ai_chance = {
-			factor = 60
-
-			mult_modifier = {
+		hidden_tooltip = { FROM = { character_event = { id = HF.21077 } } }
+		ai_chance = { 
+			factor = 60 
+			modifier = {  
 				factor = 0.5
 				trait = proud
 			}
+
 		}
 	}
-
-	option = { # Inquire about health
+	option = { #Inquire about health
 		name = EVTOPTBHFP21076
-
 		trigger = {
-			persistent_event_target:sway_target = { is_ill = yes }
-			has_assigned_minor_title = title_court_physician
+			FROM = { is_ill = yes }
+			any_courtier_or_vassal = { has_minor_title = title_court_physician }
 		}
-
-		set_character_flag = flag_sway_kind_health
-
-		persistent_event_target:sway_target = {
-			show_scope_change = no
-
-			character_event = {
-				id = HF.21077
-				tooltip = tooltip_21076_B
-			}
+		custom_tooltip = { text = tooltip_21076_B } 
+		set_character_flag = flag_appease_kind_health
+		hidden_tooltip = { FROM = { character_event = { id = HF.21077 } } }
+		ai_chance = { 
+			factor = 40 
 		}
-
-		ai_chance = { factor = 40 }
 	}
-
-	option = { # Inquire about religion
+	option = { #Inquire about religion
 		name = EVTOPTCHFP21076
-
-		trigger = {
-			NOR = {
-				trait = zealous
-				religion = persistent_event_target:sway_target
-			}
+		trigger = { 
+			NOT = { trait = zealous }
+			FROM = { NOT = { religion = FROM } }
 		}
-
-		set_character_flag = flag_sway_kind_religion
-
-		persistent_event_target:sway_target = {
-			show_scope_change = no
-
-			character_event = {
-				id = HF.21077
-				tooltip = tooltip_21076_C
+		custom_tooltip = { text = tooltip_21076_C } 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				OR = { 
+					AND = {
+						FROM = { religion_group = abrahamic_group }
+						NOT = { trait = sympathy_abrahamics }
+					}
+					AND = {
+						FROM = { religion_group = anatolian_group }
+						NOT = { trait = sympathy_anatolians }
+					}
+					AND = {
+						FROM = { religion_group = arabpagan_group }
+						NOT = { trait = sympathy_arabpagans }
+					}
+					AND = {
+						FROM = { religion_group = aztec_group }
+						NOT = { trait = sympathy_aztecs }
+					}
+					AND = {
+						FROM = { religion_group = baltic_group }
+						NOT = { trait = sympathy_baltics }
+					}
+					AND = {
+						FROM = { religion_group = bantu_group }
+						NOT = { trait = sympathy_bantus }
+					}
+					AND = {
+						FROM = { religion_group = berberpagan_group }
+						NOT = { trait = sympathy_berbers }
+					}
+					AND = {
+						FROM = { religion_group = bud_group }
+						NOT = { trait = sympathy_buddhists }
+					}
+					AND = {
+						FROM = { religion_group = celtic_group }
+						NOT = { trait = sympathy_celtics }
+					}
+					AND = {
+						FROM = { religion_group = chinese_group }
+						NOT = { trait = sympathy_chinese }
+					}
+					AND = {
+						FROM = { religion_group = christian }
+						NOT = { trait = sympathy_christendom }
+					}
+					AND = {
+						FROM = { religion_group = east_african_group }
+						NOT = { trait = sympathy_east_africans }
+					}
+					AND = {
+						FROM = { religion_group = egyptian_group }
+						NOT = { trait = sympathy_egyptian }
+					}
+					AND = {
+						FROM = { religion_group = finnish_group }
+						NOT = { trait = sympathy_finnish }
+					}
+					AND = {
+						FROM = { religion_group = graecoroman_group }
+						NOT = { trait = sympathy_graecoroman }
+					}
+					AND = {
+						FROM = { religion_group = indian_group }
+						NOT = { trait = sympathy_indian }
+					}
+					AND = {
+						FROM = { religion_group = indohelen_group }
+						NOT = { trait = sympathy_indohellens }
+					}
+					AND = {
+						FROM = { religion_group = inti_group }
+						NOT = { trait = sympathy_intis }
+					}
+					AND = {
+						FROM = { religion_group = inuit_group }
+						NOT = { trait = sympathy_inuit }
+					}
+					AND = {
+						FROM = { religion_group = jewish_group }
+						NOT = { trait = sympathy_judaism }
+					}
+					AND = {
+						FROM = { religion_group = luwian_group }
+						NOT = { trait = sympathy_luwians }
+					}
+					AND = {
+						FROM = { religion_group = mand_group }
+						NOT = { trait = sympathy_mande }
+					}
+					AND = {
+						FROM = { religion_group = mani_group }
+						NOT = { trait = sympathy_manichaeans }
+					}
+					AND = {
+						FROM = { religion_group = mithra_group }
+						NOT = { trait = sympathy_mithraics }
+					}
+					AND = {
+						FROM = { religion_group = muslim }
+						NOT = { trait = sympathy_islam }
+					}
+					AND = {
+						FROM = { religion_group = neoplato_group }
+						NOT = { trait = sympathy_platonics }
+					}
+					AND = {
+						FROM = { religion_group = norsegerman_group }
+						NOT = { trait = sympathy_nordic }
+					}
+					AND = {
+						FROM = { religion_group = pagan_group }
+						NOT = { trait = sympathy_pagans }
+					}
+					AND = {
+						FROM = { religion_group = palmyranpagan_group }
+						NOT = { trait = sympathy_palmyrans }
+					}
+					AND = {
+						FROM = { religion_group = serer_group }
+						NOT = { trait = sympathy_sererics }
+					}
+					AND = {
+						FROM = { religion_group = slavic_group }
+						NOT = { trait = sympathy_slavics }
+					}
+					AND = {
+						FROM = { religion_group = sol_group }
+						NOT = { trait = sympathy_sol }
+					}
+					AND = {
+						FROM = { religion_group = tengri_group }
+						NOT = { trait = sympathy_tengri }
+					}
+					AND = {
+						FROM = { religion_group = yazd_group }
+						NOT = { trait = sympathy_yazd }
+					}
+					AND = {
+						FROM = { religion_group = zal_group }
+						NOT = { trait = sympathy_zal }
+					}
+					AND = {
+						FROM = { religion_group = zoroastrian_group }
+						NOT = { trait = sympathy_zoroastrianism }
+					}
+				} 
 			}
-
-			if = {
-				limit = {
-					NOT = { religion_group = ROOT }
-
-					trigger_if = {
-						limit = { religion_group = christian }
-						ROOT = { NOT = { trait = sympathy_christendom } }
-					}
-					trigger_else_if = {
-						limit = { religion_group = muslim }
-						ROOT = { NOT = { trait = sympathy_islam } }
-					}
-					trigger_else_if = {
-						limit = { religion_group = zoroastrian_group }
-						ROOT = { NOT = { trait = sympathy_zoroastrianism } }
-					}
-					trigger_else_if = {
-						limit = { religion_group = pagan_group }
-						ROOT = { NOT = { trait = sympathy_pagans } }
-					}
-					trigger_else_if = {
-						limit = { religion_group = jewish_group }
-						ROOT = { NOT = { trait = sympathy_judaism } }
-					}
-					trigger_else = {
-						religion_group = indian_group
-						ROOT = { NOT = { trait = sympathy_indian } }
-					}
-				}
-			}
-
-			custom_tooltip = { text = tooltip_21076_sympathy }
+			custom_tooltip = { text = tooltip_21076_sympathy } 
+		} 
+		set_character_flag = flag_appease_kind_religion
+		hidden_tooltip = { FROM = { character_event = { id = HF.21077 } } }
+		ai_chance = { 
+			factor = 40 
 		}
-
-		ai_chance = { factor = 40 }
 	}
-
-	option = { # No
+	option = { #No.
 		name = EVTOPTDHFP21076
-
 		ai_chance = { factor = 0 }
 	}
 }
 
 # Swayed: Kind swaying
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21077
-
 	desc = {
 		text = EVTDESCAHFP21077
-		trigger = { FROM = { has_character_flag = flag_sway_kind_approach } }
+		trigger = { 
+			FROM = { has_character_flag = flag_appease_kind_approach }
+		}
 	}
 	desc = {
 		text = EVTDESCBHFP21077
-		trigger = { FROM = { has_character_flag = flag_sway_kind_health } }
+		trigger = { 
+			FROM = { has_character_flag = flag_appease_kind_health }
+		}
 	}
 	desc = {
 		text = EVTDESCCHFP21077
-		trigger = { FROM = { has_character_flag = flag_sway_kind_religion } }
+		trigger = { 
+			FROM = { has_character_flag = flag_appease_kind_religion }
+		}
+	}
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
 	}
 
-	picture = {
-		picture = GFX_evt_daughter_asking_mother
-		trigger = { religion_is_matriarchal_trigger = yes }
-	}
-	picture = {
-		picture = GFX_evt_son_asking_father
-		trigger = { religion_is_matriarchal_trigger = no }
-	}
 
 	is_triggered_only = yes
 
-	option = { # Impressed
+	option = { #Impressed
 		name = {
 			text = EVTOPTAHFP21077_A
-			trigger = { FROM = { has_character_flag = flag_sway_kind_approach } }
+			trigger = {
+				FROM = { has_character_flag = flag_appease_kind_approach }
+			}
 		}
 		name = {
 			text = EVTOPTAHFP21077_B
-			trigger = { FROM = { has_character_flag = flag_sway_kind_health } }
+			trigger = {
+				FROM = { has_character_flag = flag_appease_kind_health }
+			}
 		}
 		name = {
 			text = EVTOPTAHFP21077_C
-			trigger = { FROM = { has_character_flag = flag_sway_kind_religion } }
-		}
-
-		if = {
-			limit = {
-				FROM = { has_character_flag = flag_sway_kind_approach }
+			trigger = {
+				FROM = { has_character_flag = flag_appease_kind_religion }
 			}
-
-			opinion = {
-				name = opinion_swayed_2
+		}
+		if = { 
+			limit = { 
+				FROM = { has_character_flag = flag_appease_kind_approach }
+			} 
+			opinion = {  
 				who = FROM
+				modifier = opinion_swayed_2
 				years = 10
 			}
 		}
-		else = {
-			opinion = {
-				name = opinion_swayed_1
+		if = { 
+			limit = { 
+				FROM = { has_character_flag = flag_appease_kind_health }
+			} 
+			custom_tooltip = { text = TOOLTIP_EVTOPTAHFP21077_B }
+			hidden_tooltip = { 
+				FROM = { 
+					random_courtier_or_vassal = { 
+						limit = { has_minor_title = title_court_physician }
+						character_event = { id = HF.21080 days = 1 } #Check physician
+					} 
+				} 
+			}
+		}
+		if = { 
+			limit = { 
+				FROM = { NOT = { has_character_flag = flag_appease_kind_approach } }
+			} 
+			opinion = {  
 				who = FROM
+				modifier = opinion_swayed_1
 				years = 5
 			}
 		}
-
-		if = {
-			limit = { FROM = { has_character_flag = flag_sway_kind_health } }
-
-			custom_tooltip = {
-				text = TOOLTIP_EVTOPTAHFP21077_B
-
-				FROM = {
-					random_courtier_or_vassal = {
-						limit = { has_minor_title = title_court_physician }
-
-						character_event = {
-							id = HF.21080 # Check physician
-							days = 1
-						}
-					}
-				}
-			}
+				if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_abrahamics }
+				FROM = { religion_group = abrahamic_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_abrahamics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_anatolians }
+				FROM = { religion_group = anatolian_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_anatolians }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_arabpagans }
+				FROM = { religion_group = arabpagan_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_arabpagans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_aztecs }
+				FROM = { religion_group = aztec_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_aztecs }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_baltics }
+				FROM = { religion_group = baltic_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_baltics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_bantus }
+				FROM = { religion_group = bantu_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_bantus }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_berbers }
+				FROM = { religion_group = berberpagan_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_berbers }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_buddhists }
+				FROM = { religion_group = bud_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_buddhists }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_celtics }
+				FROM = { religion_group = celtic_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_celtics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_chinese }
+				FROM = { religion_group = chinese_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_chinese }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_christendom }
+				FROM = { religion_group = christian }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_christendom }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_east_africans }
+				FROM = { religion_group = east_african_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_east_africans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_egyptian }
+				FROM = { religion_group = egyptian_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_egyptian }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_finnish }
+				FROM = { religion_group = finnish_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_finnish }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_graecoroman }
+				FROM = { religion_group = graecoroman_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_graecoroman }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_indian }
+				FROM = { religion_group = indian_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_indian }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_indohellens }
+				FROM = { religion_group = indohelen_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_indohellens }
 		}
-		else_if = {
-			limit = {
-				FROM = {
-					has_character_flag = flag_sway_kind_religion
-					NOT = { religion_group = ROOT }
-				}
-			}
-
-			random = {
-				chance = 30
-
-				if = {
-					limit = {
-						FROM = { religion_group = christian }
-						NOT = { trait = sympathy_christendom }
-					}
-
-					add_trait = sympathy_christendom
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = muslim }
-						NOT = { trait = sympathy_islam }
-					}
-
-					add_trait = sympathy_islam
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = pagan_group }
-						NOT = { trait = sympathy_pagans }
-					}
-
-					add_trait = sympathy_pagans
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = zoroastrian_group }
-						NOT = { trait = sympathy_zoroastrianism }
-					}
-
-					add_trait = sympathy_zoroastrianism
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = indian_group }
-						NOT = { trait = sympathy_indian }
-					}
-
-					add_trait = sympathy_indian
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = jewish_group }
-						NOT = { trait = sympathy_judaism }
-					}
-
-					add_trait = sympathy_judaism
-				}
-			}
-		}
-
-		FROM = {
-			character_event = {
-				id = HF.21078
-				days = 10
-			}
-		}
-
-		ai_chance = {
-			factor = 50
-
-			mult_modifier = {
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_intis }
+				FROM = { religion_group = inti_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			#random = { chance = 30 add_trait = sympathy_intis } # trait not in Lux Invicta (Holy Fury switched off)
+		} 		
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_inuit }
+				FROM = { religion_group = inuit_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_inuit }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_islam }
+				FROM = { religion_group = muslim }
+				
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_islam }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_judaism }
+				FROM = { religion_group = jewish_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_judaism }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_luwians }
+				FROM = { religion_group = luwian_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_luwians }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_mande }
+				FROM = { religion_group = mand_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_mande }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_manichaeans }
+				FROM = { religion_group = mani_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_manichaeans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_mithraics }
+				FROM = { religion_group = mithra_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_mithraics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_nordic }
+				FROM = { religion_group = norsegerman_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_nordic }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_pagans }
+				FROM = { religion_group = pagan_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_pagans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_palmyrans }
+				FROM = { religion_group = palmyranpagan_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_palmyrans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_platonics }
+				FROM = { religion_group = neoplato_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_platonics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_sererics }
+				FROM = { religion_group = serer_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_sererics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_slavics }
+				FROM = { religion_group = slavic_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_slavics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_sol }
+				FROM = { religion_group = sol_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_sol }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_tengri }
+				FROM = { religion_group = tengri_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_tengri }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_yazd }
+				FROM = { religion_group = yazd_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_yazd }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_zal }
+				FROM = { religion_group = zal_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_zal }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_zoroastrianism }
+				FROM = { religion_group = zoroastrian_group }
+				FROM = { has_character_flag = flag_appease_kind_religion_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_zoroastrianism }
+		}  
+		hidden_tooltip = { FROM = { character_event = { id = HF.21078 days = 10 } } }
+		ai_chance = { 
+			factor = 50 
+			modifier = {  
 				factor = 0.9
-				FROM = { trait = shy }
+				FROM = { 
+					trait = shy
+				}
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 1.1
-				FROM = { trait = gregarious }
+				FROM = { 
+					trait = gregarious
+				}
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 0.8
 				trait = paranoid
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 0.5
 				trait = cruel
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 0.5
 				trait = envious
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 1.75
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 1.25
 				trait = humble
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 1.25
 				trait = gregarious
 			}
 		}
 	}
-
-	option = { # Not impressed
+	option = { #Not impressed
 		name = {
 			text = EVTOPTBHFP21077_A
 			trigger = {
-				FROM = { has_character_flag = flag_sway_kind_approach }
+				FROM = { has_character_flag = flag_appease_kind_approach }
 			}
 		}
 		name = {
 			text = EVTOPTBHFP21077_B
 			trigger = {
-				FROM = { has_character_flag = flag_sway_kind_health }
+				FROM = { has_character_flag = flag_appease_kind_health }
 			}
 		}
 		name = {
 			text = EVTOPTBHFP21077_C
 			trigger = {
-				FROM = { has_character_flag = flag_sway_kind_religion }
+				FROM = { has_character_flag = flag_appease_kind_religion }
 			}
 		}
-
-		FROM = {
-			character_event = {
-				id = HF.21079
-				days = 10
-			}
-		}
-
-		ai_chance = {
+		hidden_tooltip = { FROM = { character_event = { id = HF.21079 days = 10 } } }
+		ai_chance = { 
 			factor = 30
-
-			# Physician's skill
-			mult_modifier = {
+			#Physician's skill
+			modifier = {  
 				factor = 0.5
-
 				NOT = { trait = trusting }
-
-				FROM = {
-					any_courtier_or_vassal = {
-						has_minor_title = title_court_physician
-						learning < 10
+				FROM = { 
+					any_courtier_or_vassal = { 
+						has_minor_title = title_court_physician 
+						NOT = { learning = 10 }
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 0.75
-
-				FROM = { has_character_flag = flag_sway_kind_religion }
 				trait = zealous
+				FROM = { has_character_flag = flag_appease_kind_religion }
 			}
-
-			mult_modifier = {
-				factor = 1.5 # Boring subject
-
-				FROM = { has_character_flag = flag_sway_kind_religion }
+			modifier = {  
+				factor = 1.5	#Boring subject
 				trait = cynical
+				FROM = { has_character_flag = flag_appease_kind_religion }
 			}
-
-			# Raw diplomacy
-			mult_modifier = {
+			#Raw diplomacy
+			modifier = {  
 				factor = 0.95
-				FROM = { diplomacy >= 10 }
+				FROM = { 
+					diplomacy = 10
+				}
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 0.9
-				FROM = { diplomacy >= 12 }
+				FROM = { 
+					diplomacy = 12
+				}
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 0.9
-				FROM = { diplomacy >= 15 }
+				FROM = { 
+					diplomacy = 15
+				}
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 0.75
-				FROM = { diplomacy >= 18 }
+				FROM = { 
+					diplomacy = 18
+				}
 			}
-
-			mult_modifier = {
+			modifier = {  
 				factor = 0.75
-				FROM = { diplomacy >= 20 }
+				FROM = { 
+					diplomacy = 20
+				}
 			}
 		}
 	}
 }
 
 # Swayer: Swayed was impressed by your present
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21078
-
 	desc = {
 		text = EVTDESCAHFP21078
-		trigger = { has_character_flag = flag_sway_kind_approach }
+		trigger = { 
+			has_character_flag = flag_appease_kind_approach
+		}
 	}
 	desc = {
 		text = EVTDESCBHFP21078
-		trigger = { has_character_flag = flag_sway_kind_health }
+		trigger = { 
+			has_character_flag = flag_appease_kind_health
+		}
 	}
 	desc = {
 		text = EVTDESCCHFP21078
-		trigger = { has_character_flag = flag_sway_kind_religion }
+		trigger = { 
+			has_character_flag = flag_appease_kind_religion
+		}
 	}
-
-	picture = {
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
 		picture = GFX_evt_daughter_asking_mother
-		trigger = { religion_is_matriarchal_trigger = yes }
 	}
-	picture = {
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
 		picture = GFX_evt_son_asking_father
-		trigger = { religion_is_matriarchal_trigger = no }
 	}
 
 	is_triggered_only = yes
 
-	option = {
+	option = { 
 		name = EVTOPTAHFP21078
-
-		tooltip = {
-			if = {
-				limit = { has_character_flag = flag_sway_kind_approach }
-
-				reverse_opinion = {
-					name = opinion_swayed_2
-					who = FROM
-					years = 10
-				}
-			}
-			else = {
-				reverse_opinion = {
-					name = opinion_swayed_1
-					who = FROM
-					years = 5
+		if = {  
+			limit = { has_character_flag = flag_appease_kind_approach }
+			tooltip = {  
+				FROM = {  
+				show_scope_change = no
+					opinion = {  
+						who = ROOT
+						modifier = opinion_swayed_2
+						years = 10
+					}
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_character_flag = flag_sway_kind_religion
-				NOT = { religion_group = ROOT }
+		if = {  
+			limit = { 
+				NOT = { has_character_flag = flag_appease_kind_approach } 
 			}
-
-			random = {
-				chance = 30
-
-				if = {
-					limit = {
-						FROM = { religion_group = christian }
-						NOT = { trait = sympathy_christendom }
+			tooltip = {  
+				FROM = {  
+				show_scope_change = no
+					opinion = {  
+						who = ROOT
+						modifier = opinion_swayed_1
+						years = 5
 					}
-
-					add_trait = sympathy_christendom
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = muslim }
-						NOT = { trait = sympathy_islam }
-					}
-
-					add_trait = sympathy_islam
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = pagan_group }
-						NOT = { trait = sympathy_pagans }
-					}
-
-					add_trait = sympathy_pagans
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = zoroastrian_group }
-						NOT = { trait = sympathy_zoroastrianism }
-					}
-
-					add_trait = sympathy_zoroastrianism
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = indian_group }
-						NOT = { trait = sympathy_indian }
-					}
-
-					add_trait = sympathy_indian
-				}
-				else_if = {
-					limit = {
-						FROM = { religion_group = jewish_group }
-						NOT = { trait = sympathy_judaism }
-					}
-
-					add_trait = sympathy_judaism
 				}
 			}
 		}
-
-		clr_character_flag = flag_sway_kind_approach
-		clr_character_flag = flag_sway_kind_health
-		clr_character_flag = flag_sway_kind_religion
+				if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_abrahamics }
+				FROM = { religion_group = abrahamic_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_abrahamics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_anatolians }
+				FROM = { religion_group = anatolian_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_anatolians }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_arabpagans }
+				FROM = { religion_group = arabpagan_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_arabpagans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_aztecs }
+				FROM = { religion_group = aztec_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_aztecs }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_baltics }
+				FROM = { religion_group = baltic_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_baltics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_bantus }
+				FROM = { religion_group = bantu_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_bantus }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_berbers }
+				FROM = { religion_group = berberpagan_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_berbers }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_buddhists }
+				FROM = { religion_group = bud_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_buddhists }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_celtics }
+				FROM = { religion_group = celtic_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_celtics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_chinese }
+				FROM = { religion_group = chinese_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_chinese }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_christendom }
+				FROM = { religion_group = christian }
+			} 
+			random = { chance = 30 add_trait = sympathy_christendom }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_east_africans }
+				FROM = { religion_group = east_african_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_east_africans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_egyptian }
+				FROM = { religion_group = egyptian_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_egyptian }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_finnish }
+				FROM = { religion_group = finnish_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_finnish }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_graecoroman }
+				FROM = { religion_group = graecoroman_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_graecoroman }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_indian }
+				FROM = { religion_group = indian_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_indian }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_indohellens }
+				FROM = { religion_group = indohelen_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_indohellens }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_intis }
+				FROM = { religion_group = inti_group }
+			} 
+			#random = { chance = 30 add_trait = sympathy_intis } # trait not in Lux Invicta (Holy Fury switched off)
+		}		
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_inuit }
+				FROM = { religion_group = inuit_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_inuit }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_islam }
+				FROM = { religion_group = muslim }
+				
+			} 
+			random = { chance = 30 add_trait = sympathy_islam }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_judaism }
+				FROM = { religion_group = jewish_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_judaism }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_luwians }
+				FROM = { religion_group = luwian_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_luwians }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_mande }
+				FROM = { religion_group = mand_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_mande }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_manichaeans }
+				FROM = { religion_group = mani_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_manichaeans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_mithraics }
+				FROM = { religion_group = mithra_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_mithraics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_nordic }
+				FROM = { religion_group = norsegerman_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_nordic }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_pagans }
+				FROM = { religion_group = pagan_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_pagans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_palmyrans }
+				FROM = { religion_group = palmyranpagan_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_palmyrans }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_platonics }
+				FROM = { religion_group = neoplato_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_platonics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_sererics }
+				FROM = { religion_group = serer_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_sererics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_slavics }
+				FROM = { religion_group = slavic_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_slavics }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_sol }
+				FROM = { religion_group = sol_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_sol }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_tengri }
+				FROM = { religion_group = tengri_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_tengri }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_yazd }
+				FROM = { religion_group = yazd_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_yazd }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_zal }
+				FROM = { religion_group = zal_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_zal }
+		} 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_zoroastrianism }
+				FROM = { religion_group = zoroastrian_group }
+			} 
+			random = { chance = 30 add_trait = sympathy_zoroastrianism }
+		} 
+		clr_character_flag = flag_appease_kind_approach
+		clr_character_flag = flag_appease_kind_health
+		clr_character_flag = flag_appease_kind_religion
+		ai_chance = { factor = 100 }
 	}
 }
 

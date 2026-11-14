@@ -122,47 +122,51 @@ character_event = {
 }
 
 # Decide on Burial
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HLF.8005
 	title = EVTNAME_HL_8005
 	picture = GFX_evt_shaman
-
 	desc = { # Father
+		trigger = {
+			has_character_flag = sky_burial_father
+		}
 		text = EVTDESC_HL_8005_father
-		trigger = { has_character_flag = sky_burial_father }
 	}
 	desc = { # Mother
+		trigger = {
+			has_character_flag = sky_burial_mother
+		}
 		text = EVTDESC_HL_8005_mother
-		trigger = { has_character_flag = sky_burial_mother }
 	}
 	desc = { # Brother
+		trigger = {
+			has_character_flag = sky_burial_brother
+		}
 		text = EVTDESC_HL_8005_brother
-		trigger = { has_character_flag = sky_burial_brother }
 	}
 	desc = { # Sister
+		trigger = {
+			has_character_flag = sky_burial_sister
+		}
 		text = EVTDESC_HL_8005_sister
-		trigger = { has_character_flag = sky_burial_sister }
 	}
 	desc = { # Any other predecessor
-		text = EVTDESC_HL_8005_other
 		trigger = {
-			NOR = {
-				has_character_flag = sky_burial_father
-				has_character_flag = sky_burial_brother
-				has_character_flag = sky_burial_mother
-				has_character_flag = sky_burial_sister
-			}
+			NOT = { has_character_flag = sky_burial_father }
+			NOT = { has_character_flag = sky_burial_brother }
+			NOT = { has_character_flag = sky_burial_mother }
+			NOT = { has_character_flag = sky_burial_sister }
 		}
+		text = EVTDESC_HL_8005_other
 	}
-
+	
 	is_triggered_only = yes
-
+	
 	option = { # Sky Burial
 		name = EVTOPTA_HL_8005
-
-		custom_tooltip = {
-			text = EVTOPTC_HL_8005_custom_tooltip_a
-
+		custom_tooltip = { text = EVTOPTC_HL_8005_custom_tooltip_a }
+		hidden_tooltip = {
 			random_list = {
 				25 = { character_event = { id = HLF.8006 days = 10 } }
 				25 = { character_event = { id = HLF.8008 days = 10 } }
@@ -170,75 +174,45 @@ character_event = {
 			}
 		}
 	}
-
 	option = { # Raise a Golden Tomb instead
 		name = EVTOPTB_HL_8005
-
-		trigger = { has_character_flag = sky_burial_tomb }
-
+		trigger = {
+			has_character_flag = sky_burial_tomb
+		}
 		wealth = -250
-
-		custom_tooltip = {
-			text = EVTOPTC_HL_8005_custom_tooltip_b
-
-			character_event = {
-				id = HLF.8020
-				days = 10
-			}
+		custom_tooltip = { text = EVTOPTC_HL_8005_custom_tooltip_b }
+		hidden_tooltip = {
+			character_event = { id = HLF.8020 days = 10 }
 		}
 	}
-
 	option = { # Lunatic option
 		name = EVTOPTC_HL_8005
-		tooltip_info = lunatic
-
 		trigger = {
 			trait = lunatic
-
-			c_anxi = {
-				holder_scope = {
-					OR = {
-						character = ROOT
-						is_vassal_or_below_of = ROOT
-					}
-				}
+			OR = {
+				has_landed_title = c_turpan #c_anxi
+				any_realm_character = { has_landed_title = c_turpan } #c_anxi }
 			}
 		}
-
-		custom_tooltip = {
-			text = EVTOPTC_HL_8005_custom_tooltip_c
-
-			character_event = {
-				id = HLF.8030
-				days = 20
-			}
+		tooltip_info = lunatic
+		custom_tooltip = { text = EVTOPTC_HL_8005_custom_tooltip_c }
+		hidden_tooltip = {
+			character_event = { id = HLF.8030 days = 20 }
 		}
 	}
-
 	option = { # Also for possessed
 		name = EVTOPTC_HL_8005
-		tooltip_info = possessed
-
 		trigger = {
 			trait = possessed
-
-			c_anxi = {
-				holder_scope = {
-					OR = {
-						character = ROOT
-						is_vassal_or_below_of = ROOT
-					}
-				}
+			OR = {
+				has_landed_title = c_turpan #c_anxi
+				any_realm_character = { has_landed_title = c_turpan }#c_anxi }
 			}
 		}
-
-		custom_tooltip = {
-			text = EVTOPTC_HL_8005_custom_tooltip_c
-
-			character_event = {
-				id = HLF.8030
-				days = 20
-			}
+		tooltip_info = possessed
+		custom_tooltip = { text = EVTOPTC_HL_8005_custom_tooltip_c }
+		hidden_tooltip = {
+			character_event = { id = HLF.8030 days = 20 }
 		}
 	}
 }

@@ -14,208 +14,254 @@ namespace = MNM
 ### JOINING & RECRUITMENT EVENTS ###
 
 # For Recruit: Do you approve of "alternative views"?
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
-	id = MNM.7001
-	picture = GFX_evt_shady_meeting
-	border = GFX_event_normal_frame_intrigue
+ 	id = MNM.7001
+ 	desc = {
+ 		trigger = {
+ 			NOT = {
+ 				has_character_flag = being_recruited_by_the_bacchants
+ 			}
+ 		}
+ 		text = EVTDESC_MNM_7001_A
+ 	}
+ 	desc = { #Zeus doesn't deal with Salvation.
+ 		trigger = {
+ 			has_character_flag = being_recruited_by_the_bacchants
+ 		}
+ 		text = EVTDESC_MNM_7001_B
+ 	}
+ 	picture = GFX_evt_shady_meeting
+ 	border = GFX_event_normal_frame_intrigue_LI
 
-	desc = {
-		text = EVTDESC_MNM_7001_A
-		trigger = {
-			NOT = { has_character_flag = being_recruited_by_the_bacchants }
-		}
-	}
-	desc = { # Zeus doesn't deal with Salvation.
-		text = EVTDESC_MNM_7001_B
-		trigger = { has_character_flag = being_recruited_by_the_bacchants }
-	}
+ 	is_triggered_only = yes
 
-	is_triggered_only = yes # devil_worshiper_recruit, mnm_devil_worshipers_decisions.txt; MNM.10011
+ 	prisoner = no
 
-	has_dlc = "Mystics"
-	prisoner = no
+ 	trigger = { has_dlc = Mystics }
 
-	immediate = {
-		save_event_target_as = satanists_recruit
-	}
+ 	immediate = {
+ 		if = {
+ 			limit = { NOT = { event_target:satanists_recruiter = { always = yes } } }
+ 			FROMFROM = { save_event_target_as = satanists_recruiter }
+ 		}
+ 		save_event_target_as = satanists_recruit
+ 	}
 
-	fail_trigger_effect = {
-		clr_character_flag = being_recruited_by_the_satanists
-		clr_character_flag = being_recruited_by_the_trollcrafters
-		clr_character_flag = being_recruited_by_the_cult_of_kali
-		clr_character_flag = being_recruited_by_the_cold_ones
-		clr_character_flag = being_recruited_by_the_plaguebringers
-		clr_character_flag = being_recruited_by_the_vodouns
-		clr_character_flag = being_recruited_by_the_bacchants
-	}
+ 	fail_trigger_effect = {
+ 		clr_character_flag = being_recruited_by_the_satanists
+ 		clr_character_flag = being_recruited_by_the_trollcrafters
+ 		clr_character_flag = being_recruited_by_the_cult_of_kali
+ 		clr_character_flag = being_recruited_by_the_neo_sarkites
+ 		clr_character_flag = being_recruited_by_the_plaguebringers
+ 		clr_character_flag = being_recruited_by_the_vodouns
+ 		clr_character_flag = being_recruited_by_the_bacchants
+ 	}
 
-	# Approving of heretics
-	option = {
-		name = {
-			text = EVTOPTA_7001 # If God didn't want us to ask questions, why did he make us curious?
-			trigger = {
-				NOT = { has_character_flag = being_recruited_by_the_bacchants }
-			}
-		}
-		name = {
-			text = EVTOPTA_7001_B
-			trigger = { has_character_flag = being_recruited_by_the_bacchants }
-		}
+ 	#Approving of heretics
+ 	option = {
+ 		name = {
+ 			text = EVTOPTA_7001 #If God didn't want us to ask questions, why did he make us curious?
+ 			trigger = {
+ 				NOT = {
+ 					has_character_flag = being_recruited_by_the_bacchants
+ 				}
+ 			}
+ 		}
+ 		name = {
+ 			text = EVTOPTA_7001_B
+ 			trigger = {
+ 				has_character_flag = being_recruited_by_the_bacchants
+ 			}
+ 		}
+ 		
+ 		trigger = {
+ 			OR = {
+ 				ai = no
+ 				NOT = { controls_religion = yes }
+ 				trait = bad_priest_christian
+ 				trait = bad_priest_muslim
+ 				trait = bad_priest_norse
+ 				trait = bad_priest_tengri
+ 				trait = bad_priest_zoroastrian
+ 				trait = bad_priest_aztec
+ 				trait = possessed
+ 			}
+ 		}
 
-		custom_tooltip = { text = EVTOPTA_7001_TT }
+ 		custom_tooltip = { text = EVTOPTA_7001_TT }
 
-		reverse_opinion = {
-			name = opinion_agreed_with_opinion
-			who = event_target:satanists_recruiter
-			years = 5
-		}
+ 		reverse_opinion = {
+ 			who = event_target:satanists_recruiter
+ 			modifier = opinion_agreed_with_opinion
+ 			years = 5
+ 		}
 
-		set_character_flag = approves_of_satanism
+ 		set_character_flag = approves_of_satanism
 
-		event_target:satanists_recruiter = {
-			character_event = { id = MNM.7002 days = 3 }
-		}
+ 		hidden_effect = { 
+ 			character_event = { id = MNM.6999 days = 3 } 
+ 		}
 
-		ai_chance = {
-			factor = 20
-
-			trigger = {
-				NOT = { trait = zealous }
-
-				trigger_if = {
-					limit = { controls_religion = yes }
-
-					OR = {
-						has_bad_priest_trait_trigger = yes
-						trait = possessed
+ 		ai_chance = {
+ 			factor = 20
+ 			modifier = {
+ 				factor = 0
+ 				trait = zealous
+ 			}
+ 			modifier = {
+ 				factor = 1.5
+ 				trait = trusting
+ 			}
+ 			modifier = {
+ 				factor = 50 #likely if "possessed"
+ 				has_opinion_modifier = { who = event_target:satanists_recruiter modifier = opinion_loyal_servant }
+ 			}
+ 			modifier = {
+ 				factor = 1.5
+ 				is_dumb_trigger = yes
+ 			}
+ 			modifier = {
+ 				factor = 1.5
+ 				OR = {
+ 					trait = bad_priest_christian
+ 					trait = bad_priest_muslim
+ 					trait = bad_priest_norse
+ 					trait = bad_priest_tengri
+ 					trait = bad_priest_zoroastrian
+ 					trait = bad_priest_aztec
+ 				}
+ 			}
+ 			modifier = {
+ 				factor = 1.5
+ 				trait = hedonist
+ 			}
+ 			modifier = {
+ 				factor = 1.5
+ 				trait = lustful
+ 			}
+ 			modifier = {
+ 				factor = 1.5
+ 				trait = cynical
+ 			}
+ 			modifier = {
+ 				factor = 1.75
+ 				has_character_flag = being_recruited_by_the_bacchants
+ 				culture = roman 	#Decadence
+ 			}
+ 			modifier = {
+ 				factor = 1.5
+ 				has_character_flag = being_recruited_by_the_bacchants
+ 				is_close_relative = FROM 	#Decadence
+ 			}
+ 			modifier = {
+ 				factor = 0.2
+ 				OR = {
+ 					AND = {
+ 						has_character_flag = being_recruited_by_the_satanists
+ 						true_religion_group_christian_trigger = no
+ 						true_religion_group_jewish_group_trigger = no
+ 					}
+					AND = {
+						has_character_flag = being_recruited_by_cult_of_angra_mainyu
+						true_religion_group_zoroastrian_group_trigger = no
 					}
-				}
-			}
-
-			mult_modifier = {
-				factor = 1.5
-				trait = trusting
-			}
-			mult_modifier = {
-				factor = 50 # likely if "possessed"
-				has_opinion_modifier = {
-					name = opinion_loyal_servant
-					who = event_target:satanists_recruiter
-				}
-			}
-			mult_modifier = {
-				factor = 1.5
-				is_dumb_trigger = yes
-			}
-			mult_modifier = {
-				factor = 1.5
-				has_bad_priest_trait_trigger = yes
-			}
-			mult_modifier = {
-				factor = 1.5
-				trait = hedonist
-			}
-			mult_modifier = {
-				factor = 1.5
-				trait = lustful
-			}
-			mult_modifier = {
-				factor = 1.5
-				trait = cynical
-			}
-			mult_modifier = {
-				factor = 1.75
-				has_character_flag = being_recruited_by_the_bacchants
-				culture = roman # Decadence
-			}
-			mult_modifier = {
-				factor = 1.5
-				has_character_flag = being_recruited_by_the_bacchants
-				is_close_relative = event_target:satanists_recruiter # Decadence
-			}
-			mult_modifier = {
-				factor = 0.2
-
-				trigger_if = {
-					limit = { has_character_flag = being_recruited_by_the_satanists }
-
-					NOR = {
-						true_religion_group = christian
-						true_religion_group = muslim
-						true_religion_group = jewish_group
-						true_religion_group = zoroastrian_group
+ 					AND = {
+ 						has_character_flag = being_recruited_by_the_trollcrafters
+ 						true_religion_group_norsegerman_group_trigger = no
+ 					}
+ 					AND = {
+ 						has_character_flag = being_recruited_by_the_cult_of_kali
+ 						true_religion_group_indian_group_trigger = no
+						NOR = {
+							religion = zor_hindu
+							religion = nasrani_reformed
+							religion = zz01_vedanta
+							secret_religion = zor_hindu
+							secret_religion = nasrani_reformed
+							secret_religion = zz01_vedanta
+						}
+ 					}
+					AND = {
+						has_character_flag = being_recruited_by_the_cult_of_balor
+						true_religion_group_celtic_group_trigger = no
 					}
-				}
-				trigger_else_if = {
-					limit = { has_character_flag = being_recruited_by_the_trollcrafters }
-					true_norse_religion_trigger = no
-				}
-				trigger_else_if = {
-					limit = { has_character_flag = being_recruited_by_the_cult_of_kali }
-					NOT = { true_religion = hindu }
-				}
-				trigger_else_if = {
-					limit = { has_character_flag = being_recruited_by_the_cold_ones }
-					true_baltic_religion_trigger = no
-					true_slavic_religion_trigger = no
-				}
-				trigger_else_if = {
-					limit = { has_character_flag = being_recruited_by_the_plaguebringers }
-					true_tengri_religion_trigger = no
-				}
-				trigger_else_if = {
-					limit = { has_character_flag = being_recruited_by_the_vodouns }
-					true_west_african_religion_trigger = no
-				}
-				trigger_else_if = {
-					limit = { has_character_flag = being_recruited_by_the_bacchants }
-					true_hellenic_religion_trigger = no
-				}
-			}
-		}
-	}
+					AND = {
+						has_character_flag = being_recruited_by_the_jinn
+						true_religion_group_muslim_trigger = no
+					}
+ 					AND = {
+ 						has_character_flag = being_recruited_by_the_neo_sarkites
+ 						gnostic_civilization_trigger = no
+ 					}
+ 					AND = {
+ 						has_character_flag = being_recruited_by_the_plaguebringers
+ 						true_religion_group_tengri_group_trigger = no
+ 					}
+					AND = {
+						has_character_flag = being_recruited_by_the_apepcult
+						archaic_civilization_trigger = no
+					}
+ 					AND = {
+ 						has_character_flag = being_recruited_by_the_vodouns
+ 						true_religion_group_berberpagan_group_trigger = no
+ 					}
+ 					AND = {
+ 						has_character_flag = being_recruited_by_the_bacchants
+ 						graecoroman_civilization_trigger = no
+ 						true_religion_group_graecoroman_group_trigger = no
+ 					}
+ 				}
+ 			}
+ 		}
+ 	}
 
-	# Disapproving of heretics
-	option = {
-		name = EVTOPTB_7001
+ 	#Disapproving of heretics
+ 	option = {
+ 		name = {
+ 			text = EVTOPTB_7001
+ 		}
+ 		
+ 		custom_tooltip = { text = EVTOPTB_7001_TT }
 
-		custom_tooltip = { text = EVTOPTB_7001_TT }
+ 		reverse_opinion = {
+ 			who = event_target:satanists_recruiter
+ 			modifier = opinion_disagreed_with_opinion
+ 			years = 5
+ 		}
 
-		event_target:satanists_recruiter = {
-			show_scope_change = no
+ 		set_character_flag = disapproves_of_satanism
 
-			character_event = { id = MNM.7002 days = 15 }
+ 		clr_character_flag = being_recruited_by_the_satanists
+ 		clr_character_flag = being_recruited_by_the_trollcrafters
+ 		clr_character_flag = being_recruited_by_the_cult_of_kali
+ 		clr_character_flag = being_recruited_by_the_neo_sarkites
+ 		clr_character_flag = being_recruited_by_the_plaguebringers
+ 		clr_character_flag = being_recruited_by_the_vodouns
+ 		clr_character_flag = being_recruited_by_the_bacchants
+		clr_character_flag = being_recruited_by_cult_of_angra_mainyu
+		clr_character_flag = being_recruited_by_the_cult_of_balor
+		clr_character_flag = being_recruited_by_the_apepcult
+		clr_character_flag = being_recruited_by_the_jinn
 
-			opinion = {
-				name = opinion_disagreed_with_opinion
-				who = ROOT
-				years = 5
-			}
-		}
+ 		hidden_effect = { 
+ 			event_target:satanists_recruiter = { 
+ 				character_event = { id = MNM.7002 days = 15 } 
+ 			} 
+ 		}
 
-		set_character_flag = disapproves_of_satanism
-
-		clr_character_flag = being_recruited_by_the_satanists
-		clr_character_flag = being_recruited_by_the_trollcrafters
-		clr_character_flag = being_recruited_by_the_cult_of_kali
-		clr_character_flag = being_recruited_by_the_cold_ones
-		clr_character_flag = being_recruited_by_the_plaguebringers
-		clr_character_flag = being_recruited_by_the_vodouns
-		clr_character_flag = being_recruited_by_the_bacchants
-
-		ai_chance = {
-			factor = 80
-
-			mult_modifier = {
-				factor = 1.5
-				has_pious_trait_trigger = yes
-			}
-			mult_modifier = {
-				factor = 1.5
-				has_crusade_trait_trigger = yes
-			}
-		}
-	}
+ 		ai_chance = {
+ 			factor = 80
+ 			modifier = {
+ 				factor = 1.5
+ 				has_pious_trait_trigger = yes
+ 			}
+ 			modifier = {
+ 				factor = 1.5
+ 				has_crusade_trait_trigger = yes
+ 			}
+ 		}
+ 	}
 }
 
 # For Recruit: Event notifying recruit that "Something must've gone wrong" (in case recruiter dies)

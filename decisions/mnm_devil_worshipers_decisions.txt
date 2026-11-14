@@ -1092,197 +1092,276 @@ targeted_decisions = {
 		}
 	}
 
-	devil_worshipers_induction = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+devil_worshipers_induction = {
+		is_in_society = yes
 		filter = court
 		ai_target_filter = court
 		ai_check_interval = 12
-
-		is_in_society = yes
-		# TODO: Should this be restricted to only_playable or are we fine with courtiers torturing their liege's prisoners?
-
+		
 		from_potential = {
 			is_devil_worshiper_trigger = yes
 			society_rank >= 2
-			is_inaccessible_trigger = no
-			is_incapable = no
-			prisoner = no
-
-			trigger_if = {
-				limit = { ai = yes }
-
-				trigger_if = {
-					limit = { society_member_of = the_satanists }
-
-					NOT = {
+			NOR = {
+				is_inaccessible_trigger = yes
+				prisoner = yes
+			}
+			OR = {
+				ai = no
+				NOR = {
+					AND = {
+						society_member_of = the_satanists
 						is_society_rank_full = {
 							society = the_satanists
 							rank = 1
 						}
 					}
-				}
-				trigger_else_if = {
-					limit = { society_member_of = the_cold_ones }
-
-					NOT = {
+					AND = {
+						society_member_of = the_neo_sarkites
 						is_society_rank_full = {
-							society = the_cold_ones
+							society = the_neo_sarkites
 							rank = 1
 						}
 					}
-				}
-				trigger_else_if = {
-					limit = { society_member_of = the_plaguebringers }
-
-					NOT = {
+					AND = {
+						society_member_of = the_plaguebringers
 						is_society_rank_full = {
 							society = the_plaguebringers
 							rank = 1
 						}
 					}
-				}
-				trigger_else_if = {
-					limit = { society_member_of = the_cult_of_kali }
-
-					NOT = {
+					AND = {
+						society_member_of = the_cult_of_kali
 						is_society_rank_full = {
 							society = the_cult_of_kali
 							rank = 1
 						}
 					}
-				}
-				trigger_else_if = {
-					limit = { society_member_of = the_trollcrafters }
-
-					NOT = {
+					AND = {
+						society_member_of = the_trollcrafters
 						is_society_rank_full = {
 							society = the_trollcrafters
 							rank = 1
 						}
 					}
-				}
-				trigger_else_if = {
-					limit = { society_member_of = the_vodouns }
-
-					NOT = {
+					AND = {
+						society_member_of = the_vodouns
 						is_society_rank_full = {
 							society = the_vodouns
 							rank = 1
 						}
 					}
-				}
-				trigger_else = {
-					society_member_of = the_bacchants
-
-					NOT = {
+					AND = {
+						society_member_of = the_bacchants
 						is_society_rank_full = {
 							society = the_bacchants
+							rank = 1
+						}
+					}
+					AND = {
+						society_member_of = the_cult_of_balor
+						is_society_rank_full = {
+							society = the_cult_of_balor
+							rank = 1
+						}
+					}
+					AND = {
+						society_member_of = cult_of_angra_mainyu
+						is_society_rank_full = {
+							society = cult_of_angra_mainyu
+							rank = 1
+						}
+					}
+					AND = {
+						society_member_of = arab_jinn_sorcerers
+						is_society_rank_full = {
+							society = arab_jinn_sorcerers
+							rank = 1
+						}
+					}
+					AND = {
+						society_member_of = cult_of_apep
+						is_society_rank_full = {
+							society = cult_of_apep
 							rank = 1
 						}
 					}
 				}
 			}
 		}
-
 		potential = {
 			ai = yes
 			prisoner = yes
-			is_adult = yes
-			is_incapable = no
-
-			trigger_if = {
-				limit = {
-					FROM = { society_member_of = the_satanists }
-				}
-
-				OR = {
-					religion_group = christian
-					religion_group = muslim
-					religion_group = zoroastrian_group
-					religion_group = jewish_group
-					religion_openly_zun_or_reformed_trigger = yes
-				}
+			age = 16
+			NOT = {
+				trait = incapable
 			}
-			trigger_else_if = {
-				limit = {
-					FROM = { society_member_of = the_cold_ones }
+			OR = {
+				AND = {
+					FROM = {
+						society_member_of = the_satanists
+					}
+					OR = {
+						religion_group = christian
+						religion_group = jewish_group
+						secret_religion_group = christian
+						secret_religion_group = jewish_group
+					}
 				}
-
-				OR = {
-					religion_openly_baltic_or_reformed_trigger = yes
-					religion_openly_slavic_or_reformed_trigger = yes
-					religion_openly_finnish_or_reformed_trigger = yes
+				AND = {
+					FROM = {
+						society_member_of = the_neo_sarkites
+					}
+					gnostic_civilization_trigger = yes
 				}
-			}
-			trigger_else_if = {
-				limit = {
-					FROM = { society_member_of = the_plaguebringers }
+				AND = {
+					FROM = {
+						society_member_of = the_plaguebringers
+					}
+					OR = {	
+						religion_openly_tengri_or_reformed_trigger = yes
+						secret_religion_group = tengri_group
+					}
+					NOT = {
+						religion = erlik
+					}
 				}
-
-				religion_openly_tengri_or_reformed_trigger = yes
-			}
-			trigger_else_if = {
-				limit = {
-					FROM = { society_member_of = the_cult_of_kali }
+				AND = {
+					FROM = {
+						society_member_of = the_cult_of_kali
+					}
+					OR = {
+						religion_group = indian_group
+						religion = zor_hindu
+						religion = nasrani_reformed
+						religion = zz01_vedanta
+						secret_religion_group = indian_group
+						secret_religion = zor_hindu
+						secret_religion = nasrani_reformed
+						secret_religion = zz01_vedanta
+					}
 				}
-
-				religion = hindu
-			}
-
-			trigger_else_if = {
-				limit = {
-					FROM = { society_member_of = the_trollcrafters }
+				AND = {
+					FROM = {
+						society_member_of = the_cult_of_balor
+					}
+					OR = {
+						religion_group = celtic_group
+						secret_religion_group = celtic_group
+					}
 				}
-
-				religion_openly_norse_or_reformed_trigger = yes
-			}
-			trigger_else_if = {
-				limit = {
-					FROM = { society_member_of = the_vodouns }
+				AND = {
+					FROM = {
+						society_member_of = cult_of_angra_mainyu
+					}
+					OR = {
+						AND = {
+							religion_group = zoroastrian_group
+							NOT = { religion = zor_angra }
+						}
+						secret_religion_group = zoroastrian_group
+					}
 				}
-
-				religion_openly_west_african_or_reformed_trigger = yes
-			}
-			trigger_else = {
-				FROM = { society_member_of = the_bacchants }
-
-				religion_openly_hellenic_or_reformed_trigger = yes
+				AND = {
+					FROM = {
+						society_member_of = the_trollcrafters
+					}
+					OR = {
+						religion_group = norsegerman_group
+						secret_religion_group = norsegerman_group
+					}
+				}
+				AND = {
+					FROM = {
+						society_member_of = arab_jinn_sorcerers
+					}
+					OR = {
+						religion_group = muslim
+						secret_religion_group = muslim
+					}
+				}
+				AND = {
+					FROM = {
+						society_member_of = cult_of_apep
+					}
+					archaic_civilization_trigger = yes
+				}
+				AND = {
+					FROM = {
+						society_member_of = the_vodouns
+					}
+					OR = {
+						religion_group = berberpagan_group
+						secret_religion_group = berberpagan_group
+					}
+				}
+				AND = {
+					FROM = {
+						society_member_of = the_bacchants
+					}
+					OR = {
+						graecoroman_civilization_trigger = yes
+						secret_religion = alexandros
+						secret_religion = cybele
+						secret_religion = dionysos
+						secret_religion = graeco_roman
+						secret_religion = indoh_bud
+						secret_religion = indoh_confucian
+						secret_religion = indoh_hindu
+						secret_religion = indoh_zor
+						secret_religion = indohelen
+						secret_religion = jupiter
+						secret_religion = mithra_sol
+						secret_religion = porphyryan
+						secret_religion = roman_imperial
+						secret_religion = sol
+						secret_religion = sol_apollo
+						secret_religion = sol_boreas
+						secret_religion = sol_christ
+						secret_religion = solomonic_alexandros
+						secret_religion = zal
+						secret_religion = zal_christ
+						secret_religion = zal_mani
+						secret_religion = cybele_reformed
+						secret_religion = graeco_roman_reformed
+						secret_religion = indohelen_reformed
+						secret_religion = isis_reformed
+						secret_religion = sol_boreas_reformed
+						secret_religion = sol_sahara_reformed
+						society_member_of = the_bacchants
+					}
+				}
 			}
 		}
 
 		allow = {
+			age = 16
 			FROM = { society_currency >= 25 }
-			is_adult = yes
 			NOT = { same_society_as = FROM }
 			NOT = { trait = zealous }
 			NOT = { has_character_modifier = recent_induction_attempt }
 		}
-
 		effect = {
-			save_event_target_as = dw_induction_target
-
 			FROM = {
-				show_scope_change = no
-
-				change_society_currency = -25
 				increase_visibility_minor_effect = yes
-				character_event = { id = MNM.7121 }
+				change_society_currency = -25
+				character_event = {
+					id = MNM.7121
+					days = 0
+				}
 			}
 		}
 
 		ai_will_do = {
 			factor = 1
-
-			trigger = {
-				NOT = { is_rival = FROM }
-
-				# Don't recruit unimportant unrelated characters
-				trigger_if = {
-					limit = {
-						NOT = { dynasty = FROM }
-					}
-
-					is_ruler = yes
-				}
+			modifier = {
+				is_rival = FROM
+				factor = 0
+			}
+			modifier = {
+				NOT = { dynasty = FROM }
+				is_ruler = no
+				factor = 0
 			}
 		}
 	}

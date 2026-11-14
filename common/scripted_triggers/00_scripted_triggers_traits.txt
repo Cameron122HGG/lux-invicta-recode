@@ -721,70 +721,124 @@ has_any_lifestyle_trait = {
 
 ## RELIGION ##
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_crusade_trait_trigger = {
-	trigger_if = {
-		limit = { religion_group = muslim }
-		trait = mujahid
-	}
-	trigger_else_if = {
-		limit = { religion_group = christian }
-
-		OR = {
-			trait = crusader
-			trait = crusader_king
-			trait = crusader_queen
+	OR = {
+		AND = {
+			LI_norse_pagan_trigger = yes
+			trait = valhalla_bound
 		}
-	}
-	trigger_else_if = {
-		limit = { religion_group = zoroastrian_group }
-		trait = gondi_shahansha
-	}
-	trigger_else_if = {
-		limit = { religion_group = jewish_group }
-		trait = kanai
-	}
-	trigger_else_if = {
-		limit = { religion_openly_norse_or_reformed_trigger = yes }
-		trait = valhalla_bound
-	}
-	trigger_else_if = {
-		limit = { religion_openly_tengri_or_reformed_trigger = yes }
-		trait = skylord
-	}
-	trigger_else_if = {
-		limit = { religion_openly_baltic_or_reformed_trigger = yes }
-		trait = hound_of_dievas
-	}
-	trigger_else_if = {
-		limit = { religion_openly_finnish_or_reformed_trigger = yes }
-		trait = ukkos_hammer
-	}
-	trigger_else_if = {
-		limit = { religion_openly_slavic_or_reformed_trigger = yes }
-		trait = peruns_chosen
-	}
-	trigger_else_if = {
-		limit = { religion_openly_west_african_or_reformed_trigger = yes }
-		trait = nyames_shield
-	}
-	trigger_else_if = {
-		limit = { religion_openly_bon_or_reformed_trigger = yes }
-		trait = kailash_guardian
-	}
-	trigger_else_if = {
-		limit = { religion_openly_zun_or_reformed_trigger = yes }
-		trait = sun_warrior
-	}
-	trigger_else_if = {
-		limit = { religion_openly_aztec_or_reformed_trigger = yes }
-		trait = eagle_knight
-	}
-	trigger_else_if = {
-		limit = { religion_openly_hellenic_or_reformed_trigger = yes }
-		trait = ares_own
-	}
-	trigger_else = {
-		always = no
+		AND = {
+			religion_group = tengri_group
+			trait = skylord
+		}
+		AND = {
+			religion_group = baltic_group
+			trait = hound_of_dievas
+		}
+		AND = {
+			religion_group = finnish_group
+			trait = ukkos_hammer
+		}
+		AND = {
+			religion = aztec
+			trait = eagle_knight
+		}
+		AND = {
+			religion_group = slavic_group
+			trait = peruns_chosen
+		}
+		AND = {
+			religion_group = serer_group
+			trait = nyames_shield
+		}
+		AND = {
+			religion_group = sol_group
+			trait = sun_warrior
+		}
+		AND = {
+			religion_group = graecoroman_group
+			trait = hetairos
+		}
+		AND = {
+			religion_group = muslim
+			trait = mujahid
+		}
+		AND = {
+			religion_group = christian
+			trait = crusader
+		}
+		AND = {
+			religion_group = zoroastrian_group
+			trait = gondi_shahansha
+		}
+		AND = {
+			religion_group = jewish_group
+			trait = kanai
+		}
+		AND = {
+			religion_group = mithra_group
+			trait = leo_mithras
+		}
+		AND = {
+			religion = cybele_reformed
+			trait = korybantes
+		}
+		AND = {
+			religion = ethiopian_war_reformed
+			trait = son_of_mahrem
+		}
+		AND = {
+			religion = almaqah
+			trait = mukarrib
+		}
+		AND = {
+			religion = zande_pagan_reformed
+			trait = azande
+		}
+		AND = {
+			religion = zulu_pagan_reformed
+			trait = induna
+		}
+		AND = {
+			religion = nyau
+			trait = nyau_akakairo
+		}
+		AND = {
+			religion = berber_pagan_reformed
+			trait = son_of_ifri
+		}
+		AND = {
+			OR = {
+				religion_group = bud_group
+				religion_group = chinese_group
+			}
+			trait = gongfu_warrior
+		}
+		AND = {
+			religion_group = zal_group
+			trait = dragon_knight
+		}
+		AND = {
+			religion = mani
+			trait = guardian_of_elect
+		}
+		AND = {
+			religion = mani_mithra
+			trait = seal_holder
+		}
+		AND = {
+			religion = ahriman_reformed
+			trait = warrior_of_light
+		}
+		AND = {
+			religion_group = egyptian_group
+			trait = medjay
+		}
+		AND = {
+			religion = murugan_reformed
+			trait = vel_wielder
+		}
 	}
 }
 
@@ -1317,14 +1371,44 @@ has_at_least_3_traits_opposite_prev_trigger = {
 	}
 }
 
-has_any_sympathy_trait_trigger = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+has_any_sympathy_trait_trigger = { 
 	OR = {
+		trait = sympathy_abrahamics
+		trait = sympathy_anatolians
+		trait = sympathy_arabpagans
+		trait = sympathy_aztecs
+		trait = sympathy_baltics
+		trait = sympathy_bantus
+		trait = sympathy_berbers
+		trait = sympathy_buddhists
+		trait = sympathy_celtics
+		trait = sympathy_chinese
 		trait = sympathy_christendom
-		trait = sympathy_islam
-		trait = sympathy_pagans
-		trait = sympathy_zoroastrianism
-		trait = sympathy_judaism
+		trait = sympathy_east_africans
+		trait = sympathy_egyptian
+		trait = sympathy_finnish
+		trait = sympathy_graecoroman
 		trait = sympathy_indian
+		trait = sympathy_indohellens
+		trait = sympathy_inuit
+		trait = sympathy_islam
+		trait = sympathy_judaism
+		trait = sympathy_luwians
+		trait = sympathy_mande
+		trait = sympathy_manichaeans
+		trait = sympathy_mithraics
+		trait = sympathy_nordic
+		trait = sympathy_pagans
+		trait = sympathy_palmyrans
+		trait = sympathy_platonics
+		trait = sympathy_sererics
+		trait = sympathy_slavics
+		trait = sympathy_sol
+		trait = sympathy_tengri
+		trait = sympathy_yazd
+		trait = sympathy_zal
+		trait = sympathy_zoroastrianism
 	}
 }
 

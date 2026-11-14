@@ -3902,62 +3902,196 @@ remove_trait_silently_zealous_effect = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 add_crusade_trait_effect = {
 	if = {
-		limit = { religion_group = muslim }
-		add_trait = mujahid
-	}
-	else_if = {
-		limit = { religion_group = christian }
-		add_trait = crusader
-	}
-	else_if = {
-		limit = { religion_openly_norse_or_reformed_trigger = yes }
+		limit = {
+			LI_norse_pagan_trigger = yes
+		}
 		add_trait = valhalla_bound
+		break = yes
 	}
-	else_if = {
-		limit = { religion_openly_tengri_or_reformed_trigger = yes }
+	if = {
+		limit = {
+			religion_group = tengri_group
+		}
 		add_trait = skylord
+		break = yes
 	}
-	else_if = {
-		limit = { religion_openly_finnish_or_reformed_trigger = yes }
-		add_trait = ukkos_hammer
-	}
-	else_if = {
-		limit = { religion_openly_slavic_or_reformed_trigger = yes }
-		add_trait = peruns_chosen
-	}
-	else_if = {
-		limit = { religion_openly_west_african_or_reformed_trigger = yes }
-		add_trait = nyames_shield
-	}
-	else_if = {
-		limit = { religion_openly_baltic_or_reformed_trigger = yes }
+	if = {
+		limit = {
+			religion_group = baltic_group
+		}
 		add_trait = hound_of_dievas
+		break = yes
 	}
-	else_if = {
-		limit = { religion_openly_bon_or_reformed_trigger = yes }
-		add_trait = kailash_guardian
+	if = {
+		limit = {
+			religion_group = finnish_group
+		}
+		add_trait = ukkos_hammer
+		break = yes
 	}
-	else_if = {
-		limit = { religion_openly_zun_or_reformed_trigger = yes }
-		add_trait = sun_warrior
-	}
-	else_if = {
-		limit = { religion_openly_aztec_or_reformed_trigger = yes }
+	if = {
+		limit = {
+			religion = aztec
+		}
 		add_trait = eagle_knight
+		break = yes
 	}
-	else_if = {
-		limit = { religion_openly_hellenic_or_reformed_trigger = yes }
-		add_trait = ares_own
+	if = {
+		limit = {
+			religion_group = slavic_group
+		}
+		add_trait = peruns_chosen
+		break = yes
 	}
-	else_if = {
-		limit = { religion_group = zoroastrian_group }
+	if = {
+		limit = {
+			religion_group = serer_group
+		}
+		add_trait = nyames_shield
+		break = yes
+	}
+	if = {
+		limit = {
+			religion_group = sol_group
+		}
+		add_trait = sun_warrior
+		break = yes
+	}
+	if = {
+		limit = {
+			religion_group = graecoroman_group
+		}
+		add_trait = hetairos
+		break = yes
+	}
+	if = {
+		limit = {
+			religion_group = muslim
+		}
+		add_trait = mujahid
+		break = yes
+	}
+	if = {
+		limit = {
+			religion_group = christian
+		}
+		add_trait = crusader
+		break = yes
+	}
+	if = {
+		limit = {
+			religion_group = zoroastrian_group
+		}
 		add_trait = gondi_shahansha
+		break = yes
 	}
-	else_if = {
-		limit = { religion_group = jewish_group }
+	if = {
+		limit = {
+			religion_group = jewish_group
+		}
 		add_trait = kanai
+	}
+	if = {
+		limit = {
+			religion_group = mithra_group
+		}
+		add_trait = leo_mithras
+	}
+	if = {
+		limit = {
+			religion = cybele_reformed
+		}
+		add_trait = korybantes
+	}
+	if = {
+		limit = {
+			religion = ethiopian_war_reformed
+		}
+		add_trait = son_of_mahrem
+	}
+	if = {
+		limit = {
+			religion = almaqah
+		}
+		add_trait = mukarrib
+	}
+	if = {
+		limit = {
+			religion = zande_pagan_reformed
+		}
+		add_trait = azande
+	}
+	if = {
+		limit = {
+			religion = zulu_pagan_reformed
+		}
+		add_trait = induna
+	}
+	if = {
+		limit = {
+			religion = nyau
+		}
+		add_trait = nyau_akakairo
+	}
+	if = {
+		limit = {
+			religion = berber_pagan_reformed
+		}
+		add_trait = son_of_ifri
+	}
+	if = {
+		limit = {
+			OR = {
+				religion_group = bud_group
+				religion_group = chinese_group
+			}
+		}
+		add_trait = gongfu_warrior
+	}
+	if = {
+		limit = {
+			religion_group = zal_group
+		}
+		add_trait = dragon_knight
+	}
+	if = {
+		limit = {
+			religion = mani
+		}
+		add_trait = guardian_of_elect
+	}
+	if = {
+		limit = {
+			religion = mani_mithra
+		}
+		add_trait = seal_holder
+	}
+	if = {
+		limit = {
+			religion = ahriman_reformed
+		}
+		add_trait = warrior_of_light
+	}
+	if = {
+		limit = {
+			religion_group = egyptian_group
+		}
+		add_trait = medjay
+	}
+	if = {
+		limit = {
+			religion = murugan_reformed
+		}
+		add_trait = vel_wielder
+	}
+	if = {
+		limit = {
+			religion = illuyanka_reformed
+		}
+		add_trait = serpent_warrior
 	}
 }
 
@@ -4071,44 +4205,44 @@ remove_lifestyle_trait_effect = {
 	remove_trait = game_master
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 add_ascetic_trait_effect = {
 	if = {
-		limit = {
-			OR = {
-				religion_group = pagan_group
-				religion_group = christian
-				is_alternate_start = yes
-			}
-		}
-
+		limit = { is_female = yes }
 		if = {
-			limit = { is_female = yes }
+			limit = { religion_group = christian }
 			add_trait = nun
 		}
-		else = {
-			add_trait = monk
+		if = {
+			limit = { religion = jain }
+			add_trait = aryika
+		}
+		if = {
+			limit = { religion_group = bud_group }
+			add_trait = bhikkhuni
+		}
+		if = {
+			limit = { religion_group = indian_group }
+			add_trait = sanyasini
 		}
 	}
-	else = {
+	if = {
+		limit = { is_female = no }
 		if = {
-			limit = { is_female = yes }
-
-			trigger_switch = {
-				on_trigger = religion
-
-				jain     = { add_trait = aryika }
-				buddhist = { add_trait = bhikkhuni }
-				hindu    = { add_trait = sanyasini }
-			}
+			limit = { religion_group = christian }
+			add_trait = monk
 		}
-		else = {
-			trigger_switch = {
-				on_trigger = religion
-
-				jain     = { add_trait = muni }
-				buddhist = { add_trait = bhikkhu }
-				hindu    = { add_trait = sanyasi }
-			}
+		if = {
+			limit = { religion = jain }
+			add_trait = muni
+		}
+		if = {
+			limit = { religion_group = bud_group }
+			add_trait = bhikkhu
+		}
+		if = {
+			limit = { religion_group = indian_group }
+			add_trait = sanyasi
 		}
 	}
 }

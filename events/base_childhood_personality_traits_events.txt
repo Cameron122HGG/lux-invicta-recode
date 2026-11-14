@@ -500,201 +500,181 @@ character_event = {
 
 # Event ID 2010-2019 is reserved for Temperate events
 # Fosterling is Temperate
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2010
 	desc = EVTDESC2010
 	picture = GFX_evt_child_play
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA2010 # Encourage
-
-		trigger_switch = {
-			on_trigger = trait
-
-			gluttonous = { prestige = -5 }
-			temperate = { prestige = 5 }
-		}
-
-		if = {
-			limit = { stewardship >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_stewardship = 1
-			}
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				add_trait = temperate
-			}
-
-			opinion = {
-				name = opinion_happy_with_guardian
-				who = ROOT
-				years = 2
-			}
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = temperate
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 4
 				trait = diligent
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 4
 				trait = celibate
 			}
 		}
-	}
+	
+		if = {
+			limit = { trait = gluttonous}
+			prestige = -5
+		}
+		if = {
+			limit = {
+				stewardship = 10
+			}
+			FROM = { change_stewardship = 1}
+		}
 
+		if = {
+			limit = {
+				trait = temperate				
+			}
+			prestige = 5
+		}
+		FROM = { 
+			tooltip = {
+				add_trait = temperate
+			}
+			opinion = {
+				modifier = opinion_happy_with_guardian
+				who = ROOT
+				years = 2
+			}
+		}
+	}
+	
 	option = {
 		name = EVTOPTB2010 # Hold up X as an example for the court!
-
 		trigger = {
 			any_courtier = {
 				trait = gluttonous
 			}
-
-			NOT = { trait = gluttonous }
+			NOT = { trait =  gluttonous}
 		}
-
-		if = {
-			limit = { stewardship >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_stewardship = 1
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 5
+				trait = temperate
+			}
+			modifier = {
+				factor = 10
+				trait = proud
 			}
 		}
-
+		if = {
+			limit = {
+				stewardship = 10
+			}
+			FROM = { change_stewardship = 1}
+		}
 		any_courtier = {
-			show_scope_change = no
-
-			limit = { trait = gluttonous }
-
+			limit = {
+				trait = gluttonous
+			}		
 			opinion = {
-				name = opinion_envy
+				modifier = opinion_envy
 				who = FROM
 				years = 5
 			}
 		}
-
 		FROM = {
-			show_scope_change = no
-
 			prestige = 5
-		}
-
-		ai_chance = {
-			factor = 10
-
-			mult_modifier = {
-				factor = 5
-				trait = temperate
-			}
-
-			mult_modifier = {
-				factor = 10
-				trait = proud
-			}
 		}
 	}
 
 	option = {
 		name = EVTOPTC2010 # Thank God for X's virtues!
-
 		trigger = {
 			NOR = {
 				trait = cynical
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
-		piety = 5
-
-		random = {
-			chance = 10
-
-			FROM = {
-				add_trait_fully_gluttonous_effect = yes
-			}
-
-			character_event = { id = 38177 } # Notify guardian
-		}
-
 		ai_chance = {
 			factor = 2
-
-			mult_modifier = {
+			modifier = {
 				factor = 150
 				trait = zealous
 			}
 		}
+		piety = 5
+		random = {
+			chance = 10
+			FROM = { 
+				add_trait = gluttonous
+				hidden_tooltip = { 
+					ROOT = { 
+						character_event = { 
+							id = 38177
+						}
+					}
+					character_event = { 
+						id = 38277 
+					} 
+				}
+			}
+		}		
 	}
-
+	
 	option = {
 		name = EVTOPTD2010 # He/She must learn to enjoy life!
-
 		trigger = {
-			NOT = { trait = temperate }
+			NOT = { trait =  temperate }
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				50 = {
-					add_trait_fully_gluttonous_effect = yes
-
-					ROOT = {
-						character_event = { id = 38177 } # Notify guardian
-					}
-				}
-
-				40 = {
-					tooltip = {
-						remove_trait = temperate
-					}
-
-					character_event = { id = 1511 }
-				}
-
-				10 = { }
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = gluttonous
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = slothful
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = hedonist
+			}
+		}
+		
+		FROM = { 
+			random_list = {
+				50 = {
+					add_trait = gluttonous
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+							id = 38177
+							}
+						}
+						character_event = {
+							id = 38277
+						}
+					}
+				}
+				40 = { 
+					remove_trait = temperate
+					hidden_tooltip = { 
+						character_event = {	
+							id = 1511
+						}
+					}
+				}
+				10 = {}
 			}
 		}
 	}
@@ -1178,206 +1158,185 @@ character_event = {
 
 # Event ID 2030-2039 is reserved for Charitable events #
 # Fosterling is Charitable
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2030
 	desc = EVTDESC2030
 	picture = GFX_evt_child_play
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA2030 # Encourage
-
-		trigger_switch = {
-			on_trigger = trait
-
-			greedy = { prestige = -5 }
-			charitable = { prestige = 5 }
-		}
-
-		if = {
-			limit = { diplomacy >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_diplomacy = 1
-			}
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				add_trait = charitable
-			}
-
-			opinion = {
-				name = opinion_happy_with_guardian
-				who = ROOT
-				years = 2
-			}
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = charitable
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 4
 				trait = diligent
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 4
 				trait = kind
 			}
 		}
-	}
+	
+		if = {
+			limit = { trait = greedy}
+			prestige = -5
+		}
+		if = {
+			limit = {
+				diplomacy = 10
+			}
+			FROM = { change_diplomacy = 1}
+		}
 
+		if = {
+			limit = {
+				trait = charitable				
+			}
+			prestige = 5
+		}		
+		FROM = {
+			tooltip = {
+				add_trait = charitable
+			}
+			opinion = {
+				modifier = opinion_happy_with_guardian
+				who = ROOT
+				years = 2
+			}
+		}
+	}
+	
 	option = {
 		name = EVTOPTB2030 # Hold up X as an example for the court!
-
 		trigger = {
 			any_courtier = {
 				trait = greedy
 			}
-
-			NOT = { trait = greedy }
+			NOT = { trait =  greedy }
 		}
-
-		if = {
-			limit = { diplomacy >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_diplomacy = 1
-			}
-		}
-
-		any_courtier = {
-			show_scope_change = no
-
-			limit = { trait = greedy }
-
-			opinion = {
-				name = opinion_envy
-				who = FROM
-				years = 5
-			}
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			prestige = 5
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = charitable
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 10
 				trait = proud
 			}
+		}
+		if = {
+			limit = {
+				diplomacy = 10
+			}
+			FROM = { change_diplomacy = 1}
+		}
+		any_courtier = {
+			limit = {
+				trait = greedy
+			}		
+			opinion = {
+				modifier = opinion_envy
+				who = FROM
+				years = 5
+			}
+			
+		}
+		FROM = {
+			prestige = 5
 		}
 	}
 
 	option = {
 		name = EVTOPTC2030 # Thank God for X's virtues!
-
 		trigger = {
 			NOR = {
 				trait = cynical
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
-		piety = 5
-
-		random = {
-			chance = 10
-
-			FROM = {
-				show_scope_change = no
-
-				add_trait_fully_greedy_effect = yes
-
-				ROOT = {
-					character_event = { id = 38152 } # Notify guardian
-				}
-			}
-		}
-
 		ai_chance = {
 			factor = 2
-
-			mult_modifier = {
+			modifier = {
 				factor = 150
 				trait = zealous
 			}
 		}
+		piety = 5
+		random = {
+			chance = 10
+			FROM = {
+				add_trait = greedy
+				hidden_tooltip = {
+					ROOT = {
+						character_event = {
+							id = 38152
+						}
+					}
+					character_event = { 
+						id = 38252
+					}
+				}
+			}
+		}		
 	}
-
+	
 	option = {
 		name = EVTOPTD2030 # Charity is for naive weaklings!
-
 		trigger = {
-			NOT = { trait = charitable }
+			NOT = { trait =  charitable}
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				50 = {
-					add_trait_fully_greedy_effect = yes
-
-					ROOT = {
-						character_event = { id = 38152 } # Notify guardian
-					}
-				}
-
-				40 = {
-					tooltip = {
-						remove_trait = charitable
-					}
-
-					character_event = { id = 1531 }
-				}
-
-				10 = { }
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = gluttonous
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = slothful
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = hedonist
 			}
+		}
+		
+		random_list = {
+			50 = {
+				FROM = {
+					add_trait = greedy
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38152
+							}
+						}
+						character_event = {
+							id = 38252
+						}
+					}
+				}
+			}
+			40 = {
+				FROM = {
+					remove_trait = charitable
+					hidden_tooltip = {
+						character_event = {
+							id = 1531
+						}
+					}
+				}
+			}
+			10 = { }
 		}
 	}
 }
@@ -1861,229 +1820,204 @@ character_event = {
 
 # Event ID 2050-2059 is reserved for Diligent events #
 # Fosterling is Diligent
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2050
 	desc = EVTDESC2050
 	picture = GFX_evt_child_play
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA2050 # Encourage
-
-		trigger_switch = {
-			on_trigger = trait
-
-			slothful = { prestige = -5 }
-			diligent = { prestige = 5 }
-		}
-
-		if = {
-			limit = {
-				learning >= 10
-
-				OR = {
-					diplomacy >= 12
-					martial >= 12
-					stewardship >= 12
-					intrigue >= 12
-				}
-			}
-
-			FROM = {
-				show_scope_change = no
-
-				random_list = {
-					10 = { change_diplomacy = 1 }
-					10 = { change_martial = 1 }
-					10 = { change_stewardship = 1 }
-					10 = { change_intrigue = 1 }
-				}
-			}
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				add_trait = diligent
-			}
-
-			opinion = {
-				name = opinion_happy_with_guardian
-				who = ROOT
-				years = 2
-			}
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = diligent
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = temperate
 			}
 		}
-	}
-
-	option = {
-		name = EVTOPTB2050 # Hold up X as an example for the court!
-
-		trigger = {
-			any_courtier = {
-				trait = slothful
+	
+		if = {
+			limit = { trait = slothful}
+			prestige = -5
+		}
+		if = {
+			limit = {
+				OR = {
+					diplomacy = 12
+					martial = 12
+					stewardship = 12
+					intrigue = 12
+				}
+				learning = 10
+				
 			}
-
-			NOT = { trait = slothful }
+			random_list = {
+				10 = { FROM = { change_diplomacy = 1 }}
+				10 = { FROM = { change_martial = 1 }}
+				10 = { FROM = { change_stewardship = 1 }}
+				10 = { FROM = { change_intrigue = 1 }}
+			}
 		}
 
 		if = {
 			limit = {
-				learning >= 10
-
-				OR = {
-					diplomacy >= 12
-					martial >= 12
-					stewardship >= 12
-					intrigue >= 12
-				}
+				trait = diligent			
 			}
-
-			FROM = {
-				show_scope_change = no
-
-				random_list = {
-					10 = { change_diplomacy = 1 }
-					10 = { change_martial = 1 }
-					10 = { change_stewardship = 1 }
-					10 = { change_intrigue = 1 }
-				}
+			prestige = 5
+		}		
+		FROM = {
+			tooltip = {
+				add_trait = diligent
+			}
+			opinion = {
+				modifier = opinion_happy_with_guardian
+				who = ROOT
+				years = 2
 			}
 		}
-
+	}
+	
+	option = {
+		name = EVTOPTB2050 # Hold up X as an example for the court!
+		trigger = {
+			any_courtier = {
+				trait = slothful
+			}
+			NOT = { trait =  slothful }
+		}
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 5
+				trait = diligent
+			}
+			modifier = {
+				factor = 10
+				trait = proud
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					diplomacy = 12
+					martial = 12
+					stewardship = 12
+					intrigue = 12
+				}
+				learning = 10
+				
+			}
+			random_list = {
+				10 = { FROM = { change_diplomacy = 1}}
+				10 = { FROM = { change_martial = 1}}
+				10 = { FROM = { change_stewardship = 1}}
+				10 = { FROM = { change_intrigue = 1}}
+			}
+		}
 		any_courtier = {
-			show_scope_change = no
-
-			limit = { trait = slothful }
-
+			limit = {
+				trait = slothful
+			}		
 			opinion = {
-				name = opinion_envy
+				modifier = opinion_envy
 				who = FROM
 				years = 5
 			}
 		}
-
 		FROM = {
-			show_scope_change = no
-
 			prestige = 5
-		}
-
-		ai_chance = {
-			factor = 10
-
-			mult_modifier = {
-				factor = 5
-				trait = diligent
-			}
-
-			mult_modifier = {
-				factor = 10
-				trait = proud
-			}
 		}
 	}
 
 	option = {
 		name = EVTOPTC2050 # Thank God for X's virtues!
-
 		trigger = {
 			NOR = {
 				trait = cynical
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
-		piety = 5
-
-		random = {
-			chance = 10
-
-			FROM = {
-				show_scope_change = no
-
-				add_trait_fully_slothful_effect = yes
-
-				ROOT = {
-					character_event = { id = 38151 } # Notify guardian
-				}
-			}
-		}
-
 		ai_chance = {
 			factor = 2
-
-			mult_modifier = {
+			modifier = {
 				factor = 150
 				trait = zealous
 			}
 		}
+		piety = 5
+		random = {
+			chance = 10
+			FROM = { 
+				add_trait = slothful
+				hidden_tooltip = { 
+					ROOT = { 
+						character_event = { 
+							id = 38151
+						}
+					}
+					character_event = { 
+						id = 38251
+					}
+				}
+			}
+		}		
 	}
-
+	
 	option = {
 		name = EVTOPTD2050 # The child needs to lighten up!
-
 		trigger = {
-			NOT = { trait = diligent }
+			NOT = { trait = diligent}
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				50 = {
-					add_trait_fully_slothful_effect = yes
-
-					ROOT = {
-						character_event = { id = 38151 } # Notify guardian
-					}
-				}
-
-				40 = {
-					tooltip = {
-						remove_trait = diligent
-					}
-
-					character_event = { id = 1551 }
-				}
-
-				10 = { }
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = gluttonous
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = slothful
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = hedonist
 			}
+		}
+		
+		random_list = {
+			50 = {
+				FROM = {
+					add_trait = slothful
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38151
+							}
+						}
+						character_event = {
+							id = 38251
+						}
+					}
+				}
+			}
+			40 = { 
+				FROM = {
+					remove_trait = diligent
+					hidden_tooltip = {
+						character_event = {	
+							id = 1551
+						}
+					}
+				}
+			}
+			10 = { }
 		}
 	}
 }
@@ -2603,208 +2537,183 @@ character_event = {
 
 # Event ID 2070-2079 is reserved for Kind events #
 # Fosterling is Kind
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2070
 	desc = EVTDESC2070
 	picture = GFX_evt_child_play
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA2070 # Encourage
-
-		trigger_switch = {
-			on_trigger = trait
-
-			envious = { prestige = -5 }
-			cruel = { prestige = -5 }
-			kind = { prestige = 5 }
-		}
-
-		if = {
-			limit = { diplomacy >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_diplomacy = 1
-			}
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				add_trait = kind
-			}
-
-			opinion = {
-				name = opinion_happy_with_guardian
-				who = ROOT
-				years = 2
-			}
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 4
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = charitable
 			}
 		}
-	}
+		
+		if = {
+			limit = { trait = envious}
+			prestige = -5
+		}
+		if = {
+			limit = {
+				diplomacy = 10
+			}
+			FROM = { change_diplomacy = 1}
+		}
 
+		if = {
+			limit = {
+				trait = kind
+			}
+			prestige = 5
+		}
+		FROM = {
+			tooltip = {
+				add_trait = kind
+			}
+			opinion = {
+				modifier = opinion_happy_with_guardian
+				who = ROOT
+				years = 2
+			}
+		}	
+	}
+	
 	option = {
 		name = EVTOPTB2070 # Hold up X as an example for the court!
-
 		trigger = {
 			any_courtier = {
 				trait = envious
 			}
-
-			NOT = { trait = envious }
+			NOT = { trait =  envious }
 		}
-
-		if = {
-			limit = { diplomacy >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_diplomacy = 1
-			}
-		}
-
-		any_courtier = {
-			show_scope_change = no
-
-			limit = { trait = envious }
-
-			opinion = {
-				name = opinion_envy
-				who = FROM
-				years = 5
-			}
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			prestige = 5
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 10
 				trait = proud
 			}
 		}
+		if = {
+			limit = {
+				diplomacy = 10
+			}
+			change_diplomacy = 1
+		}
+		any_courtier = {
+			limit = {
+				trait = envious
+			}		
+			opinion = {
+				modifier = opinion_envy
+				who = FROM
+				years = 5
+			}
+		}
+		FROM = {
+			prestige = 5
+		}
 	}
-
+	
 	option = {
 		name = EVTOPTC2070 # Thank God for X's virtues!
-
 		trigger = {
 			NOR = {
 				trait = cynical
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
-		piety = 5
-
-		FROM = {
-			show_scope_change = no
-
-			random = {
-				chance = 10
-
-				add_trait_fully_envious_effect = yes
-
-				ROOT = {
-					character_event = { id = 38171 } # Notify guardian
-				}
-			}
-		}
-
 		ai_chance = {
 			factor = 2
-
-			mult_modifier = {
+			modifier = {
 				factor = 150
 				trait = zealous
 			}
 		}
-	}
-
+		piety = 5
+		FROM = {
+			random_list = {
+				90 = { }
+				10 = {
+					add_trait = envious
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38171
+							}
+						}
+						character_event = {
+							id = 38271
+						}
+					}
+				}
+			}
+		}		
+	}	
 	option = {
 		name = EVTOPTD2070 # Discourage
-
 		trigger = {
 			NOT = { trait = kind }
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				50 = {
-					add_trait_fully_envious_effect = yes
-
-					ROOT = {
-						character_event = { id = 38171 } # Notify guardian
-					}
-				}
-
-				40 = {
-					tooltip = {
-						remove_trait = kind
-					}
-
-					character_event = { id = 1571 }
-				}
-
-				10 = { }
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = envious
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = arbitrary
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = greedy
 			}
 		}
+		FROM = {
+			random_list = {
+				50 = {
+					add_trait = envious
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38171
+							}
+						}
+						character_event = {
+							id = 38271
+						}
+					}
+				}
+				40 = {
+					remove_trait = kind
+					hidden_tooltip = {
+						character_event = {
+							id = 1571
+						}
+					}
+				}
+				10 = { }
+			}
+		}		
 	}
 }
 
@@ -3264,209 +3173,185 @@ character_event = {
 
 # Event ID 2090-2099 is reserved for Patient events #
 # Fosterling is Patient
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2090
 	desc = EVTDESC2090
 	picture = GFX_evt_child_play
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA2090 # Encourage
-
-		trigger_switch = {
-			on_trigger = trait
-
-			wroth = { prestige = -5 }
-			patient = { prestige = 5 }
-		}
-
-		if = {
-			limit = { intrigue >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_intrigue = 1
-			}
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				add_trait = patient
-			}
-
-			opinion = {
-				name = opinion_happy_with_guardian
-				who = ROOT
-				years = 2
-			}
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 4
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 6
 				trait = patient
 			}
 		}
-	}
+		
+		if = {
+			limit = { trait = wroth}
+			prestige = -5
+		}
+		if = {
+			limit = {
+				intrigue = 10
+			}
+			FROM = { change_intrigue = 1}
+		}
 
+		if = {
+			limit = {
+				trait = patient			
+			}
+			prestige = 5
+		}
+		FROM = {
+			tooltip = {
+				add_trait = patient
+			}
+			opinion = {
+				modifier = opinion_happy_with_guardian
+				who = ROOT
+				years = 2
+			}
+		}
+	}
+	
+	
 	option = {
 		name = EVTOPTB2090 # Hold up X as an example for the court!
-
 		trigger = {
 			any_courtier = {
 				trait = wroth
 			}
-
 			NOT = { trait = wroth }
 		}
-
-		if = {
-			limit = { intrigue >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_intrigue = 1
-			}
-		}
-
-		any_courtier = {
-			show_scope_change = no
-
-			limit = { trait = wroth }
-
-			opinion = {
-				name = opinion_envy
-				who = FROM
-				years = 5
-			}
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			prestige = 5
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = patient
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 10
 				trait = proud
 			}
 		}
+		if = {
+			limit = {
+				intrigue = 10
+			}
+			change_intrigue = 1
+		}
+		any_courtier = {
+			limit = {
+				trait = wroth
+			}		
+			opinion = {
+				modifier = opinion_envy
+				who = FROM
+				years = 5
+			}
+			
+		}
+		FROM = {
+			prestige = 5
+		}
 	}
-
+	
 	option = {
 		name = EVTOPTC2090 # Thank God for X's virtues!
-
 		trigger = {
 			NOR = {
 				trait = cynical
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
-		piety = 5
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				90 = { }
-
-				10 = {
-					add_trait_fully_wroth_effect = yes
-
-					ROOT = {
-						character_event = { id = 38154 } # Notify guardian
-					}
-				}
-			}
-		}
-
 		ai_chance = {
 			factor = 2
-
-			mult_modifier = {
+			modifier = {
 				factor = 150
 				trait = zealous
 			}
 		}
-	}
-
+		piety = 5
+		FROM = {
+			random_list = {
+				90 = { }
+				10 = {	 
+					add_trait = wroth
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38154
+							}
+						}
+						character_event = {
+							id = 38254
+						}
+					}
+				}
+			}
+		}		
+	}	
 	option = {
 		name = EVTOPTD2090 # Discourage
-
 		trigger = {
 			NOT = { trait = patient }
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				50 = {
-					add_trait_fully_wroth_effect = yes
-
-					ROOT = {
-						character_event = { id = 38154 } # Notify guardian
-					}
-				}
-
-				40 = {
-					tooltip = {
-						remove_trait = patient
-					}
-
-					character_event = { id = 1591 }
-				}
-
-				10 = { }
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = envious
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = arbitrary
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 10
 				trait = wroth
 			}
 		}
+		FROM = {
+			random_list = {
+				50 = { 
+					add_trait = wroth
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38154
+							}
+						} 
+						character_event = {
+							id = 38254
+						}
+					}
+				}
+				40 = { 
+					remove_trait = patient 
+					hidden_tooltip = { 
+						character_event = {	
+							id = 1591
+						}
+					}
+				}
+				10 = { }
+			}
+		}		
 	}
 }
 
@@ -3926,143 +3811,146 @@ character_event = {
 
 # Event ID 2110-2119 is reserved for Humble events #
 # Fosterling is Humble
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2110
 	desc = EVTDESC2110
 	picture = GFX_evt_child_play
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA2110 # Encourage
-
-		trigger_switch = {
-			on_trigger = trait
-
-			proud = { prestige = -5 }
-			humble = { prestige = 5 }
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				add_trait = humble
-			}
-
-			opinion = {
-				name = opinion_happy_with_guardian
-				who = ROOT
-				years = 2
-			}
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = humble
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = content
 			}
 		}
+		if = {
+			limit = { trait = proud}
+			prestige = -5
+		}
+		if = {
+			limit = {
+				trait = humble
+			}
+			prestige = 5
+		}		
+		FROM = {
+			tooltip = {
+				add_trait = humble
+			}
+			opinion = {
+				modifier = opinion_happy_with_guardian
+				who = ROOT
+				years = 2
+			}
+		}	
 	}
-
+	
 	option = {
 		name = EVTOPTB2110 # Thank God for X's virtues!
-
 		trigger = {
 			NOR = {
 				trait = cynical
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
-		piety = 5
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				80 = { }
-
-				10 = {
-					add_trait_fully_proud_effect = yes
-
-					ROOT = {
-						character_event = { id = 38161 } # Notify guardian
-					}
-				}
-
-				10 = {
-					add_trait_fully_wroth_effect = yes
-
-					ROOT = {
-						character_event = { id = 38154 } # Notify guardian
-					}
-				}
-			}
-		}
-
 		ai_chance = {
 			factor = 2
-
-			mult_modifier = {
+			modifier = {
 				factor = 150
 				trait = zealous
 			}
 		}
-	}
-
+		piety = 5
+		random_list = {
+			80 = { }
+			10 = { 
+				FROM = { 
+					add_trait = proud
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38161
+							}
+						}
+						character_event = {
+							id = 38261
+						}
+					}
+				}
+			}
+			10 = { 
+				FROM = { 
+				add_trait = wroth
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38154
+							}
+						}
+						character_event = {
+							id = 38254
+						}
+					}
+				}
+			}
+		}		
+	}	
 	option = {
 		name = EVTOPTC2110 # Discourage
-
 		trigger = {
 			NOT = { trait = proud }
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				50 = {
-					add_trait_fully_proud_effect = yes
-
-					ROOT = {
-						character_event = { id = 38161 } # Notify guardian
-					}
-				}
-
-				40 = {
-					tooltip = {
-						remove_trait = humble
-					}
-
-					character_event = { id = 1611 }
-				}
-
-				10 = { }
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = proud
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = ambitious
 			}
+
 		}
+		
+		random_list = {
+			50 = {
+				FROM = { 
+					add_trait = proud
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38161
+							}
+						}
+						character_event = {
+							id = 38261
+						}
+					}
+				}
+			}
+			40 = { 
+				FROM = { 
+					remove_trait = humble
+					hidden_tooltip = {
+						character_event = {
+							id = 1611
+						}
+					}
+				}
+			}
+			10 = { }
+		}		
 	}
 }
 
@@ -5690,197 +5578,184 @@ character_event = {
 
 # Event ID 2170-2179 is reserved for Shy events #
 # Fosterling is Shy
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2170
 	desc = EVTDESC2170
 	picture = GFX_evt_child_play
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA2170 # Encourage
-
-		trigger_switch = {
-			on_trigger = trait
-
-			gregarious = { prestige = -5 }
-			shy = { prestige = 5 }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 4
+				trait = shy
+			}
+			modifier = {
+				factor = 2
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 0
+				trait = gregarious
+			}
+			modifier = {
+				factor = 0
+				trait = proud
+			}			
 		}
-
+		
+		if = {
+			limit = {
+				trait = gregarious
+			}
+			prestige = -5
+		}
+		if = {
+			limit = {
+				trait = shy			
+			}
+			prestige = 5
+		}
 		FROM = {
-			show_scope_change = no
-
 			tooltip = {
 				add_trait = shy
 			}
-
 			opinion = {
-				name = opinion_happy_with_guardian
+				modifier = opinion_happy_with_guardian
 				who = ROOT
 				years = 2
 			}
 		}
-
-		ai_chance = {
-			factor = 10
-
-			trigger = {
-				NOR = {
-					trait = gregarious
-					trait = proud
-				}
-			}
-
-			mult_modifier = {
-				factor = 4
-				trait = shy
-			}
-
-			mult_modifier = {
-				factor = 2
-				trait = humble
-			}
-
-			mult_modifier = {
-				factor = 2
-				trait = content
-			}
-		}
 	}
-
+	
 	option = {
 		name = EVTOPTB2170 # Birch Him!
-
 		trigger = {
-			NOR = {
-				trait = kind
-				trait = shy
-			}
+			NOT = { trait = kind }
+			NOT = { trait = shy }
 		}
-
-		pacifists_lose_piety_effect = yes
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				60 = { }
-
-				40 = {
-					tooltip = {
-						remove_trait = shy
-					}
-
-					character_event = { id = 1671 }
-				}
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			trigger = {
-				NOT = { trait = shy }
-			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = cruel
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = wroth
 			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+		}
+		
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+		random_list = {
+			60 = { }
+			40 = { 
+				FROM = { 
+					remove_trait = shy
+					hidden_tooltip = {
+						character_event = {
+							id = 1671
+						}
+					}
+				}
+			}
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTC2170 # Talk to him
-
+		name = EVTOPTC2170 # Talk to him 
 		trigger = {
 			NOT = { trait = shy }
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				50 = {
-					add_trait_fully_gregarious_effect = yes
-
-					ROOT = {
-						character_event = { id = 38165 } # Notify guardian
-					}
-				}
-
-				40 = {
-					tooltip = {
-						remove_trait = shy
-					}
-
-					character_event = { id = 1671 }
-				}
-
-				10 = { }
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 20
 				trait = temperate
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 10
 				trait = diligent
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 10
 				trait = celibate
 			}
 		}
-	}
-
+		
+		random_list = {
+			50 = {
+				FROM = {
+					add_trait = gregarious
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38165
+							}
+						} 
+						character_event = { 
+							id = 38265
+						}
+					}
+				}
+			}
+			40 = { 
+				FROM = { 
+					remove_trait = shy
+					hidden_tooltip = {
+						character_event = {	
+							id = 1671
+						}
+					} 
+				}
+			}
+			10 = { }
+		}
+	}	
 	option = {
 		name = EVTOPTD2170 # Pray God will give her strength.
-
 		trigger = {
 			NOR = {
 				trait = cynical
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
-		piety = 5
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				80 = { }
-
-				20 = {
-					tooltip = {
-						remove_trait = shy
-					}
-
-					character_event = { id = 1671 }
-				}
-			}
-		}
-
 		ai_chance = {
 			factor = 2
-
-			mult_modifier = {
+			modifier = {
 				factor = 150
 				trait = zealous
+			}
+		}
+		piety = 5
+		random_list = {
+			80 = { }
+			20 = {	
+				FROM = {
+					remove_trait = shy
+					hidden_tooltip = { 
+						character_event = {
+							id = 1671
+						}
+					}
+				}
 			}
 		}
 	}
@@ -6030,211 +5905,190 @@ character_event = {
 
 # Event ID 2180-2189 is reserved for Gregarious events #
 # Fosterling is Gregarious
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2180
 	desc = EVTDESC2180
 	picture = GFX_evt_child_play
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA2180 # Encourage
-
-		trigger_switch = {
-			on_trigger = trait
-
-			shy = { prestige = -5 }
-			gregarious = { prestige = 5 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 5
+				trait = gregarious
+			}
+			modifier = {
+				factor = 4
+				trait = proud
+			}
+			modifier = {
+				factor = 4
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+		}
+	
+		if = {
+			limit = { trait = shy}
+			prestige = -5
+		}
+		if = {
+			limit = {
+				diplomacy = 10
+			}
+			FROM = { change_diplomacy = 1}
 		}
 
 		if = {
-			limit = { diplomacy >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_diplomacy = 1
+			limit = {
+				trait = gregarious			
 			}
-		}
-
+			prestige = 5
+		}		
 		FROM = {
-			show_scope_change = no
-
 			tooltip = {
 				add_trait = gregarious
 			}
-
 			opinion = {
-				name = opinion_happy_with_guardian
+				modifier = opinion_happy_with_guardian
 				who = ROOT
 				years = 2
 			}
 		}
-
-		ai_chance = {
-			factor = 10
-
-			trigger = {
-				NOT = { trait = shy }
-			}
-
-			mult_modifier = {
-				factor = 5
-				trait = gregarious
-			}
-
-			mult_modifier = {
-				factor = 4
-				trait = proud
-			}
-
-			mult_modifier = {
-				factor = 4
-				trait = ambitious
-			}
-		}
 	}
-
+	
 	option = {
 		name = EVTOPTB2180 # Hold up X as an example for the court!
-
 		trigger = {
 			any_courtier = {
 				trait = shy
 			}
-
 			NOT = { trait = shy }
 		}
-
-		if = {
-			limit = { diplomacy >= 10 }
-
-			FROM = {
-				show_scope_change = no
-
-				change_diplomacy = 1
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 10
+				trait = proud
 			}
 		}
-
+		if = {
+			limit = {
+				diplomacy = 10
+			}
+			FROM = { change_diplomacy = 1}
+		}
 		any_courtier = {
-			show_scope_change = no
-
-			limit = { trait = shy }
-
+			limit = {
+				trait = shy
+			}		
 			opinion = {
-				name = opinion_envy
+				modifier = opinion_envy
 				who = FROM
 				years = 5
 			}
 		}
-
 		FROM = {
-			show_scope_change = no
-
 			prestige = 5
-		}
-
-		ai_chance = {
-			factor = 10
-
-			trigger = {
-				NOT = { trait = shy }
-			}
-
-			mult_modifier = {
-				factor = 10
-				trait = proud
-			}
 		}
 	}
 
 	option = {
 		name = EVTOPTC2180 # Thank God for X's virtues!
-
 		trigger = {
 			NOR = {
 				trait = cynical
-				religion = buddhist
+				religion_group = bud_group
 				religion = jain
 			}
 		}
-
-		piety = 5
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				90 = { }
-
-				10 = {
-					add_trait_fully_shy_effect = yes
-
-					ROOT = {
-						character_event = { id = 38163 } # Notify guardian
-					}
-				}
-			}
-		}
-
 		ai_chance = {
 			factor = 2
-
-			mult_modifier = {
+			modifier = {
 				factor = 150
 				trait = zealous
 			}
 		}
+		piety = 5
+		random_list = {
+			90 = { }
+			10 = {
+				FROM = { 
+					add_trait = shy
+					hidden_tooltip = {
+						ROOT = { 
+							character_event = {
+								id = 38163
+							}
+						} 
+						character_event = {
+							id = 38263
+						}
+					}
+				}
+			}
+		}		
 	}
-
+	
 	option = {
 		name = EVTOPTD2180 # discourage
-
 		trigger = {
 			NOT = { trait = temperate }
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			random_list = {
-				50 = {
-					add_trait_fully_shy_effect = yes
-
-					ROOT = {
-						character_event = { id = 38163 } # Notify guardian
-					}
-				}
-
-				40 = {
-					tooltip = {
-						remove_trait = gregarious
-					}
-
-					character_event = { id = 1681 }
-				}
-
-				10 = { }
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = shy
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = humble
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = honest
 			}
+		}
+		
+		random_list = {
+			50 = { 
+				FROM = { 
+					add_trait = shy
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 38163
+							}
+						}
+						character_event = {
+							id = 38263
+						}
+					}
+				}
+			}
+			40 = { 
+				FROM = { 
+					remove_trait = gregarious
+					hidden_tooltip = {
+						character_event = {
+							id = 1681
+						}
+					}
+				}
+			}
+			10 = { }
 		}
 	}
 }
@@ -13550,133 +13404,118 @@ character_event = {
 }
 
 # Female Child is playing with swords instead of sewing
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 1921
-	desc = EVTDESC1921
-	picture = GFX_evt_child_play
-
-	is_triggered_only = yes # on_yearly_childhood_pulse, random_events
-
+	desc = "EVTDESC1921"
+	picture = "GFX_evt_child_play"
+	
+	min_age = 6
+	max_age = 16
 	only_women = yes
 	lacks_dlc = "Conclave"
-	prisoner = no
-	only_capable = yes
 
+	is_triggered_only = yes
+	
 	trigger = {
 		has_guardian = yes
-		personality_traits < 5
-
-		NOR = {
+		NOT = {
 			trait = brave
+		}
+		NOT = {
 			trait = humble
+		}
+		NOT = {
 			trait = just
+		}
+		NOT = {
 			trait = wounded
-			has_character_flag = is_child_of_destiny
 		}
+		NOT = { has_character_flag = is_child_of_destiny }
 	}
-
+	
 	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
+		days = 1
+		modifier = {
+			feminist_religions_trigger = yes
 			factor = 3
-			religion = cathar
 		}
-
-		mult_modifier = {
-			factor = 0.8
+		modifier = {
 			trait = clubfooted
-		}
-
-		mult_modifier = {
-			factor = 0.9
-			trait = harelip
-		}
-
-		mult_modifier = {
-			factor = 0.7
-			trait = hunchback
-		}
-
-		mult_modifier = {
-			factor = 0.95
-			trait = lisp
-		}
-
-		mult_modifier = {
-			factor = 0.95
-			trait = stutter
-		}
-
-		mult_modifier = {
 			factor = 0.8
-			has_fair_trait_trigger = yes
 		}
-
-		mult_modifier = {
-			factor = 1.25
-			has_ugly_trait_trigger = yes
-		}
-
-		mult_modifier = {
+		modifier = {
+			trait = harelip
 			factor = 0.9
+		}
+		modifier = {
+			trait = hunchback
+			factor = 0.7
+		}
+		modifier = {
+			trait = lisp
+			factor = 0.95
+		}
+		modifier = {
+			trait = stutter
+			factor = 0.95
+		}
+		modifier = {
+			has_fair_trait_trigger = yes
+			factor = 0.8
+		}
+		modifier = {
+			has_ugly_trait_trigger = yes
+			factor = 1.25
+		}
+		modifier = {
 			trait = dwarf
-		}
-
-		mult_modifier = {
-			factor = 1.05
+			factor = 0.9
+		}		
+		modifier = {
 			trait = genius
-		}
-
-		mult_modifier = {
 			factor = 1.05
-
+		}
+		modifier = {
 			OR = {
 				trait = quick
 				trait = shrewd
 			}
-		}
-
-		mult_modifier = {
-			factor = 0.95
-
+			factor = 1.05
+		}	
+		modifier = {
 			OR = {
 				trait = slow
 				trait = dull
 			}
+			factor = 0.95
 		}
-
-		mult_modifier = {
-			factor = 0.5
+		
+		modifier = {
 			trait = imbecile
+			factor = 0.5
 		}
-
-		mult_modifier = {
-			factor = 0.05
+		modifier = {
 			trait = inbred
-		}
-
-		mult_modifier = {
-			factor = 5.0
-			is_strong_trigger = yes
-		}
-
-		mult_modifier = {
 			factor = 0.05
-			is_weak_trigger = yes
 		}
+		modifier = {
+			is_strong_trigger = yes
+			factor = 5.0
+		}
+		modifier = {
+			is_weak_trigger = yes
+			factor = 0.05
+		}	
 	}
-
+	
 	option = {
-		name = EVTOPTA1921
-
+		name = "EVTOPTA1921"
 		guardian = {
-			show_scope_change = no
-
 			character_event = {
 				id = 38221
 				days = 3
-				tooltip = EVTOOLTIP38221
+				tooltip = "EVTOOLTIP38221"
 			}
 		}
 	}

@@ -113,236 +113,679 @@ laws = {
 		}
 	}
 
-	centralization_1 = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+centralization_1 = {
+		show_as_title = yes
 		group = centralization
-
-		vassal_limit = 5
-		demesne_size = 1
-
+		default = yes
+		
 		potential = {
-			is_law_potential = centralization_0
+			holder_scope = {
+				NOR = {
+					culture = kurdish
+					is_landed = no
+					is_tribal = yes
+#					clanic_trigger = yes	
+				}
+			}
 		}
-
+		
 		allow = {
 			OR = {
-				has_law = centralization_0
-				has_law = centralization_2
-			}
-
-			trigger_if = {
-				limit = {
+				has_law = centralization_2		
+				AND = {
+					has_law = centralization_0
 					holder_scope = {
-						is_tribal = yes
+						custom_tooltip = {
+							text = centralization_1_allow_positive_tooltip
+							hidden_tooltip = {
+								OR = {
+									trait = ambitious
+									trait = diligent
+									trait = scholar
+									trait = just
+									trait = hardworking
+									trait = restless
+									trait = gregarious
+									trait = magnetic
+									trait = practical
+									trait = authoritative
+									trait = noblespirit
+									trait = naturalleader
+									trait = rebellious
+								}
+							}
+						}
+						custom_tooltip = {
+							text = centralization_1_allow_negative_tooltip
+							hidden_tooltip = {
+								NOR = { 
+									trait = slothful 
+									trait = content
+									trait = gullible
+									trait = oldfashioned
+									trait = cautious
+									#trait = callous
+									trait = submissive
+									trait = weakwilled
+								}
+							}
+						}
+						prestige = 1000
+						wealth = 100	
 					}
 				}
-
-				OR = {
-					has_law = tribal_organization_1
-					has_law = tribal_organization_2
-					has_law = tribal_organization_3
-					has_law = tribal_organization_4
-				}
 			}
 		}
-
-		pass_effect = {
-			# log = "centralization_1 pass ([This.GetFullBaseName])"
-		}
-
-		effect = {
-			# log = "centralization_1 ([This.GetFullBaseName])"
-			revoke_law = centralization_0
-			revoke_law = centralization_2
-			revoke_law = centralization_3
-			revoke_law = centralization_4
-		}
-
-		ai_will_do = {
-			factor = 0.9
-
-			trigger = {
-				trigger_if = { # Need to increase vassal limit
-					limit = { has_law = centralization_2 }
-
-					over_vassal_limit > 0
-					over_max_demesne_size <= 0
-				}
-				trigger_else = { # Vassal limit left over
-					over_vassal_limit <= 5
-					over_max_demesne_size > 0
-				}
-			}
-		}
-	}
-
-	centralization_2 = {
-		group = centralization
-
-		vassal_limit = 0
-		demesne_size = 2
-
-		potential = {
-			is_law_potential = centralization_0
-		}
-
-		allow = {
-			OR = {
-				has_law = centralization_1
-				has_law = centralization_3
-			}
-
-			trigger_if = {
-				limit = {
-					holder_scope = {
-						is_tribal = yes
-					}
-				}
-
-				OR = {
-					has_law = tribal_organization_2
-					has_law = tribal_organization_3
-					has_law = tribal_organization_4
-				}
-			}
-		}
-
-		pass_effect = {
-			# log = "centralization_2 pass ([This.GetFullBaseName])"
-		}
-
-		effect = {
-			# log = "centralization_2 ([This.GetFullBaseName])"
-			revoke_law = centralization_0
-			revoke_law = centralization_1
-			revoke_law = centralization_3
-			revoke_law = centralization_4
-		}
-
+		revoke_allowed = {
+			always = no
+		}			
 		ai_will_do = {
 			factor = 1
-
-			trigger = {
-				trigger_if = { # Need to increase vassal limit
-					limit = { has_law = centralization_3 }
-
-					over_vassal_limit > 0
-					over_max_demesne_size <= 0
-				}
-				trigger_else = { # Vassal limit left over
-					over_vassal_limit <= 5
-					over_max_demesne_size > 0
+			modifier = {
+				factor = 0
+				NOT = { has_law = centralization_0 }
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { 
+					OR = {
+						trait = amateurish_plotter
+						trait = flamboyant_schemer
+						trait = intricate_webweaver
+						trait = elusive_shadow
+						trait = naive_appeaser
+						trait = underhanded_rogue
+						trait = charismatic_negotiator
+						trait = grey_eminence
+					}
 				}
 			}
 		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		
+		pass_effect = {
+			hidden_tooltip = {
+				if = { 
+					limit = {
+						has_law = centralization_0
+					}
+					any_de_jure_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_increased_authority
+							months = 60
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+				if = {
+					limit = {
+						has_law = tolerance_2
+					}
+					revoke_law = tolerance_2
+					add_law = tolerance_1
+				}
+			}
+#			set_appoint_generals = yes #enabled by default
+#			set_appoint_regents = no
+			set_the_kings_peace = no
+			set_the_kings_full_peace = no
+			set_protected_inheritance = no #enabled by default
+#			set_allow_title_revokation = yes
+#			set_allow_free_infidel_revokation = no
+#			set_allow_free_revokation = no
+		}
+			
+		vassal_limit = 5
+		demesne_size = 1
+		city_vassal_max_levy = -0.15
+		castle_vassal_max_levy = -0.15
+		temple_vassal_max_levy = -0.15
+#		feudal_opinion = -5
+#		city_opinion = -5
+#		temple_opinion = -5
+		city_vassal_tax_modifier = -0.1
+		castle_vassal_tax_modifier = -0.1
+		temple_vassal_tax_modifier = -0.1
 	}
 
-	centralization_3 = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+centralization_2 = {
+		show_as_title = yes
 		group = centralization
-
-		vassal_limit = -5
-		demesne_size = 3
-
+		
 		potential = {
-			is_law_potential = centralization_0
+			holder_scope = {
+				NOR = {
+					culture = kurdish
+					is_landed = no
+					is_tribal = yes
+#					clanic_trigger = yes
+				}
+			}
 		}
-
+		
 		allow = {
 			OR = {
-				has_law = centralization_2
-				has_law = centralization_4
-			}
-
-			trigger_if = {
-				limit = {
+				AND = {
+					has_law = centralization_1
 					holder_scope = {
-						is_tribal = yes
+						custom_tooltip = {
+							text = centralization_2_allow_positive_tooltip
+							hidden_tooltip = {
+								OR = {
+									trait = ambitious
+									trait = diligent
+									trait = scholar
+									trait = just
+									trait = hardworking
+									trait = restless
+									trait = gregarious
+									trait = magnetic
+									trait = practical
+									trait = authoritative
+									trait = noblespirit
+									trait = naturalleader
+									trait = rebellious
+								}
+							}
+						}
+						custom_tooltip = {
+							text = centralization_2_allow_negative_tooltip
+							hidden_tooltip = {
+								NOR = { 
+									trait = slothful 
+									trait = content
+									trait = gullible
+									trait = oldfashioned
+									trait = cautious
+									#trait = callous
+									trait = submissive
+									trait = weakwilled
+								}
+							}
+						}
+						prestige = 1000
+						wealth = 100
 					}
 				}
-				OR = {
-					has_law = tribal_organization_3
-					has_law = tribal_organization_4
-				}
+				has_law = centralization_3
 			}
 		}
-
-		pass_effect = {
-			# log = "centralization_3 pass ([This.GetFullBaseName])"
-		}
-
-		effect = {
-			# log = "centralization_3 ([This.GetFullBaseName])"
-			revoke_law = centralization_0
-			revoke_law = centralization_1
-			revoke_law = centralization_2
-			revoke_law = centralization_4
-		}
-
+		revoke_allowed = {
+			always = no
+		}			
 		ai_will_do = {
-			factor = 0.9
-
-			trigger = {
-				trigger_if = { # Need to increase vassal limit
-					limit = { has_law = centralization_4 }
-
-					over_vassal_limit > 0
-					over_max_demesne_size <= 0
+			factor = 1
+			modifier = {
+				factor = 0
+				NOR = {
+					AND = {
+						has_law = centralization_0
+						over_vassal_limit = -6
+						over_max_demesne_size = 2
+					}
+					AND = {
+						has_law = centralization_1
+						over_vassal_limit = -1
+						over_max_demesne_size = 1
+					}
+					AND = {
+						has_law = centralization_3
+						over_vassal_limit = 1
+						over_max_demesne_size = -1
+					}
+					AND = {
+						has_law = centralization_4
+						over_vassal_limit = 6
+						over_max_demesne_size = -2
+					}
 				}
-				trigger_else = { # Vassal limit left over
-					over_vassal_limit <= 5
-					over_max_demesne_size > 0
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { 
+					OR = {
+						trait = amateurish_plotter
+						trait = flamboyant_schemer
+						trait = intricate_webweaver
+						trait = elusive_shadow
+						trait = naive_appeaser
+						trait = underhanded_rogue
+						trait = charismatic_negotiator
+						trait = grey_eminence
+					}
+				}
+			}			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		
+		pass_effect = {
+			hidden_tooltip = {
+				if = { 
+					limit = {
+						has_law = centralization_1
+					}
+					any_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_increased_authority
+							months = 60
+						}
+					}
 				}
 			}
 		}
+		
+		effect = {
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+			}
+#			set_appoint_generals = yes #enabled by default
+#			set_appoint_regents = no
+			set_the_kings_peace = no
+			set_the_kings_full_peace = no
+#			set_protected_inheritance = yes #enabled by default
+			if = {
+				limit = {
+					not = { has_dlc = Zeus }
+				}
+				set_allow_title_revokation = yes
+				set_protected_inheritance = yes				
+			}
+#			set_allow_title_revokation = yes
+#			set_allow_free_infidel_revokation = yes
+#			set_allow_free_revokation = no
+		}
+		vassal_limit = 0
+		demesne_size = 2
+		city_vassal_max_levy = -0.05
+		castle_vassal_max_levy = -0.05
+		temple_vassal_max_levy = -0.05
+		feudal_opinion = -10
+		city_opinion = -10
+		temple_opinion = -10
+		#city_vassal_tax_modifier = -0.1
+		#castle_vassal_tax_modifier = -0.1
+		#temple_vassal_tax_modifier = -0.1
+
 	}
 
-	centralization_4 = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+centralization_3 = {
+		show_as_title = yes
 		group = centralization
 
-		vassal_limit = -10
-		demesne_size = 4
-
 		potential = {
-			is_law_potential = centralization_0
+			holder_scope = {
+				NOR = {
+					culture = kurdish
+					is_landed = no
+					is_tribal = yes
+#					clanic_trigger = yes
+				}
+			}
 		}
-
+		
 		allow = {
-			has_law = centralization_3
-
-			trigger_if = {
-				limit = {
+			OR = {
+				AND = {
+					has_law = centralization_2
 					holder_scope = {
-						is_tribal = yes
+						custom_tooltip = {
+							text = centralization_3_allow_positive_tooltip
+							hidden_tooltip = {
+								OR = {
+									trait = ambitious
+									trait = authoritative
+								}
+							}
+						}
+						custom_tooltip = {
+							text = centralization_3_allow_negative_tooltip
+							hidden_tooltip = {
+								NOR = { 
+									trait = slothful 
+									trait = content
+									trait = gullible
+									trait = oldfashioned
+									trait = cautious
+									#trait = callous
+									trait = submissive
+									trait = weakwilled
+									trait = practical
+									trait = noblespirit
+									trait = naturalleader
+									trait = just
+									trait = kind
+									trait = temperate
+									trait = patient
+									trait = humble
+									trait = charitable
+								}
+							}
+						}
+						prestige = 2000
+						wealth = 100
 					}
 				}
-
-				has_law = tribal_organization_4
+				has_law = centralization_4
 			}
 		}
-
-		pass_effect = {
-			# log = "centralization_4 pass ([This.GetFullBaseName])"
+		revoke_allowed = {
+			always = no
 		}
-
-		effect = {
-			# log = "centralization_4 ([This.GetFullBaseName])"
-			revoke_law = centralization_0
-			revoke_law = centralization_1
-			revoke_law = centralization_2
-			revoke_law = centralization_3
-		}
-
 		ai_will_do = {
-			factor = 0.8
-
-			trigger = {
-				trigger_if = { # Vassal limit left over
-					limit = { has_law = centralization_3 }
-
-					over_vassal_limit <= 5
-					over_max_demesne_size > 0
+			factor = 1
+			modifier = {
+				factor = 0
+				NOR = {
+					AND = {
+						has_law = centralization_0
+						over_vassal_limit = -11
+						over_max_demesne_size = 3
+					}
+					AND = {
+						has_law = centralization_1
+						over_vassal_limit = -6
+						over_max_demesne_size = 2
+					}
+					AND = {
+						has_law = centralization_2
+						over_vassal_limit = -1
+						over_max_demesne_size = 1
+					}
+					AND = {
+						has_law = centralization_4
+						over_vassal_limit = 1
+						over_max_demesne_size = -1
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				holder_scope = { 
+					OR = {
+						trait = amateurish_plotter
+						trait = flamboyant_schemer
+						trait = intricate_webweaver
+						trait = elusive_shadow
+						trait = naive_appeaser
+						trait = underhanded_rogue
+						trait = charismatic_negotiator
+						trait = grey_eminence
+					}
+				}
+			}			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		
+		pass_effect = {
+			hidden_tooltip = {
+				if = { 
+					limit = {
+						has_law = centralization_2
+					}
+					any_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_increased_authority
+							months = 60
+						}
+					}
 				}
 			}
 		}
+		
+		effect = {
+		
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+			}
+#			set_appoint_generals = yes #enabled by default
+#			set_appoint_regents = no
+			set_the_kings_peace = yes
+			set_the_kings_full_peace = no
+#			set_protected_inheritance = yes #enabled by default
+#			set_allow_title_revokation = yes
+#			set_allow_free_infidel_revokation = yes
+#			set_allow_free_revokation = no
+			if = {
+				limit = {
+					not = { has_dlc = Zeus }
+				}
+				set_allow_title_revokation = yes
+				set_protected_inheritance = yes				
+			}
+		}
+		
+		vassal_limit = -5
+		demesne_size = 3
+		city_vassal_max_levy = 0.05
+		castle_vassal_max_levy = 0.05
+		temple_vassal_max_levy = 0.05
+		city_vassal_min_levy = 0.05
+		castle_vassal_min_levy = 0.05
+		temple_vassal_min_levy = 0.05
+		feudal_opinion = -20
+		city_opinion = -20
+		temple_opinion = -20
+		city_vassal_tax_modifier = 0.05
+		castle_vassal_tax_modifier = 0.05
+		temple_vassal_tax_modifier = 0.05
+
+	}
+
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+centralization_4 = {
+		show_as_title = yes
+		group = centralization
+
+		potential = {
+			holder_scope = {
+				NOR = {
+					culture = kurdish
+					is_landed = no
+					is_tribal = yes
+#					clanic_trigger = yes
+				}
+			}
+		}
+		
+		allow = {
+			has_law = centralization_3
+			holder_scope = {
+				custom_tooltip = {
+					text = centralization_4_allow_positive_tooltip
+					hidden_tooltip = {
+						OR = {
+							trait = ambitious
+							trait = authoritative
+						}
+					}
+				}
+				custom_tooltip = {
+					text = centralization_4_allow_negative_tooltip
+					hidden_tooltip = {
+						NOR = { 
+							trait = slothful 
+							trait = content
+							trait = gullible
+							trait = oldfashioned
+							trait = cautious
+							#trait = callous
+							trait = submissive
+							trait = weakwilled
+							trait = practical
+							trait = noblespirit
+							trait = naturalleader
+							trait = just
+							trait = kind
+							trait = temperate
+							trait = patient
+							trait = humble
+							trait = charitable
+						}
+					}
+				}
+				prestige = 3000
+				wealth = 100
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOR = {
+					AND = {
+						has_law = centralization_0
+						over_vassal_limit = -16
+						over_max_demesne_size = 4
+					}
+					AND = {
+						has_law = centralization_1
+						over_vassal_limit = -11
+						over_max_demesne_size = 3
+					}
+					AND = {
+						has_law = centralization_2
+						over_vassal_limit = -6
+						over_max_demesne_size = 2
+					}
+					AND = {
+						has_law = centralization_3
+						over_vassal_limit = -1
+						over_max_demesne_size = 1
+					}
+				}
+			}
+		modifier = {
+				factor = 2
+				holder_scope = { 
+					OR = {
+						trait = amateurish_plotter
+						trait = flamboyant_schemer
+						trait = intricate_webweaver
+						trait = elusive_shadow
+						trait = naive_appeaser
+						trait = underhanded_rogue
+						trait = charismatic_negotiator
+						trait = grey_eminence
+					}
+				}
+			}			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		
+		pass_effect = {
+			hidden_tooltip = {
+				if = { 
+					limit = {
+						has_law = centralization_3
+					}
+					any_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_increased_authority
+							months = 60
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+			}
+#			set_appoint_generals = yes #enabled by default
+#			set_appoint_regents = no
+			set_the_kings_peace = yes
+			set_the_kings_full_peace = yes
+			set_protected_inheritance = yes #enabled by default
+#			set_allow_title_revokation = yes
+#			set_allow_free_infidel_revokation = yes
+#			set_allow_free_revokation = no
+			if = {
+				limit = {
+					not = { has_dlc = Zeus }
+				}
+				set_allow_title_revokation = yes
+				set_protected_inheritance = yes
+			}
+		}
+		
+		vassal_limit = -10
+		demesne_size = 4
+		city_vassal_max_levy = 0.15
+		castle_vassal_max_levy = 0.15
+		temple_vassal_max_levy = 0.15
+		city_vassal_min_levy = 0.15
+		castle_vassal_min_levy = 0.15
+		temple_vassal_min_levy = 0.15
+		castle_vassal_tax_modifier = 0.1
+		city_vassal_tax_modifier = 0.1
+		temple_vassal_tax_modifier = 0.1
+		feudal_opinion = -30
+		city_opinion = -30
+		temple_opinion = -30
 	}
 
 	# TRIBAL ORGANIZATION

@@ -7,62 +7,64 @@
 ######################################
 
 ### Wives fall in love with each other
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 89000
-	desc = EVTDESC89000
+	desc = "EVTDESC89000"
 	picture = GFX_evt_lovers
-
-	is_triggered_only = yes # on_yearly_pulse
-
-	has_dlc = "The Sword of Islam"
-	religion_group = muslim
-	only_women = yes
-	is_married = yes
+	
 	min_age = 16
 	only_capable = yes
 	prisoner = no
-
+	only_women = yes
+	is_married = yes
+	
 	trigger = {
+		has_polygamy = yes
 		trait = homosexual
-
 		spouse = {
 			any_spouse = {
-				trait = homosexual
 				NOT = { character = ROOT }
+				trait = homosexual
+				is_alive = yes
 				at_location = ROOT
 			}
 		}
-
 		NOR = {
 			has_character_flag = thelma
 			has_character_flag = louise
 		}
 	}
-
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+		
 	option = {
-		name = EVTOPTA89000
-
+		name = "EVTOPTA89000"
 		set_character_flag = thelma
-
 		spouse = {
-			show_scope_change = no
-
-			random_spouse = {
-				show_scope_change = no
-
+			any_spouse = {
 				limit = {
 					trait = homosexual
 					NOT = { character = ROOT }
 				}
-
 				set_character_flag = louise
 				add_lover = ROOT
+				add_character_modifier = {
+					name = "new_love"
+					duration = 90
+					hidden = yes
+				}
 			}
-
-			character_event = {
-				id = 89001
-				days = 14
+			hidden_tooltip = {
+				character_event = { id = 89001 days = 14 }
 			}
+		}
+		add_character_modifier = {
+			name = "new_love"
+			duration = 90
+			hidden = yes
 		}
 	}
 }

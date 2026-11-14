@@ -277,308 +277,305 @@ character_event = {
 }
 
 # How much are you willing to spend on the crown jewels?
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
-	id = MNM.9103
-	desc = EVTDESC_MNM_9103
-	picture = GFX_evt_emissary
-	border = GFX_event_normal_frame_economy
-	portrait = event_target:smith
+    id = MNM.9103
+    desc = EVTDESC_MNM_9103
+    picture = GFX_evt_emissary
+    border = GFX_event_normal_frame_economy
 
-	is_triggered_only = yes
-	show_root = yes
+    is_triggered_only = yes
+    
+    trigger = {
+    	OR = {
+    		has_dlc = "Mystics"
+    		has_dlc = "Jade Dragon"
+    	}
+    }
 
-	trigger = {
-		OR = {
-			has_dlc = "Mystics"
-			has_dlc = "Jade Dragon"
-		}
-	}
+    #The best money can buy
+    option = {
+        name = EVTOPTA_MNM_9103
+        trigger = { 
+        	tier = EMPEROR
+        }
+        custom_tooltip = { text = EVTOPTA_MNM_9103_TT }
 
-	# The best money can buy
-	option = {
-		name = EVTOPTA_MNM_9103
+        scaled_wealth = { value = -3.5 min = -300 max = -2000 }
 
-		trigger = { real_tier = EMPEROR }
-
-		custom_tooltip = { text = EVTOPTA_MNM_9103_TT }
-
-		scaled_wealth = { value = -3.5 min = -300 max = -2000 }
-
-		hidden_effect = {
-			set_variable = { which = local_smithed_item_tier value = 3 }
+        hidden_effect = {
+        	event_target:smith = { set_character_flag = expensive_jewels }
+        	set_character_flag = expensive_jewels
 			random_list = {
-				40 = { # Success
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <=  2 } }
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <=  4 } }
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <=  6 } }
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <=  8 } }
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <= 10 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 10 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 12 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 14 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 16 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 18 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 20 } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = greedy } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = diligent } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = patient } }
-					mult_modifier = { factor = 1.3 event_target:smith = { is_smart_trigger = yes } }
-
-					set_character_flag = smith_upgrade
+				40 = { #Success
+        			modifier = { factor = 0.7 FROM = { stewardship <= 2 } }
+        			modifier = { factor = 0.7 FROM = { stewardship <= 4 } }
+        			modifier = { factor = 0.7 FROM = { stewardship <= 6 } }
+        			modifier = { factor = 0.7 FROM = { stewardship <= 8 } }
+        			modifier = { factor = 0.7 FROM = { stewardship <= 10 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 10 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 12 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 14 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 16 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 18 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 20 } }
+        			modifier = { factor = 1.3 FROM = { trait = greedy } }
+        			modifier = { factor = 1.3 FROM = { trait = diligent } }
+        			modifier = { factor = 1.3 FROM = { trait = patient } }
+        			modifier = { factor = 1.3 FROM = { is_smart_trigger = yes } }
+        			set_character_flag = goldsmith_success
 				}
-
-				60 = { set_character_flag = smith_complete } # Fail
-
-				10 = { # Steal
-					trigger = {
-						NOT = {
-							any_owned_bloodline = {
+				60 = { #Fail
+        			set_character_flag = goldsmith_fail
+				}
+				10 = { #Steal
+        			modifier = { factor = 1.3 FROM = { trait = envious } }
+        			modifier = { factor = 0.2 FROM = { trait = charitable } }
+        			modifier = { factor = 0.2 FROM = { trait = content } }
+        			modifier = { factor = 1.5 FROM = { trait = ambitious } }
+        			modifier = { factor = 1.3 FROM = { trait = deceitful } }
+        			trigger = {
+        				NOT = {
+	        				any_owned_bloodline = {
 								has_bloodline_flag = bloodline_artisan_craftsmen
-								bloodline_is_active_for = PREV
 							}
-						}
-					}
-
-					mult_modifier = { factor = 0.2 event_target:smith = { trait = charitable } }
-					mult_modifier = { factor = 0.2 event_target:smith = { trait = content } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = deceitful } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = envious } }
-					mult_modifier = { factor = 1.5 event_target:smith = { trait = ambitious } }
-
-					set_character_flag = smith_steal
+        				}
+        			}
+        			set_character_flag = goldsmith_steal
 				}
+	    	}
+        	character_event = { id = MNM.9111 days = 50 random = 100 }
+        	character_event = { id = MNM.9133 days = 20 random = 5 } #tombola for random events
+        }
+    	ai_chance = {
+    		factor = 33
+    		modifier = {
+    			tier = EMPEROR
+    			factor = 10
 			}
+    		modifier = {
+    			OR = {
+    				tier = KING	
+    				tier = DUKE
+    			}
+    			factor = 3
+    		}
+    		modifier = {
+    			NOR = {
+    				wealth = 200
+    				yearly_income = 50
+    			}
+    			factor = 0
+    		}
+    	}
+    }
 
-			character_event = {
-				id = MNM.9111
-				days = 50
-				random = 100
-			}
+    #Something nice
+    option = {
+        name = {
+        	trigger = {
+        		tier = EMPEROR
+        	}
+        	text = EVTOPTB_MNM_9103
+        }
+        name = {
+        	trigger = {
+        		tier = KING
+        	}
+        	text = EVTOPTB_MNM_9103_KING
+        }
 
-			character_event = { # tombola for random events
-				id = MNM.9133
-				days = 20
-				random = 5
-			}
-		}
+        trigger = {
+        	higher_tier_than = DUKE
+        }
+        if = {
+        	limit = {
+        		tier = EMPEROR
+        	}
+        	custom_tooltip = { text = EVTOPTB_MNM_9103_TT }
+        }
+        else_if = {
+        	limit = {
+        		tier = KING
+        	}
+        	custom_tooltip = { text = EVTOPTB_MNM_9103_TT_KING }
+        }
 
-		ai_chance = {
-			factor = 330
+        scaled_wealth = { value = -2 min = -150 max = -500 }
 
-			trigger = {
-				OR = {
-					wealth >= 200
-					yearly_income >= 50
+        hidden_effect = {
+        	event_target:smith = { set_character_flag = good_jewels }
+        	set_character_flag = good_jewels
+        	random_list = {
+				60 = { #Success
+        			modifier = { factor = 0.7 FROM = { stewardship <= 2 } }
+        			modifier = { factor = 0.7 FROM = { stewardship <= 4 } }
+        			modifier = { factor = 0.7 FROM = { stewardship <= 6 } }
+        			modifier = { factor = 0.7 FROM = { stewardship <= 8 } }
+        			modifier = { factor = 0.7 FROM = { stewardship <= 10 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 10 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 12 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 14 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 16 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 18 } }
+        			modifier = { factor = 1.1 FROM = { stewardship >= 20 } }
+        			modifier = { factor = 1.3 FROM = { trait = greedy } }
+        			modifier = { factor = 1.3 FROM = { trait = diligent } }
+        			modifier = { factor = 1.3 FROM = { trait = patient } }
+        			modifier = { factor = 1.3 FROM = { is_smart_trigger = yes } }
+        			set_character_flag = goldsmith_success
 				}
-			}
-		}
-	}
-
-	# Something nice
-	option = {
-		name = {
-			text = EVTOPTB_MNM_9103
-			trigger = { real_tier = EMPEROR }
-		}
-		name = {
-			text = EVTOPTB_MNM_9103_KING
-			trigger = { real_tier = KING }
-		}
-
-		trigger = { higher_real_tier_than = DUKE }
-
-		if = {
-			limit = { real_tier = EMPEROR }
-			custom_tooltip = { text = EVTOPTB_MNM_9103_TT }
-		}
-		else = {
-			custom_tooltip = { text = EVTOPTB_MNM_9103_TT_KING }
-		}
-
-		scaled_wealth = { value = -2 min = -150 max = -500 }
-
-		hidden_effect = {
-			set_variable = { which = local_smithed_item_tier value = 2 }
-
-			random_list = {
-				60 = { # Success
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <=  2 } }
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <=  4 } }
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <=  6 } }
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <=  8 } }
-					mult_modifier = { factor = 0.7 event_target:smith = { stewardship <= 10 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 10 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 12 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 14 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 16 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 18 } }
-					mult_modifier = { factor = 1.1 event_target:smith = { stewardship >= 20 } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = greedy } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = diligent } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = patient } }
-					mult_modifier = { factor = 1.3 event_target:smith = { is_smart_trigger = yes } }
-
-					set_character_flag = smith_upgrade
+				40 = { #Fail
+        			set_character_flag = goldsmith_fail
 				}
-
-				40 = { set_character_flag = smith_complete } # Fail
-
-				10 = { # Steal
-					trigger = {
-						NOT = {
-							any_owned_bloodline = {
+				10 = { #Steal
+				  	modifier = { factor = 1.3 FROM = { trait = envious } }
+        			modifier = { factor = 0.2 FROM = { trait = charitable } }
+        			modifier = { factor = 0.2 FROM = { trait = content } }
+        			modifier = { factor = 1.5 FROM = { trait = ambitious } }
+        			modifier = { factor = 1.3 FROM = { trait = deceitful } }
+        			trigger = {
+        				NOT = {
+	        				any_owned_bloodline = {
 								has_bloodline_flag = bloodline_artisan_craftsmen
-								bloodline_is_active_for = PREV
 							}
-						}
-					}
-
-					mult_modifier = { factor = 0.2 event_target:smith = { trait = charitable } }
-					mult_modifier = { factor = 0.2 event_target:smith = { trait = content } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = deceitful } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = envious } }
-					mult_modifier = { factor = 1.5 event_target:smith = { trait = ambitious } }
-
-					set_character_flag = smith_steal
+        				}
+        			}
+        			set_character_flag = goldsmith_steal
 				}
 			}
-
-			character_event = {
-				id = MNM.9111
-				days = 50
-				random = 100
-			}
-
-			character_event = { # tombola for random events
-				id = MNM.9133
-				days = 20
-				random = 5
-			}
-		}
-
+        	character_event = { id = MNM.9111 days = 50 random = 100 }
+        	character_event = { id = MNM.9133 days = 20 random = 5 } #tombola for random events
+        }
 		ai_chance = {
-			factor = 33
-
-			trigger = {
-				OR = {
-					wealth >= 150
-					yearly_income >= 25
+    		factor = 33
+    		modifier = {
+    			OR = {
+    				tier = KING	
+    				tier = DUKE
 				}
-			}
-
-			mult_modifier = {
-				real_tier = KING
-				factor = 10
-			}
-			mult_modifier = {
-				real_tier = EMPEROR
-				factor = 3
-			}
-		}
-	}
-
-	# I can't afford that much
-	option = {
-		name = {
+    			factor = 10
+    		}
+    		modifier = {
+    			lower_tier_than = DUKE
+    			factor = 3
+    		}
+    		modifier = {
+    			tier = EMPEROR
+    			factor = 3
+    		}
+    		modifier = {
+    			NOR = {
+    				wealth = 150
+    				yearly_income = 25
+    			}
+    			factor = 0
+    		}
+    	}
+    }
+   
+   	#I can't afford that much 
+    option = {
+        name = {
+        	trigger = {
+        		tier = EMPEROR
+        	}
 			text = EVTOPTC_MNM_9103
-			trigger = { real_tier = EMPEROR }
 		}
 		name = {
-			text = EVTOPTC_MNM_9103_KING
-			trigger = { real_tier = KING }
-		}
-		name = {
-			text = EVTOPTC_MNM_9103_GENERIC
-			trigger = { lower_real_tier_than = KING }
-		}
-
-		if = {
-			limit = { real_tier = EMPEROR }
-			custom_tooltip = { text = EVTOPTC_MNM_9103_TT }
-		}
-		else_if = {
-			limit = { real_tier = KING }
-			custom_tooltip = { text = EVTOPTC_MNM_9103_TT_KING }
-		}
-		else = {
-			custom_tooltip = { text = EVTOPTC_MNM_9103_TT_GENERIC }
-		}
-
-		scaled_wealth = { value = -1 min = -50 max = -100 }
-
-		hidden_effect = {
-			set_variable = { which = local_smithed_item_tier value = 1 }
-
-			random_list = {
-				100 = { set_character_flag = smith_complete } # Success
-
-				10 = { # Steal
-					trigger = {
-						NOT = {
-							any_owned_bloodline = {
-								has_bloodline_flag = bloodline_artisan_craftsmen
-								bloodline_is_active_for = PREV
-							}
-						}
-					}
-
-					mult_modifier = { factor = 0.2 event_target:smith = { trait = charitable } }
-					mult_modifier = { factor = 0.2 event_target:smith = { trait = content } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = deceitful } }
-					mult_modifier = { factor = 1.3 event_target:smith = { trait = envious } }
-					mult_modifier = { factor = 1.5 event_target:smith = { trait = ambitious } }
-
-					set_character_flag = smith_steal
-				}
-			}
-
-			character_event = {
-				id = MNM.9111
-				days = 50
-				random = 100
-			}
-
-			character_event = { # tombola for random events
-				id = MNM.9133
-				days = 20
-				random = 5
-			}
-		}
-
-		ai_chance = {
-			factor = 33
-
 			trigger = {
-				OR = {
-					wealth >= 25
-					yearly_income >= 5
-					religion_group = pagan_group
+				tier = KING
+			}
+			text = EVTOPTC_MNM_9103_KING
+		}
+		name = {
+			trigger = {
+				NAND = {
+					tier = EMPEROR
+					tier = KING
 				}
 			}
+			text = EVTOPTC_MNM_9103_GENERIC
+        }
 
-			mult_modifier = {
-				real_tier = DUKE
-				factor = 10
+        if = {
+        	limit = {
+        		tier = EMPEROR
+        	}
+        	custom_tooltip = { text = EVTOPTC_MNM_9103_TT }
+        }
+        else_if = {
+        	limit = {
+        		tier = KING
+        	}
+        	custom_tooltip = { text = EVTOPTC_MNM_9103_TT_KING }
+        }
+        else = {
+        	custom_tooltip = { text = EVTOPTC_MNM_9103_TT_GENERIC }
+        }
+
+        scaled_wealth = { value = -1 min = -50 max = -100 }
+
+        hidden_effect = {
+        	event_target:smith = { set_character_flag = cheap_jewels }
+        	set_character_flag = cheap_jewels
+        	random_list = {
+				100 = { #Success
+        			set_character_flag = goldsmith_success
+				}
+				10 = { #Steal
+        			modifier = { factor = 1.3 FROM = { trait = envious } }
+        			modifier = { factor = 0.2 FROM = { trait = charitable } }
+        			modifier = { factor = 0.2 FROM = { trait = content } }
+        			modifier = { factor = 1.5 FROM = { trait = ambitious } }
+        			modifier = { factor = 1.3 FROM = { trait = deceitful } }
+        			trigger = {
+        				NOT = {
+	        				any_owned_bloodline = {
+								has_bloodline_flag = bloodline_artisan_craftsmen
+							}
+        				}
+        			}
+        			set_character_flag = goldsmith_steal
+				}
 			}
-			mult_modifier = {
-				real_tier = KING
-				factor = 3
+        	character_event = { id = MNM.9111 days = 50 random = 100 }
+        	character_event = { id = MNM.9133 days = 20 random = 5 } #tombola for random events
+        }
+
+        ai_chance = {
+    		factor = 33
+    		modifier = {
+    			tier = COUNT
+    			factor = 10
+				}
+    		modifier = {
+    			OR = {
+    				tier = KING	
+    				tier = DUKE
+				}
+    			factor = 3
 			}
-		}
-	}
+    		modifier = {
+    			NOR = {
+    				wealth = 25
+    				yearly_income = 5
+    				LI_pagan_trigger = yes
+				}
+    			factor = 0
+			}
+    	}
+    }
 
-	# Actually, no
-	option = {
-		name = EVTOPTD_MNM_9103
+    #Actually, no
+    option = {
+        name = EVTOPTD_MNM_9103
+        custom_tooltip = { text = EVTOPTD_MNM_9103_TT }
 
-		custom_tooltip = { text = EVTOPTD_MNM_9103_TT }
+        hidden_effect = { FROM = { character_event = { id = MNM.9110 days = 5 } } }
 
-		event_target:smith = {
-			character_event = { id = MNM.9110 days = 5 }
-		}
-
-		ai_chance = { factor = 15 }
-	}
+       	ai_chance = { factor = 15 }
+    }
 }
 
 ### Weapon Events ###
@@ -2214,9 +2211,9 @@ character_event = {
 }
 
 # Smith steals item and decides who to give it to
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.9131
-
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -2228,103 +2225,506 @@ character_event = {
 	}
 
 	immediate = {
-		generate_smith_stolen_artifact_effect = yes
-
-		# Give to landed rivals first, then nearby rulers who dislike the employer, else keep for self and run away.
-		event_target:smith_employer = {
-			if = {
-				limit = {
+		if = {
+			limit = { NOT = { event_target:smith_employer = { is_alive = yes } } }
+    		liege = { save_event_target_as = smith_employer }
+		}
+		trigger_switch = {
+			on_trigger = has_character_flag
+			expensive_jewels = { 
+		        if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = christian 
+			        			religion_group = jewish_group
+							}
+						}
+		        	}
+		        	add_artifact = crown_of_majesty
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = emerald_scepter
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = sword_of_heroes
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = muslim 
+			        			religion_group = serer_group
+			        		}
+			        	}
+		        	}
+		        	add_artifact = dagger_of_glory
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = ruby_bracelets
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = indian_group
+			        			religion_group = bud_group
+			        		}
+			        	}
+		        	}
+		        	add_artifact = dagger_of_glory
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = celestial_necklace
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = zoroastrian_group
+			        			religion_group = indohelen_group
+							}
+						}
+					}
+		        	add_artifact = circlet_of_the_heavens
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = staff_of_majesty
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = {
+		        		FROM = {
+			        		religion_group = norsegerman_group
+			        	}
+		        	}
+		        	add_artifact = crown_of_crows
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = sword_of_heroes
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else = {
+		        	add_artifact = heros_crown
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = axe_of_the_ancestors
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+			}
+			good_jewels = {  
+				if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = christian 
+			        			religion_group = jewish_group
+							}
+						}
+		        	}
+		        	add_artifact = crown_of_pearls
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = ruby_scepter
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = golden_sword
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = muslim 
+			        			religion_group = serer_group
+			        		}
+			        	}
+		        	}
+		        	add_artifact = bejeweled_dagger
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = golden_bracelets
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = indian_group
+			        			religion_group = bud_group
+			        		}
+			        	}
+		        	}
+		        	add_artifact = bejeweled_dagger
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = necklace_of_radiance
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = zoroastrian_group
+			        			religion_group = indohelen_group
+							}
+						}
+					}
+		        	add_artifact = circlet_of_the_heavens
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = golden_staff
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = { 
+		        		FROM = {
+			        		religion_group = norsegerman_group
+			        	}
+		        	}
+		        	add_artifact = crown_of_the_sea
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = golden_sword
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else = {
+		        	add_artifact = amber_crown
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = obsidian_axe
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+			}
+			cheap_jewels = { 
+		        if = {
+		        	limit = {
+		        		FROM = {
+			        		OR = {
+			        			religion_group = christian 
+			        			religion_group = jewish_group
+							}
+						}
+		        	}
+		        	add_artifact = the_lily_crown
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = noble_scepter
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = engraved_sword
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = {
+		        		FROM = {
+			        		OR = {
+			        			religion_group = muslim 
+			        			religion_group = serer_group
+			        		}
+			        	}
+		        	}
+		        	add_artifact = engraved_dagger
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = silver_bracelets
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = indian_group
+			        			religion_group = bud_group
+			        		}
+			        	}
+		        	}
+		        	add_artifact = engraved_dagger
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = collar_of_pearls
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = { 
+		        		FROM = {
+			        		OR = {
+			        			religion_group = zoroastrian_group
+			        			religion_group = indohelen_group
+							}
+						}
+					}
+		        	add_artifact = circlet_of_twilight
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = silver_staff
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else_if = {
+		        	limit = {
+		        		FROM = {
+			        		religion_group = norsegerman_group
+			        	}
+		        	}
+		        	add_artifact = iron_crown
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = engraved_sword
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+		        else = {
+		        	add_artifact = engraved_crown
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        	add_artifact = ceremonial_axe
+		        	new_artifact = { set_artifact_flag = stolen_by_smith }
+		        }
+			}
+			amazing_weapons = {
+				trigger_switch = {
+					on_trigger = has_character_flag
+					weapon_sword = {
+						random_list = {
+							1 = { add_artifact = sword_tier_4_heartseeker }
+			        		1 = { add_artifact = sword_tier_4_vengeance }
+			        		1 = { add_artifact = sword_tier_4_fury }
+						}
+						new_artifact = { set_artifact_flag = stolen_by_smith }
+					}
+			        weapon_scimitar = { 
+			        	random_list = {
+			        		1 = { add_artifact = scimitar_tier_4_golden }
+			        		1 = { add_artifact = scimitar_tier_4_fortune }
+			        		1 = { add_artifact = scimitar_tier_4_conquest }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        weapon_lance = { 
+			        	random_list = {
+			        		1 = { add_artifact = lance_tier_4_impaler }
+			        		1 = { add_artifact = lance_tier_4_trident }
+			        		1 = { add_artifact = lance_tier_4_piercer }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        weapon_axe = { 
+			        	random_list = {
+			        		1 = { add_artifact = axe_tier_4_cleaver }
+			        		1 = { add_artifact = axe_tier_4_ravager }
+			        		1 = { add_artifact = axe_tier_4_marauder }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        weapon_mace = { 
+			        	random_list = {
+			        		1 = { add_artifact = mace_tier_4_foe_hammer }
+			        		1 = { add_artifact = mace_tier_4_bone_breaker }
+			        		1 = { add_artifact = mace_tier_4_shatterer }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        weapon_bow = { 
+			        	random_list = {
+			        		1 = { add_artifact = bow_tier_4_silent_wind }
+			        		1 = { add_artifact = bow_tier_4_lightning }
+			        		1 = { add_artifact = bow_tier_4_eagle }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        armor_set = { 
+			        	random_list = {
+			        		1 = { add_artifact = armor_tier_4_guardian }
+			        		1 = { add_artifact = armor_tier_4_champion }
+			        		1 = { add_artifact = armor_tier_4_warden }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+				}
+			}
+			expensive_weapons = { 
+				trigger_switch = {
+					on_trigger = has_character_flag
+			        weapon_sword = { 
+			        	random_list = {
+			        		1 = { add_artifact = sword_tier_3_heartseeker }
+			        		1 = { add_artifact = sword_tier_3_vengeance }
+			        		1 = { add_artifact = sword_tier_3_fury }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        weapon_scimitar = { 
+			        	random_list = {
+			        		1 = { add_artifact = scimitar_tier_3_golden }
+			        		1 = { add_artifact = scimitar_tier_3_fortune }
+			        		1 = { add_artifact = scimitar_tier_3_conquest }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        weapon_lance = { 
+			        	random_list = {
+			        		1 = { add_artifact = lance_tier_3_impaler }
+			        		1 = { add_artifact = lance_tier_3_trident }
+			        		1 = { add_artifact = lance_tier_3_piercer }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        weapon_axe = { 
+			        	random_list = {
+			        		1 = { add_artifact = axe_tier_3_cleaver }
+			        		1 = { add_artifact = axe_tier_3_ravager }
+			        		1 = { add_artifact = axe_tier_3_marauder }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        weapon_mace = { 
+			        	random_list = {
+			        		1 = { add_artifact = mace_tier_3_foe_hammer }
+			        		1 = { add_artifact = mace_tier_3_bone_breaker }
+			        		1 = { add_artifact = mace_tier_3_shatterer }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        weapon_bow = { 
+			        	random_list = {
+			        		1 = { add_artifact = bow_tier_3_silent_wind }
+			        		1 = { add_artifact = bow_tier_3_lightning }
+			        		1 = { add_artifact = bow_tier_3_eagle }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			        armor_set = { 
+			        	random_list = {
+			        		1 = { add_artifact = armor_tier_3_guardian }
+			        		1 = { add_artifact = armor_tier_3_champion }
+			        		1 = { add_artifact = armor_tier_3_warden }
+			        	}
+		        		new_artifact = { set_artifact_flag = stolen_by_smith }
+			        }
+			    }
+			}
+			good_weapons = { 
+				trigger_switch = {
+					on_trigger = has_character_flag
+			        weapon_sword = { add_artifact = sword_tier_2_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_scimitar = { add_artifact = scimitar_tier_2_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_lance = { add_artifact = lance_tier_2_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_axe = { add_artifact = axe_tier_2_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_mace = { add_artifact = mace_tier_2_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_bow = { add_artifact = bow_tier_2_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        armor_set = { add_artifact = armor_tier_2 new_artifact = { set_artifact_flag = stolen_by_smith } }
+			    }
+			}
+			cheap_weapons = { 
+				trigger_switch = {
+					on_trigger = has_character_flag
+			        weapon_sword = { add_artifact = sword_tier_1_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_scimitar = { add_artifact = scimitar_tier_1_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_lance = { add_artifact = lance_tier_1_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_axe = { add_artifact = axe_tier_1_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_mace = { add_artifact = mace_tier_1_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        weapon_bow = { add_artifact = bow_tier_1_new new_artifact = { set_artifact_flag = stolen_by_smith } }
+			        armor_set = { add_artifact = armor_tier_1 new_artifact = { set_artifact_flag = stolen_by_smith } }
+			    }
+			}
+		}
+		#Give to landed rivals first, then rivals, then nearby rulers who dislike the employer, else keep for self and run away
+		if = {
+			limit = { 
+				event_target:smith_employer = { 
 					any_rival = {
 						is_landed = yes
 						is_within_diplo_range = ROOT
 					}
 				}
-
+			}
+			event_target:smith_employer = { 
 				random_rival = {
-					limit = {
+					limit = { 
 						is_landed = yes
 						is_within_diplo_range = ROOT
 					}
-
-					save_event_target_as = smith_steal_target
-				}
-			}
-			else_if = {
-				limit = {
-					any_neighbor_independent_ruler = {
-						is_landed = yes
-						opinion = {
-							who = event_target:smith_employer
-							value < 0
-						}
-					}
-				}
-
-				random_neighbor_independent_ruler = {
-					limit = {
-						is_landed = yes
-						opinion = {
-							who = event_target:smith_employer
-							value < 0
-						}
-					}
-
-					preferred_limit = {
-						opinion = {
-							who = event_target:smith_employer
-							value < -30
-						}
-					}
-
-					save_event_target_as = smith_steal_target
-				}
-			}
-			else = {
-				event_target:smith = {
 					save_event_target_as = smith_steal_target
 				}
 			}
 		}
-
+		else_if = {
+			limit = { 
+				event_target:smith_employer = { 
+					any_neighbor_independent_ruler = {
+						is_landed = yes
+						NOT = {
+							opinion = {
+								who = PREV
+								value = -30
+							}
+						}
+					}
+				}
+			}
+			event_target:smith_employer = { 
+				any_neighbor_independent_ruler = {
+					limit = {
+						is_landed = yes
+						NOT = {
+							opinion = {
+								who = PREV
+								value = -30
+							}
+						}
+					}
+					save_event_target_as = smith_steal_target
+				}
+			}
+		}
+		else_if = {
+			limit = { 
+				event_target:smith_employer = { 
+					any_neighbor_independent_ruler = {
+						is_landed = yes
+						NOT = {
+							opinion = {
+								who = PREV
+								value = 0
+							}
+						}
+					}
+				}
+			}
+			event_target:smith_employer = { 
+				any_neighbor_independent_ruler = {
+					limit = {
+						is_landed = yes
+						NOT = {
+							opinion = {
+								who = PREV
+								value = 0
+							}
+						}
+					}
+					save_event_target_as = smith_steal_target
+				}
+			}
+		}
+		else = { save_event_target_as = smith_steal_target }
 		any_artifact = {
 			limit = { has_artifact_flag = stolen_by_smith }
-
 			set_original_owner = event_target:smith_employer
-
 			transfer_artifact = {
 				to = event_target:smith_steal_target
 				from = ROOT
 			}
 		}
-
 		if = {
-			limit = {
+			limit = { 
 				event_target:smith_steal_target = { is_landed = yes }
 				is_landed = no
 			}
-
 			move_character = event_target:smith_steal_target
-
 			opinion = {
-				name = opinion_grateful
 				who = event_target:smith_steal_target
+				modifier = opinion_grateful
 				years = 10
 			}
-
 			reverse_opinion = {
-				name = opinion_grateful
 				who = event_target:smith_steal_target
+				modifier = opinion_grateful
 				years = 10
 			}
 		}
-		else = {
-			banish = yes
-		}
-
-		event_target:smith_employer = {
-			character_event = { id = MNM.9132 }
-			clear_smith_employer_flags_effect = yes
-		}
+		else = { banish = yes }
+		event_target:smith_employer = { character_event = { id = MNM.9132 } }
+		#clear_event_target = smith_employer
+		clr_character_flag = amazing_weapons
+    	clr_character_flag = expensive_weapons
+		clr_character_flag = good_weapons
+		clr_character_flag = cheap_weapons
+		clr_character_flag = amazing_jewels
+		clr_character_flag = expensive_jewels
+		clr_character_flag = good_jewels
+		clr_character_flag = cheap_jewels
 	}
 }
 

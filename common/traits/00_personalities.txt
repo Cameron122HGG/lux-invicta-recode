@@ -269,25 +269,29 @@ humble = {
 	child_insult_adj = INSULT_STUPID
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 kind = {
 	personality = yes
-	virtue = yes
-
-	opposites = {
+	opposites =  {
 		envious
 		cruel
+		selfish    ################### ADDED BY ASH
+		impaler    ################### ADDED BY ASH
+		bloodthirsty  ################ ADDED BY ASH
 	}
-
+	
+	virtue = yes
+	
 	intrigue = -2
 	diplomacy = 2
-	combat_rating = -5 # new value!
-
+	combat_rating = -5 #new value!
+	
 	vassal_opinion = 5
-	same_opinion = 5
 	opposite_opinion = -5
-
+	same_opinion = 5
+	
 	ai_honor = 10
-
+	
 	male_insult_adj = INSULT_SOFT
 	male_compliment_adj = COMPL_KINDLY
 	female_compliment_adj = COMPL_KINDHEARTED
@@ -422,22 +426,29 @@ brave = {
 	female_compliment_adj = COMPL_BRAVE
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 content = {
 	personality = yes
-
-	opposites = {
+	opposites =  {
 		ambitious
+		paranoid				################################ ADDED BY ASH
+		irrational				################################ ADDED BY ASH
+		fickle					################################ ADDED BY ASH
+		unreliable				################################ ADDED BY ASH
+		nervous					################################ ADDED BY ASH
+		cunning					################################ ADDED BY ASH
+		deceitful				################################ ADDED BY ASH
 	}
-
-	monthly_character_piety = 0.5
-
+	
 	intrigue = -1
-
+	
 	liege_opinion = 25
-
+	
+	monthly_character_piety = 0.5
+	
 	ai_ambition = -40
 	ai_zeal = -10
-
+	
 	male_insult_adj = INSULT_SPINELESS
 	female_insult_adj = INSULT_SPINELESS
 }
@@ -464,26 +475,26 @@ craven = {
 	child_insult_adj = INSULT_WUSSY
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 cruel = {
 	personality = yes
-
-	opposites = {
+	opposites =  {
 		kind
+		noblespirit    	########################## ADDED BY ASH
 	}
-
+	
+	intrigue = 1
+	diplomacy = -1
+	combat_rating = 3 #new value!
+	
+	vassal_opinion = -5
+	ai_honor = -5
+	ai_greed = 5
+	
 	command_modifier = {
 		morale_offence = 0.1
 	}
-
-	intrigue = 1
-	diplomacy = -1
-	combat_rating = 3 # new value!
-
-	vassal_opinion = -5
-
-	ai_honor = -5
-	ai_greed = 5
-
+	
 	male_insult = INSULT_BRUTE
 	female_insult = INSULT_FIEND
 	child_insult = INSULT_TROLL
@@ -578,24 +589,28 @@ erudite = {
 	female_compliment_adj = COMPL_WISE
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 gregarious = {
 	personality = yes
-
-	opposites = {
+	opposites =  {
 		shy
+		unfriendly		################################ ADDED BY ASH
+		tactless 		################################ ADDED BY ASH
 	}
-
-	diplomacy = 2
-
+	
 	sex_appeal_opinion = 5
-	vassal_opinion = 5
 	same_opinion = 5
-
+	
+	vassal_opinion = 5
+	
+	diplomacy = 2
+	
 	male_compliment = COMPL_WIT
 	male_compliment_adj = COMPL_AFFABLE
 	female_compliment = COMPL_WIT
 	female_compliment_adj = COMPL_FETCHING
 	child_compliment_adj = COMPL_NICE
+	child_compliment_adj = COMPL_HERO
 }
 
 groomed = {
@@ -634,24 +649,27 @@ honest = {
 	child_compliment_adj = COMPL_GOOD
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 just = {
 	personality = yes
-
-	opposites = {
+	opposites =  {
 		arbitrary
+		weakwilled                        ########################## ADDED BY ASH
+		fickle                            ########################## ADDED BY ASH
+		unreliable						  ########################## ADDED BY ASH
 	}
-
+	
 	stewardship = 2
 	learning = 1
-
+	
 	vassal_opinion = 5
-	same_opinion = 5
 	opposite_opinion = -5
-
+	same_opinion = 5
+	
 	ai_rationality = 20
 	ai_honor = 10
 	ai_zeal = 10
-
+	
 	male_compliment_adj = COMPL_JUST
 	female_compliment_adj = COMPL_JUST
 	child_compliment_adj = COMPL_NICE
@@ -724,19 +742,20 @@ stubborn = {
 	female_insult_adj = INSULT_PIGHEADED
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 trusting = {
 	personality = yes
-
-	opposites = {
+	opposites =  {
 		paranoid
+		unfriendly    ########################## ADDED BY ASH
 	}
-
+	
 	intrigue = -2
 	diplomacy = 1
-	combat_rating = -2 # new value!
-
+	combat_rating = -2 #new value!
+	
 	ai_honor = 10
-
+	
 	male_insult = INSULT_FOOL
 	female_insult = INSULT_FOOL
 	male_insult_adj = INSULT_GULLIBLE
@@ -759,31 +778,61 @@ uncouth = {
 	child_insult_adj = INSULT_UGLY
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zealous = {
 	personality = yes
-
-	opposites = {
+	opposites =  {
 		cynical
+		tolerant ##FF extra addition - libert3 v11
 		sympathy_christendom
 		sympathy_islam
 		sympathy_pagans
 		sympathy_zoroastrianism
 		sympathy_judaism
 		sympathy_indian
+		sympathy_abrahamics
+		sympathy_anatolians
+		sympathy_east_africans
+		sympathy_arabpagans
+		sympathy_aztecs
+		sympathy_baltics
+		sympathy_bantus
+		sympathy_berbers
+		sympathy_buddhists
+		sympathy_celtics
+		sympathy_chinese
+		sympathy_nordic
+		sympathy_egyptian
+		sympathy_finnish
+		sympathy_graecoroman
+		sympathy_indohellens
+		sympathy_inuit
+		sympathy_luwians
+		sympathy_mande
+		sympathy_manichaeans
+		sympathy_mithraics
+		sympathy_platonics
+		sympathy_palmyrans
+		sympathy_sererics
+		sympathy_slavics
+		sympathy_sol
+		sympathy_tengri
+		sympathy_yazd
+		sympathy_zal
 	}
-
-	monthly_character_piety = 1
-
+	
 	martial = 2
-
+	
 	church_opinion = 5
 	infidel_opinion = -25
 	opposite_opinion = -5
 	same_opinion_if_same_religion = 15
-
+	
+	monthly_character_piety = 1
+	
 	ai_rationality = -10
 	ai_zeal = 100
-
+	
 	male_insult = INSULT_FANATIC
 	female_insult = INSULT_FANATIC
 	child_insult = INSULT_BORE

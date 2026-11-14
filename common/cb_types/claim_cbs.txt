@@ -324,281 +324,202 @@ claim = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 claim_all = {
 	name = CB_NAME_CLAIM_ALL
 	war_name = WAR_NAME_CLAIM_ALL
 	sprite = 5
 	truce_days = 3650
-	sort_priority = 1100
-
+	is_permanent = yes
 	can_ask_to_join_war = no
 	is_claim_all = yes
-	allowed_to_target_tributaries = no
-	is_permanent = yes
+	apply_short_occ_mod = no # Do not apply the 'recently_conquered' modifier to Holdings
 
-	can_use_gui = {
-		not_fellow_crusader_trigger = yes
-	}
+	allowed_to_target_tributaries = no
+	# allowed_to_target_suzerains = no
 
 	can_use = {
-		# Attacker
 		ROOT = {
+			custom_tooltip = {
+				text = NOT_BUSY
+				hidden_tooltip = {
+					is_inaccessible_trigger = no
+				}
+			}
 			total_claims = {
 				who = FROM
-				value >= 2
-				strong = yes
+				strong = yes # Count only strong claims
+				value = 2
 			}
 		}
 	}
+		# can_use_gui = { #tentatively removed - DR
+		# ROOT = {
+			# wealth = 50
+			# prestige = 100
+		# }
+	# }
 
+	
 	is_valid = {
-		# Attacker
 		ROOT = {
 			total_claims = {
 				who = FROM
-				value >= 1
-				strong = yes
+				strong = yes # Count only strong claims
+				value = 1 # must have at least one claim left
 			}
 		}
 	}
 
 	on_add = {
-		attacker = {
-			show_scope_change = no
-
+		ROOT = {
+		# scaled_wealth = -0.1 #v11 addition
 			any_claim = {
-				show_scope_change = no
-
 				limit = {
 					holder_scope = {
 						OR = {
-							character = defender
-							is_vassal_or_below_of = defender
+							character = FROM
+							is_liege_or_above = FROM
 						}
 					}
-
-					attacker = { has_strong_claim = PREV }
+					ROOT = { has_strong_claim = PREV }
 				}
-
 				press_claim = ROOT
 			}
 		}
-
-		anger_china_effect = yes
 	}
-
+	
 	on_success = {
-		log = "[Root.GetBestName] (ID: [Root.GetID]) succeeded with [Root.GetHerHis] Claim All war against [From.GetBestName] (ID: [From.GetID])"
-
-		any_attacker = {
-			show_scope_change = no
-
-			if = {
-				limit = { character = attacker }
-
-				participation_scaled_prestige = 100
-
-				any_claim = {
-					show_scope_change = no
-
+		ROOT = {
+			any_claim = {
+				limit = {
+					holder_scope = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+					ROOT = { has_strong_claim = PREV }
+				}
+				usurp_title_plus_barony_if_unlanded = { target = ROOT type = claim }
+				if = {
 					limit = {
-						holder_scope = {
-							OR = {
-								character = defender
-								is_vassal_or_below_of = defender
-							}
-						}
-
-						attacker = { has_strong_claim = PREV }
+						higher_tier_than = BARON
+						NOT = { culture = ROOT }
 					}
-
-					hidden_effect = {
-						if = {
-							limit = {
-								NOT = {
-									any_previous_holder = { character = attacker }
-								}
-
-								attacker = {
-									can_apply_average_nickname_trigger = yes
-									lower_real_tier_than = PREV
-								}
-							}
-
-							attacker = {
-								random = {
-									chance = 50
-									give_nickname = nick_the_usurper
-								}
-							}
-						}
-					}
-
-					usurp_title_plus_barony_if_unlanded = {
-						target = attacker
-						type = claim
-					}
-
-					hidden_effect = {
-						if = {
-							limit = {
-								higher_real_tier_than = BARON
-								NOT = { culture = attacker }
-							}
-
-							conquest_culture = attacker
-						}
-					}
+					hidden_tooltip = { conquest_culture = ROOT }
 				}
-
-				hidden_effect = {
-					if = { # China with no land calculates what to do with nomad provinces
-						limit = {
-							is_offmap_governor = yes
-							offmap_power = { is_offmap_tag = offmap_china }
-							offmap_china = { has_offmap_tmp_flag = WP_is_not_on_map }
-							wealth < 2500 # unless already rich from tributes
-						}
-
-						set_variable = {
-							which = local_WP_nomad_gold_from_china
-							value = 0
-						}
-
-						any_realm_province = {
-							limit = {
-								has_province_modifier = nomad_agitation
-								has_settlement_construction = no
-								held_under_PREV = yes
-							}
-
-							change_variable = { which = local_WP_nomad_gold_from_china value = 1 }
-						}
-
-						character_event = {
-							id = JD.60101 # calculate gold sent from china for building holdings
-							days = 1
-						}
-					}
-
-					if = {
-						limit = {
-							has_character_flag = is_otto
-
-							defender = {
-								has_character_flag = is_giselbert
-							}
-						}
-
-						reverse_imprison = defender
-					}
-				}
-			}
-			else = {
-				hidden_effect = { participation_scaled_prestige = 100 }
 			}
 		}
-
-		defender = {
-			show_scope_change = no
-			prestige = -100
+		hidden_tooltip = {
+			ROOT = {
+				if = {
+					limit = {
+						has_dlc = "Legacy of Rome"
+						OR = { 
+							has_landed_title = e_byzantium
+							has_landed_title = e_roman
+							has_landed_title = e_roman_empire
+							AND = {
+								OR = {
+									culture = roman
+									culture = romanobrython
+									culture = romanogothic
+									culture = galloroman
+									culture = greek
+								}
+								independent = yes
+								higher_tier_than = duke
+							}
+						}
+					}
+					character_event = { id = LoR.30 days = 12 }
+				}
+			}
+		}
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 100 }
 		}
 	}
 
 	on_fail = {
-		attacker = {
-			show_scope_change = no
-
-			prestige = -150
+		ROOT = {
+			prestige = -50
 		}
-
 		any_defender = {
-			show_scope_change = no
-
-			if = {
-				limit = { character = defender }
-				participation_scaled_prestige = 75
-			}
-			else = {
-				hidden_effect = { participation_scaled_prestige = 75 }
-			}
+			limit = { character = FROM }
+			participation_scaled_prestige = 75
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { participation_scaled_prestige = 75 }
 		}
 	}
 
 	on_reverse_demand = {
-		attacker = {
-			show_scope_change = no
-
-			prestige = -200
-
+		ROOT = {
+			prestige = -100
 			transfer_scaled_wealth = {
-				to = defender
-				value = 4.0
+				to = FROM
+				value = 1.0
 			}
-
 			any_claim = {
-				show_scope_change = no
-
 				limit = {
 					holder_scope = {
 						OR = {
-							character = defender
-							is_vassal_or_below_of = defender
+							character = FROM
+							is_liege_or_above = FROM
 						}
 					}
-
-					attacker = { has_strong_claim = PREV }
+					ROOT = { has_strong_claim = PREV }
 				}
-
-				remove_claim = attacker
-			}
-
-			hidden_effect = {
-				if = { #Makes China have a chance of leaving Expanionist policy...
-					limit = { has_landed_title = e_china_west_governor }
-
-					log = "China War Logging: China lost a claim all war against [From.GetBestName]"
-
-					if = {
-						limit = {
-							offmap_china = {
-								has_policy = china_expansionist
-							}
-						}
-
-						random = {
-							chance = 50
-
-							offmap_china = {
-								set_policy = china_open
-								log = "-------------------------------------"
-								log = "China Policy Logging:"
-								log = "Chinas new Policy is now OPEN"
-								log = "-------------------------------------"
-							}
-						}
-					}
-				}
+				remove_claim = ROOT
 			}
 		}
-
 		any_defender = {
-			show_scope_change = no
-
+			limit = { character = FROM }
+			participation_scaled_prestige = 200
+		}
+		FROM = {
 			if = {
-				limit = { character = defender }
-				participation_scaled_prestige = 200
+				limit = { 
+					has_dlc = "Legacy of Rome"
+					OR = { 
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman
+						has_landed_title = e_roman_empire
+						AND = {
+							OR = {
+								culture = roman
+								culture = romanobrython
+								culture = romanogothic
+								culture = galloroman
+								culture = greek
+							}
+							independent = yes
+							higher_tier_than = duke
+						}
+					}
+#					religion_group = christian
+				}
+				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
-			else = {
-				hidden_effect = { participation_scaled_prestige = 200 }
-			}
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { participation_scaled_prestige = 200 }
 		}
 	}
 
 	attacker_ai_victory_worth = {
 		factor = -1 # always accept
 	}
-
+	
 	attacker_ai_defeat_worth = {
 		factor = 100
 	}
@@ -606,7 +527,7 @@ claim_all = {
 	defender_ai_victory_worth = {
 		factor = -1 # always accept
 	}
-
+	
 	defender_ai_defeat_worth = {
 		factor = 100
 	}

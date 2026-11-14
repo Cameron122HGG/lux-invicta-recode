@@ -2146,753 +2146,686 @@ obj_lower_decadence = {
 }
 
 # Become King
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_become_king = {
 	type = character
-
-	ai_capital_kingdom_focus = yes # AI characters with this ambition will actually focus on taking the kingdom
+	
 	can_cancel = no
-
+	
+	ai_capital_kingdom_focus = yes # AI characters with this ambition will actually focus on taking the kingdom
+	
 	potential = {
+		is_adult = yes
 		is_playable = yes
 		is_landed = yes
-		is_adult = yes
-		lower_real_tier_than = KING
-		is_incapable = no
-
+		lower_tier_than = KING
 		OR = {
 			independent = yes
 			liege = { independent = yes }
 		}
-
 		NOT = {
 			any_heir_title = {
-				higher_real_tier_than = DUKE
+				higher_tier_than = DUKE
 			}
 		}
-
 		capital_scope = {
 			kingdom = {
 				always = yes
 			}
 		}
-
-		trigger_if = {
-			limit = { ai = yes }
-
-			NAND = {
-				capital_scope = {
-					kingdom = {
-						OR = {
-							title = k_nenets
-							title = k_sapmi
-							title = k_perm
-						}
-					}
-				}
-
-				OR = {
-					culture = sami
-					culture = nenets
-					culture = komi
-				}
-			}
-		}
 	}
-
-	success = {
-		custom_tooltip = {
-			text = obj_become_king_tip
-
-			capital_scope = {
-				kingdom = {
-					holder = ROOT
-				}
-			}
-		}
+	
+	allow = {
+		NOT = { trait = incapable }
 	}
-
-	effect = {
-		prestige = 500
-		clr_character_flag = kingdom_claimed_with_ambition
-	}
-
-	abort = {
-		OR = {
-			is_incapable = yes
-			is_playable = no
-			is_landed = no
-			higher_real_tier_than = DUKE
-
-			any_heir_title = {
-				higher_real_tier_than = DUKE
-			}
-		}
-	}
-
+	
 	chance = {
 		factor = 100
-
-		trigger = {
-			OR = {
-				religion_group = pagan_group
-				trait = ambitious
-			}
+		
+		modifier = {
+			factor = 0
+			NOT = { religion_group = pagan_group }
+			NOT = { trait = ambitious }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 3.0
-
 			capital_scope = {
 				kingdom = {
 					has_holder = no
 				}
 			}
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 3.0
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = brave
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 3.0
-
 			OR = {
 				independent = yes
-				is_unreformed_pagan_trigger = yes
+				AND = {
+					religion_group = pagan_group
+					is_reformed_religion = no
+				}
 			}
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.1
 			trait = craven
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = content
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = slothful
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.1
-			real_tier = COUNT
+			tier = COUNT
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
-
 			OR = {
 				religion = finnish_pagan
-				religion = west_african_pagan
+				religion = mande_pagan
 			}
 		}
 	}
+	
+	success = {
+		custom_tooltip = {
+			text = obj_become_king_tip
+			hidden_tooltip = {
+				capital_scope = {
+					kingdom = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	abort = {
+		OR = {
+			trait = incapable
+			is_playable = no
+			is_landed = no
+			AND = {
+				higher_tier_than = DUKE
+				primary_title = {
+					temporary = no
+				}
+			}
+			any_heir_title = {
+				higher_tier_than = DUKE
+				temporary = no
+			}
+		}
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+		prestige = 500
+		hidden_tooltip = {
+			clr_character_flag = kingdom_claimed_with_ambition
+		}
+	}
+	
 }
 
 ### Buddhist ambitions ###
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_stop_drinking = {
 	type = character
-
+	
 	potential = {
-		religion = buddhist
+		ascetic_religions_trigger = yes
 		trait = drunkard
+	}
+	
+	allow = {
 		is_adult = yes
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = infirm }
 	}
-
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
 	success = {
 		NOT = { trait = drunkard }
 	}
-
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
 	effect = {
 		piety = 100
 		clr_character_flag = guru_helped_ambition
 	}
+}
 
-	abort = {
-		NOT = { religion = buddhist }
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+obj_buddhist_reject_empty_pleasures = {
+	type = character
+	
+	potential = {
+		ascetic_religions_trigger = yes
+		trait = hedonist
 	}
-
-	abort_effect = {
-		clr_character_flag = guru_helped_ambition
+	
+	allow = {
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
-
 	chance = {
 		factor = 100
-
-		mult_modifier = {
+		
+		modifier = {
 			factor = 2
 			trait = zealous
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = slothful
 		}
 	}
-}
-
-obj_buddhist_reject_empty_pleasures = {
-	type = character
-
-	potential = {
-		religion = buddhist
-		trait = hedonist
-		is_adult = yes
-		is_incapable = no
-		NOT = { trait = infirm }
-	}
-
 	success = {
 		NOT = { trait = hedonist }
 	}
-
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
 	effect = {
 		piety = 100
 		clr_character_flag = guru_helped_ambition
 	}
+}
 
-	abort = {
-		NOT = { religion = buddhist }
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+obj_buddhist_abstain_sexual_excess = {
+	type = character
+	
+	potential = {
+		ascetic_religions_trigger = yes
+		trait = lustful
 	}
-
-	abort_effect = {
-		clr_character_flag = guru_helped_ambition
+	
+	allow = {
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
-
 	chance = {
 		factor = 100
-
-		mult_modifier = {
+		
+		modifier = {
 			factor = 2
 			trait = zealous
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = slothful
 		}
 	}
-}
-
-obj_buddhist_abstain_sexual_excess = {
-	type = character
-
-	potential = {
-		religion = buddhist
-		trait = lustful
-		is_adult = yes
-		is_incapable = no
-		NOT = { trait = infirm }
-	}
-
-	creation_effect = {
-		character_event = {
-			id = 5064
-			months = 6
-			random = 8030 # 22 years
-		}
-	}
-
 	success = {
 		NOT = { trait = lustful }
 	}
-
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
 	effect = {
 		piety = 100
-		clear_delayed_event = { id = 5064 }
 		clr_character_flag = guru_helped_ambition
-	}
-
-	abort = {
-		NOT = { religion = buddhist }
-	}
-
-	abort_effect = {
-		clear_delayed_event = { id = 5064 }
-		clr_character_flag = guru_helped_ambition
-	}
-
-	chance = {
-		factor = 100
-
-		mult_modifier = {
-			factor = 2
-			trait = zealous
-		}
-
-		mult_modifier = {
-			factor = 1.5
-			trait = ambitious
-		}
-
-		mult_modifier = {
-			factor = 0.01
-			trait = slothful
-		}
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_reject_cruelty = {
 	type = character
-
+	
 	potential = {
-		religion = buddhist
-
+		ascetic_religions_trigger = yes
 		OR = {
 			trait = impaler
 			trait = cruel
 		}
-
+	}
+	
+	allow = {
 		is_adult = yes
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = infirm }
 	}
-
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
 	success = {
 		NOR = {
 			trait = impaler
 			trait = cruel
 		}
 	}
-
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
 	effect = {
 		piety = 100
 		clr_character_flag = guru_helped_ambition
 	}
+}
 
-	abort = {
-		NOT = { religion = buddhist }
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+obj_buddhist_temperance_food = {
+	type = character
+	
+	potential = {
+		ascetic_religions_trigger = yes
+		trait = gluttonous
 	}
-
-	abort_effect = {
-		clr_character_flag = guru_helped_ambition
+	
+	allow = {
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
-
 	chance = {
 		factor = 100
-
-		mult_modifier = {
+		
+		modifier = {
 			factor = 2
 			trait = zealous
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = slothful
 		}
 	}
-}
-
-obj_buddhist_temperance_food = {
-	type = character
-
-	potential = {
-		religion = buddhist
-		trait = gluttonous
-		is_adult = yes
-		is_incapable = no
-		NOT = { trait = infirm }
-	}
-
 	success = {
 		NOT = { trait = gluttonous }
 	}
-
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
 	effect = {
 		piety = 100
 		clr_character_flag = guru_helped_ambition
 	}
+}
 
-	abort = {
-		NOT = { religion = buddhist }
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+obj_buddhist_reject_greed = {
+	type = character
+	
+	potential = {
+		ascetic_religions_trigger = yes
+		trait = greedy
 	}
-
-	abort_effect = {
-		clr_character_flag = guru_helped_ambition
+	
+	allow = {
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
-
 	chance = {
 		factor = 100
-
-		mult_modifier = {
+		
+		modifier = {
 			factor = 2
 			trait = zealous
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = slothful
 		}
 	}
-}
-
-obj_buddhist_reject_greed = {
-	type = character
-
-	potential = {
-		religion = buddhist
-		trait = greedy
-		is_adult = yes
-		is_incapable = no
-		NOT = { trait = infirm }
-	}
-
 	success = {
 		NOT = { trait = greedy }
 	}
-
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
 	effect = {
 		piety = 100
 		clr_character_flag = guru_helped_ambition
 	}
+}
 
-	abort = {
-		NOT = { religion = buddhist }
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+obj_buddhist_reject_envy = {
+	type = character
+	
+	potential = {
+		ascetic_religions_trigger = yes
+		trait = envious
 	}
-
-	abort_effect = {
-		clr_character_flag = guru_helped_ambition
+	
+	allow = {
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
-
 	chance = {
 		factor = 100
-
-		mult_modifier = {
+		
+		modifier = {
 			factor = 2
 			trait = zealous
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = slothful
 		}
 	}
-}
-
-obj_buddhist_reject_envy = {
-	type = character
-
-	potential = {
-		religion = buddhist
-		trait = envious
-		is_adult = yes
-		is_incapable = no
-		NOT = { trait = infirm }
-	}
-
 	success = {
 		NOT = { trait = envious }
 	}
-
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
 	effect = {
 		piety = 100
 		clr_character_flag = guru_helped_ambition
 	}
+}
 
-	abort = {
-		NOT = { religion = buddhist }
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+obj_buddhist_reject_hate = {
+	type = character
+	
+	potential = {
+		ascetic_religions_trigger = yes
+		trait = wroth
 	}
-
-	abort_effect = {
-		clr_character_flag = guru_helped_ambition
+	
+	allow = {
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
-
 	chance = {
 		factor = 100
-
-		mult_modifier = {
+		
+		modifier = {
 			factor = 2
 			trait = zealous
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = slothful
 		}
 	}
-}
-
-obj_buddhist_reject_hate = {
-	type = character
-
-	potential = {
-		religion = buddhist
-		trait = wroth
-		is_adult = yes
-		is_incapable = no
-		NOT = { trait = infirm }
-	}
-
 	success = {
 		NOT = { trait = wroth }
 	}
-
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
 	effect = {
 		piety = 100
 		clr_character_flag = guru_helped_ambition
 	}
+}
 
-	abort = {
-		NOT = { religion = buddhist }
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+obj_buddhist_reject_pride = {
+	type = character
+	
+	potential = {
+		ascetic_religions_trigger = yes
+		trait = proud
 	}
-
-	abort_effect = {
-		clr_character_flag = guru_helped_ambition
+	
+	allow = {
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
-
 	chance = {
 		factor = 100
-
-		mult_modifier = {
+		
+		modifier = {
 			factor = 2
 			trait = zealous
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = slothful
 		}
 	}
-}
-
-obj_buddhist_reject_pride = {
-	type = character
-
-	potential = {
-		religion = buddhist
-		trait = proud
-		is_adult = yes
-		is_incapable = no
-		NOT = { trait = infirm }
-	}
-
 	success = {
 		NOT = { trait = proud }
 	}
-
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
 	effect = {
 		piety = 100
 		clr_character_flag = guru_helped_ambition
 	}
-
-	abort = {
-		NOT = { religion = buddhist }
-	}
-
-	abort_effect = {
-		clr_character_flag = guru_helped_ambition
-	}
-
-	chance = {
-		factor = 100
-
-		mult_modifier = {
-			factor = 2
-			trait = zealous
-		}
-
-		mult_modifier = {
-			factor = 1.5
-			trait = ambitious
-		}
-
-		mult_modifier = {
-			factor = 0.01
-			trait = slothful
-		}
-	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_defeat_fear = {
 	type = character
-
+	
 	potential = {
-		religion = buddhist
-
+		ascetic_religions_trigger = yes
 		OR = {
 			trait = paranoid
 			trait = craven
 		}
-
+	}
+	
+	allow = {
 		is_adult = yes
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = infirm }
 	}
-
-	success = {
-		NOR = {
-			trait = paranoid
-			trait = craven
-		}
-	}
-
-	effect = {
-		piety = 100
-		clr_character_flag = guru_helped_ambition
-	}
-
-	abort = {
-		NOT = { religion = buddhist }
-	}
-
-	abort_effect = {
-		clr_character_flag = guru_helped_ambition
-	}
-
+	
 	chance = {
 		factor = 100
-
-		mult_modifier = {
+		
+		modifier = {
 			factor = 2
 			trait = zealous
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.01
 			trait = slothful
 		}
 	}
+	success = {
+		NOT = { trait = paranoid }
+		NOT = { trait = craven }
+	}
+	abort = {
+		ascetic_religions_trigger = no
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_become_paragon_of_enlightenment = {
 	type = character
-
+	
 	potential = {
-		is_playable = yes
-		religion_group = indian_group
-		is_landed = yes
+		ascetic_religions_trigger = yes
+	}
+	
+	allow = {
 		is_adult = yes
-		piety < 1000
-
+		NOT = { piety = 1000 }
 		OR = {
 			has_education_learning_trigger = yes
 			has_pious_trait_trigger = yes
 		}
-
 		has_impious_trait_trigger = no
-		is_incapable = no
+		is_playable = yes
+		is_landed = yes
+		NOT = { trait = incapable }
 	}
-
+	
+	chance = {
+		factor = 50
+		
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 0.01
+			NOR = {
+				tier = king 
+				tier = emperor
+				is_theocracy = yes
+			}
+		}
+		modifier = {
+			factor = 10.0
+			has_education_learning_trigger = yes
+		}
+		modifier = {
+			factor = 10.0
+			trait = zealous
+		}
+	}
 	success = {
-		piety >= 2000
+		piety = 2000
 	}
-
+	abort = {
+		OR = {
+			has_impious_trait_trigger = yes
+			trait = incapable
+			ascetic_religions_trigger = no
+		}
+	}
+	abort_effect = {
+	}
 	effect = {
 		change_learning = 1
 		piety = 100
-
 		if = {
-			limit = { can_apply_average_nickname_trigger = yes }
+			limit = {
+				has_nickname = no
+			}
 			give_nickname = nick_the_wise
 		}
-
 		religion_authority = {
-			name = paragon_of_enlightenment
+			modifier = paragon_of_enlightenment
 			years = 20
 		}
-
 		any_vassal = {
-			show_scope_change = no
-
 			limit = {
 				is_theocracy = yes
 				religion = ROOT
 			}
-
 			opinion = {
-				name = opinion_enlightened
 				who = ROOT
-				years = 100
+				modifier = opinion_enlightened
+				months = 1200
 			}
-		}
-	}
-
-	abort = {
-		OR = {
-			is_playable = no
-			is_landed = no
-			NOT = { religion_group = indian_group }
-			has_impious_trait_trigger = yes
-			is_incapable = yes
-		}
-	}
-
-	chance = {
-		factor = 50
-
-		mult_modifier = {
-			factor = 1.25
-			trait = patient
-		}
-
-		mult_modifier = {
-			factor = 0.01
-
-			lower_real_tier_than = KING
-			is_theocracy = no
-		}
-
-		mult_modifier = {
-			factor = 10.0
-			has_education_learning_trigger = yes
-		}
-
-		mult_modifier = {
-			factor = 10.0
-			trait = zealous
 		}
 	}
 }

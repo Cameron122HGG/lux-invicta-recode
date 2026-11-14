@@ -3,48 +3,42 @@
 namespace = HF
 
 # on_five_years pulse handling the AI picking a Antagonizing target
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21997
-
-	is_triggered_only = yes
 	hide_window = yes
-
 	only_playable = yes
-	has_dlc = "Holy Fury"
+
 	ai = yes
-	min_age = 16
-	only_capable = yes
-	prisoner = no
 
 	trigger = {
+		has_dlc = "Holy Fury"
+		NOT = { trait = incapable }
+		prisoner = no
+		is_adult = yes
 		is_landed = yes
 		is_inaccessible_trigger = no
-
-		NOT = {
-			persistent_event_target:antagonize_target = {
+		NOT = {	
+			persistent_event_target:antagonize_target = {	
 				is_alive = yes
 			}
 		}
 	}
 
-	immediate = {
-		if = {
+	is_triggered_only = yes
+
+	immediate = { 
+		if = { 
 			limit = { persistent_event_target:antagonize_target = { always = yes } }
-
-			persistent_event_target:antagonize_target = {
-				clr_character_flag = flag_character_being_antagonized
-			}
-
-			remove_special_interest = persistent_event_target:antagonize_target
-			clear_persistent_event_target = antagonize_target
+			persistent_event_target:antagonize_target = { clr_character_flag = flag_character_being_antagonized } 
+			remove_special_interest = persistent_event_target:antagonize_target 
 		}
-
-		random_realm_lord = {
-			limit = {
-				is_adult = yes
-				is_incapable = no
+		random_realm_character = {
+			limit = { 
 				is_inaccessible_trigger = no
-
+				is_ruler = yes
+				is_adult = yes
+				NOT = { trait = incapable }
 				NOR = {
 					is_lover = ROOT
 					is_friend = ROOT
@@ -53,410 +47,470 @@ character_event = {
 					has_character_flag = flag_character_being_antagonized
 				}
 			}
-
 			save_event_target_as = potential_antagonized
-
-			random = {
-				chance = 70
-
-				mult_modifier = {
-					factor = 5 # Liege of player more likely to pick on him
-
-					vassal_of = ROOT
-					ai = no
-
-					ROOT = {
-						OR = {
-							trait = cruel
-							trait = impaler
-							trait = deceitful
-							trait = master_schemer
-							trait = paranoid
-							trait = lunatic
-							trait = possessed
-						}
-					}
+		}
+		if = { limit = { event_target:potential_antagonized = { is_alive = yes } } #Prevent script asserts in case of no character being scoped to.
+		random = {
+			chance = 70
+			modifier = {
+				factor = 5 #Liege of player more likely to pick on him.
+				ROOT = { 
+					OR = { 
+						trait = cruel
+						trait = impaler
+						trait = deceitful
+						trait = master_schemer
+						trait = paranoid
+						trait = lunatic
+						trait = possessed
+					} 
 				}
-
-				# Soft modifiers
-				mult_modifier = {
-					factor = 0.25 # The average liege should probably not pick on his vassals
-
-					vassal_of = ROOT
-					religion = ROOT
-
-					ROOT = {
-						NOR = {
-							trait = cruel
-							trait = impaler
-							trait = deceitful
-							trait = master_schemer
-							trait = paranoid
-							trait = lunatic
-							trait = possessed
-						}
-					}
+				event_target:potential_antagonized = { vassal_of = ROOT ai = no }
+			}
+			#Soft modifiers.
+			modifier = {
+				factor = 0.25 #The average liege should probably not pick on his vassals.
+				ROOT = { 
+					NOR = { 
+						trait = cruel
+						trait = impaler
+						trait = deceitful
+						trait = master_schemer
+						trait = paranoid
+						trait = lunatic
+						trait = possessed
+					} 
 				}
-
-				mult_modifier = {
-					factor = 0.25 # Zealous picking on the unbelievers
-
-					ROOT = { trait = zealous }
-
-					OR = {
-						trait = cynical
-						NOT = { religion = ROOT }
-
-						trigger_if = {
-							limit = { trait = sympathy_christendom }
-							ROOT = { NOT = { religion_group = christian } }
-						}
-
-						trigger_if = {
-							limit = { trait = sympathy_islam }
-							ROOT = { NOT = { religion_group = muslim } }
-						}
-
-						trigger_if = {
-							limit = { trait = sympathy_pagans }
-							ROOT = { NOT = { religion_group = pagan_group } }
-						}
-
-						trigger_if = {
-							limit = { trait = sympathy_zoroastrianism }
-							ROOT = { NOT = { religion_group = zoroastrian_group } }
-						}
-
-						trigger_if = {
-							limit = { trait = sympathy_judaism }
-							ROOT = { NOT = { religion_group = jewish_group } }
-						}
-
-						trigger_if = {
-							limit = { trait = sympathy_indian }
-							ROOT = { NOT = { religion_group = indian_group } }
-						}
-					}
+				event_target:potential_antagonized = { vassal_of = ROOT }
+				event_target:potential_antagonized = { religion = ROOT }
+			}
+			modifier = {
+				factor = 0.25 #zealous picking on the unbelievers.
+				ROOT = { 
+					trait = zealous
 				}
-
-				# Trait compatibility modifiers - Already so much in common, why fight?
-				mult_modifier = {
-					factor = 0.2
-
-					calc_true_if = {
-						amount >= 4
-
-						AND = {
-							trait = lustful
-							ROOT = { trait = lustful }
-						}
-
-						AND = {
-							trait = gluttonous
-							ROOT = { trait = gluttonous }
-						}
-
-						AND = {
-							trait = greedy
-							ROOT = { trait = greedy }
-						}
-
-						AND = {
-							trait = slothful
-							ROOT = { trait = slothful }
-						}
-
-						AND = {
-							trait = wroth
-							ROOT = { trait = wroth }
-						}
-
-						AND = {
-							trait = envious
-							ROOT = { trait = envious }
-						}
-
-						AND = {
-							trait = proud
-							ROOT = { trait = proud }
-						}
-
-						AND = {
-							trait = chaste
-							ROOT = { trait = chaste }
-						}
-
-						AND = {
-							trait = temperate
-							ROOT = { trait = temperate }
-						}
-
-						AND = {
-							trait = charitable
-							ROOT = { trait = charitable }
-						}
-
-						AND = {
-							trait = diligent
-							ROOT = { trait = diligent }
-						}
-
-						AND = {
-							trait = patient
-							ROOT = { trait = patient }
-						}
-
-						AND = {
-							trait = kind
-							ROOT = { trait = kind }
-						}
-
-						AND = {
-							trait = humble
-							ROOT = { trait = humble }
-						}
-
-						AND = {
-							trait = deceitful
-							ROOT = { trait = deceitful }
-						}
-
-						AND = {
-							trait = honest
-							ROOT = { trait = honest }
-						}
-
-						AND = {
-							trait = brave
-							ROOT = { trait = brave }
-						}
-
-						AND = {
-							trait = craven
-							ROOT = { trait = craven }
-						}
-
-						AND = {
-							trait = gregarious
-							ROOT = { trait = gregarious }
-						}
-
-						AND = {
-							trait = ambitious
-							ROOT = { trait = ambitious }
-						}
-
-						AND = {
-							trait = content
-							ROOT = { trait = content }
-						}
-
-						AND = {
-							trait = arbitrary
-							ROOT = { trait = arbitrary }
-						}
-
-						AND = {
-							trait = just
-							ROOT = { trait = just }
-						}
-
-						AND = {
-							trait = cynical
-							ROOT = { trait = cynical }
-						}
-
-						AND = {
-							trait = zealous
-							ROOT = { trait = zealous }
-						}
-
-						AND = {
-							trait = paranoid
-							ROOT = { trait = paranoid }
-						}
-
-						AND = {
-							trait = trusting
-							ROOT = { trait = trusting }
-						}
-
-						AND = {
-							trait = cruel
-							ROOT = { trait = cruel }
-						}
-
-						AND = {
-							trait = erudite
-							ROOT = { trait = erudite }
-						}
-
-						AND = {
-							trait = stubborn
-							ROOT = { trait = stubborn }
-						}
-
-						AND = {
-							trait = hedonist
-							ROOT = { trait = hedonist }
-						}
-
-						AND = {
-							trait = scholar
-							ROOT = { trait = scholar }
-						}
-
-						AND = {
-							trait = gardener
-							ROOT = { trait = gardener }
-						}
-
-						AND = {
-							trait = mystic
-							ROOT = { trait = mystic }
-						}
-
-						AND = {
-							trait = impaler
-							ROOT = { trait = impaler }
-						}
-
-						AND = {
-							trait = duelist
-							ROOT = { trait = duelist }
-						}
-
-						AND = {
-							trait = hunter
-							ROOT = { trait = hunter }
-						}
-
-						AND = {
-							trait = master_seducer
-							ROOT = { trait = master_seducer }
-						}
-
-						AND = {
-							trait = master_seductress
-							ROOT = { trait = master_seductress }
-						}
-
-						AND = {
-							trait = administrator
-							ROOT = { trait = administrator }
-						}
-
-						AND = {
-							trait = architect
-							ROOT = { trait = architect }
-						}
-
-						AND = {
-							trait = strategist
-							ROOT = { trait = strategist }
-						}
-
-						AND = {
-							trait = socializer
-							ROOT = { trait = socializer }
-						}
-
-						AND = {
-							trait = master_schemer
-							ROOT = { trait = master_schemer }
-						}
-
-						AND = {
-							trait = theologian
-							religion = ROOT
-							ROOT = { trait = theologian }
-						}
-
-						AND = {
-							trait = game_master
-							ROOT = { trait = game_master }
-						}
+				OR = { 
+					trait = cynical
+					NOT = { religion = ROOT }
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = abrahamic_group } }
+						trait = sympathy_abrahamics
 					}
-				}
-
-				mult_modifier = {
-					factor = 0.5
-					is_married = ROOT
-				}
-
-				# Opinion modifiers
-				mult_modifier = { # I hate you, you must hate me
-					factor = 1.5
-
-					reverse_opinion = {
-						who = ROOT
-						value < 0
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = anatolian_group } }
+						trait = sympathy_anatolians
 					}
-
-					opinion = {
-						who = ROOT
-						value >= 20
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = arabpagan_group } }
+						trait = sympathy_arabpagans
 					}
-				}
-
-				mult_modifier = { # I hate you, you must hate me
-					factor = 1.5
-
-					reverse_opinion = {
-						who = ROOT
-						value < -20
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = aztec_group } }
+						trait = sympathy_aztecs
 					}
-
-					opinion = {
-						who = ROOT
-						value >= 20
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = baltic_group } }
+						trait = sympathy_baltics
 					}
-				}
-
-				mult_modifier = { # I hate you, you must hate me
-					factor = 2
-
-					reverse_opinion = {
-						who = ROOT
-						value < -40
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = bantu_group } }
+						trait = sympathy_bantus
 					}
-
-					opinion = {
-						who = ROOT
-						value >= 20
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = berberpagan_group } }
+						trait = sympathy_berbers
 					}
-				}
-
-				mult_modifier = { # I hate you, you must hate me
-					factor = 2
-
-					reverse_opinion = {
-						who = ROOT
-						value < -60
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = bud_group } }
+						trait = sympathy_buddhists
 					}
-
-					opinion = {
-						who = ROOT
-						value >= 20
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = celtic_group } }
+						trait = sympathy_celtics
 					}
-				}
-
-				set_character_flag = flag_character_being_antagonized # Only used for AI weights
-
-				ROOT = {
-					save_persistent_event_target = {
-						name = antagonize_target
-						scope = event_target:potential_antagonized
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = chinese_group } }
+						trait = sympathy_chinese
 					}
-
-					add_special_interest = {
-						who = persistent_event_target:antagonize_target
-						key = antagonizing_target_key
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = christian } }
+						trait = sympathy_christendom
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = east_african_group } }
+						trait = sympathy_east_africans
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = egyptian_group } }
+						trait = sympathy_egyptian
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = finnish_group } }
+						trait = sympathy_finnish
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = graecoroman_group } }
+						trait = sympathy_graecoroman
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = indian_group } }
+						trait = sympathy_indian
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = indohelen_group } }
+						trait = sympathy_indohellens
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = inuit_group } }
+						trait = sympathy_inuit
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = jewish_group } }
+						trait = sympathy_judaism
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = luwian_group } }
+						trait = sympathy_luwians
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = mand_group } }
+						trait = sympathy_mande
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = mani_group } }
+						trait = sympathy_manichaeans
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = mithra_group } }
+						trait = sympathy_mithraics
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = muslim } }
+						trait = sympathy_islam
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = neoplato_group } }
+						trait = sympathy_platonics
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = norsegerman_group } }
+						trait = sympathy_nordic
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = pagan_group } }
+						trait = sympathy_pagans
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = palmyranpagan_group } }
+						trait = sympathy_palmyrans
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = serer_group } }
+						trait = sympathy_sererics
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = slavic_group } }
+						trait = sympathy_slavics
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = sol_group } }
+						trait = sympathy_sol
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = tengri_group } }
+						trait = sympathy_tengri
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = yazd_group } }
+						trait = sympathy_yazd
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = zal_group } }
+						trait = sympathy_zal
+					}
+					event_target:potential_antagonized = { 
+						ROOT = { NOT = { religion_group = zoroastrian_group } }
+						trait = sympathy_zoroastrianism
 					}
 				}
 			}
+			#Trait compatibility modifiers - Already so much in common, why fight?
+			modifier = {
+				factor = 0.2
+				calc_true_if = { 
+					amount = 4
+					event_target:potential_antagonized = { 
+						trait = lustful
+						ROOT = { trait = lustful }
+					}
+					event_target:potential_antagonized = { 
+						trait = gluttonous
+						ROOT = { trait = gluttonous }
+					}
+					event_target:potential_antagonized = { 
+						trait = greedy
+						ROOT = { trait = greedy }
+					}
+					event_target:potential_antagonized = { 
+						trait = slothful
+						ROOT = { trait = slothful }
+					}
+					event_target:potential_antagonized = { 
+						trait = wroth
+						ROOT = { trait = wroth }
+					}
+					event_target:potential_antagonized = { 
+						trait = envious
+						ROOT = { trait = envious }
+					}
+					event_target:potential_antagonized = { 
+						trait = proud
+						ROOT = { trait = proud }
+					}
+					event_target:potential_antagonized = { 
+						trait = chaste
+						ROOT = { trait = chaste }
+					}
+					event_target:potential_antagonized = { 
+						trait = temperate
+						ROOT = { trait = temperate }
+					}
+					event_target:potential_antagonized = { 
+						trait = charitable
+						ROOT = { trait = charitable }
+					}
+					event_target:potential_antagonized = { 
+						trait = diligent
+						ROOT = { trait = diligent }
+					}
+					event_target:potential_antagonized = { 
+						trait = patient
+						ROOT = { trait = patient }
+					}
+					event_target:potential_antagonized = { 
+						trait = kind
+						ROOT = { trait = kind }
+					}
+					event_target:potential_antagonized = { 
+						trait = humble
+						ROOT = { trait = humble }
+					}
+					event_target:potential_antagonized = { 
+						trait = deceitful
+						ROOT = { trait = deceitful }
+					}
+					event_target:potential_antagonized = { 
+						trait = honest
+						ROOT = { trait = honest }
+					}
+					event_target:potential_antagonized = { 
+						trait = brave
+						ROOT = { trait = brave }
+					}
+					event_target:potential_antagonized = { 
+						trait = craven
+						ROOT = { trait = craven }
+					}
+					event_target:potential_antagonized = { 
+						trait = gregarious
+						ROOT = { trait = gregarious }
+					}
+					event_target:potential_antagonized = { 
+						trait = ambitious
+						ROOT = { trait = ambitious }
+					}
+					event_target:potential_antagonized = { 
+						trait = content
+						ROOT = { trait = content }
+					}
+					event_target:potential_antagonized = { 
+						trait = arbitrary
+						ROOT = { trait = arbitrary }
+					}
+					event_target:potential_antagonized = { 
+						trait = just
+						ROOT = { trait = just }
+					}
+					event_target:potential_antagonized = { 
+						trait = cynical
+						ROOT = { trait = cynical }
+					}
+					event_target:potential_antagonized = { 
+						trait = zealous
+						ROOT = { trait = zealous }
+					}
+					event_target:potential_antagonized = { 
+						trait = paranoid
+						ROOT = { trait = paranoid }
+					}
+					event_target:potential_antagonized = { 
+						trait = trusting
+						ROOT = { trait = trusting }
+					}
+					event_target:potential_antagonized = { 
+						trait = cruel
+						ROOT = { trait = cruel }
+					}
+					event_target:potential_antagonized = { 
+						trait = erudite
+						ROOT = { trait = erudite }
+					}
+					event_target:potential_antagonized = { 
+						trait = stubborn
+						ROOT = { trait = stubborn }
+					}
+					event_target:potential_antagonized = { 
+						trait = hedonist
+						ROOT = { trait = hedonist }
+					}
+					event_target:potential_antagonized = { 
+						trait = scholar
+						ROOT = { trait = scholar }
+					}
+					event_target:potential_antagonized = { 
+						trait = gardener
+						ROOT = { trait = gardener }
+					}
+					event_target:potential_antagonized = { 
+						trait = mystic
+						ROOT = { trait = mystic }
+					}
+					event_target:potential_antagonized = { 
+						trait = impaler
+						ROOT = { trait = impaler }
+					}
+					event_target:potential_antagonized = { 
+						trait = duelist
+						ROOT = { trait = duelist }
+					}
+					event_target:potential_antagonized = { 
+						trait = hunter
+						ROOT = { trait = hunter }
+					}
+					event_target:potential_antagonized = { 
+						trait = master_seducer
+						ROOT = { trait = master_seducer }
+					}
+					event_target:potential_antagonized = { 
+						trait = master_seductress
+						ROOT = { trait = master_seductress }
+					}
+					event_target:potential_antagonized = { 
+						trait = administrator
+						ROOT = { trait = administrator }
+					}
+					event_target:potential_antagonized = { 
+						trait = architect
+						ROOT = { trait = architect }
+					}
+					event_target:potential_antagonized = { 
+						trait = strategist
+						ROOT = { trait = strategist }
+					}
+					event_target:potential_antagonized = { 
+						trait = socializer
+						ROOT = { trait = socializer }
+					}
+					event_target:potential_antagonized = { 
+						trait = master_schemer
+						ROOT = { trait = master_schemer }
+					}
+					event_target:potential_antagonized = { 
+						trait = theologian
+						religion = ROOT
+						ROOT = { trait = theologian }
+					}
+					event_target:potential_antagonized = { 
+						trait = game_master
+						ROOT = { trait = game_master }
+					}
+				}
+			}
+
+			modifier = {
+				factor = 0.5
+				event_target:potential_antagonized = { is_married = ROOT }
+			}
+			#Opinion modifiers
+
+			modifier = { #I hate you, you must hate me.
+				factor = 1.5
+				ROOT = {
+					NOT = {
+						opinion = {
+							who = event_target:potential_antagonized
+							value = 0
+						}
+					}
+				}
+				event_target:potential_antagonized = { 
+					opinion = {
+						who = ROOT
+						value = 20
+					}
+				}
+			}
+			modifier = { #I hate you, you must hate me.
+				factor = 1.5
+				ROOT = {
+					NOT = {
+						opinion = {
+							who = event_target:potential_antagonized
+							value = -20
+						}
+					}
+				}
+				event_target:potential_antagonized = { 
+					opinion = {
+						who = ROOT
+						value = 20
+					}
+				}
+			}
+			modifier = { #I hate you, you must hate me.
+				factor = 2
+				ROOT = {
+					NOT = {
+						opinion = {
+							who = event_target:potential_antagonized
+							value = -40
+						}
+					}
+				}
+				event_target:potential_antagonized = { 
+					opinion = {
+						who = ROOT
+						value = 20
+					}
+				}
+			}
+			modifier = { #I hate you, you must hate me.
+				factor = 2
+				ROOT = {
+					NOT = {
+						opinion = {
+							who = event_target:potential_antagonized
+							value = -60
+						}
+					}
+				}
+				event_target:potential_antagonized = { 
+					opinion = {
+						who = ROOT
+						value = 20
+					}
+				}
+			}
+			save_persistent_event_target = {
+				name = antagonize_target
+				scope = event_target:potential_antagonized
+			}
+			add_special_interest = { who = persistent_event_target:antagonize_target key = antagonizing_target_key } 
+			persistent_event_target:antagonize_target = { set_character_flag = flag_character_being_antagonized } #Only used for AI weights.
 		}
+		} #if
 	}
+
 }
 
 character_event = {
@@ -493,1060 +547,818 @@ character_event = {
 }
 
 # Giant yearly event firing all the events related to appeasement.
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.22000
-
-	is_triggered_only = yes
 	hide_window = yes
-
-	capable_only = yes
-	prisoner = no
-
+	
 	trigger = {
-		# If character has become incapable, out of reach or otherwise unable to be interacted with, a notification event will be sent.
-		persistent_event_target:antagonize_target = {
-			is_alive = yes # HF.21001 is sent on_death
+		NOT = { trait = incapable }
+		prisoner = no
+		persistent_event_target:antagonize_target = {	#If character has become incapable, out of reach or otherwise unable to be interacted with, a notification event will be sent.
+			is_alive = yes
 		}
-		is_inaccessible_trigger = no
 	}
 
-	immediate = {
+	is_triggered_only = yes
+
+	immediate = { 
+		#This event fires for the Antagonizer, but all the DELAYED events below this one should be sent to the Antagonized WITHOUT triggers. They need to be hidden events that simply check the trigger with an "if" and ping back to the Antagonizer. If the trigger has become invalid during the delay, then the hidden event can simply call this event again after a couple of weeks, this way the Antagonizer doesn't have to wait another year to receive an event from this list.
+		random_list = { 
+		#	100 = { #Out of range, clear event target.
+		#		modifier = { 
+		#			factor = 0
+		#			persistent_event_target:antagonize_target = { is_within_diplo_range = ROOT }
+		#		}
+		#		persistent_event_target:antagonize_target = { character_event = { id = HF.22002 days = 30 random = 30 } }
+		#	}
+
 		################## CLEAN UP EVENTS ####################
-
-		if = {
-			limit = {
-				trigger_if = {
-					limit = { in_seclusion = yes }
-
-					persistent_event_target:antagonize_target = {
-						NAND = {
+			100 = { #You or your target have separately gone into Seclusion (somehow), clear target.
+				trigger = { 
+					OR = {
+						AND = { #They're in Seclusion, but you are not...
+							in_seclusion = no
+							persistent_event_target:antagonize_target = { in_seclusion = yes }
+						}
+						AND = { #You're in Seclusion, but they are not (and they are not at your location)...
 							in_seclusion = yes
-							at_location = ROOT
+							persistent_event_target:antagonize_target = {
+								in_seclusion = no
+								NOT = { at_location = ROOT } # (Just in case you somehow kicked them out of your own Seclusion)
+							}
 						}
-					}
-				}
-				trigger_else = {
-					persistent_event_target:antagonize_target = {
-						in_seclusion = yes
-					}
-				}
-			}
-
-			character_event = { id = HF.22006 } # You or your target have separately gone into Seclusion (somehow), clear target.
-		}
-		else_if = {
-			limit = {
-				persistent_event_target:antagonize_target = { prisoner = yes }
-				NOT = { has_character_flag = flag_antagonized_prisoner_notification }
-			}
-
-			character_event = { id = HF.22005 } # Imprisoned, clear event target.
-		}
-		else_if = {
-			limit = {
-				persistent_event_target:antagonize_target = { is_incapable = yes }
-			}
-
-			character_event = { id = HF.22008 } # Incapable, clear event target.
-		}
-		else_if = {
-			limit = {
-				OR = {
-					is_friend = persistent_event_target:antagonize_target
-					is_lover = persistent_event_target:antagonize_target
-				}
-			}
-
-			character_event = { id = HF.22123 } # Antagonized has turned into a friend/lover, clear target.
-		}
-	#	else_if = {
-	#		# Out of range, clear event target.
-	#		limit = {
-	#			NOT = { is_within_diplo_range = persistent_event_target:antagonize_target }
-	#		}
-	#
-	#		character_event = { id = HF.22003 }
-	#	}
-		else_if = {
-			limit = {
-				persistent_event_target:antagonize_target = {
-					is_inaccessible_or_incapable_trigger = no
-				}
-			}
-			random_list = {
-				################## CLEAN UP EVENTS ####################
-
-				10 = { # You have succeeded and gained a rival.
-					trigger = {
-						num_of_rivals < 5
-						NOT = { is_rival = persistent_event_target:antagonize_target }
-
-						opinion = {
-							who = persistent_event_target:antagonize_target
-							value < -10
-						}
-
-						persistent_event_target:antagonize_target = {
-							num_of_rivals < 5
-
-							opinion = {
-								who = ROOT
-								value < -25
+						AND = { #You're in Seclusion at the same time, separately...
+							in_seclusion = yes
+							persistent_event_target:antagonize_target = {
+								in_seclusion = yes
+								NOT = { at_location = ROOT }
 							}
 						}
 					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						reverse_opinion = {
-							who = persistent_event_target:antagonize_target
-							value < -30
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						reverse_opinion = {
-							who = persistent_event_target:antagonize_target
-							value < -40
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						reverse_opinion = {
-							who = persistent_event_target:antagonize_target
-							value < -50
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						reverse_opinion = {
-							who = persistent_event_target:antagonize_target
-							value < -60
-						}
-					}
-
-					persistent_event_target:antagonize_target = {
-						character_event = { id = HF.22009 }
+				}
+				character_event = { id = HF.22006 }
+			}
+			100 = { #Imprisoned, clear event target.
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { prisoner = no }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_prisoner_notification
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22004 } }
+			}
+			100 = { #Incapable, clear event target.
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { NOT = { trait = incapable } }
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22007 } }
+			}
+			100 = { #Antagonized has turned into a rival/friend/lover, clear target.
+				trigger = { 
+					OR = { 
+						persistent_event_target:antagonize_target = { is_friend = ROOT }
+						persistent_event_target:antagonize_target = { is_lover = ROOT } 
 					}
 				}
-
-				################## TIER ONE EVENTS (Base, generic notifications) ####################
-
-				1 = { # Prestige for prestige/opinion.
-					trigger = {
-						persistent_event_target:antagonize_target = {
-							is_inaccessible_trigger = no
-							NOT = { is_rival = ROOT }
-						}
-					}
-
-					character_event = { id = HF.22012 }
-				}
-
-				1 = { # Generic Bad rumors.
-					trigger = {
-						persistent_event_target:antagonize_target = {
-							is_inaccessible_trigger = no
-							NOT = { is_rival = ROOT }
-						}
-					}
-
-					character_event = { id = HF.22017 }
-				}
-
-				################## TIER TWO EVENTS (Main Slander event) ####################
-
-				30 = { # Main slander event.
-					trigger = { # Character must have at LEAST one trait.
-						persistent_event_target:antagonize_target = {
-							OR = {
-								AND = {
-									is_close_relative = ROOT
-									dynasty = ROOT
-								}
-
-								NOT = { religion_group = ROOT }
-								is_heresy_of = ROOT
-								trait = dwarf
-								trait = hunchback
-								trait = kinslayer
-								trait = familial_kinslayer
-								trait = dynastic_kinslayer
-								trait = excommunicated
-								trait = eunuch
-								trait = mystic
-								trait = master_seducer
-								trait = master_seductress
-								trait = lovers_pox
-								trait = master_schemer
-								trait = impaler
-								trait = hedonist
-								trait = bastard
-								trait = legit_bastard
-								trait = child_of_consort
-								trait = maimed
-								trait = infirm
-								trait = malnourished
-								trait = fat
-								trait = depressed
-								trait = drunkard
-								trait = lunatic
-								trait = possessed
-								has_ugly_trait_trigger = yes
-								trait = chaste
-								trait = temperate
-								trait = diligent
-								trait = patient
-								trait = kind
-								trait = humble
-								trait = lustful
-								trait = gluttonous
-								trait = greedy
-								trait = wroth
-								trait = envious
-								trait = ambitious
-								trait = arbitrary
-								trait = brave
-								trait = content
-								trait = craven
-								trait = gregarious
-								trait = deceitful
-								trait = just
-								trait = paranoid
-								trait = dull
-								trait = trusting
-								trait = zealous
-
-								AND = {
-									trait = erudite
-									religion_openly_hellenic_or_reformed_trigger = no
-									ROOT = { religion_group = pagan_group }
-								}
-
-								AND = {
-									trait = cynical
-									religion = ROOT
-								}
-							}
-
-							is_inaccessible_trigger = no
-						}
-					}
-
-					persistent_event_target:antagonize_target = {
-						character_event = { id = HF.22020 }
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22122 } }
+			}
+			10 = { #You have succeeded and gained a rival.
+				trigger = { 
+					NOR = { 
+						is_rival = persistent_event_target:antagonize_target 
+						num_of_rivals = 5
+						persistent_event_target:antagonize_target = { num_of_rivals = 5 }
+						persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -25 } }
 					}
 				}
-
-				################## TIER THREE EVENTS (Intrigue-locked events) ####################
-
-				20 = { # Fund blackguard.
-					trigger = {
-						trigger_if = {
-							limit = { is_rival = persistent_event_target:antagonize_target }
-							intrigue >= 5
-						}
-						trigger_else = {
-							intrigue >= 8
-						}
-
-						persistent_event_target:antagonize_target = {
-							independent = yes
-							is_ruler = yes
-						}
-					}
-
-					mult_modifier = { # Should rarely fire as first event.
-						factor = 0.1
-
-						persistent_event_target:antagonize_target = {
-							NOR = {
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_1 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_2 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_3 }
-							}
-						}
-					}
-
-					mult_modifier = {
-						factor = 0.5
-						intrigue < 10
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 2
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 4
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 6
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 8
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 10
-						}
-					}
-
-					character_event = { id = HF.22051 }
+				modifier = { 
+					factor = 1.5
+					NOT = { persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -30 } } }
 				}
+				modifier = { 
+					factor = 1.5
+					NOT = { persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -40 } } }
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -50 } } }
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -60 } } }
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22009 } }
+			}
 
-				5 = { # Sins event - Lustful.
-					trigger = {
-						intrigue >= 10
+		################## TIER ONE EVENTS (Base, generic notifications) ####################
+			1 = { #Prestige for prestige/opinion.
+				trigger = { 
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							is_inaccessible_trigger = yes
+							trait = incapable
+							prisoner = yes
+							is_rival = ROOT #No negative opinion-awarding events if you are already a Rival.
+						}
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22011 } }
+			}
+			
+			1 = { #Generic Bad rumors.
+				trigger = { 
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							is_inaccessible_trigger = yes
+							trait = incapable
+							prisoner = yes
+							is_rival = ROOT #No negative opinion-awarding events if you are already a Rival.
+						}
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22016 } }
+			}
 
-						persistent_event_target:antagonize_target = {
+
+		################## TIER TWO EVENTS (Main Slander event) ####################
+
+			30 = { #Main slander event.
+				trigger = { #Character must have at LEAST one trait.
+					persistent_event_target:antagonize_target = { 
+						OR = {  
+							AND = { is_close_relative = ROOT dynasty = ROOT }
+							NOT = { religion_group = ROOT }
+							is_heresy_of = ROOT
+							trait = dwarf
+							trait = hunchback
+							trait = kinslayer
+							trait = familial_kinslayer 
+							trait = dynastic_kinslayer
+							trait = excommunicated
+							trait = eunuch
+							trait = mystic
+							trait = master_seducer
+							trait = master_seductress
+							trait = lovers_pox
+							trait = master_schemer
+							trait = impaler
+							trait = hedonist
+							trait = bastard
+							trait = legit_bastard
+							trait = child_of_consort
+							trait = maimed
+							trait = infirm
+							trait = malnourished
+							trait = fat
+							trait = depressed
+							trait = drunkard
+							trait = lunatic
+							trait = possessed
+							has_ugly_trait_trigger = yes
+							trait = chaste
+							trait = temperate
+							trait = diligent
+							trait = patient
+							trait = kind
+							trait = humble
 							trait = lustful
-							is_ruler = yes
-
-							NOR = {
-								trait = great_pox
-								has_character_modifier = antagonize_sins_1_cooldown
-							}
-						}
-					}
-
-					mult_modifier = { # Should rarely fire as first event.
-						factor = 0.5
-
-						persistent_event_target:antagonize_target = {
-							NOR = {
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_1 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_2 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_3 }
-							}
-						}
-					}
-
-					mult_modifier = {
-						factor = 0.1
-						intrigue < 12
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 2
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 4
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 6
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 8
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 10
-						}
-					}
-
-					persistent_event_target:antagonize_target = {
-						add_character_modifier = {
-							name = antagonize_sins_1_cooldown
-							years = 20
-							hidden = yes
-						}
-					}
-
-					character_event = { id = HF.22070 }
-				}
-
-				5 = { # Sins event - Gluttonous.
-					trigger = {
-						intrigue >= 10
-
-						persistent_event_target:antagonize_target = {
 							trait = gluttonous
-							is_ruler = yes
-
-							NOR = {
-								trait = food_poisoning
-								trait = ill
-								has_character_modifier = antagonize_sins_2_cooldown
-							}
-						}
-					}
-
-					mult_modifier = { # Should rarely fire as first event.
-						factor = 0.5
-
-						persistent_event_target:antagonize_target = {
-							NOR = {
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_1 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_2 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_3 }
-							}
-						}
-					}
-
-					mult_modifier = {
-						factor = 0.1
-						intrigue < 12
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 2
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 4
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 6
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 8
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 10
-						}
-					}
-
-					persistent_event_target:antagonize_target = {
-						add_character_modifier = {
-							name = antagonize_sins_2_cooldown
-							years = 20
-							hidden = yes
-						}
-					}
-
-					character_event = { id = HF.22076 }
-				}
-
-				5 = { # Sins event - Greedy.
-					trigger = {
-						intrigue >= 10
-
-						persistent_event_target:antagonize_target = {
 							trait = greedy
-							is_ruler = yes
-							NOT = { has_character_modifier = antagonize_sins_3_cooldown }
-						}
-					}
-
-					mult_modifier = { # Should rarely fire as first event.
-						factor = 0.5
-
-						persistent_event_target:antagonize_target = {
-							NOR = {
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_1 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_2 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_3 }
-							}
-						}
-					}
-
-					mult_modifier = {
-						factor = 0.1
-						intrigue < 12
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 2
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 4
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 6
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 8
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 10
-						}
-					}
-
-					persistent_event_target:antagonize_target = {
-						add_character_modifier = {
-							name = antagonize_sins_3_cooldown
-							years = 20
-							hidden = yes
-						}
-					}
-
-					character_event = { id = HF.22082 }
-				}
-
-				5 = { # Sins event - Slothful.
-					trigger = {
-						intrigue >= 10
-
-						persistent_event_target:antagonize_target = {
-							trait = slothful
-							is_ruler = yes
-							NOT = { has_character_modifier = antagonize_sins_4_cooldown }
-						}
-					}
-
-					mult_modifier = { # Should rarely fire as first event.
-						factor = 0.5
-
-						persistent_event_target:antagonize_target = {
-							NOR = {
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_1 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_2 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_3 }
-							}
-						}
-					}
-
-					mult_modifier = {
-						factor = 0.1
-						intrigue < 12
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 2
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 4
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 6
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 8
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 10
-						}
-					}
-
-					persistent_event_target:antagonize_target = {
-						add_character_modifier = {
-							name = antagonize_sins_4_cooldown
-							years = 20
-							hidden = yes
-						}
-					}
-
-					character_event = { id = HF.22088 }
-				}
-
-				5 = { # Sins event - Wroth.
-					trigger = {
-						intrigue >= 10
-
-						persistent_event_target:antagonize_target = {
 							trait = wroth
-							is_ruler = yes
-							NOT = { has_character_modifier = antagonize_sins_5_cooldown }
-						}
-					}
-
-					mult_modifier = { # Should rarely fire as first event.
-						factor = 0.5
-
-						persistent_event_target:antagonize_target = {
-							NOR = {
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_1 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_2 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_3 }
-							}
-						}
-					}
-
-					mult_modifier = {
-						factor = 0.1
-						intrigue < 12
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 2
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 4
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 6
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 8
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 10
-						}
-					}
-
-					persistent_event_target:antagonize_target = {
-						add_character_modifier = {
-							name = antagonize_sins_5_cooldown
-							years = 20
-							hidden = yes
-						}
-					}
-
-					character_event = { id = HF.22094 }
-				}
-
-				5 = { # Sins event - Envious.
-					trigger = {
-						intrigue >= 10
-
-						persistent_event_target:antagonize_target = {
 							trait = envious
-							is_ruler = yes
-							NOT = { has_character_modifier = antagonize_sins_6_cooldown }
-						}
-					}
-
-					mult_modifier = { # Should rarely fire as first event.
-						factor = 0.5
-
-						persistent_event_target:antagonize_target = {
-							NOR = {
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_1 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_2 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_3 }
+							trait = ambitious
+							trait = arbitrary
+							trait = brave
+							trait = content
+							trait = craven
+							trait = gregarious
+							trait = deceitful
+							trait = just
+							trait = paranoid
+							trait = dull
+							trait = trusting
+							trait = zealous
+							AND = { 
+								trait = erudite 
+								NOR = { 
+									religion_group = graecoroman_group
+									religion_group = indohelen_group
+								}
+								ROOT = { religion_group = pagan_group }
+							}
+							AND = { 
+								trait = cynical 
+								religion = ROOT
 							}
 						}
 					}
-
-					mult_modifier = {
-						factor = 0.1
-						intrigue < 12
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 2
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 4
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 6
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 8
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 10
-						}
-					}
-
-					persistent_event_target:antagonize_target = {
-						add_character_modifier = {
-							name = antagonize_sins_6_cooldown
-							years = 20
-							hidden = yes
-						}
-					}
-
-					character_event = { id = HF.22100 }
 				}
-
-				5 = { # Sins event - Proud.
-					trigger = {
-						intrigue >= 10
-
-						persistent_event_target:antagonize_target = {
-							trait = proud
-							is_ruler = yes
-							NOT = { has_character_modifier = antagonize_sins_7_cooldown }
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						OR = {  
+							is_inaccessible_trigger = yes
+							trait = incapable
+							prisoner = yes
 						}
 					}
-
-					mult_modifier = { # Should rarely fire as first event.
-						factor = 0.5
-
-						persistent_event_target:antagonize_target = {
-							NOR = {
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_1 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_2 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_3 }
-							}
-						}
-					}
-
-					mult_modifier = {
-						factor = 0.1
-						intrigue < 12
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 2
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 4
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 6
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 8
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 10
-						}
-					}
-
-					persistent_event_target:antagonize_target = {
-						add_character_modifier = {
-							name = antagonize_sins_7_cooldown
-							years = 20
-							hidden = yes
-						}
-					}
-
-					character_event = { id = HF.22106 }
 				}
-
-				50 = { # Sabotaging Antagonized Rival.
-					trigger = {
-						intrigue >= 10
-
-						persistent_event_target:antagonize_target = {
-							is_ruler = yes
-							is_rival = ROOT
-						}
-					}
-
-					mult_modifier = { # Should rarely fire as first event.
-						factor = 0.5
-
-						persistent_event_target:antagonize_target = {
-							NOR = {
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_1 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_2 }
-								has_opinion_modifier = { who = ROOT name = opinion_antagonized_3 }
-							}
-						}
-					}
-
-					mult_modifier = {
-						factor = 0.5
-						intrigue < 12
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 2
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 4
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 6
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 8
-						}
-					}
-
-					mult_modifier = {
-						factor = 1.5
-
-						attribute_diff = {
-							character = persistent_event_target:antagonize_target
-							attribute = intrigue
-							value >= 10
-						}
-					}
-
-					character_event = { id = HF.22121 }
-				}
-
-				# MORE EVENTS HERE (OR ABOVE, DEPENDING ON CATEGORY)
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22020 } }
 			}
+
+		################## TIER THREE EVENTS (Intrigue-locked events) ####################
+			20 = { #Fund blackguard.
+				trigger = {
+					OR = { 
+						intrigue = 8
+						AND = { 
+							is_rival = persistent_event_target:antagonize_target
+							intrigue = 5
+						}
+					}
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.1
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						independent = no
+					}
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { 
+						intrigue = 10
+					}
+				}
+				#keep these in, vanilla has this
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22050 } }
+			}
+			5 = { #Sins event - Lustful.
+				trigger = { 
+					intrigue = 10
+					persistent_event_target:antagonize_target = { 
+						NOR = { 
+							trait = great_pox
+						}
+					}
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = lustful }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_1_cooldown
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_1_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22069 } }
+			}
+			5 = { #Sins event - Gluttonous.
+				trigger = { 
+					intrigue = 10
+					persistent_event_target:antagonize_target = { 
+						NOR = { 
+							trait = food_poisoning 
+							trait = ill
+						}
+					}
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = gluttonous }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_2_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_2_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22075 } }
+			}
+			5 = { #Sins event - Greedy.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = greedy }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_3_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_3_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22081 } }
+			}
+			5 = { #Sins event - Slothful.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = slothful }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_4_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_4_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22087 } }
+			}
+			5 = { #Sins event - Wroth.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = wroth }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_5_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_5_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22093 } }
+			}
+			5 = { #Sins event - Envious.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = envious }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_6_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_6_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22099 } }
+			}
+			5 = { #Sins event - Proud.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = proud }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_7_cooldown
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}				
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_7_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22105 } }
+			}
+			50 = { #Sabotaging Antagonized Rival.
+				trigger = { 
+					intrigue = 10
+					persistent_event_target:antagonize_target = { 
+						is_ruler = yes
+						is_rival = ROOT
+					}
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { 
+						intrigue = 12
+					}
+				}				
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22120 } }
+			}
+			#MORE EVENTS HERE (OR ABOVE, DEPENDING ON CATEGORY)
 		}
 	}
 }
@@ -2351,822 +2163,881 @@ character_event = {
 ###############################################################################
 ## Main Slander event.
 # Antagonized: hidden ping, select a random trait to slander. If character has no traits from the list, just go for generic slander.
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.22020
-
-	is_triggered_only = yes
 	hide_window = yes
 
-	immediate = {
-		random_list = {
+	is_triggered_only = yes
+
+	immediate = { 
+		random_list = { 
 			10 = {
-				trigger = {
+				trigger = { 
 					is_close_relative = FROM
 					dynasty = FROM
-					NOT = { has_character_flag = flag_antagonized_option_relative }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
-					FROM = { trait = cruel }
-				}
-
+					FROM = { 
+						trait = cruel
+					}
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_relative
+				}		
 				set_character_flag = flag_antagonized_option_relative
 			}
-
 			20 = {
-				trigger = {
-					NOR = {
-						religion_group = FROM
-						has_character_flag = flag_antagonized_option_infidel
-					}
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				trigger = { 
+					NOT = { religion_group = FROM }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
-					FROM = { trait = zealous }
-				}
-
+					FROM = { 
+						trait = zealous
+					}
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_infidel
+				}		
 				set_character_flag = flag_antagonized_option_infidel
 			}
-
 			20 = {
-				trigger = {
+				trigger = { 
 					is_heresy_of = FROM
-					NOT = { has_character_flag = flag_antagonized_option_heretic }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
-					FROM = { trait = zealous }
-				}
-
+					FROM = { 
+						trait = zealous
+					}
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_heretic
+				}		
 				set_character_flag = flag_antagonized_option_heretic
 			}
-
 			20 = {
-				trigger = {
-					OR = {
+				modifier = { 
+					factor = 0
+					NOR = { 
 						trait = dwarf
 						trait = hunchback
 					}
-
-					NOT = { has_character_flag = flag_antagonized_option_hunchback }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 0.5
-
-					FROM = {
-						OR = {
+					FROM = { 
+						OR = { 
 							trait = dwarf
 							trait = hunchback
-						}
+						} 
 					}
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_hunchback
+				}		
 				set_character_flag = flag_antagonized_option_hunchback
 			}
-
 			20 = {
-				trigger = {
-					OR = {
+				modifier = { 
+					factor = 0
+					NOR = { 
 						trait = kinslayer
-						trait = familial_kinslayer
+						trait = familial_kinslayer 
 						trait = dynastic_kinslayer
 					}
-
-					NOT = { has_character_flag = flag_antagonized_option_kinslayer }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 0.5
-
-					FROM = {
-						OR = {
+					FROM = { 
+						OR = { 
 							trait = kinslayer
-							trait = familial_kinslayer
+							trait = familial_kinslayer 
 							trait = dynastic_kinslayer
-						}
+						} 
 					}
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_kinslayer
+				}		
 				set_character_flag = flag_antagonized_option_kinslayer
 			}
-
 			20 = {
-				trigger = {
-					excommunicated_for = FROM
-
-					NOR = {
-						has_character_flag = flag_antagonized_option_excommunicated
-						FROM = { excommunicated_for = ROOT } # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = excommunicated }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 0
+					FROM = { 
+						OR = { 
+							trait = excommunicated 
+							NOT = { religion = ROOT } 
+						}
 					}
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_excommunicated
+				}		
 				set_character_flag = flag_antagonized_option_excommunicated
 			}
-
 			20 = {
-				trigger = {
-					trait = eunuch
-
-					NOR = {
-						has_character_flag = flag_antagonized_option_eunuch
-						FROM = { trait = eunuch } # Try to pick opposite traits if any are available
-					}
-				}
-
+				modifier = { 
+					factor = 0
+					NOT = { trait = eunuch }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 0
+					FROM = { trait = eunuch }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_eunuch
+				}		
 				set_character_flag = flag_antagonized_option_eunuch
 			}
 			20 = {
-				trigger = {
-					trait = mystic
-					NOT = { has_character_flag = flag_antagonized_option_mystic }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = mystic }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = theologian }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_mystic
+				}		
 				set_character_flag = flag_antagonized_option_mystic
 			}
-
 			20 = {
-				trigger = {
-					OR = {
+				modifier = { 
+					factor = 0
+					NOR = { 
 						trait = master_seducer
-						trait = master_seductress
+						trait = master_seductress 
 						trait = lovers_pox
 					}
-
-					NOT = { has_character_flag = flag_antagonized_option_seducer }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = chaste }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_seducer
+				}		
 				set_character_flag = flag_antagonized_option_seducer
 			}
-
 			20 = {
-				trigger = {
-					trait = master_schemer
-					NOT = { has_character_flag = flag_antagonized_option_schemer }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = master_schemer }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = honest }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_schemer
+				}		
 				set_character_flag = flag_antagonized_option_schemer
 			}
-
 			20 = {
-				trigger = {
-					trait = impaler
-					NOT = { has_character_flag = flag_antagonized_option_impaler }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = impaler }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = kind }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_impaler
+				}		
 				set_character_flag = flag_antagonized_option_impaler
 			}
-
 			20 = {
-				trigger = {
-					trait = hedonist
-					NOT = { has_character_flag = flag_antagonized_option_hedonist }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = hedonist }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = temperate }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_hedonist
+				}		
 				set_character_flag = flag_antagonized_option_hedonist
 			}
-
 			20 = {
-				trigger = {
-					OR = {
-						trait = bastard
+				modifier = { 
+					factor = 0
+					NOR = { 
+						trait = bastard 
 						trait = legit_bastard
 						trait = child_of_consort
 					}
-
-					NOT = { has_character_flag = flag_antagonized_option_bastard }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
-
-					FROM = {
-						NOR = {
-							trait = bastard
+					FROM = { 
+						NOR = { 
+							trait = bastard 
 							trait = legit_bastard
 							trait = child_of_consort
 						}
 					}
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_bastard
+				}		
 				set_character_flag = flag_antagonized_option_bastard
-
 			}
 			20 = {
-				trigger = {
-					is_maimed_trigger = yes
-					NOT = { has_character_flag = flag_antagonized_option_maimed }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { is_maimed_trigger = yes }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { is_maimed_trigger = no }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_maimed
+				}		
 				set_character_flag = flag_antagonized_option_maimed
 			}
-
 			20 = {
-				trigger = {
-					trait = infirm
-					NOT = { has_character_flag = flag_antagonized_option_infirm }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = infirm }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { NOT = { trait = infirm } }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_infirm
+				}		
 				set_character_flag = flag_antagonized_option_infirm
 			}
-
 			20 = {
-				trigger = {
-					trait = malnourished
-					NOT = { has_character_flag = flag_antagonized_option_malnourished }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = malnourished }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = fat }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_malnourished
+				}		
 				set_character_flag = flag_antagonized_option_malnourished
 			}
-
 			20 = {
-				trigger = {
-					trait = fat
-					NOT = { has_character_flag = flag_antagonized_option_fat }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = fat }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = malnourished }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_fat
+				}		
 				set_character_flag = flag_antagonized_option_fat
 			}
-
 			20 = {
-				trigger = {
-					trait = depressed
-					NOT = { has_character_flag = flag_antagonized_option_depressed }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = depressed }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = gregarious }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_depressed
+				}		
 				set_character_flag = flag_antagonized_option_depressed
 			}
-
 			20 = {
-				trigger = {
-					trait = drunkard
-					NOT = { has_character_flag = flag_antagonized_option_drunkard }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = drunkard }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = temperate }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_drunkard
+				}		
 				set_character_flag = flag_antagonized_option_drunkard
 			}
 
 			20 = {
-				trigger = {
-					trait = lunatic
-					NOT = { has_character_flag = flag_antagonized_option_lunatic }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = lunatic }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = kind }
-				}
-
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_lunatic
+				}		
 				set_character_flag = flag_antagonized_option_lunatic
 			}
 
 			20 = {
-				trigger = {
-					trait = possessed
-					NOT = { has_character_flag = flag_antagonized_option_possessed }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = possessed }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = zealous }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_possessed
+				}		
 				set_character_flag = flag_antagonized_option_possessed
 			}
-
 			10 = {
-				trigger = {
-					OR = {
+				modifier = { 
+					factor = 0
+					NOR = { 
 						has_ugly_trait_trigger = yes
 						has_scarred_trait_trigger = yes
-						trait = disfigured
+						trait = disfigured 
 						trait = blinded
 						trait = one_eyed
 						trait = leper
-						trait = harelip
+						trait = harelip 
 					}
-
-					NOT = { has_character_flag = flag_antagonized_option_ugly }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { has_fair_trait_trigger = yes }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_ugly
+				}		
 				set_character_flag = flag_antagonized_option_ugly
 			}
-
 			5 = {
-				trigger = {
-					trait = chaste
-					NOT = { has_character_flag = flag_antagonized_option_chaste }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = chaste }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = lustful }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_chaste
+				}		
 				set_character_flag = flag_antagonized_option_chaste
 			}
-
 			5 = {
-				trigger = {
-					trait = temperate
-					NOT = { has_character_flag = flag_antagonized_option_temperate }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = temperate }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = gluttonous }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_temperate
+				}		
 				set_character_flag = flag_antagonized_option_temperate
 			}
-
 			5 = {
-				trigger = {
-					trait = charitable
-					NOT = { has_character_flag = flag_antagonized_option_charitable }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = charitable }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = greedy }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_charitable
+				}		
 				set_character_flag = flag_antagonized_option_charitable
 			}
-
 			5 = {
-				trigger = {
-					trait = diligent
-					NOT = { has_character_flag = flag_antagonized_option_diligent }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = diligent }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = slothful }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_diligent
+				}		
 				set_character_flag = flag_antagonized_option_diligent
 			}
-
 			5 = {
-				trigger = {
-					trait = patient
-					NOT = { has_character_flag = flag_antagonized_option_patient }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = patient }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = wroth }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_patient
+				}		
 				set_character_flag = flag_antagonized_option_patient
 			}
-
 			5 = {
-				trigger = {
-					trait = kind
-					NOT = { has_character_flag = flag_antagonized_option_kind }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = kind }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = cruel }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_kind
+				}		
 				set_character_flag = flag_antagonized_option_kind
 			}
-
 			5 = {
-				trigger = {
-					trait = humble
-					NOT = { has_character_flag = flag_antagonized_option_humble }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = humble }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = proud }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_humble
+				}		
 				set_character_flag = flag_antagonized_option_humble
 			}
-
 			20 = {
-				trigger = {
-					trait = lustful
-					NOT = { has_character_flag = flag_antagonized_option_lustful }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = lustful }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = chaste }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_lustful
+				}		
 				set_character_flag = flag_antagonized_option_lustful
 			}
-
 			20 = {
-				trigger = {
-					trait = gluttonous
-					NOT = { has_character_flag = flag_antagonized_option_gluttonous }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = gluttonous }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = temperate }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_gluttonous
+				}		
 				set_character_flag = flag_antagonized_option_gluttonous
 			}
-
 			20 = {
-				trigger = {
-					trait = greedy
-					NOT = { has_character_flag = flag_antagonized_option_greedy }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = greedy }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = charitable }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_greedy
+				}		
 				set_character_flag = flag_antagonized_option_greedy
 			}
-
 			20 = {
-				trigger = {
-					trait = slothful
-					NOT = { has_character_flag = flag_antagonized_option_slothful }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = slothful }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = diligent }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_slothful
+				}		
 				set_character_flag = flag_antagonized_option_slothful
 			}
-
 			10 = {
-				trigger = {
-					trait = wroth
-					NOT = { has_character_flag = flag_antagonized_option_wroth }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = wroth }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = patient }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_wroth
+				}		
 				set_character_flag = flag_antagonized_option_wroth
 			}
-
 			10 = {
-				trigger = {
-					trait = envious
-					NOT = { has_character_flag = flag_antagonized_option_envious }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = envious }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = kind }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_envious
+				}		
 				set_character_flag = flag_antagonized_option_envious
 			}
-
 			10 = {
-				trigger = {
-					trait = proud
-					NOT = { has_character_flag = flag_antagonized_option_proud }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = proud }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = humble }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_proud
+				}		
 				set_character_flag = flag_antagonized_option_proud
 			}
-
 			10 = {
-				trigger = {
-					trait = ambitious
-					NOT = { has_character_flag = flag_antagonized_option_ambitious }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = ambitious }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = content }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_ambitious
+				}		
 				set_character_flag = flag_antagonized_option_ambitious
 			}
-
 			20 = {
-				trigger = {
-					trait = arbitrary
-					NOT = { has_character_flag = flag_antagonized_option_arbitrary }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = arbitrary }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = just }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_arbitrary
+				}		
 				set_character_flag = flag_antagonized_option_arbitrary
 			}
-
 			5 = {
-				trigger = {
-					trait = brave
-					NOT = { has_character_flag = flag_antagonized_option_brave }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = brave }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = craven }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_brave
+				}		
 				set_character_flag = flag_antagonized_option_brave
 			}
-
 			5 = {
-				trigger = {
-					trait = content
-					NOT = { has_character_flag = flag_antagonized_option_content }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = content }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = ambitious }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_content
+				}		
 				set_character_flag = flag_antagonized_option_content
 			}
-
 			20 = {
-				trigger = {
-					trait = craven
-					NOT = { has_character_flag = flag_antagonized_option_craven }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = craven }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = brave }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_craven
+				}		
 				set_character_flag = flag_antagonized_option_craven
 			}
-
 			20 = {
-				trigger = {
-					trait = cruel
-					NOT = { has_character_flag = flag_antagonized_option_cruel }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = cruel }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = kind }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_cruel
+				}		
 				set_character_flag = flag_antagonized_option_cruel
 			}
-
 			20 = {
-				trigger = {
-					trait = cynical
-					religion = FROM
-					NOT = { has_character_flag = flag_antagonized_option_cynical }
+				modifier = { 
+					factor = 0
+					NOT = { trait = cynical }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 0
+					FROM = { NOT = { religion = ROOT } }
 				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
-					FROM = { trait = zealous }
+					FROM = { trait = zealous religion = ROOT }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_cynical
+				}		
 				set_character_flag = flag_antagonized_option_cynical
 			}
-
 			10 = {
-				trigger = {
-					trait = deceitful
-					NOT = { has_character_flag = flag_antagonized_option_deceitful }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = deceitful }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = honest }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_deceitful
+				}		
 				set_character_flag = flag_antagonized_option_deceitful
 			}
-
 			5 = {
-				trigger = {
-					trait = erudite
-					NOT = { has_character_flag = flag_antagonized_option_erudite }
-
-					# Context
-					FROM = {
-						religion_group = pagan_group
-						religion_openly_hellenic_or_reformed_trigger = no
-					}
+				modifier = { 
+					factor = 0
+					NOT = { trait = erudite }
+				}	
+				modifier = { #Context
+					factor = 0
+					FROM = { NOT = { religion_group = pagan_group } }
 				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { #Context
+					factor = 0
+					FROM = { religion_group = graecoroman_group }
+				}
+				modifier = { #Context
+					factor = 0
+					FROM = { religion_group = indohelen_group }
+				}
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = dull }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_erudite
+				}		
 				set_character_flag = flag_antagonized_option_erudite
 			}
-
 			10 = {
-				trigger = {
-					trait = gregarious
-					NOT = { has_character_flag = flag_antagonized_option_gregarious }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = gregarious }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = shy }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_gregarious
+				}		
 				set_character_flag = flag_antagonized_option_gregarious
 			}
-
 			10 = {
-				trigger = {
-					trait = honest
-					NOT = { has_character_flag = flag_antagonized_option_honest }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = honest }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = deceitful }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_honest
+				}		
 				set_character_flag = flag_antagonized_option_honest
-
 			}
 			5 = {
-				trigger = {
-					trait = just
-					NOT = { has_character_flag = flag_antagonized_option_just }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = just }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = arbitrary }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_just
+				}		
 				set_character_flag = flag_antagonized_option_just
 			}
-
 			10 = {
-				trigger = {
-					trait = paranoid
-					NOT = { has_character_flag = flag_antagonized_option_paranoid }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = paranoid }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = trusting }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_paranoid
+				}		
 				set_character_flag = flag_antagonized_option_paranoid
 			}
-
 			10 = {
-				trigger = {
-					trait = shy
-					NOT = { has_character_flag = flag_antagonized_option_shy }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = shy }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = gregarious }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_shy
+				}		
 				set_character_flag = flag_antagonized_option_shy
 			}
-
 			10 = {
-				trigger = {
-					trait = dull
-					NOT = { has_character_flag = flag_antagonized_option_dull }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = dull }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = shrewd }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_dull
+				}		
 				set_character_flag = flag_antagonized_option_dull
 			}
-
 			10 = {
-				trigger = {
-					trait = trusting
-					NOT = { has_character_flag = flag_antagonized_option_trusting }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = trusting }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
 					FROM = { trait = paranoid }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_trusting
+				}		
 				set_character_flag = flag_antagonized_option_trusting
 			}
-
 			5 = {
-				trigger = {
-					trait = zealous
-					NOT = { has_character_flag = flag_antagonized_option_zealous }
-				}
-
-				mult_modifier = { # Try to pick opposite traits if any are available
+				modifier = { 
+					factor = 0
+					NOT = { trait = zealous }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
 					factor = 1.5
-
-					FROM = {
-						trait = cynical
-						religion = ROOT
-					}
+					FROM = { trait = cynical religion = ROOT }
 				}
-
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_zealous
+				}		
 				set_character_flag = flag_antagonized_option_zealous
 			}
 		}
-
-		FROM = {
-			character_event = { id = HF.22021 }
-			character_event = { id = HF.22041 days = 55 } # Clean all flags on the Antagonizer.
-		}
-
-		character_event = { id = HF.22040 days = 55 } # Clean all flags on the Antagonized.
+		FROM = { character_event = { id = HF.22021 } }
+		character_event = { id = HF.22040 days = 55 } #Clean all flags on the Antagonized.
+		FROM = { character_event = { id = HF.22041 days = 55 } } #Clean all flags on the Antagonizer.
 	}
 }
 

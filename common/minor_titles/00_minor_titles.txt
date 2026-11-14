@@ -289,162 +289,125 @@ title_male_consort = {
 }
 
 # Commander, granted via its own interaction, so very special
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_commander = {
 	is_high_prio = yes
-	message = yes
-	realm_in_name = yes
-
+	
 	attribute = martial
 	dignity = 0.05
-
 	opinion_effect = 5
+	realm_in_name = yes
+	
 	monthly_salary = 0.05
 	monthly_prestige = 0.50
-	# combat_rating = 10 # Reactivate if we get this working
-
-	allowed_to_grant = {
-	}
-
+	#combat_rating = 10 # Reactivate if we get this working
+	
+	revoke_allowed = no # Handled by diplomatic interaction
+	
 	allowed_to_hold = {
-		trigger_if = {
-			limit = {
-				NOT = { has_character_flag = special_marshal }
-			}
-
-			is_adult = yes
-
-			custom_tooltip = {
-				text = court_physician_tooltip_2
-
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		liege = { character = FROM }
+		OR = {
+			AND = {
 				OR = {
-					male_can_hold_minor_title_trigger = yes
-					female_can_hold_minor_commander_title_trigger = yes
+					is_female = no
+					AND = {
+						OR = {
+							custom_tooltip = {
+								text = FEMINIST_RELIGION_TOOLTIP
+								hidden_tooltip = {
+									feminist_religions_trigger = yes
+									liege = {
+										religion = ROOT
+									}
+								}
+							}
+							liege = {
+								primary_title = {
+									has_law = status_of_women_4
+								}
+							}
+						}
+					}
+
 				}
+				OR = {
+					NOT = { religion = hindu }
+					trait = kshatriya
+				}
+				is_adult = yes
 			}
-
-			trigger_if = {
-				limit = { religion = hindu }
-				trait = kshatriya
-			}
+			has_character_flag = special_marshal
 		}
-
-		mercenary = no
+		
 		prisoner = no
-		is_incapable = no
-		is_inaccessible_trigger = no
-		NOT = { has_character_modifier = guru }
-		NOT = { has_character_modifier = refusing_to_lead }
-		in_revolt = no
-
-		trigger_if = {
-			limit = {
-				liege = { government = roman_imperial_government } # CleanSlate: liege is used here rather than FROM because it also needs to be valid for the "Appoint Commander" decision description
-			}
-
-			OR = {
-				higher_real_tier_than = BARON
-
-				liege = {
-					show_scope_change = no
-					byzantines_can_grant_commander_trigger = yes
-				}
-			}
-		}
+		NOT = { trait = incapable }
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { has_character_flag = guru }
 	}
-
-	revoke_trigger = {
-		always = no
-	}
-
+	
 	gain_effect = {
-		if = {
-			limit = {
-				FROM = { government = roman_imperial_government }
-			}
-
-			#character_event = { id = HFP.20805 days = 1 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-		}
-
 		hidden_effect = { # Because this cannot be added in the passive effects, for some code reason
 			add_character_modifier = {
-				name = hidden_commander_bonus
-				duration = -1
-				hidden = yes
-			}
+	        	name = hidden_commander_bonus
+	        	duration = -1
+	        	hidden = yes
+	        }
 		}
 	}
-
 	lose_effect = {
-		if = {
-			limit = {
-				FROM = { government = roman_imperial_government }
-			}
-
-			#character_event = { id = HFP.20803 days = 1 } # Make sure the commander is not being made a sub-vassal. # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-		}
-
 		hidden_effect = {
 			remove_character_modifier = hidden_commander_bonus
 		}
 	}
-
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	
+	message = yes
 }
 
 #######################################
 # SOFT: GRANTABLE - FULLY MODDABLE
 #######################################
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_eunuch = {
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.01
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.25
-
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		trait = eunuch
+	}
+	
 	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
-		NOR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
+		primary_title = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
 		}
+		LI_roman_imperial_trigger = no
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-		trait = eunuch
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 title_court_dwarf = {
@@ -540,363 +503,365 @@ title_court_jester = {
 }
 
 # Keeper of the King's Swans
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_keeper_of_swans = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.05
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.01
 	monthly_prestige = 0.50
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		NOT = { trait = incapable } 
+	}
+	
 	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
+		primary_title = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
 		}
-
+		LI_roman_imperial_trigger = no
 		NOR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
+			religion_group = muslim
+			religion_group = zoroastrian_group
 		}
+		LI_pagan_trigger = no
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_horse = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.06
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.40
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
+	
 	allowed_to_grant = {
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-		}
-
+		LI_roman_imperial_trigger = no
 		NOR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
+			religion_group = muslim
+			religion_group = zoroastrian_group
 		}
+		LI_pagan_trigger = no
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_hunt = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.05
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.40
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = {
+			primary_title = { temporary = yes }
+		}
+		is_adult = yes
+		OR = {
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { has_character_flag = guru }
+		NOT = { trait = incapable }
+	}
+	
 	allowed_to_grant = {
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			has_dharmic_religion_trigger = yes
-		}
-
+		LI_roman_imperial_trigger = no
 		NOR = {
-			religion = jain
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
+			religion_group = muslim
+			religion_group = zoroastrian_group
 		}
+		LI_pagan_trigger = no
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-
-		NOR = {
-			religion = jain
-			has_character_modifier = guru
-		}
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_high_almoner = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.03
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.40
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		NOT = { trait = incapable } 
+	}
+	
 	allowed_to_grant = {
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-		}
-
+		LI_roman_imperial_trigger = no
 		NOR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
+			religion_group = muslim
+			religion_group = zoroastrian_group
 		}
+		LI_pagan_trigger = no
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_cupbearer = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.1
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.05
 	monthly_prestige = 0.60
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { has_character_flag = guru }
+		NOT = { trait = incapable } 
+	}
+	
 	allowed_to_grant = {
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
-		NOR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
+		LI_roman_imperial_trigger = no
+		LI_pagan_trigger = no
 	}
-
-	allowed_to_hold = {
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-		NOT = { has_character_modifier = guru }
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_seneschal = {
-	realm_in_name = yes
-	is_unique = yes
-	message = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.05
 	monthly_prestige = 0.60
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { has_character_flag = guru }
+		NOT = { trait = incapable } 
+	}
+	
 	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			has_dharmic_religion_trigger = yes
-		}
-
-		NOR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
+		primary_title = {
 			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
+				tier = king
+				tier = emperor
 			}
 		}
-
-		is_incapable = no
-		in_revolt = no
-		NOT = { has_character_modifier = guru }
+		LI_roman_imperial_trigger = no
+		NOR = {
+			religion_group = muslim
+			religion_group = zoroastrian_group
+		}
+		LI_pagan_trigger = no
 	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 title_paramount_knight = {
@@ -933,437 +898,445 @@ title_paramount_knight = {
 }
 
 # Byzantine Titles
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_despot = {
-	counts_as_purple_born = yes
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-	show_as_title = yes
-
 	dignity = 6.0
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 30
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.5
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			religion_group = pagan_group
-		}
-
-		is_feudal = yes
-	}
-
+	
+	counts_as_purple_born = yes
+	
+	show_as_title = yes
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-				has_law = true_cognatic_succession
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
 			}
 		}
-
 		is_close_relative = FROM
-		in_revolt = no
-		is_theocracy = no
-		has_inheritance_blocker = no
-		NOT = { trait = bastard }
+		NOT = { trait = incapable } 
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		LI_roman_imperial_trigger = yes
+		NOR = {
+			religion_group = muslim
+			religion_group = zoroastrian_group
+		}
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_sebastokrator = {
-	is_unique = yes
-	message = yes
-	show_as_title = yes
-	realm_in_name = yes
-
 	dignity = 0.2
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.25
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			religion_group = pagan_group
-		}
-
-		is_feudal = yes
-	}
-
-	allowed_to_hold = {
-		is_close_relative = FROM
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
-	gain_effect = {
-	}
-
-	lose_effect = {
-	}
-
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
-}
-
-title_caesar = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
+	
 	show_as_title = yes
-
-	dignity = 0.15
-	grant_limit = 1
-
-	opinion_effect = 10
-	monthly_salary = 0.1
-	monthly_prestige = 0.25
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			religion_group = pagan_group
-		}
-
-		is_feudal = yes
-	}
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
-		in_revolt = no
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_close_relative = FROM
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		LI_roman_imperial_trigger = yes
+		NOR = {
+			religion_group = muslim
+			religion_group = zoroastrian_group
+		}
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
-title_kouropalates = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+title_caesar = {
+	dignity = 0.15
 	realm_in_name = yes
-	is_unique = yes
-	message = yes
-
-	dignity = 0.10
 	grant_limit = 1
-
 	opinion_effect = 10
+	
+	monthly_salary = 0.1
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		always = yes
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		LI_roman_imperial_trigger = yes
+		NOR = {
+			religion_group = muslim
+			religion_group = zoroastrian_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+title_kouropalates = {
+	dignity = 0.10
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
 	monthly_salary = 0.075
 	monthly_prestige = 0.75
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			religion_group = pagan_group
-		}
-
-		is_feudal = yes
-	}
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
-		in_revolt = no
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
 			}
 		}
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		LI_roman_imperial_trigger = yes
+		NOR = {
+			religion_group = muslim
+			religion_group = zoroastrian_group
+		}
 	}
-
+		
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_anthypatos = {
-	message = yes
-	show_as_title = yes
-
 	dignity = 3.0
 	grant_limit = 5
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.005
 	monthly_prestige = 0.25
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			religion_group = pagan_group
-		}
-
-		is_feudal = yes
-	}
-
+	
+	show_as_title = yes
+	
 	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		NOT = { has_minor_title = title_hypatos }
+		is_adult = yes	
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
 			}
 		}
-
-		NOT = { has_minor_title = title_hypatos }
-		in_revolt = no
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		LI_roman_imperial_trigger = yes
+		NOR = {
+			religion_group = muslim
+			religion_group = zoroastrian_group
+		}
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_imperial_eunuch = {
-	message = yes
-	show_as_title = yes
-
 	dignity = 0.050
 	grant_limit = 1
-
 	opinion_effect = 30
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.35
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		is_feudal = yes
-	}
-
+	
+	show_as_title = yes
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
 		is_female = no
 		trait = eunuch
-		in_revolt = no
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		real_tier = emperor	
+		is_feudal = yes
+		NOR = {
+			religion_group = muslim
+			religion_group = zoroastrian_group
+		}
+		LI_roman_imperial_trigger = yes
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 # Muslim World titles
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_food_taster = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.01
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = -0.25
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOR = {
+			trait = temperate
+			trait = paranoid
+			trait = incapable
+		}
+	}
+	
 	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-		religion_group = muslim
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
+		primary_title = {
 			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
+				tier = king
+				tier = emperor
 			}
 		}
-
-		in_revolt = no
+		religion_group = muslim
 	}
-
-	revoke_trigger = {
-	}
-
+		
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_calligrapher = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.05
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.01
 	monthly_prestige = 0.20
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_2
+					}
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-		religion_group = muslim
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
+		primary_title = {
 			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
+				tier = king
+				tier = emperor
 			}
 		}
-
-		is_incapable = no
-		in_revolt = no
+		religion_group = muslim
 	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 title_court_musician = {
@@ -1412,306 +1385,381 @@ title_court_musician = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_poet = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.05
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.40
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_2
+					}
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		OR = {
+			trait = poet
+			trait = melodious_voice
+			trait = powerful_voice
+			AND = {
+				diplomacy = 11
+				learning = 8
+			}
+		}
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
-		religion_group = muslim
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		religion_group = muslim
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_chief_architect = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.03
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.40
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
-		religion_group = muslim
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		religion_group = muslim
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_chief_qadi = {
-	realm_in_name = yes
-	is_unique = yes
-	message = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.05
 	monthly_prestige = 0.60
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		religion_group = muslim
+		liege = { religion = PREV }
+		OR = {
+			trait = detached_priest
+			trait = dutiful_cleric
+			trait = scholarly_theologian
+			trait = mastermind_theologian
+		}
+		NOR = {
+			trait = imbecile
+			trait = slow
+			trait = incapable
+		}
+	}
 
 	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-		religion_group = muslim
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-	}
-
-	allowed_to_hold = {
-		is_adult = yes
-		religion = FROM
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
+		primary_title = {
 			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
+				tier = king
+				tier = emperor
 			}
 		}
-
-		has_education_learning_trigger = yes
-		is_incapable = no
-		in_revolt = no
+		religion_group = muslim
 	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 # MERCHANT REPUBLIC TITLES
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_state_inquisitor = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.06
+	realm_in_name = yes
 	grant_limit = 3
-
 	opinion_effect = 6
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.40
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOR = {
+			trait = cynical
+			trait = incapable
+		}
+	}
 
 	allowed_to_grant = {
 		is_merchant_republic = yes
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
+
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_high_admiral = {
-	message = yes
-	is_unique = yes
-	realm_in_name = yes
-
 	dignity = 0.1
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.05
 	monthly_prestige = 0.60
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
+	
 	allowed_to_grant = {
 		is_merchant_republic = yes
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_high_judge = {
-	message = yes
-	is_unique = yes
-	realm_in_name = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.05
 	monthly_prestige = 0.60
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		is_dumb_trigger = no
+		NOT = {
+			trait = incapable
+		}
+	}
 
 	allowed_to_grant = {
 		is_merchant_republic = yes
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 # Special - This title determines the heir of a Patrician
@@ -1783,869 +1831,839 @@ title_patrician_heir = {
 
 # NORSE PAGAN TITLES
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_volva = {
-	is_unique = yes
-	message = yes
-
 	dignity = 0.050
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.25
-
-	allowed_to_grant = {
-		religion_openly_norse_or_reformed_trigger = yes
-	}
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
 		is_female = yes
 		trait = mystic
-		religion_openly_norse_or_reformed_trigger = yes
-		in_revolt = no
+		LI_norse_pagan_trigger = yes
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		LI_norse_pagan_trigger = yes
 	}
-
+		
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_lawspeaker = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.2
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.75
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		LI_norse_pagan_trigger = yes
+		NOT = { trait = incapable } 
+	}
+	
 	allowed_to_grant = {
-		religion_openly_norse_or_reformed_trigger = yes
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		LI_norse_pagan_trigger = yes
 	}
-
-	allowed_to_hold = {
-		religion_openly_norse_or_reformed_trigger = yes
-		is_adult = yes
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_drottseti = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.5
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-		religion_openly_norse_or_reformed_trigger = yes
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		LI_norse_pagan_trigger = yes
+		higher_tier_than = DUKE
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_skald = {
-	message = yes
-	is_unique = yes
-	realm_in_name = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.075
 	monthly_prestige = 0.75
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		trait = poet
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
-		religion_openly_norse_or_reformed_trigger = yes
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		LI_norse_pagan_trigger = yes
 	}
-
-	allowed_to_hold = {
-		trait = poet
-		is_adult = yes
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_marksman = {
-	message = yes
-	is_unique = yes
-	realm_in_name = yes
-
 	dignity = 0.1
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.075
 	monthly_prestige = 0.75
-
-	allowed_to_grant = {
-		religion_openly_norse_or_reformed_trigger = yes
-
-		OR = {
-			is_feudal = yes
-			is_tribal = yes
-		}
-	}
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
 			}
 		}
-
-		is_incapable = no
-		in_revolt = no
+		NOT = { trait = incapable } 
 	}
 
-	revoke_trigger = {
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		LI_norse_pagan_trigger = yes
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_hirdman = {
-	is_unique = yes
-	message = yes
-
 	dignity = 0.075
 	grant_limit = 4
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.005
 	monthly_prestige = 0.25
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
-		religion_openly_norse_or_reformed_trigger = yes
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		LI_norse_pagan_trigger = yes
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 # MONGOL PAGAN TITLES
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_baghatur = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.2
+	realm_in_name = yes
 	grant_limit = 2
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.75
-
-	allowed_to_grant = {
-		trigger_if = {
-			limit = { is_nomadic = yes }
-			culture = mongol
-		}
-		trigger_else = {
-			OR = {
-				has_landed_title = e_mongol_empire
-				has_landed_title = e_golden_horde
-				has_landed_title = e_ilkhanate
-				has_landed_title = e_chagatai
-			}
-
-			OR = {
-				is_feudal = yes
-				is_tribal = yes
-			}
-		}
-	}
-
-	allowed_to_hold = {
-		is_adult = yes
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
-	gain_effect = {
-	}
-
-	lose_effect = {
-	}
-
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
-}
-
-title_cherbi = {
+	
 	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
-	dignity = 0.15
-	grant_limit = 1
-
-	opinion_effect = 10
-	monthly_salary = 0.1
-	monthly_prestige = 0.5
-
-	allowed_to_grant = {
-		trigger_if = {
-			limit = { is_nomadic = yes }
-			culture = mongol
-		}
-		trigger_else = {
-			OR = {
-				has_landed_title = e_mongol_empire
-				has_landed_title = e_golden_horde
-				has_landed_title = e_ilkhanate
-				has_landed_title = e_chagatai
-			}
-
-			OR = {
-				is_feudal = yes
-				is_tribal = yes
-			}
-		}
-	}
-
+	
 	allowed_to_hold = {
-		is_adult = yes
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
-	gain_effect = {
-	}
-
-	lose_effect = {
-	}
-
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
-}
-
-title_darkhan = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
-	dignity = 0.15
-	grant_limit = 2
-
-	opinion_effect = 10
-	monthly_salary = 0.075
-	monthly_prestige = 0.75
-
-	allowed_to_grant = {
-		trigger_if = {
-			limit = { is_nomadic = yes }
-			culture = mongol
+		NOT = { 
+			primary_title = { temporary = yes } 
 		}
-		trigger_else = {
-			OR = {
-				has_landed_title = e_mongol_empire
-				has_landed_title = e_golden_horde
-				has_landed_title = e_ilkhanate
-				has_landed_title = e_chagatai
-			}
-
-			OR = {
-				is_feudal = yes
-				is_tribal = yes
-			}
-		}
-	}
-
-	allowed_to_hold = {
 		is_adult = yes
-		is_incapable = no
-		in_revolt = no
+		NOT = { trait = incapable } 
 	}
-
-	revoke_trigger = {
-	}
-
-	gain_effect = {
-	}
-
-	lose_effect = {
-	}
-
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
-}
-
-title_noyan = {
-	is_unique = yes
-	message = yes
-
-	dignity = 0.075
-	grant_limit = 4
-
-	opinion_effect = 5
-	monthly_salary = 0.005
-	monthly_prestige = 0.5
 
 	allowed_to_grant = {
 		OR = {
-			has_landed_title = e_mongol_empire
-			has_landed_title = e_golden_horde
-			has_landed_title = e_ilkhanate
-			has_landed_title = e_chagatai
-		}
+			is_feudal = yes
+			is_tribal = yes
+			}
+		religion_group = tengri_group
+		tier = EMPEROR
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
 
+	message = yes
+}
+
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+title_cherbi = {
+	dignity = 0.15
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.1
+	monthly_prestige = 0.5
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		NOT = { trait = incapable } 
+	}
+
+	allowed_to_grant = {
+		OR = {
+			AND = {
+				is_nomadic = yes
+				religion_group = tengri_group
+				tier = emperor
+			}
+			AND = {
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+				religion_group = tengri_group
+				tier = EMPEROR
+			}
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+title_darkhan = {
+	dignity = 0.15
+	realm_in_name = yes
+	grant_limit = 2
+	opinion_effect = 10
+	
+	monthly_salary = 0.075
+	monthly_prestige = 0.75
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		NOT = { trait = incapable } 
+	}
+
+	allowed_to_grant = {
+		OR = {
+			AND = {
+				is_nomadic = yes
+				religion_group = tengri_group
+				tier = emperor
+			}
+			AND = {
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+				religion_group = tengri_group
+				tier = EMPEROR
+			}
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+title_noyan = {
+	dignity = 0.075
+	grant_limit = 4
+	opinion_effect = 5
+	
+	monthly_salary = 0.005
+	monthly_prestige = 0.5
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		NOT = { trait = incapable } 
+	}
+
+	allowed_to_grant = {
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		religion_group = tengri_group
+		tier = EMPEROR
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_behi = {
-	is_unique = yes
-	message = yes
-
 	dignity = 0.1
 	grant_limit = 2
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.05
 	monthly_prestige = 0.25
-
-	allowed_to_grant = {
-		trigger_if = {
-			limit = { is_nomadic = yes }
-			culture = mongol
-		}
-		trigger_else = {
-			OR = {
-				has_landed_title = e_mongol_empire
-				has_landed_title = e_golden_horde
-				has_landed_title = e_ilkhanate
-				has_landed_title = e_chagatai
-			}
-
-			OR = {
-				is_feudal = yes
-				is_tribal = yes
-			}
-		}
-	}
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
 		is_female = yes
-		is_incapable = no
-		in_revolt = no
+		NOT = { trait = incapable } 
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		OR = {
+			AND = {
+				is_nomadic = yes
+				religion_group = tengri_group
+				tier = emperor
+			}
+			AND = {
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+				religion_group = tengri_group
+				tier = EMPEROR
+			}
+		}
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_eagle = {
-	is_unique = yes
-	message = yes
-
 	dignity = 0.10
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.35
-
-	allowed_to_grant = {
-		trigger_if = {
-			limit = { is_nomadic = yes }
-			culture = mongol
-		}
-		trigger_else = {
-			OR = {
-				has_landed_title = e_mongol_empire
-				has_landed_title = e_golden_horde
-				has_landed_title = e_ilkhanate
-				has_landed_title = e_chagatai
-			}
-
-			OR = {
-				is_feudal = yes
-				is_tribal = yes
-			}
-		}
-	}
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
-		is_incapable = no
-		in_revolt = no
+		NOT = { trait = incapable } 
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		OR = {
+			AND = {
+				is_nomadic = yes
+				religion_group = tengri_group
+				tier = emperor
+			}
+			AND = {
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+				religion_group = tengri_group
+				tier = EMPEROR
+			}
+		}
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 # ZOROASTRIAN TITLES
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_shahrwaraz = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.2
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.75
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		martial = 15
+		NOT = { trait = incapable } 
+	}
+	
 	allowed_to_grant = {
-		religion_group = zoroastrian_group
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		religion_group = zoroastrian_group
 	}
-
-	allowed_to_hold = {
-		martial >= 15
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_kardarigan = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.075
 	monthly_prestige = 0.75
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
-		martial >= 15
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
 			}
 		}
-
-		is_incapable = no
-		in_revolt = no
+		martial = 15
+		NOT = { trait = incapable } 
 	}
-
+	
 	allowed_to_grant = {
-		religion_group = zoroastrian_group
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		religion_group = zoroastrian_group
 	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_shahin = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.075
 	monthly_prestige = 0.75
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
-		martial >= 15
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
 			}
 		}
-
-		is_incapable = no
-		in_revolt = no
+		martial = 15
+		NOT = { trait = incapable } 
 	}
 
 	allowed_to_grant = {
-		religion_group = zoroastrian_group
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		religion_group = zoroastrian_group
 	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_pushtigban_salar = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.5
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
-		religion_group = zoroastrian_group
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		religion_group = zoroastrian_group
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_spahbod = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 4
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.075
 	monthly_prestige = 0.75
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-		religion_group = zoroastrian_group
-
+		higher_tier_than = DUKE
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		religion_group = zoroastrian_group
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 title_eran_ambaragbed = {
@@ -2692,621 +2710,658 @@ title_eran_ambaragbed = {
 
 # GENERIC PAGAN TITLES
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_champion = {
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.2
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.75
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
 		OR = {
-			religion_openly_aztec_or_reformed_trigger = yes
-			religion_openly_baltic_or_reformed_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-			religion_openly_finnish_or_reformed_trigger = yes
-			religion_openly_slavic_or_reformed_trigger = yes
-			religion_openly_west_african_or_reformed_trigger = yes
-			religion_openly_zun_or_reformed_trigger = yes
+			LI_traditional_trigger = yes
+			religion = irminsul
 		}
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_blade = {
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.075
 	monthly_prestige = 0.75
-
-	allowed_to_grant = {
-		OR = {
-			is_feudal = yes
-			is_tribal = yes
-		}
-
-		OR = {
-			religion_openly_aztec_or_reformed_trigger = yes
-			religion_openly_baltic_or_reformed_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-			religion_openly_finnish_or_reformed_trigger = yes
-			religion_openly_slavic_or_reformed_trigger = yes
-			religion_openly_tengri_or_reformed_trigger = yes
-			religion_openly_west_african_or_reformed_trigger = yes
-			religion_openly_zun_or_reformed_trigger = yes
-		}
-
-		NOR = {
-			has_landed_title = e_mongol_empire
-			has_landed_title = e_golden_horde
-			has_landed_title = e_ilkhanate
-			has_landed_title = e_chagatai
-		}
-	}
-
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
 			}
 		}
-
 		NOT = { has_minor_title = title_master_of_the_bow }
-		is_incapable = no
-		in_revolt = no
+		NOT = { trait = incapable } 
 	}
-
-	revoke_trigger = {
-	}
-
-	gain_effect = {
-	}
-
-	lose_effect = {
-	}
-
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
-}
-
-title_master_of_the_bow = {
-	realm_in_name = yes
-	message = yes
-
-	dignity = 0.15
-	grant_limit = 1
-
-	opinion_effect = 10
-	monthly_salary = 0.075
-	monthly_prestige = 0.75
-
+	
 	allowed_to_grant = {
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
+		NAND = {
+			religion_group = tengri_group
+			tier = emperor
+		}
 		OR = {
-			religion_openly_aztec_or_reformed_trigger = yes
-			religion_openly_baltic_or_reformed_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-			religion_openly_finnish_or_reformed_trigger = yes
-			religion_openly_slavic_or_reformed_trigger = yes
-			religion_openly_tengri_or_reformed_trigger = yes
-			religion_openly_west_african_or_reformed_trigger = yes
-			religion_openly_zun_or_reformed_trigger = yes
-		}
-
-		NOR = {
-			has_landed_title = e_mongol_empire
-			has_landed_title = e_golden_horde
-			has_landed_title = e_ilkhanate
-			has_landed_title = e_chagatai
+			LI_traditional_trigger = yes
+			religion = irminsul
 		}
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		NOT = { has_minor_title = title_master_of_the_blade }
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+title_master_of_the_bow = {
+	dignity = 0.15
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.075
+	monthly_prestige = 0.75
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { has_minor_title = title_master_of_the_blade }
+		NOT = { trait = incapable } 
+	}
+	
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		NAND = {
+			religion_group = tengri_group
+			tier = emperor
+		}
+		OR = {
+			LI_traditional_trigger = yes
+			religion = irminsul
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_venerable_elder = {
 	dignity = 0.15
 	realm_in_name = yes
-	message = yes
 	grant_limit = 4
 	opinion_effect = 10
-
+	
 	monthly_salary = 0.075
 	monthly_prestige = 0.75
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		age = 50
+	}
 
 	allowed_to_grant = {
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
+		NAND = {
+			religion_group = tengri_group
+			tier = emperor
+		}
 		OR = {
-			religion_openly_aztec_or_reformed_trigger = yes
-			religion_openly_baltic_or_reformed_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-			religion_openly_finnish_or_reformed_trigger = yes
-			religion_openly_slavic_or_reformed_trigger = yes
-			religion_openly_tengri_or_reformed_trigger = yes
-			religion_openly_west_african_or_reformed_trigger = yes
-			religion_openly_zun_or_reformed_trigger = yes
-		}
-
-		NOR = {
-			has_landed_title = e_mongol_empire
-			has_landed_title = e_golden_horde
-			has_landed_title = e_ilkhanate
-			has_landed_title = e_chagatai
+			LI_traditional_trigger = yes
+			religion = irminsul
 		}
 	}
-
-	allowed_to_hold = {
-		practical_age >= 50
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 # TENGRI TITLES:
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_yabgu = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.25
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 15
+	
 	monthly_salary = 0.1
 	monthly_prestige = 0.50
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}		
+		is_close_relative = FROM
+		NOT = { trait = incapable } 
+	}
 
 	allowed_to_grant = {
 		is_nomadic = yes
-		NOT = { culture = mongol }
-	}
-
-	allowed_to_hold = {
-		is_adult = yes
-		is_close_relative = FROM
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
+		NAND = {
+			religion_group = tengri_group
+			tier = emperor
 		}
-
-		is_incapable = no
-		in_revolt = no
 	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_ishad = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.15
+	realm_in_name = yes
 	grant_limit = 4
-
 	opinion_effect = 10
+	
 	monthly_salary = 0.075
 	monthly_prestige = 0.40
-
-	allowed_to_grant = {
-		is_nomadic = yes
-		NOT = { culture = mongol }
-	}
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_commander_title_trigger = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
 			}
 		}
-
-		is_incapable = no
-		in_revolt = no
+		NOT = { trait = incapable } 
 	}
-
-	revoke_trigger = {
-	}
-
-	gain_effect = {
-	}
-
-	lose_effect = {
-	}
-
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
-}
-
-title_kundur = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
-	dignity = 0.15
-	grant_limit = 1
-
-	opinion_effect = 10
-	monthly_salary = 0.1
-	monthly_prestige = 0.5
 
 	allowed_to_grant = {
 		is_nomadic = yes
+		NAND = {
+			religion_group = tengri_group
+			tier = emperor
+		}
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-		is_incapable = no
-		in_revolt = no
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
+	message = yes
+}
+
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+title_kundur = {
+	dignity = 0.15
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.1
+	monthly_prestige = 0.5
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		NOT = { trait = incapable } 
+	}
+	
+	allowed_to_grant = {
+		is_nomadic = yes
+		NAND = {
+			religion_group = tengri_group
+			tier = emperor
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
 	}
 
-	death_effect = {
-	}
+	message = yes
 }
 
 # INDIAN TITLES
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_royal_elephants = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.06
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.40
-
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { has_character_flag = guru }
+		NOT = { trait = incapable } 
+	}
+	
 	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-
-		has_dharmic_religion_trigger = yes
-
-		NOR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
+		primary_title = {
 			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
+				tier = king
+				tier = emperor
 			}
 		}
-
-		is_incapable = no
-		in_revolt = no
-		NOT = { has_character_modifier = guru }
+		LI_roman_imperial_trigger = no
+		religion_group = indian_group
 	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_royal_builder = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.03
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.40
-
-	allowed_to_grant = {
-		higher_real_tier_than = DUKE
-		is_feudal = yes
-		has_dharmic_religion_trigger = yes
-	}
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
+		OR = { 
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
 			}
 		}
-
-		is_incapable = no
-		in_revolt = no
-		NOT = { has_character_modifier = guru }
+		NOT = { has_character_flag = guru }
+		NOT = { trait = incapable } 
 	}
 
-	revoke_trigger = {
+	allowed_to_grant = {
+		is_feudal = yes
+		primary_title = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
+		}
+		religion_group = indian_group
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_poet_india = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-
 	dignity = 0.05
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.40
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = {
+			is_female = no
+			custom_tooltip = {
+				text = FEMINIST_RELIGION_TOOLTIP
+				hidden_tooltip = {
+					feminist_religions_trigger = yes
+					liege = {
+						religion = ROOT
+					}
+				}
+			}
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_2
+					}
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { has_character_flag = guru }
+		NOT = { trait = incapable }
+	}
 
 	allowed_to_grant = {
-		has_dharmic_religion_trigger = yes
-
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
+		religion_group = indian_group
 	}
-
-	allowed_to_hold = {
-		is_adult = yes
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		is_incapable = no
-		in_revolt = no
-		NOT = { has_character_modifier = guru }
-	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_guru = {
-	message = yes
-
 	dignity = 0.050
 	grant_limit = 1
-
 	opinion_effect = 10
 	monthly_salary = 0.02
 	monthly_prestige = 0.75
 
-	allowed_to_grant = {
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-	}
-
+	revoke_allowed = no
+	
 	allowed_to_hold = {
-		is_adult = yes
-		has_character_modifier = guru
-		in_revolt = no
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
+		NOT = { 
+			primary_title = { temporary = yes } 
 		}
+		OR = {
+			has_character_flag = guru
+			has_character_flag = fake_guru
+		}
+		is_adult = yes
+		LI_allows_gurus_trigger = yes
 	}
-
-	revoke_trigger = {
-		always = no
+	
+	allowed_to_grant = { 
+		LI_allows_gurus_trigger = yes
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
 title_genghis = {
@@ -3750,43 +3805,62 @@ title_historiographer = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_physician = {
 	is_high_prio = yes
-	message = yes
-	realm_in_name = yes
-
 	attribute = learning
-	dignity = 5
+    dignity = 5
+    realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 10
 	monthly_salary = 0.2
 	monthly_prestige = 0.5
-
+	
 	allowed_to_grant = {
-		is_playable = yes
+		OR = {
+			higher_tier_than = BARON
+			is_patrician = yes
+		}
 		has_dlc = "Reapers"
 	}
-
+	
 	allowed_to_hold = {
-		is_adult = yes
-		prisoner = no
-
 		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
+			text = court_physician_tooltip_1
+			NOT = {
+				primary_title = { temporary = yes } 
 			}
 		}
-
+		custom_tooltip = {
+			text = court_physician_tooltip_2
+			OR = {
+				is_female = no
+				custom_tooltip = {
+					text = FEMINIST_RELIGION_TOOLTIP
+					hidden_tooltip = {
+						feminist_religions_trigger = yes
+						liege = {
+							religion = ROOT
+						}
+					}
+				}
+				liege = {
+					OR = {
+						primary_title = {
+							has_law = status_of_women_4
+						}
+						has_game_rule = {
+							name = gender
+							value = all
+						}
+					}
+				}
+			}
+		}
 		OR = {
-			learning >= 15
-
+			learning = 15
 			AND = {
-				learning >= 10
-
+				learning = 10
 				OR = {
 					trait = physician
 					trait = scholar
@@ -3794,44 +3868,39 @@ title_court_physician = {
 					trait = mutazilite
 				}
 			}
-
-			custom_tooltip = {
+			custom_tooltip = { 
 				text = educated_court_physician
-				has_character_flag = is_court_physician
+				hidden_tooltip = {
+					has_character_flag = is_court_physician
+				}
 			}
 		}
-
-		trigger_if = {
-			limit = { religion = hindu }
-			NOT = { trait = brahmin }
+		OR = {
+			NOT = { religion = hindu }
+			trait = brahmin
 		}
+		is_adult = yes
 
-		is_incapable = no
-		in_revolt = no
+		prisoner = no
 		NOT = { trait = in_hiding }
+		NOT = { trait = incapable }
 	}
 
 	revoke_trigger = {
 		custom_tooltip = {
 			text = revoke_court_physician_being_treated_tt
-
-			FROM = {
-				NOT = { has_character_flag = being_treated }
-			}
+			NOT = { FROM = { has_character_flag = being_treated } }
 		}
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
-
 	retire_effect = {
 	}
 
-	death_effect = {
-	}
+	message = yes
 }
 
 title_hermetics_apprentice = {
@@ -4217,236 +4286,165 @@ title_teacher = {
 }
 
 ### New Byzantine Minor Titles ###
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_augusta = {
-	is_unique = yes
-	message = yes
-	realm_in_name = yes
-	show_as_title = yes
-
 	dignity = 5.0
+	realm_in_name = yes
 	grant_limit = 1
-
 	opinion_effect = 30
+	
+	show_as_title = yes
+	
 	monthly_salary = 0.05
 	monthly_prestige = 0.75
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		is_feudal = yes
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			religion_group = pagan_group
-		}
-	}
-
+	
+	is_unique = yes
+	
 	allowed_to_hold = {
-		is_close_relative = FROM
-		is_female = yes
-		is_adult = yes
-		in_revolt = no
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
 		NOT = { has_minor_title = title_sebastos }
+		is_female = yes
+		is_close_relative = FROM 
+		is_adult = yes
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		LI_roman_imperial_trigger = yes
+		NOR = {
+			religion_group = muslim
+			religion_group = zoroastrian_group
+		}
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_patrikios = {
-	show_as_title = yes
-	message = yes
-
 	dignity = 2.0
 	grant_limit = 10
-
 	opinion_effect = 5
+	
+	show_as_title = yes
+	
 	monthly_salary = 0.03
 	monthly_prestige = 0.125
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		is_feudal = yes
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			religion_group = pagan_group
-		}
-	}
-
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		NOT = { family = FROM }
+		NOT = { is_close_relative = FROM }
 		is_adult = yes
-
+		OR = { 
+			male_can_hold_minor_title_trigger = yes
+			female_can_hold_minor_title_trigger = yes
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		LI_roman_imperial_trigger = yes
 		NOR = {
-			dynasty = FROM
-			is_close_relative = FROM
+			religion_group = muslim
+			religion_group = zoroastrian_group
 		}
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		in_revolt = no
 	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_hypatos = {
-	message = yes
-
 	dignity = 1.0
 	grant_limit = 20
-
 	opinion_effect = 5
+	
 	monthly_salary = 0.03
 	monthly_prestige = 0.0625
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		is_feudal = yes
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			religion_group = pagan_group
-		}
-	}
-
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		NOT = { family = FROM }
+		NOT = { is_close_relative = FROM }
+		NOT = { has_minor_title = title_anthypatos }
 		is_adult = yes
-
+		OR = { 
+			male_can_hold_minor_title_trigger = yes
+			female_can_hold_minor_title_trigger = yes
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		LI_roman_imperial_trigger = yes
 		NOR = {
-			dynasty = FROM
-			is_close_relative = FROM
-			has_minor_title = title_anthypatos
+			religion_group = muslim
+			religion_group = zoroastrian_group
 		}
-
-		custom_tooltip = {
-			text = court_physician_tooltip_2
-
-			OR = {
-				male_can_hold_minor_title_trigger = yes
-				female_can_hold_minor_title_trigger = yes
-			}
-		}
-
-		in_revolt = no
 	}
-
-	revoke_trigger = {
-	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_sebastos = {
-	message = yes
-	show_as_title = yes
-
 	dignity = 2.5
 	grant_limit = 10
-
 	opinion_effect = 5
+	
+	show_as_title = yes
+	
 	monthly_salary = 0.02
 	monthly_prestige = 0.1875
-
-	allowed_to_grant = {
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-			has_landed_title = event_target:alternate_byz
-		}
-
-		is_feudal = yes
-
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			religion_group = pagan_group
-		}
-	}
-
+	
 	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		NOT = { has_minor_title = title_augusta }
 		OR = {
 			is_close_relative = FROM
 			family = FROM
 			is_cousin_of = FROM
 			is_friend = FROM
 		}
-
-		NOT = { has_minor_title = title_augusta }
-		in_revolt = no
 	}
-
-	revoke_trigger = {
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		LI_roman_imperial_trigger = yes
+		NOR = {
+			religion_group = muslim
+			religion_group = zoroastrian_group
+		}
 	}
-
+	
 	gain_effect = {
 	}
-
 	lose_effect = {
 	}
 
-	retire_effect = {
-	}
-
-	death_effect = {
-	}
+	message = yes
 }

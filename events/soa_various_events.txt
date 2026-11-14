@@ -1988,206 +1988,200 @@ character_event = {
 }
 
 # Demon Child receives troop reinforcements
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.3065
 	desc = EVTDESC_SOA_3065
 	picture = GFX_evt_burning_house
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-	hide_new = yes
-	hide_from = yes
-
+	
 	immediate = {
-		set_character_flag = demon_child_non_pagan_cultists
-
-		while = {
-			count = 3
-
-			spawn_unit = {
-				province = location
-				home = location
-				owner = ROOT
-				attrition = 0.0
-
-				troops = {
-					archers = { 150 150 }
-					knights = { 100 100 }
-					heavy_infantry = { 250 250 }
+		location = {
+			ROOT = {
+				create_character = {
+					dynasty = none
+					religion = graeco_roman
+					culture = hellenistic
+					female = yes
+					name = Circe
+					age = 25
+					dna=bdlhexmbcai
+					attributes = {
+						intrigue = 12
+						martial = 7
+						diplomacy = 10
+						stewardship = 4
+						learning = 10
+					}
+					trait = ambitious
+					trait = cruel
+					trait = envious
+					trait = cynical
+					trait = deceitful
+					trait = attractive
+					trait = mystic
+					trait = brilliant_strategist
+					trait = flanker
+				}
+				new_character = {
+					spawn_unit = {
+						province = PREVPREV
+						home = PREVPREV
+						owner = ROOT
+						troops = {
+							archers = { 150 150 }
+							knights = { 100 100 }
+							heavy_infantry = { 250 250 }
+						}
+						attrition = 0.0
+					}
+					add_character_modifier = {
+						name = known_witch
+						duration = -1
+					}
+					
+					if = {
+						limit = { has_dlc = "Mystics" }
+						religion = ROOT
+						join_society = the_satanists
+					}
+					
+					opinion = {
+						who = ROOT
+						modifier = opinion_the_chosen_one
+					}
+					set_character_flag = special_marshal
+					set_character_flag = special_treasurer
+					set_character_flag = special_chancellor
+					set_character_flag = special_spiritual
+					set_character_flag = special_spymaster
+				}
+				create_character = {
+					dynasty = none
+					religion = beelshamen
+					culture = phoenician
+					female = yes
+					name = Jezebel
+					age = 24
+					dna=dhmfgmabaaz
+					attributes = {
+						intrigue = 9
+						martial = 7
+						diplomacy = 12
+						stewardship = 3
+						learning = 8
+					}
+					trait = ambitious
+					trait = cruel
+					trait = envious
+					trait = lustful
+					trait = deceitful
+					trait = attractive
+					trait = hedonist
+					trait = grey_eminence
+					trait = inspiring_leader
+				}
+				new_character = {
+					spawn_unit = {
+						province = PREVPREV
+						home = PREVPREV
+						owner = ROOT
+						troops = {
+							archers = { 150 150 }
+							knights = { 100 100 }
+							heavy_infantry = { 250 250 }
+						}
+						attrition = 0.0
+					}
+					add_character_modifier = {
+						name = known_witch
+						duration = -1
+					}
+					
+					if = {
+						limit = { has_dlc = "Mystics" }
+						religion = ROOT
+						join_society = the_satanists
+					}
+					
+					opinion = {
+						who = ROOT
+						modifier = opinion_the_chosen_one
+					}
+					set_character_flag = special_marshal
+					set_character_flag = special_treasurer
+					set_character_flag = special_chancellor
+					set_character_flag = special_spiritual
+					set_character_flag = special_spymaster
+				}
+				create_character = {
+					dynasty = none
+					religion = celtic_pagan
+					culture = brython
+					female = yes
+					name = Morgana
+					age = 27
+					dna=aefccojcgbd
+					attributes = {
+						intrigue = 15
+						martial = 7
+						diplomacy = 10
+						stewardship = 8
+						learning = 12
+					}
+					trait = ambitious
+					trait = cruel
+					trait = lustful
+					trait = envious
+					trait = genius
+					trait = deceitful
+					trait = attractive
+					trait = mystic
+					trait = elusive_shadow
+					trait = defensive_leader
+				}
+				new_character = {
+					spawn_unit = {
+						province = PREVPREV
+						home = PREVPREV
+						owner = ROOT
+						troops = {
+							archers = { 150 150 }
+							knights = { 100 100 }
+							heavy_infantry = { 250 250 }
+						}
+						attrition = 0.0
+					}
+					add_character_modifier = {
+						name = known_witch
+						duration = -1
+					}
+					
+					if = {
+						limit = { has_dlc = "Mystics" }
+						religion = ROOT
+						join_society = the_satanists
+					}
+					
+					opinion = {
+						who = ROOT
+						modifier = opinion_the_chosen_one
+					}
+					set_character_flag = special_marshal
+					set_character_flag = special_treasurer
+					set_character_flag = special_chancellor
+					set_character_flag = special_spiritual
+					set_character_flag = special_spymaster
 				}
 			}
 		}
-
-		create_character = {
-			dynasty = none
-			religion = hellenic_pagan
-			culture = greek
-			female = yes
-			name = "Circe"
-			age = 25
-			dna = bdlhexmbcai
-			add_trait = ambitious
-			add_trait = cruel
-			add_trait = envious
-			add_trait = cynical
-			add_trait = deceitful
-			add_trait = attractive
-			add_trait = mystic
-			add_trait = brilliant_strategist
-			add_trait = flanker
-
-			attributes = {
-				intrigue = 12
-				martial = 7
-				diplomacy = 10
-				stewardship = 4
-				learning = 10
-			}
-		}
-
-		new_character = {
-			save_event_target_as = first_witch
-
-			add_character_modifier = {
-				name = known_witch
-				duration = -1
-			}
-
-			if = {
-				limit = { has_dlc = "Mystics" }
-
-				religion = ROOT
-				join_society = the_satanists
-			}
-
-			opinion = {
-				name = opinion_the_chosen_one
-				who = ROOT
-			}
-
-			set_character_flag = special_marshal
-			set_character_flag = special_treasurer
-			set_character_flag = special_chancellor
-			set_character_flag = special_spiritual
-			set_character_flag = special_spymaster
-		}
-
-		create_character = {
-			dynasty = none
-			religion = zun_pagan
-			culture = levantine
-			female = yes
-			name = "Jezebel"
-			age = 24
-			dna = dhmfgmabaaz
-			add_trait = ambitious
-			add_trait = cruel
-			add_trait = envious
-			add_trait = lustful
-			add_trait = deceitful
-			add_trait = attractive
-			add_trait = hedonist
-			add_trait = grey_eminence
-			add_trait = inspiring_leader
-
-			attributes = {
-				intrigue = 9
-				martial = 7
-				diplomacy = 12
-				stewardship = 3
-				learning = 8
-			}
-		}
-
-		new_character = {
-			save_event_target_as = second_witch
-
-			add_character_modifier = {
-				name = known_witch
-				duration = -1
-			}
-
-			if = {
-				limit = { has_dlc = "Mystics" }
-
-				religion = ROOT
-				join_society = the_satanists
-			}
-
-			opinion = {
-				name = opinion_the_chosen_one
-				who = ROOT
-			}
-
-			set_character_flag = special_marshal
-			set_character_flag = special_treasurer
-			set_character_flag = special_chancellor
-			set_character_flag = special_spiritual
-			set_character_flag = special_spymaster
-		}
-
-		create_character = {
-			dynasty = none
-			religion = norse_pagan
-			culture = welsh
-			female = yes
-			name = "Morgana"
-			age = 27
-			dna = aefccojcgbd
-			add_trait = ambitious
-			add_trait = cruel
-			add_trait = lustful
-			add_trait = envious
-			add_trait = genius
-			add_trait = deceitful
-			add_trait = attractive
-			add_trait = mystic
-			add_trait = elusive_shadow
-			add_trait = defensive_leader
-
-			attributes = {
-				intrigue = 15
-				martial = 7
-				diplomacy = 10
-				stewardship = 8
-				learning = 12
-			}
-		}
-
-		new_character = {
-			save_event_target_as = third_witch
-
-			add_character_modifier = {
-				name = known_witch
-				duration = -1
-			}
-
-			if = {
-				limit = { has_dlc = "Mystics" }
-
-				religion = ROOT
-				join_society = the_satanists
-			}
-
-			opinion = {
-				name = opinion_the_chosen_one
-				who = ROOT
-			}
-
-			set_character_flag = special_marshal
-			set_character_flag = special_treasurer
-			set_character_flag = special_chancellor
-			set_character_flag = special_spiritual
-			set_character_flag = special_spymaster
-		}
+		set_character_flag = demon_child_non_pagan_cultists
 	}
-
+	
 	option = {
 		name = EVTOPTA_SOA_3065
-
-		show_portrait = event_target:first_witch
-		show_portrait = event_target:second_witch
-		show_portrait = event_target:third_witch
 	}
 }
 
@@ -2353,53 +2347,58 @@ character_event = {
 
 
 # Witch nanny moves with her charge - Witch
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.3073
-
-	is_triggered_only = yes # on_host_change
 	hide_window = yes
-
+	
+	only_women = yes
+	prisoner = no
+	only_capable = yes
+	min_age = 16
 	has_character_flag = witch_nanny
 	has_dlc = "Sons of Abraham"
 	is_married = no
-	only_capable = yes
-	prisoner = no
-
+	
 	trigger = {
 		is_ruler = no
 		is_consort = no
-		NOT = { religion_group = pagan_group }
-
-		event_target:demon_child_non_pagan = {
-			same_realm = ROOT
-			prisoner = no
-			has_character_flag = demon_child_non_pagan
-
-			trigger_if = {
-				limit = { is_ruler = yes }
-				NOT = { is_liege_of = ROOT }
+		nm_trigger = no
+		NOT = {
+			any_courtier = {
+				has_character_flag = demon_child_non_pagan
+				host = {
+					ROOT = {
+						host = {
+							character = PREVPREV
+						}
+					}
+				}
 			}
-			trigger_else = {
-				NOT = { same_liege = ROOT }
+		}
+		top_liege = {
+			any_realm_character = {
+				prisoner = no
+				has_character_flag = demon_child_non_pagan
 			}
 		}
 	}
-
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
 	immediate = {
 		liege = {
 			character_event = { id = SoA.3074 }
 		}
-
-		event_target:demon_child_non_pagan = {
-			if = {
-				limit = { is_ruler = yes }
-
-				ROOT = {
-					move_character = PREV
+		top_liege = {
+			random_realm_character = {
+				limit = {
+					prisoner = no
+					has_character_flag = demon_child_non_pagan
 				}
-			}
-			else = {
-				liege = {
+				host = {
 					ROOT = {
 						move_character = PREV
 					}
@@ -2427,60 +2426,47 @@ character_event = {
 }
 
 # Witch nanny commits suicide for the demon child
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.3075
-
-	is_triggered_only = yes
 	hide_window = yes
-
-	has_character_flag = demon_child_non_pagan_got_nanny
-	max_age = 15
+	
 	prisoner = no
-
+	min_age = 6
+	max_age = 15
+	has_character_flag = demon_child_non_pagan_got_nanny
+	
 	trigger = {
-		has_character_flag = demon_child_non_pagan
-
-		trigger_if = {
-			limit = { ai = yes }
-			liege = { ai = no }
-		}
-
-		event_target:demon_child_non_pagan_nanny = {
-			at_location = ROOT
-			prisoner = no
-			is_incapable = no
-		}
-	}
-
-	fail_trigger_effect = {
-		if = {
-			limit = {
-				is_adult = no
-				has_character_flag = demon_child_non_pagan_got_nanny
-				has_character_flag = demon_child_non_pagan
-				event_target:demon_child_non_pagan_nanny = { is_alive = yes }
-			}
-
-			repeat_event = {
-				id = SoA.3075
-				months = 3
-			}
-		}
-	}
-
-	immediate = {
-		event_target:demon_child_non_pagan_nanny = {
+		has_dlc = "Sons of Abraham"
+		nm_trigger = no
+		OR = {
+			ai = no
 			liege = {
-				if = {
-					limit = { has_character_flag = demon_child_non_pagan }
-					narrative_event = { id = SoA.3078 }
-				}
-				else = {
-					narrative_event = { id = SoA.3077 }
-				}
+				ai = no
 			}
-
-			death = { death_reason = death_suicide_fall }
+		}
+		has_character_flag = demon_child_non_pagan
+		any_courtier = {
+			is_female = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			has_character_flag = witch_nanny
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 13 # Does not always happen
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				is_female = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				has_character_flag = witch_nanny
+			}
+			character_event = { id = SoA.3076 }
 		}
 	}
 }

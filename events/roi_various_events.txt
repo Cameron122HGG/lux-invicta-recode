@@ -652,83 +652,72 @@ character_event = {
 ###########################################
 
 # [on_birth] Child might be a reincarnation
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.10000
-
-	is_triggered_only = yes # on_birth, random_events
 	hide_window = yes
-
+	
+	is_triggered_only = yes
+	
 	only_men = yes
-
+	
 	trigger = {
 		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-			religion_openly_west_african_or_reformed_trigger = yes
-			religion = mazdaki
-			religion = manichaean
-			religion = khurmazta
-			religion = druze
+			religion_group = indian_group
+			religion_group = indohelen_group
+			religion_group = bud_group
+			religion = indoh_bud
+			religion = tengri_bud
+			religion = tengri_bud_reformed
+			religion = yoruba # Believe it or not, the Yoruba religion believes in reincarnation much like Indian creeds.
 		}
-
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 			has_dlc = "Holy Fury"
 			has_dlc = "The Sword of Islam"
 		}
-
 		NOT = {
 			has_game_rule = {
 				name = supernatural_events
 				value = off
 			}
 		}
-
 		OR = {
 			father = {
-				trigger_if = {
-					limit = { ai = yes }
-
+				OR = {
+					ai = no
 					has_game_rule = {
 						name = supernatural_events
 						value = unrestricted
 					}
 				}
-
 				is_reincarnated = no
-
 				father_even_if_dead = {
-					trigger_if = {
-						limit = { is_alive = yes }
-
+					OR = {
+						is_alive = no
 						father_even_if_dead = {
 							is_alive = no
 						}
 					}
 				}
-
 				NOT = {
 					any_sibling = {
 						is_reincarnated = yes
 					}
 				}
 			}
-
 			mother = {
 				ai = no
 				is_reincarnated = no
-
 				father_even_if_dead = {
-					trigger_if = {
-						limit = { is_alive = yes }
-
+					OR = {
+						is_alive = no
 						father_even_if_dead = {
 							is_alive = no
 						}
 					}
 				}
-
 				NOT = {
 					any_sibling = {
 						is_reincarnated = yes
@@ -736,21 +725,19 @@ character_event = {
 				}
 			}
 		}
-
 		NOT = {
 			any_sibling = {
 				is_reincarnated = yes
 			}
 		}
 	}
-
+	
 	option = {
 		if = {
 			limit = {
-				father = {
-					trigger_if = {
-						limit = { ai = yes }
-
+				father = { 
+					OR = {
+						ai = no
 						has_game_rule = {
 							name = supernatural_events
 							value = unrestricted
@@ -758,17 +745,17 @@ character_event = {
 					}
 				}
 			}
-
-			father = {
-				if = {
-					limit = {
+			if = {
+				limit = {
+					father = {
 						father_even_if_dead = {
 							father_even_if_dead = {
 								is_alive = no
 							}
 						}
 					}
-
+				}
+				father = {
 					father_even_if_dead = {
 						father_even_if_dead = {
 							ROOT = {
@@ -777,35 +764,43 @@ character_event = {
 						}
 					}
 				}
-				else = {
+			}
+			if = {
+				limit = {
+					is_reincarnated = no
+				}
+				father = {
 					father_even_if_dead = {
 						ROOT = {
 							set_reincarnation = PREV
 						}
 					}
 				}
-
+			}
+			
+			father = {
 				character_event = {
 					id = RoI.10001
 					days = 3
 				}
 			}
 		}
-		else_if = {
+		if = {
 			limit = {
 				mother = { ai = no }
+				is_reincarnated = no
 			}
-
-			mother = {
-				if = {
-					limit = {
+			if = {
+				limit = {
+					mother = {
 						father_even_if_dead = {
 							father_even_if_dead = {
 								is_alive = no
 							}
 						}
 					}
-
+				}
+				mother = {
 					father_even_if_dead = {
 						father_even_if_dead = {
 							ROOT = {
@@ -814,14 +809,21 @@ character_event = {
 						}
 					}
 				}
-				else = {
+			}
+			if = {
+				limit = {
+					is_reincarnated = no
+				}
+				mother = {
 					father_even_if_dead = {
 						ROOT = {
 							set_reincarnation = PREV
 						}
 					}
 				}
-
+			}
+			
+			mother = {
 				character_event = {
 					id = RoI.10001
 					days = 3
@@ -912,60 +914,81 @@ character_event = {
 }
 
 # [on_yearly_childhood_pulse] Reincarnation: Youth picks up a personality trait from the previous life
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.10010
 	desc = EVTDESC_RoI_10010
 	picture = GFX_evt_reincarnation
 	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes # on_yearly_childhood_pulse, random_events
-
-	religion_group = indian_group
-	has_character_flag = reincarnation_education
-	has_dlc = "Rajas of India"
-
+	
+	is_triggered_only = yes
+	
 	trigger = {
-		has_dharmic_religion_trigger = yes
-		personality_traits < 5
-
+		OR = {
+			religion_group = indian_group
+			religion_group = indohelen_group
+			religion_group = bud_group
+			religion = indoh_bud
+			religion = tengri_bud
+			religion = tengri_bud_reformed
+			religion = yoruba # Believe it or not, the Yoruba religion believes in reincarnation much like Indian creeds.
+		}
+		has_dlc = "Rajas of India"
+		has_character_flag = reincarnation_education
+		NOT = { personality_traits = 5 }
 		reincarnation_scope = {
 			ROOT = {
 				can_copy_personality_trait_from = PREV
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_10010
-
 		reincarnation_scope = {
-			show_scope_change = no
-
 			ROOT = {
-				show_scope_change = no
-
 				copy_random_personality_trait = PREV
 			}
 		}
-
-		father = {
-			character_event = {
-				id = RoI.10011
-				days = 2
+		hidden_tooltip = {
+			if = {
+				limit = {
+					father = {
+						ai = no
+					}
+				}
+				father = {
+					character_event = {
+						id = RoI.10011
+						days = 2
+					}
+				}
 			}
-		}
-
-		mother = {
-			character_event = {
-				id = RoI.10011
-				days = 2
+			if = {
+				limit = {
+					mother = {
+						ai = no
+					}
+				}
+				mother = {
+					character_event = {
+						id = RoI.10011
+						days = 2
+					}
+				}
 			}
-		}
-
-		guardian = {
-			character_event = {
-				id = RoI.10011
-				days = 2
+			if = {
+				limit = {
+					guardian = {
+						ai = no
+					}
+				}
+				guardian = {
+					character_event = {
+						id = RoI.10011
+						days = 2
+					}
+				}
 			}
 		}
 	}
@@ -1126,25 +1149,28 @@ character_event = {
 ###########################################
 
 # Hindu ascetic comes to visit
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.203
 	desc = EVTDESC_RoI_203
 	picture = GFX_evt_throne_room
 	border = GFX_event_normal_frame_religion
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+	is_triggered_only = yes
+	
 	ai = no
-	has_dlc = "Rajas of India"
 	only_capable = yes
 	prisoner = no
-
+	
 	trigger = {
+		has_dlc = "Rajas of India"
 		OR = {
-			religion = buddhist
+			religion_group = bud_group
+			religion = indoh_bud
+			religion = tengri_bud
+			religion = tengri_bud_reformed
 			religion = jain
 		}
-
 		NOT = {
 			has_alternate_start_parameter = {
 				key = religion_names
@@ -1152,36 +1178,31 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_203
-
-		trigger = {
-			NOT = { trait = zealous }
-		}
-
-		character_event = { id = RoI.204 }
+		trigger = { NOT = { trait = zealous } }
+		hidden_tooltip = { character_event = { id = RoI.204 } }
 	}
-
 	option = {
 		name = EVTOPTB_RoI_203
 	}
-
 	option = {
 		name = EVTOPTC_RoI_203
-
 		prestige = 20
-
-		custom_tooltip = {
-			text = realm_hindus_insulted
-
-			any_realm_character = {
-				limit = { religion = hindu }
-
+		custom_tooltip = { text = realm_hindus_insulted }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = { 	
+					OR = {
+						religion = hindu
+						religion_group = indohelen_group
+					}
+				}
 				opinion = {
-					name = insulted
 					who = ROOT
 					years = 2
+					modifier = insulted
 				}
 			}
 		}
@@ -1224,25 +1245,26 @@ character_event = {
 }
 
 # Buddhist ascetic comes to visit
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.206
 	desc = EVTDESC_RoI_206
 	picture = GFX_evt_throne_room
 	border = GFX_event_normal_frame_religion
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+	is_triggered_only = yes
+	
 	ai = no
-	has_dlc = "Rajas of India"
 	only_capable = yes
 	prisoner = no
-
+	
 	trigger = {
+		has_dlc = "Rajas of India"
 		OR = {
 			religion = hindu
 			religion = jain
+			religion_group = indohelen_group
 		}
-
 		NOT = {
 			has_alternate_start_parameter = {
 				key = religion_names
@@ -1250,36 +1272,33 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_203
-
-		trigger = {
-			NOT = { trait = zealous }
-		}
-
-		character_event = { id = RoI.207 }
+		trigger = { NOT = { trait = zealous } }
+		hidden_tooltip = { character_event = { id = RoI.207 } }
 	}
-
 	option = {
 		name = EVTOPTB_RoI_203
 	}
-
 	option = {
 		name = EVTOPTC_RoI_206
-
 		prestige = 20
-
-		custom_tooltip = {
-			text = realm_buddhists_insulted
-
-			any_realm_character = {
-				limit = { religion = buddhist }
-
+		custom_tooltip = { text = realm_buddhists_insulted }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = { 		
+					OR = {
+					religion_group = bud_group
+					religion = indoh_bud
+					religion = tengri_bud
+					religion = tengri_bud_reformed
+					}
+			}
 				opinion = {
-					name = insulted
 					who = ROOT
 					years = 2
+					modifier = insulted
 				}
 			}
 		}
@@ -1287,60 +1306,57 @@ character_event = {
 }
 
 # Tell me more, Buddhist ascetic
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.207
 	desc = EVTDESC_RoI_204
-	picture = GFX_evt_bishop_indian_group
+	picture = GFX_evt_bishop_buddhist
 	border = GFX_event_normal_frame_religion
 
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA_RoI_207
-
-		religion = buddhist
-		add_trait = mahayana_buddhist
+		religion = bud_sthaviravada
 		set_character_flag = india_converted
-
 		add_character_modifier = {
 			name = buddhist_ascetic
 			duration = -1
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_207
-
-		religion = buddhist
-		add_trait = mahayana_buddhist
+		religion = bud_sthaviravada
 		set_character_flag = india_converted
 	}
-
 	option = {
 		name = EVTOPTC_RoI_207
 	}
 }
 
 # Jain ascetic comes to visit
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.209
 	desc = EVTDESC_RoI_209
 	picture = GFX_evt_throne_room
 	border = GFX_event_normal_frame_religion
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+	is_triggered_only = yes
+	
 	ai = no
-	has_dlc = "Rajas of India"
 	only_capable = yes
 	prisoner = no
-
+	
 	trigger = {
+		has_dlc = "Rajas of India"
 		OR = {
 			religion = hindu
-			religion = buddhist
+			religion_group = bud_group
+			religion = indoh_bud
+			religion = tengri_bud
+			religion = tengri_bud_reformed
 		}
-
 		NOT = {
 			has_alternate_start_parameter = {
 				key = religion_names
@@ -1348,36 +1364,26 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_203
-
-		trigger = {
-			NOT = { trait = zealous }
-		}
-
-		character_event = { id = RoI.210 }
+		trigger = { NOT = { trait = zealous } }
+		hidden_tooltip = { character_event = { id = RoI.210 } }
 	}
-
 	option = {
 		name = EVTOPTB_RoI_209
 	}
-
 	option = {
 		name = EVTOPTC_RoI_209
-
 		prestige = 20
-
-		custom_tooltip = {
-			text = realm_jains_insulted
-
-			any_realm_character = {
+		custom_tooltip = { text = realm_jains_insulted }
+		hidden_tooltip = {
+			any_realm_character  = {
 				limit = { religion = jain }
-
 				opinion = {
-					name = insulted
 					who = ROOT
 					years = 2
+					modifier = insulted
 				}
 			}
 		}
@@ -2719,55 +2725,50 @@ character_event = {
 }
 
 # Crazed elephant runs amuck
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.158
 	desc = EVTDESC_RoI_158
 	picture = GFX_evt_india_rural_scene
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+	is_triggered_only = yes
+	
 	ai = no
-	has_dlc = "Rajas of India"
 	only_capable = yes
 	prisoner = no
-
+	
 	trigger = {
+		has_dlc = "Rajas of India"
+		NOT = { has_character_flag = crazed_elephant }
 		capital_scope = {
 			OR = {
 				region = world_india
-
 				duchy = {
-					OR = {
-						title = d_sistan
-						title = d_makran
-						title = d_kerman
-					}
+					title = d_gedrosia
+				}
+				duchy = {
+					title = d_sistan
 				}
 			}
 		}
-
-		NOT = { has_character_flag = crazed_elephant }
 	}
-
+	
 	immediate = {
 		set_character_flag = crazed_elephant
 	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_158
-
-		hidden_effect = {
+		hidden_tooltip = {
 			random_list = {
 				50 = { character_event = { id = RoI.159 } }
 				50 = { character_event = { id = RoI.160 } }
 			}
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_158
-
-		hidden_effect = {
+		hidden_tooltip = {
 			random_list = {
 				50 = { character_event = { id = RoI.161 } }
 				50 = { character_event = { id = RoI.162 } }
@@ -2868,53 +2869,51 @@ character_event = {
 }
 
 # Temple elephants are dying
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.163
 	desc = EVTDESC_RoI_163
 	picture = GFX_evt_india_temple
 	border = GFX_event_normal_frame_religion
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+	is_triggered_only = yes
+	
 	ai = no
-	religion_group = indian_group
-	has_dlc = "Rajas of India"
 	only_capable = yes
 	prisoner = no
-
+	
 	trigger = {
-		has_dharmic_religion_trigger = yes
-
+		OR = {
+			religion_group = indian_group
+			religion_group = indohelen_group
+			religion_group = bud_group
+			religion = tengri_bud
+			religion = tengri_bud_reformed
+		}
+		has_dlc = "Rajas of India"
 		capital_scope = {
 			region = world_india
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_163
-
 		add_character_modifier = {
 			name = annoyed_religious
-			years = 4
+			duration = 1460
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_163
-
 		scaled_wealth = -0.2
-
 		add_character_modifier = {
 			name = religious_appreciate
-			years = 4
+			duration = 1460
 		}
-
 		capital_scope = {
-			show_scope_change = no
-
 			add_province_modifier = {
 				name = peasants_protected
-				years = 4
+				duration = 1460
 			}
 		}
 	}
@@ -3147,83 +3146,86 @@ character_event = {
 }
 
 # Elephant escapes and tries to mate with other elephants
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.168
 	desc = EVTDESC_RoI_168
 	picture = GFX_evt_india_rural_scene
 
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA_RoI_168
-
 		scaled_wealth = -0.05
-
-		character_event = {
-			id = RoI.177
-			months = 2
-		}
+		hidden_tooltip = { character_event = { id = RoI.177 days = 60 } }
 	}
-
 	option = {
 		name = EVTOPTB_RoI_168
-
-		add_rival = event_target:white_elephant_donor
-
-		reverse_opinion = {
-			name = grievously_offended
-			who = event_target:white_elephant_donor
-			years = 10
+		any_playable_ruler  = {
+			limit = { has_character_flag = gave_white_elephant }
+			add_rival = ROOT
+			opinion = {
+				modifier = grievously_offended
+				who = ROOT
+				years = 10
+			}
 		}
 	}
-
 	option = {
 		name = EVTOPTC_RoI_168
-
 		wealth = 30
-
 		if = {
-			limit = { has_dharmic_religion_trigger = yes }
+			limit = {
+				OR = {
+					religion_group = indian_group
+					religion_group = indohelen_group
+					religion_group = bud_group
+					religion = tengri_bud
+					religion = tengri_bud_reformed
+				}
+			}
 			piety = -100
 		}
-
-		custom_tooltip = {
-			text = sacrilege_tooltip
-
-			any_realm_character = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+		custom_tooltip = { text = sacrilege_tooltip }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = { religion_group = indian_group }
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
-
-			any_playable_ruler = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+			any_playable_ruler  = {
+				limit = {
+					OR = {
+						religion_group = indian_group
+						religion_group = indohelen_group
+						religion_group = bud_group
+						religion = tengri_bud
+						religion = tengri_bud_reformed
+					}
+				}
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
 		}
-
-		add_rival = event_target:white_elephant_donor
-
-		reverse_opinion = {
-			name = grievously_offended
-			who = event_target:white_elephant_donor
-			years = 10
+		any_playable_ruler  = {
+			limit = { has_character_flag = gave_white_elephant }
+			add_rival = ROOT
+			opinion = {
+				modifier = grievously_offended
+				who = ROOT
+				years = 10
+			}
 		}
 	}
-
 	option = {
 		name = EVTOPTD_RoI_168
-
-		character_event = { id = RoI.169 }
+		hidden_tooltip = { character_event = { id = RoI.169 } }
 	}
 }
 
@@ -3294,44 +3296,57 @@ character_event = {
 }
 
 # Poisons elephant but is found out
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.171
 	desc = EVTDESC_RoI_171
 	picture = GFX_evt_bad_news
 
 	is_triggered_only = yes
-
+	
 	option = {
-		name = UNFORTUNATE
-
-		add_rival = event_target:white_elephant_donor
-
-		reverse_opinion = {
-			name = grievously_offended
-			who = event_target:white_elephant_donor
-			years = 10
+		name = EVTOPTA_RoI_171
+		any_playable_ruler  = {
+			limit = { has_character_flag = gave_white_elephant }
+			add_rival = ROOT
+			opinion = {
+				modifier = grievously_offended
+				who = ROOT
+				years = 10
+			}
 		}
-
-		custom_tooltip = {
-			text = sacrilege_tooltip
-
-			any_realm_character = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+		custom_tooltip = { text = sacrilege_tooltip }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = {
+					OR = {
+						religion_group = indian_group
+						religion_group = indohelen_group
+						religion_group = bud_group
+						religion = tengri_bud
+						religion = tengri_bud_reformed
+					}
+				}
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
-
-			any_playable_ruler = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+			any_playable_ruler  = {
+				limit = {
+					OR = {
+						religion_group = indian_group
+						religion_group = indohelen_group
+						religion_group = bud_group
+						religion = tengri_bud
+						religion = tengri_bud_reformed
+					}
+				}
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
 		}
@@ -3354,44 +3369,57 @@ character_event = {
 }
 
 # Starves elephant to death but is found out
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.173
 	desc = EVTDESC_RoI_173
 	picture = GFX_evt_bad_news
 
 	is_triggered_only = yes
-
+	
 	option = {
-		name = UNFORTUNATE
-
-		add_rival = event_target:white_elephant_donor
-
-		reverse_opinion = {
-			name = grievously_offended
-			who = event_target:white_elephant_donor
-			years = 10
+		name = EVTOPTA_RoI_173
+		any_playable_ruler  = {
+			limit = { has_character_flag = gave_white_elephant }
+			add_rival = ROOT
+			opinion = {
+				modifier = grievously_offended
+				who = ROOT
+				years = 10
+			}
 		}
-
-		custom_tooltip = {
-			text = sacrilege_tooltip
-
-			any_realm_character = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+		custom_tooltip = { text = sacrilege_tooltip }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = {
+					OR = {
+						religion_group = indian_group
+						religion_group = indohelen_group
+						religion_group = bud_group
+						religion = tengri_bud
+						religion = tengri_bud_reformed
+					}
+				}
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
-
-			any_playable_ruler = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+			any_playable_ruler  = {
+				limit = {
+ 					OR = {
+						religion_group = indian_group
+						religion_group = indohelen_group
+						religion_group = bud_group
+						religion = tengri_bud
+						religion = tengri_bud_reformed
+					}
+				}
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
 		}
@@ -3414,44 +3442,57 @@ character_event = {
 }
 
 # Pushes elephant over cliff but is found out
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.175
 	desc = EVTDESC_RoI_175
 	picture = GFX_evt_bad_news
 
 	is_triggered_only = yes
-
+	
 	option = {
-		name = UNFORTUNATE
-
-		add_rival = event_target:white_elephant_donor
-
-		reverse_opinion = {
-			name = grievously_offended
-			who = event_target:white_elephant_donor
-			years = 10
+		name = EVTOPTA_RoI_175
+		any_playable_ruler  = {
+			limit = { has_character_flag = gave_white_elephant }
+			add_rival = ROOT
+			opinion = {
+				modifier = grievously_offended
+				who = ROOT
+				years = 10
+			}
 		}
-
-		custom_tooltip = {
-			text = sacrilege_tooltip
-
-			any_realm_character = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+		custom_tooltip = { text = sacrilege_tooltip }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = {
+					OR = {
+						religion_group = indian_group
+						religion_group = indohelen_group
+						religion_group = bud_group
+						religion = tengri_bud
+						religion = tengri_bud_reformed
+					}
+				}
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
-
-			any_playable_ruler = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+			any_playable_ruler  = {
+				limit = {
+					OR = {
+						religion_group = indian_group
+						religion_group = indohelen_group
+						religion_group = bud_group
+						religion = tengri_bud
+						religion = tengri_bud_reformed
+					}
+				}
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
 		}
@@ -3459,44 +3500,57 @@ character_event = {
 }
 
 # Elephant is killed with lances and dies, no attempt at subterfuge
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.176
 	desc = EVTDESC_RoI_176
 	picture = GFX_evt_india_temple
 
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA_RoI_176
-
-		add_rival = event_target:white_elephant_donor
-
-		reverse_opinion = {
-			name = grievously_offended
-			who = event_target:white_elephant_donor
-			years = 10
+		any_playable_ruler  = {
+			limit = { has_character_flag = gave_white_elephant }
+			add_rival = ROOT
+			opinion = {
+				modifier = grievously_offended
+				who = ROOT
+				years = 10
+			}
 		}
-
-		custom_tooltip = {
-			text = sacrilege_tooltip
-
-			any_realm_character = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+		custom_tooltip = { text = sacrilege_tooltip }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = {
+					OR = {
+						religion_group = indian_group
+						religion_group = indohelen_group
+						religion_group = bud_group
+						religion = tengri_bud
+						religion = tengri_bud_reformed
+					}
+				}
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
-
-			any_playable_ruler = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+			any_playable_ruler  = {
+				limit = {
+					OR = {
+						religion_group = indian_group
+						religion_group = indohelen_group
+						religion_group = bud_group
+						religion = tengri_bud
+						religion = tengri_bud_reformed
+					}
+				}
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 3
+					modifier = opinion_sacrilege
 				}
 			}
 		}
@@ -3828,23 +3882,33 @@ character_event = {
 ###########################################
 
 # Greek troops not wanting to cross the Indus
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.146
 	desc = EVTDESC_RoI_146
 	picture = GFX_evt_large_army
 
-	is_triggered_only = yes # on_unit_entering_province
-
 	ai = no
-	culture = greek
 	has_dlc = "Rajas of India"
 	war = yes
-
+	
 	trigger = {
+		in_command = yes
+		OR = {
+			culture = greek
+			culture = hellenistic
+		}
+		NOT = {
+			has_character_flag = crossing_indus
+		}
+		NOT = {
+			any_realm_province = {
+				region = world_india
+			}
+		}
 		location = {
 			region = world_india
 		}
-
 		any_current_enemy = {
 			primary_title = {
 				capital_scope = {
@@ -3852,42 +3916,31 @@ character_event = {
 				}
 			}
 		}
-
-		NOR = {
-			any_realm_province = {
-				region = world_india
-				held_under_PREV = yes
-			}
-
-			has_character_flag = crossing_indus
-		}
 	}
-
-	immediate = {
-		set_character_flag = crossing_indus
+	
+	mean_time_to_happen = {
+		days = 10
 	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_146
-
 		trigger = {
 			NOT = { trait = inspiring_leader }
 		}
-
 		add_character_modifier = {
 			name = troops_war_weary
-			years = 2
+			duration = 730
 		}
-
+		set_character_flag = crossing_indus
 	}
-
 	option = {
 		name = EVTOPTB_RoI_146
 		tooltip_info = inspiring_leader
-
-		trigger = { trait = inspiring_leader }
-
+		trigger = {
+			trait = inspiring_leader
+		}
 		prestige = 30
+		set_character_flag = crossing_indus
 	}
 }
 
@@ -4219,120 +4272,159 @@ character_event = {
 }
 
 # Local Hindu temple asks for donations
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.410
 	desc = EVTDESC_RoI_410
 	picture = GFX_evt_india_temple
 	border = GFX_event_normal_frame_religion
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+	is_triggered_only = yes
+	
 	ai = no
-	religion = hindu
-	has_dlc = "Rajas of India"
 	only_capable = yes
 	prisoner = no
-	in_command = no
+	
+	trigger = {
+		has_dlc = "Rajas of India"
+		in_command = no
+		OR = {
+			religion = hindu
+			religion_group = indohelen_group
+		}
+	}
 
 	option = {
 		name = EVTOPTG_RoI_410
-
 		scaled_wealth = -0.1
 		piety = 5
 	}
-
 	option = {
-		name = {
-			text = EVTOPTA_RoI_410
-			trigger = { has_character_modifier = patron_shiva }
+		name = EVTOPTA_RoI_410
+		trigger = {
+			has_character_modifier = patron_shiva
 		}
-		name = {
-			text = EVTOPTB_RoI_410
-			trigger = { has_character_modifier = patron_vishnu }
-		}
-		name = {
-			text = EVTOPTC_RoI_410
-			trigger = { has_character_modifier = patron_brahma }
-		}
-		name = {
-			text = EVTOPTD_RoI_410
-			trigger = { has_character_modifier = patron_kali }
-		}
-		name = {
-			text = EVTOPTE_RoI_410
-			trigger = { has_character_modifier = patron_ganesha }
-		}
-		name = {
-			text = EVTOPTF_RoI_410
-			trigger = { has_character_modifier = patron_ganga }
-		}
-
 		scaled_wealth = -0.3
 		piety = 30
-
 		add_character_modifier = {
 			name = religious_appreciate
-			years = 4
+			duration = 1460
 		}
 	}
-
+	option = {
+		name = EVTOPTB_RoI_410
+		trigger = {
+			has_character_modifier = patron_vishnu
+		}
+		scaled_wealth = -0.3
+		piety = 30
+		add_character_modifier = {
+			name = religious_appreciate
+			duration = 1460
+		}
+	}
+	option = {
+		name = EVTOPTC_RoI_410
+		trigger = {
+			has_character_modifier = patron_brahma
+		}
+		scaled_wealth = -0.3
+		piety = 30
+		add_character_modifier = {
+			name = religious_appreciate
+			duration = 1460
+		}
+	}
+	option = {
+		name = EVTOPTD_RoI_410
+		trigger = {
+			has_character_modifier = patron_kali
+		}
+		scaled_wealth = -0.3
+		piety = 30
+		add_character_modifier = {
+			name = religious_appreciate
+			duration = 1460
+		}
+	}
+	option = {
+		name = EVTOPTE_RoI_410
+		trigger = {
+			has_character_modifier = patron_ganesha
+		}
+		scaled_wealth = -0.3
+		piety = 30
+		add_character_modifier = {
+			name = religious_appreciate
+			duration = 1460
+		}
+	}
+	option = {
+		name = EVTOPTF_RoI_410
+		trigger = {
+			has_character_modifier = patron_ganga
+		}
+		scaled_wealth = -0.3
+		piety = 30
+		add_character_modifier = {
+			name = religious_appreciate
+			duration = 1460
+		}
+	}
 	option = {
 		name = EVTOPTH_RoI_410
-
 		add_character_modifier = {
 			name = annoyed_religious
-			years = 4
+			duration = 1460
 		}
 	}
 }
 
 # Buddhist or Jain monks ask for donations
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.411
 	desc = EVTDESC_RoI_411
 	picture = GFX_evt_india_temple
 	border = GFX_event_normal_frame_religion
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+	is_triggered_only = yes
+	
 	ai = no
-	has_dlc = "Rajas of India"
 	only_capable = yes
 	prisoner = no
-	in_command = no
-
+	
 	trigger = {
+		has_dlc = "Rajas of India"
+		in_command = no
 		OR = {
-			religion = buddhist
+			religion_group = bud_group
+			religion = indoh_bud
+			religion = tengri_bud
+			religion = tengri_bud_reformed
 			religion = jain
 		}
 	}
 
 	option = {
 		name = EVTOPTA_RoI_411
-
 		scaled_wealth = -0.3
 		piety = 30
-
 		add_character_modifier = {
 			name = religious_appreciate
-			years = 4
+			duration = 1460
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_411
-
 		scaled_wealth = -0.1
 		piety = 10
 	}
-
 	option = {
 		name = EVTOPTC_RoI_411
-
 		add_character_modifier = {
 			name = annoyed_religious
-			years = 4
+			duration = 1460
 		}
 	}
 }

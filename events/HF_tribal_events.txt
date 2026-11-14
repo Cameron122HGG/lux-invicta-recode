@@ -7957,341 +7957,269 @@ character_event = {
 ###############################################
 
 # Host gets main event
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23910
 	title = EVTTITLE23910
+	desc = { 
+		text = EVTDESCHFA23910
+		trigger = { 
+			LI_pagan_trigger = yes
+		}
+		picture = GFX_evt_pagan
+	}
+	desc = { 
+		text = EVTDESCHFB23910
+		trigger = { 
+			LI_pagan_trigger = no
+		}
+		picture = GFX_evt_icon
+	}
 	picture = GFX_evt_irminsul_shrine
 	border = GFX_event_normal_frame_religion
-
-	desc = {
-		text = EVTDESCHFA23910
-		picture = GFX_evt_pagan
-		trigger = {
-			is_unreformed_pagan_trigger = no
-			NOT = { religion_group = christian }
-		}
-	}
-	desc = {
-		text = EVTDESCHFB23910
-		picture = GFX_evt_icon
-		trigger = { religion_group = christian }
-	}
-	desc = {
-		text = EVTDESCHFC23910
-		picture = GFX_evt_irminsul_shrine
-		trigger = { is_unreformed_pagan_trigger = yes }
+	
+	trigger = {
+		event_target:great_tribal_festival_host = { has_character_flag = flag_holding_great_tribal_festival }
 	}
 
 	is_triggered_only = yes
 
-	trigger = {
-		event_target:great_tribal_festival_host = {
-			has_character_flag = flag_holding_great_tribal_festival
-		}
-	}
-
-	option = {
+	option = { 
 		name = EVTOPTAHF23910
-
 		if = {
-			limit = {
-				check_variable = {
-					which = tribal_festival_divine_favor
-					value < 1
-				}
+			limit = {		
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 1 } }
 			}
-
 			piety = 5
 		}
-
-		# Prosperity first
+		#Prosperity first.
 		if = {
-			limit = { has_dlc = "Reapers" }
-
-			if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 6
-					}
-				}
-
-				custom_tooltip = {
-					text = capital_prospers_custom_tooltip
-
-					capital_scope = {
-						change_variable = {
-							which = prosperity_value
-							value = 18
-						}
-					}
-				}
-			}
-
-			else_if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 4
-					}
-				}
-
-				custom_tooltip = {
-					text = capital_prospers_custom_tooltip
-
-					capital_scope = {
-						change_variable = {
-							which = prosperity_value
-							value = 12
-						}
-					}
-				}
-			}
-
-			else_if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 2
-					}
-				}
-
-				custom_tooltip = {
-					text = capital_prospers_custom_tooltip
-
-					capital_scope = {
-						change_variable = {
-							which = prosperity_value
-							value = 6
-						}
-					}
-				}
-			}
-
-			else_if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 1
-					}
-				}
-
-				custom_tooltip = {
-					text = capital_prospers_custom_tooltip
-
-					capital_scope = {
-						change_variable = {
-							which = prosperity_value
-							value = 4
-						}
-					}
-				}
-			}
-		}
-
-		# Then piety for non-unreformed pagans
-		if = {
-			limit = { is_not_unreformed_pagan_trigger = yes }
-
-			if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 6
-					}
-				}
-				piety = 60
-			}
-			else_if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 4
-					}
-				}
-				piety = 30
-			}
-			else_if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 2
-					}
-				}
-				piety = 15
-			}
-			else_if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 1
-					}
-				}
-
-				piety = 10
-			}
-		}
-
-		# And Moral Authority for unreformed pagans
-		else = {
-			if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 6
-					}
-				}
-
-				religion_authority = {
-					name = great_tribal_festival_2
-					years = 4
-				}
-			}
-			else_if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 4
-					}
-				}
-
-				religion_authority = {
-					name = great_tribal_festival_2
-					years = 3
-				}
-			}
-			else_if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 2
-					}
-				}
-
-				religion_authority = {
-					name = great_tribal_festival_1
-					years = 3
-				}
-			}
-			else_if = {
-				limit = {
-					check_variable = {
-						which = tribal_festival_divine_favor
-						value >= 1
-					}
-				}
-
-				religion_authority = {
-					name = great_tribal_festival_1
-					years = 2
-				}
-			}
-		}
-
-		# Final event for vassals
-		any_realm_character = {
 			limit = {
-				has_opinion_modifier = {
-					name = opinion_great_tribal_festival_guest
-					who = ROOT
+				has_dlc = "Reapers"
+				check_variable = { which = "tribal_festival_divine_favor" value = 1 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 2 } }
+			}
+			custom_tooltip = {
+				text = capital_prospers_custom_tooltip
+				hidden_tooltip = {
+					capital_scope = {
+						change_variable = { which = prosperity_value value = 4 }
+					}
 				}
 			}
-
-			character_event = { id = HF.23911 }
+		}
+		if = {
+			limit = {
+				has_dlc = "Reapers"
+				check_variable = { which = "tribal_festival_divine_favor" value = 2 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 4 } }
+			}
+			custom_tooltip = {
+				text = capital_prospers_custom_tooltip
+				hidden_tooltip = {
+					capital_scope = {
+						change_variable = { which = prosperity_value value = 6 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_dlc = "Reapers"
+				check_variable = { which = "tribal_festival_divine_favor" value = 4 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 6 } }
+			}
+			custom_tooltip = {
+				text = capital_prospers_custom_tooltip
+				hidden_tooltip = {
+					capital_scope = {
+						change_variable = { which = prosperity_value value = 12 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_dlc = "Reapers"
+				check_variable = { which = "tribal_festival_divine_favor" value = 6 }
+			}
+			custom_tooltip = {
+				text = capital_prospers_custom_tooltip
+				hidden_tooltip = {
+					capital_scope = {
+						change_variable = { which = prosperity_value value = 18 }
+					}
+				}
+			}
 		}
 
-		event_target:warrior_lodge_guest = {
-			character_event = { id = HF.23911 }
+		#Then piety for non-unreformed pagans.
+		if = {
+			limit = {		
+				LI_pagan_trigger = no
+				check_variable = { which = "tribal_festival_divine_favor" value = 1 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 2 } }
+			}
+			piety = 10
+		}
+		if = {
+			limit = {		
+				LI_pagan_trigger = no
+				check_variable = { which = "tribal_festival_divine_favor" value = 2 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 4 } }
+			}
+			piety = 15
+		}
+		if = {
+			limit = {		
+				LI_pagan_trigger = no
+				check_variable = { which = "tribal_festival_divine_favor" value = 4 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 6 } }
+			}
+			piety = 30
+		}
+		if = {
+			limit = {		
+				LI_pagan_trigger = no
+				check_variable = { which = "tribal_festival_divine_favor" value = 6 }
+			}
+			piety = 60
 		}
 
-		clean_up_great_tribal_festival_flags_effect = yes
+		#And Moral Authority for unreformed pagans.
+		if = {
+			limit = {		
+				LI_pagan_trigger = yes
+				check_variable = { which = "tribal_festival_divine_favor" value = 1 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 2 } }
+			}
+			religion_authority = {
+				modifier = great_tribal_festival_1
+				years = 2
+			}
+		}
+		if = {
+			limit = {		
+				LI_pagan_trigger = yes
+				check_variable = { which = "tribal_festival_divine_favor" value = 2 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 4 } }
+			}
+			religion_authority = {
+				modifier = great_tribal_festival_1
+				years = 3
+			}
+		}
+		if = {
+			limit = {		
+				LI_pagan_trigger = yes
+				check_variable = { which = "tribal_festival_divine_favor" value = 4 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 6 } }
+			}
+			religion_authority = {
+				modifier = great_tribal_festival_2
+				years = 3
+			}
+		}
+		if = {
+			limit = {	
+				LI_pagan_trigger = yes
+				check_variable = { which = "tribal_festival_divine_favor" value = 6 }
+			}
+			religion_authority = {
+				modifier = great_tribal_festival_2
+				years = 4
+			}
+		}
+		hidden_tooltip = { #Final event for vassals.
+			any_realm_character = { 
+				limit = { 
+					has_opinion_modifier = { 
+						who = ROOT
+						modifier = opinion_great_tribal_festival_guest 
+					} 
+				} 
+				character_event = { id = HF.23911 } 
+			}
+			if = { 
+				limit = { persistent_event_target:warrior_lodge_guest = { is_alive = yes } }
+				persistent_event_target:warrior_lodge_guest = { 
+					character_event = { id = HF.23911 } 
+				}
+			}
+			clean_up_great_tribal_festival_flags_effect = yes
+		}
+		ai_chance = { factor = 100 }
 	}
 }
 
 # Vassals notified
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23911
 	title = EVTTITLE23911
-	picture = GFX_evt_irminsul_shrine
-	border = GFX_event_normal_frame_religion
-
-	desc = {
+	desc = { 
 		text = EVTDESCHFA23911
-		picture = GFX_evt_pagan
-		trigger = {
-			FROM = {
-				is_unreformed_pagan_trigger = no
-				NOT = { religion_group = christian }
+		trigger = { 
+			FROM = { 
+				LI_pagan_trigger = no
 			}
 		}
+		picture = GFX_evt_pagan
 	}
-	desc = {
-		text = EVTDESCHFB23911
-		picture = GFX_evt_icon
-		trigger = { FROM = { religion_group = christian } }
-	}
-	desc = {
+	desc = { 
 		text = EVTDESCHFC23911
+		trigger = { 
+			FROM = { 
+				LI_pagan_trigger = yes
+			}
+		}
 		picture = GFX_evt_irminsul_shrine
-		trigger = { FROM = { is_unreformed_pagan_trigger = yes } }
+	}
+	picture = GFX_evt_irminsul_shrine
+	border = GFX_event_normal_frame_religion
+	
+	trigger = {
+		event_target:great_tribal_festival_host = { has_character_flag = flag_holding_great_tribal_festival }
 	}
 
 	is_triggered_only = yes
 
-	trigger = {
-		event_target:great_tribal_festival_host = {
-			has_character_flag = flag_holding_great_tribal_festival
-		}
-	}
-
-	option = {
+	option = { 
 		name = EVTOPTAHF23911
-
 		opinion = {
-			name = opinion_held_great_festival
-			who = FROM
+			modifier = opinion_held_great_festival
 			years = 10
+			who = FROM
 		}
-
-		# Vassals only get piety
+		#Vassals only get piety.
 		if = {
-			limit = {
-				check_variable = {
-					which = tribal_festival_divine_favor
-					value >= 6
-				}
+			limit = {		
+				check_variable = { which = "tribal_festival_divine_favor" value = 1 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 2 } }
 			}
-			piety = 60
+			piety = 10
 		}
-		else_if = {
-			limit = {
-				check_variable = {
-					which = tribal_festival_divine_favor
-					value >= 4
-				}
-			}
-			piety = 30
-		}
-		else_if = {
-			limit = {
-				check_variable = {
-					which = tribal_festival_divine_favor
-					value >= 2
-				}
+		if = {
+			limit = {		
+				check_variable = { which = "tribal_festival_divine_favor" value = 2 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 4 } }
 			}
 			piety = 15
 		}
-		else_if = {
-			limit = {
-				check_variable = {
-					which = tribal_festival_divine_favor
-					value >= 1
-				}
+		if = {
+			limit = {	
+				check_variable = { which = "tribal_festival_divine_favor" value = 4 }
+				NOT = { check_variable = { which = "tribal_festival_divine_favor" value = 6 } }
 			}
-
-			piety = 10
+			piety = 30
 		}
-
+		if = {
+			limit = {
+				check_variable = { which = "tribal_festival_divine_favor" value = 6 }
+			}
+			piety = 60
+		}
 		clean_up_great_tribal_festival_flags_effect = yes
+		ai_chance = { factor = 100 }
 	}
 }

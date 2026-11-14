@@ -183,24 +183,24 @@ character_event = {
 }
 
 # Based on one of your traits
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.501
 	desc = EVTDESC_TOG_501
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_normal_frame_diplomacy
-
+	
 	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
 	option = { # Generic
 		name = EVTOPTA_TOG_501
-
 		trigger = {
 			is_smart_trigger = no
 			is_dumb_trigger = no
 			is_strong_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = drunkard
 				trait = attractive
@@ -221,481 +221,372 @@ character_event = {
 				trait = possessed
 			}
 		}
-
+		
 		custom_tooltip = {
 			text = runestone_carved
-
-			narrative_event = {
-				id = TOG.550
-				months = 2
-				random = 10
-			}
+			hidden_tooltip = { narrative_event = { id = TOG.550 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTB_TOG_501
 		tooltip_info = lunatic
-
 		trigger = {
 			trait = lunatic
 		}
-
-		narrative_event = {
-			id = TOG.551
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.551 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTC_TOG_501
 		tooltip_info = drunkard
-
 		trigger = {
 			trait = drunkard
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.552
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = { 
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.552 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTD_TOG_501
 		tooltip_info = attractive
-
 		trigger = {
 			trait = attractive
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.553
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.553 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTE_TOG_501
 		tooltip_info = dwarf
-
 		trigger = {
 			trait = dwarf
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.554
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.554 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTF_TOG_501
 		tooltip_info_custom = available_due_to_smart
-
 		trigger = {
 			is_smart_trigger = yes
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.555
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.555 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTI_TOG_501
 		tooltip_info = imbecile
-
-		trigger = { is_dumb_trigger = yes }
-
-		narrative_event = {
-			id = TOG.556
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		trigger = {
+			is_dumb_trigger = yes
+		}
+		
+		custom_tooltip = { 
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.556 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTJ_TOG_501
 		tooltip_info = strong
-
 		trigger = {
 			is_strong_trigger = yes
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.557
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.557 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTK_TOG_501
 		tooltip_info = scholar
-
 		trigger = {
 			trait = scholar
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.558
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.558 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTL_TOG_501
 		tooltip_info = impaler
-
 		trigger = {
 			trait = impaler
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.559
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.559 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTM_TOG_501
 		tooltip_info = poet
-
 		trigger = {
 			trait = poet
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.560
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.560 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTN_TOG_501
 		tooltip_info = lustful
-
 		trigger = {
 			trait = lustful
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.561
-			months = 210
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.561 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTO_TOG_501
 		tooltip_info = gluttonous
-
 		trigger = {
 			trait = gluttonous
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.562
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.562 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTP_TOG_501
 		tooltip_info = charitable
-
 		trigger = {
 			trait = charitable
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.563
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.563 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTQ_TOG_501
 		tooltip_info = kind
-
 		trigger = {
 			trait = kind
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.564
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.564 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTR_TOG_501
 		tooltip_info = proud
-
 		trigger = {
 			trait = proud
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.565
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.565 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTS_TOG_501
 		tooltip_info = humble
-
 		trigger = {
 			trait = humble
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.566
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = { 
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.566 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTT_TOG_501
 		tooltip_info = brave
-
 		trigger = {
 			trait = brave
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.567
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.567 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTU_TOG_501
 		tooltip_info = just
-
 		trigger = {
 			trait = just
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.568
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = { 
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.568 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTV_TOG_501
 		tooltip_info = zealous
-
 		trigger = {
 			trait = zealous
-			religion_openly_norse_or_reformed_trigger = yes
-			is_dumb_trigger = no
-
-			NOR = {
+			LI_norse_pagan_trigger = yes
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
 
-		narrative_event = {
-			id = TOG.569
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.569 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTX_TOG_501
 		tooltip_info = cruel
-
 		trigger = {
 			trait = cruel
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.571
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		custom_tooltip = { 
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.571 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTY_TOG_501
 		tooltip_info = possessed
-
 		trigger = {
 			trait = possessed
 		}
 
-		narrative_event = {
-			id = TOG.572
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		custom_tooltip = { 
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.572 days = 60 random = 10 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTZ_TOG_501
 		tooltip_info = zealous
-
 		trigger = {
 			trait = zealous
 			religion_group = christian
-			is_dumb_trigger = no
-
-			NOR = {
+			NOT = {
 				trait = lunatic
 				trait = possessed
+				is_dumb_trigger = yes
 			}
 		}
-
-		narrative_event = {
-			id = TOG.570
-			months = 2
-			random = 10
-			tooltip = runestone_carved
+		
+		custom_tooltip = {
+			text = runestone_carved
+			hidden_tooltip = { narrative_event = { id = TOG.570 days = 60 random = 10 } }
 		}
+			
 	}
 }
 

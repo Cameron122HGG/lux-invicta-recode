@@ -6,57 +6,58 @@
 
 decisions = {
 
-	adopt_chinese_imperialism = {
-		ai_check_interval = 60
-
-		is_high_prio = yes
-
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+adopt_chinese_imperialism = {
 		only_independent = yes
-
+		is_high_prio = yes
+		ai_check_interval = 60
 		potential = {
-			independent = yes
-			has_dlc = "Jade Dragon"
-			chinese_imperial_government_culture_trigger = yes
+			culture_group = chinese
+			is_nomadic = no
 			is_feudal = yes
-			holy_order = no
 			NOT = { government = chinese_imperial_government }
-
-			trigger_if = {
-				limit = { ai = yes }
-
-				trigger_if = {
-					limit = {
-						OR = {
-							trait = proud
-							trait = ambitious
-						}
-					}
-
-					prestige >= 40000
+			has_dlc = "Jade Dragon"
+			holy_order = no
+			OR = {
+				ai = no
+				AND = {
+					trait = proud
+					prestige = 40000
 				}
-				trigger_else = {
-					prestige >= 120000
+				AND = {
+					trait = ambitious
+					prestige = 40000
 				}
+				prestige = 120000
 			}
 		}
-
 		allow = {
-			real_tier = EMPEROR
-			is_tributary = no
+			independent = yes
 			is_adult = yes
 			prisoner = no
-			is_incapable = no
-			realm_size >= 200
-
-			trigger_if = {
-				limit = { religion = taoist }
-
-				prestige >= 8000
-				wealth   >=  500
+			NOT = { trait = incapable }
+			is_tributary = no
+			tier = EMPEROR
+			realm_size = 200
+			conditional_tooltip = {
+				trigger = { 
+					OR = {
+						religion = tao 
+						religion = tao_reformed
+					}
+				}
+				prestige = 8000
+				wealth = 500
 			}
-			trigger_else = {
-				prestige >= 16000
-				wealth   >=  1000
+			conditional_tooltip = {
+				trigger = { 
+					NOR = {
+						religion = tao 
+						religion = tao_reformed
+					}
+				}
+				prestige = 16000
+				wealth = 1000
 			}
 
 			offmap_china = {
@@ -64,181 +65,170 @@ decisions = {
 				offmap_ruler = { NOT = { dynasty = ROOT } }
 			}
 		}
-
 		effect = {
 			if = {
-				limit = { religion = taoist }
-				wealth = -500
+			    limit = { 
+					OR = {
+						religion = tao 
+						religion = tao_reformed
+					}
+				}
+			    wealth = -500
 			}
 			else = {
-				wealth = -1000
+			    wealth = -1000
 			}
-
 			if = {
 				limit = {
 					has_dlc = "Holy Fury"
-
 					NOT = {
-						any_owned_bloodline = {
+						any_owned_bloodline = { 
 							has_bloodline_flag = created_bloodline
 						}
 					}
 				}
-
-				#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-					#id = HF.24240
-					#tooltip = tooltip_evt_hf_24240
-				#}
+				#character_event = { id = HF.24240 tooltip = tooltip_evt_hf_24240 } # Holy Fury event not in Lux Invicta (DLC switched off)
 			}
-
 			custom_tooltip = {
 				text = adopt_chinese_imperialism_tt
-
-				primary_title = {
+				hidden_effect = {
 					create_title = {
 						tier = EMPEROR
+						landless = no
+						temporary = no
+						custom_created = yes
 						culture = ROOT
 						holder = ROOT
 						base_title = THIS
-						custom_created = yes
 						short_name = yes
 						copy_title_laws = yes
 					}
-
 					new_title = {
-						# Titles with this flag give their heirs a temple name via on_death event
-						set_title_flag = uses_temple_names_by_script
-
-						# Blocks all grace interactions
-						set_title_flag = pretender_chinese_empire
-
-						# Use WP adj as it is "Chinese" but also gives the right one in different languages
-						adjective = e_china_west_governor_adj
-
-						# Random Empire name that China doesn't have
-						random_list = {
-							1 = {
+						set_title_flag = uses_temple_names_by_script #Titles with this flag give their heirs a temple name via on_death event
+						set_title_flag = pretender_chinese_empire #Blocks all grace interactions
+						adjective = e_china_west_governor_adj #Use WP adj as it is "Chinese" but also gives the right one in different languages
+						random_list = { #Random Empire name that China doesn't have
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = tang_china } } }
-								set_name = tang_empire
+								set_name = "Tang Empire"
 								set_title_flag = china_name_Tang
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = jin_china } } }
-								set_name = jin_empire
+								set_name = "Jin Empire"
 								set_title_flag = china_name_Jin
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = wei_china } } }
-								set_name = wei_empire
+								set_name = "Wei Empire"
 								set_title_flag = china_name_Wei
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = qi_china } } }
-								set_name = qi_empire
+								set_name = "Qi Empire"
 								set_title_flag = china_name_Qi
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = zhou_china } } }
-								set_name = zhou_empire
+								set_name = "Zhou Empire"
 								set_title_flag = china_name_Zhou
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = han_china } } }
-								set_name = han_empire
+								set_name = "Han Empire"
 								set_title_flag = china_name_Han
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = qin_china } } }
-								set_name = qin_empire
+								set_name = "Qin Empire"
 								set_title_flag = china_name_Qin
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = yan_china } } }
-								set_name = yan_empire
+								set_name = "Yan Empire"
 								set_title_flag = china_name_Yan
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = zhao_china } } }
-								set_name = zhao_empire
+								set_name = "Zhao Empire"
 								set_title_flag = china_name_Zhao
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = liao_china } } }
-								set_name = liao_empire
+								set_name = "Liao Empire"
 								set_title_flag = china_name_Liao
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = yuan_china } } }
-								set_name = yuan_empire
+								set_name = "Yuan Empire"
 								set_title_flag = china_name_Yuan
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = xia_china } } }
-								set_name = xia_empire
+								set_name = "Xia Empire"
 								set_title_flag = china_name_Xia
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = qing_china } } }
-								set_name = qing_empire
+								set_name = "Qing Empire"
 								set_title_flag = china_name_Qing
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = dai_china } } }
-								set_name = dai_empire
+								set_name = "Dai Empire"
 								set_title_flag = china_name_Dai
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = cheng_china } } }
-								set_name = cheng_empire
+								set_name = "Cheng Empire"
 								set_title_flag = china_name_Cheng
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = liang_china } } }
-								set_name = liang_empire
+								set_name = "Liang Empire"
 								set_title_flag = china_name_Liang
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = song_china } } }
-								set_name = song_empire
+								set_name = "Song Empire"
 								set_title_flag = china_name_Song
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = ming_china } } }
-								set_name = ming_empire
+								set_name = "Ming Empire"
 								set_title_flag = china_name_Ming
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = shu_china } } }
-								set_name = shu_empire
+								set_name = "Shu Empire"
 								set_title_flag = china_name_Shu
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = wu_china } } }
-								set_name = wu_empire
+								set_name = "Wu Empire"
 								set_title_flag = china_name_Wu
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = chu_china } } }
-								set_name = chu_empire
+								set_name = "Chu Empire"
 								set_title_flag = china_name_Chu
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = yue_china } } }
-								set_name = yue_empire
+								set_name = "Yue Empire"
 								set_title_flag = china_name_Yue
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = yin_china } } }
-								set_name = yin_empire
+								set_name = "Yin Empire"
 								set_title_flag = china_name_Yin
 							}
-							1 = {
+							1 = { 
 								trigger = { NOT = { offmap_china = { has_offmap_name = shun_china } } }
-								set_name = shun_empire
+								set_name = "Shun Empire"
 								set_title_flag = china_name_Shun
 							}
 						}
-
 						add_law = {
 							law = succ_primogeniture
 							cooldown = no
@@ -247,33 +237,29 @@ decisions = {
 					}
 				}
 			}
-
 			any_demesne_title = {
-				limit = {
-					real_tier = EMPEROR
+				limit = { 
+					tier = EMPEROR
 					NOT = { has_title_flag = pretender_chinese_empire }
 				}
 				destroy_landed_title = THIS
 			}
-
 			set_government_type = chinese_imperial_government
 			custom_tooltip = { text = adopt_chinese_imperialism_gov_tt }
-
 			custom_tooltip = {
 				text = adopt_chinese_imperialism_temple_name_tt
-
-				set_character_flag = given_temple_name_by_script
-
-				# Give a temple name
-				random_list = {
-					1 = { set_name = Gaozu }
-					1 = { set_name = Taizu }
-					1 = { set_name = Shizu }
-					1 = { set_name = Zhaozu }
-					1 = { set_name = Jingzu }
-					1 = { set_name = Xianzu }
-					1 = { set_name = Liezu }
-					1 = { set_name = Chengzu }
+				hidden_effect = {
+					random_list = { #Give a temple name
+						1 = { set_name = Gaozu }
+						1 = { set_name = Taizu }
+						1 = { set_name = Shizu }
+						1 = { set_name = Zhaozu }
+						1 = { set_name = Jingzu }
+						1 = { set_name = Xianzu }
+						1 = { set_name = Liezu }
+						1 = { set_name = Chengzu }
+					}
+					set_character_flag = given_temple_name_by_script
 				}
 			}
 		}

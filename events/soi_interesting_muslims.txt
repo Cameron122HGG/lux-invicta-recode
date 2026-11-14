@@ -1140,33 +1140,30 @@ province_event = {
 }
 
 # Liege get new character: Nizami Ganjavi
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106051
 	desc = EVTDESC106051
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA106051
-
 		create_character = {
 			name = Nizami
 			dynasty = 1031110
-			religion = sunni
-			culture = persian
-			age = 25
-			female = no
-
 			attributes = {
 				learning = 9
 			}
-
-			add_trait = poet
-			add_trait = quick
-			add_trait = charismatic_negotiator
+			culture = aghbanian
+			religion = ROOT
+			age = 25
+			female = no
+			trait = poet
+			trait = quick
+			trait = charismatic_negotiator
 		}
-
 		new_character = {
 			set_character_flag = nizami_ganjavi_flag
 		}
@@ -1758,33 +1755,30 @@ province_event = {
 }
 
 # Liege get new character: Nasir al-Din al-Tusi
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106081
 	desc = EVTDESC106081
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA106081
-
 		create_character = {
 			name = "Nasir al-Din"
 			dynasty = 1031116
-			religion = shiite
-			culture = persian
-			age = 30
-			female = no
-
 			attributes = {
 				learning = 11
 			}
-
-			add_trait = scholarly_theologian
-			add_trait = scholar
-			add_trait = diligent
+			culture = parthian
+			religion = ROOT
+			age = 30
+			female = no
+			trait = scholarly_theologian
+			trait = scholar
+			trait = diligent
 		}
-
 		new_character = {
 			set_character_flag = nasir_flag
 		}
@@ -2283,34 +2277,30 @@ province_event = {
 }
 
 # Liege get new character: Zayn al-Din Gorgani
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106106
 	desc = EVTDESC106106
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA106106
-
 		create_character = {
 			name = "Zayn al-Din"
 			dynasty = 1031121
-			religion = ROOT
-			culture = persian
-			age = 45
-			female = no
-
 			attributes = {
 				learning = 9
 			}
-
-			add_trait = scholar
-			add_trait = quick
-			add_trait = scholarly_theologian
-			add_trait = physician
+			culture = parthian
+			religion = ROOT
+			age = 45
+			female = no
+			trait = scholar
+			trait = quick
+			trait = scholarly_theologian
 		}
-
 		new_character = {
 			set_character_flag = zayn_gorgani_flag
 		}
@@ -2697,34 +2687,31 @@ province_event = {
 }
 
 # Liege get new character: Khwaja Abdullah Ansari
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106126
 	desc = EVTDESC106126
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA106126
-
 		create_character = {
-			name = "Khwaja Abdullah"
+			name = "Zoilos"
 			dynasty = 1031125
-			religion = ROOT
-			culture = persian
-			age = 30
-			female = no
-
 			attributes = {
 				learning = 9
 				diplomacy = 10
 			}
-
-			add_trait = mastermind_theologian
-			add_trait = poet
-			add_trait = gregarious
+			culture = indohellenic
+			religion = ROOT
+			age = 30
+			female = no
+			trait = mastermind_theologian
+			trait = poet
+			trait = gregarious
 		}
-
 		new_character = {
 			set_character_flag = khwaja_abdullah_ansari_flag
 		}
@@ -2904,33 +2891,30 @@ province_event = {
 }
 
 # Liege get new character: Najmuddin Kubra
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106136
 	desc = EVTDESC106136
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA106136
-
 		create_character = {
 			name = Najmuddin
 			dynasty = 1031127
-			religion = ROOT
-			culture = persian
-			age = 30
-			female = no
-
 			attributes = {
 				learning = 9
 			}
-
-			add_trait = scholar
-			add_trait = quick
-			add_trait = mastermind_theologian
+			culture = parthian
+			religion = ROOT
+			age = 30
+			female = no
+			trait = scholar
+			trait = quick
+			trait = mastermind_theologian
 		}
-
 		new_character = {
 			set_character_flag = najmuddin_kubra_flag
 		}
@@ -3007,34 +2991,31 @@ province_event = {
 }
 
 # Liege get new character: Omar Khayyám
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106141
 	desc = EVTDESC106141
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA106141
-
 		create_character = {
 			name = Omar
 			dynasty = 1031128
-			religion = ROOT
-			culture = persian
-			age = 30
-			female = no
-
 			attributes = {
 				learning = 9
 			}
-
-			add_trait = scholar
-			add_trait = hajjaj
-			add_trait = quick
-			add_trait = mastermind_theologian
+			culture = parthian
+			religion = ROOT
+			age = 30
+			female = no
+			trait = scholar
+			trait = hajjaj
+			trait = quick
+			trait = mastermind_theologian
 		}
-
 		new_character = {
 			set_character_flag = omar_khayyam_flag
 		}

@@ -1552,24 +1552,22 @@ nick_twistedbeard = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 nick_the_bear = {
 	allow = {
-		is_adult = yes
+		age = 16
 		is_female = no
-		martial >= 12
-
+		martial = 12
 		OR = {
 			trait = strong
 			trait = brawny
 			trait = attractive
 		}
-
 		OR = {
 			trait = shrewd
 			trait = quick
 			trait = genius
 		}
-
 		capital_scope = {
 			NOR = {
 				region = world_india
@@ -1577,13 +1575,11 @@ nick_the_bear = {
 			}
 		}
 	}
-
 	chance = {
 		factor = 5
-
-		mult_modifier = {
+		modifier = {
 			factor = 5
-			religion_openly_finnish_or_reformed_trigger = yes
+			religion_group = finnish_group
 		}
 	}
 }
@@ -1800,50 +1796,46 @@ nick_the_bewitched = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 nick_priest_hater = {
 	allow = {
-		practical_age >= 20
-		piety < -100
+		age = 20
+		NOT = { piety = -100 }
 		trait = cynical
-
-		NOR = {
-			religion = buddhist
-			religion = jain
-		}
+		NOT = { religion_group = bud_group }
+		NOT = { religion = jain }
 	}
-
 	chance = {
 		factor = 1
-
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
-			piety < -50
+			NOT = { piety = -50 }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
-			piety < -100
+			NOT = { piety = -100 }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
-			piety < -200
+			NOT = { piety = -200 }
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = hedonist
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = gluttonous
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = greedy
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = envious
 		}
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = arbitrary
 		}

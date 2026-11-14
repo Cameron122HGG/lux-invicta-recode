@@ -2,13 +2,9 @@
 # CRUSADERS
 ########################
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 ares_own = {
-	religious = yes
-	customizer = no
-
 	opposites = {
-		crusader_king
-		crusader_queen
 		mujahid
 		valhalla_bound
 		crusader
@@ -21,17 +17,32 @@ ares_own = {
 		skylord
 		kanai
 		gondi_shahansha
-		kailash_guardian
+		hetairos
+		leo_mithras
+		korybantes
+		son_of_mahrem
+		mukarrib
+		induna
+		nyau_akakairo
+		son_of_ifri
+		gongfu_warrior
+		dragon_knight
+		guardian_of_elect
+		seal_holder
+		warrior_of_light
+		medjay
+		vel_wielder
 	}
-
+	
 	martial = 2
-	combat_rating = 10 # old value: 1
-
+	combat_rating = 10 #old value: 1
+	
 	church_opinion = 15
 	same_opinion_if_same_religion = 15
-
+	
 	ai_zeal = 10
-
+	customizer = no
+	
 	male_insult = INSULT_FANATIC
 	female_insult = INSULT_FANATIC
 	male_insult_adj = INSULT_NARROWMINDED
@@ -40,10 +51,8 @@ ares_own = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
-crusader = { # Hard Coded: Do not remove
-	religious = yes
-	customizer = no
-
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+crusader = {
 	opposites = {
 		crusader_king
 		crusader_queen
@@ -59,25 +68,34 @@ crusader = { # Hard Coded: Do not remove
 		skylord
 		kanai
 		gondi_shahansha
-		kailash_guardian
+		hetairos
+		leo_mithras
+		korybantes
+		son_of_mahrem
+		mukarrib
+		induna
+		nyau_akakairo
+		son_of_ifri
+		gongfu_warrior
+		dragon_knight
+		guardian_of_elect
+		seal_holder
+		warrior_of_light
+		medjay
+		vel_wielder
+		serpent_warrior
 	}
-
+	
 	martial = 2
-	combat_rating = 10 # old value: 1
-
+	combat_rating = 10 #old value: 1
+	
 	church_opinion = 15
 	same_opinion_if_same_religion = 15
-
+	
 	ai_zeal = 10
-
+	
 	male_compliment = COMPL_CRUSADER
 	female_compliment = COMPL_CRUSADER
-	male_insult = INSULT_FANATIC
-	female_insult = INSULT_FANATIC
-	male_insult_adj = INSULT_NARROWMINDED
-	female_insult_adj = INSULT_NARROWMINDED
-	male_compliment_adj = COMPL_RIGHTEOUS
-	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
 crusader_king = {
@@ -208,16 +226,12 @@ eagle_knight = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 gondi_shahansha = {
-	religious = yes
-	customizer = no
-
 	opposites = {
 		mujahid
 		valhalla_bound
 		crusader
-		crusader_king
-		crusader_queen
 		eagle_knight
 		sun_warrior
 		ukkos_hammer
@@ -227,17 +241,32 @@ gondi_shahansha = {
 		ares_own
 		skylord
 		kanai
-		kailash_guardian
+		hetairos
+		leo_mithras
+		korybantes
+		son_of_mahrem
+		mukarrib
+		induna
+		nyau_akakairo
+		son_of_ifri
+		gongfu_warrior
+		dragon_knight
+		guardian_of_elect
+		seal_holder
+		warrior_of_light
+		medjay
+		vel_wielder
 	}
-
+	
 	martial = 2
-	combat_rating = 10 # old value: 1
-
+	combat_rating = 10 #old value: 1
+	
 	church_opinion = 15
 	same_opinion_if_same_religion = 15
-
+	
 	ai_zeal = 10
-
+	customizer = no
+	
 	male_insult = INSULT_FANATIC
 	female_insult = INSULT_FANATIC
 	male_insult_adj = INSULT_NARROWMINDED
@@ -362,14 +391,17 @@ kanai = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
-mujahid = { # Muslim equivalent of Crusader (Hard Coded: Do not remove!)
-	religious = yes
-	customizer = no
-
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+mujahid = {
 	opposites = {
+		hetairos
+		leo_mithras
+		korybantes
+		son_of_mahrem
+		mukarrib
+		induna
+		nyau_akakairo
 		crusader
-		crusader_king
-		crusader_queen
 		valhalla_bound
 		eagle_knight
 		sun_warrior
@@ -381,37 +413,35 @@ mujahid = { # Muslim equivalent of Crusader (Hard Coded: Do not remove!)
 		skylord
 		kanai
 		gondi_shahansha
-		kailash_guardian
+		son_of_ifri
+		gongfu_warrior
+		dragon_knight
+		guardian_of_elect
+		seal_holder
+		warrior_of_light
+		medjay
+		vel_wielder
+		serpent_warrior
 	}
-
+	
 	martial = 2
-	combat_rating = 10 # old value: 1
-
+	combat_rating = 10 #old value: 1
+	
 	muslim_opinion = 5
 	same_opinion_if_same_religion = 15
-
+	
 	ai_zeal = 10
-
+	
 	male_compliment = COMPL_MUJAHID
 	female_compliment = COMPL_MUJAHID
-	male_insult = INSULT_FANATIC
-	female_insult = INSULT_FANATIC
-	male_insult_adj = INSULT_NARROWMINDED
-	female_insult_adj = INSULT_NARROWMINDED
-	male_compliment_adj = COMPL_RIGHTEOUS
-	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 nyames_shield = {
-	religious = yes
-	customizer = no
-
 	opposites = {
 		mujahid
 		valhalla_bound
 		crusader
-		crusader_king
-		crusader_queen
 		eagle_knight
 		sun_warrior
 		ukkos_hammer
@@ -421,17 +451,32 @@ nyames_shield = {
 		skylord
 		kanai
 		gondi_shahansha
-		kailash_guardian
+		hetairos
+		leo_mithras
+		korybantes
+		son_of_mahrem
+		mukarrib
+		induna
+		nyau_akakairo
+		son_of_ifri
+		gongfu_warrior
+		dragon_knight
+		guardian_of_elect
+		seal_holder
+		warrior_of_light
+		medjay
+		vel_wielder
 	}
-
+	
 	martial = 2
-	combat_rating = 10 # old value: 1
-
+	combat_rating = 10 #old value: 1
+	
 	church_opinion = 15
 	same_opinion_if_same_religion = 15
-
+	
 	ai_zeal = 10
-
+	customizer = no
+	
 	male_insult = INSULT_FANATIC
 	female_insult = INSULT_FANATIC
 	male_insult_adj = INSULT_NARROWMINDED
@@ -440,16 +485,12 @@ nyames_shield = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 peruns_chosen = {
-	religious = yes
-	customizer = no
-
 	opposites = {
 		mujahid
 		valhalla_bound
 		crusader
-		crusader_king
-		crusader_queen
 		eagle_knight
 		sun_warrior
 		ukkos_hammer
@@ -459,17 +500,32 @@ peruns_chosen = {
 		skylord
 		kanai
 		gondi_shahansha
-		kailash_guardian
+		hetairos
+		leo_mithras
+		korybantes
+		son_of_mahrem
+		mukarrib
+		induna
+		nyau_akakairo
+		son_of_ifri
+		gongfu_warrior
+		dragon_knight
+		guardian_of_elect
+		seal_holder
+		warrior_of_light
+		medjay
+		vel_wielder
 	}
-
+	
 	martial = 2
-	combat_rating = 10 # old value: 1
-
+	combat_rating = 10 #old value: 1
+	
 	church_opinion = 15
 	same_opinion_if_same_religion = 15
-
+	
 	ai_zeal = 10
-
+	customizer = no
+	
 	male_insult = INSULT_FANATIC
 	female_insult = INSULT_FANATIC
 	male_insult_adj = INSULT_NARROWMINDED
@@ -478,16 +534,12 @@ peruns_chosen = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 sun_warrior = {
-	religious = yes
-	customizer = no
-
 	opposites = {
 		mujahid
 		valhalla_bound
 		crusader
-		crusader_king
-		crusader_queen
 		eagle_knight
 		ukkos_hammer
 		nyames_shield
@@ -497,17 +549,32 @@ sun_warrior = {
 		skylord
 		kanai
 		gondi_shahansha
-		kailash_guardian
+		hetairos
+		leo_mithras
+		korybantes
+		son_of_mahrem
+		mukarrib
+		induna
+		nyau_akakairo
+		son_of_ifri
+		gongfu_warrior
+		dragon_knight
+		guardian_of_elect
+		seal_holder
+		warrior_of_light
+		medjay
+		vel_wielder
 	}
-
+	
 	martial = 2
-	combat_rating = 10 # old value: 1
-
+	combat_rating = 10 #old value: 1
+	
 	church_opinion = 15
 	same_opinion_if_same_religion = 15
-
+	
 	ai_zeal = 10
-
+	customizer = no
+	
 	male_insult = INSULT_FANATIC
 	female_insult = INSULT_FANATIC
 	male_insult_adj = INSULT_NARROWMINDED
@@ -592,14 +659,10 @@ ukkos_hammer = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
-valhalla_bound = {
-	religious = yes
-	customizer = no
-
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+valhalla_bound  = {
 	opposites = {
 		crusader
-		crusader_king
-		crusader_queen
 		mujahid
 		eagle_knight
 		sun_warrior
@@ -611,23 +674,33 @@ valhalla_bound = {
 		skylord
 		kanai
 		gondi_shahansha
-		kailash_guardian
+		hetairos
+		leo_mithras
+		korybantes
+		son_of_mahrem
+		mukarrib
+		induna
+		nyau_akakairo
+		son_of_ifri
+		gongfu_warrior
+		guardian_of_elect
+		seal_holder
+		warrior_of_light
+		dragon_knight
+		medjay
+		vel_wielder
+		serpent_warrior
 	}
-
+	
 	martial = 2
-	combat_rating = 10 # old value: 1
-
+	combat_rating = 10 #old value: 1
+	
 	pagan_group_opinion = 5
 	same_opinion_if_same_religion = 15
-
+	
 	ai_zeal = 10
-
-	male_insult = INSULT_FANATIC
-	female_insult = INSULT_FANATIC
-	male_insult_adj = INSULT_NARROWMINDED
-	female_insult_adj = INSULT_NARROWMINDED
-	male_compliment_adj = COMPL_RIGHTEOUS
-	female_compliment_adj = COMPL_RIGHTEOUS
+	customizer = no
+	
 	male_compliment = COMPL_VALHALLA_BOUND_MALE
 	female_compliment = COMPL_VALHALLA_BOUND_FEMALE
 }

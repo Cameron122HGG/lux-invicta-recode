@@ -11,55 +11,90 @@
 namespace = TOG
 
 # An ambitious landless claimant begins to plan an adventure for the title
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.1200
-
-	is_triggered_only = yes # on_yearly_pulse, random_events, oldgods_adventurers
+	
 	hide_window = yes # Only fires for unplayable landless characters
-
-	has_dlc = "The Old Gods"
+	
 	min_age = 16
 	max_age = 50
-	only_capable = yes
+	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
+		has_dlc = "The Old Gods"
+		
+		NOT = {
+			has_game_rule = {
+				name = adventurers
+				value = none
+			}
+		}
+
+		OR = {
+			has_game_rule = {
+				name = gender
+				value = all
+			}
+			AND = {
+				is_female = no
+				liege = {
+					OR = {
+						has_law = true_cognatic_succession
+						has_law = cognatic_succession
+						has_law = agnatic_succession
+					}
+				}
+			}
+			AND = {
+				is_female = yes
+				liege = {
+					OR = {
+						feminist_religions_trigger = yes
+						has_law = status_of_women_4
+						has_law = true_cognatic_succession
+						has_law = enatic_cognatic_succession
+						has_law = enatic_succession
+					}
+				}
+			}
+		}
+		
 		is_ruler = no
 
+		NOT = { any_spouse = { is_ruler = yes } }
+		
+#		year = 867
+		
 		any_claim = {
 			has_holder = yes
-
-			OR = {
-				real_tier = KING
-				is_primary_holder_title_tier = yes
-			}
-
 			holder_scope = {
 				independent = yes # Only do this vs independent rulers
-
-				trigger_if = {
-					limit = { is_nomadic = yes }
-
-					PREV = {
-						clan = no
-						is_primary_holder_title = no
+				NAND = {
+					government = nomadic_government
+					OR = {
+						clan_title = {
+							title = PREVPREV
+						}
+						primary_title = {
+							title = PREVPREV
+						}
 					}
 				}
-
-				# Don't target my liege unless I am ambitious
-				trigger_if = {
-					limit = { is_liege_or_above_of = ROOT }
+				OR = {
+					# Don't target my liege unless I am ambitious
+					NOT = { is_vassal_or_below = ROOT }
 					ROOT = { trait = ambitious }
 				}
-
-				trigger_if = {
-					limit = { is_merchant_republic = yes }
-
-					capital_holding = {
-						NOT = { de_jure_liege_or_above = PREVPREV }
+				OR = {
+					is_merchant_republic = no
+					NOT = {
+						capital_holding = {
+							de_jure_liege_or_above = PREVPREV
+						}
 					}
 				}
-
 				ROOT = {
 					NOR = {
 						obedient = PREV
@@ -67,209 +102,164 @@ character_event = {
 					}
 				}
 			}
-		}
-
-		trigger_if = {
-			limit = { is_female = yes }
-
 			OR = {
-				gender_equality_trigger = yes
-				has_law = true_cognatic_succession
+				tier = KING
+				holder_scope = { tier = PREV }
 			}
 		}
-
-		diplomacy >= 7
-		health >= 4
-
-		NOR = {
-			trait = content
-			trait = craven
-			has_character_modifier = planning_claimant_adventure
-
-			has_game_rule = {
-				name = adventurers
-				value = none
-			}
-
-			any_spouse = {
-				is_ruler = yes
-			}
-
-			# Somewhat clunky way of checking that the character does not stand to inherit any titles
+		
+		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
 			any_heir_title = {
 				always = yes
 			}
 		}
+		
+		diplomacy = 7
+		
+		health = 4
+		NOT = { trait = content }
+		NOT = { trait = craven }
+		
+		NOT = { has_character_modifier = planning_claimant_adventure }
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 5
+	
+	mean_time_to_happen = {
+		years = 50
+		modifier = {
+			factor = 0.2
 			has_character_flag = flag_denied_title
 		}
-
-		mult_modifier = {
-			factor = 5
-
-			OR = {
-				has_character_flag = demon_child
-				has_character_flag = demon_child_non_pagan
-			}
-		}
-
-		mult_modifier = {
-			factor = 2
+		modifier = {
+			factor = 0.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
-			factor = 2
+		modifier = {
+			factor = 0.2
+			has_character_flag = demon_child_non_pagan
+		}
+		modifier = {
+			factor = 0.5
 			trait = envious
 		}
-
-		mult_modifier = {
-			factor = 1.33
-			diplomacy >= 12
+		modifier = {
+			factor = 0.75
+			diplomacy = 12
 		}
-
-		mult_modifier = {
-			factor = 1.33
+		modifier = {
+			factor = 0.75
 			trait = brave
 		}
-
-		mult_modifier = {
-			factor = 1.33
+		modifier = {
+			factor = 0.75
 			trait = born_in_the_purple
 		}
-
-		mult_modifier = {
-			factor = 1.2
+		modifier = {
+			factor = 0.85
 			trait = proud
 		}
-
-		mult_modifier = {
-			factor = 1.2
+		modifier = {
+			factor = 0.85
 			trait = sayyid
 		}
-
-		mult_modifier = {
-			factor = 0.67
+		modifier = {
+			factor = 1.5
 			trait = slothful
 		}
-
-		mult_modifier = {
-			factor = 0.67
+		modifier = {
+			factor = 1.5
 			trait = humble
 		}
-
-		mult_modifier = {
-			factor = 0.5
+		modifier = {
+			factor = 2.0
 			trait = kind
 		}
-
-		mult_modifier = {
-			factor = 0.02
-
+		modifier = {
+			factor = 50
 			has_game_rule = {
 				name = adventurers
 				value = rare
 			}
 		}
 	}
-
+	
 	immediate = {
 		random_claim = {
 			limit = {
 				has_holder = yes
-
-				OR = {
-					real_tier = KING
-					is_primary_holder_title_tier = yes
-				}
-
 				holder_scope = {
 					independent = yes # Only do this vs independent rulers
-
-					trigger_if = {
-						limit = { is_nomadic = yes }
-
-						PREV = {
-							clan = no
-							is_primary_holder_title = no
+					NAND = {
+						government = nomadic_government
+						OR = {
+							clan_title = {
+								title = PREVPREV
+							}
+							primary_title = {
+								title = PREVPREV
+							}
 						}
 					}
-
-					# Don't target my liege unless I am ambitious
-					trigger_if = {
-						limit = { is_liege_or_above_of = ROOT }
+					OR = {
+						# Don't target my liege unless I am ambitious
+						NOT = { is_vassal_or_below = ROOT }
 						ROOT = { trait = ambitious }
 					}
-
-					trigger_if = {
-						limit = { is_merchant_republic = yes }
-
-						capital_holding = {
-							NOT = { de_jure_liege_or_above = PREVPREV }
-						}
-					}
-
-					ROOT = {
-						NOR = {
-							obedient = PREV
-							non_interference = PREV
+					OR = {
+						is_merchant_republic = no
+						NOT = {
+							capital_holding = {
+								de_jure_liege_or_above = PREVPREV
+							}
 						}
 					}
 				}
+				OR = {
+					tier = KING
+					holder_scope = { tier = PREV }
+				}
 			}
-
-			save_event_target_as = adventurer_target_title
-
+			
 			holder_scope = {
-				save_event_target_as = adventurer_target
-
 				reverse_opinion = {
-					name = opinion_claimant_adventure_target
 					who = ROOT
 					years = 3
+					modifier = opinion_claimant_adventure_target
 				}
-
-				opinion = {
-					name = opinion_targeted_by_adventurer
-					who = ROOT
-					years = 2
+				character_event = {
+					id = TOG.1201 # Warn the target
 				}
-
-				character_event = { id = TOG.1201 } # Warn the target
+			}
+			ROOT = {
+				add_character_modifier = {
+					name = planning_claimant_adventure
+					hidden = yes
+					days = 730
+				}
+				character_event = {
+					id = TOG.1202 # Fire the attack
+					days = 730
+				}
+			}
+			
+			if = {
+				limit = {
+					holder_scope = {
+						is_vassal_or_below = ROOT
+					}
+				}
+				ROOT = { banish = yes } # Can't prepare for the attack from within the realm
 			}
 		}
 
-		# Can't prepare for the attack from within the realm
-		if = {
-			limit = { is_vassal_or_below_of = event_target:adventurer_target }
-			banish = yes
-		}
-
-		add_character_modifier = {
-			name = planning_claimant_adventure
-			years = 2
-			hidden = yes
-		}
-
-		character_event = {
-			id = TOG.1202 # Fire the attack
-			years = 2
-		}
-
-		end_inaccessibility_effect = yes # Removes in hiding or in_seclusion
+		end_inaccessibility_effect = yes #removes in hiding or in_seclusion
+		
 		set_character_flag = do_not_disturb
-		set_character_flag = no_court_invites
-
-		character_event = {
-			id = TOG.1215 # Safety clearing of do_not_disturb
-			years = 2
-		}
+		
+		character_event = { id = TOG.1215 days = 730 }
+	}
+	
+	option = {
+		name = OK
 	}
 }
 
@@ -556,122 +546,92 @@ character_event = {
 }
 
 # An ambitious character with no inheritance begins to plan an adventure for a foreign title
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.1210
-
-	is_triggered_only = yes # on_yearly_pulse, random_events, oldgods_adventurers
+	
 	hide_window = yes # Only fires for unplayable landless characters
-
-	has_dlc = "The Old Gods"
+	
 	min_age = 16
 	max_age = 50
-	only_capable = yes
+	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
-		is_ruler = no
-
-		trigger_if = {
-			limit = { is_female = yes }
-
-			OR = {
-				gender_equality_trigger = yes
-				has_law = true_cognatic_succession
-			}
-		}
-
-		diplomacy >= 7
-		martial >= 9
-		health >= 4
-
-		OR = { # Only these for now
-			culture_group = north_germanic
-			culture_group = west_germanic
-			culture_group = altaic
-			culture = norman
-			culture = french
-			culture = breton
-			culture = catalan
-
-			trigger_if = {
-				limit = { culture = hungarian }
-				year < 1066
-			}
-
-			has_character_flag = demon_child
-			has_character_flag = demon_child_non_pagan
-		}
-
-		OR = {
-			father_even_if_dead = {
-				OR = {
-					higher_real_tier_than = BARON
-
-					father_even_if_dead = {
-						higher_real_tier_than = BARON
-					}
-
-					mother_even_if_dead = {
-						higher_real_tier_than = BARON
-					}
-				}
-			}
-
-			mother_even_if_dead = {
-				OR = {
-					higher_real_tier_than = BARON
-
-					father_even_if_dead = {
-						higher_real_tier_than = BARON
-					}
-
-					mother_even_if_dead = {
-						higher_real_tier_than = BARON
-					}
-				}
-			}
-		}
-
-		NOR = {
+		has_dlc = "The Old Gods"
+		
+		NOT = {
 			has_game_rule = {
 				name = adventurers
 				value = none
 			}
+		}
+		
+		is_ruler = no
+		NOT = { any_spouse = { is_ruler = yes } }
 
-			trait = content
-			trait = craven
-			has_character_modifier = planning_duchy_adventure
-
-			any_spouse = {
-				is_ruler = yes
+		OR = {
+			AND = {
+				is_female = no
+				liege = {
+					OR = {
+						has_law = status_of_women_4
+						has_law = true_cognatic_succession
+						has_law = cognatic_succession
+						has_law = agnatic_succession
+					}
+				}
 			}
-
-			# Somewhat clunky way of checking that the character does not stand to inherit any titles
+			AND = {
+				is_female = yes
+				liege = {
+					OR = {
+						feminist_religions_trigger = yes
+						has_law = status_of_women_4
+						has_law = true_cognatic_succession
+						has_law = enatic_cognatic_succession
+						has_law = enatic_succession
+					}
+				}
+			}
+			has_game_rule = {
+				name = gender
+				value = all
+			}
+		}
+		
+#		year = 867
+		
+		diplomacy = 7
+		martial = 9
+		health = 4
+		
+		NOT = { trait = content }
+		NOT = { trait = craven }
+		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
 			any_heir_title = {
 				always = yes
 			}
-
-			# Handled by event TOG.1200
+		}
+		
+		NOT = { # Handled by event TOG.1200
 			any_claim = {
 				has_holder = yes
-
-				OR = {
-					real_tier = KING
-					is_primary_holder_title_tier = yes
-				}
-
 				holder_scope = {
 					independent = yes
-
-					trigger_if = {
-						limit = { is_merchant_republic = yes }
-
-						capital_holding = {
-							NOT = { de_jure_liege_or_above = PREVPREV }
+					OR = {
+						is_merchant_republic = no
+						NOT = {
+							capital_holding = {
+								de_jure_liege_or_above = PREVPREV
+							}
 						}
 					}
 				}
-
+				OR = {
+					tier = KING
+					holder_scope = { tier = PREV }
+				}
 				ROOT = {
 					NOR = {
 						obedient = PREV
@@ -680,190 +640,187 @@ character_event = {
 				}
 			}
 		}
-	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 0.25
-
-			is_allowed_to_loot = yes
-			has_dlc = "Horse Lords"
+		
+		OR = {
+			father_even_if_dead = {
+				OR = {
+					primary_title = { higher_tier_than = BARON }
+					father_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+					mother_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+				}
+			}
+			mother_even_if_dead = {
+				OR = {
+					primary_title = { higher_tier_than = BARON }
+					father_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+					mother_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+				}
+			}
 		}
-
-		mult_modifier = {
-			factor = 2
+		
+		NOT = { has_character_modifier = planning_duchy_adventure }
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 4
+			has_dlc = "Horse Lords"
+			is_allowed_to_loot = yes
+		}
+		modifier = {
+			factor = 0.5
 			trait = ambitious
 		}
-
-		mult_modifier = {
-			factor = 2
-
-			trigger_if = {
-				limit = { culture = norman }
-				year < 1250
-			}
-			trigger_else = {
-				culture_group = north_germanic
-				year < 1066
-			}
-		}
-
-		mult_modifier = {
-			factor = 5
+		modifier = {
+			factor = 0.2
 			has_character_flag = flag_denied_title
 		}
-
-		mult_modifier = {
-			factor = 5
-
-			OR = {
-				has_character_flag = demon_child
-				has_character_flag = demon_child_non_pagan
-			}
+		modifier = {
+			factor = 0.2
+			has_character_flag = demon_child_non_pagan
 		}
-
-		mult_modifier = {
-			factor = 1.33
-			diplomacy >= 12
+		modifier = {
+			factor = 0.75
+			diplomacy = 12
 		}
-
-		mult_modifier = {
-			factor = 1.33
-			martial >= 12
+		modifier = {
+			factor = 0.75
+			martial = 12
 		}
-
-		mult_modifier = {
-			factor = 1.33
+		modifier = {
+			factor = 0.75
 			trait = brave
 		}
-
-		mult_modifier = {
-			factor = 1.2
+		modifier = {
+			factor = 0.85
 			trait = proud
 		}
-
-		mult_modifier = {
-			factor = 0.33
+		modifier = {
+			factor = 3.0
 			trait = slothful
 		}
-
-		mult_modifier = {
-			factor = 0.33
+		modifier = {
+			factor = 3.0
 			trait = humble
 		}
-
-		mult_modifier = {
-			factor = 0.33
+		modifier = {
+			factor = 3.0
 			trait = kind
 		}
-
-		mult_modifier = {
-			factor = 0.33
-			any_liege = { ai = no }
+		modifier = {
+			factor = 3.0
+			any_liege = {
+				ai = no
+			}
 		}
-
-		mult_modifier = {
-			factor = 0.33
-			top_liege = { real_tier = EMPEROR }
+		modifier = {
+			factor = 3.0
+			top_liege = {
+				tier = emperor
+			}
 		}
-
-		mult_modifier = {
-			factor = 0.02
-
+		modifier = {
+			factor = 50
 			has_game_rule = {
 				name = adventurers
 				value = rare
 			}
 		}
 	}
-
+	
 	immediate = {
 		random_independent_ruler = {
 			limit = {
+				NOT = { culture = ROOT }
 				is_landed = yes
-
-				NOR = {
-					culture = ROOT
-					is_liege_or_above_of = ROOT
-				}
-
-				ROOT = {
-					NOR = {
-						obedient = PREV
-						non_interference = PREV
-					}
-				}
-
+				independent = yes
+				NOT = { is_vassal_or_below = ROOT }
 				any_realm_province = {
-					held_under_PREV = yes
-
-					trigger_if = {
-						limit = { is_coastal = yes }
-
-						ROOT = {
-							NOR = {
-								culture_group = altaic
-								culture = hungarian
+					OR = {
+						AND = {
+							port = yes
+							NOT = {
+								distance = {
+									who = ROOT
+									value = 800
+								}
 							}
 						}
-
-						distance = {
-							who = ROOT
-							value < 800
-						}
-					}
-					trigger_else = {
 						any_neighbor_province = {
 							owner = {
 								same_realm = ROOT
 							}
 						}
 					}
-
+				}
+				ROOT = {
 					NOR = {
-						region = world_europe_north
-						de_jure_liege_or_above = d_bjarmia
+						obedient = PREV
+						non_interference = PREV
 					}
 				}
 			}
-
-			save_event_target_as = adventurer_target
-			character_event = { id = TOG.1211 } # Warn the target
-
-			opinion = {
-				name = opinion_targeted_by_adventurer
-				who = ROOT
-				years = 2
+			
+			random_realm_province = {
+				limit = {
+					OR = {
+						AND = {
+							port = yes
+							NOT = {
+								distance = {
+									who = ROOT
+									value = 800
+								}
+							}
+						}
+						any_neighbor_province = {
+							owner = {
+								same_realm = ROOT
+							}
+						}
+					}
+				}
+				
+				ROOT = {
+					opinion = {
+						who = PREVPREV
+						years = 3
+						modifier = opinion_duchy_adventure_target
+					}
+					add_character_modifier = {
+						name = planning_duchy_adventure
+						hidden = yes
+						days = 730
+					}
+					character_event = {
+						id = TOG.1212 # Fire the attack
+						days = 730
+					}
+				}
+				PREV = {
+					character_event = {
+						id = TOG.1211 # Warn the target
+					}
+				}
 			}
 		}
-
-		opinion = {
-			name = opinion_duchy_adventure_target
-			who = event_target:adventurer_target
-			years = 3
-		}
-
-		add_character_modifier = {
-			name = planning_duchy_adventure
-			years = 2
-			hidden = yes
-		}
-
-		character_event = {
-			id = TOG.1212 # Fire the attack
-			years = 2
-		}
-
-		end_inaccessibility_effect = yes # Removes in hiding or in_seclusion
+		end_inaccessibility_effect = yes #removes in hiding or in_seclusion
+		
 		set_character_flag = do_not_disturb
-		set_character_flag = no_court_invites
-
-		character_event = {
-			id = TOG.1215
-			years = 2
-		}
+		character_event = { id = TOG.1215 days = 730 }
+	}
+	
+	option = {
+		name = OK
 	}
 }
 

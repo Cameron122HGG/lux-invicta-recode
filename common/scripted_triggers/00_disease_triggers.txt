@@ -33,11 +33,25 @@ physician_bad_trigger = {
 	}
 }
 
-physician_good_trigger = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+physician_good_trigger = { 
 	OR = {
 		is_learned_trigger = yes
-		religion_group = jewish_group
-	}
+		religion = bud_bahusrutiya
+		religion = confucian
+		religion = docetist
+		religion = hurufi
+		religion = ilm_islam
+		religion = kothar
+		religion = marcionist
+		religion = neoplato
+		religion = plato_christ
+		religion = plato_islam
+		religion = plato_pythagorean
+		religion = porphyryan
+		religion = tengri_confucian
+		religion = valentinian
+	} 
 }
 
 has_epidemic_disease_trigger = {

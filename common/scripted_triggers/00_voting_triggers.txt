@@ -5,118 +5,44 @@
 # parent_for_elective_succession_trigger
 
 # Not really about culture - Used in AI voting logic
-this_is_warrior_culture_trigger = {
-	pacifist = no
-
-	OR = {
-		religion_is_warlike_trigger = yes
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+this_is_warrior_culture_trigger = { #Not really about culture - Used in AI voting logic.
+	NOT = { pacifist = yes }
+	OR = { 
+		religion_group = muslim
+		religion_group = norsegerman_group
+		religion_group = tengri_group
+		religion = aztec
+		has_religion_feature = religion_warlike
 		is_tribal = yes
 		is_nomadic = yes
-
-		trigger_if = {
-			limit = {
-				trigger_if = {
-					limit = { is_alternate_start = yes }
-
-					has_alternate_start_parameter = {
-						key = religion_features
-						value = historical
-					}
-				}
-			}
-
-			OR = {
-				religion_group = muslim
-				religion = norse_pagan
-				religion = tengri_pagan
-				religion = aztec_pagan
-
-				trigger_if = {
-					limit = {
-						NOT = { has_dlc = "Holy Fury" }
-					}
-
-					OR = {
-						religion = norse_pagan_reformed
-						religion = tengri_pagan_reformed
-						religion = aztec_pagan_reformed
-					}
-				}
-			}
-		}
 	}
 }
 
 # Not really about culture - Used in AI voting logic
-this_is_diplomatic_culture_trigger = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+this_is_diplomatic_culture_trigger = { #Not really about culture - Used in AI voting logic.
 	OR = {
 		is_feudal = yes
 		is_patrician = yes
-	}
-
-	OR = {
-		religion_is_cosmopolitan_trigger = yes
-
-		trigger_if = {
-			limit = {
-				trigger_if = {
-					limit = { is_alternate_start = yes }
-
-					has_alternate_start_parameter = {
-						key = religion_features
-						value = historical
-					}
-				}
-			}
-
-			OR = {
-				religion_group = christian
-				religion_group = jewish_group
-				religion_group = zoroastrian_group
-				religion = hellenic_pagan
-
-				trigger_if = {
-					limit = {
-						NOT = { has_dlc = "Holy Fury" }
-					}
-
-					religion = hellenic_pagan_reformed
-				}
-			}
-		}
+		is_merchant_republic = yes
+	} 
+	OR = { 
+		religion_group = christian
+		religion_group = jewish_group
+		religion_group = zoroastrian_group
+		religion_group = indohelen_group
+		has_religion_feature = religion_cosmopolitan
 	}
 }
 
 # Not really about culture - Used in AI voting logic
-this_is_spiritual_culture_trigger = {
-	OR = {
-		religion_is_peaceful_trigger = yes
-
-		trigger_if = {
-			limit = {
-				trigger_if = {
-					limit = { is_alternate_start = yes }
-
-					has_alternate_start_parameter = {
-						key = religion_features
-						value = historical
-					}
-				}
-			}
-
-			OR = {
-				religion_group = indian_group
-				religion = bon_pagan
-
-				trigger_if = {
-					limit = {
-						NOT = { has_dlc = "Holy Fury" }
-					}
-
-					religion = bon_pagan_reformed
-				}
-			}
-		}
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+this_is_spiritual_culture_trigger = { #Not really about culture - Used in AI voting logic.
+	OR = { 
+		religion_group = indian_group
+		religion_group = bud_group
+		has_religion_feature = religion_peaceful
 	}
 }
 

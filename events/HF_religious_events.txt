@@ -177,272 +177,916 @@ character_event = {
 }
 
 # Syncretic rulers can pick a random sympathy (Player only)
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23003
 	desc = EVTDESCHF23003
+	
 	picture = GFX_evt_library
 	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes # syncretic_sympathy_decision, HF_religious_decisions.txt
-
-	option = { # Christianity
+	
+	is_triggered_only = yes
+	
+	option = { #Christianity
 		name = {
 			text = EVTOPTAHF23003
-			trigger = { is_alternate_start = no }
+			trigger = {
+				is_alternate_start = no
+			}
 		}
 		name = {
 			text = EVTOPTAHF23003_ALT
-			trigger = { is_alternate_start = yes }
+			trigger = {
+				is_alternate_start = yes
+			}
 		}
-
 		trigger = {
-			NOT = { religion_group = christian } # Random World safety check
+			NOT = { religion_group = christian } #Random World safety check.
 		}
-
 		add_trait = sympathy_christendom
 		clr_character_flag = flag_picking_sympathy
-
-		ai_chance = {
-			factor = 25
-
-			trigger = {
-				liege = {
-					NOR = {
-						trait = sympathy_islam
-						trait = sympathy_zoroastrianism
-						trait = sympathy_judaism
+		ai_chance = { 
+			factor = 25 
+			modifier = { 
+				factor = 0 
+				liege = { 
+					OR = { 
+						trait = sympathy_abrahamics
+						trait = sympathy_anatolians
+						trait = sympathy_arabpagans
+						trait = sympathy_aztecs
+						trait = sympathy_baltics
+						trait = sympathy_bantus
+						trait = sympathy_berbers
+						trait = sympathy_buddhists
+						trait = sympathy_celtics
+						trait = sympathy_chinese
+						trait = sympathy_east_africans
+						trait = sympathy_egyptian
+						trait = sympathy_finnish
+						trait = sympathy_graecoroman
 						trait = sympathy_indian
-					}
-				}
-
-				top_liege = {
-					NOR = {
+						trait = sympathy_indohellens
+						trait = sympathy_inuit
 						trait = sympathy_islam
-						trait = sympathy_zoroastrianism
 						trait = sympathy_judaism
-						trait = sympathy_indian
+						trait = sympathy_luwians
+						trait = sympathy_mande
+						trait = sympathy_manichaeans
+						trait = sympathy_mithraics
+						trait = sympathy_nordic
+						trait = sympathy_pagans
+						trait = sympathy_palmyrans
+						trait = sympathy_platonics
+						trait = sympathy_sererics
+						trait = sympathy_slavics
+						trait = sympathy_sol
+						trait = sympathy_tengri
+						trait = sympathy_yazd
+						trait = sympathy_zal
+						trait = sympathy_zoroastrianism
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = { 
+				factor = 0 
+				top_liege = { 
+					OR = { 
+						trait = sympathy_abrahamics
+						trait = sympathy_anatolians
+						trait = sympathy_arabpagans
+						trait = sympathy_aztecs
+						trait = sympathy_baltics
+						trait = sympathy_bantus
+						trait = sympathy_berbers
+						trait = sympathy_buddhists
+						trait = sympathy_celtics
+						trait = sympathy_chinese
+						trait = sympathy_east_africans
+						trait = sympathy_egyptian
+						trait = sympathy_finnish
+						trait = sympathy_graecoroman
+						trait = sympathy_indian
+						trait = sympathy_indohellens
+						trait = sympathy_inuit
+						trait = sympathy_islam
+						trait = sympathy_judaism
+						trait = sympathy_luwians
+						trait = sympathy_mande
+						trait = sympathy_manichaeans
+						trait = sympathy_mithraics
+						trait = sympathy_nordic
+						trait = sympathy_pagans
+						trait = sympathy_palmyrans
+						trait = sympathy_platonics
+						trait = sympathy_sererics
+						trait = sympathy_slavics
+						trait = sympathy_sol
+						trait = sympathy_tengri
+						trait = sympathy_yazd
+						trait = sympathy_zal
+						trait = sympathy_zoroastrianism
+					}
+				}
+			}
+			modifier = { 
 				factor = 0.25
-
-				spouse = {
-					OR = {
-						trait = sympathy_islam
-						trait = sympathy_zoroastrianism
-						trait = sympathy_judaism
+				spouse = { 
+					OR = { 
+						trait = sympathy_abrahamics
+						trait = sympathy_anatolians
+						trait = sympathy_arabpagans
+						trait = sympathy_aztecs
+						trait = sympathy_baltics
+						trait = sympathy_bantus
+						trait = sympathy_berbers
+						trait = sympathy_buddhists
+						trait = sympathy_celtics
+						trait = sympathy_chinese
+						trait = sympathy_east_africans
+						trait = sympathy_egyptian
+						trait = sympathy_finnish
+						trait = sympathy_graecoroman
 						trait = sympathy_indian
+						trait = sympathy_indohellens
+						trait = sympathy_inuit
+						trait = sympathy_islam
+						trait = sympathy_judaism
+						trait = sympathy_luwians
+						trait = sympathy_mande
+						trait = sympathy_manichaeans
+						trait = sympathy_mithraics
+						trait = sympathy_nordic
+						trait = sympathy_pagans
+						trait = sympathy_palmyrans
+						trait = sympathy_platonics
+						trait = sympathy_sererics
+						trait = sympathy_slavics
+						trait = sympathy_sol
+						trait = sympathy_tengri
+						trait = sympathy_yazd
+						trait = sympathy_zal
+						trait = sympathy_zoroastrianism
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_demesne_province = { religion_group = christian }
+				any_demesne_province = { 
+					religion_group = christian
+				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_courtier_or_vassal = { religion_group = christian }
+				any_courtier_or_vassal = { 
+					religion_group = christian
+				}
 			}
 		}
 	}
-
-	option = { # Islam
+	option = { #Islam
 		name = {
 			text = EVTOPTBHF23003
-			trigger = { is_alternate_start = no }
+			trigger = {
+				is_alternate_start = no
+			}
 		}
 		name = {
 			text = EVTOPTBHF23003_ALT
-			trigger = { is_alternate_start = yes }
+			trigger = {
+				is_alternate_start = yes
+			}
 		}
-
 		trigger = {
-			NOT = { religion_group = muslim } # Random World safety check
+			NOT = { religion_group = muslim } #Random World safety check.
 		}
-
 		add_trait = sympathy_islam
 		clr_character_flag = flag_picking_sympathy
-
-		ai_chance = {
-			factor = 25
-
-			trigger = {
-				liege = {
-					NOR = {
+		ai_chance = { 
+			factor = 25 
+			modifier = { 
+				factor = 0 
+				liege = { 
+					OR = { 
+						trait = sympathy_abrahamics
+						trait = sympathy_anatolians
+						trait = sympathy_arabpagans
+						trait = sympathy_aztecs
+						trait = sympathy_baltics
+						trait = sympathy_bantus
+						trait = sympathy_berbers
+						trait = sympathy_buddhists
+						trait = sympathy_celtics
+						trait = sympathy_chinese
 						trait = sympathy_christendom
-						trait = sympathy_zoroastrianism
-						trait = sympathy_judaism
+						trait = sympathy_east_africans
+						trait = sympathy_egyptian
+						trait = sympathy_finnish
+						trait = sympathy_graecoroman
 						trait = sympathy_indian
-					}
-				}
-
-				top_liege = {
-					NOR = {
-						trait = sympathy_christendom
-						trait = sympathy_zoroastrianism
+						trait = sympathy_indohellens
+						trait = sympathy_inuit
 						trait = sympathy_judaism
-						trait = sympathy_indian
+						trait = sympathy_luwians
+						trait = sympathy_mande
+						trait = sympathy_manichaeans
+						trait = sympathy_mithraics
+						trait = sympathy_nordic
+						trait = sympathy_pagans
+						trait = sympathy_palmyrans
+						trait = sympathy_platonics
+						trait = sympathy_sererics
+						trait = sympathy_slavics
+						trait = sympathy_sol
+						trait = sympathy_tengri
+						trait = sympathy_yazd
+						trait = sympathy_zal
+						trait = sympathy_zoroastrianism
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = { 
+				factor = 0 
+				top_liege = { 
+					OR = { 
+						trait = sympathy_abrahamics
+						trait = sympathy_anatolians
+						trait = sympathy_arabpagans
+						trait = sympathy_aztecs
+						trait = sympathy_baltics
+						trait = sympathy_bantus
+						trait = sympathy_berbers
+						trait = sympathy_buddhists
+						trait = sympathy_celtics
+						trait = sympathy_chinese
+						trait = sympathy_christendom
+						trait = sympathy_east_africans
+						trait = sympathy_egyptian
+						trait = sympathy_finnish
+						trait = sympathy_graecoroman
+						trait = sympathy_indian
+						trait = sympathy_indohellens
+						trait = sympathy_inuit
+						trait = sympathy_judaism
+						trait = sympathy_luwians
+						trait = sympathy_mande
+						trait = sympathy_manichaeans
+						trait = sympathy_mithraics
+						trait = sympathy_nordic
+						trait = sympathy_pagans
+						trait = sympathy_palmyrans
+						trait = sympathy_platonics
+						trait = sympathy_sererics
+						trait = sympathy_slavics
+						trait = sympathy_sol
+						trait = sympathy_tengri
+						trait = sympathy_yazd
+						trait = sympathy_zal
+						trait = sympathy_zoroastrianism
+					}
+				}
+			}
+			modifier = { 
 				factor = 0.25
-
-				spouse = {
-					OR = {
+				spouse = { 
+					OR = { 
+						trait = sympathy_abrahamics
+						trait = sympathy_anatolians
+						trait = sympathy_arabpagans
+						trait = sympathy_aztecs
+						trait = sympathy_baltics
+						trait = sympathy_bantus
+						trait = sympathy_berbers
+						trait = sympathy_buddhists
+						trait = sympathy_celtics
+						trait = sympathy_chinese
 						trait = sympathy_christendom
-						trait = sympathy_zoroastrianism
-						trait = sympathy_judaism
+						trait = sympathy_east_africans
+						trait = sympathy_egyptian
+						trait = sympathy_finnish
+						trait = sympathy_graecoroman
 						trait = sympathy_indian
+						trait = sympathy_indohellens
+						trait = sympathy_inuit
+						trait = sympathy_judaism
+						trait = sympathy_luwians
+						trait = sympathy_mande
+						trait = sympathy_manichaeans
+						trait = sympathy_mithraics
+						trait = sympathy_nordic
+						trait = sympathy_pagans
+						trait = sympathy_palmyrans
+						trait = sympathy_platonics
+						trait = sympathy_sererics
+						trait = sympathy_slavics
+						trait = sympathy_sol
+						trait = sympathy_tengri
+						trait = sympathy_yazd
+						trait = sympathy_zal
+						trait = sympathy_zoroastrianism
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_demesne_province = { religion_group = muslim }
+				any_demesne_province = { 
+					religion_group = muslim
+				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_courtier_or_vassal = { religion_group = muslim }
+				any_courtier_or_vassal = { 
+					religion_group = muslim
+				}
 			}
 		}
 	}
-
-	option = { # Jews
+	option = { #Jews
 		name = {
 			text = EVTOPTCHF23003
-			trigger = { is_alternate_start = no }
+			trigger = {
+				is_alternate_start = no
+			}
 		}
 		name = {
 			text = EVTOPTCHF23003_ALT
-			trigger = { is_alternate_start = yes }
+			trigger = {
+				is_alternate_start = yes
+			}
 		}
-
 		trigger = {
-			NOT = { religion_group = jewish_group } # Random World safety check
+			NOT = { religion_group = jewish_group } #Random World safety check.
 		}
-
 		add_trait = sympathy_judaism
 		clr_character_flag = flag_picking_sympathy
-
-		ai_chance = {
-			factor = 25
-
-			trigger = {
-				liege = {
-					NOR = {
-						trait = sympathy_islam
-						trait = sympathy_zoroastrianism
+		ai_chance = { 
+			factor = 25 
+			modifier = { 
+				factor = 0 
+				liege = { 
+					OR = { 
+						trait = sympathy_abrahamics
+						trait = sympathy_anatolians
+						trait = sympathy_arabpagans
+						trait = sympathy_aztecs
+						trait = sympathy_baltics
+						trait = sympathy_bantus
+						trait = sympathy_berbers
+						trait = sympathy_buddhists
+						trait = sympathy_celtics
+						trait = sympathy_chinese
 						trait = sympathy_christendom
+						trait = sympathy_east_africans
+						trait = sympathy_egyptian
+						trait = sympathy_finnish
+						trait = sympathy_graecoroman
 						trait = sympathy_indian
-					}
-				}
-
-				top_liege = {
-					NOR = {
+						trait = sympathy_indohellens
+						trait = sympathy_inuit
 						trait = sympathy_islam
+						trait = sympathy_luwians
+						trait = sympathy_mande
+						trait = sympathy_manichaeans
+						trait = sympathy_mithraics
+						trait = sympathy_nordic
+						trait = sympathy_pagans
+						trait = sympathy_palmyrans
+						trait = sympathy_platonics
+						trait = sympathy_sererics
+						trait = sympathy_slavics
+						trait = sympathy_sol
+						trait = sympathy_tengri
+						trait = sympathy_yazd
+						trait = sympathy_zal
 						trait = sympathy_zoroastrianism
-						trait = sympathy_christendom
-						trait = sympathy_indian
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = { 
+				factor = 0 
+				top_liege = { 
+					OR = { 
+						trait = sympathy_abrahamics
+						trait = sympathy_anatolians
+						trait = sympathy_arabpagans
+						trait = sympathy_aztecs
+						trait = sympathy_baltics
+						trait = sympathy_bantus
+						trait = sympathy_berbers
+						trait = sympathy_buddhists
+						trait = sympathy_celtics
+						trait = sympathy_chinese
+						trait = sympathy_christendom
+						trait = sympathy_east_africans
+						trait = sympathy_egyptian
+						trait = sympathy_finnish
+						trait = sympathy_graecoroman
+						trait = sympathy_indian
+						trait = sympathy_indohellens
+						trait = sympathy_inuit
+						trait = sympathy_islam
+						trait = sympathy_luwians
+						trait = sympathy_mande
+						trait = sympathy_manichaeans
+						trait = sympathy_mithraics
+						trait = sympathy_nordic
+						trait = sympathy_pagans
+						trait = sympathy_palmyrans
+						trait = sympathy_platonics
+						trait = sympathy_sererics
+						trait = sympathy_slavics
+						trait = sympathy_sol
+						trait = sympathy_tengri
+						trait = sympathy_yazd
+						trait = sympathy_zal
+						trait = sympathy_zoroastrianism
+					}
+				}
+			}
+			modifier = { 
 				factor = 0.25
-
-				spouse = {
-					OR = {
-						trait = sympathy_islam
-						trait = sympathy_zoroastrianism
+				spouse = { 
+					OR = { 
+						trait = sympathy_abrahamics
+						trait = sympathy_anatolians
+						trait = sympathy_arabpagans
+						trait = sympathy_aztecs
+						trait = sympathy_baltics
+						trait = sympathy_bantus
+						trait = sympathy_berbers
+						trait = sympathy_buddhists
+						trait = sympathy_celtics
+						trait = sympathy_chinese
 						trait = sympathy_christendom
+						trait = sympathy_east_africans
+						trait = sympathy_egyptian
+						trait = sympathy_finnish
+						trait = sympathy_graecoroman
 						trait = sympathy_indian
+						trait = sympathy_indohellens
+						trait = sympathy_inuit
+						trait = sympathy_islam
+						trait = sympathy_luwians
+						trait = sympathy_mande
+						trait = sympathy_manichaeans
+						trait = sympathy_mithraics
+						trait = sympathy_nordic
+						trait = sympathy_pagans
+						trait = sympathy_palmyrans
+						trait = sympathy_platonics
+						trait = sympathy_sererics
+						trait = sympathy_slavics
+						trait = sympathy_sol
+						trait = sympathy_tengri
+						trait = sympathy_yazd
+						trait = sympathy_zal
+						trait = sympathy_zoroastrianism
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_demesne_province = { religion_group = jewish_group }
+				any_demesne_province = { 
+					religion_group = jewish_group
+				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_courtier_or_vassal = { religion_group = jewish_group }
+				any_courtier_or_vassal = { 
+					religion_group = jewish_group
+				}
 			}
 		}
 	}
-
-	option = { # Others
+	option = { #Others
 		name = {
 			text = EVTOPTDHF23003
-			trigger = { is_alternate_start = no }
+			trigger = {
+				is_alternate_start = no
+			}
 		}
 		name = {
 			text = EVTOPTDHF23003_ALT
-			trigger = { is_alternate_start = yes }
-		}
-
-		character_event = { id = HF.23004 }
-
-		ai_chance = {
-			factor = 25
-
 			trigger = {
-				liege = {
-					NOR = {
-						trait = sympathy_islam
-						trait = sympathy_judaism
-						trait = sympathy_christendom
-					}
-				}
-
-				top_liege = {
-					NOR = {
+				is_alternate_start = yes
+			}
+		}
+		#hidden_tooltip = { character_event = { id = HF.23004 } }
+		ai_chance = { 
+			factor = 25 
+			modifier = { 
+				factor = 0 
+				liege = { 
+					OR = { 
 						trait = sympathy_islam
 						trait = sympathy_judaism
 						trait = sympathy_christendom
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = { 
+				factor = 0 
+				top_liege = { 
+					OR = { 
+						trait = sympathy_islam
+						trait = sympathy_judaism
+						trait = sympathy_christendom
+					}
+				}
+			}
+			modifier = { 
 				factor = 0.25
-
-				spouse = {
-					OR = {
+				spouse = { 
+					OR = { 
 						trait = sympathy_islam
 						trait = sympathy_judaism
 						trait = sympathy_christendom
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_demesne_province = { religion_group = indian_group }
+				any_demesne_province = { 
+					religion_group = abrahamic_group
+				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_courtier_or_vassal = { religion_group = indian_group }
+				any_demesne_province = { 
+					religion_group = anatolian_group
+				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_demesne_province = { religion_group = zoroastrian_group }
+				any_demesne_province = { 
+					religion_group = arabpagan_group
+				}
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
-				any_courtier_or_vassal = { religion_group = zoroastrian_group }
+				any_demesne_province = { 
+					religion_group = aztec_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = baltic_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = bantu_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = berberpagan_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = bud_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = celtic_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = chinese_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = east_african_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = egyptian_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = finnish_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = graecoroman_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = indian_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = indohelen_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = inuit_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = luwian_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = mand_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = mani_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = mithra_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = neoplato_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = norsegerman_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = pagan_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = palmyranpagan_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = serer_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = slavic_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = sol_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = tengri_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = yazd_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = zal_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_demesne_province = { 
+					religion_group = zoroastrian_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = abrahamic_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = anatolian_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = arabpagan_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = aztec_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = baltic_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = bantu_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = berberpagan_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = bud_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = celtic_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = chinese_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = east_african_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = egyptian_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = finnish_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = graecoroman_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = indian_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = indohelen_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = inuit_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = luwian_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = mand_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = mani_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = mithra_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = neoplato_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = norsegerman_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = pagan_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = palmyranpagan_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = serer_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = slavic_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = sol_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = tengri_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = yazd_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = zal_group
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = {
+					religion_group = zoroastrian_group
+				}
 			}
 		}
 	}
@@ -651,57 +1295,106 @@ character_event = {
 
 ## Divination: on war started, chance to divine outcome
 # Hidden ping to select haruspex
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23005
-
-	is_triggered_only = yes # on_war_started
 	hide_window = yes
-
-	trigger = {
-		# Do not fire for minor peasant uprisings
-		# CleanSlate: Can't check CB here, but we can see
-		# if the attacker is in a peasant revolt war
-		FROM = {
-			NOT = {
-				any_war = {
-					using_cb = peasant_revolt
-				}
-			}
+	
+	trigger = { 
+		OR = { 
+			has_religion_feature = religion_haruspicy 
+			religion_group = graecoroman_group
+			religion_group = indohelen_group
+		} 
+		NOR = {
+			has_character_modifier = divination_crit_success
+			has_character_modifier = divination_success
+			has_character_modifier = divination_failure
+			has_character_modifier = divination_crit_failure
 		}
-	}
-
-	immediate = {
-		ROOT = { character_event = { id = HF.23007 } }
-		FROM = { character_event = { id = HF.23007 } }
-	}
-}
-
-character_event = {
-	id = HF.23007
-	picture = GFX_evt_religious_exultation
-	border = GFX_event_normal_frame_religion
-	portrait = event_target:diviner
-
-	desc = {
-		text = EVTDESCAHF23007
-		trigger = { event_target:diviner = { always = yes } }
-	}
-	desc = { # Generic desc if there is no priest available
-		text = EVTDESCBHF23007
-		trigger = {
-			NOT = { event_target:diviner = { always = yes } }
+		any_war = { #Do not fire for minor peasant uprisings.
+			NOR = { 
+				attacker = { using_cb = peasant_revolt }
+				defender = { using_cb = peasant_revolt }
+			}
 		}
 	}
 
 	is_triggered_only = yes
 
-	war = yes
 
-	trigger = {
-		religion_has_haruspicy_trigger = yes
+	immediate = {
+		if = { 
+			limit = {
+				any_courtier_or_vassal = { 
+					religion = ROOT
+					has_job_title = job_spiritual
+				}
+			}
+			random_courtier_or_vassal = {
+				limit = {
+					religion = ROOT
+					has_job_title = job_spiritual
+				}
+				character_event = { id = HF.23006 }
+				break = yes
+			}
+		}
+		if = { 
+			limit = {
+				any_realm_character = { 
+					religion = ROOT
+					is_theocracy = yes
+				}
+			}
+			any_realm_character = {
+				limit = {
+					religion = ROOT
+					is_theocracy = yes
+				}
+				score_value = { #Prioritizes selecting an interesting courtier...
+		            value = 10
+		            interesting_courtier_selection_score = yes
+		        }
+				character_event = { id = HF.23006 }
+				break = yes
+			}
+		}
+		set_character_flag = flag_cheap_diviner
+		character_event = { id = HF.23007 }
+	}
+}
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+character_event = {
+	id = HF.23007
+	desc = { 
+		text = EVTDESCAHF23007
+		trigger = {
+			FROM = { is_alive = yes }
+			NOT = {
+				FROM = { character = ROOT }
+			}
+		}
+	}
+	desc = { #Generic desc if priest dies in between or there was no priest available.
+		text = EVTDESCBHF23007
+		trigger = {
+			OR = {
+				FROM = { character = ROOT }
+				FROM = { is_alive = no }
+			}
+		}
+	}
+	
+	trigger = { 
+		war = yes
+		OR = { 
+			has_religion_feature = religion_haruspicy 
+			religion_group = graecoroman_group
+			religion_group = indohelen_group
+		} 
 		NOR = {
-			has_character_flag = performing_divination
 			has_character_modifier = divination_crit_success
 			has_character_modifier = divination_success
 			has_character_modifier = divination_failure
@@ -709,48 +1402,20 @@ character_event = {
 		}
 	}
 
-	immediate = {
-		set_character_flag = performing_divination
-
-		if = {
-			limit = {
-				any_realm_character = {
-					is_priest = yes
-					religion = ROOT
-				}
-			}
-
-			any_realm_character = {
-				limit = {
-					is_priest = yes
-					religion = ROOT
-				}
-
-				score_value = {
-					value = 10
-
-					interesting_courtier_selection_score = yes
-
-					additive_modifier = {
-						value = 10000
-
-						has_job_title = job_spiritual
-						religion = liege
-						vassal_of = ROOT
-					}
-				}
-
-				save_event_target_as = diviner
-			}
+	
+	picture = GFX_evt_religious_exultation
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = { 
+		if = { 
+			limit = { FROM = { is_alive = no } } 
+			set_character_flag = flag_cheap_diviner #Prevents crit success, increases crit failure.
 		}
-		else = {
-			set_character_flag = flag_cheap_diviner # Prevents crit success, increases crit failure
-		}
-
-		if = {
-			limit = { religion_has_ritual_sacrifice_trigger = yes }
-
-			random_courtier = {
+		if = { 
+			limit = { has_religion_feature = religion_ritual_sacrifice }
+			random_courtier = { 
 				limit = {
 					NOR = {
 						dynasty = ROOT
@@ -762,641 +1427,463 @@ character_event = {
 						is_friend = ROOT
 					}
 				}
-
 				preferred_limit = {
 					is_unimportant_trigger = yes
 				}
-
-				save_event_target_as = potential_victim
-			}
-		}
-
-		# Safety cleanup
-		clr_character_flag = flag_sacrificing_bull
+				save_event_target_as = potential_victim 
+			} 
+		}	
+		clr_character_flag = flag_sacrificing_bull  #Safety cleanup.
 		clr_character_flag = flag_sacrificing_cow
 		clr_character_flag = flag_sacrificing_goat
 		clr_character_flag = flag_sacrificing_chicken
 		clr_character_flag = flag_sacrificing_human
 	}
 
-	# Great Bull
-	# Cow
-	# Goat
-	# Chicken
+	#Great Bull
+	#Cow
+	#Goat
+	#Chicken
 
-	option = { # Human - Ensure no Critical Fail - Unlocks Critical success - Only if also Bloodthirsty Gods
+	option = { #Human - Ensure no Critical Fail - Unlocks Critical success - Only if also Bloodthirsty Gods.
 		name = EVTOPTZHF23007
-
-		trigger = {
-			religion_has_ritual_sacrifice_trigger = yes
-			event_target:potential_victim = { always = yes }
+		trigger = { 
+			has_religion_feature = religion_ritual_sacrifice 
+			event_target:potential_victim = { is_alive = yes } 
 		}
-
-		if = {
+		if = { 
 			limit = { ai = no }
-
-			scaled_wealth = {
-				value = -1
-				min = -200
-				max = -400
-			}
+			scaled_wealth = { value = -1 min = -200 max = -400 } 
 		}
-
-		event_target:potential_victim = {
-			show_scope_change = no
-
-			death = {
-				death_reason = death_execution_aztec_sacrifice
+		event_target:potential_victim = { 
+			show_scope_change = no 
+			death = { 
+				death_reason = death_execution_aztec_sacrifice 
 				killer = ROOT
-			}
-		}
-
+			} 
+		} 
 		set_character_flag = flag_sacrificing_human
-
-		ai_chance = {
-			factor = 60
-
-			trigger = {
-				NOT = { trait = greedy }
+		ai_chance = { 
+			factor = 60 
+			modifier = { 
+				factor = 0
+				trait = greedy
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.1
 				trait = cynical
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.1
-				wealth < 300
+				NOT = { wealth = 300 }
 			}
 		}
 	}
-
-	option = { # Great bull - Ensure no Critical Fail - Unlocks Critical success
+	option = { #Great bull - Ensure no Critical Fail - Unlocks Critical success
 		name = EVTOPTAHF23007
-
-		trigger = {
-			religion_has_ritual_sacrifice_trigger = no
-		}
-
-		if = {
+		trigger = { NOT = { has_religion_feature = religion_ritual_sacrifice } }
+		if = { 
 			limit = { ai = no }
-
-			scaled_wealth = {
-				value = -1
-				min = -175
-				max = -500
-			}
+			scaled_wealth = { value = -1 min = -175 max = -500 } 
 		}
-
 		set_character_flag = flag_sacrificing_bull
-
-		ai_chance = {
-			factor = 60
-
-			trigger = {
-				NOT = { trait = greedy }
+		ai_chance = { 
+			factor = 60 
+			modifier = { 
+				factor = 0
+				trait = greedy
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.1
 				trait = cynical
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.1
-				wealth < 300
+				NOT = { wealth = 300 }
 			}
 		}
 	}
-
-	option = { # Cow - Unlocks critical success
+	option = { #Cow - Unlocks critical success
 		name = EVTOPTBHF23007
-
-		if = {
+		if = { 
 			limit = { ai = no }
-
-			scaled_wealth = {
-				value = -0.75
-				min = -50
-				max = -130
-			}
+			scaled_wealth = { value = -0.75 min = -50 max = -130 }
 		}
-
 		set_character_flag = flag_sacrificing_cow
-
-		ai_chance = {
-			factor = 30
-
-			mult_modifier = {
+		ai_chance = { 
+			factor = 30 
+			modifier = { 
 				factor = 0.5
 				trait = greedy
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.75
 				trait = cynical
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.25
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.1
-				wealth < 100
+				NOT = { wealth = 100 }
 			}
 		}
 	}
-
-	option = { # Goat
+	option = { #Goat
 		name = EVTOPTCHF23007
-
-		if = {
+		if = { 
 			limit = { ai = no }
-
-			scaled_wealth = {
-				value = -0.5
-				min = -30
-				max = -75
-			}
+			scaled_wealth = { value = -0.5 min = -30 max = -75 }
 		}
-
 		set_character_flag = flag_sacrificing_goat
-
-		ai_chance = {
-			factor = 40
-
-			mult_modifier = {
+		ai_chance = { 
+			factor = 40 
+			modifier = { 
 				factor = 0.75
 				trait = zealous
 			}
 		}
 	}
-
-	option = { # Chicken
+	option = { #Chicken
 		name = EVTOPTDHF23007
-
-		if = {
+		if = { 
 			limit = { ai = no }
-
-			scaled_wealth = {
-				value = -0.1
-				min = -5
-				max = -30
-			}
+			scaled_wealth = { value = -0.1 min = -5 max = -30 }
 		}
-
 		set_character_flag = flag_sacrificing_chicken
-
-		ai_chance = {
-			factor = 10
-
-			mult_modifier = {
+		ai_chance = { 
+			factor = 10 
+			modifier = { 
 				factor = 0.5
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.5
 				trait = charitable
 			}
 		}
 	}
 
-	after = {
-		hidden_effect = {
-			random_list = {
-				20 = {
-					trigger = {
+	after = { 
+		hidden_tooltip = { 
+			random_list = { 
+				20 = { 
+					trigger = { 
 						OR = {
 							has_character_flag = flag_sacrificing_bull
 							has_character_flag = flag_sacrificing_human
 						}
-
 						NOT = { has_character_flag = flag_cheap_diviner }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.7
 						trait = cynical
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.5
 						trait = zealous
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.7
-						piety < -150
+						NOT = { piety = -150 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
-						piety < -100
+						NOT = { piety = -100 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
-						piety < -50
+						NOT = { piety = -50 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
-						piety < 0
+						NOT = { piety = 0 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						piety >= 30
+						piety = 30
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						piety >= 40
+						piety = 40
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						piety >= 50
+						piety = 50
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						piety >= 70
+						piety = 70
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						piety >= 100
+						piety = 100
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.25
-						piety >= 150
+						piety = 150
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.25
-						piety >= 250
+						piety = 250
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.5
-						piety >= 350
+						piety = 350
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.5
-						piety >= 450
+						piety = 450
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.5
-						piety >= 550
+						piety = 550
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.6
-						event_target:diviner = { learning < 3 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						NOT = { FROM = { learning = 3 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.7
-						event_target:diviner = { learning < 4 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						NOT = { FROM = { learning = 4 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
-						event_target:diviner = { learning < 6 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						NOT = { FROM = { learning = 6 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
-						event_target:diviner = { learning < 8 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						NOT = { FROM = { learning = 8 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						event_target:diviner = { learning >= 10 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { learning = 10 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						event_target:diviner = { learning >= 12 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { learning = 12 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						event_target:diviner = { learning >= 14 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { learning = 14 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						event_target:diviner = { learning >= 16 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { learning = 16 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						event_target:diviner = { learning >= 18 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { learning = 18 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-						event_target:diviner = { learning >= 20 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { learning = 20 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.25
-						event_target:diviner = { learning >= 25 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { learning = 25 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.35
-						event_target:diviner = { learning >= 30 }
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { learning = 30 }
 					}
-
-					# But, more importantly, does the divine like you?
-
-					mult_modifier = {
+					#But, more importantly, does the divine like you?
+					modifier = { 
 						factor = 0.75
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < -80
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { NOT = { opinion = { who = ROOT value = -80 } } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.75
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < -60
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { NOT = { opinion = { who = ROOT value = -60 } } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.75
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < -40
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { NOT = { opinion = { who = ROOT value = -40 } } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.85
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < -20
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { NOT = { opinion = { who = ROOT value = -20 } } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.85
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < 0
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.15
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value >= 20
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { opinion = { who = ROOT value = 20 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.25
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value >= 40
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { opinion = { who = ROOT value = 40 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.25
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value >= 60
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { opinion = { who = ROOT value = 60 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.35
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value >= 80
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { opinion = { who = ROOT value = 80 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.45
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value >= 90
-						}
+						NOT = { has_character_flag = flag_cheap_diviner }
+						FROM = { opinion = { who = ROOT value = 90 } }
 					}
-
-					character_event = { id = HF.23008 } # Crit success
+					character_event = { id = HF.23008 } #Crit success
 				}
-
-				50 = {
-					mult_modifier = {
+				50 = { 
+					modifier = { 
 						factor = 0.7
 						has_character_flag = flag_sacrificing_human
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.7
 						has_character_flag = flag_sacrificing_bull
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
 						has_character_flag = flag_sacrificing_goat
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
 						has_character_flag = flag_sacrificing_chicken
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
 						has_character_flag = flag_cheap_diviner
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.7
 						trait = cynical
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 1.5
 						trait = zealous
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
-						piety < -150
+						NOT = { piety = -150 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.9
-						piety < -100
+						NOT = { piety = -100 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.9
-						piety < -50
+						NOT = { piety = -50 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.9
-						piety < 0
+						NOT = { piety = 0 }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.7
 						NOT = { has_character_flag = flag_cheap_diviner }
-						event_target:diviner = { learning < 3 }
+						NOT = { FROM = { learning = 3 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
 						NOT = { has_character_flag = flag_cheap_diviner }
-						event_target:diviner = { learning < 4 }
+						NOT = { FROM = { learning = 4 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.9
 						NOT = { has_character_flag = flag_cheap_diviner }
-						event_target:diviner = { learning < 6 }
+						NOT = { FROM = { learning = 6 } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.9
 						NOT = { has_character_flag = flag_cheap_diviner }
-						event_target:diviner = { learning < 8 }
+						NOT = { FROM = { learning = 8 } }
 					}
-
-					# But, more importantly, does the divine like you?
-					mult_modifier = {
+					#But, more importantly, does the divine like you?
+					modifier = { 
 						factor = 0.85
-
 						NOT = { has_character_flag = flag_cheap_diviner }
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < -80
-						}
+						FROM = { NOT = { opinion = { who = ROOT value = -80 } } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.85
-
 						NOT = { has_character_flag = flag_cheap_diviner }
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < -60
-						}
+						FROM = { NOT = { opinion = { who = ROOT value = -60 } } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.85
-
 						NOT = { has_character_flag = flag_cheap_diviner }
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < -40
-						}
+						FROM = { NOT = { opinion = { who = ROOT value = -40 } } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.95
-
 						NOT = { has_character_flag = flag_cheap_diviner }
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < -20
-						}
+						FROM = { NOT = { opinion = { who = ROOT value = -20 } } }
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.95
-
 						NOT = { has_character_flag = flag_cheap_diviner }
-
-						reverse_opinion = {
-							who = event_target:diviner
-							value < 0
-						}
+						FROM = { NOT = { opinion = { who = ROOT value = 0 } } }
 					}
-
-					character_event = { id = HF.23009 } # Success
+					character_event = { id = HF.23009 } #Success
 				}
-
-				30 = {
-					mult_modifier = {
+				30 = { 
+					modifier = { 
 						factor = 0.7
 						has_character_flag = flag_sacrificing_human
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.7
 						has_character_flag = flag_sacrificing_bull
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.8
 						has_character_flag = flag_sacrificing_cow
 					}
-
-					character_event = { id = HF.23010 } # Failure
+					character_event = { id = HF.23010 } #Failure
 				}
+				5 = { 
 
-				5 = {
-					trigger = {
-						NOR = {
+					trigger = { 
+						NOR = { 
 							has_character_flag = flag_sacrificing_bull
 							has_character_flag = flag_sacrificing_human
 						}
 					}
-
-					mult_modifier = {
+					modifier = { 
 						factor = 0.5
 						has_character_flag = flag_sacrificing_cow
 					}
-
-					character_event = { id = HF.23011 } # Crit failure
+					character_event = { id = HF.23011 } #Crit failure
 				}
-			}
+			} 
 		}
 	}
 }
@@ -1858,18 +2345,23 @@ character_event = {
 # Zodiac Signs - Hellenic Flavor
 #######################
 # on_birth event assigns traits on hellenic child.
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23019
-
-	is_triggered_only = yes # on_birth
 	hide_window = yes
-
+	
 	trigger = {
-		religion_has_astrology_trigger = yes
+		OR = {
+			religion_group = graecoroman_group
+			religion_group = indohelen_group
+			has_religion_feature = religion_astrology
+		}
 	}
 
+	is_triggered_only = yes
+	
 	immediate = {
-		add_western_zodiac_trait_effect = yes
+		add_western_zodiac_trait_effect = yes #Updated effect.
 	}
 }
 
@@ -1998,163 +2490,280 @@ character_event = {
 }
 
 # Guardian: is the child doing well?
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23022
+	desc = {
+		trigger = {
+			FROM = {
+				has_character_flag = flag_child_embracing_zodiac
+			}
+		}
+		text = EVTDESCAHF23022
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				has_character_flag = flag_child_forsaking_zodiac
+			}
+		}
+		text = EVTDESCBHF23022
+	}
 	picture = GFX_evt_comet
 	border = GFX_event_normal_frame_religion
-
-	desc = {
-		text = EVTDESCAHF23022
-		trigger = {
-			FROM = { has_character_flag = flag_child_embracing_zodiac }
-		}
-	}
-	desc = {
-		text = EVTDESCBHF23022
-		trigger = {
-			FROM = { has_character_flag = flag_child_forsaking_zodiac }
-		}
-	}
-
+	
 	is_triggered_only = yes
-
-	option = { # Do not care
+	
+	option = { #Do not care.
 		name = EVTOPTAHF23022
-
-		trigger = {
-			religion_has_astrology_trigger = no
+		trigger = { 
+			NOR = {
+				religion_group = graecoroman_group
+				religion_group = indohelen_group
+				has_religion_feature = religion_astrology  
+			} 
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			if = {
-				limit = { has_character_flag = flag_child_forsaking_zodiac }
-
-				trigger_switch = {
-					on_trigger = trait
-
-					zodiac_aquarius = { remove_trait = zodiac_aquarius }
-					zodiac_aries = { remove_trait = zodiac_aries }
-					zodiac_cancer = { remove_trait = zodiac_cancer }
-					zodiac_capricorn = { remove_trait = zodiac_capricorn }
-					zodiac_gemini = { remove_trait = zodiac_gemini }
-					zodiac_leo = { remove_trait = zodiac_leo }
-					zodiac_libra = { remove_trait = zodiac_libra }
-					zodiac_pisces = { remove_trait = zodiac_pisces }
-					zodiac_sagittarius = { remove_trait = zodiac_sagittarius }
-					zodiac_scorpio = { remove_trait = zodiac_scorpio }
-					zodiac_taurus = { remove_trait = zodiac_taurus }
-					zodiac_virgo = { remove_trait = zodiac_virgo }
+		if = { 
+			limit = { FROM = { has_character_flag = flag_child_forsaking_zodiac } }
+		FROM = { 
+				if = { 
+					limit = {
+						trait = zodiac_aquarius
+					}
+					remove_trait = zodiac_aquarius
+				}
+				if = { 
+					limit = {
+						trait = zodiac_aries
+					}
+					remove_trait = zodiac_aries
+				}
+				if = { 
+					limit = {
+						trait = zodiac_cancer
+					}
+					remove_trait = zodiac_cancer
+				}
+				if = { 
+					limit = {
+						trait = zodiac_capricorn
+					}
+					remove_trait = zodiac_capricorn
+				}
+				if = { 
+					limit = {
+						trait = zodiac_gemini
+					}
+					remove_trait = zodiac_gemini
+				}
+				if = { 
+					limit = {
+						trait = zodiac_leo
+					}
+					remove_trait = zodiac_leo
+				}
+				if = { 
+					limit = {
+						trait = zodiac_libra
+					}
+					remove_trait = zodiac_libra
+				}
+				if = { 
+					limit = {
+						trait = zodiac_pisces
+					}
+					remove_trait = zodiac_pisces
+				}
+				if = { 
+					limit = {
+						trait = zodiac_sagittarius
+					}
+					remove_trait = zodiac_sagittarius
+				}
+				if = { 
+					limit = {
+						trait = zodiac_scorpio
+					}
+					remove_trait = zodiac_scorpio
+				}
+				if = { 
+					limit = {
+						trait = zodiac_taurus
+					}
+					remove_trait = zodiac_taurus
+				}
+				if = { 
+					limit = {
+						trait = zodiac_virgo
+					}
+					remove_trait = zodiac_virgo
+				}
+			}
+		} 
+		ai_chance = { 
+			factor = 100
+		} 
+	}
+	option = { #The child should forsake the sign.
+		name = { #Child was abandoning the sign already.
+			text = EVTOPTBHF23008_A
+			trigger = {
+				FROM = {
+					has_character_flag = flag_child_forsaking_zodiac
 				}
 			}
 		}
-
-		ai_chance = { factor = 100 }
-	}
-
-	option = { # The child should forsake the sign
-		name = { # Child was abandoning the sign already
-			text = EVTOPTBHF23008_A
-			trigger = {
-				FROM = { has_character_flag = flag_child_forsaking_zodiac }
-			}
-		}
-		name = { # Child was not abandoning the sign
+		name = { #Child was not abandoning the sign.
 			text = EVTOPTBHF23008_B
 			trigger = {
-				FROM = { has_character_flag = flag_child_embracing_zodiac }
+				FROM = {
+					has_character_flag = flag_child_embracing_zodiac 
+				}
 			}
 		}
-
-		trigger = {
-			religion_has_astrology_trigger = yes
+		trigger = { 
+			OR = {
+				religion_group = graecoroman_group
+				religion_group = indohelen_group
+				has_religion_feature = religion_astrology  
+			} 
+		}
+		if = { 
+			limit = {
+				FROM = { has_character_flag = flag_child_embracing_zodiac } 
+			}
+			FROM = { tiered_piety_negative_effect = yes } 
 		}
 
-		FROM = {
-			show_scope_change = no
-
-			if = {
-				limit = { has_character_flag = flag_child_embracing_zodiac }
-				tiered_piety_negative_effect = yes
+		FROM = { 
+			hidden_tooltip = { character_event = { id = HF.23023 } } 
+			if = { 
+				limit = {
+					trait = zodiac_aquarius
+				}
+				remove_trait = zodiac_aquarius
 			}
-
-			character_event = { id = HF.23023 }
-
-			trigger_switch = {
-				on_trigger = trait
-
-				zodiac_aquarius = { remove_trait = zodiac_aquarius }
-				zodiac_aries = { remove_trait = zodiac_aries }
-				zodiac_cancer = { remove_trait = zodiac_cancer }
-				zodiac_capricorn = { remove_trait = zodiac_capricorn }
-				zodiac_gemini = { remove_trait = zodiac_gemini }
-				zodiac_leo = { remove_trait = zodiac_leo }
-				zodiac_libra = { remove_trait = zodiac_libra }
-				zodiac_pisces = { remove_trait = zodiac_pisces }
-				zodiac_sagittarius = { remove_trait = zodiac_sagittarius }
-				zodiac_scorpio = { remove_trait = zodiac_scorpio }
-				zodiac_taurus = { remove_trait = zodiac_taurus }
-				zodiac_virgo = { remove_trait = zodiac_virgo }
+			if = { 
+				limit = {
+					trait = zodiac_aries
+				}
+				remove_trait = zodiac_aries
+			}
+			if = { 
+				limit = {
+					trait = zodiac_cancer
+				}
+				remove_trait = zodiac_cancer
+			}
+			if = { 
+				limit = {
+					trait = zodiac_capricorn
+				}
+				remove_trait = zodiac_capricorn
+			}
+			if = { 
+				limit = {
+					trait = zodiac_gemini
+				}
+				remove_trait = zodiac_gemini
+			}
+			if = { 
+				limit = {
+					trait = zodiac_leo
+				}
+				remove_trait = zodiac_leo
+			}
+			if = { 
+				limit = {
+					trait = zodiac_libra
+				}
+				remove_trait = zodiac_libra
+			}
+			if = { 
+				limit = {
+					trait = zodiac_pisces
+				}
+				remove_trait = zodiac_pisces
+			}
+			if = { 
+				limit = {
+					trait = zodiac_sagittarius
+				}
+				remove_trait = zodiac_sagittarius
+			}
+			if = { 
+				limit = {
+					trait = zodiac_scorpio
+				}
+				remove_trait = zodiac_scorpio
+			}
+			if = { 
+				limit = {
+					trait = zodiac_taurus
+				}
+				remove_trait = zodiac_taurus
+			}
+			if = { 
+				limit = {
+					trait = zodiac_virgo
+				}
+				remove_trait = zodiac_virgo
 			}
 		}
-
-		ai_chance = {
-			factor = 20
-
-			mult_modifier = {
+		ai_chance = { 
+			factor = 20 
+			modifier = { 
 				factor = 0.5
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.5
 				trait = scholar
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.5
 				trait = mystic
 			}
-		}
+		} 
 	}
-
-	option = { # The child should embrace the sign
-		name = { # Child was abandoning the sign already
+	option = { #The child should embrace the sign.
+		name = { #Child was abandoning the sign already.
 			text = EVTOPTCHF23008_A
 			trigger = {
-				FROM = { has_character_flag = flag_child_forsaking_zodiac }
+				FROM = {
+					has_character_flag = flag_child_forsaking_zodiac
+				}
 			}
 		}
-		name = { # Child was not abandoning the sign
+		name = { #Child was not abandoning the sign.
 			text = EVTOPTCHF23008_B
 			trigger = {
-				FROM = { has_character_flag = flag_child_embracing_zodiac }
+				FROM = {
+					has_character_flag = flag_child_embracing_zodiac 
+				}
 			}
 		}
-
-		trigger = {
-			religion_has_astrology_trigger = yes
+		trigger = { 
+			OR = {
+				religion_group = graecoroman_group
+				religion_group = indohelen_group
+				has_religion_feature = religion_astrology  
+			} 
 		}
-
-		FROM = {
-			character_event = { id = HF.23024 }
+		FROM = { 
+			hidden_tooltip = { character_event = { id = HF.23024 } } 
 		}
-
-		ai_chance = {
-			factor = 80
-
-			mult_modifier = {
+		ai_chance = { 
+			factor = 80 
+			modifier = { 
 				factor = 0.5
 				trait = cynical
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.5
 				trait = hedonist
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.5
 				trait = socializer
 			}
@@ -5915,204 +6524,176 @@ province_event = {
 }
 
 # on_looted_settlement: Bloodline gained at 200 viking_raids variable
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = HF.23212
 	title = EVTTITLE23212
-	border = GFX_event_narrative_frame_war
-	sound = bloodline_added
-
 	desc = {
-		text = EVTDESCAHF23212
 		trigger = {
-			religion_openly_norse_or_reformed_trigger = yes
 			is_female = no
 			is_alternate_start = no
+			religion_group = norsegerman_group
 		}
+		text = EVTDESCAHF23212
 	}
 	desc = {
-		text = EVTDESCBHF23212
 		trigger = {
-			religion_openly_norse_or_reformed_trigger = yes
 			is_female = yes
 			is_alternate_start = no
+			religion_group = norsegerman_group
 		}
+		text = EVTDESCBHF23212
 	}
 	desc = {
-		text = EVTDESCCHF23212
 		trigger = {
 			OR = {
 				is_alternate_start = yes
-				religion_openly_norse_or_reformed_trigger = no
+				NOT = { religion_group = norsegerman_group }
 			}
 		}
+		text = EVTDESCCHF23212
 	}
-
-	picture = {
+	picture = { 
+		trigger = { is_female = no } 
 		picture = GFX_evt_vikings_arriving_oldgods
-		trigger = { is_female = no }
 	}
-	picture = {
+	picture = { 
+		trigger = { is_female = yes } 
 		picture = GFX_evt_norse_tempest
-		trigger = { is_female = yes }
 	}
-
-	is_triggered_only = yes # on_loot_settlement
+	border = GFX_event_narrative_frame_war
+	sound = bloodline_added
+	
+	is_triggered_only = yes
 
 	has_dlc = "Holy Fury"
 
 	trigger = {
-		check_variable = {
-			which = viking_raids
-			value >= 200
-		}
-
-		OR = {
+		check_variable = { which = viking_raids value = 200 }
+		OR = { 
 			trait = sea_king
 			trait = sea_queen
 		}
-
-		NOT = {
-			any_owned_bloodline = {
-				OR = {
-					has_bloodline_flag = bloodline_historical_norse # Not already has a Viking bloodline
-					has_bloodline_flag = more_raiders_bloodline # Not already has a this bloodline
-				}
-
-				bloodline_is_active_for = PREV
+		NOR = { 
+			any_owned_bloodline = { # Not already has a Viking bloodline.
+				has_bloodline_flag = bloodline_historical_norse
+			}
+			any_owned_bloodline = { # Not already has a this bloodline.
+				has_bloodline_flag = more_raiders_bloodline
 			}
 		}
 	}
 
 	option = {
 		name = EVTOPTAHF23212
-
-		add_blood_splatter_effect = yes # Dramatic effect
-
-		hidden_effect = {
-			if = {
-				limit = { can_apply_super_cool_nickname_trigger = yes }
-
-				random_list = {
-					20 = {
-						trigger = { practical_age >= 50 }
-						give_nickname = nick_the_white_raven
-					}
-
-					20 = {
+		add_blood_splatter_effect = yes #Dramatic effect.
+		hidden_tooltip = { 
+			if = { 
+				limit = { this_has_super_cool_nickname_trigger = no }
+				random_list = { 
+					20 = { 
+						trigger = { age = 50 }
+						give_nickname = nick_the_white_raven 
+					} 
+					20 = { 
 						trigger = { is_female = no }
-						give_nickname = nick_the_salt_snake
-					}
-
-					20 = {
+						give_nickname = nick_the_salt_snake 
+					} 
+					20 = { 
 						trigger = { is_female = yes }
-						give_nickname = nick_the_salt_viper
-					}
-
-					20 = {
-						trigger = {
-							is_female = yes
-							is_attractive_trigger = yes
-						}
-
-						give_nickname = nick_the_siren
-					}
-
-					20 = {
+						give_nickname = nick_the_salt_viper 
+					} 
+					20 = { 
+						trigger = { is_female = yes is_attractive_trigger = yes }
+						give_nickname = nick_the_siren 
+					} 
+					20 = { 
 						trigger = { is_female = no }
-						give_nickname = nick_the_wyrm
-					}
-
-					20 = {
-						trigger = {
-							is_female = yes
-							is_unattractive_trigger = yes
-						}
-
-						give_nickname = nick_the_fury
-					}
-
-					20 = {
+						give_nickname = nick_the_wyrm 
+					} 
+					20 = { 
+						trigger = { is_female = yes is_unattractive_trigger = yes }
+						give_nickname = nick_the_fury 
+					} 
+					20 = { 
 						trigger = { is_female = no }
-						give_nickname = nick_the_sea_devil
-					}
-
-					10 = { give_nickname = nick_the_stormforged }
-					10 = { give_nickname = nick_the_tempest_of_capital }
+						give_nickname = nick_the_sea_devil 
+					} 
+					10 = { 
+						give_nickname = nick_the_stormforged 
+					} 
+					10 = { 
+						give_nickname = nick_the_tempest_of_capital 
+					} 
 				}
 			}
 		}
-
-		if = {
+		if = { 
 			limit = { is_female = no }
-
-			create_bloodline = { type = sea_king_bloodline }
-			set_bloodline_founder_religion_flag_effect = yes
-
-			# Randomize names to avoid too much repetition
-			if = {
-				limit = { religion_openly_norse_or_reformed_trigger = yes }
-
-				new_bloodline = {
-					set_description = sea_king_bloodline_viking_desc
-
-					random_list = {
-						25 = { set_name = sea_king_bloodline_viking_a }
-						25 = { set_name = sea_king_bloodline_viking_b }
-						25 = { set_name = sea_king_bloodline_viking_c }
-						25 = { set_name = sea_king_bloodline_viking_d }
-					}
-				}
+			create_bloodline = {
+				type = seaking_bloodline
 			}
-			else = {
+			
+			if = { 
+				limit = { religion_group = norsegerman_group }
 				new_bloodline = {
-					set_description = sea_king_bloodline_pirate_desc
-
-					random_list = {
-						25 = { set_name = sea_king_bloodline_pirate_a }
-						25 = { set_name = sea_king_bloodline_pirate_b }
-						25 = { set_name = sea_king_bloodline_pirate_c }
-						25 = { set_name = sea_king_bloodline_pirate_d }
+					set_description = "bloodline_desc_seaking_bloodline_viking"
+					random_list = { 
+						20 = { set_name = bloodline_seaking_viking_random_a } #Randomize names to avoid too much repetition.
+						20 = { set_name = bloodline_seaking_viking_random_b }
+						20 = { set_name = bloodline_seaking_viking_random_c }
+						20 = { set_name = bloodline_seaking_viking_random_d } 
 					}
-				}
+				}		
 			}
+			if = { 
+				limit = { NOT = { religion_group = norsegerman_group } }
+				new_bloodline = {
+					set_description = "bloodline_desc_seaking_bloodline_pirate"
+					random_list = { 
+						20 = { set_name = bloodline_seaking_pirate_random_a } #Randomize names to avoid too much repetition.
+						20 = { set_name = bloodline_seaking_pirate_random_b }
+						20 = { set_name = bloodline_seaking_pirate_random_c }
+						20 = { set_name = bloodline_seaking_pirate_random_d } 
+					}
+				}		
+			}	
 		}
-		else = {
-			create_bloodline = { type = sea_queen_bloodline }
-			set_bloodline_founder_religion_flag_effect = yes
-
-			# Randomize names to avoid too much repetition
-			if = {
-				limit = { religion_openly_norse_or_reformed_trigger = yes }
-
-				new_bloodline = {
-					set_description = sea_king_bloodline_viking_desc
-
-					random_list = {
-						25 = { set_name = sea_queen_bloodline_viking_a }
-						25 = { set_name = sea_queen_bloodline_viking_b }
-						25 = { set_name = sea_queen_bloodline_viking_c }
-						25 = { set_name = sea_queen_bloodline_viking_d }
-					}
-				}
+		if = { 
+			limit = { is_female = yes }
+			create_bloodline = {
+				type = seaqueen_bloodline
 			}
-			else = {
+			
+			if = { 
+				limit = { religion_group = norsegerman_group }
 				new_bloodline = {
-					set_description = sea_king_bloodline_pirate_desc
-
-					random_list = {
-						25 = { set_name = sea_queen_bloodline_pirate_a }
-						25 = { set_name = sea_queen_bloodline_pirate_b }
-						25 = { set_name = sea_queen_bloodline_pirate_c }
-						25 = { set_name = sea_queen_bloodline_pirate_d }
+					set_description = "bloodline_desc_seaking_bloodline_viking"
+					random_list = { 
+						20 = { set_name = bloodline_seaqueen_viking_random_a } #Randomize names to avoid too much repetition.
+						20 = { set_name = bloodline_seaqueen_viking_random_b }
+						20 = { set_name = bloodline_seaqueen_viking_random_c }
+						20 = { set_name = bloodline_seaqueen_viking_random_d } 
 					}
-				}
+				}		
 			}
+			if = { 
+				limit = { NOT = { religion_group = norsegerman_group } }
+				new_bloodline = {
+					set_description = "bloodline_desc_seaking_bloodline_pirate"
+					random_list = { 
+						20 = { set_name = bloodline_seaqueen_pirate_random_a } #Randomize names to avoid too much repetition.
+						20 = { set_name = bloodline_seaqueen_pirate_random_b }
+						20 = { set_name = bloodline_seaqueen_pirate_random_c }
+						20 = { set_name = bloodline_seaqueen_pirate_random_d } 
+					}
+				}		
+			}		
 		}
-
-		hidden_effect = {
-			if = {
-				limit = {
-					NOR = {
+		hidden_tooltip = { 
+			if = { 
+				limit = { 
+					NOR = { 
 						trait = african_tattoo_1
 						trait = african_tattoo_2
 						trait = african_tattoo_3
@@ -6133,72 +6714,59 @@ narrative_event = {
 						trait = norse_tattoo_4
 						trait = norse_tattoo_5
 						trait = norse_tattoo_6
-					}
+					} 
 				}
-
-				add_trait = norse_tattoo_4
+				add_trait = norse_tattoo_4		
 			}
-		}
-
-		any_player = {
-			limit = {
-				is_within_diplo_range = ROOT
-				NOT = { character = ROOT }
+			any_player = { 
+				limit = { NOT = { character = ROOT } is_within_diplo_range = ROOT } 
+				narrative_event = { id = HF.23213 } 
 			}
-
-			narrative_event = { id = HF.23213 }
 		}
 	}
 }
 
 # Other players are notified
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = HF.23213
 	title = EVTTITLE23213
 	desc = EVTDESCHF23213
-	border = GFX_event_narrative_frame_war
-
-	picture = {
+	picture = { 
+		trigger = { FROM = { is_female = no } } 
 		picture = GFX_evt_vikings_arriving_oldgods
-		trigger = { FROM = { is_female = no } }
 	}
-	picture = {
+	picture = { 
+		trigger = { FROM = { is_female = yes } } 
 		picture = GFX_evt_norse_tempest
-		trigger = { FROM = { is_female = yes } }
 	}
-
+	border = GFX_event_narrative_frame_war
+	
 	is_triggered_only = yes
-
-	ai = no
 
 	option = {
 		name = EVTOPTAHF23213
-
-		trigger = {
-			OR = {
-				religion_is_adventuring_and_seafaring_trigger = yes
-
-				any_owned_bloodline = {
-					has_bloodline_flag = bloodline_viking
-					bloodline_is_active_for = PREV
+		trigger = { 
+			OR = { 
+				religion_group = norsegerman_group
+				AND = { 
+					has_religion_feature = religion_adventuring 
+					has_religion_feature = religion_seafaring
 				}
-			}
-		}
+			} 
+		} 
 	}
-
 	option = {
 		name = EVTOPTBHF23213
-
-		trigger = {
-			religion_is_adventuring_and_seafaring_trigger = no
-
-			NOT = {
-				any_owned_bloodline = {
-					has_bloodline_flag = bloodline_viking
-					bloodline_is_active_for = PREV
+		trigger = { 
+			NOR = { 
+				religion_group = norsegerman_group
+				AND = { 
+					has_religion_feature = religion_adventuring 
+					has_religion_feature = religion_seafaring
 				}
-			}
-		}
+			} 
+		} 
 	}
 }
 
@@ -7582,40 +8150,37 @@ character_event = {
 ## Flavor Doctrine events: Astrology + Haruspicy causes Religious Head to interpret the stars 10-yearly (or your Court Chaplain if No Rel Head exists)
 
 # Main event for religious head (it is localized, because the religious head might be Temporal)
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = HF.23400
 	title = EVTTITLEAHF23400
+	desc = { 
+		trigger = { has_character_flag = flag_astrology_very_good_omen } 
+		text = EVTDESCAHF23400
+	}
+	desc = { 
+		trigger = { has_character_flag = flag_astrology_good_omen } 
+		text = EVTDESCBHF23400
+	}
+	desc = { 
+		trigger = { has_character_flag = flag_astrology_ambiguous_omen } 
+		text = EVTDESCCHF23400
+	}
+	desc = { 
+		trigger = { has_character_flag = flag_astrology_bad_omen } 
+		text = EVTDESCDHF23400
+	}
+	desc = { 
+		trigger = { has_character_flag = flag_astrology_very_bad_omen } 
+		text = EVTDESCEHF23400
+	}
 	picture = GFX_evt_comet
 	border = GFX_event_narrative_frame_religion
-
-	desc = {
-		text = EVTDESCAHF23400
-		trigger = { has_character_flag = flag_astrology_very_good_omen }
-	}
-	desc = {
-		text = EVTDESCBHF23400
-		trigger = { has_character_flag = flag_astrology_good_omen }
-	}
-	desc = {
-		text = EVTDESCCHF23400
-		trigger = { has_character_flag = flag_astrology_ambiguous_omen }
-	}
-	desc = {
-		text = EVTDESCDHF23400
-		trigger = { has_character_flag = flag_astrology_bad_omen }
-	}
-	desc = {
-		text = EVTDESCEHF23400
-		trigger = { has_character_flag = flag_astrology_very_bad_omen }
-	}
-
-	is_triggered_only = yes # on_decade_pulse
+	
+	is_triggered_only = yes
 
 	trigger = {
 		controls_religion = yes
-		religion_has_astrology_trigger = yes
-		religion_has_haruspicy_trigger = yes
-
 		NOR = {
 			has_character_modifier = astrology_very_good_omen
 			has_character_modifier = astrology_good_omen
@@ -7623,264 +8188,214 @@ narrative_event = {
 			has_character_modifier = astrology_bad_omen
 			has_character_modifier = astrology_very_bad_omen
 		}
+		OR = {
+			AND = {
+				has_religion_feature = religion_haruspicy
+				has_religion_feature = religion_astrology 
+			}
+			AND = {
+				religion_group = indohelen_group #Part of their features.
+				is_alternate_start = no
+			}
+		}
 	}
-
-	immediate = {
+	immediate = { 
 		random_list = {
 			5 = {
-				mult_modifier = { factor = 1.15 piety >= 50 }
-				mult_modifier = { factor = 1.15 piety >= 100 }
-				mult_modifier = { factor = 1.15 piety >= 150 }
-				mult_modifier = { factor = 1.15 piety >= 200 }
-				mult_modifier = { factor = 1.15 piety >= 250 }
-				mult_modifier = { factor = 1.15 piety >= 350 }
-				mult_modifier = { factor = 1.25 piety >= 500 }
-
+				modifier = { factor = 1.15 piety = 50 }
+				modifier = { factor = 1.15 piety = 100 }
+				modifier = { factor = 1.15 piety = 150 }
+				modifier = { factor = 1.15 piety = 200 }
+				modifier = { factor = 1.15 piety = 250 }
+				modifier = { factor = 1.15 piety = 350 }
+				modifier = { factor = 1.25 piety = 500 }
 				set_character_flag = flag_astrology_very_good_omen
 			}
-
-			10 = { set_character_flag = flag_astrology_good_omen }
-			20 = { set_character_flag = flag_astrology_ambiguous_omen }
-			10 = { set_character_flag = flag_astrology_bad_omen }
-			 5 = { set_character_flag = flag_astrology_very_bad_omen }
+			10 = {
+				set_character_flag = flag_astrology_good_omen
+			}
+			20 = {
+				set_character_flag = flag_astrology_ambiguous_omen
+			}
+			10 = {
+				set_character_flag = flag_astrology_bad_omen
+			}
+			5 = {
+				set_character_flag = flag_astrology_very_bad_omen
+			}
 		}
 	}
+	#Reinterpret bad omen using high learning/Boost ambiguous or good omen with high learning.
+	#Spread the news.
+	#Ignore the omen.
 
-	# Reinterpret bad omen using high learning/Boost ambiguous or good omen with high learning
-	# Spread the news
-	# Ignore the omen
-
-	option = { # Reinterpet less favorable omen to prevent bad modifier
+	option = { #Reinterpet less favorable omen to prevent bad modifier.
 		name = EVTOPTAHF23400
-		tooltip_info = learning
-
-		trigger = {
-			learning >= 15
+		trigger = { 
+			learning = 15 
 			NOT = { has_character_flag = flag_astrology_very_good_omen }
 		}
-
-		custom_tooltip = { text = TOOLTIP_EVTOPTAHF23400 }
-
-		trigger_switch = {
-			on_trigger = has_character_flag
-
-			flag_astrology_good_omen = {
-				clr_character_flag = flag_astrology_good_omen
-
-				add_character_modifier = {
-					name = astrology_very_good_omen
-					years = 2
-				}
+		tooltip_info = learning
+		custom_tooltip = { text = TOOLTIP_EVTOPTAHF23400 } 
+		if = {
+			limit = {
+				has_character_flag = flag_astrology_good_omen
 			}
-
-			flag_astrology_ambiguous_omen = {
-				clr_character_flag = flag_astrology_ambiguous_omen
-
-				add_character_modifier = {
-					name = astrology_good_omen
-					years = 2
-				}
-			}
-
-			flag_astrology_bad_omen = {
-				clr_character_flag = flag_astrology_bad_omen
-
-				add_character_modifier = {
-					name = astrology_ambiguous_omen
-					years = 2
-				}
-			}
-
-			flag_astrology_very_bad_omen = {
-				clr_character_flag = flag_astrology_very_bad_omen
-
-				add_character_modifier = {
-					name = astrology_bad_omen
-					years = 2
-				}
-			}
+			clr_character_flag = flag_astrology_good_omen
+			add_character_modifier = { name = astrology_very_good_omen years = 2 }
 		}
-
-		hidden_effect = {
-			change_variable = {
-				which = haruspicy_testing_fate
-				value = 1
+		if = {
+			limit = {
+				has_character_flag = flag_astrology_ambiguous_omen
 			}
-
-			random = {
-				chance = 1
-
-				mult_modifier = {
+			clr_character_flag = flag_astrology_ambiguous_omen
+			add_character_modifier = { name = astrology_good_omen years = 2 }
+		}
+		if = {
+			limit = {
+				has_character_flag = flag_astrology_bad_omen
+			}
+			clr_character_flag = flag_astrology_bad_omen
+			add_character_modifier = { name = astrology_ambiguous_omen years = 2 }
+		}
+		hidden_tooltip = { 
+			change_variable = { which = haruspicy_testing_fate value = 1 }
+			random = { 
+				chance = 1 
+				modifier = { 
 					factor = 5
 					trait = ambitious
-				}
-
-				mult_modifier = {
+				} 
+				modifier = { 
 					factor = 1.5
 					trait = proud
-				}
-
+				} 
 				testing_fate_variable_character_score = yes
-
-				character_event = {
-					id = HF.23402 # The gods did not appreciate your hubris
-					days = 25
-					random = 25
-				}
+				character_event = { id = HF.23402 days = 25 random = 25 } #The gods did not appreciate your hubris.
 			}
-
-			any_independent_ruler = {
-				limit = {
-					religion = ROOT
-					higher_real_tier_than = COUNT
+		}
+		hidden_tooltip = { 
+			any_independent_ruler = { 
+				limit = { 
+					religion = ROOT 
+					higher_tier_than = COUNT
 				}
-
 				narrative_event = { id = HF.23401 }
 			}
 		}
-
-		ai_chance = { factor = 25 }
+		ai_chance = { 
+			factor = 25
+		}
 	}
-
-	option = { # Spread the news
+	option = { #Spread the news.
 		name = EVTOPTBHF23400
-
-		custom_tooltip = { text = TOOLTIP_EVTOPTBHF23400 }
-
-		trigger_switch = {
-			on_trigger = has_character_flag
-
-			flag_astrology_very_good_omen = {
-				add_character_modifier = {
-					name = astrology_very_good_omen
-					years = 2
-				}
-
-				religion_authority = {
-					name = haruspicy_very_good_omen
-					years = 50
-				}
-
-				clr_character_flag = flag_astrology_very_good_omen
+		custom_tooltip = { text = TOOLTIP_EVTOPTBHF23400 } 
+		if = {
+			limit = {
+				has_character_flag = flag_astrology_very_good_omen
 			}
-
-			flag_astrology_good_omen = {
-				add_character_modifier = {
-					name = astrology_good_omen
-					years = 2
-				}
-
-				clr_character_flag = flag_astrology_good_omen
+			add_character_modifier = { name = astrology_very_good_omen years = 2 }
+			religion_authority = {
+				modifier = haruspicy_very_good_omen
+				years = 50
 			}
-
-			flag_astrology_ambiguous_omen = {
-				add_character_modifier = {
-					name = astrology_ambiguous_omen
-					years = 2
-				}
-
-				clr_character_flag = flag_astrology_ambiguous_omen
-			}
-
-			flag_astrology_bad_omen = {
-				add_character_modifier = {
-					name = astrology_bad_omen
-					years = 2
-				}
-
-				clr_character_flag = flag_astrology_bad_omen
-			}
-
-			flag_astrology_very_bad_omen = {
-				add_character_modifier = {
-					name = astrology_very_bad_omen
-					years = 2
-				}
-
-				religion_authority = {
-					name = haruspicy_very_bad_omen
-					years = 50
-				}
-
-				clr_character_flag = flag_astrology_very_bad_omen
-			}
+			clr_character_flag = flag_astrology_very_good_omen
 		}
-
-		hidden_effect = {
-			any_independent_ruler = {
-				limit = {
-					religion = ROOT
-					higher_real_tier_than = COUNT
+		if = {
+			limit = {
+				has_character_flag = flag_astrology_good_omen
+			}
+			add_character_modifier = { name = astrology_good_omen years = 2 }
+			clr_character_flag = flag_astrology_good_omen
+		}
+		if = {
+			limit = {
+				has_character_flag = flag_astrology_ambiguous_omen
+			}
+			add_character_modifier = { name = astrology_ambiguous_omen years = 2 }
+			clr_character_flag = flag_astrology_ambiguous_omen
+		}
+		if = {
+			limit = {
+				has_character_flag = flag_astrology_bad_omen
+			}
+			add_character_modifier = { name = astrology_bad_omen years = 2 }
+			clr_character_flag = flag_astrology_bad_omen
+		}
+		if = {
+			limit = {
+				has_character_flag = flag_astrology_very_bad_omen
+			}
+			add_character_modifier = { name = astrology_very_bad_omen years = 2 }
+			religion_authority = {
+				modifier = haruspicy_very_bad_omen
+				years = 50
+			}
+			clr_character_flag = flag_astrology_very_bad_omen
+		} 
+		hidden_tooltip = { 
+			any_independent_ruler = { 
+				limit = { 
+					religion = ROOT 
+					higher_tier_than = COUNT
 				}
-
 				narrative_event = { id = HF.23401 }
 			}
 		}
-
-		ai_chance = {
-			factor = 50
-
-			mult_modifier = {
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
 				factor = 1.5
 				trait = zealous
-			}
-
-			mult_modifier = {
+			} 
+			modifier = { 
 				factor = 1.5
 				trait = craven
-			}
+			} 
 		}
 	}
-
-	option = { # Ignore the omen
+	option = { #Ignore the omen.
 		name = EVTOPTCHF23400
-
 		custom_tooltip = { text = TOOLTIP_EVTOPTCHF23400 }
-
-		random = {
-			chance = 15
-			add_trait_partially_cynical_effect = yes
-		}
-
-		tiered_piety_negative_effect = yes
-
-		hidden_effect = {
-			change_variable = {
-				which = haruspicy_testing_fate
-				value = 2
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = cynical 
+					trait = zealous 
+				}
 			}
-
-			random = {
-				chance = 1
-
-				mult_modifier = {
+			random = { chance = 15 add_trait = cynical }
+		}
+		if = { 
+			limit = { 
+				trait = zealous
+			}
+			random = { chance = 15 remove_trait = zealous }
+		}
+		tiered_piety_negative_effect = yes
+		hidden_tooltip = { 
+			change_variable = { which = haruspicy_testing_fate value = 2 }
+			random = { 
+				chance = 1 
+				modifier = { 
 					factor = 5
 					trait = cynical
-				}
-
+				} 
 				testing_fate_variable_character_score = yes
-
-				character_event = {
-					id = HF.23402 # The gods did not appreciate your cynicism
-					days = 25
-					random = 25
-				}
+				character_event = { id = HF.23402 days = 25 random = 25 } #The gods did not appreciate your cynicism.
 			}
-
 			clr_character_flag = flag_astrology_very_good_omen
 			clr_character_flag = flag_astrology_good_omen
 			clr_character_flag = flag_astrology_ambiguous_omen
 			clr_character_flag = flag_astrology_bad_omen
 			clr_character_flag = flag_astrology_very_bad_omen
 		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = { 
 				factor = 5
 				trait = cynical
-			}
+			} 
 		}
 	}
 }
@@ -8173,100 +8688,105 @@ character_event = {
 }
 
 # Main event for Court Chaplain of Kings and above (only if no religious head exists)
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = HF.23404
 	title = EVTTITLEAHF23404
+	desc = { 
+		trigger = { has_character_flag = flag_astrology_good_omen } 
+		text = EVTDESCAHF23404
+	}
+	desc = { 
+		trigger = { has_character_flag = flag_astrology_ambiguous_omen } 
+		text = EVTDESCBHF23404
+	}
+	desc = { 
+		trigger = { has_character_flag = flag_astrology_bad_omen } 
+		text = EVTDESCCHF23404
+	}
 	picture = GFX_evt_comet
 	border = GFX_event_narrative_frame_religion
-
-	desc = {
-		text = EVTDESCAHF23404
-		trigger = { has_character_flag = flag_astrology_good_omen }
-	}
-	desc = {
-		text = EVTDESCBHF23404
-		trigger = { has_character_flag = flag_astrology_ambiguous_omen }
-	}
-	desc = {
-		text = EVTDESCCHF23404
-		trigger = { has_character_flag = flag_astrology_bad_omen }
-	}
-
-	is_triggered_only = yes # on_decade_pulse, random_events
+	
+	is_triggered_only = yes
 
 	trigger = {
-		has_job_title = job_spiritual
-
-		liege = {
-			higher_real_tier_than = DUKE
+		has_job_title = job_spiritual 
+		independent = no
+		liege = { 
+			higher_tier_than = DUKE 
 			religion = ROOT
+			NOT = { character = ROOT }
 		}
-
-		religion_has_no_leader_trigger = yes
-		religion_has_astrology_trigger = yes
-		religion_has_haruspicy_trigger = yes
-
 		NOR = {
 			has_character_modifier = astrology_good_omen
 			has_character_modifier = astrology_ambiguous_omen
 			has_character_modifier = astrology_bad_omen
 		}
-	}
-
-	immediate = {
-		random_list = {
-			10 = {
-				mult_modifier = { factor = 1.15 piety >= 50 }
-				mult_modifier = { factor = 1.15 piety >= 100 }
-				mult_modifier = { factor = 1.15 piety >= 150 }
-				mult_modifier = { factor = 1.15 piety >= 200 }
-				mult_modifier = { factor = 1.15 piety >= 250 }
-				mult_modifier = { factor = 1.15 piety >= 350 }
-				mult_modifier = { factor = 1.25 piety >= 500 }
-
-				set_character_flag = flag_astrology_good_omen
+		OR = {
+			AND = {
+				has_religion_feature = religion_haruspicy
+				has_religion_feature = religion_astrology 
+				has_religion_feature = religion_no_leader 
 			}
-
-			10 = { set_character_flag = flag_astrology_ambiguous_omen }
-			10 = { set_character_flag = flag_astrology_bad_omen }
+			AND = {
+				religion_group = indohelen_group #Part of their features.
+				is_alternate_start = no
+				has_religion_feature = religion_no_leader 
+			}
 		}
 	}
-
-	# Tell liege
+	immediate = { 
+		random_list = {
+			10 = {
+				modifier = { factor = 1.15 piety = 50 }
+				modifier = { factor = 1.15 piety = 100 }
+				modifier = { factor = 1.15 piety = 150 }
+				modifier = { factor = 1.15 piety = 200 }
+				modifier = { factor = 1.15 piety = 250 }
+				modifier = { factor = 1.15 piety = 350 }
+				modifier = { factor = 1.25 piety = 500 }
+				set_character_flag = flag_astrology_good_omen
+			}
+			10 = {
+				set_character_flag = flag_astrology_ambiguous_omen
+			}
+			10 = {
+				set_character_flag = flag_astrology_bad_omen
+			}
+		}
+	}
+	#Tell liege.
 	option = {
 		name = EVTOPTAHF23404
-
-		liege = {
-			show_scope_change = no
-
-			tooltip = {
+		tooltip = {
+			liege = {
 				if = {
-					limit = { ROOT = { has_character_flag = flag_astrology_good_omen } }
-
-					add_character_modifier = {
-						name = astrology_good_omen
-						years = 2
+					limit = {
+						ROOT = { has_character_flag = flag_astrology_good_omen }
 					}
+					add_character_modifier = { name = astrology_good_omen years = 2 }
 				}
-				else_if = {
-					limit = { ROOT = { has_character_flag = flag_astrology_ambiguous_omen } }
-
-					add_character_modifier = {
-						name = astrology_ambiguous_omen
-						years = 2
+				if = {
+					limit = {
+						ROOT = { has_character_flag = flag_astrology_ambiguous_omen }
 					}
+					add_character_modifier = { name = astrology_ambiguous_omen years = 2 }
 				}
-				else_if = {
-					limit = { ROOT = { has_character_flag = flag_astrology_bad_omen } }
-
-					add_character_modifier = {
-						name = astrology_bad_omen
-						years = 2
+				if = {
+					limit = {
+						ROOT = { has_character_flag = flag_astrology_bad_omen }
 					}
+					add_character_modifier = { name = astrology_bad_omen years = 2 }
 				}
 			}
-
-			narrative_event = { id = HF.23405 }
+		}
+		hidden_tooltip = {  
+			liege = { 
+				narrative_event = { id = HF.23405 }
+			}
+		}
+		ai_chance = { 
+			factor = 100 
 		}
 	}
 }
@@ -8455,30 +8975,21 @@ character_event = {
 ## Haruspicy + Bloodthirsty Gods allows to read your fortune when killing a notable prisoner
 
 # on_death: Hidden ping from the prisoner
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23410
-
-	is_triggered_only = yes # on_death
 	hide_window = yes
+	is_triggered_only = yes
 
-	only_playable = yes
-
-	trigger = {
+	trigger = { 
+		is_ruler = yes
 		higher_real_tier_than = COUNT
-
-		OR = {
+		OR = { 
 			death_execution_trigger = yes
 			death_sacrificed_trigger = yes
 		}
-
-		killer = {
-			is_playable = yes
-			is_landed = yes
-			is_incapable = no
-			religion_has_ritual_sacrifice_trigger = yes
-			religion_has_haruspicy_trigger = yes
-
-			NOR = { # Shouldn't already have one of the main effects
+		killer = { 
+			NOR = { #Shouldn't already have one of the main effects.
 				has_character_modifier = cannibal_haruspicy_sacrifice
 				has_character_modifier = martial_haruspicy_sacrifice
 				has_character_modifier = intrigue_def_haruspicy_sacrifice
@@ -8486,11 +8997,23 @@ character_event = {
 				has_character_modifier = stewardship_haruspicy_sacrifice
 				has_character_modifier = negative_haruspicy_sacrifice
 			}
+			is_playable = yes
+			is_landed = yes
+			NOT = { trait = incapable }
+			OR = { 
+				has_religion_feature = religion_ritual_sacrifice
+				religion = aztec
+			}
+			OR = { 
+				has_religion_feature = religion_haruspicy
+				religion_group = graecoroman_group
+				religion_group = indohelen_group
+			}
 		}
 	}
 
-	immediate = {
-		killer = {
+	immediate = { 
+		killer = { 
 			character_event = { id = HF.23411 }
 		}
 	}
@@ -14544,175 +15067,175 @@ character_event = {
 
 # on_adulthood (delayed): African rite of passage
 # First select investment for ceremony
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23773
 	desc = EVTDESCAHF23773
-	border = GFX_event_normal_frame_religion
-
-	picture = {
-		trigger = { religion_openly_west_african_or_reformed_trigger = yes }
+	picture = { 
+		trigger = { 
+			OR = { 
+				religion_group = serer_group
+				religion_group = african_pagan_group
+			} 
+		} 
 		picture = GFX_evt_west_african_ruler
 	}
-	picture = {
-		trigger = { religion_openly_west_african_or_reformed_trigger = no }
+	picture = { 
+		trigger = { 
+			has_dlc = "Mystics"
+			NOR = { 
+				religion_group = serer_group
+				religion_group = african_pagan_group
+			} 
+			#OR = {
+				has_religion_feature = religion_animistic 
+				#has_religion_feature = religion_feature_korean  # Gives animistic
+			#}
+		} 
 		picture = GFX_evt_magic_ritual
 	}
-
+	picture = { 
+		trigger = { 
+			NOT = { has_dlc = "Mystics" } 
+			#OR = {
+				has_religion_feature = religion_animistic 
+				#has_religion_feature = religion_feature_korean  # Gives animistic
+			#}
+		} 
+		picture = GFX_evt_tribal_shrine
+	}
+	border = GFX_event_normal_frame_religion
+	
 	is_triggered_only = yes
-
-	has_dlc = "Holy Fury"
 	only_capable = yes
 
-	trigger = {
-		religion_is_animistic_trigger = yes
-		is_lowborn = no
-	}
-
-	option = {
-		name = EVTOPTAHF23773
-
-		custom_tooltip = { text = tooltip_EVTOPTAHF23773 }
-
-		if = {
-			limit = { ai = no }
-
-			scaled_wealth = {
-				value = -1.0
-				min = -150
-				max = -350
-			}
+	trigger = { 
+		has_dlc = "Holy Fury"
+		NOT = {
+			dynasty = none
 		}
-
-		if = {
-			limit = {
+		OR = {
+			religion_group = serer_group
+			religion_group = african_pagan_group
+			has_religion_feature = religion_animistic 
+			#has_religion_feature = religion_feature_korean # Gives animistic 
+		}
+	}
+	
+	option = { 
+		name = EVTOPTAHF23773
+		custom_tooltip = { text = tooltip_EVTOPTAHF23773 }
+		if = { 
+			limit = {  
+				ai = no
+			} 
+			scaled_wealth = { value = -1.0 min = -150 max = -350 } 
+		} 
+		set_character_flag = flag_african_initiation_high
+		if = { 
+			limit = { 
 				higher_real_tier_than = BARON
 				is_landed = yes
-				religion = job_spiritual
+				any_courtier_or_vassal = { has_job_title = job_spiritual religion = ROOT } 
 			}
+			random_courtier_or_vassal = { 
+				limit = { has_job_title = job_spiritual religion = ROOT }
+				opinion = { 
+					who = ROOT 
+					modifier = opinion_placated_spirits
+					years = 20
+				}
+			} 
 
-			reverse_opinion = {
-				name = opinion_placated_spirits
-				who = job_spiritual
-				years = 20
-			}
-		}
-
-		set_character_flag = flag_african_initiation_high
-		character_event = { id = HF.23774 }
-
-		ai_chance = {
+		} 
+		hidden_tooltip = { character_event = { id = HF.23774 } } 
+		ai_chance = { 
 			factor = 10
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = proud
 			}
-
-		#	mult_modifier = {
-		#		factor = 0.25
-		#		wealth < 350
-		#	}
-		#
-		#	mult_modifier = {
-		#		factor = 0.15
-		#		wealth < 100
-		#	}
+			modifier = { 
+				factor = 0.25
+				NOT = { wealth = 350 }
+			}
+			modifier = { 
+				factor = 0.15
+				NOT = { wealth = 100 }
+			}
 		}
 	}
-
-	option = {
+	option = { 
 		name = EVTOPTBHF23773
-
 		custom_tooltip = { text = tooltip_EVTOPTBHF23773 }
-
-		if = {
-			limit = { ai = no }
-
-			scaled_wealth = {
-				value = -1.0
-				min = -50
-				max = -100
-			}
-		}
-
+		if = { 
+			limit = {  
+				ai = no
+			} 
+			scaled_wealth = { value = -1.0 min = -50 max = -100 } 
+		} 
+		hidden_tooltip = { character_event = { id = HF.23774 } }
 		set_character_flag = flag_african_initiation_medium
-		character_event = { id = HF.23774 }
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 30
-
-		#	mult_modifier = {
-		#		factor = 0.5
-		#		wealth < 100
-		#	}
-		#
-		#	mult_modifier = {
-		#		factor = 0.25
-		#		wealth < 50
-		#	}
-		}
-	}
-
-	option = {
-		name = EVTOPTCHF23773
-
-		custom_tooltip = { text = tooltip_EVTOPTCHF23773 }
-
-		if = {
-			limit = { ai = no }
-
-			scaled_wealth = {
-				value = -1.0
-				min = -15
-				max = -50
+			modifier = { 
+				factor = 0.5
+				NOT = { wealth = 100 }
+			}
+			modifier = { 
+				factor = 0.25
+				NOT = { wealth = 50 }
 			}
 		}
-
+	}
+	option = { 
+		name = EVTOPTCHF23773
+		custom_tooltip = { text = tooltip_EVTOPTCHF23773 }
+		if = { 
+			limit = {  
+				ai = no
+			} 
+			scaled_wealth = { value = -1.0 min = -15 max = -50 } 
+		} 
+		hidden_tooltip = { character_event = { id = HF.23774 } }
 		set_character_flag = flag_african_initiation_low
-		character_event = { id = HF.23774 }
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 50
-
-		#	mult_modifier = {
-		#		factor = 0.75
-		#		wealth < 50
-		#	}
-		#
-		#	mult_modifier = {
-		#		factor = 0.35
-		#		wealth < 0
-		#	}
+			modifier = { 
+				factor = 0.75
+				NOT = { wealth = 50 }
+			}
+			modifier = { 
+				factor = 0.35
+				NOT = { wealth = 0 }
+			}
 		}
 	}
-
-	option = {
+	option = { 
 		name = EVTOPTDHF23773
-
 		custom_tooltip = { text = tooltip_EVTOPTDHF23773 }
-
-		remove_trait_silently_zealous_effect = yes
-		tiered_piety_negative_effect = yes
-
-		ai_chance = {
+		if = { 
+			limit = { 
+				trait = zealous
+			}
+			remove_trait = zealous
+		}
+		tiered_piety_negative_effect = yes 
+		ai_chance = { 
 			factor = 5
-
-			mult_modifier = {
+			modifier = { 
 				factor = 0.1
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 2
 				trait = cynical
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.25
 				trait = greedy
 			}
@@ -14721,315 +15244,357 @@ character_event = {
 }
 
 # Then select the kind of bonus
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23774
-	border = GFX_event_normal_frame_religion
-
-	desc = {
+	desc = { 
+		trigger = { 
+			has_character_flag = flag_african_initiation_high
+		} 
 		text = EVTDESCAHF23774
-		trigger = { has_character_flag = flag_african_initiation_high }
 	}
-	desc = {
+	desc = { 
+		trigger = { 
+			has_character_flag = flag_african_initiation_medium
+		} 
 		text = EVTDESCBHF23774
-		trigger = { has_character_flag = flag_african_initiation_medium }
 	}
-	desc = {
+	desc = { 
+		trigger = { 
+			has_character_flag = flag_african_initiation_low
+		} 
 		text = EVTDESCCHF23774
-		trigger = { has_character_flag = flag_african_initiation_low }
 	}
 
-	picture = {
+	picture = { 
+		trigger = { 
+			OR = { 
+				religion_group = serer_group
+				religion_group = african_pagan_group
+			} 
+		} 
 		picture = GFX_evt_west_african_ruler
-		trigger = { religion_openly_west_african_or_reformed_trigger = yes }
 	}
-	picture = {
+	picture = { 
+		trigger = { 
+			has_dlc = "Mystics"
+			NOR = { 
+				religion_group = serer_group
+				religion_group = african_pagan_group
+			} 
+			#OR = {
+				has_religion_feature = religion_animistic 
+				#has_religion_feature = religion_feature_korean # Gives animistic
+			#}
+		} 
 		picture = GFX_evt_magic_ritual
-		trigger = { religion_openly_west_african_or_reformed_trigger = no }
 	}
-
+	picture = { 
+		trigger = { 
+			NOT = { has_dlc = "Mystics" } 
+			#OR = {
+				has_religion_feature = religion_animistic 
+				#has_religion_feature = religion_feature_korean # Gives animistic
+			#} 
+		} 
+		picture = GFX_evt_tribal_shrine
+	}
+	border = GFX_event_normal_frame_religion
+	
 	is_triggered_only = yes
-
-	option = { # Prosperity
+	
+	option = { #Prosperity
 		name = EVTOPTAHF23774
-
-		custom_tooltip = {
-			text = tooltip_EVTOPTAHF23774
-
-			# Tattoos
-			random_list = {
-				10 = {
-					trigger = { religion_openly_west_african_or_reformed_trigger = no }
+		custom_tooltip = { text = tooltip_EVTOPTAHF23774 }
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_high
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_1
+				years = 20
+			} 
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_medium
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_1
+				years = 10
+			} 
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_low
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_1
+				years = 5
+			} 
+		} 
+		hidden_tooltip = { #Tattoos
+			random_list = { 
+				10 = { 
+					trigger = { 
+						NOR = {
+							religion_group = serer_group
+							religion_group = african_pagan_group
+						}
+					}
 					add_trait = slavic_tattoo_6
 				}
-
-				25 = { add_trait = african_tattoo_12 }
-				25 = { add_trait = african_tattoo_8 }
-				50 = { add_trait = african_tattoo_2 }
-			}
-		}
-
-		trigger_switch = {
-			on_trigger = has_character_flag
-
-			flag_african_initiation_high = {
-				add_character_modifier = {
-					name = african_adulthood_rites_1
-					years = 20
+				25 = { 
+					add_trait = african_tattoo_12
+				}
+				25 = { 
+					add_trait = african_tattoo_8
+				}
+				50 = { 
+					add_trait = african_tattoo_2
 				}
 			}
-
-			flag_african_initiation_medium = {
-				add_character_modifier = {
-					name = african_adulthood_rites_1
-					years = 10
-				}
-			}
-
-			flag_african_initiation_low = {
-				add_character_modifier = {
-					name = african_adulthood_rites_1
-					years = 5
-				}
-			}
-		}
-
-		ai_chance = {
+		} 
+		ai_chance = { 
 			factor = 25
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = charitable
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = idolizer
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = affectionate
 			}
 		}
 	}
-
-	option = { # Power
+	option = { #Power
 		name = EVTOPTBHF23774
-
-		custom_tooltip = {
-			text = tooltip_EVTOPTBHF23774
-
-			# Tattoos
-			random_list = {
-				10 = {
-					trigger = { religion_openly_west_african_or_reformed_trigger = no }
+		custom_tooltip = { text = tooltip_EVTOPTBHF23774 }
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_high
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_2
+				years = 20
+			} 
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_medium
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_2
+				years = 10
+			} 
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_low
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_2
+				years = 5
+			} 
+		} 
+		hidden_tooltip = { #Tattoos
+			random_list = { 
+				10 = { 
+					trigger = { 
+						NOR = {
+							religion_group = serer_group
+							religion_group = african_pagan_group
+						}
+					}
 					add_trait = norse_tattoo_6
 				}
-
-				25 = { add_trait = african_tattoo_10 }
-				25 = { add_trait = african_tattoo_7 }
-				50 = { add_trait = african_tattoo_1 }
-			}
-		}
-
-		trigger_switch = {
-			on_trigger = has_character_flag
-
-			flag_african_initiation_high = {
-				add_character_modifier = {
-					name = african_adulthood_rites_2
-					years = 20
+				25 = { 
+					add_trait = african_tattoo_10
 				}
-			}
-
-			flag_african_initiation_medium = {
-				add_character_modifier = {
-					name = african_adulthood_rites_2
-					years = 10
+				25 = { 
+					add_trait = african_tattoo_7
 				}
-			}
-
-			flag_african_initiation_low = {
-				add_character_modifier = {
-					name = african_adulthood_rites_2
-					years = 5
+				50 = { 
+					add_trait = african_tattoo_1
 				}
 			}
 		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 25
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = wroth
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = cruel
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = rowdy
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = haughty
 			}
 		}
 	}
-
-	option = { # Shadows
+	option = { #Shadows
 		name = EVTOPTCHF23774
-
-		custom_tooltip = {
-			text = tooltip_EVTOPTCHF23774
-
-			# Tattoos
-			random_list = {
-				10 = {
-					trigger = { religion_openly_west_african_or_reformed_trigger = no }
+		custom_tooltip = { text = tooltip_EVTOPTCHF23774 }
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_high
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_3
+				years = 20
+			} 
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_medium
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_3
+				years = 10
+			} 
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_low
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_3
+				years = 5
+			} 
+		} 
+		hidden_tooltip = { #Tattoos
+			random_list = { 
+				10 = { 
+					trigger = { 
+						NOR = {
+							religion_group = serer_group
+							religion_group = african_pagan_group
+						}
+					}
 					add_trait = norse_tattoo_3
 				}
-
-				25 = { add_trait = african_tattoo_9 }
-				25 = { add_trait = african_tattoo_6 }
-				50 = { add_trait = african_tattoo_3 }
-			}
-		}
-
-		trigger_switch = {
-			on_trigger = has_character_flag
-
-			flag_african_initiation_high = {
-				add_character_modifier = {
-					name = african_adulthood_rites_3
-					years = 20
+				25 = { 
+					add_trait = african_tattoo_9
 				}
-			}
-
-			flag_african_initiation_medium = {
-				add_character_modifier = {
-					name = african_adulthood_rites_3
-					years = 10
+				25 = { 
+					add_trait = african_tattoo_6
 				}
-			}
-
-			flag_african_initiation_low = {
-				add_character_modifier = {
-					name = african_adulthood_rites_3
-					years = 5
+				50 = { 
+					add_trait = african_tattoo_3
 				}
 			}
 		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 25
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = envious
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = deceitful
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = timid
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = fussy
 			}
 		}
 	}
-
-	option = { # Death
+	option = { #Death
 		name = EVTOPTDHF23774
-
-		custom_tooltip = {
-			text = tooltip_EVTOPTDHF23774
-
-			# Tattoos
-			random_list = {
-				10 = {
-					trigger = { religion_openly_west_african_or_reformed_trigger = no }
+		custom_tooltip = { text = tooltip_EVTOPTDHF23774 }
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_high
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_4
+				years = 20
+			} 
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_medium
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_4
+				years = 10
+			} 
+		}
+		if = { 
+			limit = { 
+				has_character_flag = flag_african_initiation_low
+			}
+			add_character_modifier = {
+				name = african_adulthood_rites_4
+				years = 5
+			} 
+		} 
+		hidden_tooltip = { #Tattoos
+			random_list = { 
+				10 = { 
+					trigger = { 
+						NOR = {
+							religion_group = serer_group
+							religion_group = african_pagan_group
+						}
+					}
 					add_trait = norse_tattoo_4
 				}
-
-				25 = { add_trait = african_tattoo_11 }
-				25 = { add_trait = african_tattoo_5 }
-				50 = { add_trait = african_tattoo_4 }
-			}
-		}
-
-		trigger_switch = {
-			on_trigger = has_character_flag
-
-			flag_african_initiation_high = {
-				add_character_modifier = {
-					name = african_adulthood_rites_4
-					years = 20
+				25 = { 
+					add_trait = african_tattoo_11
 				}
-			}
-
-			flag_african_initiation_medium = {
-				add_character_modifier = {
-					name = african_adulthood_rites_4
-					years = 10
+				25 = { 
+					add_trait = african_tattoo_5
 				}
-			}
-
-			flag_african_initiation_low = {
-				add_character_modifier = {
-					name = african_adulthood_rites_4
-					years = 5
+				50 = { 
+					add_trait = african_tattoo_4
 				}
 			}
 		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 25
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = frail
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = slothful
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = patient
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = brooding
 			}
-
-			mult_modifier = {
+			modifier = { 
 				factor = 1.5
 				trait = indolent
 			}
 		}
 	}
-
 	after = {
 		clr_character_flag = flag_african_initiation_high
 		clr_character_flag = flag_african_initiation_medium
@@ -15038,46 +15603,152 @@ character_event = {
 }
 
 # on_adulthood: actual event, firing delay to avoid clutter
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23775
-
-	is_triggered_only = yes # on_adulthood
 	hide_window = yes
-
 	only_capable = yes
-	has_dlc = "Holy Fury"
 
-	trigger = {
-		religion_is_animistic_trigger = yes
-		is_lowborn = no
+	trigger = { 
+		has_dlc = "Holy Fury"
+		NOT = {
+			dynasty = none
+		}
+		OR = {
+			religion_group = serer_group
+			religion_group = african_pagan_group
+			has_religion_feature = religion_animistic 
+			#has_religion_feature = religion_feature_korean # Gives animistic
+		}
 	}
+	
+	is_triggered_only = yes
 
 	immediate = {
-		character_event = {
-			id = HF.23773
-			days = 50
-			random = 50
-		}
+		character_event = { id = HF.23773 days = 50 random = 50 }
 	}
 }
 
 # on_startup event to assign african face paint
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23776
-
-	is_triggered_only = yes
 	hide_window = yes
 
+	is_triggered_only = yes
+
 	min_age = 16
-	ai = yes
 
-	trigger = {
-		religion_is_animistic_trigger = yes
+	trigger = { 
+		ai = yes
 		is_save_game = no
+		OR = { 
+			religion_group = serer_group
+			religion_group = african_pagan_group
+			has_religion_feature = religion_animistic
+			#has_religion_feature = religion_feature_korean # Gives animistic
+		}
 	}
-
-	immediate = {
-		add_animistic_face_paint_effect = yes
+	immediate = { 
+		random_list = { 
+			25 = { #Nothing
+			}
+			15 = { 
+				add_trait = african_tattoo_1
+			}
+			15 = { 
+				add_trait = african_tattoo_2
+			}
+			15 = { 
+				add_trait = african_tattoo_3
+			}
+			15 = { 
+				add_trait = african_tattoo_4
+			}
+			5 = { 
+				add_trait = african_tattoo_5
+			}
+			4 = { 
+				add_trait = african_tattoo_6
+			}
+			3 = { 
+				add_trait = african_tattoo_7
+			}
+			2 = { 
+				add_trait = african_tattoo_8
+			}
+			10 = { 
+				add_trait = african_tattoo_9
+			}
+			10 = { 
+				add_trait = african_tattoo_10
+			}
+			10 = { 
+				add_trait = african_tattoo_11
+			}
+			10 = { 
+				add_trait = african_tattoo_12
+			}
+		}
+		if = { 
+			limit = { NOT = { age = 23 } }
+			random_list = { #Modifier, if young enough.
+				10 = { #Nothing
+				}
+				25 = { 
+					trigger = {
+						OR = {
+							trait = african_tattoo_12
+							trait = african_tattoo_8
+							trait = african_tattoo_2
+						}
+					}
+					add_character_modifier = {
+						name = african_adulthood_rites_1
+						years = 6
+					} 
+				}
+				25 = { 
+					trigger = {
+						OR = {
+							trait = african_tattoo_10
+							trait = african_tattoo_7
+							trait = african_tattoo_1
+						}
+					}
+					add_character_modifier = {
+						name = african_adulthood_rites_2
+						years = 6
+					} 
+				}
+				25 = { 
+					trigger = {
+						OR = {
+							trait = african_tattoo_9
+							trait = african_tattoo_6
+							trait = african_tattoo_3
+						}
+					}
+					add_character_modifier = {
+						name = african_adulthood_rites_3
+						years = 6
+					} 
+				}
+				25 = { 
+					trigger = {
+						OR = {
+							trait = african_tattoo_11
+							trait = african_tattoo_5
+							trait = african_tattoo_4
+						}
+					}
+					add_character_modifier = {
+						name = african_adulthood_rites_4
+						years = 6
+					} 
+				}
+			}
+		}
 	}
 }
 

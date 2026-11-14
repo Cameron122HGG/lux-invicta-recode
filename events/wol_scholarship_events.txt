@@ -599,67 +599,61 @@ character_event = {
 }
 
 # Breakthrough - you have proven that the earth is round and revolves around the sun!
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.6170
 	desc = EVTDESC_WoL_6170
 	picture = GFX_evt_scientist
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
-	only_capable = yes
-	prisoner = no
 
 	trigger = {
 		has_focus = focus_scholarship
+		prisoner = no
+		NOT = { trait = incapable }
 	}
 
 	option = {
 		name = EVTOPTA_WoL_6170 # Publish findings
-
 		prestige = 300
-
 		if = {
-			limit = { lifestyle_traits < 1 }
-
+			limit = { NOT = { lifestyle_traits = 1 } }
 			remove_character_modifier = studying_the_stars
 			add_trait = scholar
 		}
-
 		if = {
-			limit = { can_apply_average_nickname_trigger = yes }
-
+			limit = { has_nickname = no }
 			random_list = {
-				25 = { give_nickname = nick_the_wise }
-				25 = { give_nickname = nick_the_able }
-				25 = { give_nickname = nick_the_scholar }
-
-				25 = {
-					trigger = {
-						religion_openly_zun_or_reformed_trigger = no
-						NOT = { religion = buddhist }
+				10 = {
+					give_nickname = nick_the_wise
+				}
+				10 = {
+					give_nickname = nick_the_able
+				}
+				10 = {
+					give_nickname = nick_the_scholar
+				}
+				10 = {
+					modifier = {
+						factor = 0
+							religion_group = bud_group
 					}
-
 					give_nickname = nick_priest_hater
 				}
 			}
 		}
-
 		if = {
 			limit = {
-				religion_openly_zun_or_reformed_trigger = no
-				NOT = { religion = buddhist }
+				NOT = { religion_group = bud_group }
 			}
-
 			add_character_modifier = {
 				name = annoyed_religious
 				years = -1
 			}
 		}
-
 		custom_tooltip = {
-			text = WOL_6170_OPINION_EFFECT
-
+			text = "WOL_6170_OPINION_EFFECT"
 			hidden_effect = {
 				any_realm_character = {
 					limit = {
@@ -667,13 +661,10 @@ character_event = {
 							is_priest = yes
 							trait = zealous
 						}
-
-						religion_openly_zun_or_reformed_trigger = no
-						NOT = { religion = buddhist }
+						NOT = { religion_group = bud_group }
 					}
-
 					opinion = {
-						name = opinion_heretic
+						modifier = opinion_heretic
 						who = ROOT
 						years = 5
 					}
@@ -681,39 +672,41 @@ character_event = {
 			}
 		}
 	}
-
 	option = {
 		name = EVTOPTB_WoL_6170 # Keep it secret but continue dedicating myself to knowledge
-
 		if = {
-			limit = { lifestyle_traits < 1 }
-
+			limit = { NOT = { lifestyle_traits = 1 } }
 			remove_character_modifier = studying_the_stars
 			add_trait = scholar
 		}
 	}
-
 	option = {
 		name = EVTOPTC_WoL_6170 # Very interesting but I'm done with this
-
 		remove_character_modifier = studying_the_stars
-
 		add_character_modifier = {
 			name = heliocentrist_scholar
 			duration = -1
 		}
 	}
-
 	option = {
 		name = EVTOPTD_WoL_6170 # This is heretical - I must burn it!
-
 		trigger = {
-			religion_openly_zun_or_reformed_trigger = no
-			NOT = { religion = buddhist }
+			NOT = { religion_group = bud_group }
 		}
-
 		remove_character_modifier = studying_the_stars
-		add_trait_partially_silently_zealous_effect = yes
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+			}
+			add_trait = zealous
+		}
+		if = {
+			limit = {
+				trait = cynical
+			}
+			remove_trait = cynical
+		}
 	}
 }
 

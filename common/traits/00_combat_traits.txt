@@ -2,19 +2,19 @@
 # COMBAT TRAITS
 ########################
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 berserker = {
 	potential = {
-		religion_openly_norse_or_reformed_trigger = yes
+		LI_norse_pagan_trigger = yes
 	}
-
 	martial = 4
 	diplomacy = -2
-	combat_rating = 25 # old value: 3
-
+	combat_rating = 25 #old value: 3
+	
 	same_opinion = 10
-
+	
 	ai_rationality = -5
-
+	
 	male_compliment = COMPL_BERSERKER
 	female_compliment = COMPL_BERSERKER
 	male_insult = INSULT_LUNATIC
@@ -265,30 +265,29 @@ sea_queen = {
 	female_compliment_adj = COMPL_VIKING_adj
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 viking = {
-	# religious = yes
-
-	opposites = {
-		pirate
+	potential = {
+		OR = {
+			LI_norse_pagan_trigger = yes
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_viking
+			}
+		}
+	}
+	opposites =  {
 		ravager
 		sea_king
 		sea_queen
 	}
-
-	potential = {
-		religion_is_adventuring_and_seafaring_trigger = yes
-		religion_openly_norse_or_reformed_trigger = yes
-	}
-
-	monthly_character_prestige = 0.3
-
 	martial = 1
-	combat_rating = 10 # old value: 1
-
-	norse_pagan_opinion = 15
-	norse_pagan_reformed_opinion = 15
+	combat_rating = 10 #old value: 1
+	monthly_character_prestige = 0.3
+	same_religion_opinion = 15
+	
 	same_opinion = 5
-
+	#religious = yes
+	
 	male_insult = COMPL_PIRATE
 	female_insult = COMPL_PIRATE
 	male_compliment = COMPL_VIKING

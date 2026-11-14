@@ -1,8 +1,40 @@
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 me_pattern_for = {
 	icon = 8
 	pattern_type = for
-
+	
 	default = {
 		character = FROM # Actor
+	}
+	status_of_women_1 = {
+		is_female = yes
+		has_law = status_of_women_0
+		trait = ambitious
+	}
+	status_of_women_2 = {
+		is_female = yes
+		has_law = status_of_women_1
+		trait = ambitious
+	}
+	status_of_women_3 = {
+		is_female = yes
+		has_law = status_of_women_2
+		trait = ambitious
+	}
+	status_of_women_4 = {
+		is_female = yes
+		trait = ambitious
+	}
+	slavery_2 = {
+		OR = {
+			trait = slave_owner
+			trait = slave_trader
+		}
+	}
+	slavery_3 = {
+		OR = {
+			trait = slave_owner
+			trait = slave_trader
+		}
 	}
 }

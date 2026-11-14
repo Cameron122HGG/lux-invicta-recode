@@ -122,6 +122,18 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      CleanSlate's China preferences check vanilla religions LI lacks (2,583 error lines). LI's
      policies and statuses equal vanilla, so CleanSlate's versions stay. Review CleanSlate's
      `00_offmap_powers.txt` for real fixes later.
+   - **"LI's version wins" (2026-11-14, `tools/phase3_li_wins.py`).** 676 definitions that LI
+     changed and that use LI's own content (336 events, 70 decisions, 55 minor titles, 43 scripted
+     triggers, 34 traits…) now carry LI's master text in place of CleanSlate's, with CleanSlate's
+     renames applied and the marker `# LI: Lux Invicta's version (from master)…`. CleanSlate's fixes
+     inside those definitions are given up for now; compare against `cleanslate_beta7/` later.
+     111 LI-changed definitions that CleanSlate dropped entirely were skipped.
+   - **LI's on_action entries.** Phase 2 had skipped `on_actions`, so most of LI's own pulse and
+     trigger events weren't hooked up. 1,134 entries are now in `common/on_actions/li_on_actions.txt`
+     (CK2 merges on_action lists across files). 88 more pointed at events CleanSlate removed or
+     merged; those 134 events (with what they call) were restored from master into
+     `events/li_restored_events.txt`, and hooked up in `li_on_actions_restored.txt`. Checked: no event
+     ID defined twice, and no event listed twice in one on_action.
    - **CK2Plus AIO survey (2026-11-14)** (`mod/ck2plus_aio.zip`, 12 Nov 2026, CK2Plus with
      CleanSlate built in). Of LI's definitions: 435 are CK2Plus content (not vanilla; 28 identical to
      AIO, 407 changed since LI copied them); 1,555 are vanilla definitions CK2Plus also changed. Of

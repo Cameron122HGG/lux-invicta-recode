@@ -44,44 +44,35 @@ character_event = {
 }
 
 # Invitations Received (Vassals)
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.701
 	desc = EVTDESC_TOG_701
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
 
+	trigger = { NOT = { is_inaccessible_trigger = yes } }
+	
 	option = {
 		name = EVTOPTA_TOG_701
-
-		trigger = { religion_openly_finnish_or_reformed_trigger = yes }
-
+		trigger = {
+			religion_group = finnish_group
+		}
 		set_character_flag = attending_ukon_juhla
 		set_character_flag = do_not_disturb
-
-		character_event = {
-			id = TOG.899 # Safety catch flag clearing
-			days = 100
-		}
+		hidden_tooltip = { character_event = { id = TOG.899 days = 100 } } # Safety catch flag clearing
 	}
-
 	option = {
 		name = EVTOPTB_TOG_701
-
-		trigger = { religion_openly_finnish_or_reformed_trigger = no }
-
+		trigger = {
+			NOT = {religion_group = finnish_group}
+		}
 		FROM = {
-			show_scope_change = no
-
-			character_event = {
-				id = TOG.702
-				days = 5
-				tooltip = DIPLOWINDOW_REJECT
-			}
-
+			character_event = { id = TOG.702 days = 5 tooltip = DIPLOWINDOW_REJECT }
 			opinion = {
-				name = opinion_refused_ukon_juhla
+				modifier = opinion_refused_ukon_juhla
 				who = ROOT
 			}
 		}
@@ -1318,44 +1309,35 @@ character_event = {
 }
 
 # Invitations Received (Vassals)
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.751
 	desc = EVTDESC_TOG_751
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
 
+	trigger = { NOT = { is_inaccessible_trigger = yes } }
+	
 	option = {
 		name = EVTOPTA_TOG_701
-
-		trigger = { religion_openly_baltic_or_reformed_trigger = yes }
-
+		trigger = {
+			religion_group = baltic_group
+		}
 		set_character_flag = attending_uzgavenes
 		set_character_flag = do_not_disturb
-
-		character_event = {
-			id = TOG.899 # Safety catch flag clearing
-			days = 100
-		}
+		hidden_tooltip = { character_event = { id = TOG.899 days = 100 } } # Safety catch flag clearing
 	}
-
 	option = {
 		name = EVTOPTB_TOG_701
-
-		trigger = { religion_openly_baltic_or_reformed_trigger = no }
-
+		trigger = {
+			NOT = {religion_group = baltic_group}
+		}
 		FROM = {
-			show_scope_change = no
-
-			character_event = {
-				id = TOG.752
-				days = 5
-				tooltip = DIPLOWINDOW_REJECT
-			}
-
+			character_event = { id = TOG.752 days = 5 tooltip = DIPLOWINDOW_REJECT }
 			opinion = {
-				name = opinion_refused_uzgavenes
+				modifier = opinion_refused_uzgavenes
 				who = ROOT
 			}
 		}
@@ -2587,44 +2569,38 @@ character_event = {
 }
 
 # Invitations Received (Vassals)
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.801
 	desc = EVTDESC_TOG_801
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
 
+	trigger = { NOT = { is_inaccessible_trigger = yes } }
+	
 	option = {
 		name = EVTOPTA_TOG_701
-
-		trigger = { religion_openly_slavic_or_reformed_trigger = yes }
-
+		trigger = {
+			OR = {
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+			}
+		}
 		set_character_flag = attending_jarilo
 		set_character_flag = do_not_disturb
-
-		character_event = {
-			id = TOG.899 # Safety catch flag clearing
-			days = 100
-		}
+		hidden_tooltip = { character_event = { id = TOG.899 days = 100 } } # Safety catch flag clearing
 	}
-
 	option = {
 		name = EVTOPTB_TOG_701
-
-		trigger = { religion_openly_slavic_or_reformed_trigger = no }
-
+		trigger = {
+			NOT = {religion_group = slavic_group}
+		}
 		FROM = {
-			show_scope_change = no
-
-			character_event = {
-				id = TOG.802
-				days = 5
-				tooltip = DIPLOWINDOW_REJECT
-			}
-
+			character_event = { id = TOG.802 days = 5 tooltip = DIPLOWINDOW_REJECT }
 			opinion = {
-				name = opinion_refused_jarilo
+				modifier = opinion_refused_jarilo
 				who = ROOT
 			}
 		}
@@ -2655,58 +2631,52 @@ character_event = {
 }
 
 # Celebration Begins (Liege)
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.803
 	desc = EVTDESC_TOG_803
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
 	option = {
 		name = EVTOPTA_TOG_803
-
-		custom_tooltip = {
-			text = jarilo_deliberations
-
+		hidden_tooltip = {
+			random_vassal = {
+				limit = { 
+					has_character_flag = attending_jarilo
+					is_female = no
+					religion_group = slavic_group
+				}
+				character_event = { id = TOG.845 days = 2 }
+			}
+			character_event = { id = TOG.805 days = 10 }
+		}
+		hidden_tooltip = {
 			if = {
 				limit = {
-					any_vassal = {
-						has_character_flag = attending_jarilo
-						is_female = no
-						religion_openly_slavic_or_reformed_trigger = yes
+					NOT = {
+						any_vassal = {
+							has_character_flag = attending_jarilo
+							is_female = no
+							religion_group = slavic_group
+						}
 					}
 				}
-
-				random_vassal = {
-					limit = {
-						has_character_flag = attending_jarilo
-						is_female = no
-						religion_openly_slavic_or_reformed_trigger = yes
-					}
-
-					character_event = {
-						id = TOG.845 # Chosen to be Jarilo
-						days = 2
-					}
+				character_event = { id = TOG.848 days = 2 }
+			}
+		}
+		
+		custom_tooltip = { 
+			text = jarilo_deliberations
+			hidden_tooltip = {
+				any_vassal = {
+					limit = { has_character_flag = attending_jarilo }
+					character_event = { id = TOG.804 }
 				}
-			}
-			else = {
-				character_event = {
-					id = TOG.848 # Liege is Jarilo
-					days = 2
-				}
-			}
-
-			character_event = {
-				id = TOG.805
-				days = 10
-			}
-
-			any_vassal = {
-				limit = { has_character_flag = attending_jarilo }
-				character_event = { id = TOG.804 }
 			}
 		}
 	}

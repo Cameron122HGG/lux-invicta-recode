@@ -261,231 +261,184 @@ character_event = {
 ###########################################
 
 # Drunkard
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3100
 	desc = EVTDESC_RoI_3100
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
+	is_triggered_only = yes
+	
 	ai = no
-	min_age = 16
 	only_capable = yes
 	prisoner = no
+	min_age = 16
+	religion_group = indian_group
+
 
 	trigger = {
-		trait = drunkard
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = drunkard
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_drunkard_effect = yes
+			remove_trait = drunkard
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
 
 # Hedonist
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3101
 	desc = EVTDESC_RoI_3101
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-
+	
 	trigger = {
-		trait = hedonist
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
-		OR = {
-			religion = buddhist
-			religion = jain
-		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = hedonist
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
 			remove_trait = hedonist
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
 
 # Impaler
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3102
 	desc = EVTDESC_RoI_3102
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-
+	religion_group = indian_group
+	
 	trigger = {
-		trait = impaler
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = impaler
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_impaler_effect = yes
+			remove_trait = impaler
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
-
 	option = {
 		name = EVTOPTC_RoI_3100
-
 		piety = -50
-		reverse_imprison = event_target:guru
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			imprison = ROOT
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = -1
+			}
 		}
-
-		custom_tooltip = {
-			text = sacrilege_tooltip
-
-			any_realm_character = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+		custom_tooltip = { text = sacrilege_tooltip }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = { caste_religions_trigger = yes }
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 2
+					modifier = opinion_sacrilege
 				}
 			}
-
-			any_playable_ruler = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+			any_playable_ruler  = {
+				limit = { caste_religions_trigger = yes }
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 2
+					modifier = opinion_sacrilege
 				}
 			}
 		}
@@ -493,353 +446,278 @@ character_event = {
 }
 
 # Lustful
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3103
 	desc = EVTDESC_RoI_3103
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
-	has_dlc = "Rajas of India"
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-
+	
 	trigger = {
-		trait = lustful
-
-		OR = {
-			religion = buddhist
-			religion = jain
-		}
-
+		has_dlc = "Rajas of India"
+		guru_religions_trigger = yes
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = lustful
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_lustful_effect = yes
+			remove_trait = lustful
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
 
 # Gluttonous
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3104
 	desc = EVTDESC_RoI_3104
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
-	has_dlc = "Rajas of India"
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-
+	
 	trigger = {
-		trait = gluttonous
-
-		OR = {
-			religion = buddhist
-			religion = jain
-		}
-
+		has_dlc = "Rajas of India"
+		guru_religions_trigger = yes
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = gluttonous
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_gluttonous_effect = yes
+			remove_trait = gluttonous
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
 
 # Greedy
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3105
 	desc = EVTDESC_RoI_3105
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-
+	religion_group = indian_group
+	
 	trigger = {
-		trait = greedy
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = greedy
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_greedy_effect = yes
+			remove_trait = greedy
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
 
 # Envious
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3106
 	desc = EVTDESC_RoI_3106
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-
+	religion_group = indian_group
+	
 	trigger = {
-		trait = envious
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = envious
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_envious_effect = yes
+			remove_trait = envious
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
 
 # Wroth
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3107
 	desc = EVTDESC_RoI_3107
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-
+	religion_group = indian_group
+	
 	trigger = {
-		trait = wroth
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
-	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
+		trait = wroth
 	}
 
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_wroth_effect = yes
+			remove_trait = wroth
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
-
 	option = {
 		name = EVTOPTC_RoI_3100
-
 		piety = -50
-		reverse_imprison = event_target:guru
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			imprison = ROOT
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = -1
+			}
 		}
-
-		custom_tooltip = {
-			text = sacrilege_tooltip
-
-			any_realm_character = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+		custom_tooltip = { text = sacrilege_tooltip }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = { caste_religions_trigger = yes }
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 2
+					modifier = opinion_sacrilege
 				}
 			}
-
-			any_playable_ruler = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+			any_playable_ruler  = {
+				limit = { caste_religions_trigger = yes }
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 2
+					modifier = opinion_sacrilege
 				}
 			}
 		}
@@ -847,94 +725,79 @@ character_event = {
 }
 
 # Proud
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3108
 	desc = EVTDESC_RoI_3108
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
-	religion_group = indian_group
-	has_dlc = "Rajas of India"
-	min_age = 16
 	only_capable = yes
 	prisoner = no
-
+	min_age = 16
+	religion_group = indian_group
+	
 	trigger = {
-		trait = proud
-		has_dharmic_religion_trigger = yes
-
+		has_dlc = "Rajas of India"
+		guru_religions_trigger = yes
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = proud
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_proud_effect = yes
+			remove_trait = proud
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
-
 	option = {
 		name = EVTOPTC_RoI_3100
-
 		piety = -50
-		reverse_imprison = event_target:guru
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			imprison = ROOT
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = -1
+			}
 		}
-
-		custom_tooltip = {
-			text = sacrilege_tooltip
-
-			any_realm_character = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+		custom_tooltip = { text = sacrilege_tooltip }
+		hidden_tooltip = {
+			any_realm_character  = {
+				limit = { caste_religions_trigger = yes }
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 2
+					modifier = opinion_sacrilege
 				}
 			}
-
-			any_playable_ruler = {
-				limit = { has_dharmic_religion_trigger = yes }
-
+			any_playable_ruler  = {
+				limit = { caste_religions_trigger = yes }
 				opinion = {
-					name = opinion_sacrilege
 					who = ROOT
 					years = 2
+					modifier = opinion_sacrilege
 				}
 			}
 		}
@@ -942,196 +805,154 @@ character_event = {
 }
 
 # Arbitrary
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3109
 	desc = EVTDESC_RoI_3109
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
-	min_age = 16
 	only_capable = yes
 	prisoner = no
-
+	min_age = 16
+	religion_group = indian_group
+	
 	trigger = {
-		trait = arbitrary
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = arbitrary
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_arbitrary_effect = yes
+			remove_trait = arbitrary
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
 
 # Cynical
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3110
 	desc = EVTDESC_RoI_3110
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
-	min_age = 16
 	only_capable = yes
 	prisoner = no
-
+	min_age = 16
+	religion_group = indian_group
+	
 	trigger = {
-		trait = cynical
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = cynical
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_cynical_effect = yes
+			remove_trait = cynical
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
 
 # Cruel
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3111
 	desc = EVTDESC_RoI_3111
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-
+	religion_group = indian_group
+	
 	trigger = {
-		trait = cruel
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = cruel
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_cruel_effect = yes
+			remove_trait = cruel
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
@@ -1263,66 +1084,52 @@ character_event = {
 }
 
 # Paranoid
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3114
 	desc = EVTDESC_RoI_3114
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	ai = no
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-
+	religion_group = indian_group
+	
 	trigger = {
-		trait = paranoid
-
-		OR = {
-			has_dharmic_religion_trigger = yes
-			religion_openly_bon_or_reformed_trigger = yes
-		}
-
+		guru_religions_trigger = yes
 		OR = {
 			has_dlc = "Rajas of India"
 			has_dlc = "Jade Dragon"
 		}
-
 		any_courtier = {
 			has_minor_title = title_guru
 			NOT = { has_character_flag = fake_guru }
 		}
+		trait = paranoid
 	}
-
-	immediate = {
-		random_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	
 	option = {
 		name = EVTOPTA_RoI_3100
-
 		prestige = -20
-
 		random = {
 			chance = 10
-			remove_trait_paranoid_effect = yes
+			remove_trait = paranoid
 		}
 	}
-
 	option = {
 		name = EVTOPTB_RoI_3100
-
 		piety = -20
-
-		reverse_opinion = {
-			name = opinion_unhappy
-			who = event_target:guru
-			years = 1
+		any_courtier = {
+			limit = { has_minor_title = title_guru }
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 1
+			}
 		}
 	}
 }
@@ -1712,70 +1519,56 @@ character_event = {
 ###########################################
 
 # Meditation helps
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = RoI.3402
 	title = EVTTITLE_RoI_3402
 	desc = EVTDESC_RoI_3402
 	picture = GFX_evt_bishop
 	border = GFX_event_narrative_frame_religion
-	portrait = event_target:guru
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
-
-	only_playable = yes
-	religion = buddhist
-	has_dlc = "Rajas of India"
-	only_capable = yes
-	prisoner = no
-	min_age = 16
-
-	trigger = {
-		OR = {
-			trait = stressed
-			trait = depressed
-		}
-
-		any_courtier = {
-			has_minor_title = title_guru
-			NOT = { has_character_flag = fake_guru }
-		}
-	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 0.5
-
-			any_courtier = {
-				has_minor_title = title_guru
-				NOT = { trait = genius } # Doesn't always work
-			}
-		}
-	}
-
-	immediate = {
-		any_courtier = {
-			limit = { has_minor_title = title_guru }
-			save_event_target_as = guru
-		}
-	}
-
+	is_triggered_only = yes
+	
 	option = {
-		name = {
-			text = EVTOPTA_RoI_3402
-			trigger = { religion = hindu }
+		name = EVTOPTA_RoI_3402
+		trigger = {
+			religion = hindu
 		}
-		name = {
-			text = EVTOPTB_RoI_3402
-			trigger = { religion = buddhist }
+		if = {
+			limit = { trait = stressed }
+			remove_trait = stressed
 		}
-		name = {
-			text = EVTOPTC_RoI_3402
-			trigger = { religion = jain }
+		if = {
+			limit = { trait = depressed }
+			remove_trait = depressed
 		}
-
-		remove_trait_silently_stressed_effect = yes
-		remove_trait_silently_depressed_effect = yes
+	}
+	option = {
+		name = EVTOPTB_RoI_3402
+		trigger = {
+			guru_religions_trigger = yes
+		}
+		if = {
+			limit = { trait = stressed }
+			remove_trait = stressed
+		}
+		if = {
+			limit = { trait = depressed }
+			remove_trait = depressed
+		}
+	}
+	option = {
+		name = EVTOPTC_RoI_3402
+		trigger = {
+			religion = jain
+		}
+		if = {
+			limit = { trait = stressed }
+			remove_trait = stressed
+		}
+		if = {
+			limit = { trait = depressed }
+			remove_trait = depressed
+		}
 	}
 }

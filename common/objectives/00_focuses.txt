@@ -440,100 +440,83 @@ focus_intrigue = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 focus_hunting = {
 	type = character
-
-	modifier_name = HUNTING_FOCUS
-
-	# Modifiers
-	martial = 2
-	health = 1
-
+	
+	modifier_name = "HUNTING_FOCUS"
+	
 	potential = {
 		is_playable = yes
 	}
-
+	
 	allow = {
 		is_adult = yes
-		pacifist = no
+		NOT = { trait = incapable }
+		non_hunting_trigger = no
+		NOT = { pacifist = yes }
 		prisoner = no
-		is_incapable = no
 	}
-
-	# Focuses have no success conditions
-	success = {
-		always = no
-	}
-
-	abort = {
-		OR = {
-			prisoner = yes
-			is_playable = no
-			is_incapable = yes
-		}
-	}
-
-	abort_effect = {
-		clear_delayed_event = { id = WoL.5004 }
-		clear_delayed_event = { id = WoL.5010 }
-		clear_delayed_event = { id = WoL.5011 }
-	}
-
-	# AI Pick chance - based on personality, not needs!
+	
+	# AI Pick chance
 	chance = {
 		factor = 100
-
-		trigger = {
-			NOT = { trait = infirm }
+		
+		modifier = {
+			factor = 0
+			trait = infirm
 		}
-
-		mult_modifier = {
-			factor = 0.1
-
-			trigger_if = {
-				limit = { is_female = yes }
-
-				religion_is_matriarchal_trigger = no
-
-				NOR = {
-					has_law = status_of_women_4
-
-					has_game_rule = {
-						name = gender
-						value = all
-					}
-				}
-			}
-			trigger_else = {
-				religion_is_matriarchal_trigger = yes
-			}
+		modifier = {
+			factor = 0.2
+			is_female = yes
+			NOT = { has_religion_feature = religion_matriarchal }
 		}
-
-		mult_modifier = {
+		modifier = {
+			factor = 0.2
+			is_female = no
+			has_religion_feature = religion_matriarchal
+		}
+		modifier = {
 			factor = 0.5
 			trait = craven
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			trait = brave
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = hunter
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 2.0
 			trait = falconer
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
 			has_character_modifier = african_adulthood_rites_2
 		}
 	}
+	
+	# Focuses have no success conditions
+	success = {
+		always = no
+	}
+	
+	abort = {
+		OR = {
+			prisoner = yes
+			trait = incapable
+			is_playable = no
+		}
+	}
+	
+	abort_effect = {
+	}
+	
+	# MODIFIERS
+	martial = 2
+	health = 1
 }
 
 focus_war = {

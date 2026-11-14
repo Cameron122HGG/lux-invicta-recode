@@ -3444,198 +3444,140 @@ offmap_decisions = {
 		}
 	}
 
-	chinese_grace_offer_artifact = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+chinese_grace_offer_artifact = {
+		only_playable = yes
 		button_name = offmap_gifts
-
+		
 		third_party_filter = artifacts
 		ai_third_party_filter = artifacts
 		third_party = FROM
 		ai_check_interval = 60
-
 		show_third_party_potential = yes
-
-		only_playable = yes
-
+	
 		from_potential = {
 			has_dlc = "Jade Dragon"
-			is_landed = yes
 			mercenary = no
 			holy_order = no
+			is_landed = yes
 		}
 
 		potential = {
 			is_offmap_tag = offmap_china
-
-			trigger_if = {
-				limit = { ai = yes }
-
-				# Allow is checked for each valid 3rd party, so it is cheaper to check it here for the AI
-				china_offmap_tribute_decisions_enabled_trigger = yes
-			}
 		}
 
 		allow = {
 			show_only_failed_conditions = yes
-
 			FROM = {
 				show_scope_change = no
-
 				prisoner = no
-				is_incapable = no
+				NOT = { trait = incapable }
 				is_inaccessible_trigger = no
 			}
-
-			trigger_if = {
-				limit = { ai = no }
-
-				# AI has already checked this in the potential
-				china_offmap_tribute_decisions_enabled_trigger = yes
-			}
-
-			# china_offmap_decisions_enabled_trigger = yes # leave in please, to be used if the tooltip for china_offmap_tribute_decisions_enabled_trigger changes and we need to reference things uniquely again
+			# china_offmap_decisions_enabled_trigger = yes #leave in please, to be used if the tooltip for china_offmap_tribute_decisions_enabled_trigger changes and we need to reference things uniquely again
 			china_offmap_tribute_decisions_enabled_trigger = yes
 		}
-
+		
 		third_party_potential = {
-			# show_only_failed_conditions = yes
-
+			show_only_failed_conditions = yes
 			FROMFROM = {
 				show_scope_change = no
-
 				custom_tooltip = {
 					text = send_artifact_potential_tt
-
 					quality > 2
-
 					NOR = {
-						has_artifact_flag = flag_considering_donation
+						has_artifact_flag = flag_considering_donation 
 						has_artifact_flag = curse
 						has_artifact_flag = chinese
-						artifact_type = crown_hre
-						artifact_type = crown_byzantine
-						artifact_type = crown_fylkir
-						artifact_type = crown_tengri_fylkir
-						artifact_type = crown_slavic_fylkir
-						artifact_type = crown_romuva_fylkir
-						artifact_type = crown_finnish_fylkir
-						artifact_type = crown_west_african_fylkir
-						artifact_type = crown_zun_fylkir
-						artifact_type = scepter_hellenic_fylkir
-						artifact_type = scepter_bon_fylkir
-						artifact_type = crown_aztec_fylkir
-						artifact_type = crown_pahlavi
 					}
 				}
 			}
 		}
-
+		
 		third_party_allow = {
+			
 		}
-
+		
 		third_party_score = {
 			factor = 500
-
+			
 			additive_modifier = {
 				value = 4500
-
-				FROMFROM = {
+				FROMFROM = { 
 					quality == 4
 				}
 			}
-
 			additive_modifier = {
 				value = 9500
-
-				FROMFROM = {
+				FROMFROM = { 
 					quality == 5
 				}
 			}
-
 			additive_modifier = {
 				value = -200
-
 				FROMFROM = {
 					quality < 4
-					has_artifact_flag = lore # Magnum Opus book
+					has_artifact_flag = lore #Magnum Opus book
 				}
 			}
-
 			additive_modifier = {
 				value = -3000
-
 				FROMFROM = {
 					quality == 4
-					has_artifact_flag = lore # Magnum Opus book
+					has_artifact_flag = lore #Magnum Opus book
 				}
 			}
-
 			additive_modifier = {
 				value = -250
-
 				FROMFROM = {
 					quality < 4
 					has_artifact_flag = created
 				}
 			}
-
 			additive_modifier = {
 				value = -3500
-
 				FROMFROM = {
 					quality == 4
 					has_artifact_flag = created
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-
 				offmap_china = {
-					show_scope_change = no
-
+					show_scope_change = no 
 					offmap_has_like = likes_wealth
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-
 				offmap_china = {
-					show_scope_change = no
-
+					show_scope_change = no 
 					offmap_has_dislike = likes_wealth
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-
-				FROM = {
+				FROM = { 
 					show_scope_change = no
-
 					liked_by_offmap = {
 						type = offmap_china
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-
 				FROM = {
-					show_scope_change = no
-
+					show_scope_change = no 
 					disliked_by_offmap = {
 						type = offmap_china
 					}
 				}
 			}
 		}
-
+	
 		effect = {
 			FROM = {
 				show_scope_change = no
-
 				add_offmap_currency = {
 					offmap = offmap_china
 					value = local_third_party_score
@@ -3644,7 +3586,6 @@ offmap_decisions = {
 
 			# Like/Dislike effect description
 			#################################
-
 			if = {
 				limit = {
 					OR = {
@@ -3653,35 +3594,31 @@ offmap_decisions = {
 								type = offmap_china
 							}
 						}
-
 						offmap_china = {
 							offmap_has_like = likes_wealth
 						}
 					}
-				}
-
-				if = {
-					limit = {
-						OR = {
-							FROM = {
-								disliked_by_offmap = {
-									type = offmap_china
-								}
-							}
-
-							offmap_china = {
-								offmap_has_dislike = likes_wealth
+					NOR = {
+						FROM = {
+							disliked_by_offmap = {
+								type = offmap_china
 							}
 						}
+						offmap_china = {
+							offmap_has_dislike = likes_wealth
+						}
 					}
-
-					custom_tooltip = { text = chinese_emperor_has_ambiguous_feelings_of_THIS_tt }
 				}
-				else = {
-					custom_tooltip = { text = chinese_emperor_likes_THIS_tt }
+				e_china_west_governor = {
+					show_scope_change = no
+					offmap_power = {
+						show_scope_change = no
+						custom_tooltip = { text = likes_tt }
+					}
 				}
 			}
-			else_if = {
+			
+			if = {
 				limit = {
 					OR = {
 						FROM = {
@@ -3689,70 +3626,121 @@ offmap_decisions = {
 								type = offmap_china
 							}
 						}
-
+						offmap_china = {
+							offmap_has_dislike = likes_wealth
+						}
+					}
+					NOR = {
+						FROM = {
+							liked_by_offmap = {
+								type = offmap_china
+							}
+						}
+						offmap_china = {
+							offmap_has_like = likes_wealth
+						}
+					}
+				}
+				e_china_west_governor = {
+					show_scope_change = no
+					offmap_power = {
+						show_scope_change = no
+						custom_tooltip = { text = dislikes_tt }
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						FROM = {
+							liked_by_offmap = {
+								type = offmap_china
+							}
+						}
+						offmap_china = {
+							offmap_has_like = likes_wealth
+						}
+					}
+					OR = {
+						FROM = {
+							disliked_by_offmap = {
+								type = offmap_china
+							}
+						}
 						offmap_china = {
 							offmap_has_dislike = likes_wealth
 						}
 					}
 				}
-
-				custom_tooltip = { text = chinese_emperor_dislikes_THIS_tt }
+				e_china_west_governor = {
+					show_scope_change = no
+					offmap_power = {
+						show_scope_change = no
+						custom_tooltip = { text = likes_but_dislikes_tt }
+					}
+				}
 			}
-
 			#################################
-
-			FROM = {
-				set_character_flag = jd_gifting_artifact
-				sound_effect = china_grace_gain
-			#	save_event_target_as = target_tribute_sender
-
+			hidden_tooltip = {
 				if = {
 					limit = {
-						ai = no
-						is_ironman = yes
-
-						ROOT_FROMFROM = {
+						FROM = {
+							ai = no
+						}
+						FROMFROM = {
 							quality > 3
 						}
 					}
-
-					set_character_flag = achievement_a_curious_trinket
+					FROM = {
+						set_character_flag = achievement_a_curious_trinket
+					}
 				}
-
-				letter_event = { id = JD.20024 }
+			}
+			save_event_target_as = target_governor
+			FROM = {
+				sound_effect = china_grace_gain
+				save_event_target_as = target_tribute_sender
 			}
 
-			hidden_effect = { # To reduce cluttered tooltip (effect already heavily implied...)
-				# offmap_china = {
-				# 	offmap_ruler = {
-				#		ROOT_FROMFROM = {
-				#			show_scope_change = no
-				#
-				#			tooltip = {
-				#				transfer_artifact = {
-				#					to = PREV
-				#					from = ROOT_FROM
-				#				}
-				#			}
-				#
-				#			unsafe_destroy_artifact = yes
-				#		}
-				#	}
-				# }
-
-				FROMFROM = {
-					unsafe_destroy_artifact = yes
+			hidden_effect = { #to reduce cluttered tooltip (effect already heavily implied...)
+				offmap_china = {
+					offmap_ruler = {
+						ROOT_FROMFROM = {
+							show_scope_change = no
+							tooltip = {
+								transfer_artifact = {
+									to = PREV
+									from = ROOT_FROM
+								}
+							}
+							hidden_effect = { unsafe_destroy_artifact = yes }
+						}
+					}
 				}
+			}
+
+			hidden_effect = {
+				FROM = {
+					set_character_flag = jd_gifting_artifact
+				}
+				hidden_effect = { offmap_china = { governor = { character_event = { id = JD.20023 } } } }
 			}
 		}
-
+	
+		revoke_allowed = {
+			always = no
+		}
+	
 		ai_will_do = {
-			factor = 0.1
-
-			trigger = {
+			factor = 1
+			modifier = {
+				factor = 0
 				FROMFROM = {
-					quality < 4
+					quality > 3
 				}
+			}
+			modifier = {
+				factor = 0.1 # slow down
 			}
 		}
 	}

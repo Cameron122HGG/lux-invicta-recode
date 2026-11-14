@@ -12,184 +12,166 @@ namespace = TOG
 ###ANCESTOR WORSHIP DECISION EVENTS###
 
 # Make a request
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7000
 	desc = EVTDESC_TOG_7000
 	border = GFX_event_normal_frame_religion
 	picture = GFX_evt_tribal_shrine
 
-	is_triggered_only = yes # ancestor_worship in minor_decisions.txt
+	is_triggered_only = yes
 
-	# Health
+	trigger = {
+		worships_ancestors_trigger = yes
+	}
+
+	#Health
 	option = {
 		name = EVTOPTA_TOG_7000
-
-		trigger = {
-			OR = {
-				is_ill = yes
-				health < 4
-				has_character_flag = developing_illness
-			}
-		}
-
-		set_character_flag = ancestors_health
-
+		
 		ai_chance = {
 			factor = 100
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 2
-				health < 3
+				NOT = { health = 3 }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = paranoid
 			}
 		}
+		
+		trigger = { 
+			OR = {
+				has_disease_trigger = yes
+				trait = ill
+				NOT = { health = 4 }
+				has_character_flag = developing_illness
+			}
+		}
+		set_character_flag = ancestors_health
+		hidden_tooltip = { character_event = { id = TOG.7001 days = 3 } }
 	}
 
-	# Relationships - family, friends & love
+	#Relationships - family, friends & love
 	option = {
 		name = EVTOPTB_TOG_7000
-
-		trigger = {
-			NOT = { trait = cruel }
-		}
-
-		set_character_flag = ancestors_relationships
-
+		
 		ai_chance = {
 			factor = 33
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 2
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = gregarious
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = lustful
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = socializer
 			}
 		}
+		
+		trigger = {	NOT = { trait = cruel } }
+		set_character_flag = ancestors_relationships
+		hidden_tooltip = { character_event = { id = TOG.7001 days = 3 } }
 	}
 
-	# War
+	#War
 	option = {
 		name = EVTOPTC_TOG_7000
-
-		trigger = {
-			NOT = { trait = craven }
-		}
-
-		set_character_flag = ancestors_war
-
+		
 		ai_chance = {
 			factor = 33
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 2
 				trait = brave
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				is_strong_trigger = yes
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = ambitious
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = strategist
 			}
 		}
+		
+		trigger = {	NOT = { trait = craven } }
+		set_character_flag = ancestors_war
+		hidden_tooltip = { character_event = { id = TOG.7001 days = 3 } }
 	}
 
-	# Prosperity
+	#Prosperity
 	option = {
 		name = EVTOPTD_TOG_7000
-
-		trigger = {	is_nomadic = no }
-
-		set_character_flag = ancestors_prosperity
-
+		
 		ai_chance = {
 			factor = 33
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 2
 				trait = diligent
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = patient
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = content
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = gardener
 			}
 		}
+		
+		trigger = {	is_nomadic = no }
+		set_character_flag = ancestors_prosperity
+		hidden_tooltip = { character_event = { id = TOG.7001 days = 3 } }
 	}
 
-	# Wisdom
+	#Wisdom
 	option = {
 		name = EVTOPTE_TOG_7000
-
-		trigger = { is_dumb_trigger = no }
-
-		set_character_flag = ancestors_wisdom
-
+		
 		ai_chance = {
 			factor = 33
-
-			mult_modifier = {
+			
+			modifier = {
 				factor = 2
 				trait = erudite
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				is_smart_trigger = yes
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = humble
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = scholar
 			}
 		}
-	}
-
-	after = {
-		character_event = {
-			id = TOG.7001
-			days = 3
-		}
+		
+		trigger = {	is_dumb_trigger = no }
+		set_character_flag = ancestors_wisdom
+		hidden_tooltip = { character_event = { id = TOG.7001 days = 3 } }
 	}
 }
 
@@ -1580,21 +1562,26 @@ character_event = {
 # WAR
 
 # Brilliant commander appears
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7030
 	desc = EVTDESC_TOG_7030
-	picture = GFX_evt_melee
 	border = GFX_event_normal_frame_war
+	picture = GFX_evt_melee
 
 	is_triggered_only = yes
 
 	immediate = {
-		if = {
+		if = { 
 			limit = {
-				OR = {
+				OR = { 
 					has_law = status_of_women_3
-					religion_is_matriarchal_trigger = yes
-					gender_equality_trigger = yes
+					has_law = status_of_women_4
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+					has_religion_feature = religion_matriarchal
 				}
 			}
 
@@ -1602,12 +1589,11 @@ character_event = {
 				female = yes
 				age = 35
 				random_traits = yes
-				add_trait = strong
-				add_trait = brave
-				add_trait = brilliant_strategist
-				add_trait = holy_warrior
+				trait = strong
+				trait = brave
+				trait = brilliant_strategist
+				trait = holy_warrior
 			}
-
 			new_character = {
 				remove_trait = frail
 				remove_trait = weak
@@ -1618,18 +1604,28 @@ character_event = {
 				save_event_target_as = ancestors_commander
 			}
 		}
+		if = { 
+			limit = {
+				NOR = { 
+					feminist_religions_trigger = yes
+					has_law = status_of_women_3
+					has_law = status_of_women_4
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
 
-		else = {
 			create_character = {
 				female = no
 				age = 35
 				random_traits = yes
-				add_trait = strong
-				add_trait = brave
-				add_trait = brilliant_strategist
-				add_trait = holy_warrior
+				trait = strong
+				trait = brave
+				trait = brilliant_strategist
+				trait = holy_warrior
 			}
-
 			new_character = {
 				remove_trait = frail
 				remove_trait = weak
@@ -1645,10 +1641,12 @@ character_event = {
 	option = {
 		name = EVTOPTA_TOG_7030
 
-		reverse_opinion = {
-			name = opinion_loyal_servant
-			who = event_target:ancestors_commander
-			years = 100
+		event_target:ancestors_commander = {
+			opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				months = 1200
+			}
 		}
 	}
 }
@@ -2077,10 +2075,11 @@ character_event = {
 ### MAIN DEITY EVENTS ###
 
 # Main deity event sender
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7100
 
-	is_triggered_only = yes # pick_main_deity, minor_decisions.txt
+	is_triggered_only = yes
 	hide_window = yes
 
 	trigger = {
@@ -2088,426 +2087,288 @@ character_event = {
 	}
 
 	immediate = {
+
 		random_list = {
-			# Stat events
+			#Stat events
 			20 = {
 				#Diplomacy Dieties
 				if = {
 					limit = {
+						NOT = { diplomacy = 15 }
 						OR = {
 							has_character_modifier = follower_of_dievas
 							has_character_modifier = follower_of_akka
-							has_character_modifier = follower_of_ayyur
+							has_character_modifier = follower_of_yemoja
 						}
-
-						diplomacy < 15
 					}
-
 					character_event = { id = TOG.7500 }
 				}
-
-				# Martial Dieties
-				else_if = {
+				#Martial Dieties
+				if = {
 					limit = {
+						NOT = { martial = 15 }
 						OR = {
 							has_character_modifier = follower_of_perkunas
 							has_character_modifier = follower_of_taipo_and_mielikki
-							has_character_modifier = follower_of_dongo
+							has_character_modifier = follower_of_shango
 							has_character_modifier = follower_of_perun
 						}
-
-						martial < 15
 					}
-
 					character_event = { id = TOG.7501 }
 				}
-
-				# Stewardship Dieties
-				else_if = {
+				#Stewardship Dieties
+				if = {
 					limit = {
-						stewardship < 15
-
+						NOT = { stewardship = 15 }
 						OR = {
 							has_character_modifier = follower_of_zemyna
 							has_character_modifier = follower_of_ukko
-							has_character_modifier = follower_of_bida
+							has_character_modifier = follower_of_ekwensu
 							has_character_modifier = follower_of_jarilo
 						}
 					}
-
 					character_event = { id = TOG.7502 }
 				}
-
-				# Intrigue Dieties
-				else_if = {
+				#Intrigue Dieties
+				if = {
 					limit = {
+						NOT = { intrigue = 15 }
 						OR = {
 							has_character_modifier = follower_of_velnias
 							has_character_modifier = follower_of_lempo
 							has_character_modifier = follower_of_veles
-							has_character_modifier = follower_of_anansi
 						}
-
-						intrigue < 15
 					}
-
 					character_event = { id = TOG.7503 }
 				}
-
-				# Learning Dieties
-				else_if = {
+				#Learning Dieties
+				if = {
 					limit = {
+						NOT = { learning = 15 }
 						OR = {
-							has_character_modifier = follower_of_tsumburbura
+							has_character_modifier = follower_of_orunmila
 							has_character_modifier = follower_of_morana
 						}
-
-						learning < 15
 					}
-
 					character_event = { id = TOG.7504 }
 				}
 			}
-
-			# Friendship events
+			#Friendship events
 			15 = {
-				trigger = {
-					any_courtier_or_vassal = {
-						trigger_if = {
-							limit = { has_character_modifier = follower_of_perun }
-							ROOT = { has_character_modifier = follower_of_perun }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_ukko }
-							ROOT = { has_character_modifier = follower_of_ukko }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_perkunas }
-							ROOT = { has_character_modifier = follower_of_perkunas }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_dongo }
-							ROOT = { has_character_modifier = follower_of_dongo }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_veles }
-							ROOT = { has_character_modifier = follower_of_veles }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_jarilo }
-							ROOT = { has_character_modifier = follower_of_jarilo }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_morana }
-							ROOT = { has_character_modifier = follower_of_morana }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_ayyur }
-							ROOT = { has_character_modifier = follower_of_ayyur }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_bida }
-							ROOT = { has_character_modifier = follower_of_bida }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_tsumburbura }
-							ROOT = { has_character_modifier = follower_of_tsumburbura }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_akka }
-							ROOT = { has_character_modifier = follower_of_akka }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_taipo_and_mielikki }
-							ROOT = { has_character_modifier = follower_of_taipo_and_mielikki }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_lempo }
-							ROOT = { has_character_modifier = follower_of_lempo }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_dievas }
-							ROOT = { has_character_modifier = follower_of_dievas }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_velnias }
-							ROOT = { has_character_modifier = follower_of_velnias }
-						}
-						trigger_else = {
-							has_character_modifier = follower_of_zemyna
-							ROOT = { has_character_modifier = follower_of_zemyna }
-						}
-
-						ai = yes
-						is_inaccessible_or_incapable_trigger = no
-
-						NOR = {
-							is_friend = ROOT
-							is_rival = ROOT
-							is_lover = ROOT
-						}
-					}
-				}
-
 				random_courtier_or_vassal = {
 					limit = {
-						trigger_if = {
-							limit = { has_character_modifier = follower_of_perun }
-							ROOT = { has_character_modifier = follower_of_perun }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_ukko }
-							ROOT = { has_character_modifier = follower_of_ukko }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_perkunas }
-							ROOT = { has_character_modifier = follower_of_perkunas }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_dongo }
-							ROOT = { has_character_modifier = follower_of_dongo }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_veles }
-							ROOT = { has_character_modifier = follower_of_veles }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_jarilo }
-							ROOT = { has_character_modifier = follower_of_jarilo }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_morana }
-							ROOT = { has_character_modifier = follower_of_morana }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_ayyur }
-							ROOT = { has_character_modifier = follower_of_ayyur }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_bida }
-							ROOT = { has_character_modifier = follower_of_bida }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_tsumburbura }
-							ROOT = { has_character_modifier = follower_of_tsumburbura }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_akka }
-							ROOT = { has_character_modifier = follower_of_akka }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_taipo_and_mielikki }
-							ROOT = { has_character_modifier = follower_of_taipo_and_mielikki }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_lempo }
-							ROOT = { has_character_modifier = follower_of_lempo }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_dievas }
-							ROOT = { has_character_modifier = follower_of_dievas }
-						}
-						trigger_else_if = {
-							limit = { has_character_modifier = follower_of_velnias }
-							ROOT = { has_character_modifier = follower_of_velnias }
-						}
-						trigger_else = {
-							has_character_modifier = follower_of_zemyna
-							ROOT = { has_character_modifier = follower_of_zemyna }
-						}
-
 						ai = yes
-						is_inaccessible_or_incapable_trigger = no
-
 						NOR = {
 							is_friend = ROOT
 							is_rival = ROOT
 							is_lover = ROOT
+							prisoner = yes
+							trait = incapable
+							is_inaccessible_trigger = yes
+							is_alive = no
+						}
+						OR = {
+							AND = {
+								has_character_modifier = follower_of_perun
+								ROOT = { has_character_modifier = follower_of_perun }
+							}
+							AND = {
+								has_character_modifier = follower_of_ukko
+								ROOT = { has_character_modifier = follower_of_ukko }
+							}
+							AND = {
+								has_character_modifier = follower_of_perkunas
+								ROOT = { has_character_modifier = follower_of_perkunas }
+							}
+							AND = {
+								has_character_modifier = follower_of_shango
+								ROOT = { has_character_modifier = follower_of_shango }
+							}
+							AND = {
+								has_character_modifier = follower_of_veles
+								ROOT = { has_character_modifier = follower_of_veles }
+							}
+							AND = {
+								has_character_modifier = follower_of_jarilo
+								ROOT = { has_character_modifier = follower_of_jarilo }
+							}
+							AND = {
+								has_character_modifier = follower_of_morana
+								ROOT = { has_character_modifier = follower_of_morana }
+							}
+							AND = {
+								has_character_modifier = follower_of_yemoja
+								ROOT = { has_character_modifier = follower_of_yemoja }
+							}
+							AND = {
+								has_character_modifier = follower_of_ekwensu
+								ROOT = { has_character_modifier = follower_of_ekwensu }
+							}
+							AND = {
+								has_character_modifier = follower_of_orunmila
+								ROOT = { has_character_modifier = follower_of_orunmila }
+							}
+							AND = {
+								has_character_modifier = follower_of_akka
+								ROOT = { has_character_modifier = follower_of_akka }
+							}
+							AND = {
+								has_character_modifier = follower_of_taipo_and_mielikki
+								ROOT = { has_character_modifier = follower_of_taipo_and_mielikki }
+							}
+							AND = {
+								has_character_modifier = follower_of_lempo
+								ROOT = { has_character_modifier = follower_of_lempo }
+							}
+							AND = {
+								has_character_modifier = follower_of_dievas
+								ROOT = { has_character_modifier = follower_of_dievas }
+							}
+							AND = {
+								has_character_modifier = follower_of_velnias
+								ROOT = { has_character_modifier = follower_of_velnias }
+							}
+							AND = {
+								has_character_modifier = follower_of_zemyna
+								ROOT = { has_character_modifier = follower_of_zemyna }
+							}
 						}
 					}
-
-					save_event_target_as = deity_friend
+					character_event = { id = TOG.7505 }
 				}
-
-				character_event = { id = TOG.7506 }
 			}
-
-			# Theme events set 1
+			#Theme events set 1
 			15 = {
-				# Thunder deities
+				#Thunder deities
 				if = {
 					limit = {
 						OR = {
 							has_character_modifier = follower_of_perun
 							has_character_modifier = follower_of_ukko
 							has_character_modifier = follower_of_perkunas
-							has_character_modifier = follower_of_dongo
+							has_character_modifier = follower_of_shango
 						}
-
 						OR = {
 							any_spouse = {
+								NOT = { trait = brave } 
 								ai = yes
 								prisoner = no
-
-								NOR = {
-									trait = brave
-									has_character_flag = scared_of_thunder
-								}
+								NOT = { has_character_flag = scared_of_thunder }
 							}
-
 							any_lover = {
+								NOT = { trait = brave } 
 								ai = yes
 								prisoner = no
-
-								NOR = {
-									trait = brave
-									has_character_flag = scared_of_thunder
-								}
+								NOT = { has_character_flag = scared_of_thunder }
 							}
-
 							any_ward = {
-								ai = yes
+								NOT = { trait = brave } 
+								NOT = { trait = willful }
 								prisoner = no
-
-								NOR = {
-									trait = brave
-									trait = willful
-									has_character_flag = scared_of_thunder
-								}
+								NOT = { has_character_flag = scared_of_thunder } 
 							}
-
 							any_child = {
-								ai = yes
 								is_adult = no
+								NOT = { trait = willful } 
+								NOT = { trait = brave }
 								prisoner = no
-
-								NOR = {
-									trait = brave
-									trait = willful
-									has_character_flag = scared_of_thunder
-								}
+								NOT = { has_character_flag = scared_of_thunder }
 							}
-
-							player_heir = {
-								ai = yes
-								is_adult = no
+							current_heir = {
+								is_adult = no 
 								prisoner = no
-
-								NOR = {
-									trait = brave
-									trait = willful
-									has_character_flag = scared_of_thunder
-								}
+								NOT = { trait = willful } 
+								NOT = { trait = brave }
+								NOT = { has_character_flag = scared_of_thunder }
 							}
 						}
 					}
-
-					# Lowest matching character determines who features in this event
 					random_spouse = {
-						limit = {
+						limit = { 
+							NOT = { trait = brave } 
 							ai = yes
 							prisoner = no
-
-							NOR = {
-								trait = brave
-								has_character_flag = scared_of_thunder
-							}
+							NOT = { has_character_flag = scared_of_thunder }
 						}
-
 						save_event_target_as = thunder_target
 					}
-
 					random_lover = {
-						limit = {
+						limit = { 
+							NOT = { trait = brave } 
 							ai = yes
 							prisoner = no
-
-							NOR = {
-								trait = brave
-								has_character_flag = scared_of_thunder
-							}
+							NOT = { has_character_flag = scared_of_thunder }
 						}
-
 						save_event_target_as = thunder_target
 					}
-
 					random_ward = {
-						limit = {
-							ai = yes
+						limit = { 
+							NOT = { trait = brave } 
+							NOT = { trait = willful }
 							prisoner = no
-
-							NOR = {
-								trait = brave
-								trait = willful
-								has_character_flag = scared_of_thunder
-							}
+							NOT = { has_character_flag = scared_of_thunder } 
 						}
-
 						save_event_target_as = thunder_target
 					}
-
 					random_child = {
-						limit = {
-							ai = yes
+						limit = { 
 							is_adult = no
+							NOT = { trait = willful } 
+							NOT = { trait = brave }
 							prisoner = no
-
-							NOR = {
-								trait = brave
-								trait = willful
-								has_character_flag = scared_of_thunder
-							}
+							NOT = { has_character_flag = scared_of_thunder }
 						}
-
 						save_event_target_as = thunder_target
 					}
-
-					player_heir = {
+					current_heir = {
 						if = {
-							limit = {
-								ai = yes
-								is_adult = no
+							limit = { 
+								is_adult = no 
 								prisoner = no
-
-								NOR = {
-									trait = brave
-									trait = willful
-									has_character_flag = scared_of_thunder
-								}
+								NOT = { trait = willful } 
+								NOT = { trait = brave }
+								NOT = { has_character_flag = scared_of_thunder }
 							}
-
 							save_event_target_as = thunder_target
 						}
 					}
-
-					character_event = { id = TOG.7508 }
+					event_target:thunder_target = { character_event = { id = TOG.7507 } }
 				}
-
-				# Sexy deities
-				else_if = {
+				#Sexy deities
+				if = {
 					limit = {
 						OR = {
 							has_character_modifier = follower_of_lempo
 							has_character_modifier = follower_of_jarilo
 						}
-
 						any_courtier_or_vassal = {
-							is_valid_romance_target = ROOT
-							ai = yes
-							prisoner = no
 							NOT = { is_close_relative = ROOT }
+							ai = yes
+							root_attraction_trigger = yes
+							is_adult = yes
+							prisoner = no
+							is_alive = yes
 						}
 					}
-
 					random_courtier_or_vassal = {
 						limit = {
-							is_valid_romance_target = ROOT
-							ai = yes
-							prisoner = no
 							NOT = { is_close_relative = ROOT }
+							ai = yes
+							root_attraction_trigger = yes
+							is_adult = yes
+							prisoner = no
+							is_alive = yes
 						}
-
-						preferred_limit = {
+						save_event_target_as = pagan_lover
+					}
+					random_courtier_or_vassal = {
+						limit = {
+							NOT = { is_close_relative = ROOT }
+							ai = yes
+							root_attraction_trigger = yes
+							is_adult = yes
+							prisoner = no
+							is_alive = yes
 							OR = {
 								trait = lustful
 								has_fair_trait_trigger = yes
@@ -2515,274 +2376,201 @@ character_event = {
 								has_character_modifier = follower_of_jarilo
 							}
 						}
-
 						save_event_target_as = pagan_lover
 					}
-
-					character_event = { id = TOG.7510 }
+					event_target:pagan_lover = { character_event = { id = TOG.7509 } }
 				}
-
-				# Family deities
-				else_if = {
+				#Family deities
+				if = {
 					limit = {
 						OR = {
-							has_character_modifier = follower_of_zemyna
-							has_character_modifier = follower_of_tsumburbura
-							has_character_modifier = follower_of_akka
-						}
-
-						any_spouse = {
-							trigger_if = {
-								limit = { is_female = yes }
-								practical_age < 45
-							}
-
-							prisoner = no
-
-							NOR = {
-								trait = celibate
-								trait = eunuch
+							is_female = no
+							AND = {
+								is_female = yes
+								NOT = { age = 46 }
 							}
 						}
-
-						trigger_if = {
-							limit = { is_female = yes }
-							practical_age < 45
-						}
-
 						NOR = {
 							trait = celibate
 							trait = eunuch
-							has_character_modifier = zemynas_blessing
-							has_character_modifier = tsumburburas_blessing
-							has_character_modifier = akkas_blessing
+						}
+						OR = {
+							has_character_modifier = follower_of_zemyna
+							has_character_modifier = follower_of_yemoja
+							has_character_modifier = follower_of_akka
 						}
 					}
-
 					random_spouse = {
 						limit = {
-							trigger_if = {
-								limit = { is_female = yes }
-								practical_age < 45
+							OR = {
+								is_female = no
+								AND = {
+									is_female = yes
+									NOT = { age = 46 }
+								}
 							}
-
-							prisoner = no
-
 							NOR = {
 								trait = celibate
 								trait = eunuch
 							}
+							prisoner = no
 						}
-
-						save_event_target_as = target_spouse
+					 	character_event = { id = TOG.7511 } 
 					}
-
-					character_event = { id = TOG.7512 }
 				}
-
-				# Death dieties
-				else_if = {
+				#Death dieties
+				if = {
 					limit = {
 						OR = {
 							has_character_modifier = follower_of_morana
 							has_character_modifier = follower_of_veles
 							has_character_modifier = follower_of_velnias
 						}
-
-						OR = {
-							any_courtier = {
-								age >= 4
-								is_adult = no
-								NOT = { has_character_flag = asked_about_death }
-							}
-
-							any_ward = {
-								NOT = { has_character_flag = asked_about_death }
-							}
-
-							any_child = {
-								age >= 4
-								is_adult = no
-								NOT = { has_character_flag = asked_about_death }
-							}
-
-							player_heir = {
-								age >= 4
-								is_adult = no
-								NOT = { has_character_flag = asked_about_death }
-							}
-						}
 					}
-
-					random_courtier = {
-						limit = {
-							age >= 4
-							is_adult = no
+					any_courtier = {
+						limit = { 
+							age = 4
+							is_adult = no 
 							NOT = { has_character_flag = asked_about_death }
 						}
-
 						save_event_target_as = death_child
 					}
-
-					random_ward = {
-						limit = {
+					any_ward = {
+						limit = { NOT = { has_character_flag = asked_about_death } }
+						save_event_target_as = death_child
+					}
+					any_child = {
+						limit = { 
+							age = 4
+							is_adult = no 
 							NOT = { has_character_flag = asked_about_death }
 						}
-
 						save_event_target_as = death_child
 					}
-
-					random_child = {
-						limit = {
-							age >= 4
-							is_adult = no
-							NOT = { has_character_flag = asked_about_death }
-						}
-
-						save_event_target_as = death_child
-					}
-
-					player_heir = {
+					current_heir = {
 						if = {
-							limit = {
-								age >= 4
-								is_adult = no
+							limit = { 
+								age = 4
+								is_adult = no 
 								NOT = { has_character_flag = asked_about_death }
 							}
-
 							save_event_target_as = death_child
 						}
 					}
-
-					event_target:death_child = {
-						set_character_flag = asked_about_death
-					}
-
-					character_event = { id = TOG.7514 }
+					event_target:death_child = { character_event = { id = TOG.7513 } }
 				}
-
-				# Hunting dieties
-				else_if = {
-					limit = {
-						has_character_modifier = follower_of_taipo_and_mielikki
-						NOT = { has_character_modifier = hunters_physique }
-					}
-
+				#Hunting dieties
+				if = {
+					limit = { has_character_modifier = follower_of_taipo_and_mielikki }
 					character_event = { id = TOG.7517 }
-				}
+				} 
 			}
-
-			# Theme events set 2
+			#Theme events set 2
 			20 = {
-				# Martial gods
+				#Martial gods
 				if = {
 					limit = {
 						OR = {
 							has_character_modifier = follower_of_perkunas
 							has_character_modifier = follower_of_taipo_and_mielikki
-							has_character_modifier = follower_of_dongo
+							has_character_modifier = follower_of_shango
 							has_character_modifier = follower_of_perun
 						}
 					}
-
 					character_event = { id = TOG.7516 }
 				}
-
-				# Diplomacy gods
-				else_if = {
+				#Diplomacy gods
+				if = {
 					limit = {
 						OR = {
 							has_character_modifier = follower_of_dievas
 							has_character_modifier = follower_of_akka
-							has_character_modifier = follower_of_ayyur
+							has_character_modifier = follower_of_yemoja
 						}
 					}
-
 					character_event = { id = TOG.7518 }
 				}
-
-				# Stewardship gods
-				else_if = {
+				#Stewardship gods
+				if = {
 					limit = {
 						OR = {
 							has_character_modifier = follower_of_zemyna
 							has_character_modifier = follower_of_ukko
-							has_character_modifier = follower_of_bida
+							has_character_modifier = follower_of_ekwensu
 							has_character_modifier = follower_of_jarilo
 						}
-
-						capital_scope = {
-							NOT = { has_province_modifier = blessed_lands }
-						}
 					}
-
 					character_event = { id = TOG.7520 }
 				}
-
-				# Intrigue gods
-				else_if = {
+				#Intrigue gods
+				if = {
 					limit = {
 						OR = {
 							has_character_modifier = follower_of_velnias
 							has_character_modifier = follower_of_lempo
 							has_character_modifier = follower_of_veles
 						}
-
-						any_realm_character = {
-							has_plot = yes
-							NOT = { plot_is_known_by = ROOT }
-						}
 					}
-
 					character_event = { id = TOG.7522 }
 				}
-
-				# Learning gods
-				else_if = {
+				#Learning gods
+				if = {
 					limit = {
 						OR = {
-							has_character_modifier = follower_of_tsumburbura
+							has_character_modifier = follower_of_orunmila
 							has_character_modifier = follower_of_morana
 						}
 					}
-
 					character_event = { id = TOG.7524 }
 				}
 			}
-
-			# Monument event, only happens once per character
+			#Monument event, only happens once per character
 			50 = {
-				trigger = {
-					NOT = { has_character_flag = pagan_monument }
-					job_treasurer = { always = yes }
+				modifier = {
+					factor = 0
+					has_character_flag = pagan_monument 
 				}
-
-				character_event = { id = TOG.7526 }
+				random_courtier = {
+					limit = { has_job_title = job_treasurer }
+					character_event = { id = TOG.7525  }
+				}
 			}
-
-			30 = { } # NOTHING
+			30 = {
+				#NOTHING
+			}
 		}
-
-		repeat_event = {
-			id = TOG.7100
-			days = 1000
-			random = 400
-		}
+		character_event = { id = TOG.7100 days = 1000 random = 400 }
 	}
 }
 
 # Remove main deity in case of religious conversion
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7101
 
-	is_triggered_only = yes # on_character_convert_religion
+	is_triggered_only = yes
 	hide_window = yes
 
 	trigger = {
 		has_minor_deity_trigger = yes
-
-		# Checks that the character isn't reforming
-		NOT = { is_reformed_religion = FROM }
+		NOR = { #Checks that the character isn't converting within group
+			AND = {
+				religion_group = slavic_group
+				FROM = { religion_group = ROOT }
+			}
+			AND = {
+				religion_group = serer_group
+				FROM = { religion_group = ROOT }
+			}
+			AND = {
+				religion_group = finnish_group
+				FROM = { religion_group = ROOT }
+			}
+			AND = {
+				religion_group = baltic_group
+				FROM = { religion_group = ROOT }
+			}
+		}
 	}
 
 	immediate = {
@@ -2790,15 +2578,13 @@ character_event = {
 		remove_character_modifier = follower_of_veles
 		remove_character_modifier = follower_of_jarilo
 		remove_character_modifier = follower_of_morana
-		remove_character_modifier = follower_of_ayyur
-		remove_character_modifier = follower_of_anansi
-		remove_character_modifier = follower_of_dan
-		remove_character_modifier = follower_of_bida
-		remove_character_modifier = follower_of_tsumburbura
-		remove_character_modifier = follower_of_dongo
+		remove_character_modifier = follower_of_yemoja
+		remove_character_modifier = follower_of_ekwensu
+		remove_character_modifier = follower_of_orunmila
+		remove_character_modifier = follower_of_shango
 		remove_character_modifier = follower_of_ukko
 		remove_character_modifier = follower_of_akka
-		remove_character_modifier = follower_of_taipo_and_mielikki
+		remove_character_modifier = follower_of_taipo_and_mielikki 
 		remove_character_modifier = follower_of_lempo
 		remove_character_modifier = follower_of_dievas
 		remove_character_modifier = follower_of_velnias
@@ -2806,9 +2592,9 @@ character_event = {
 		remove_character_modifier = follower_of_zemyna
 		remove_character_modifier = voice_of_dievas
 		remove_character_modifier = voice_of_akka
-		remove_character_modifier = voice_of_ayyur
+		remove_character_modifier = voice_of_yemoja
 		remove_character_modifier = zemynas_blessing
-		remove_character_modifier = tsumburburas_blessing
+		remove_character_modifier = yemojas_blessing
 		remove_character_modifier = akkas_blessing
 	}
 }
@@ -3009,32 +2795,26 @@ character_event = {
 }
 
 # Selecting deity, West African
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7200
 	desc = EVTDESC_TOG_7200
-	picture = GFX_evt_desert
 	border = GFX_event_normal_frame_religion
+	picture = GFX_evt_desert
 
-	is_triggered_only = yes # pick_main_deity, minor_decisions.txt
+	is_triggered_only = yes
 
-	immediate = {
-		# Assign a god to all adults of the same religion at court
+	immediate = { 
 		if = {
 			limit = { is_playable = yes }
-
 			any_courtier = {
 				limit = {
-					is_playable = no
+					prisoner = no 
 					religion = ROOT
+					age = 16
 					has_minor_deity_trigger = no
-					is_adult = yes
-					prisoner = no
 				}
-
-				character_event = {
-					id = TOG.7200
-					days = 1
-				}
+				character_event = { id = TOG.7200 days = 1 }
 			}
 		}
 	}
@@ -3043,86 +2823,93 @@ character_event = {
 		name = EVTOPTA_TOG_7200
 
 		add_character_modifier = {
-			name = follower_of_ayyur
+			name = follower_of_yemoja
 			duration = -1
 		}
 
-		character_event = { id = TOG.7201 }
+		hidden_tooltip = { character_event = { id = TOG.7201 } }
 
 		ai_chance = {
 			factor = 1
-
-			mult_modifier = {
-				factor = 2
+			modifier = {
 				has_education_diplomacy_trigger = yes
-			}
-
-			mult_modifier = {
 				factor = 2
+			}
+			modifier = {
 				is_infertile_trigger = yes
-			}
-
-			mult_modifier = {
 				factor = 2
+			}
+			modifier = {
 				is_benevolent_trigger = yes
+				factor = 2
 			}
 		}
 	}
-
 	option = {
 		name = EVTOPTB_TOG_7200
 
 		add_character_modifier = {
-			name = follower_of_bida
+			name = follower_of_ekwensu
 			duration = -1
 		}
 
-		character_event = { id = TOG.7202 }
+		hidden_tooltip = { character_event = { id = TOG.7202 } }
 
 		ai_chance = {
 			factor = 1
-
-			mult_modifier = {
-				factor = 2
+			modifier = {
 				has_education_stewardship_trigger = yes
-			}
-
-			mult_modifier = {
 				factor = 2
+			}
+			modifier = {
 				trait = greedy
+				factor = 2
 			}
 		}
 	}
-
 	option = {
 		name = EVTOPTC_TOG_7200
 
 		add_character_modifier = {
-			name = follower_of_tsumburbura
+			name = follower_of_orunmila
 			duration = -1
 		}
 
-		character_event = { id = TOG.7203 }
+		hidden_tooltip = { character_event = { id = TOG.7203 } }
 
 		ai_chance = {
 			factor = 1
-
-			mult_modifier = {
-				factor = 2
+			modifier = {
 				has_education_learning_trigger = yes
-			}
-
-			mult_modifier = {
 				factor = 2
+			}
+			modifier = {
 				is_learned_trigger = yes
+				factor = 2
 			}
 		}
 	}
+	option = {
+		name = EVTOPTD_TOG_7200
 
-	option = { # There are others
-		name = EVTOPTD_TOG_7200_B
+		add_character_modifier = {
+			name = follower_of_shango
+			duration = -1
+		}
 
-		character_event = { id = TOG.7205 }
+		hidden_tooltip = { character_event = { id = TOG.7204 } }
+
+		ai_chance = {
+			factor = 1
+			modifier = {
+				has_education_martial_trigger = yes
+				factor = 2
+			}
+			modifier = {
+				trait = brave
+				factor = 2
+			}
+		}
 	}
 }
 
@@ -3700,28 +3487,32 @@ character_event = {
 # Events which trigger depending on your main deity
 
 # +1 Diplomacy
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7500
-	picture = GFX_evt_family
 	border = GFX_event_normal_frame_diplomacy
+	picture = GFX_evt_tribal_lands
 
 	desc = {
+		trigger = { has_character_modifier = follower_of_dievas }
 		text = EVTDESC_TOG_7500_DIEVAS
 		picture = GFX_evt_viking_throneroom_oldgods
-		trigger = { has_character_modifier = follower_of_dievas }
 	}
 	desc = {
-		text = EVTDESC_TOG_7500_AKKA
 		trigger = { has_character_modifier = follower_of_akka }
+		text = EVTDESC_TOG_7500_AKKA
+		picture = GFX_evt_family
 	}
 	desc = {
-		text = EVTDESC_TOG_7500_AYYUR
-		trigger = { has_character_modifier = follower_of_ayyur }
+		trigger = { has_character_modifier = follower_of_yemoja }
+		text = EVTDESC_TOG_7500_YEMOJA
+		picture = GFX_evt_family
 	}
 
 	is_triggered_only = yes
 	hide_from = yes
 
+	#OK
 	option = {
 		name = EVTOPTA_TOG_7500
 
@@ -3730,33 +3521,37 @@ character_event = {
 }
 
 # +1 Martial
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7501
 	border = GFX_event_normal_frame_war
-	picture = GFX_evt_viking_battle_oldgods
+	picture = GFX_evt_battle
 
 	desc = {
-		text = EVTDESC_TOG_7501_PERKUNAS
 		trigger = { has_character_modifier = follower_of_perkunas }
+		text = EVTDESC_TOG_7501_PERKUNAS
+		picture = GFX_evt_viking_battle_oldgods
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_taipo_and_mielikki }
 		text = EVTDESC_TOG_7501_TM
 		picture = GFX_evt_hunt
-		trigger = { has_character_modifier = follower_of_taipo_and_mielikki }
 	}
 	desc = {
-		text = EVTDESC_TOG_7501_DONGO
+		trigger = { has_character_modifier = follower_of_shango }
+		text = EVTDESC_TOG_7501_SHANGO
 		picture = GFX_evt_battle
-		trigger = { has_character_modifier = follower_of_dongo }
 	}
 	desc = {
-		text = EVTDESC_TOG_7501_PERUN
 		trigger = { has_character_modifier = follower_of_perun }
+		text = EVTDESC_TOG_7501_PERUN
+		picture = GFX_evt_viking_battle_oldgods
 	}
 
 	is_triggered_only = yes
 	hide_from = yes
 
+	#OK
 	option = {
 		name = EVTOPTA_TOG_7500
 
@@ -3765,32 +3560,37 @@ character_event = {
 }
 
 # +1 Stewardship
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7502
 	border = GFX_event_normal_frame_economy
-	picture = GFX_evt_tribal_lands
+	picture = GFX_evt_battle
 
 	desc = {
-		text = EVTDESC_TOG_7502_ZEMYNA
 		trigger = { has_character_modifier = follower_of_zemyna }
+		text = EVTDESC_TOG_7502_ZEMYNA
+		picture = GFX_evt_tribal_lands
 	}
 	desc = {
-		text = EVTDESC_TOG_7502_UKKO
 		trigger = { has_character_modifier = follower_of_ukko }
+		text = EVTDESC_TOG_7502_UKKO
+		picture = GFX_evt_tribal_lands
 	}
 	desc = {
-		text = EVTDESC_TOG_7502_BIDA
+		trigger = { has_character_modifier = follower_of_ekwensu }
+		text = EVTDESC_TOG_7502_EKWENSU
 		picture = GFX_evt_carriage
-		trigger = { has_character_modifier = follower_of_bida }
 	}
 	desc = {
-		text = EVTDESC_TOG_7502_JARILO
 		trigger = { has_character_modifier = follower_of_jarilo }
+		text = EVTDESC_TOG_7502_JARILO
+		picture = GFX_evt_tribal_lands
 	}
 
 	is_triggered_only = yes
 	hide_from = yes
 
+	#OK
 	option = {
 		name = EVTOPTA_TOG_7500
 
@@ -3832,23 +3632,25 @@ character_event = {
 }
 
 # +1 Learning
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7504
 	border = GFX_event_normal_frame_religion
 	picture = GFX_evt_tribal_shrine
 
 	desc = {
-		text = EVTDESC_TOG_7503_TSUMBURBURA
-		trigger = { has_character_modifier = follower_of_tsumburbura }
+		trigger = { has_character_modifier = follower_of_orunmila }
+		text = EVTDESC_TOG_7503_ORUNMILA
 	}
 	desc = {
-		text = EVTDESC_TOG_7503_MORANA
 		trigger = { has_character_modifier = follower_of_morana }
+		text = EVTDESC_TOG_7503_MORANA
 	}
 
 	is_triggered_only = yes
 	hide_from = yes
 
+	#OK
 	option = {
 		name = EVTOPTA_TOG_7500
 
@@ -3857,99 +3659,104 @@ character_event = {
 }
 
 # Friendship over same diety
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7506
 	border = GFX_event_normal_frame_diplomacy
 	picture = GFX_evt_tribal_shrine
 
 	desc = {
-		text = EVTDESC_TOG_7506_TSUMBURBURA
-		trigger = { has_character_modifier = follower_of_tsumburbura }
+		trigger = { has_character_modifier = follower_of_orunmila }
+		text = EVTDESC_TOG_7506_ORUNMILA
+		picture = GFX_evt_tribal_shrine
 	}
 	desc = {
-		text = EVTDESC_TOG_7506_MORANA
 		trigger = { has_character_modifier = follower_of_morana }
+		text = EVTDESC_TOG_7506_MORANA
+		picture = GFX_evt_tribal_shrine
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_perun }
 		text = EVTDESC_TOG_7506_PERUN
 		picture = GFX_evt_hunt
-		trigger = { has_character_modifier = follower_of_perun }
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_perkunas }
 		text = EVTDESC_TOG_7506_PERKUNAS
 		picture = GFX_evt_hunt
-		trigger = { has_character_modifier = follower_of_perkunas }
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_taipo_and_mielikki }
 		text = EVTDESC_TOG_7506_TM
 		picture = GFX_evt_hunt
-		trigger = { has_character_modifier = follower_of_taipo_and_mielikki }
 	}
 	desc = {
-		text = EVTDESC_TOG_7506_DONGO
+		trigger = { has_character_modifier = follower_of_shango }
+		text = EVTDESC_TOG_7506_SHANGO
 		picture = GFX_evt_longbowman_arabic
-		trigger = { has_character_modifier = follower_of_dongo }
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_ukko }
 		text = EVTDESC_TOG_7506_UKKO
 		picture = GFX_evt_tribal_lands
-		trigger = { has_character_modifier = follower_of_ukko }
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_zemyna }
 		text = EVTDESC_TOG_7506_ZEMYNA
 		picture = GFX_evt_tribal_lands
-		trigger = { has_character_modifier = follower_of_zemyna }
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_jarilo }
 		text = EVTDESC_TOG_7506_JARILO
 		picture = GFX_evt_tribal_lands
-		trigger = { has_character_modifier = follower_of_jarilo }
 	}
 	desc = {
-		text = EVTDESC_TOG_7506_BIDA
+		trigger = { has_character_modifier = follower_of_ekwensu }
+		text = EVTDESC_TOG_7506_EKWENSU
 		picture = GFX_evt_carriage
-		trigger = { has_character_modifier = follower_of_bida }
 	}
 	desc = {
-		text = EVTDESC_TOG_7506_AYYUR
-		trigger = { has_character_modifier = follower_of_ayyur }
+		trigger = { has_character_modifier = follower_of_yemoja }
+		text = EVTDESC_TOG_7506_YEMOJA
+		picture = GFX_evt_tribal_shrine
 	}
 	desc = {
-		text = EVTDESC_TOG_7506_AKKA
 		trigger = { has_character_modifier = follower_of_akka }
+		text = EVTDESC_TOG_7506_AKKA
+		picture = GFX_evt_tribal_shrine
 	}
 	desc = {
-		text = EVTDESC_TOG_7506_DIEVAS
 		trigger = { has_character_modifier = follower_of_dievas }
+		text = EVTDESC_TOG_7506_DIEVAS
+		picture = GFX_evt_tribal_shrine
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_veles }
 		text = EVTDESC_TOG_7506_VELES
 		picture = GFX_evt_spymaster
-		trigger = { has_character_modifier = follower_of_veles }
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_lempo }
 		text = EVTDESC_TOG_7506_LEMPO
 		picture = GFX_evt_spymaster
-		trigger = { has_character_modifier = follower_of_lempo }
 	}
 	desc = {
+		trigger = { has_character_modifier = follower_of_velnias }
 		text = EVTDESC_TOG_7506_VELNIAS
 		picture = GFX_evt_spymaster
-		trigger = { has_character_modifier = follower_of_velnias }
 	}
 
 	is_triggered_only = yes
 
-	# Let's be friends
+	#Let's be friends
 	option = {
 		name = EVTOPTA_TOG_7506
-
 		custom_tooltip = { text = EVTOPTA_TOG_7506_TOOLTIP }
 
-		add_friend = event_target:deity_friend
+		add_friend = FROM
 	}
 
-	# Nope
+	#Nope
 	option = {
 		name = EVTOPTB_TOG_7506
 
@@ -3958,156 +3765,153 @@ character_event = {
 }
 
 # Thunder
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7508
-	picture = GFX_evt_comet
 	border = GFX_event_normal_frame_diplomacy
+	picture = GFX_evt_comet
 
+	
 	desc = {
-		text = EVTDESC_TOG_7508_PERUN
 		trigger = { has_character_modifier = follower_of_perun }
+		text = EVTDESC_TOG_7508_PERUN
 	}
 	desc = {
-		text = EVTDESC_TOG_7508_PERKUNAS
 		trigger = { has_character_modifier = follower_of_perkunas }
+		text = EVTDESC_TOG_7508_PERKUNAS
 	}
 	desc = {
-		text = EVTDESC_TOG_7508_DONGO
-		trigger = { has_character_modifier = follower_of_dongo }
+		trigger = { has_character_modifier = follower_of_shango }
+		text = EVTDESC_TOG_7508_SHANGO
 	}
 	desc = {
-		text = EVTDESC_TOG_7508_UKKO
 		trigger = { has_character_modifier = follower_of_ukko }
-	}
-
-	immediate = {
-		event_target:thunder_target = {
-			set_character_flag = scared_of_thunder
-		}
+		text = EVTDESC_TOG_7508_UKKO
 	}
 
 	is_triggered_only = yes
 
-	# Run out into the storm
+	#Run out into the storm
 	option = {
 		name = EVTOPTA_TOG_7508
-
 		custom_tooltip = { text = EVTOPTA_TOG_7508_TOOLTIP }
 
 		piety = 50
 
 		random_list = {
-			60 = { }
-
+			60 = {}
 			25 = {
+				if = {
+					limit = { NOT = { trait = brave } }
+					add_trait_brave_effect = yes
+				}
 				if = {
 					limit = { trait = brave }
 					prestige = 100
 				}
-				else = {
-					add_trait_fully_brave_effect = yes
-				}
 
-				event_target:thunder_target = {
-					show_scope_change = no
-
+				FROM = {
 					if = {
 						limit = {
-							is_adult = no
-							has_dlc = "Conclave"
+							has_dlc = "Zeus"
+							NOT = { age = 16 }
 						}
-
 						add_trait = willful
 					}
-					else = {
-						add_trait_fully_brave_effect = yes
+					if = {
+						limit = {
+							OR = {
+							 	NOT = { has_dlc = "Zeus" }
+							 	age = 16
+							}
+						}
+						remove_trait_craven_effect = yes
+						add_trait_brave_effect = yes
 					}
 				}
 			}
-
 			15 = {
 				add_character_modifier = {
 					name = struck_by_lightning
-					months = 4
+					duration = 120
 				}
 			}
 		}
 	}
 
-	# Tell a story
+	#Tell a story
 	option = {
 		name = EVTOPTB_TOG_7508
-
 		custom_tooltip = { text = EVTOPTB_TOG_7508_TOOLTIP }
 
 		reverse_opinion = {
-			name = comforted_opinion
-			who = event_target:thunder_target
+			who = FROM
+			modifier = comforted_opinion
 			years = 5
 		}
 	}
 
-	# Tough love
+	#Tough love
 	option = {
 		name = EVTOPTC_TOG_7508
-
 		custom_tooltip = { text = EVTOPTC_TOG_7508_TOOLTIP }
 
 		reverse_opinion = {
-			name = tough_love_opinion
-			who = event_target:thunder_target
+			who = FROM
+			modifier = tough_love_opinion
 			years = 5
 		}
 
 		random = {
 			chance = 25
-			add_trait_fully_wroth_effect = yes
+			add_trait_wroth_effect = yes
 		}
-
-		event_target:thunder_target = {
-			show_scope_change = no
+		FROM = {
 
 			random_list = {
 				50 = {
 					if = {
 						limit = {
-							is_adult = no
-							has_dlc = "Conclave"
+							has_dlc = "Zeus"
+							NOT = { age = 16 }
 						}
-
 						add_trait = willful
 					}
-					else = {
-						add_trait_fully_brave_effect = yes
+					if = {
+						limit = {
+							OR = {
+							 	NOT = { has_dlc = "Zeus" }
+							 	age = 16
+							}
+						}
+						remove_trait_craven_effect = yes
+						add_trait_brave_effect = yes
 					}
 				}
-
 				50 = {
 					if = {
 						limit = {
-							is_adult = no
-							has_dlc = "Conclave"
+							has_dlc = "Zeus"
+							NOT = { age = 16 }
+							NOT = { trait = timid }
 						}
-
-						if = {
-							limit = {
-								NOT = { trait = timid }
-							}
-
-							add_trait = timid
-						}
+						add_trait = timid
 					}
-					else = {
-						add_trait_fully_craven_effect = yes
+					if = {
+						limit = {
+							OR = {
+							 	NOT = { has_dlc = "Zeus" }
+							 	age = 16
+							}
+						}
+						add_trait_craven_effect = yes
 					}
 				}
 			}
 		}
 	}
 
-	after = {
-		clear_event_target = thunder_target
-	}
+	after = { clear_event_target = thunder_target }
 }
 
 # Lover
@@ -4181,108 +3985,110 @@ character_event = {
 }
 
 # Family is doing well
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7512
-	picture = GFX_evt_family
 	border = GFX_event_normal_frame_diplomacy
+	picture = GFX_evt_family
 
+	
 	desc = {
-		text = EVTDESC_TOG_7512_ZEMYNA
 		trigger = { has_character_modifier = follower_of_zemyna }
+		text = EVTDESC_TOG_7510_ZEMYNA
 	}
 	desc = {
-		text = EVTDESC_TOG_7512_TSUMBURBURA
-		trigger = { has_character_modifier = follower_of_tsumburbura }
+		trigger = { has_character_modifier = follower_of_yemoja }
+		text = EVTDESC_TOG_7510_YEMOJA
 	}
 	desc = {
-		text = EVTDESC_TOG_7512_AKKA
 		trigger = { has_character_modifier = follower_of_akka }
+		text = EVTDESC_TOG_7510_AKKA
 	}
 
 	is_triggered_only = yes
 
-	# Everything is going well
-	option = {
-		name = EVTOPTA_TOG_7512
-
-		# Removes rivalry or become lover
-		if = {
-			limit = { is_rival = event_target:target_spouse }
-			remove_rival = event_target:target_spouse
-		}
-		else_if = {
-			limit = {
-				NOT = { is_rival = event_target:target_spouse }
-			}
-
-			add_lover = event_target:target_spouse
-		}
-
-		# Fertility bonus
-		trigger_switch = {
-			on_trigger = has_character_modifier
-
-			follower_of_zemyna = {
-				add_character_modifier = {
-					name = zemynas_blessing
-					years = 5
-				}
-			}
-
-			follower_of_tsumburbura = {
-				add_character_modifier = {
-					name = tsumburburas_blessing
-					years = 5
-				}
-			}
-
-			follower_of_akka = {
-				add_character_modifier = {
-					name = akkas_blessing
-					years = 5
-				}
-			}
-		}
-
-		# Children become happy
-		any_child = {
-			show_scope_change = no
-
-			limit = {
-				is_child_of = event_target:target_spouse
-				vassal_of = ROOT
-			}
-
-			opinion = {
-				name = happy_parent_opinion
-				who = ROOT
-				years = 5
-			}
-
-			hidden_effect = {
-				opinion = {
-					name = happy_parent_opinion
-					who = event_target:target_spouse
-					years = 5
-				}
-			}
-		}
-
-		hidden_effect = {
-			event_target:target_spouse = { save_event_target_as = sex_partner }
-			unprotected_sex_effect_event_target = yes
+	trigger = {
+		NOR = {
+			has_character_modifier = zemynas_blessing
+			has_character_modifier = yemojas_blessing
+			has_character_modifier = akkas_blessing
 		}
 	}
 
-	# Not that interested
+	#Everything is going well
+	option = {
+		name = EVTOPTA_TOG_7512
+		
+		#Removes rivalry or become lover
+		if = {
+			limit = {
+				NOR = {
+					is_rival = FROM
+					is_lover = FROM
+				}
+			}
+			add_lover = FROM
+		}
+		if = {
+			limit = { is_rival = FROM }
+			remove_rival = FROM
+		}
+
+		#Fertility bonus
+		if = {
+			limit = { has_character_modifier = follower_of_zemyna }
+			add_character_modifier = {
+				name = zemynas_blessing
+				years = 5
+			}
+		}
+		if = {
+			limit = { has_character_modifier = follower_of_yemoja }
+			add_character_modifier = {
+				name = yemojas_blessing
+				years = 5
+			}
+		}
+		if = {
+			limit = { has_character_modifier = follower_of_akka }
+			add_character_modifier = {
+				name = akkas_blessing
+				years = 5
+			}
+		}
+
+		#Children become happy
+		any_child = {
+			limit = { 
+				liege = { character = ROOT }
+				is_child_of = FROM
+			}
+			opinion = {
+				who = ROOT
+				modifier = happy_parent_opinion
+				years = 5
+			}
+			hidden_tooltip = {
+				opinion = {
+					who = FROM
+					modifier = happy_parent_opinion
+					years = 5
+				}
+			}
+		}
+
+		hidden_tooltip = { unprotected_sex_effect = yes }
+	}
+
+	#Not that interested
 	option = {
 		name = EVTOPTB_TOG_7512
 
 		random = {
 			chance = 50
-			add_trait_fully_chaste_effect = yes
+			add_trait_chaste_effect = yes
 		}
-	}
+	}	
 }
 
 # Child is scared of death
@@ -4724,45 +4530,45 @@ character_event = {
 }
 
 # 16 Martial, increased levy
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7516
-	picture = GFX_evt_viking_battle_oldgods
 	border = GFX_event_normal_frame_war
-
+	picture = GFX_evt_viking_battle_oldgods
+	
 	desc = {
-		text = EVTDESC_TOG_7516_PERKUNAS
 		trigger = { has_character_modifier = follower_of_perkunas }
+		text = EVTDESC_TOG_7516_PERKUNAS
 	}
 	desc = {
-		text = EVTDESC_TOG_7516_TM
 		trigger = { has_character_modifier = follower_of_taipo_and_mielikki }
+		text = EVTDESC_TOG_5716_TM
 	}
 	desc = {
-		text = EVTDESC_TOG_7516_DONGO
+		trigger = { has_character_modifier = follower_of_shango }
+		text = EVTDESC_TOG_7516_SHANGO
 		picture = GFX_evt_battle
-		trigger = { has_character_modifier = follower_of_dongo }
 	}
 	desc = {
-		text = EVTDESC_TOG_7516_PERUN
 		trigger = { has_character_modifier = follower_of_perun }
+		text = EVTDESC_TOG_7516_PERUN
 	}
+
+	hide_from = yes
 
 	is_triggered_only = yes
-	hide_from = yes
 
 	option = {
 		name = {
-			text = EVTOPTA_TOG_7516_A
 			trigger = { has_character_modifier = follower_of_taipo_and_mielikki }
-		}
+			text = EVTOPTA_TOG_7516_A
+		} 
 		name = {
-			text = EVTOPTA_TOG_7516_B
 			trigger = { NOT = { has_character_modifier = follower_of_taipo_and_mielikki } }
-		}
+			text = EVTOPTA_TOG_7516_B
+		} 
 
 		capital_scope = {
-			show_scope_change = no
-
 			add_province_modifier = {
 				name = inspired_warriors
 				years = 10
@@ -4791,111 +4597,137 @@ character_event = {
 }
 
 # 18 diplomacy, vassal boost
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7518
-	picture = GFX_evt_princess_byzantine
 	border = GFX_event_normal_frame_diplomacy
+	picture = GFX_evt_princess_byzantine
 
+	
 	desc = {
-		text = EVTDESC_TOG_7518_DIEVAS
 		trigger = { has_character_modifier = follower_of_dievas }
+		text = EVTDESC_TOG_7518_DIEVAS
 	}
 	desc = {
-		text = EVTDESC_TOG_7518_AKKA
 		trigger = { has_character_modifier = follower_of_akka }
+		text = EVTDESC_TOG_7518_AKKA
 	}
 	desc = {
-		text = EVTDESC_TOG_7518_AYYUR
+		trigger = { has_character_modifier = follower_of_yemoja }
+		text = EVTDESC_TOG_7518_YEMOJA
 		picture = GFX_evt_emissary_arabic
-		trigger = { has_character_modifier = follower_of_ayyur }
 	}
+
+	hide_from = yes
 
 	is_triggered_only = yes
-	hide_from = yes
 
 	option = {
 		name = {
-			text = EVTOPTA_TOG_7518_A
 			trigger = { has_character_modifier = follower_of_dievas }
-		}
+			text = EVTOPTA_TOG_7518_A
+		} 
 		name = {
-			text = EVTOPTA_TOG_7518_B
 			trigger = { NOT = { has_character_modifier = follower_of_dievas } }
+			text = EVTOPTA_TOG_7518_B
+		} 
+
+		if = {
+			limit = { has_character_modifier = follower_of_dievas }
+			add_character_modifier = {
+				name = voice_of_dievas
+				years = 10
+			}
 		}
-
-		trigger_switch = {
-			on_trigger = has_character_modifier
-
-			follower_of_dievas = {
-				add_character_modifier = {
-					name = voice_of_dievas
-					years = 10
-				}
+		if = {
+			limit = { has_character_modifier = follower_of_akka }
+			add_character_modifier = {
+				name = voice_of_akka
+				years = 10
 			}
-
-			follower_of_akka = {
-				add_character_modifier = {
-					name = voice_of_akka
-					years = 10
-				}
-			}
-
-			follower_of_ayyur = {
-				add_character_modifier = {
-					name = voice_of_ayyur
-					years = 10
-				}
+		}
+		if = {
+			limit = { has_character_modifier = follower_of_yemoja }
+			add_character_modifier = {
+				name = voice_of_yemoja
+				years = 10
 			}
 		}
 	}
 }
 
 # 20 Stewardship, tax or prosperity
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7520
-	picture = GFX_evt_tribal_lands
 	border = GFX_event_normal_frame_economy
-
+	picture = GFX_evt_tribal_lands
+	
 	desc = {
-		text = EVTDESC_TOG_7520_ZEMYNA
 		trigger = { has_character_modifier = follower_of_zemyna }
+		text = EVTDESC_TOG_7520_ZEMYNA
 	}
 	desc = {
-		text = EVTDESC_TOG_7520_UKKO
 		trigger = { has_character_modifier = follower_of_ukko }
+		text = EVTDESC_TOG_7520_UKKO
 	}
 	desc = {
-		text = EVTDESC_TOG_7520_JARILO
 		trigger = { has_character_modifier = follower_of_jarilo }
+		text = EVTDESC_TOG_7520_JARILO
 	}
 	desc = {
-		text = EVTDESC_TOG_7520_BIDA
+		trigger = { has_character_modifier = follower_of_ekwensu }
+		text = EVTDESC_TOG_7520_EKWENSU
 		picture = GFX_evt_market_byzantine
-		trigger = { has_character_modifier = follower_of_bida }
 	}
+
+	hide_from = yes
 
 	is_triggered_only = yes
-	hide_from = yes
+
+	trigger = { capital_scope = { NOT = { has_province_modifier = blessed_lands } } } 
 
 	option = {
 		name = EVTOPTA_TOG_7520
 
-		# Changes depopulation/prosperity
+		#Changes depopulation/prosperity
 		capital_scope = {
-			show_scope_change = no
-
 			if = {
 				limit = {
 					has_dlc = "Reapers"
 					NOT = { has_province_modifier = prosperity_modifier_3 }
 				}
+				if = {
+					limit = { has_province_modifier = depopulated_1 }
 
-				decrease_depopulation_effect = yes
+					remove_province_modifier = depopulated_1
+					break = yes
+				}	
+				if = {
+					limit = { has_province_modifier = depopulated_2 }
+
+					remove_province_modifier = depopulated_2
+					add_province_modifier = { name = depopulated_1 duration = -1 }
+					break = yes
+				}
+				if = {
+					limit = { has_province_modifier = depopulated_3 }
+
+					remove_province_modifier = depopulated_3
+					add_province_modifier = { name = depopulated_2 duration = -1 }
+					break = yes
+				}
 				increase_prosperity_effect = yes
 			}
-			else = {
-				add_province_modifier = {
-					name = blessed_lands
+			if = {
+				limit = {
+					OR = {
+						NOT = { has_dlc = "Reapers" }
+						has_province_modifier = prosperity_modifier_3
+					}
+				}
+				add_province_modifier = { 
+					name = blessed_lands 
 					years = 10
 				}
 			}
@@ -5017,21 +4849,23 @@ character_event = {
 }
 
 # 24 Learning, tech bonus
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
-	id = TOG.7524
-	picture = GFX_evt_library
+	id = TOG.7524 
 	border = GFX_event_normal_frame_religion
+	picture = GFX_evt_library
 
 	desc = {
-		text = EVTDESC_TOG_7524_TSUMBURBURA
-		trigger = { has_character_modifier = follower_of_tsumburbura }
+		trigger = { has_character_modifier = follower_of_orunmila }
+		text = EVTDESC_TOG_7524_ORUNMILA
 	}
 	desc = {
-		text = EVTDESC_TOG_7524_MORANA
 		trigger = { has_character_modifier = follower_of_morana }
+		text = EVTDESC_TOG_7524_MORANA
 	}
 
 	is_triggered_only = yes
+
 	hide_from = yes
 
 	option = {
@@ -5046,152 +4880,137 @@ character_event = {
 }
 
 # Monument in honor
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
-	id = TOG.7526
-	picture = GFX_evt_irminsul_shrine
+	id = TOG.7526 
 	border = GFX_event_normal_frame_economy
-	portrait = job_treasurer
+	picture = GFX_evt_irminsul_shrine
 
 	desc = {
+		trigger = { 
+			religion_group = serer_group
+		}
 		text = EVTDESC_TOG_7526
 		picture = GFX_evt_sun_temple
-		trigger = { religion_openly_west_african_or_reformed_trigger = yes }
 	}
 	desc = {
+		trigger = { 
+			NOT = {
+				religion_group = serer_group
+			}
+		}
 		text = EVTDESC_TOG_7526
-		trigger = { religion_openly_west_african_or_reformed_trigger = no }
+		picture = GFX_evt_irminsul_shrine
 	}
+
 
 	is_triggered_only = yes
 
 	option = {
 		name = {
-			text = EVTOPTA_TOG_7526_TSUMBURBURA
-			trigger = { has_character_modifier = follower_of_tsumburbura }
+			trigger = { has_character_modifier = follower_of_orunmila }
+			text = EVTOPTA_TOG_7526_ORUNMILA
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_MORANA
 			trigger = { has_character_modifier = follower_of_morana }
+			text = EVTOPTA_TOG_7526_MORANA
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_PERUN
 			trigger = { has_character_modifier = follower_of_perun }
+			text = EVTOPTA_TOG_7526_PERUN
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_PERKUNAS
 			trigger = { has_character_modifier = follower_of_perkunas }
+			text = EVTOPTA_TOG_7526_PERKUNAS
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_TM
 			trigger = { has_character_modifier = follower_of_taipo_and_mielikki }
+			text = EVTOPTA_TOG_7526_TM
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_DONGO
-			trigger = { has_character_modifier = follower_of_dongo }
+			trigger = { has_character_modifier = follower_of_shango }
+			text = EVTOPTA_TOG_7526_SHANGO
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_UKKO
 			trigger = { has_character_modifier = follower_of_ukko }
+			text = EVTOPTA_TOG_7526_UKKO
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_ZEMYNA
 			trigger = { has_character_modifier = follower_of_zemyna }
+			text = EVTOPTA_TOG_7526_ZEMYNA
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_JARILO
 			trigger = { has_character_modifier = follower_of_jarilo }
+			text = EVTOPTA_TOG_7526_JARILO
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_BIDA
-			trigger = { has_character_modifier = follower_of_bida }
+			trigger = { has_character_modifier = follower_of_ekwensu }
+			text = EVTOPTA_TOG_7526_EKWENSU
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_AYYUR
-			trigger = { has_character_modifier = follower_of_ayyur }
+			trigger = { has_character_modifier = follower_of_yemoja }
+			text = EVTOPTA_TOG_7526_YEMOJA
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_AKKA
 			trigger = { has_character_modifier = follower_of_akka }
+			text = EVTOPTA_TOG_7526_AKKA
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_DIEVAS
 			trigger = { has_character_modifier = follower_of_dievas }
+			text = EVTOPTA_TOG_7526_DIEVAS
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_VELES
 			trigger = { has_character_modifier = follower_of_veles }
+			text = EVTOPTA_TOG_7526_VELES
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_LEMPO
 			trigger = { has_character_modifier = follower_of_lempo }
+			text = EVTOPTA_TOG_7526_LEMPO
 		}
 		name = {
-			text = EVTOPTA_TOG_7526_VELNIAS
 			trigger = { has_character_modifier = follower_of_velnias }
-		}
-		name = {
-			text = EVTOPTA_TOG_7526_ANANSI
-			trigger = { has_character_modifier = follower_of_anansi }
-		}
-		name = {
-			text = EVTOPTA_TOG_7526_DAN
-			trigger = { has_character_modifier = follower_of_dan }
+			text = EVTOPTA_TOG_7526_VELNIAS
 		}
 
-		custom_tooltip = {
-			text = EVTOPTA_TOG_7525_TOOLTIP
+		custom_tooltip = { text = EVTOPTA_TOG_7525_TOOLTIP }
 
-			character_event = {
-				id = TOG.7527
-				years = 1
-			}
+		scaled_wealth = { value = -0.25 min = -20 }
 
-			set_character_flag = pagan_monument
-			set_character_flag = monument_for_diety
-		}
+		hidden_tooltip = { capital_scope = { save_event_target_as = pagan_capital } } #I promise this is needed
 
-		scaled_wealth = {
-			value = -0.25
-			min = -20
-		}
-
-		capital_scope = {
-			show_scope_change = no
-
+		event_target:pagan_capital = {
 			add_province_modifier = {
 				name = building_monument
 				years = 1
 			}
+		}
+
+		hidden_tooltip = { 
+			character_event = { id = TOG.7527 days = 365 } 
+			set_character_flag = pagan_monument
+			set_character_flag = monument_for_diety
 		}
 	}
 
 	option = {
 		name = EVTOPTB_TOG_7526
+		custom_tooltip = { text = EVTOPTB_TOG_7525_TOOLTIP }
 
-		custom_tooltip = {
-			text = EVTOPTB_TOG_7525_TOOLTIP
+		scaled_wealth = { value = -0.25 min = -20 }
 
-			character_event = {
-				id = TOG.7527
-				years = 1
-			}
+		hidden_tooltip = { capital_scope = { save_event_target_as = pagan_capital } } #I promise this is needed
 
-			set_character_flag = monument_for_ancestors
-			set_character_flag = pagan_monument
-		}
-
-		scaled_wealth = {
-			value = -0.25
-			min = -20
-		}
-
-		capital_scope = {
-			show_scope_change = no
-
+		event_target:pagan_capital = {
 			add_province_modifier = {
 				name = building_monument
 				years = 1
 			}
+		}
+
+		hidden_tooltip = { 
+			set_character_flag = monument_for_ancestors
+			set_character_flag = pagan_monument
+			character_event = { id = TOG.7527 days = 365 } 
 		}
 	}
 
@@ -5200,159 +5019,149 @@ character_event = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7527
-	desc = EVTDESC_TOG_7527_TSUMBURBURA
-	picture = GFX_evt_irminsul_shrine
 	border = GFX_event_normal_frame_economy
+	desc = EVTDESC_TOG_7527_ORUNMILA
+	picture = GFX_evt_irminsul_shrine
 
 	desc = {
-		text = EVTDESC_TOG_7527_ANCESTORS
-		trigger = {
-			has_character_flag = monument_for_ancestors
-			religion_openly_west_african_or_reformed_trigger = no
+		trigger = { 
+			has_character_flag = monument_for_ancestors 
+			NOT = {
+				religion_group = serer_group
+			}
 		}
+		text = EVTDESC_TOG_7527_ANCESTORS
 	}
 	desc = {
+		trigger = { 
+			has_character_flag = monument_for_ancestors 
+			religion_group = serer_group
+		}
 		text = EVTDESC_TOG_7527_ANCESTORS
 		picture = GFX_evt_sun_temple
-		trigger = {
-			has_character_flag = monument_for_ancestors
-			religion_openly_west_african_or_reformed_trigger = yes
-		}
 	}
 	desc = {
-		text = EVTDESC_TOG_7527_TSUMBURBURA
-		picture = GFX_evt_sun_temple
-		trigger = {
+		trigger = { 
 			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_tsumburbura
+			has_character_modifier = follower_of_orunmila 
 		}
+		text = EVTDESC_TOG_7527_ORUNMILA
+		picture = GFX_evt_sun_temple
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_morana 
+		}
 		text = EVTDESC_TOG_7527_MORANA
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_morana
-		}
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_perun 
+		}
 		text = EVTDESC_TOG_7527_PERUN
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_perun
-		}
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_perkunas 
+		}
 		text = EVTDESC_TOG_7527_PERKUNAS
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_perkunas
-		}
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_taipo_and_mielikki 
+		}
 		text = EVTDESC_TOG_7527_TM
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_taipo_and_mielikki
-		}
 	}
 	desc = {
-		text = EVTDESC_TOG_7527_DONGO
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_shango 
+		}
+		text = EVTDESC_TOG_7527_SHANGO
 		picture = GFX_evt_sun_temple
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_dongo
-		}
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_ukko 
+		}
 		text = EVTDESC_TOG_7527_UKKO
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_ukko
-		}
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_zemyna 
+		}
 		text = EVTDESC_TOG_7527_ZEMYNA
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_zemyna
-		}
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_jarilo 
+		}
 		text = EVTDESC_TOG_7527_JARILO
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_jarilo
-		}
 	}
 	desc = {
-		text = EVTDESC_TOG_7527_BIDA
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_ekwensu 
+		}
+		text = EVTDESC_TOG_7527_EKWENSU
 		picture = GFX_evt_sun_temple
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_bida
-		}
 	}
 	desc = {
-		text = EVTDESC_TOG_7527_AYYUR
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_yemoja 
+		}
+		text = EVTDESC_TOG_7527_YEMOJA
 		picture = GFX_evt_sun_temple
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_ayyur
-		}
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_akka 
+		}
 		text = EVTDESC_TOG_7527_AKKA
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_akka
-		}
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_dievas 
+		}
 		text = EVTDESC_TOG_7527_DIEVAS
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_dievas
-		}
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_veles 
+		}
 		text = EVTDESC_TOG_7527_VELES
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_veles
-		}
 	}
 	desc = {
-		text = EVTDESC_TOG_7527_LEMPO
-		trigger = {
+		trigger = { 
 			NOT = { has_character_flag = monument_for_ancestors }
 			has_character_modifier = follower_of_lempo
 		}
+		text = EVTDESC_TOG_7527_LEMPO
 	}
 	desc = {
+		trigger = { 
+			NOT = { has_character_flag = monument_for_ancestors }
+			has_character_modifier = follower_of_velnias 
+		}
 		text = EVTDESC_TOG_7527_VELNIAS
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_velnias
-		}
-	}
-	desc = {
-		text = EVTDESC_TOG_7527_ANANSI
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_anansi
-		}
-	}
-	desc = {
-		text = EVTDESC_TOG_7527_DAN
-		trigger = {
-			NOT = { has_character_flag = monument_for_ancestors }
-			has_character_modifier = follower_of_dan
-		}
 	}
 
 	is_triggered_only = yes
+
 	hide_from = yes
 
 	option = {
@@ -5360,45 +5169,33 @@ character_event = {
 
 		if = {
 			limit = { has_character_flag = monument_for_diety }
-
 			piety = 250
 			clr_character_flag = monument_for_diety
 
 			capital_scope = {
-				show_scope_change = no
-
 				remove_province_modifier = building_monument
-
 				add_province_modifier = {
 					name = holy_monument
 					duration = -1
-				}
+				} 
 			}
 		}
-		else = {
+		if = {
+			limit = { has_character_flag = monument_for_ancestors }
 			prestige = 250
 			clr_character_flag = monument_for_ancestors
 
 			capital_scope = {
-				show_scope_change = no
-
 				remove_province_modifier = building_monument
-
 				add_province_modifier = {
 					name = ancestral_monument
 					duration = -1
-				}
+				} 
 			}
 		}
 
 		save_event_target_as = monument_erector
-
-		capital_scope = {
-			province_event = {
-				id = TOG.7528
-				years = 1
-			}
-		}
+		capital_scope = { province_event = { id = TOG.7528 days = 365 } }
 	}
 }
 

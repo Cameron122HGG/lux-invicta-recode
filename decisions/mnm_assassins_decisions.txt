@@ -6,59 +6,177 @@
 
 society_decisions = {
 
-	assassins_borrow_money = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+assassins_borrow_money = {
+		 only_playable = yes
+
 		ai_check_interval = 80
-
-		only_playable = yes
-
-		potential = {
-			society_rank = {
-				society = the_assassins
-				rank < 4
+		 potential = {
+			 has_dlc = "Mystics"
+			 OR = {
+				society_member_of = the_assassins
+				society_member_of = the_assassins_bud_mahayana
+				society_member_of = the_assassins_mani_ahriman
+				society_member_of = the_assassins_priscillian
+				society_member_of = the_assassins_ragnarok
+				society_member_of = the_assassins_set
+				society_member_of = the_assassins_tengri_ahriman
+				society_member_of = the_assassins_yahyanism
+				society_member_of = the_assassins_zor_angra
 			}
-
-			NOT = { has_character_modifier = assassins_debt_modifier }
-		}
-
-		allow = {
-			custom_tooltip = {
-				text = assassins_borrow_money_tooltip
-
-				society = {
-					leader = {
-						trigger_if = {
-							limit = {
-								ai = yes
-								has_landed_title = d_fedayeen
-							}
-
-							wealth >= 50
-						}
-					}
+			 NOR = {
+				society_rank = {
+					society = the_assassins
+					rank == 4
 				}
-			}
-		}
+				society_rank = {
+					society = the_assassins_bud_mahayana	
+					rank == 4
+				}
+				society_rank = {
+					society = the_assassins_mani_ahriman	
+					rank == 4
+				}
+				society_rank = {
+					society = the_assassins_priscillian	
+					rank == 4
+				}
+				society_rank = {
+					society = the_assassins_ragnarok	
+					rank == 4
+				}
+				society_rank = {
+					society = the_assassins_set	
+					rank == 4
+				}
+				society_rank = {
+					society = the_assassins_tengri_ahriman	
+					rank == 4
+				}
+				society_rank = {
+					society = the_assassins_yahyanism	
+					rank == 4
+				}
+				society_rank = {
+					society = the_assassins_zor_angra
+					rank == 4
+				}
+			 }
+			 NOT = { has_character_modifier = assassins_debt_modifier }
+		 }
 
-		effect = {
-			letter_event = {
-				id = MNM.6000
-				tooltip = assassins_borrow_money_effect_tooltip
-			}
-		}
+		 allow = {
+			 custom_tooltip = {
+				 text = assassins_borrow_money_tooltip
 
-		ai_will_do = {
-			factor = 0.5
+				 any_society_member = {
+					 is_society_grandmaster = yes
+					 OR = {
+						 society_member_of = the_assassins
+						 society_member_of = the_assassins_bud_mahayana
+						 society_member_of = the_assassins_mani_ahriman
+						 society_member_of = the_assassins_priscillian
+						 society_member_of = the_assassins_ragnarok
+						 society_member_of = the_assassins_set
+						 society_member_of = the_assassins_tengri_ahriman
+						 society_member_of = the_assassins_yahyanism
+						 society_member_of = the_assassins_zor_angra
+					 }
+					 OR = {
+						 ai = no
+						 NOT = { primary_title = { title = d_hashshashin } }
+						 NOT = { primary_title = { title = d_enemies_of_avidya } }
+						 NOT = { primary_title = { title = d_ahrimans_divs } }
+						 NOT = { primary_title = { title = d_holy_doctors } }
+						 NOT = { primary_title = { title = d_council_of_aesir } }
+						 NOT = { primary_title = { title = d_warriors_of_oasis } }
+						 NOT = { primary_title = { title = d_blue_wolves } }
+						 NOT = { primary_title = { title = d_order_of_righteous } }
+						 NOT = { primary_title = { title = d_avengers_of_holy_pyre } }
+						AND = {
+							primary_title = { title = d_hashshashin } 							
+							wealth = 50
+						}
+						AND = {
+							primary_title = { title = d_enemies_of_avidya } 							
+							wealth = 50
+						}
+						AND = {
+							primary_title = { title = d_ahrimans_divs } 							
+							wealth = 50
+						}
+						AND = {
+							primary_title = { title = d_holy_doctors } 							
+							wealth = 50
+						}
+						AND = {
+							primary_title = { title = d_council_of_aesir } 							
+							wealth = 50
+						}
+						AND = {
+							primary_title = { title = d_warriors_of_oasis } 							
+							wealth = 50
+						}
+						AND = {
+							primary_title = { title = d_blue_wolves } 							
+							wealth = 50
+						}
+						AND = {
+							primary_title = { title = d_order_of_righteous } 							
+							wealth = 50
+						}
+						AND = {
+							primary_title = { title = d_avengers_of_holy_pyre } 							
+							wealth = 50
+						}
+					 }
+				 }
+			 }
+		 }
 
-			trigger = {
-				wealth < 0
-			}
+		 effect = {
+			 custom_tooltip = { text = assassins_borrow_money_effect_tooltip }
+			 hidden_tooltip = {
+				 random_society_member = {
+					 limit = {
+						 is_society_grandmaster = yes
+						 OR = {
+							 society_member_of = the_assassins
+							 society_member_of = the_assassins_bud_mahayana
+							 society_member_of = the_assassins_mani_ahriman
+							 society_member_of = the_assassins_priscillian
+							 society_member_of = the_assassins_ragnarok
+							 society_member_of = the_assassins_set
+							 society_member_of = the_assassins_tengri_ahriman
+							 society_member_of = the_assassins_yahyanism
+							 society_member_of = the_assassins_zor_angra
+						 }
+					 }
+					 character_event = { id = MNM.6000 }	
+				 }
+			 }
+		 }
 
-			mult_modifier = {
-				factor = 0.1
-				war = no
-			}
-		}
-	}
+		 #revoke_allowed = {
+			 #always = no
+		 #}
+		
+		 ai_will_do = {
+			 factor = 1
+
+			 modifier = {
+				factor = 0.5 #Slow down
+			 }
+			 modifier = {
+				 factor = 0
+				 wealth = 1
+			 }
+			 modifier = {
+				 factor = 0.1
+				 war = no
+			 }
+		 }
+	 }
 
 	assassins_pay_debt = {
 		ai_check_interval = 18

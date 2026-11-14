@@ -9,138 +9,164 @@
 # Written by Sara Wendel-Örtqvist
 
 ### Robin Hood ###
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = 10000
-	title = EVTNAME10000
-	desc = EVTDESC10000
+	title = "EVTNAME10000"
+	desc = "EVTDESC10000"
 	picture = GFX_evt_throne_room
-
-	is_triggered_only = yes # on_five_year_pulse, random_events, robin_hood
-
+	
 	ai = no
 	min_age = 20
 	prisoner = no
-	only_capable = yes
+	capable_only = yes
 	war = no
-	in_command = no
-
+	
 	trigger = {
+		NOT = { has_global_flag = robin_hood_existed }
+		in_command = no
+		is_ill = no
 		OR = {
 			religion_group = christian
-			religion_group = pagan_group
+			religion_group = norsegerman_group
+			religion_group = celtic_group
+			religion_group = slavic_group
+			religion_group = baltic_group
 		}
-
-		any_demesne_province = {
-			owned_by = PREV
-
-			OR = {
-				has_province_modifier = highway_robber_band
-				revolt_risk >= 0.05
-			}
-		}
-
-		is_inaccessible_trigger = no
-		is_ill = no
-
-		NOR = {
-			has_global_flag = robin_hood_existed
+		NOT = {
 			has_character_flag = killed_robin_hood
+		}
+		NOT = {
 			has_character_flag = robin_marion_married
+		}
+		NOT = {
 			has_character_flag = robin_hood
 		}
+		any_demesne_province = {
+			OR = {
+				has_province_modifier = highway_robber_band
+				revolt_risk = 0.05
+			}
+		}
+		NOT = { is_inaccessible_trigger = yes }
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 0.83
+	
+	mean_time_to_happen = {
+		months = 2000
+		
+		modifier = {
+			factor = 1.2
 			trait = just
 		}
-
-		mult_modifier = {
-			factor = 5
+		
+		modifier = {
+			factor = 0.2
 			trait = arbitrary
 		}
-
-		mult_modifier = {
-			factor = 0.77
+		
+		modifier = {
+			factor = 1.3
 			trait = charismatic_negotiator
 		}
-
-		mult_modifier = {
-			factor = 3.33
+		
+		modifier = {
+			factor = 0.3
 			trait = midas_touched
 		}
 	}
-
+	
 	immediate = {
 		set_character_flag = lure_robin
 		set_character_flag = robin_hood
 		set_global_flag = robin_hood_existed
 	}
-
+	
 	option = {
-		name = EVTOPTA10000
-
+		name = "EVTOPTA10000"
 		prestige = 10
-
 		random = {
 			chance = 60
-
-			narrative_event = {
-				id = 10001 # Noble woman
+			
+			narrative_event = { 
+				id = 10001 #Noble woman
 				days = 5
 				random = 10
-				tooltip = EVTTOOLTIP10001
+				tooltip = "EVTTOOLTIP10001"
 			}
 		}
 	}
 
 	option = {
-		name = EVTOPTB10000
-
-		random = {
-			chance = 25
-
-			if = {
-				limit = {
-					NOT = { trait = diligent }
+		name = "EVTOPTB10000"
+		if = {
+			limit = {
+				NOT = {
+					trait = diligent
 				}
-
-				add_trait_fully_diligent_effect = yes
 			}
-			else = {
-				add_trait_fully_deceitful_effect = yes
+			random = {
+				chance = 25
+				
+				add_trait = diligent
+				set_character_flag = got_trait
+				hidden_tooltip = {
+					character_event = {
+						id = 38256 #Notify Diligent
+					}
+				}
 			}
 		}
-
+		if = {
+			limit = {
+				trait = diligent
+				NOR = {
+					trait = deceitful
+					has_character_flag = got_trait
+				}
+			}
+			random = {
+				chance = 25
+				set_character_flag = got_trait
+				add_trait = deceitful
+				hidden_tooltip = {
+					character_event = {
+						id = 38255 #Notify Deceitful
+					}
+				}
+			}
+		}
 		random = {
 			chance = 40
-
+			
 			narrative_event = {
-				id = 10002 # Noble man
+				id = 10002 #Noble man
 				days = 5
 				random = 10
-				tooltip = EVTTOOLTIP10001
+				tooltip = "EVTTOOLTIP10001"
 			}
+			break = yes
 		}
+		clr_character_flag = got_trait
 	}
-
+	
 	option = {
-		name = EVTOPTC10000
-
-		random = {
-			chance = 25
-			add_trait_fully_content_effect = yes
-		}
-	}
-
-	after = {
-		narrative_event = {
-			id = 10003 # It's a trap!
-			months = 6
-			random = 180
+		name = "EVTOPTC10000"
+		if = {
+			limit = {
+				NOT = {
+					trait = content
+				}
+			}
+			random = {
+				chance = 25
+			
+				add_trait = content
+				hidden_tooltip = {
+					character_event = {
+						id = 38279 #Notify Content
+					}
+				}
+			}
 		}
 	}
 }

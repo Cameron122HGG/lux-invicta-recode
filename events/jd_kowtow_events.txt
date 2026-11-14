@@ -93,182 +93,193 @@ character_event = { # Hidden set-up event!
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { # Travel Tombola
 	id = JD.32005
-
-	hide_window = yes
-	is_triggered_only = yes
-
 	has_dlc = "Jade Dragon"
+	hide_window = yes
 
-	trigger = { trait = kow_tow_travels }
-
+	trigger = {
+		trait = kow_tow_travels
+	}
+	
+	is_triggered_only = yes
+	
 	immediate = {
 		if = {
 			limit = {
-				check_variable = {
-					which = local_china_kow_tow_travel_events
-					value < 1
+				NOT = {
+					check_variable = {
+						which = china_kow_tow_travel_events
+						value = 1
+					}
 				}
-			}
-
+			} 
 			### No more travel events - Move on to entering China
-			character_event = {
-				id = JD.32200
-				days = 50
-				random = 30
-			}
+			character_event = { id = JD.32200 days = 50 random = 30 }
+			break = yes
 		}
-
-		else = {
-			# Fire a random travel event
-			random_list = {
-				50 = { # Unusually heavy rain, think of late parents.
-					trigger = {
-						NOT = { has_character_flag = kow_tow_heavy_rain }
-
+		
+		# Fire a random travel event
+		random_list = {
+			50 = { # Unusually heavy rain, think of late parents.
+				trigger = {
+					NOT = { has_character_flag = kow_tow_heavy_rain }
+					OR = {
+						father_even_if_dead = {
+							NOT = { is_alive = yes }
+							death_in_china_trigger = no
+						}
+						mother_even_if_dead = {
+							NOT = { is_alive = yes }
+							death_in_china_trigger = no
+						}
+						any_sibling_even_if_dead = {
+							NOT = { is_alive = yes }
+							death_in_china_trigger = no
+						}
+					}
+				}
+				character_event = {
+					id = JD.32100
+				}
+				break = yes
+			}
+			50 = {
+				character_event = { id = JD.15010 }  # Homesick (I really miss <person>)
+				trigger = {
+					NOT = { has_character_flag = missed_loved_one }
+					any_courtier_or_vassal = {
 						OR = {
-							father_even_if_dead = {
-								is_alive = no
-								death_in_china_trigger = no
+							is_lover = ROOT
+							any_spouse = { character = ROOT }
+							AND = {
+								OR = {
+									is_mother = ROOT
+									is_father = ROOT
+								}
+								NOR = {
+									is_lover = ROOT
+									any_spouse = { character = ROOT }
+								}
 							}
-
-							mother_even_if_dead = {
-								is_alive = no
-								death_in_china_trigger = no
-							}
-
-							any_sibling_even_if_dead = {
-								is_alive = no
-								death_in_china_trigger = no
-							}
-						}
-					}
-					character_event = { id = JD.32100 }
-				}
-
-				50 = { # Homesick (I really miss <person>)
-					trigger = {
-						NOT = { has_character_flag = missed_loved_one }
-
-						any_courtier_or_vassal = {
-							OR = {
-								is_lover = ROOT
-								is_married = ROOT
-								is_parent_of = ROOT
+							AND = {
 								is_child_of = ROOT
+								NOR = {
+									is_lover = ROOT
+									any_spouse = { character = ROOT }
+								}
+							}
+							AND = {
 								is_friend = ROOT
+								NOR = {
+									is_lover = ROOT
+									any_spouse = { character = ROOT }
+									is_mother = ROOT
+									is_father = ROOT
+									is_child_of = ROOT
+								}
 							}
 						}
 					}
-
-					character_event = { id = JD.15010 }
 				}
-
-				50 = { # Meet traveling merchant
-					trigger = {
-						NOR = {
-							has_character_flag = met_traveling_merchant
-
-							any_artifact = {
-								count >= 15
-								has_artifact_flag = chinese
-							}
+				break = yes
+			}
+			50 = {
+				character_event = { id = JD.15017 }  # Meet traveling merchant
+				trigger = {
+					NOT = { has_character_flag = met_traveling_merchant }
+					NOT = {
+						any_artifact = {
+							count = 15
+							has_artifact_flag = chinese
 						}
 					}
-
-					character_event = { id = JD.15017 }
 				}
-
-				50 = { # Messenger invites you to the Lords keep, travel time > 1
-					trigger = {
-						NOT = { has_character_flag = kow_tow_invited_by_local_lord }
-
-						trigger_if = {
-							limit = {
+				break = yes
+			}
+			50 = { # Messenger invites you to the Lords keep, travel time > 1
+				trigger = {
+					NOT = { has_character_flag = kow_tow_invited_by_local_lord }
+					OR = {
+						AND = {
+							NOT = {
+								check_variable = {
+									which = china_kow_tow_travel_events
+									value = 2
+								}
+							}
+							capital_scope = {
 								distance = {
-									where = c_jiuquan
+									where = 1207
+									value >= 900
+								}
+							}
+						}
+						AND = {
+							NOT = {
+								check_variable = {
+									which = china_kow_tow_travel_events
+									value = 3
+								}
+							}
+							capital_scope = {
+								distance = {
+									where = 1207
 									value >= 1500
 								}
 							}
-
-							check_variable = {
-								which = local_china_kow_tow_travel_events
-								value < 3
-							}
-						}
-						trigger_else = {
-							distance = {
-								where = c_jiuquan
-								value >= 900
-							}
-
-							check_variable = {
-								which = local_china_kow_tow_travel_events
-								value < 2
-							}
-						}
-
-						any_playable_ruler = {
-							ai = yes
-							num_of_friends < 3
-							block_general_event_trigger = no
-							capital_scope = { region = custom_eastern_access }
-
-							OR = {
-								real_tier = COUNT
-								real_tier = DUKE
-							}
 						}
 					}
-
-					character_event = { id = JD.32110 }
-				}
-
-				50 = { # Mercenary encounter (1/3)
-					trigger = {
-						NOT = { has_character_flag = met_mercenaries }
-
-						any_independent_ruler = {
-							ai = yes
-							mercenary = yes
-
-							OR = {
-								culture = han
-
-								trigger_if = {
-									limit = {
-										offmap_china = { has_status = china_jurchen_invasion }
-									}
-									culture = jurchen
-								}
-								trigger_else_if = {
-									limit = {
-										offmap_china = { has_status = china_mongol_invasion }
-									}
-									culture = mongol
-								}
-							}
-
-							primary_title = {
-								has_raised_standing_troops = no
-							}
+					any_playable_ruler = {
+						ai = yes
+						OR = {
+							tier = COUNT
+							tier = DUKE
 						}
-					}
-
-					character_event = { id = JD.15000 }
-				}
-
-				fallback = {
-					### No more possible travel events - Continue to China anyway with extra delay
-					character_event = {
-						id = JD.32200
-						months = 5
-						random = 60
+						capital_scope = {
+							region = custom_eastern_access
+						}
+						NOT = {
+							num_of_friends = 3
+						}
+						NOT = { block_general_event_trigger = yes }
 					}
 				}
+				character_event = {
+					id = JD.32110
+				}
+				break = yes
+			}
+			50 = {
+				character_event = { id = JD.15000 }  # Mercenary encounter (1/3)
+				trigger = {
+					NOT = { has_character_flag = met_mercenaries }
+					 any_independent_ruler = {
+		                ai = yes
+		                mercenary = yes
+		                OR = {
+		                	culture = han
+		                	AND = {
+		                		offmap_china = { has_status = china_xiongnu_invasion }
+		                		culture = xiongnu
+		                	}
+		                	AND = {
+		                		offmap_china = { has_status = china_mongol_invasion }
+		                		culture = mongol
+		                	}
+		                }
+						primary_title = {
+							NOT = { has_raised_standing_troops = yes }
+						}
+		            }
+				}
+				break = yes
 			}
 		}
+		
+		### No more possible travel events - Continue to China anyway with extra delay
+		character_event = { id = JD.32200 days = 150 random = 60 }
 	}
 }
 
@@ -847,91 +858,65 @@ narrative_event = { # Follow up from option A
 	}
 }
 
-character_event = { # Kow-Tow traveling event: You encounter Mercenaries (how? Depends on the status of China)
-	id = JD.15000
-
-	hide_window = yes
-	is_triggered_only = yes
-
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+character_event = {
+    id = JD.15000
 	has_dlc = "Jade Dragon"
+	
+	title = EVTTITLE_JD_KOWTOW
+    border = GFX_event_normal_frame_diplomacy
+    is_triggered_only = yes
 
-	trigger = { trait = kow_tow_travels }
+    hide_window = yes
 
-	immediate = {
-		set_character_flag = met_mercenaries
-
-		random_independent_ruler = {
-			limit = {
-				ai = yes
-				mercenary = yes
-
-				OR = {
-					culture = han
-
-					trigger_if = {
-						limit = {
-							offmap_china = { has_status = china_jurchen_invasion }
-						}
-
-						culture = jurchen
-					}
-					trigger_else_if = {
-						limit = {
-							offmap_china = { has_status = china_mongol_invasion }
-						}
-
-						culture = mongol
-					}
-				}
-
-				primary_title = {
-					has_raised_standing_troops = no
-				}
-			}
-
-			save_event_target_as = other_ruler
-		}
-
-		if = {
-			limit = {
-				offmap_china = {
-					OR = {
-						has_status = china_unrest
-						has_status = china_civil_war
-						has_status = china_mongol_invasion
-						has_status = china_jurchen_invasion
-					}
-				}
-			}
-
-			character_event = { id = JD.15002 } # Mercenaries wants root to pay a "bridge fee"...
-		}
-		else_if = {
-			limit = {
-				offmap_china = {
-					OR = {
-						has_status = china_stable
-						has_status = china_golden_age
-						has_status = china_unrest
-					}
-				}
-			}
-
-			character_event = { id = JD.15003 } # Mercenaries are here to escort root...
-		}
-		else_if = {
-			limit = {
-				offmap_china = {
-					OR = {
-						has_status = china_famine
-						has_status = china_plague
-					}
-				}
-			}
-
-			character_event = { id = JD.15004 } # Meet a starving mercenary band...
-		}
+	trigger = {
+		trait = kow_tow_travels
 	}
+
+    immediate = {
+    	set_character_flag = met_mercenaries
+        random_independent_ruler = {
+            limit = {
+                ai = yes
+                #is_adult = yes
+                #is_landed = yes
+                mercenary = yes
+                OR = {
+                	culture = han
+                	AND = {
+                		offmap_china = { has_status = china_xiongnu_invasion }
+                		culture = xiongnu
+                	}
+                	AND = {
+                		offmap_china = { has_status = china_mongol_invasion }
+                		culture = mongol
+                	}
+                }
+				primary_title = {
+					NOT = { has_raised_standing_troops = yes }
+				}
+            }
+            save_event_target_as = other_ruler
+        }
+        
+        offmap_china = {
+            trigger_switch = {
+                on_trigger = has_status
+                china_stable = { ROOT = { set_character_flag = china_stable } }
+                china_unrest = { ROOT = { set_character_flag = china_unrest } }
+                china_civil_war = { ROOT = { set_character_flag = china_civil_war } }
+                china_mongol_invasion = { ROOT = { set_character_flag = china_mongol_invasion } }
+                china_xiongnu_invasion = { ROOT = { set_character_flag = china_xiongnu_invasion } }
+                china_famine = { ROOT = { set_character_flag = china_famine } }
+                china_plague = { ROOT = { set_character_flag = china_plague } }
+                china_golden_age = { ROOT = { set_character_flag = china_golden_age } }
+            }
+        }
+
+        event_target:other_ruler = {
+            character_event = { id = JD.15001 }
+        }
+    }
 }
 
 character_event = { # Mercenaries wants root to pay a "bridge fee"...

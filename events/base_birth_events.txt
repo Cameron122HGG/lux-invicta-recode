@@ -2424,12 +2424,11 @@ character_event = {
 }
 
 # Wife caught. Consequences...
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 21003
-	picture = GFX_evt_quarrel
-	border = GFX_event_normal_frame_intrigue
-
-	desc = {
+	
+	desc = { 
 		text = EVTDESC21003_CR
 		trigger = {
 			FROM = {
@@ -2440,7 +2439,8 @@ character_event = {
 			}
 		}
 	}
-	desc = {
+	
+	desc = { 
 		text = EVTDESC21003
 		trigger = {
 			FROM = {
@@ -2451,7 +2451,8 @@ character_event = {
 			}
 		}
 	}
-	desc = {
+	
+	desc = { 
 		text = EVTDESC21003_CONF_CR
 		trigger = {
 			FROM = {
@@ -2462,7 +2463,8 @@ character_event = {
 			}
 		}
 	}
-	desc = {
+	
+	desc = { 
 		text = EVTDESC21003_CONF
 		trigger = {
 			FROM = {
@@ -2473,7 +2475,8 @@ character_event = {
 			}
 		}
 	}
-	desc = {
+	
+	desc = { 
 		text = EVTDESC21003_TRAP_CR
 		trigger = {
 			FROM = {
@@ -2484,7 +2487,8 @@ character_event = {
 			}
 		}
 	}
-	desc = {
+	
+	desc = { 
 		text = EVTDESC21003_TRAP
 		trigger = {
 			FROM = {
@@ -2495,13 +2499,16 @@ character_event = {
 			}
 		}
 	}
-
+	
+	picture = GFX_evt_quarrel
+	border = GFX_event_normal_frame_intrigue
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		FROM = { is_alive = yes }
 	}
-
+	
 	immediate = {
 		if = {
 			limit = {
@@ -2510,106 +2517,104 @@ character_event = {
 					has_character_flag = spies_adultery
 				}
 			}
-
 			if = {
-				limit = { trait = trusting }
-
-				random = {
-					chance = 20
-					remove_trait_trusting_effect = yes
-				}
-			}
-			else_if = {
 				limit = {
 					NOT = { trait = paranoid }
+					NOT = { trait = trusting }
 				}
-
 				random = {
 					chance = 10
-					add_trait_paranoid_effect = yes
+					add_trait = paranoid
+					hidden_tooltip = {
+						character_event = { id = 38275 days = 3 } # Paranoid gained
+					}
+				}
+			}
+			
+			if = {
+				limit = { trait = trusting }
+				random = {
+					chance = 20
+					remove_trait = trusting
+					hidden_tooltip = {
+						character_event = { id = 38306 days = 3 } # Trusting lost
+					}
 				}
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA21003 # Keep this quiet
-
-		FROM = {
-			show_scope_change = no
-
-			clr_character_flag = trap_adultery
-			clr_character_flag = confessed_adultery
-			clr_character_flag = spies_adultery
-
-			reverse_opinion = {
-				name = opinion_unfaithful_private
-				who = ROOT
-				years = 5
-			}
-
-			father_of_unborn = {
-				show_scope_change = no
-
-				reverse_opinion = {
-					name = opinion_cuckolded_private
-					who = ROOT
-					years = 5
-				}
-			}
-		}
-
 		ai_chance = {
 			factor = 10
-
-			trigger = {
-				NOR = {
-					trait = wroth
-					trait = cruel
-					trait = envious
-					trait = zealous
-				}
+			modifier = {
+				factor = 0
+				trait = wroth
 			}
-
-			mult_modifier = {
+			modifier = {
+				factor = 0
+				trait = cruel
+			}
+			modifier = {
+				factor = 0
+				trait = envious
+			}
+			modifier = {
+				factor = 0
+				trait = zealous
+			}
+			modifier = {
 				factor = 0.5
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 3
 				trait = craven
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = arbitrary
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2
 				trait = temperate
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 5
 				trait = cynical
 			}
 		}
+		
+		FROM = {
+			clr_character_flag = trap_adultery
+			clr_character_flag = confessed_adultery
+			clr_character_flag = spies_adultery
+			
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_unfaithful_private
+				months = 60
+			}
+			father_of_unborn = {
+				reverse_opinion = {
+					who = ROOT
+					modifier = opinion_cuckolded_private
+					months = 60
+				}
+			}
+		}
 	}
-
+	
 	option = {
 		name = {
 			text = EVTOPTB21003 # Unholy!
-
 			trigger = {
-				religion_has_incest = no
-
+				close_relative_marriages_allowed_trigger = no
 				FROM = {
 					father_of_unborn = {
 						is_close_relative = PREV
@@ -2619,10 +2624,8 @@ character_event = {
 		}
 		name = {
 			text = EVTOPTC21003 # Holy, but they are still traitors!
-
 			trigger = {
-				religion_has_incest = yes
-
+				close_relative_marriages_allowed_trigger = yes
 				FROM = {
 					father_of_unborn = {
 						is_close_relative = PREV
@@ -2632,7 +2635,6 @@ character_event = {
 		}
 		name = {
 			text = EVTOPTD21003 # Traitors!
-
 			trigger = {
 				FROM = {
 					father_of_unborn = {
@@ -2641,29 +2643,39 @@ character_event = {
 				}
 			}
 		}
-
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		hidden_tooltip = {
+			FROM = {
+				father_of_unborn = {
+					save_event_target_as = target_adulterer
+				}
+				character_event = { id = 20 } # Adultery fallout
+			}
+		}
+		
 		FROM = {
-			show_scope_change = no
-
-			father_of_unborn = {
-				save_event_target_as = target_adulterer # For event 20, below
-				character_event = { id = 21006 } # The adulterer is notified that the husband knows
-			}
-
-			character_event = { id = 20 } # Adultery fallout
 			father_of_unborn_known = yes
-
-			if = {
-				limit = { has_character_flag = spies_adultery }
-				character_event = { id = 21005 } # The unfaithful wife is notified that the husband knows
+			father_of_unborn = {
+				hidden_tooltip = {
+					character_event = { id = 21006 }
+				}
 			}
-
+			
+			hidden_tooltip = {
+				if = {
+					limit = { has_character_flag = spies_adultery }
+					character_event = { id = 21005 }
+				}
+			}
+			
 			clr_character_flag = trap_adultery
 			clr_character_flag = confessed_adultery
 			clr_character_flag = spies_adultery
 		}
-
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -3226,454 +3238,300 @@ character_event = {
 }
 
 # The father reacts to the bastard birth
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 301
 	desc = EVTDESC301
 	picture = GFX_evt_birth
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA301 # Legitimize the child
-
 		trigger = {
 			has_polygamy = no
-
-			FROM = {
-				mother = {
-					OR = {
-						# In case the mother is a higher tier ruler, she gets to decide what happens to the child.
-						lower_real_tier_than = ROOT
-
-						# In case mother is same tier as real_father, real_father gets to claim the child, depending on succession law
-						AND = {
-							real_tier = ROOT
-
-							NOR = {
-								has_law = enatic_succession
-								has_law = enatic_cognatic_succession
-								has_law = true_cognatic_succession
-							}
-						}
-					}
+			OR = {
+				FROM = { 
+					mother = { 
+						tier = ROOT 	# In case mother is same tier as real_father, real_father gets to claim the child provided that agnatic succession is in place.
+						NOR = { 
+							has_law = enatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = true_cognatic_succession
+						} 
+					} 
 				}
+				FROM = { mother = { lower_tier_than = ROOT } } #In case the mother is a higher tier ruler, she gets to decide what happens to the child.
 			}
 		}
-
-		custom_tooltip = { text = EVTOPTA301_DESC }
-
-		spouse = {
-			show_scope_change = no
-
-			tooltip = { # Spouse reaction
-				opinion = {
-					name = legitimized_bastard
-					who = ROOT
-					years = 10
-				}
-			}
-		}
-
-		FROM = {
-			show_scope_change = no
-
-			character_event = { id = 302 } # The child gets the father's dynasty
-
-			mother = {
-				show_scope_change = no
-
-				tooltip = {
-					opinion = {
-						name = legitimized_child
-						who = ROOT
-						years = 10
-					}
-				}
-
-				character_event = {
-					id = 303 # The child's mother is very pleased
-					# tooltip = EVTTOOLTIP303
-				}
-
-				spouse = {
-					show_scope_change = no
-
-					tooltip = {
-						opinion = {
-							name = opinion_cuckolded
-							who = ROOT
-							years = 10
-						}
-					}
-
-					character_event = {
-						id = 304 # The child's mother's husband is pissed off
-						# tooltip = EVTTOOLTIP304
-					}
-				}
-
-				consort = {
-					show_scope_change = no
-
-					tooltip = {
-						opinion = {
-							name = opinion_cuckolded
-							who = ROOT
-							years = 10
-						}
-					}
-
-					character_event = {
-						id = 304 # The child's mother's lord is pissed off
-						# tooltip = EVTTOOLTIP304
-					}
-				}
-			}
-		}
-
-		if = {
-			limit = {
-				any_child = {
-					dynasty = ROOT
-
-					NOR = {
-						character = FROM
-						trait = bastard
-					}
-				}
-			}
-
-			custom_tooltip = {
-				text = EVTOPTA301_legchildren_TOOLTIP
-
-				any_child = {
-					limit = {
-						dynasty = ROOT
-
-						NOR = {
-							character = FROM
-							trait = bastard
-						}
-					}
-
-					opinion = {
-						name = legitimized_bastard
-						who = ROOT
-						years = 1
-					}
-				}
-			}
-		}
-
+		
 		ai_chance = {
 			factor = 100
-
-			trigger = {
-				FROM = {
-					is_female = no
-				}
+			modifier = {
+				factor = 0
+				FROM = { is_female = yes }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
-
 				OR = {
-					practical_age < 50
-
+					NOT = { age = 50 }
 					any_child = {
 						is_alive = yes
 						is_female = no
 					}
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.2
-
 				trait = zealous
 				religion_group = christian
-
-				NOR = {
-					gender_equality_trigger = yes
-					religion = bogomilist
-					religion = paulician
+				OR = {
+					religion = adoptionist
+					religion = apollinarist
+					religion = arian
+					religion = audianist
+					religion = catholic
+					religion = docetist
+					religion = fraticelli
+					religion = monophysite
+					religion = monothelite
+					religion = orthodox
+					religion = sabellianist
+					religion = semipelagian
+					religion = unctionist
+					religion = waldensian
+					religion = cathar_reformed
+					religion = christian_populist_reformed
+					religion = montanist_reformed
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = kind
 			}
 		}
-	}
-
-	option = {
-		name = EVTOPTB301 # Acknowledge the child
-
-		trigger = {
-			FROM = {
-				mother = {
-					OR = {
-						# In case the mother is a higher tier ruler, she gets to decide what happens to the child.
-						lower_real_tier_than = ROOT
-
-						# In case mother is same tier as real_father, real_father gets to claim the child, depending on succession law
-						AND = {
-							real_tier = ROOT
-
-							NOR = {
-								has_law = enatic_succession
-								has_law = enatic_cognatic_succession
-								has_law = true_cognatic_succession
-							}
-						}
-					}
-				}
-			}
-		}
-
-		custom_tooltip = { text = EVTOPTB301_DESC }
-
+		
+		custom_tooltip = { text = EVTOPTA301_DESC }
 		spouse = {
 			show_scope_change = no
-
-			tooltip = {
-				opinion = { # Spouse reaction
-					name = acknowledged_bastard
-					who = ROOT
-					years = 10
-				}
-			}
+			tooltip = { opinion = { who = ROOT modifier = legitimized_bastard years = 10 } } # Spouse reaction.
 		}
-
 		FROM = {
 			show_scope_change = no
-
-			character_event = { id = 306 } # The child gets the father's dynasty, but is not legitimized.
-
-			if = {
-				limit = { trait = born_in_the_purple }
-				remove_trait = born_in_the_purple
+			hidden_tooltip = {
+				character_event = { id = 302 } # The child gets the father's dynasty
 			}
-
 			mother = {
 				show_scope_change = no
-
-				tooltip = {
-					opinion = {
-						name = acknowledged_child
-						who = ROOT
-						years = 10
-					}
-				}
-
-				character_event = {
-					id = 307 # The child's mother is pleased
-					# tooltip = EVTTOOLTIP307
-				}
-
+				tooltip = { opinion = { who = ROOT modifier = legitimized_child years = 10 } }
+				hidden_tooltip = { character_event = { id = 303 tooltip = EVTTOOLTIP303 } } # The child's mother is very pleased
 				spouse = {
 					show_scope_change = no
-
-					tooltip = {
-						opinion = {
-							name = opinion_cuckolded
-							who = ROOT
-							years = 10
-						}
-					}
-
-					character_event = {
-						id = 304 # The child's mother's husband is pissed off
-						# tooltip = EVTTOOLTIP304
-					}
-				}
-
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's husband is pissed off
+				}		
 				consort = {
 					show_scope_change = no
-
-					tooltip = {
-						opinion = {
-							name = opinion_cuckolded
-							who = ROOT
-							years = 10
-						}
-					}
-
-					character_event = {
-						id = 304 # The child's mother's man is pissed off
-						# tooltip = EVTTOOLTIP304
-					}
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's lord is pissed off
+				}			
+			}
+		}
+		if = { 
+			limit = {
+				any_child = {
+					is_alive = yes
+					NOT = { character = FROM }
+					dynasty = ROOT
+					NOT = { trait = bastard }
+				}  
+			}
+			custom_tooltip = { text = EVTOPTA301_legchildren_TOOLTIP }
+		}
+		hidden_tooltip = {
+		any_child = {
+				limit = {
+					NOT = { character = FROM }
+					dynasty = ROOT
+					NOT = { trait = bastard }
+				}
+				opinion = {
+					who = ROOT
+					modifier = legitimized_bastard
+					months = 12
 				}
 			}
 		}
-
+	}
+	
+	option = {
+		name = EVTOPTB301 # Acknowledge the child
+		trigger = {
+			OR = {
+				FROM = { 
+					mother = { 
+						tier = ROOT 	# In case mother is same tier as real_father, real_father gets to claim the child provided that agnatic succession is in place.
+						NOR = { 
+							has_law = enatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = true_cognatic_succession
+						} 
+					} 
+				}
+				FROM = { mother = { lower_tier_than = ROOT } } #In case the mother is a higher tier ruler, she gets to decide what happens to the child.
+			}
+		}
 		ai_chance = {
 			factor = 100
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				FROM = { is_female = yes }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-
 				trait = zealous
 				religion_group = christian
-				gender_equality_trigger = no
-
-				NOR = {
-					religion = bogomilist
-					religion = paulician
+				OR = {
+					religion = adoptionist
+					religion = apollinarist
+					religion = arian
+					religion = audianist
+					religion = catholic
+					religion = docetist
+					religion = fraticelli
+					religion = monophysite
+					religion = monothelite
+					religion = orthodox
+					religion = sabellianist
+					religion = semipelagian
+					religion = unctionist
+					religion = waldensian
+					religion = cathar_reformed
+					religion = christian_populist_reformed
+					religion = montanist_reformed
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = kind
 			}
 		}
-	}
-
-	option = {
-		name = EVTOPTC301 # Denounce the child
-
-		trigger = {
-			FROM = {
-				mother = {
-					OR = {
-						# In case the mother is a higher tier ruler, she gets to decide what happens to the child.
-						lower_real_tier_than = ROOT
-
-						# In case mother is same tier as real_father, real_father gets to claim the child, depending on succession law
-						AND = {
-							real_tier = ROOT
-
-							NOR = {
-								has_law = enatic_succession
-								has_law = enatic_cognatic_succession
-								has_law = true_cognatic_succession
-							}
-						}
-					}
-				}
-			}
+		
+		custom_tooltip = { text = EVTOPTB301_DESC }
+		
+		spouse = {
+			show_scope_change = no
+			tooltip = { opinion = { who = ROOT modifier = acknowledged_bastard years = 10 } } # Spouse reaction.
 		}
-
-		custom_tooltip = { text = EVTOPTC301_DESC }
-
 		FROM = {
 			show_scope_change = no
-
-			character_event = { id = 309 } # The child founds a new bastard dynasty
-
+			hidden_tooltip = {
+				character_event = { id = 306 } # The child gets the father's dynasty, but is not legitimized.
+			}
 			if = {
 				limit = { trait = born_in_the_purple }
 				remove_trait = born_in_the_purple
 			}
-
-			if = {
-				limit = { trait = saoshyant_descendant }
-				remove_trait = saoshyant_descendant
-			}
-
-			if = {
-				limit = { trait = sayyid }
-				remove_trait = sayyid
-			}
-
 			mother = {
 				show_scope_change = no
-
-				tooltip = {
-					opinion = {
-						name = denounced_child
-						who = ROOT
-						years = 10
-					}
-				}
-
-				character_event = {
-					id = 310 # The child's mother is dishonoured
-					# tooltip = EVTTOOLTIP310
-				}
-
+				tooltip = { opinion = { who = ROOT modifier = acknowledged_child years = 10 } }
+				hidden_tooltip = { character_event = { id = 307 tooltip = EVTTOOLTIP307 } } # The child's mother is pleased
 				spouse = {
 					show_scope_change = no
-
-					tooltip = {
-						opinion = {
-							name = opinion_cuckolded
-							who = ROOT
-							years = 10
-						}
-					}
-
-					character_event = {
-						id = 304 # The child's mother's husband is pissed off
-						# tooltip = EVTTOOLTIP304
-					}
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's husband is pissed off
 				}
-
 				consort = {
 					show_scope_change = no
-
-					tooltip = {
-						opinion = {
-							name = opinion_cuckolded
-							who = ROOT
-							years = 10
-						}
-					}
-
-					character_event = {
-						id = 304 # The child's mother's man is pissed off
-						# tooltip = EVTTOOLTIP304
-					}
-				}
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's man is pissed off
+				}				
 			}
 		}
-
+	}
+	
+	option = {
+		name = EVTOPTC301 # Denounce the child
+		trigger = {
+			OR = {
+				FROM = { 
+					mother = { 
+						tier = ROOT 	# In case mother is same tier as real_father, real_father gets to claim the child provided that agnatic succession is in place.
+						NOR = { 
+							has_law = enatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = true_cognatic_succession
+						} 
+					} 
+				}
+				FROM = { mother = { lower_tier_than = ROOT } } #In case the mother is a higher tier ruler, she gets to decide what happens to the child.
+			}
+		}
 		ai_chance = {
 			factor = 100
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = cruel
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = arbitrary
 			}
 		}
-	}
-
-	option = {
-		name = EVTOPTD301 # Do nothing
-
-		trigger = {
-			FROM = {
-				mother = {
-					# In case the mother is a lower tier ruler, the father gets to decide what happens to the child.
-					higher_real_tier_than = ROOT
-				}
+		
+		custom_tooltip = { text = EVTOPTC301_DESC }
+		
+		FROM = {
+			show_scope_change = no
+			hidden_tooltip = {
+				character_event = { id = 309 } #  The child founds a new bastard dynasty
+			}
+			if = {
+				limit = { trait = born_in_the_purple }
+				remove_trait = born_in_the_purple
+			}
+			if = {
+				limit = { trait = saoshyant_descendant }
+				remove_trait = saoshyant_descendant
+			}
+			if = {
+				limit = { trait = sayyid }
+				remove_trait = sayyid
+			}
+			mother = {
+				show_scope_change = no
+				tooltip = { opinion = { who = ROOT modifier = denounced_child years = 10 } }
+				hidden_tooltip = { character_event = { id = 310 tooltip = EVTTOOLTIP310 } } # The child's mother is dishonoured
+				spouse = {
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's husband is pissed off
+				}	
+				consort = {
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's man is pissed off
+				}				
 			}
 		}
-
-		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = EVTOPTD301 # Do nothing
+		trigger = {
+			FROM = { mother = { higher_tier_than = ROOT } } #In case the mother is a lower tier ruler, the father gets to decide what happens to the child.
+		}
+		ai_chance = {
+			factor = 100
+		}
 	}
 }
 

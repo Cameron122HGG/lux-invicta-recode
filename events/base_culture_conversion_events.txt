@@ -5,279 +5,213 @@
 #################################################
 
 # Province culture changes
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 province_event = {
 	id = 55000
-	desc = EVTDESC55000
+	desc = "EVTDESC55000"
 	picture = GFX_evt_culture_change
-
+	
 	trigger = {
 		owner = {
-			religion = ROOT
-			culture = top_liege
+			top_liege = {
+				culture = PREV
+			}
 			NOT = { culture = ROOT }
+			religion = ROOT
 		}
-
 		any_neighbor_province = {
 			has_owner = yes
-
+			ROOT = {
+				owner = {
+					culture = PREVPREV
+				}
+			}
 			owner = {
 				ROOT = {
 					owner = {
 						culture = PREVPREV
-						culture = PREVPREVPREV
 					}
 				}
 			}
-
 			NOR = {
 				has_province_modifier = depopulated_1
 				has_province_modifier = depopulated_2
 				has_province_modifier = depopulated_3
 			}
 		}
-
-		# No flipping back to Norse culture before 1150
-		trigger_if = {
-			limit = {
-				owner = {
-					culture = norse
-				}
-
-				OR = {
-					culture = swedish
-					culture = norwegian
-					culture = danish
-					culture = norman
-				}
-			}
-
-			OR = {
-				year >= 1150
-				non_historical_culture_names_in_alt_start_trigger = yes
-			}
-		}
 	}
-
+	
 	mean_time_to_happen = {
-		years = 100
+		months = 2400 #original 1200 months
 
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
-			owner = { stewardship < 2 }
+			owner = { NOT = { stewardship = 2 } }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
-			owner = { stewardship < 3 }
+			owner = { NOT = { stewardship = 3 } }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
-			owner = { stewardship < 4 }
+			owner = { NOT = { stewardship = 4 } }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 1.5
-			owner = { stewardship < 5 }
+			owner = { NOT = { stewardship = 5 } }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
-			owner = { stewardship >= 9 }
+			owner = { stewardship = 9 }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
-			owner = { stewardship >= 11 }
+			owner = { stewardship = 11 }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
-			owner = { stewardship >= 13 }
+			owner = { stewardship = 13 }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
-			owner = { stewardship >= 15 }
+			owner = { stewardship = 15 }
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.95
-
 			owner = {
 				job_treasurer = {
+					NOT = {
+						stewardship = 10
+					}
 					has_job_action = action_administer_realm
-					stewardship < 10
 				}
 			}
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
-
 			owner = {
 				job_treasurer = {
+					stewardship = 10
 					has_job_action = action_administer_realm
-					stewardship >= 10
 				}
 			}
 		}
-
-		mult_modifier = {
+		modifier = {	## added by Ash
+			factor = 1.1
+			owner = { trait = tolerant }
+		}
+		modifier = {	## added by Ash
+			factor = 1.1
+			owner = { trait = eccentric }
+		}
+		modifier = {	## added by Ash
+			factor = 1.1
+			owner = { trait = unpredictable }
+		}
+		modifier = {	## added by Ash
+			factor = 0.7
+			owner = { trait = oldfashioned }
+		}
+		modifier = {
 			factor = 0.75
-
 			owner = {
 				OR = {
 					primary_title = {
 						conquest_culture = PREV
 					}
-
 					ROOT = {
-						OR = {
-							county = {
-								conquest_culture = PREVPREV
+						county = {
+							conquest_culture = PREVPREV
+						}
+					}
+					ROOT = {
+						duchy = {
+							holder_scope = {
+								character = PREVPREVPREV
 							}
-
-							duchy = {
-								holder = PREVPREV
-								conquest_culture = PREVPREV
+							conquest_culture = PREVPREV
+						}
+					}
+					ROOT = {
+						kingdom = {
+							holder_scope = {
+								character = PREVPREVPREV
 							}
-
-							kingdom = {
-								holder = PREVPREV
-								conquest_culture = PREVPREV
+							conquest_culture = PREVPREV
+						}
+					}
+					ROOT = {
+						empire = {
+							holder_scope = {
+								character = PREVPREVPREV
 							}
-
-							empire = {
-								holder = PREVPREV
-								conquest_culture = PREVPREV
-							}
+							conquest_culture = PREVPREV
 						}
 					}
 				}
 			}
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.75
 			has_province_flag = recent_depopulation_1
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.5
 			has_province_flag = recent_depopulation_2
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 0.25
 			has_province_flag = recent_depopulation_3
 		}
-
-		mult_modifier = {
+		modifier = {
 			factor = 3
-
 			OR = {
 				has_game_rule = {
 					name = culture_conversion
 					value = slower_normal
 				}
-
 				has_game_rule = {
 					name = culture_conversion
 					value = faster_melting_pots_and_slower_normal
 				}
 			}
 		}
-
-		mult_modifier = {
-			factor = 0.25
-
-			OR = {
-				culture = zhangzhung
-				culture = sumpa
-			}
-
-			owner = {
-				culture = bodpa
-
-				OR = {
-					any_owned_bloodline = {
-						has_bloodline_flag = bloodline_songtsen_gampo
-					}
-
-					top_liege = {
-						any_owned_bloodline = {
-							has_bloodline_flag = bloodline_songtsen_gampo
-						}
-					}
-				}
-			}
-		}
-
-		mult_modifier = {
-			factor = 0.6
-
-			owner = {
-				any_owned_bloodline = {
-					has_bloodline_flag = cultural_saintly_bloodline
-
-					founder = {
-						culture = PREVPREV
-					}
-				}
-			}
-		}
-
-		mult_modifier = { # Roman Renaissance
-			factor = 0.5
-
-			owner = {
-				culture = roman
-			}
-
-			culture_group = latin
-			has_global_flag = flag_started_roman_renaissance
-		}
-
-		mult_modifier = { # Greek culture is more impervious to Romanization
-			factor = 2
-
-			owner = {
-				culture = roman
-			}
-
-			culture = greek
-		}
-
-		# Effect of wonder upgrades
-		mult_modifier = {
-			factor = 0.75
-
-			owner = {
-				top_liege = {
-					any_realm_wonder_upgrade = {
-						has_wonder_upgrade_flag = culture_conversion_faster
-						is_active = yes
-
-						wonder = {
-							original_wonder_owner = {
-								culture_group = PREVPREVPREV
-							}
-						}
-					}
-				}
-			}
-		}
+#		modifier = {
+#			factor = 0.333 #libert3v12a reduced from .66 to .333
+#			OR={
+#				owner = { has_ambition = obj_civilize_province }
+#				owner = { any_liege= { culture=PREV has_ambition = obj_civilize_province } }
+#			}
+#		}
 	}
 
 	option = {
-		name = EVTOPTA55000
-
-		culture = owner
-
-		if = {
-			limit = { has_province_modifier = nomad_agitation }
-			remove_province_modifier = nomad_agitation
+		name = "EVTOPTA55000"
+		owner = {
+			ROOT = {
+				culture = PREV
+				if = {
+					limit = {
+						has_province_modifier = nomad_agitation
+					}
+					remove_province_modifier = nomad_agitation
+				}
+			}
+#			if = {
+#				limit = {
+#					has_ambition = obj_civilize_province
+#				}
+#				character_event = { id = ao_cleanup.1 days = 3 }
+#			}
+#			any_liege = {
+#				if = {
+#					limit = {
+#						culture = PREV
+#						has_ambition = obj_civilize_province
+#					}
+#					character_event = { id = ao_cleanup.1 days = 3 }
+#				}
+#			}
 		}
 	}
 }

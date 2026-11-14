@@ -2083,247 +2083,242 @@ character_event = {
 }
 
 # Attempt at religious persuasion
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 91360
 	desc = EVTDESC91360
 	picture = GFX_evt_bishop_muslim
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA91360 # Refuse
-
+		ai_chance = {
+			factor = 3
+		}
 		FROM = {
-			show_scope_change = no
-
 			character_event = {
 				id = 91356
 				days = 3
 				tooltip = EVTTOOLTIP91351
 			}
 		}
-
 		piety = -100
-
-		ai_chance = { factor = 3 }
 	}
-
+	
 	option = {
-		name = EVTOPTB91360 # Join the Bektashi Order
-
+		name = EVTOPTB91360 # Join the Sunni Holy Order
+		
 		trigger = {
-			d_bektashi = {
+			is_ruler = no
+			OR = {
+				religion = sunni
+				religion = ashari
+				religion = athari
+				religion = maturidi
+				religion = murjiah
+				religion = zahiri
+			}
+			is_heretic = no
+			d_holysunni = {
 				has_holder = yes
 			}
-
-			is_sunni_branch = yes
-			is_ruler = no
-			is_heretic = no
 		}
-
-		FROM = {
-			character_event = {
-				id = 91361
-				days = 3
+		
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.7
+				any_spouse = {
+					reverse_opinion = { who = ROOT value = 100 }
+				}
 			}
 		}
-
-		remove_trait = decadent
+		
+		hidden_tooltip = {
+			FROM = {
+				character_event = {
+					id = 91361
+					days = 3
+				}
+			}
+		}
 		set_character_flag = straightened_up
+		remove_trait = decadent
 		clr_character_flag = negotiated_to_drop_decadence
 		piety = 100
-
-		d_bektashi = {
-			show_scope_change = no
-
+		
+		d_holysunni = {
 			holder_scope = {
-				show_scope_change = no
-
 				ROOT = {
-					show_scope_change = no
-
 					move_character = PREV
 				}
 			}
 		}
-
 		any_spouse = {
-			show_scope_change = no
-
 			remove_spouse = ROOT
-			character_event = { id = 91377 }
-		}
-
-		ai_chance = {
-			factor = 5
-
-			mult_modifier = {
-				factor = 0.7
-
-				any_spouse = {
-					reverse_opinion = {
-						who = ROOT
-						value >= 100
-					}
-				}
-			}
+			hidden_tooltip = { character_event = { id = 91377 } }
 		}
 	}
-
 	option = {
 		name = EVTOPTC91360 # Join the Assassins
-
+		
 		trigger = {
-			d_fedayeen = {
+			is_ruler = no
+			OR = {
+				religion = shiite
+				religion = druze
+				religion = hurufi
+			}
+			is_heretic = no
+			d_holyshiite = {
 				has_holder = yes
 			}
-
-			is_shiite_branch = yes
-			NOT = { religion = qarmatian }
-			is_ruler = no
-			is_heretic = no
 		}
-
-		FROM = {
-			character_event = {
-				id = 91361
-				days = 3
+		
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.7
+				any_spouse = {
+					reverse_opinion = { who = ROOT value = 100 }
+				}
 			}
 		}
-
+		
+		hidden_tooltip = {
+			FROM = {
+				character_event = {
+					id = 91361
+					days = 3
+				}
+			}
+		}
+		
 		remove_trait = decadent
 		clr_character_flag = negotiated_to_drop_decadence
 		piety = 100
-
-		d_fedayeen = {
-			show_scope_change = no
-
+		
+		d_holyshiite = {
 			holder_scope = {
-				show_scope_change = no
-
 				ROOT = {
-					show_scope_change = no
-
 					move_character = PREV
 				}
 			}
 		}
-
 		any_spouse = {
-			show_scope_change = no
-
 			remove_spouse = ROOT
-			character_event = { id = 91377 }
+			hidden_tooltip = { character_event = { id = 91377 } }
 		}
-
-		ai_chance = {
-			factor = 5
-
-			mult_modifier = {
-				factor = 0.7
-
-				any_spouse = {
-					reverse_opinion = {
-						who = ROOT
-						value >= 100
-					}
+	}
+	option = {
+		name = EVTOPTD91360 # Go on Hajj
+		trigger = {
+			NOT = {
+				OR = {
+					trait = hajjaj
+					trait = on_hajj
 				}
 			}
 		}
-	}
-
-	option = {
-		name = EVTOPTD91360 # Go on Hajj
-
-		trigger = {
-			NOR = {
-				trait = hajjaj
-				trait = on_hajj
-			}
+		
+		ai_chance = {
+			factor = 5
 		}
-
-		remove_trait = decadent
+		
 		set_character_flag = straightened_up
+		
+		remove_trait = decadent
 		clr_character_flag = negotiated_to_drop_decadence
 		piety = 50
-
-		FROM = {
-			character_event = {
-				id = 91362
-				days = 3
+		
+		hidden_tooltip = {
+			FROM = {
+				character_event = {
+					id = 91362
+					days = 3
+				}
 			}
 		}
-
+		
 		scaled_wealth = -0.20
 		clr_character_flag = promise_hajj
 		set_character_flag = activated_hajj
 		set_character_flag = do_not_disturb
-		letter_event = { id = 86000 } # Start Hajj
-
-		ai_chance = { factor = 5 }
-	}
-
-	option = {
-		name = EVTOPTE91360 # Donate money to charity
-
-		remove_trait = decadent
-		set_character_flag = straightened_up
-		clr_character_flag = negotiated_to_drop_decadence
-
-		FROM = {
-			character_event = {
-				id = 91363
-				days = 3
+		hidden_tooltip = {
+			letter_event = { 
+				id = 86000
 			}
 		}
-
+	}
+	option = {
+		name = EVTOPTE91360 # Donate money to charity
+		
+		ai_chance = {
+			factor = 5
+		}	
+		set_character_flag = straightened_up
+		
+		remove_trait = decadent
+		clr_character_flag = negotiated_to_drop_decadence
+		
+		hidden_tooltip = {
+			FROM = {
+				character_event = {
+					id = 91363
+					days = 3
+				}
+			}
+		}
+		
 		wealth = -10
 		piety = 20
-
-		ai_chance = { factor = 5 }
 	}
-
+	
 	option = {
 		name = EVTOPTC91355 # Bribe (diplo)
+		ai_chance = {
+			factor = 6
+		}
 		tooltip_info = diplomacy
-
-		trigger = { diplomacy >= 12 }
-
+		trigger = {
+			diplomacy = 12
+		}
 		FROM = {
 			character_event = {
 				id = 91372
 				days = 3
 			}
 		}
-
-		ai_chance = { factor = 6 }
 	}
-
+	
 	option = {
 		name = EVTOPTD91355 # Engage in theological debate (learning)
+		ai_chance = {
+			factor = 6
+		}
 		tooltip_info = learning
-
-		trigger = { learning >= 12 }
-
+		trigger = {
+			learning = 12
+		}
 		FROM = {
 			character_event = {
 				id = 91373
 				days = 3
 			}
 		}
-
-		ai_chance = { factor = 6 }
 	}
-
+	
 	option = {
-		name = EVTOPTE91355 # Seduce wife (intrigue)
-		tooltip_info = intrigue
-
 		trigger = {
-			intrigue >= 12
 			FROM = { is_married = yes }
+			intrigue = 12
 		}
-
+		name = EVTOPTE91355 # Seduce wife (intrigue)
+		ai_chance = {
+			factor = 6
+		}
+		tooltip_info = intrigue
 		FROM = {
 			spouse = {
 				character_event = {
@@ -2332,8 +2327,6 @@ character_event = {
 				}
 			}
 		}
-
-		ai_chance = { factor = 6 }
 	}
 }
 

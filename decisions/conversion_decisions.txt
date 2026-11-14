@@ -335,107 +335,572 @@ targeted_decisions = {
 		}
 	}
 
-	convert_to_local_religion = {
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+convert_to_local_religion = {
+		only_playable = yes
+		
 		filter = self
-
+		ai_target_filter = self
 		ai = no
-
+		
 		potential = {
-			has_dlc = "Rajas of India"
+			is_playable = yes
 			is_nomadic = no
+			capital_scope = {
+				NOT = { religion = ROOT }
+			}
+			OR = {
+				independent = yes
+				liege = {
+					NOT = { religion = ROOT }
+				}
+			}
+			
+			# The Indian religions can convert to each other anyway
+			OR = {
+				NOT = { has_dharmic_religion_trigger = yes }
+				capital_scope = {
+					NOT = { has_dharmic_religion_trigger = yes }
+				}
+			}
+			
 			controls_religion = no
 			holy_order = no
-			NOT = { religion = capital_scope }
-
-			trigger_if = {
-				limit = { independent = no }
-				NOT = { religion = liege }
+			
+			has_dlc = "Rajas of India"
+			
+			NOT = {
+				AND = {
+					has_dlc = "Charlemagne"
+					has_landed_title = e_byzantium  # May instead renounce iconoclasm
+					has_landed_title = c_byzantion
+					religion = iconoclast
+					capital_scope = { religion = orthodox }
+				}
 			}
-
-			# The Indian religions can convert to each other anyway
-			NAND = {
-				has_dharmic_religion_trigger = yes
-				capital_scope = { has_dharmic_religion_trigger = yes }
-			}
-
-			# May instead renounce Iconoclasm
-			NOT = { is_decision_potential = renounce_iconoclasm }
 		}
-
 		allow = {
 			NOT = { trait = zealous }
-
-			trigger_if = {
-				limit = { true_religion_group = capital_scope }
-				prestige >= 500
-			}
-			trigger_else = {
-				prestige >= 1000
-			}
-
-			capital_scope = {
-				show_scope_change = no
-
-				has_safe_religion = yes
-			}
-		}
-
-		effect = {
-			piety = 250
-
-			tooltip = {
-				religion = capital_scope
-			}
-
-			if = {
-				limit = { true_religion_group = capital_scope }
-				prestige = -500
-			}
-			else = {
-				prestige = -1000
-			}
-
-			if = {
-				limit = {
-					has_any_sympathy_trait_trigger = no
-					NOT = { true_religion_group = capital_scope }
+			OR = {
+				AND = {
+					prestige = 500
+					capital_scope = {
+						true_religion_group = ROOT
+					}
 				}
-
-				random = {
-					chance = 60
-
-					trigger_switch = {
-						on_trigger = true_religion_group
-
-						christian         = { add_trait = sympathy_christendom }
-						muslim            = { add_trait = sympathy_islam }
-						indian_group      = { add_trait = sympathy_indian }
-						jewish_group      = { add_trait = sympathy_judaism }
-						pagan_group       = { add_trait = sympathy_pagans }
-						zoroastrian_group = { add_trait = sympathy_zoroastrianism }
+				AND = {
+					prestige = 1000
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
 					}
 				}
 			}
-
-			custom_tooltip = { text = local_religion_conversion_tooltip }
-
-			religion_authority = {
-				name = ruler_converted_from
+		}
+		effect = {
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				prestige = -1000
 			}
-
-			capital_scope = {
-				show_scope_change = no
-
-				religion_authority = {
-					name = ruler_converted_to
+			if = {
+				limit = {
+					capital_scope = {
+						true_religion_group = ROOT
+					}
+				}
+				prestige = -500
+			}
+			piety = 250
+			religion_authority = {
+				modifier = ruler_converted_from
+			}
+			# ALL religion groups go here...
+			if = {
+				limit = {
+					religion_group = abrahamic_group
+					NOT = { trait = sympathy_abrahamics }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_abrahamics
 				}
 			}
-
-			hidden_effect = {
-				religion = capital_scope
+			if = {
+				limit = {
+					religion_group = anatolian_group
+					NOT = { trait = sympathy_anatolians }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_anatolians
+				}
+			}
+			if = {
+				limit = {
+					religion_group = arabpagan_group
+					NOT = { trait = sympathy_arabpagans }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_arabpagans
+				}
+			}
+			if = {
+				limit = {
+					religion_group = aztec_group
+					NOT = { trait = sympathy_aztecs }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_aztecs
+				}
+			}
+			if = {
+				limit = {
+					religion_group = baltic_group
+					NOT = { trait = sympathy_baltics }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_baltics
+				}
+			}
+			if = {
+				limit = {
+					religion_group = bantu_group
+					NOT = { trait = sympathy_bantus }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_bantus
+				}
+			}
+			if = {
+				limit = {
+					religion_group = berberpagan_group
+					NOT = { trait = sympathy_berbers }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_berbers
+				}
+			}
+			if = {
+				limit = {
+					religion_group = bud_group
+					NOT = { trait = sympathy_buddhists }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_buddhists
+				}
+			}
+			if = {
+				limit = {
+					religion_group = celtic_group
+					NOT = { trait = sympathy_celtics }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_celtics
+				}
+			}
+			if = {
+				limit = {
+					religion_group = chinese_group
+					NOT = { trait = sympathy_chinese }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_chinese
+				}
+			}
+			if = {
+				limit = {
+					religion_group = christian
+					NOT = { trait = sympathy_christendom }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_christendom
+				}
+			}
+			if = {
+				limit = {
+					religion_group = east_african_group
+					NOT = { trait = sympathy_east_africans }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_east_africans
+				}
+			}
+			if = {
+				limit = {
+					religion_group = egyptian_group
+					NOT = { trait = sympathy_egyptian }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_egyptian
+				}
+			}
+			if = {
+				limit = {
+					religion_group = finnish_group
+					NOT = { trait = sympathy_finnish }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_finnish
+				}
+			}
+			if = {
+				limit = {
+					religion_group = graecoroman_group
+					NOT = { trait = sympathy_graecoroman }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_graecoroman
+				}
+			}
+			if = {
+				limit = {
+					religion_group = indian_group
+					NOT = { trait = sympathy_indian }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_indian
+				}
+			}
+			if = {
+				limit = {
+					religion_group = indohelen_group
+					NOT = { trait = sympathy_indohellens }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_indohellens
+				}
+			}
+			if = {
+				limit = {
+					religion_group = inti_group
+					NOT = { trait = sympathy_intis }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_intis
+				}
+			}
+			if = {
+				limit = {
+					religion_group = inuit_group
+					NOT = { trait = sympathy_inuit }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_inuit
+				}
+			}
+			if = {
+				limit = {
+					religion_group = jewish_group
+					NOT = { trait = sympathy_judaism }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_judaism
+				}
+			}
+			if = {
+				limit = {
+					religion_group = luwian_group
+					NOT = { trait = sympathy_luwians }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_luwians
+				}
+			}
+			if = {
+				limit = {
+					religion_group = mand_group
+					NOT = { trait = sympathy_mande }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_mande
+				}
+			}
+			if = {
+				limit = {
+					religion_group = mani_group
+					NOT = { trait = sympathy_manichaeans }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_manichaeans
+				}
+			}
+			if = {
+				limit = {
+					religion_group = mithra_group
+					NOT = { trait = sympathy_mithraics }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_mithraics
+				}
+			}
+			if = {
+				limit = {
+					religion_group = muslim
+					NOT = { trait = sympathy_islam }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_islam
+				}
+			}
+			if = {
+				limit = {
+					religion_group = neoplato_group
+					NOT = { trait = sympathy_platonics }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_platonics
+				}
+			}
+			if = {
+				limit = {
+					religion_group = norsegerman_group
+					NOT = { trait = sympathy_nordic }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_nordic
+				}
+			}
+			if = {
+				limit = {
+					religion_group = pagan_group
+					NOT = { trait = sympathy_pagans }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_pagans
+				}
+			}
+			if = {
+				limit = {
+					religion_group = palmyranpagan_group
+					NOT = { trait = sympathy_palmyrans }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_palmyrans
+				}
+			}
+			if = {
+				limit = {
+					religion_group = serer_group
+					NOT = { trait = sympathy_sererics }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_sererics
+				}
+			}
+			if = {
+				limit = {
+					religion_group = slavic_group
+					NOT = { trait = sympathy_slavics }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_slavics
+				}
+			}
+			if = {
+				limit = {
+					religion_group = sol_group
+					NOT = { trait = sympathy_sol }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_sol
+				}
+			}
+			if = {
+				limit = {
+					religion_group = tengri_group
+					NOT = { trait = sympathy_tengri }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_tengri
+				}
+			}
+			if = {
+				limit = {
+					religion_group = yazd_group
+					NOT = { trait = sympathy_yazd }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_yazd
+				}
+			}
+			if = {
+				limit = {
+					religion_group = zal_group
+					NOT = { trait = sympathy_zal }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_zal
+				}
+			}
+			if = {
+				limit = {
+					religion_group = zoroastrian_group 
+					NOT = { trait = sympathy_zoroastrianism }
+					capital_scope = {
+						NOT = { true_religion_group = ROOT }
+					}
+				}
+				random = {
+					chance = 60
+					add_trait = sympathy_zoroastrianism
+				}
+			}
+			custom_tooltip = { text = local_religion_conversion_tooltip }
+			hidden_tooltip = {
+				capital_scope = {
+					reverse_religion = ROOT
+				}
+			}
+			hidden_tooltip = {
+				religion_authority = {
+					modifier = ruler_converted_to
+				}
 			}
 		}
-
+		revoke_allowed = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 0
 		}
@@ -557,74 +1022,172 @@ targeted_decisions = {
 
 
 
-	convert_to_spouse_religion = {
-		filter = spouse
-
-		ai = no
-
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+convert_to_spouse_religion = {
+		only_playable = yes
+		filter = home_court
+		ai_target_filter = home_court
+		ai_check_interval = 60
+	
 		from_potential = {
-			controls_religion = no
-			is_unreformed_pagan_trigger = yes
-		}
-
-		potential = {
-			OR = {
-				is_married = FROM
-				is_consort = FROM
+			ai = no
+			is_playable = yes
+			custom_tooltip = {
+				text = traditional_religion_tooltip
+				hidden_tooltip = {
+					traditional_religion_trigger = yes
+				}
 			}
-
-			is_not_unreformed_pagan_trigger = yes
+			controls_religion = no
 		}
-
+		
+		potential = {
+			custom_tooltip = {
+				text = proselyte_religion_tooltip
+				hidden_tooltip = {
+					proselyte_religion_trigger = yes
+				}
+			}
+			OR = {
+				spouse = {
+					character = FROM
+				}
+				consort = {
+					character = FROM
+				}
+			}
+			is_alive = yes
+		}
+		
 		allow = {
 			FROM = { NOT = { trait = zealous } }
-			has_safe_religion = yes
 		}
-
+		
 		effect = {
-			save_event_target_as = religious_branch_target
-
 			FROM = {
-				show_scope_change = no
-
-				tooltip = {
-					religion = ROOT
-					copy_religious_branch_from_target_effect = yes
-				}
-
 				prestige = -500
-				piety = 200
-
 				religion_authority = {
-					name = ruler_converted_from
+					modifier = ruler_converted_from
 				}
-
-				ROOT = {
-					show_scope_change = no
-
-					religion_authority = {
-						name = ruler_converted_to
-					}
-				}
-
-				random = {
-					chance = 50
-
-					mult_modifier = {
-						factor = 1.2 # Cynics more likely to gain sympathy
+			
+				if = {
+					limit = {
 						trait = cynical
 					}
-
-					add_trait = sympathy_pagans
+					random = {
+						chance = 60
+						add_trait = sympathy_pagans
+					}
 				}
-
-				hidden_effect = {
-					religion = ROOT
-					copy_religious_branch_from_target_effect = yes
+				if = {
+					limit = {
+						NOT = { trait = cynical }
+					}
+					random = {
+						chance = 50
+						add_trait = sympathy_pagans
+					}
+				}		
+			
+				religion = ROOT
+				
+				#When spouse is Hindu
+				if = {
+					limit = {
+						ROOT = {
+							trait = shaivist_hindu
+						}
+					}
+					add_trait = shaivist_hindu
 				}
+				if = {
+					limit = {
+						ROOT = {
+							trait = vaishnavist_hindu
+						}
+					}
+					add_trait = vaishnavist_hindu
+				}
+				if = {
+					limit = {
+						ROOT = {
+							trait = shaktist_hindu
+						}
+					}
+					add_trait = shaktist_hindu
+				}
+				if = {
+					limit = {
+						ROOT = {
+							trait = smartist_hindu
+						}
+					}
+					add_trait = smartist_hindu
+				}
+				
+				#When spouse is Jain
+				if = {
+					limit = {
+						ROOT = {
+							trait = digambara_jain
+						}
+					}
+					add_trait = digambara_jain
+				}
+				if = {
+					limit = {
+						ROOT = {
+							trait = svetambara_jain
+						}
+					}
+					add_trait = svetambara_jain
+				}
+				if = {
+					limit = {
+						ROOT = {
+							trait = pagan_branch_1
+						}
+					}
+					add_trait = pagan_branch_1
+				}
+				if = {
+					limit = {
+						ROOT = {
+							trait = pagan_branch_2
+						}
+					}
+					add_trait = pagan_branch_2
+				}
+				if = {
+					limit = {
+						ROOT = {
+							trait = pagan_branch_3
+						}
+					}
+					add_trait = pagan_branch_3
+				}
+				if = {
+					limit = {
+						ROOT = {
+							trait = pagan_branch_4
+						}
+					}
+					add_trait = pagan_branch_4
+				}
+				
+				hidden_tooltip = {
+					religion_authority = {
+						modifier = ruler_converted_to
+					}
+				}
+				piety = 200
 			}
 		}
-
+		
+		revoke_allowed = {
+			always = no
+		}
+		
 		ai_will_do = {
 			factor = 0
 		}
@@ -634,287 +1197,163 @@ targeted_decisions = {
 decisions = {
 
 	# Weak or unreformed religions are allowed to convert to the attacker's religion when under Holy War
-	convert_to_attacker_religion = {
-		ai_check_interval = 18
-
-		is_high_prio = yes
-
+	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+convert_to_attacker_religion = { #Fix by comparing this to base game's decision
 		only_playable = yes
-
+		ai_check_interval = 18
+		
+		is_high_prio = yes
+		
 		potential = {
-			controls_religion = no
-			NOT = { has_character_modifier = baptism_request_cooldown }
-
-			trigger_if = {
-				limit = { is_unreformed_pagan_trigger = yes }
-				NOT = { religion_authority >= 0.4 }
-			}
-			trigger_else = {
-				OR = {
-					is_nomadic = yes
-					NOT = { religion_authority >= 0.3 }
-				}
-			}
-
 			war = yes
-
 			any_war = {
 				defender = { character = ROOT }
-
 				attacker = {
 					NOT = { religion = ROOT }
-					religion_authority >= 0.5
-					is_not_unreformed_pagan_trigger = yes
 				}
-
 				OR = {
-					using_cb = crusade
-					using_cb = new_crusade
-					using_cb = religious
-					using_cb = muslim_invasion
-					using_cb = buddhist_holy_war
+					holy_war_trigger = yes
+					crusade_trigger = yes
+					#using_cb = sacred_war
 				}
-
-				trigger_if = {
-					limit = { ROOT = { ai = yes } }
-
-					war_score >= 50
-
-					thirdparty_title_scope = {
-						holder = ROOT
-						is_primary_holder_title = yes
+			}
+			custom_tooltip = {
+				text = proselyte_religion_tooltip
+				hidden_tooltip = {
+					ROOT = {
+					proselyte_religion_trigger = yes
 					}
 				}
 			}
 		}
-
+		
 		allow = {
 			NOT = { trait = zealous }
+			prestige = 500
 		}
-
+		
 		effect = {
-			hidden_effect = {
+			prestige = -500
+			piety = 100
+			hidden_tooltip = {
 				any_war = {
 					limit = {
 						defender = { character = ROOT }
-
 						attacker = {
 							NOT = { religion = ROOT }
-							religion_authority >= 0.50
-							is_not_unreformed_pagan_trigger = yes
 						}
-
 						OR = {
 							using_cb = crusade
-							using_cb = new_crusade
-							using_cb = religious
-							using_cb = muslim_invasion
-							using_cb = buddhist_holy_war
-						}
-
-						trigger_if = {
-							limit = { ROOT = { ai = yes } }
-
-							war_score >= 50
-
-							thirdparty_title_scope = {
-								holder = ROOT
-								is_primary_holder_title = yes
-							}
+							using_cb = religious_proselyte1
+							using_cb = religious_proselyte2
+							using_cb = religious_bastion1
+							using_cb = religious_bastion2
+							using_cb = religious_ancestral
 						}
 					}
-
 					attacker = {
 						save_event_target_as = enemy_attacker
+						}
 					}
 				}
+				event_target:enemy_attacker = {
+				hidden_tooltip = {
+					letter_event = { id = 62800 }
+					ROOT = {
+						any_courtier = {
+							limit = {
+								religion = ROOT
+								employer = { character = ROOT }
+							}
+							religion = PREVPREV
+						}
+						any_vassal = {
+							limit = {
+								is_playable = no
+								religion = ROOT
+							}
+							religion = PREVPREV
+						}
+						capital_scope = {
+							if = {
+								limit = { religion = ROOT }
+								religion = PREVPREV
+							}
+						}
+					}
+				}
+				hidden_tooltip = {
+					religion_authority = {
+						modifier = ruler_converted_to
+					}
+				}
+				reverse_religion = ROOT 
 			}
-
-			tooltip = {
-				religion = event_target:enemy_attacker
-			}
-
 			religion_authority = {
-				name = ruler_converted_from
-			}
-
-			event_target:enemy_attacker = {
-				show_scope_change = no
-
-				religion_authority = {
-					name = ruler_converted_to
-				}
-			}
-
-			prestige = -500
-			piety = 100
-
-			# If possible, perform mass baptism
-			if = {
-				limit = {
-					has_dlc = "Holy Fury"
-					is_unreformed_pagan_trigger = yes
-					independent = yes
-					is_incapable = no
-					has_regent = no
-					prisoner = no
-					is_tribal = yes
-					higher_real_tier_than = COUNT
-					holy_order = no
-					NOT = { has_character_flag = flag_converting_baptism }
-
-					OR = {
-						has_law = tribal_organization_2
-						has_law = tribal_organization_3
-						has_law = tribal_organization_4
-					}
-
-					any_war = {
-						using_cb = new_crusade
-
-						defender = { character = ROOT }
-
-						attacker = { # Special case
-							religion = catholic
-							NOT = { has_character_flag = flag_sponsoring_baptism }
-						}
-					}
-				}
-
-				hidden_effect = {
-					save_event_target_as = converting_king
-
-					add_character_modifier = {
-						name = baptism_request_cooldown
-						months = 1
-						hidden = yes
-					}
-
-					event_target:enemy_attacker = {
-						add_character_modifier = {
-							name = baptism_request_cooldown
-							months = 1
-							hidden = yes
-						}
-					}
-
-					opinion = {
-						name = opinion_baptism_sponsor_target
-						who = event_target:enemy_attacker
-						years = 20
-						origin_description = EVTTOOLTIPHFA20005
-					}
-
-					event_target:enemy_attacker = {
-						opinion = {
-							name = opinion_baptism_sponsor_target
-							who = ROOT
-							years = 20
-							origin_description = EVTTOOLTIPHFB20005
-						}
-
-						#letter_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-							#id = HF.20000
-							#tooltip = tooltip_mass_convert_during_crusade
-						#}
-					}
-				}
-			}
-
-			else = {
-				if = {
-					limit = {
-						NOT = { religion_group = event_target:enemy_attacker }
-					}
-
-					trigger_switch = {
-						on_trigger = religion_group
-
-						pagan_group       = { add_trait = sympathy_pagans }
-						zoroastrian_group = { add_trait = sympathy_zoroastrianism }
-						christian         = { add_trait = sympathy_christendom }
-						muslim            = { add_trait = sympathy_islam }
-						jewish_group      = { add_trait = sympathy_judaism }
-						indian_group      = { add_trait = sympathy_indian }
-					}
-				}
-
-				hidden_effect = {
-					religion = event_target:enemy_attacker
-
-					event_target:enemy_attacker = {
-						letter_event = { id = 62800 } # Notification
-
-						ROOT = {
-							any_courtier = {
-								limit = {
-									religion = ROOT
-									employer = { character = ROOT }
-								}
-
-								religion = event_target:enemy_attacker
-							}
-
-							any_vassal = {
-								limit = {
-									is_playable = no
-									religion = ROOT
-								}
-
-								religion = event_target:enemy_attacker
-							}
-
-							capital_scope = {
-								if = {
-									limit = { religion = ROOT }
-									religion = event_target:enemy_attacker
-								}
-							}
-						}
-					}
-				}
+				modifier = ruler_converted_from
 			}
 		}
-
+		
+		#revoke_allowed = {
+			#always = no
+		#}
+		
 		ai_will_do = {
-			factor = 0.5
-
-			mult_modifier = {
+			factor = 1
+			modifier = {
+				factor = 0.1
+			}
+			modifier = {
 				factor = 0.05
 				is_hard_to_convert = yes
 			}
-
-			mult_modifier = {
-				factor = 2
-
-				any_war = {
-					defender = { character = ROOT }
-
-					attacker = {
-						NOT = { religion = ROOT }
-						religion_authority = 0.50
-						is_not_unreformed_pagan_trigger = yes
-					}
-
-					OR = {
-						using_cb = crusade
-						using_cb = new_crusade
-						using_cb = religious
-						using_cb = muslim_invasion
-						using_cb = buddhist_holy_war
-					}
-
-					war_score >= 75
-
-					thirdparty_title_scope = {
-						holder = ROOT
-						is_primary_holder_title = yes
+			modifier = {
+				factor = 0
+				NOT = {
+					any_war = {
+						defender = { character = ROOT }
+						OR = {
+							using_cb = crusade
+							using_cb = religious_proselyte1
+							using_cb = religious_proselyte2
+							using_cb = religious_bastion1
+							using_cb = religious_bastion2
+							using_cb = religious_ancestral
+						}
+						war_score = 50
+						thirdparty_title_scope = {
+						ROOT = {
+							primary_title = {
+								title = PREVPREV
+								}
+							}
+						}
 					}
 				}
 			}
-
+			modifier = {
+				factor = 2
+				any_war = {
+					defender = { character = ROOT }
+					OR = {
+						using_cb = crusade
+						using_cb = religious_proselyte1
+						using_cb = religious_proselyte2
+						using_cb = religious_bastion1
+						using_cb = religious_bastion2
+						using_cb = religious_ancestral
+					}
+					war_score = 75
+					thirdparty_title_scope = {
+						ROOT = {
+							primary_title = {
+								title = PREVPREV
+							}
+						}
+					}
+				}
+			}
 		}
-
 	}
 
 

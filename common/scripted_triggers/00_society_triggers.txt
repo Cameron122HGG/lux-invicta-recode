@@ -121,14 +121,28 @@ has_satanists_prerequisites = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_trollcrafters_prerequisites = {
 	has_common_devilworship_prerequisites = yes
-	religion_openly_norse_or_reformed_trigger = yes
+	OR = {
+		religion_group = norsegerman_group
+		secret_religion_group = norsegerman_group
+	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_cult_of_kali_prerequisites = {
-	religion = hindu
 	has_common_devilworship_prerequisites = yes
+	OR = {
+		religion_group = indian_group
+		religion = zor_hindu
+		religion = nasrani_reformed
+		religion = zz01_vedanta
+		secret_religion_group = indian_group
+		secret_religion = zor_hindu
+		secret_religion = nasrani_reformed
+		secret_religion = zz01_vedanta
+	}
 }
 
 has_cold_ones_prerequisites = {
@@ -141,28 +155,67 @@ has_cold_ones_prerequisites = {
 	has_common_devilworship_prerequisites = yes
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_plaguebringers_prerequisites = {
-	religion_openly_tengri_or_reformed_trigger = yes
 	has_common_devilworship_prerequisites = yes
+	OR = {	
+		religion_openly_tengri_or_reformed_trigger = yes
+		secret_religion_group = tengri_group
+	}
+	NOT = {
+		religion = erlik
+	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_vodouns_prerequisites = {
-	religion_openly_west_african_or_reformed_trigger = yes
 	has_common_devilworship_prerequisites = yes
+	OR = {
+		religion_group = berberpagan_group
+		secret_religion_group = berberpagan_group
+	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_bacchants_prerequisites = {
 	has_common_devilworship_prerequisites = yes
-
-	OR = {
-		religion_openly_hellenic_or_reformed_trigger = yes
-		culture = roman # Historically fashionable thrill for bored patricians
-
-		AND = {
+	OR = { 
+		graecoroman_civilization_trigger = yes
+		secret_religion = alexandros
+		secret_religion = cybele
+		secret_religion = dionysos
+		secret_religion = graeco_roman
+		secret_religion = indoh_bud
+		secret_religion = indoh_confucian
+		secret_religion = indoh_hindu
+		secret_religion = indoh_zor
+		secret_religion = indohelen
+		secret_religion = jupiter
+		secret_religion = mithra_sol
+		secret_religion = porphyryan
+		secret_religion = roman_imperial
+		secret_religion = sol
+		secret_religion = sol_apollo
+		secret_religion = sol_boreas
+		secret_religion = sol_christ
+		secret_religion = solomonic_alexandros
+		secret_religion = zal
+		secret_religion = zal_christ
+		secret_religion = zal_mani
+		secret_religion = cybele_reformed
+		secret_religion = graeco_roman_reformed
+		secret_religion = indohelen_reformed
+		secret_religion = isis_reformed
+		secret_religion = sol_boreas_reformed
+		secret_religion = sol_sahara_reformed
+		society_member_of = the_bacchants
+		top_liege = { true_religion_group_graecoroman_group_trigger = yes }
+		culture = roman #Historically fashionable thrill for bored patricians.
+		AND = { 
 			has_global_flag = flag_started_roman_renaissance
-			top_liege = { has_landed_title = e_roman_empire } # Historically a plague for the Empire
-		}
-	}
+			top_liege = { has_landed_title = e_roman_empire } #Historically a plague for the Empire.
+		} 
+	} 
 }
 
 has_assassins_prerequisites = {
@@ -291,33 +344,159 @@ ok_sr_induction_mission_target_trigger = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 ok_sr_sympathy_mission_target_trigger = {
-	is_adult = yes
-	has_secret_religion = no
-	prisoner = no
-	is_inaccessible_trigger = no
-	is_incapable = no
-	NOT = { has_character_modifier = secret_religion_sympathy_timer }
-
-	ROOT = {
-		NOR = {
-			secret_religion = {
-				target_type = public
-				target = PREV
-			}
-
-			has_sympathy_for_true_religion_of_prev_trigger = yes
-		}
-
-		PREV = {
-			NOR = {
-				religion = {
-					target = PREV
-					target_type = secret
-				}
-
-				has_sympathy_for_true_religion_of_prev_trigger = yes
-			}
-		}
-	}
+	 has_secret_religion_trait_trigger = no
+	 ROOT = {
+		 NOT = { secret_religion = { target_type = public target = PREV } }
+		 NOR = {
+			 AND = {
+				 PREV = { trait = sympathy_abrahamics }
+				 true_religion_group = abrahamic_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_anatolians }
+				 true_religion_group = anatolian_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_arabpagans }
+				 true_religion_group = arabpagan_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_aztecs }
+				 true_religion_group = aztec_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_baltics }
+				 true_religion_group = baltic_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_bantus }
+				 true_religion_group = bantu_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_berbers }
+				 true_religion_group = berberpagan_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_buddhists }
+				 true_religion_group = bud_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_celtics }
+				 true_religion_group = celtic_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_chinese }
+				 true_religion_group = chinese_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_christendom }
+				 true_religion_group = christian
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_east_africans }
+				 true_religion_group = east_african_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_egyptian }
+				 true_religion_group = egyptian_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_finnish }
+				 true_religion_group = finnish_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_graecoroman }
+				 true_religion_group = graecoroman_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_indian }
+				 true_religion_group = indian_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_indohellens }
+				 true_religion_group = indohelen_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_inuit }
+				 true_religion_group = inuit_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_islam }
+				 true_religion_group = muslim
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_judaism }
+				 true_religion_group = jewish_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_luwians }
+				 true_religion_group = luwian_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_mande }
+				 true_religion_group = mand_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_manichaeans }
+				 true_religion_group = mani_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_mithraics }
+				 true_religion_group = mithra_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_nordic }
+				 true_religion_group = norsegerman_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_pagans }
+				 true_religion_group = pagan_group 
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_palmyrans }
+				 true_religion_group = palmyranpagan_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_platonics }
+				 true_religion_group = neoplato_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_sererics }
+				 true_religion_group = serer_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_slavics }
+				 true_religion_group = slavic_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_sol }
+				 true_religion_group = sol_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_tengri }
+				 true_religion_group = tengri_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_yazd }
+				 true_religion_group = yazd_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_zal }
+				 true_religion_group = zal_group
+			 }
+			 AND = {
+				 PREV = { trait = sympathy_zoroastrianism }
+				 true_religion_group = zoroastrian_group
+			 }
+		 }
+	 }
+	 ROOT = { PREV = { is_openly_of_prevs_secret_religion_trigger = no } }
+	 ROOT = { PREV = { has_sympathy_for_true_religion_of_prev_trigger = no } }
+	 prisoner = no
+	 is_adult = yes
+	 NOT = { trait = incapable }
+	 is_inaccessible_trigger = no
+	 NOT = { has_character_modifier = secret_religion_sympathy_timer }
 }

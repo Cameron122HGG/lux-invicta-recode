@@ -3368,67 +3368,52 @@ character_event = {
 ### Lunatic Pagan series
 
 # Rats in the walls
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 6350
 	desc = EVTDESC6350
 	picture = GFX_evt_recovery
 	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes # on_five_year_pulse, random_events, lunatic_old_ones
-
+	
 	ai = no
-	religion_group = pagan_group
 	min_age = 16
 	prisoner = no
-
+	only_playable = yes
+	
 	trigger = {
-		OR = {
-			religion_openly_norse_or_reformed_trigger = yes
-			religion_openly_slavic_or_reformed_trigger = yes
-			religion_openly_baltic_or_reformed_trigger = yes
-			religion_openly_finnish_or_reformed_trigger = yes
-		}
-
-		is_inaccessible_trigger = no
-
-		NOR = {
-			has_character_flag = the_old_ones_are_waking
-
+		LI_pagan_trigger = yes
+		NOT = {
 			has_game_rule = {
 				name = supernatural_events
 				value = off
 			}
 		}
+		NOT = { has_character_flag = the_old_ones_are_waking }
+		NOT = { is_inaccessible_trigger = yes }
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 0.01
-			NOT = { trait = lunatic }
-		}
-	}
-
+	
 	immediate = {
 		set_character_flag = the_old_ones_are_waking
 	}
-
-	option = {
-		name = EVTOPTA6350
-
-		add_trait_silently_lunatic_effect = yes
-
-		character_event = {
-			id = 6354
-			days = 14
-			tooltip = EVTTOOLTIP6354
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 100
+			NOT = { trait = lunatic }
 		}
 	}
-
+	
+	option = {
+		name = EVTOPTA6350
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			add_trait = lunatic
+		}
+		character_event = { id = 6354 days = 14 tooltip = EVTTOOLTIP6354 }
+	}
 	option = {
 		name = EVTOPTB6350
-
 		trigger = {
 			NOT = { trait = lunatic }
 		}
@@ -3436,207 +3421,162 @@ character_event = {
 }
 
 # Something in the well
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 6351
 	desc = EVTDESC6351
 	picture = GFX_evt_garden
 	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes # on_five_year_pulse, random_events, lunatic_old_ones
-
+	
 	ai = no
-	religion_group = pagan_group
 	min_age = 16
 	prisoner = no
-
+	only_playable = yes
+	
 	trigger = {
-		OR = {
-			religion_openly_norse_or_reformed_trigger = yes
-			religion_openly_slavic_or_reformed_trigger = yes
-			religion_openly_baltic_or_reformed_trigger = yes
-			religion_openly_finnish_or_reformed_trigger = yes
-		}
-
-		is_inaccessible_trigger = no
-
-		NOR = {
-			has_character_flag = the_old_ones_are_waking
-
+		NOT = {
 			has_game_rule = {
 				name = supernatural_events
 				value = off
 			}
 		}
+		LI_pagan_trigger = yes
+		NOT = { has_character_flag = the_old_ones_are_waking }
+		NOT = { is_inaccessible_trigger = yes }
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 0.01
-			NOT = { trait = lunatic }
-		}
-	}
-
+	
 	immediate = {
 		set_character_flag = the_old_ones_are_waking
 	}
-
-	option = {
-		name = EVTOPTA6351
-
-		add_trait_silently_lunatic_effect = yes
-
-		character_event = {
-			id = 6354
-			days = 14
-			tooltip = EVTTOOLTIP6354
-		}
-	}
-
-	option = {
-		name = EVTOPTB6351
-
-		trigger = {
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 100
 			NOT = { trait = lunatic }
 		}
 	}
+	
+	option = {
+		name = EVTOPTA6351
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			add_trait = lunatic
+		}
+		character_event = { id = 6354 days = 14 tooltip = EVTTOOLTIP6354 }
+	}
+	option = {
+		name = EVTOPTB6351
+		trigger = {
+			NOT = { trait = lunatic }
+		}
+	}	
 }
 
 # Tomb raiding
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 6352
 	desc = EVTDESC6352
 	picture = GFX_evt_death
 	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes # on_five_year_pulse, random_events, lunatic_old_ones
-
+	
 	ai = no
-	religion_group = pagan_group
 	min_age = 16
 	prisoner = no
-
+	only_playable = yes
+	
 	trigger = {
-		OR = {
-			religion_openly_norse_or_reformed_trigger = yes
-			religion_openly_slavic_or_reformed_trigger = yes
-			religion_openly_baltic_or_reformed_trigger = yes
-			religion_openly_finnish_or_reformed_trigger = yes
-		}
-
-		is_inaccessible_trigger = no
-
-		NOR = {
-			has_character_flag = the_old_ones_are_waking
-
+		NOT = {
 			has_game_rule = {
 				name = supernatural_events
 				value = off
 			}
 		}
+		LI_pagan_trigger = yes
+		NOT = { has_character_flag = the_old_ones_are_waking }
+		NOT = { is_inaccessible_trigger = yes }
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 0.01
-			NOT = { trait = lunatic }
-		}
-	}
-
+	
 	immediate = {
 		set_character_flag = the_old_ones_are_waking
 	}
-
-	option = {
-		name = EVTOPTA6352
-
-		add_trait_silently_lunatic_effect = yes
-
-		character_event = {
-			id = 6354
-			days = 14
-			tooltip = EVTTOOLTIP6354
-		}
-	}
-
-	option = {
-		name = EVTOPTB6352
-
-		trigger = {
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 100
 			NOT = { trait = lunatic }
 		}
 	}
+	
+	option = {
+		name = EVTOPTA6352
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			add_trait = lunatic
+		}
+		character_event = { id = 6354 days = 14 tooltip = EVTTOOLTIP6354 }
+	}
+	option = {
+		name = EVTOPTB6352
+		trigger = {
+			NOT = { trait = lunatic }
+		}
+	}	
 }
 
 # A law against the killing of cats
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 6353
 	desc = EVTDESC6353
 	picture = GFX_evt_burning_house
 	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes # on_five_year_pulse, random_events, lunatic_old_ones
-
+	
 	ai = no
-	religion_group = pagan_group
 	min_age = 16
 	prisoner = no
-
+	only_playable = yes
+	
 	trigger = {
-		OR = {
-			religion_openly_norse_or_reformed_trigger = yes
-			religion_openly_slavic_or_reformed_trigger = yes
-			religion_openly_baltic_or_reformed_trigger = yes
-			religion_openly_finnish_or_reformed_trigger = yes
-		}
-
-		is_inaccessible_trigger = no
-
-		NOR = {
-			has_character_flag = the_old_ones_are_waking
-
+		NOT = {
 			has_game_rule = {
 				name = supernatural_events
 				value = off
 			}
 		}
+		LI_pagan_trigger = yes
+		NOT = { has_character_flag = the_old_ones_are_waking }
+		NOT = { is_inaccessible_trigger = yes }
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 0.01
-			NOT = { trait = lunatic }
-		}
-	}
-
+	
 	immediate = {
 		set_character_flag = the_old_ones_are_waking
 	}
-
-	option = {
-		name = EVTOPTA6353
-
-		add_trait_silently_lunatic_effect = yes
-
-		character_event = {
-			id = 6354
-			days = 14
-			tooltip = EVTTOOLTIP6354
-		}
-	}
-
-	option = {
-		name = EVTOPTB6353
-
-		trigger = {
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 100
 			NOT = { trait = lunatic }
 		}
 	}
+	
+	option = {
+		name = EVTOPTA6353
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			add_trait = lunatic
+		}
+		character_event = { id = 6354 days = 14 tooltip = EVTTOOLTIP6354 }
+	}
+	option = {
+		name = EVTOPTB6353
+		trigger = {
+			NOT = { trait = lunatic }
+		}
+	}	
 }
 
 # Visiting a quaint village

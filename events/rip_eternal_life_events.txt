@@ -75,48 +75,23 @@ character_event = {
 }
 
 # Advisor finds a mystic
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
-	id = RIP.21013
 	title = EVTNAME_RIP_21013
+	id = RIP.21013
 	border = GFX_event_narrative_frame_religion
-	portrait = event_target:eternal_life_advisor
-
-	desc = {
-		text = EVTDSC_RIP_21013_CHANCELLOR
-		picture = GFX_evt_emissary
-		trigger = { event_target:eternal_life_advisor = { has_job_title = job_chancellor } }
-	}
-	desc = {
-		text = EVTDSC_RIP_21013_MARSHAL
-		picture = GFX_evt_emissary
-		trigger = { event_target:eternal_life_advisor = { has_job_title = job_marshal } }
-	}
-	desc = {
-		text = EVTDSC_RIP_21013_SPYMASTER
-		picture = GFX_evt_whispers
-		trigger = { event_target:eternal_life_advisor = { has_job_title = job_spymaster } }
-	}
-	desc = {
-		text = EVTDSC_RIP_21013_SPIRITUAL
-		picture = GFX_evt_emissary
-		trigger = { event_target:eternal_life_advisor = { has_job_title = job_spiritual } }
-	}
-
-	is_triggered_only = yes
-
-	prisoner = no
+	picture = GFX_evt_emissary
 
 	trigger = {
-		event_target:eternal_life_advisor = {
+		FROM = {
 			is_alive = yes
-			vassal_of = ROOT
+			liege = { character = ROOT }
 		}
+		prisoner = no
 	}
-
 	fail_trigger_effect = {
 		if = {
-			limit = { prisoner = yes } # Try again later, in case you're released from prison...
-
+			limit = { prisoner = yes } #Try again later, in case you're released from prison...
 			repeat_event = {
 				id = RIP.21013
 				days = 35
@@ -124,307 +99,321 @@ narrative_event = {
 		}
 	}
 
-	immediate = {
-		event_target:eternal_life_advisor = {
-			trigger_switch = {
-				on_trigger = has_job_title
+	is_triggered_only = yes
 
-				job_chancellor = { ROOT = { set_character_flag = diplomacy_mystic } }
-				job_marshal    = { ROOT = { set_character_flag = martial_mystic } }
-				job_spymaster  = { ROOT = { set_character_flag = intrigue_mystic } }
-				job_spiritual  = { ROOT = { set_character_flag = learning_mystic } }
-			}
+	desc = {
+		text = EVTDSC_RIP_21013_CHANCELLOR
+		picture = GFX_evt_emissary
+		trigger = { FROM = { has_job_title = job_chancellor } }
+	}
+	desc = {
+		text = EVTDSC_RIP_21013_MARSHAL
+		picture = GFX_evt_emissary
+		trigger = { FROM = { has_job_title = job_marshal } }
+	}
+	desc = {
+		text = EVTDSC_RIP_21013_SPYMASTER
+		picture = GFX_evt_whispers
+		trigger = { FROM = { has_job_title = job_spymaster } }
+	}
+	desc = {
+		text = EVTDSC_RIP_21013_SPIRITUAL
+		picture = GFX_evt_emissary
+		trigger = { FROM = { has_job_title = job_spiritual } }
+	}
+
+	immediate = {
+		if = {
+			limit = { FROM = { has_job_title = job_chancellor } }
+			set_character_flag = diplomacy_mystic
+		}
+		if = {
+			limit = { FROM = { has_job_title = job_marshal } }
+			set_character_flag = martial_mystic
+		}
+		if = {
+			limit = { FROM = { has_job_title = job_spymaster } }
+			set_character_flag = intrigue_mystic
+		}
+		if = {
+			limit = { FROM = { has_job_title = job_spiritual } }
+			set_character_flag = learning_mystic
 		}
 
 		random_playable_ruler = {
 			limit = {
-				has_job_title = job_chancellor
 				is_within_diplo_range = ROOT
-
+				has_job_title = job_chancellor
 				any_child = {
 					is_female = no
 				}
 			}
-
 			save_event_target_as = eternal_life_random_diplomat
 		}
 	}
 
 	option = {
 		name = EVTOPTA_RIP_21013
-
-		trigger_switch = {
-			on_trigger = has_character_flag
-
-			diplomacy_mystic = {
-				create_character = {
-					random_traits = no
-					name = "Idunn"
-					dna = chaehghfacw
-					dynasty = none
-					religion = norse_pagan
-					culture = norse
-					female = yes
-					age = 17
-					health = 15
-					add_trait = grey_eminence
-					add_trait = gregarious
-					add_trait = mystic
-					add_trait = lustful
-					add_trait = charitable
-					add_trait = attractive
-					add_trait = trusting
-					add_trait = poet
-				}
-
-				new_character = {
-					set_character_flag = eternal_life_mystic
-					give_nickname = nick_the_youthful
-					save_event_target_as = eternal_life_mystic
-					will_not_marry_effect = yes
-					set_character_flag = no_court_invites
-
-					random_list = {
-						90 = { set_character_flag = mystic_is_fraud }
-
-						10 = {
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 10 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 13 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 16 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 19 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 22 }
-							}
-
-							change_diplomacy = 6
-						}
-					}
-
-				}
+		if = {
+			limit = { has_character_flag = diplomacy_mystic }
+			create_character = {
+				random_traits = no
+				name = "Idunn"
+				dna = chaehghfacw
+				dynasty = none
+				religion = irminsul
+				culture = german
+				female = yes
+				age = 17
+				health = 15
+				trait = grey_eminence
+				trait = gregarious
+				trait = mystic
+				trait = lustful
+				trait = charitable
+				trait = attractive
+				trait = trusting
+				trait = poet
 			}
+			new_character = {
+				set_character_flag = eternal_life_mystic 
 
-			martial_mystic = {
-				create_character = {
-					random_traits = no
-					dynasty = none
-					religion = west_african_pagan
-					culture = mande
-					female = yes
-					age = 36
-					health = 15
-					add_trait = brilliant_strategist
-					add_trait = mystic
-					add_trait = brawny
-					add_trait = wroth
-					add_trait = diligent
-					add_trait = proud
-					add_trait = brave
-					add_trait = aggressive_leader
-				}
+				will_not_marry_effect = yes
 
-				new_character = {
-					set_character_flag = eternal_life_mystic
-					give_nickname = nick_the_fearless
-					save_event_target_as = eternal_life_mystic
-					will_not_marry_effect = yes
-					set_character_flag = no_court_invites
-
-					random_list = {
-						50 = { add_scarred_high_effect = yes }
-						50 = { add_trait = disfigured }
+				give_nickname = nick_the_youthful
+				random_list = {
+					90 = {
+						set_character_flag = mystic_is_fraud
 					}
-
-					random_list = {
-						90 = { set_character_flag = mystic_is_fraud }
-
-						10 = {
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 10 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 13 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 16 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 19 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 22 }
-							}
-
-							change_martial = 6
+					10 = {
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 10 }
 						}
-					}
-				}
-			}
-
-			intrigue_mystic = {
-				create_character = {
-					name = "Cleopatra"
-					random_traits = no
-					dynasty = none
-					religion = hurufi
-					culture = egyptian
-					female = yes
-					age = 72
-					health = 15
-					add_trait = elusive_shadow
-					add_trait = mystic
-					add_trait = hunchback
-					add_trait = slothful
-					add_trait = proud
-					add_trait = paranoid
-					add_trait = ambitious
-					add_trait = deceitful
-					add_trait = erudite
-				}
-
-				new_character = {
-					set_character_flag = eternal_life_mystic
-					give_nickname = nick_the_alchemist
-					save_event_target_as = eternal_life_mystic
-					will_not_marry_effect = yes
-					set_character_flag = no_court_invites
-
-					random_list = {
-						90 = { set_character_flag = mystic_is_fraud }
-
-						10 = {
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 10 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 13 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 16 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 19 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 22 }
-							}
-
-							change_intrigue = 6
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 13 }
 						}
-					}
-				}
-			}
-
-			learning_mystic = {
-				create_character = {
-					random_traits = no
-					dynasty = none
-					religion = buddhist
-					culture = sinhala
-					female = yes
-					age = 9
-					health = 15
-					add_trait = mystic
-					add_trait = brahmin
-					add_trait = theravada_buddhist
-					add_trait = quick
-					add_trait = fussy
-					add_trait = conscientious
-				}
-
-				new_character = {
-					set_character_flag = eternal_life_mystic
-					remove_trait = kshatriya
-					remove_trait = vaishya
-					remove_trait = vajrayana_buddhist
-					remove_trait = mahayana_buddhist
-					give_nickname = nick_the_gentle
-					change_diplomacy = 2
-					change_stewardship = 2
-					change_intrigue = -1
-					save_event_target_as = eternal_life_mystic
-					will_not_marry_effect = yes
-					set_character_flag = no_court_invites
-
-					random_list = {
-						90 = { set_character_flag = mystic_is_fraud }
-
-						10 = {
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 10 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 13 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 16 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 19 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 22 }
-							}
-
-							change_learning = 15
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 16 }
 						}
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 19 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 22 }
+						}
+						
+						change_diplomacy = 6
 					}
 				}
+				save_event_target_as = eternal_life_mystic
 			}
 		}
+		if = {
+			limit = { has_character_flag = martial_mystic }			
+			create_character = {
+				random_traits = no
+				dynasty = none
+				religion = sol_sahara
+				culture = guanchinet
+				female = yes
+				age = 36
+				health = 15
+				trait = brilliant_strategist
+				trait = mystic
+				trait = brawny
+				trait = wroth
+				trait = diligent
+				trait = proud
+				trait = brave
+				trait = aggressive_leader
+			}
+			new_character = {
+				set_character_flag = eternal_life_mystic 
 
-		narrative_event = {
-			id = RIP.21019
-			months = 1
-			random = 20
+				will_not_marry_effect = yes
+
+				give_nickname = nick_the_fearless 
+
+				random_list = {
+					50 = { add_scarred_high_effect = yes }
+					50 = { add_trait = disfigured }
+				}
+
+				random_list = {
+					90 = {
+						set_character_flag = mystic_is_fraud
+					}
+					10 = {
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 10 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 13 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 16 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 19 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 22 }
+						}
+						
+						change_martial = 6
+					}
+				}
+				save_event_target_as = eternal_life_mystic
+			}
 		}
+		if = {
+			limit = { has_character_flag = intrigue_mystic }
+			create_character = {
+				name = "Cleopatra"
+				random_traits = no
+				dynasty = none
+				religion = horus_re
+				culture = nubian
+				female = yes
+				age = 72
+				health = 15
+				trait = elusive_shadow
+				trait = mystic
+				trait = hunchback
+				trait = slothful
+				trait = proud
+				trait = paranoid
+				trait = ambitious
+				trait = deceitful
+				trait = erudite
+
+		
+			}
+			new_character = {
+				set_character_flag = eternal_life_mystic 
+
+				will_not_marry_effect = yes
+
+				give_nickname = nick_the_alchemist
+
+				random_list = {
+					90 = {
+						set_character_flag = mystic_is_fraud
+					}
+					10 = {
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 10 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 13 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 16 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 19 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 22 }
+						}
+						
+						change_intrigue = 6
+					}
+				}
+				save_event_target_as = eternal_life_mystic
+			}
+		}
+		if = {
+			limit = { has_character_flag = learning_mystic }
+			create_character = {
+				random_traits = no
+				dynasty = none
+				religion = jain
+				culture = sinhala
+				female = yes
+				age = 9
+				health = 15
+				trait = mystic
+				trait = brahmin
+				trait = quick
+				trait = fussy
+				trait = conscientious
+			}
+			new_character = {
+				set_character_flag = eternal_life_mystic 
+
+				will_not_marry_effect = yes
+
+				remove_trait = kshatriya
+				remove_trait = vaishya
+
+				give_nickname = nick_the_gentle
+				change_diplomacy = 2
+				change_stewardship = 2
+				change_intrigue = -1
+
+				random_list = {
+					90 = {
+						set_character_flag = mystic_is_fraud
+					}
+					10 = {
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 10 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 13 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 16 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 19 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 22 }
+						}
+						
+						change_learning = 15
+					}
+				}
+				save_event_target_as = eternal_life_mystic
+			}
+		}
+		clr_character_flag = diplomacy_mystic
+		clr_character_flag = martial_mystic
+		clr_character_flag = intrigue_mystic
+		clr_character_flag = learning_mystic
+
+		event_target:eternal_life_mystic = { narrative_event = { id = RIP.21018 days = 30 random = 20 } }
+		save_event_target_as = eternal_life_seeker
 	}
 
 	option = {
 		name = EVTOPTB_RIP_21013
+		clr_character_flag = diplomacy_mystic
+		clr_character_flag = martial_mystic
+		clr_character_flag = intrigue_mystic
+		clr_character_flag = learning_mystic
 	}
 }
 
@@ -453,302 +442,301 @@ character_event = {
 }
 
 # A stranger appears
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
-	id = RIP.21014
 	title = EVTNAME_RIP_21014
+	id = RIP.21014
+	border = GFX_event_narrative_frame_religion
 	desc = EVTDSC_RIP_21014
 	picture = GFX_evt_emissary
-	border = GFX_event_narrative_frame_religion
 
 	is_triggered_only = yes
+
 	hide_from = yes
-	hide_new = yes
 
 	immediate = {
 		random_list = {
-			25 = { set_character_flag = diplomacy_mystic }
-			25 = { set_character_flag = martial_mystic }
-			25 = { set_character_flag = intrigue_mystic }
-			25 = { set_character_flag = learning_mystic }
+			25 = {
+				set_character_flag = diplomacy_mystic
+			}
+			25 = {
+				set_character_flag = martial_mystic
+			}
+			25 = {
+				set_character_flag = intrigue_mystic
+			}
+			25 = {
+				set_character_flag = learning_mystic
+			}
 		}
 	}
 
 	option = {
 		name = EVTOPTA_RIP_21014
-
-		trigger_switch = {
-			on_trigger = has_character_flag
-
-			diplomacy_mystic = {
-				create_character = {
-					random_traits = no
-					name = "Idunn"
-					dna = chaehghfacw
-					dynasty = none
-					religion = norse_pagan
-					culture = norse
-					female = yes
-					age = 17
-					health = 15
-					add_trait = grey_eminence
-					add_trait = gregarious
-					add_trait = mystic
-					add_trait = lustful
-					add_trait = charitable
-					add_trait = attractive
-					add_trait = trusting
-					add_trait = poet
-				}
-
-				new_character = {
-					set_character_flag = eternal_life_mystic
-					give_nickname = nick_the_youthful
-					save_event_target_as = eternal_life_mystic
-					will_not_marry_effect = yes
-					set_character_flag = no_court_invites
-
-					random_list = {
-						90 = { set_character_flag = mystic_is_fraud }
-
-						10 = {
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 10 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 13 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 16 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 19 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { diplomacy >= 22 }
-							}
-
-							change_diplomacy = 6
-						}
-					}
-
-				}
+		if = {
+			limit = { has_character_flag = diplomacy_mystic }
+			create_character = {
+				random_traits = no
+				name = "Idunn"
+				dna = chaehghfacw
+				dynasty = none
+				religion = irminsul
+				culture = german
+				female = yes
+				age = 17
+				health = 15
+				trait = grey_eminence
+				trait = gregarious
+				trait = mystic
+				trait = lustful
+				trait = attractive
+				trait = trusting
+				trait = poet
+				trait = celibate
 			}
+			new_character = {
+				set_character_flag = eternal_life_mystic
 
-			martial_mystic = {
-				create_character = {
-					random_traits = no
-					dynasty = none
-					religion = west_african_pagan
-					culture = mande
-					female = yes
-					age = 36
-					health = 15
-					add_trait = brilliant_strategist
-					add_trait = mystic
-					add_trait = brawny
-					add_trait = wroth
-					add_trait = diligent
-					add_trait = proud
-					add_trait = brave
-					add_trait = aggressive_leader
-				}
+				will_not_marry_effect = yes
 
-				new_character = {
-					set_character_flag = eternal_life_mystic
-					give_nickname = nick_the_fearless
-					save_event_target_as = eternal_life_mystic
-					will_not_marry_effect = yes
-					set_character_flag = no_court_invites
-
-					random_list = {
-						50 = { add_scarred_high_effect = yes }
-						50 = { add_trait = disfigured }
+				give_nickname = nick_the_youthful
+				random_list = {
+					90 = {
+						set_character_flag = mystic_is_fraud
 					}
-
-					random_list = {
-						90 = { set_character_flag = mystic_is_fraud }
-
-						10 = {
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 10 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 13 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 16 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 19 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { martial >= 22 }
-							}
-
-							change_martial = 6
+					10 = {
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 10 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 13 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 16 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 19 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { diplomacy = 22 }
 						}
 					}
 				}
-			}
-
-			intrigue_mystic = {
-				create_character = {
-					name = "Cleopatra"
-					random_traits = no
-					dynasty = none
-					religion = hurufi
-					culture = egyptian
-					female = yes
-					age = 72
-					health = 15
-					add_trait = elusive_shadow
-					add_trait = mystic
-					add_trait = hunchback
-					add_trait = slothful
-					add_trait = proud
-					add_trait = paranoid
-					add_trait = ambitious
-					add_trait = deceitful
-					add_trait = erudite
-				}
-
-				new_character = {
-					set_character_flag = eternal_life_mystic
-					give_nickname = nick_the_alchemist
-					save_event_target_as = eternal_life_mystic
-					will_not_marry_effect = yes
-					set_character_flag = no_court_invites
-
-					random_list = {
-						90 = { set_character_flag = mystic_is_fraud }
-
-						10 = {
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 10 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 13 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 16 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 19 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { intrigue >= 22 }
-							}
-
-							change_intrigue = 6
-						}
-					}
-				}
-			}
-
-			learning_mystic = {
-				create_character = {
-					random_traits = no
-					dynasty = none
-					religion = buddhist
-					culture = sinhala
-					female = yes
-					age = 9
-					health = 15
-					add_trait = mystic
-					add_trait = brahmin
-					add_trait = theravada_buddhist
-					add_trait = quick
-					add_trait = fussy
-					add_trait = conscientious
-				}
-
-				new_character = {
-					set_character_flag = eternal_life_mystic
-					remove_trait = kshatriya
-					remove_trait = vaishya
-					remove_trait = vajrayana_buddhist
-					remove_trait = mahayana_buddhist
-					give_nickname = nick_the_gentle
-					change_diplomacy = 2
-					change_stewardship = 2
-					change_intrigue = -1
-					save_event_target_as = eternal_life_mystic
-					will_not_marry_effect = yes
-					set_character_flag = no_court_invites
-
-					random_list = {
-						90 = { set_character_flag = mystic_is_fraud }
-
-						10 = {
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 10 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 13 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 16 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 19 }
-							}
-
-							mult_modifier = {
-								factor = 1.4
-								ROOT = { learning >= 22 }
-							}
-
-							change_learning = 15
-						}
-					}
-				}
+				save_event_target_as = eternal_life_mystic
+				change_diplomacy = 6
 			}
 		}
+		if = {
+			limit = { has_character_flag = martial_mystic }			
+			create_character = {
+				random_traits = no
+				dynasty = none
+				religion = sol_sahara
+				culture = guanchinet
+				female = yes
+				age = 36
+				health = 15
+				trait = brilliant_strategist
+				trait = mystic
+				trait = brawny
+				trait = wroth
+				trait = diligent
+				trait = proud
+				trait = brave
+				trait = desert_expert
+				trait = aggressive_leader
+			}
+			new_character = {
+				set_character_flag = eternal_life_mystic
 
-		narrative_event = {
-			id = RIP.21019
-			days = 1
+				will_not_marry_effect = yes
+
+				give_nickname = nick_the_fearless 
+				add_scarred_tiered_effect = yes
+
+				random_list = {
+					50 = { add_scarred_medium_effect = yes }
+					50 = { add_trait = disfigured }
+				}
+
+				random_list = {
+					90 = {
+						set_character_flag = mystic_is_fraud
+					}
+					10 = {
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 10 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 13 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 16 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 19 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { martial = 22 }
+						}
+						
+						change_martial = 6
+					}
+				}
+				save_event_target_as = eternal_life_mystic
+			}
 		}
+		if = {
+			limit = { has_character_flag = intrigue_mystic }
+			create_character = {
+				name = "Cleopatra"
+				random_traits = no
+				dynasty = none
+				religion = horus_re
+				culture = nubian
+				female = yes
+				age = 72
+				health = 15
+				trait = elusive_shadow
+				trait = mystic
+				trait = hunchback
+				trait = slothful
+				trait = proud
+				trait = paranoid
+				trait = ambitious
+				trait = deceitful
+				trait = erudite
+		
+			}
+			new_character = {
+				set_character_flag = eternal_life_mystic
 
+				will_not_marry_effect = yes
+
+				give_nickname = nick_the_alchemist
+
+				random_list = {
+					90 = {
+						set_character_flag = mystic_is_fraud
+					}
+					10 = {
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 10 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 13 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 16 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 19 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { intrigue = 22 }
+						}
+						
+						change_intrigue = 6
+					}
+				}
+				save_event_target_as = eternal_life_mystic
+			}
+		}
+		if = {
+			limit = { has_character_flag = learning_mystic }
+			create_character = {
+				random_traits = no
+				dynasty = none
+				religion = jain
+				culture = sinhala
+				female = yes
+				age = 9
+				attributes = {
+					learning = 10
+				}
+				health = 15
+				trait = mystic
+				trait = brahmin
+				trait = quick
+				trait = fussy
+				trait = conscientious
+			}
+			new_character = {
+				set_character_flag = eternal_life_mystic
+
+				will_not_marry_effect = yes
+
+				remove_trait = kshatriya
+				remove_trait = vaishya
+
+				give_nickname = nick_the_gentle
+				change_diplomacy = 2
+				change_stewardship = 2
+				change_intrigue = -1
+
+				random_list = {
+					90 = {
+						set_character_flag = mystic_is_fraud
+					}
+					10 = {
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 10 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 13 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 16 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 19 }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { learning = 22 }
+						}
+						
+						change_learning = 15
+					}
+				}
+				save_event_target_as = eternal_life_mystic
+			}
+		}
+		clr_character_flag = diplomacy_mystic
+		clr_character_flag = martial_mystic
+		clr_character_flag = intrigue_mystic
+		clr_character_flag = learning_mystic
+
+		event_target:eternal_life_mystic = { narrative_event = { id = RIP.21018 } }
+		save_event_target_as = eternal_life_seeker
 		log = "mystic recieves 18"
 	}
 
 	option = {
 		name = EVTOPTB_RIP_21014
+		clr_character_flag = diplomacy_mystic
+		clr_character_flag = martial_mystic
+		clr_character_flag = intrigue_mystic
+		clr_character_flag = learning_mystic
 	}
 }
 
@@ -783,127 +771,142 @@ narrative_event = {
 }
 
 # Mystic introduces themselves
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
-	id = RIP.21019
 	title = EVTNAME_RIP_21019
-	picture = GFX_evt_emissary
+	id = RIP.21019
 	border = GFX_event_narrative_frame_religion
-	portrait = event_target:eternal_life_mystic
+	picture = GFX_evt_emissary
 
+	#Diplomacy mystic, same religion
 	desc = {
 		text = EVTDSC_RIP_21019_DIPLOMACY_A
-		trigger = {
-			has_character_flag = diplomacy_mystic
-			religion = event_target:eternal_life_mystic
+		trigger = { 
+			FROM = { 
+				trait = grey_eminence 
+				religion = ROOT
+			} 
 		}
 	}
+	#Martial mystic, same religion
 	desc = {
 		text = EVTDSC_RIP_21019_MARTIAL_A
-		trigger = {
-			has_character_flag = martial_mystic
-			religion = event_target:eternal_life_mystic
+		trigger = { 
+			FROM = { 
+				trait = brilliant_strategist 
+				religion = ROOT
+			} 
 		}
 	}
+	#Intrigue mystic, same religion
 	desc = {
 		text = EVTDSC_RIP_21019_INTRIGUE_A
 		picture = GFX_evt_wise_woman
-		trigger = {
-			has_character_flag = intrigue_mystic
-			religion = event_target:eternal_life_mystic
+
+		trigger = { 
+			FROM = { 
+				trait = elusive_shadow 
+				religion = ROOT
+			} 
 		}
 	}
+	#Learning mystic, same religion
 	desc = {
 		text = EVTDSC_RIP_21019_LEARNING_A
-		trigger = {
-			has_character_flag = learning_mystic
-			religion = event_target:eternal_life_mystic
+		trigger = { 
+			FROM = { 
+				is_adult = no 
+				religion = ROOT
+			} 
 		}
 	}
+	#Diplomacy mystic, different religion
 	desc = {
 		text = EVTDSC_RIP_21019_DIPLOMACY_B
-		trigger = {
-			has_character_flag = diplomacy_mystic
-			NOT = { religion = event_target:eternal_life_mystic }
+		trigger = { 
+			FROM = { 
+				trait = grey_eminence 
+				NOT = { religion = ROOT }
+			} 
 		}
 	}
+	#Martial mystic, different religion
 	desc = {
 		text = EVTDSC_RIP_21019_MARTIAL_B
-		trigger = {
-			has_character_flag = martial_mystic
-			NOT = { religion = event_target:eternal_life_mystic }
+		trigger = { 
+			FROM = { 
+				trait = brilliant_strategist 
+				NOT = { religion = ROOT }
+			} 
 		}
 	}
+	#Intrigue mystic, different religion
 	desc = {
 		text = EVTDSC_RIP_21019_INTRIGUE_B
 		picture = GFX_evt_wise_woman
-		trigger = {
-			has_character_flag = intrigue_mystic
-			NOT = { religion = event_target:eternal_life_mystic }
+
+		trigger = { 
+			FROM = { 
+				trait = elusive_shadow 
+				NOT = { religion = ROOT }
+			} 
 		}
 	}
+	#Learning mystic, different religion
 	desc = {
 		text = EVTDSC_RIP_21019_LEARNING_B
-		trigger = {
-			has_character_flag = learning_mystic
-			NOT = { religion = event_target:eternal_life_mystic }
+		trigger = { 
+			FROM = { 
+				is_adult = no 
+				NOT = { religion = ROOT }
+			} 
 		}
 	}
 
+
 	is_triggered_only = yes
-	hide_new = yes
 
-	# Stay for same religion
+	#Stay for same religion
 	option = {
+		trigger = { religion = FROM } 
 		name = EVTOPTA_RIP_21019
-
-		trigger = { religion = event_target:eternal_life_mystic }
 
 		add_character_modifier = {
 			name = consorts_with_mystics
 			years = 10
+
 		}
 
-		# The quest is started
-		narrative_event = {
-			id = RIP.21020
-			months = 5
+		hidden_tooltip = {
+
+			#The quest is started
+			FROM = { narrative_event = { id = RIP.21020 } } 
+
+			#Someone becomes concerned
+			character_event = { id = RIP.21499 days = 60 }
 		}
 
-		# Someone becomes concerned
-		narrative_event = {
-			id = RIP.21501
-			months = 2
-		}
-
-		reverse_opinion = {
-			name = opinion_sought_mystic_knowledge
-			who = event_target:eternal_life_mystic
+		FROM = {
+			show_scope_change = no
+			opinion = {
+				who = ROOT
+				modifier = opinion_sought_mystic_knowledge
+			}	
 		}
 	}
 
-	# Leave for same religion
+	#Leave for same religion
 	option = {
+		trigger = { religion = FROM } 
 		name = EVTOPTB_RIP_21019
-
-		trigger = { religion = event_target:eternal_life_mystic }
-
 		piety = 50
-
-		hidden_effect = {
-			event_target:eternal_life_mystic = {
-				leave_court_effect = yes
-				clr_character_flag = no_court_invites
-			}
-		}
+		hidden_tooltip = { FROM = { leave_court_effect = yes } }
 	}
 
-	# Stay for different religion
+	#Stay for different religion
 	option = {
+		trigger = { NOT = { religion = FROM } }
 		name = EVTOPTC_RIP_21019
-
-		trigger = {
-			NOT = { religion = event_target:eternal_life_mystic }
-		}
 
 		piety = -100
 
@@ -912,113 +915,90 @@ narrative_event = {
 			years = 10
 		}
 
-		# The quest is started
-		narrative_event = {
-			id = RIP.21020
-			months = 5
+		hidden_tooltip = {
+			#The quest is started
+			FROM = { narrative_event = { id = RIP.21020 } } 
+
+			#Someone becomes concerned
+			character_event = { id = RIP.21499 days = 60 }
 		}
 
-		# Someone becomes concerned
-		narrative_event = {
-			id = RIP.21501
-			months = 2
+		FROM = {
+			show_scope_change = no
+			opinion = {
+				who = ROOT
+				modifier = opinion_sought_mystic_knowledge
+			}	
 		}
 
-		reverse_opinion = {
-			name = opinion_sought_mystic_knowledge
-			who = event_target:eternal_life_mystic
+		if = {
+			limit = { trait = zealous }
+			remove_trait = zealous
 		}
-
-		remove_trait_silently_zealous_effect = yes
+		if = {
+			limit = {
+				FROM = { religion_group = norsegerman_group }
+				NOT = { 
+					trait = sympathy_nordic
+					FROM = { religion_group = ROOT }
+				} 
+			}
+			add_trait = sympathy_nordic
+		}
 
 		if = {
 			limit = {
-				event_target:eternal_life_mystic = {
-					NOT = { religion_group = ROOT }
-				}
+				FROM = { religion_group = sol_group }
+				NOT = { 
+					trait = sympathy_sol
+					FROM = { religion_group = ROOT }
+				} 
 			}
+			add_trait = sympathy_sol
+		}
 
-			if = {
-				limit = {
-					event_target:eternal_life_mystic = {
-						religion_group = pagan_group
-					}
-
-					NOT = { trait = sympathy_pagans }
-				}
-
-				add_trait = sympathy_pagans
+		if = {
+			limit = {
+				FROM = { religion_group = egyptian_group } 
+				NOT = { 
+					trait = sympathy_egyptian 
+					FROM = { religion_group = ROOT }
+				} 
 			}
+			add_trait = sympathy_egyptian
+		}
 
-			else_if = {
-				limit = {
-					event_target:eternal_life_mystic = {
-						religion_group = muslim
-					}
-
-					NOT = { trait = sympathy_islam }
-				}
-
-				add_trait = sympathy_islam
+		if = {
+			limit = {
+				FROM = { religion_group = indian_group } 
+				NOT = { 
+					trait = sympathy_indian 
+					FROM = { religion_group = ROOT }
+				} 
 			}
-
-			else_if = {
-				limit = {
-					event_target:eternal_life_mystic = {
-						religion_group = indian_group
-					}
-
-					NOT = { trait = sympathy_indian }
-				}
-
-				add_trait = sympathy_indian
-			}
+			add_trait = sympathy_indian
 		}
 	}
-
-	# Leave for different religion
+	#Leave for different religion
 	option = {
+		trigger = { NOT = { religion = FROM } }
 		name = EVTOPTD_RIP_21019
-
-		trigger = {
-			NOT = { religion = event_target:eternal_life_mystic }
-		}
-
 		piety = 100
-
-		hidden_effect = {
-			event_target:eternal_life_mystic = {
-				leave_court_effect = yes
-				clr_character_flag = no_court_invites
-			}
-		}
+		hidden_tooltip = { FROM = { leave_court_effect = yes } }
 	}
-
-	# Imprison for different religion
+	#Imprison for different religion
 	option = {
+		trigger = { NOT = { religion = FROM } }
 		name = EVTOPTE_RIP_21019
-
-		trigger = {
-			NOT = { religion = event_target:eternal_life_mystic }
-		}
-
 		piety = 100
 
-		event_target:eternal_life_mystic = {
-			show_scope_change = no
+		FROM = { imprison = yes }
 
-			imprison = ROOT
-
-			hidden_effect = {
+		hidden_tooltip = {
+			FROM = {
 				if = {
-					limit = {
-						NOT = { has_character_flag = mystic_is_fraud }
-					}
-
-					narrative_event = {
-						id = RIP.21509
-						months = 2
-					}
+					limit = { NOT = { has_character_flag = mystic_is_fraud } }
+					narrative_event = { id = RIP.21508 days = 60 } 
 				}
 			}
 		}

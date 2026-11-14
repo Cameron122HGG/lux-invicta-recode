@@ -423,67 +423,61 @@ upgrade_bells_golden = {
 ################# Temple #################
 ##########################################
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_statue_god = {
 	picture = GFX_upgrade_icon_statue
 
-	potential = {
-		FROMFROM = { is_active = yes }
+	potential = { LI_pagan_trigger = yes }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { LI_pagan_trigger = yes } }
+			LI_pagan_trigger = yes
+		}
+		trigger_if = {
+			limit = {
+				religion_group = muslim
+			}
+			NOT = { trait = zealous }
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { LI_pagan_trigger = yes }
 
 	flags = {
 		decorative
 		holy
 		is_singular
-		statue_god
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
-	local_modifier = {
-	}
-
 	owner_modifier = {
 		monthly_character_piety = 0.05
 	}
 }
 
-upgrade_temple_guards = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+upgrade_temple_guards = { 
 	picture = GFX_upgrade_icon_guard
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { LI_pagan_trigger = yes }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { LI_pagan_trigger = yes } }
+			LI_pagan_trigger = yes
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { LI_pagan_trigger = yes }
 
 	flags = {
 		defensive
-		# unit
+		#unit
 		is_plural
-		temple_guards
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
 		local_revolt_risk = -0.1
-	}
-
-	owner_modifier = {
 	}
 }
 
@@ -518,18 +512,18 @@ upgrade_sacrificial_altar = {
 	}
 }
 
-upgrade_sacred_grove = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+upgrade_sacred_grove = { 
 	picture = GFX_upgrade_icon_roses_white
 
-	potential = {
-		FROMFROM = { is_active = yes }
+	potential = { LI_pagan_trigger = yes }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { LI_pagan_trigger = yes } }
+			LI_pagan_trigger = yes
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { LI_pagan_trigger = yes }
 
 	flags = {
 		holy
@@ -537,141 +531,117 @@ upgrade_sacred_grove = {
 		nature
 		is_singular
 		secluded
-		sacred_grove
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
 		local_revolt_risk = -0.04
 	}
-
 	owner_modifier = {
 		custom_modifier_text = private_talk_possible_modifier_tt
 	}
 }
 
-upgrade_prophecy_rooms = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+upgrade_prophecy_rooms = { 
 	picture = GFX_upgrade_icon_crates
 
-	potential = {
-		FROMFROM = { is_active = yes }
+	potential = { LI_pagan_trigger = yes }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { LI_pagan_trigger = yes } }
+			LI_pagan_trigger = yes
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { LI_pagan_trigger = yes }
 
 	flags = {
 		room
 		is_plural
-		prophecy_rooms
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
-	local_modifier = {
-	}
-
 	owner_modifier = {
 		zealous_opinion = 5
 	}
 }
 
-upgrade_temple_precinct = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+upgrade_temple_precinct = { 
 	picture = GFX_upgrade_icon_crates
 
-	potential = {
-		FROMFROM = { is_active = yes }
+	potential = { LI_pagan_trigger = yes }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { LI_pagan_trigger = yes } }
+			LI_pagan_trigger = yes
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { LI_pagan_trigger = yes }
 
 	flags = {
 		is_singular
-		temple_precinct
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
-	local_modifier = {
-	}
-
 	owner_modifier = {
 		same_religion_opinion = 2
 	}
 }
 
-upgrade_inner_sanctuary = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+upgrade_inner_sanctuary = { 
 	picture = GFX_upgrade_icon_crates
 
-	potential = {
-		FROMFROM = { is_active = yes }
+	potential = { LI_pagan_trigger = yes }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { LI_pagan_trigger = yes } }
+			LI_pagan_trigger = yes
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { LI_pagan_trigger = yes }
 
 	flags = {
 		room
 		is_singular
-		inner_sanctuary
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
-	local_modifier = {
-		local_revolt_risk = -0.05
-	}
-
 	owner_modifier = {
 		diligent_opinion = 5
 	}
+	local_modifier = {
+		local_revolt_risk = -0.05
+	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_custodian_of_temple = {
 	picture = GFX_upgrade_icon_key
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	potential = { }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { LI_pagan_trigger = yes } }
+			LI_pagan_trigger = yes
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { LI_pagan_trigger = yes }
 
 	flags = {
 		is_singular
 		unlocks_minor_title
-		custodian_of_temple
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
+		
 	}
-
 	owner_modifier = {
 		custom_modifier_text = custodian_of_temple_custom_modifier_tt
 	}
@@ -1134,215 +1104,201 @@ upgrade_school_synagogue = {
 ########### Buddhist Temple ##############
 ##########################################
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_chaitya-grihas = {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { religion_group = bud_group }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { religion_group = bud_group }
 
 	flags = {
 		is_plural
 		contemplative
-		chaitya-grihas
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
 		local_revolt_risk = -0.04
 	}
-
 	owner_modifier = {
+
 	}
 
 }
 
-upgrade_gompa = {
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+upgrade_gompa= {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { religion_group = bud_group }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
 	}
-
-	allow = { }
-
-	active = { # Active even if owner not of the same religion
-	}
+	active = {  } #active even if owner not of the same religion
 
 	flags = {
 		is_singular
 		defensive
-		gompa
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
 		siege_defence = 0.10
 	}
-
 	owner_modifier = {
+	
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_bodhi_tree = {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { religion_group = bud_group }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { religion_group = bud_group }
 
 	flags = {
 		is_singular
 		contemplative
-		bodhi_tree
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
+		
 	}
-
 	owner_modifier = {
 		same_religion_opinion = 2
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_cave_complex = {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { religion_group = bud_group }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
 	}
-
-	allow = { }
-
-	active = { # Active even if owner is not a Budhist?
-	}
+	active = { } # active even if owner is not a Budhist?
 
 	flags = {
 		is_singular
 		defensive
-		cave_complex
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
 		siege_defence = 0.10
 	}
-
 	owner_modifier = {
+	
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_vihara = {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { religion_group = bud_group }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { religion_group = bud_group }
 
 	flags = {
 		is_singular
-		vihara
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
 		disease_defence = 0.05
 	}
-
 	owner_modifier = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_school_buddhist = {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { religion_group = bud_group }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { religion_group = bud_group }
 
 	flags = {
 		culture_conversion_faster
 		inspires_learning
 		is_singular
-		school_buddhist
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
 		local_revolt_risk = -0.02
 	}
-
 	owner_modifier = {
 		scholar_opinion = 5
 		custom_modifier_text = culture_convertion_custom_modifier_tt
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_relic_stupa = {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { religion_group = bud_group }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-
+	active = { 
+		religion_group = bud_group
+		hidden_tooltip = {
+			FROMFROM = { is_active = yes }
+		}
 		FROM = {
 			show_scope_change = no
-
 			trigger_if = {
-				limit = { is_building_wonder_upgrade = no }
-
-				custom_tooltip = {
-					text = must_be_storing_a_relic_TT
-					has_wonder_upgrade_flag = is_storing_relic
-				}
+			    limit = {
+			        NOT = { FROMFROM = { is_building_wonder_upgrade = yes } }
+			    }
+			    custom_tooltip = {
+			        text = must_be_storing_a_relic_TT
+			        FROMFROM = { has_wonder_upgrade_flag = is_storing_relic }
+			    }
 			}
 		}
 	}
@@ -1352,110 +1308,97 @@ upgrade_relic_stupa = {
 		is_singular
 		holy
 		stores_relic
-		relic_stupa
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
+		
 	}
-
 	owner_modifier = {
 		monthly_character_piety = 0.25
 		custom_modifier_text = storing_a_relic_possible_modifier_tt
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_commerative_stupa = {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { religion_group = bud_group }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { religion_group = bud_group }
 
 	flags = {
 		is_singular
-		commerative_stupa
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
+		
 	}
-
 	owner_modifier = {
 		indian_group_opinion = 2
 	}
+
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_symbolic_stupa = {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
+	
+	potential = { religion_group = bud_group }
+	allow = {
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
 	}
-
-	allow = { }
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { religion_group = bud_group }
 
 	flags = {
 		is_singular
-		symbolic_stupa
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
+		
 	}
-
 	owner_modifier = {
 		buddhist_opinion = 3
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_votive_stupa = {
 	picture = GFX_upgrade_icon_crates
-
-	potential = {
-		FROMFROM = { is_active = yes }
-	}
-
+	
+	potential = { religion_group = bud_group }
 	allow = {
-		num_of_wonder_upgrades >= 6
+		trigger_if = {
+			limit = { NOT = { religion_group = bud_group } }
+			religion_group = bud_group
+		}
+		num_of_wonder_upgrades = 6
 	}
-
-	active = {
-		FROMFROM = { is_active = yes }
-	}
+	active = { religion_group = bud_group }
 
 	flags = {
 		is_singular
-		votive_stupa
 	}
-
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
-
 	local_modifier = {
 		local_tax_modifier = 0.10
 	}
-
 	owner_modifier = {
 	}
 }

@@ -348,171 +348,162 @@ character_event = {
 }
 
 # Courtier discovers the affair
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.55
 	title = EVTTITLE_WOL_55
-	picture = GFX_evt_scandal
+	
+	picture = GFX_evt_courtiers_looking_scandalized
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
-		# For relation localisation
-		event_target:seduced = {
-			save_event_target_as = event_target_1
+		
+		FROMFROM = {
+			save_event_target_as = target_lover_1
 		}
-
-		event_target:seducer = {
-			save_event_target_as = event_target_2
-		}
-
+		
 		if = {
 			limit = {
 				OR = {
-					is_married = event_target:seduced
-
+					any_spouse = {
+						character = FROM
+					}
 					any_consort = {
-						character = event_target:seduced
-						is_senior_consort_party = no
+						NOT = { is_senior_consort_party = yes }
+						character = FROM
 					}
 				}
 			}
-
 			if = {
 				limit = { is_female = no }
-
 				opinion = {
-					name = opinion_unfaithful_wife
-					who = event_target:seduced
+					who = FROM
+					modifier = opinion_unfaithful_wife
 				}
-
 				if = {
-					limit = { event_target:seducer = { is_female = no } }
-
+					limit = { FROMFROM = { is_female = no } }
 					opinion = {
-						name = opinion_cuckolded
-						who = event_target:seducer
+						who = FROMFROM
+						modifier = opinion_cuckolded
 					}
 				}
 			}
-			else = {
+			if = {
+				limit = { is_female = yes }
 				if = {
 					limit = { gender_equality_trigger = no }
-
 					opinion = {
-						name = opinion_unfaithful_husband
-						who = event_target:seduced
+						who = FROM
+						modifier = opinion_unfaithful_husband
 					}
 				}
-				else = {
-					opinion = {
-						name = opinion_unfaithful_husband_crime
-						who = event_target:seduced
-					}
-				}
-
 				if = {
-					limit = { event_target:seducer = { is_female = yes } }
-
-					add_rival = event_target:seducer
-
+					limit = { gender_equality_trigger = yes }
 					opinion = {
-						name = slut_seductress
-						who = event_target:seducer
+						who = FROM
+						modifier = opinion_unfaithful_husband_crime
+					}
+				}
+				if = {
+					limit = { FROMFROM = { is_female = yes } }
+					add_rival = FROMFROM
+					opinion = {
+						who = FROMFROM
+						modifier = slut_seductress
 					}
 				}
 			}
 		}
-
+		
 		if = {
 			limit = {
 				OR = {
-					is_married = event_target:seducer
-
+					any_spouse = {
+						character = FROMFROM
+					}
 					any_consort = {
-						is_senior_consort_party = no
-						character = event_target:seducer
+						NOT = { is_senior_consort_party = yes }
+						character = FROMFROM
 					}
 				}
 			}
-
 			if = {
 				limit = { is_female = no }
-
 				opinion = {
-					name = opinion_unfaithful_wife
-					who = event_target:seducer
+					who = FROMFROM
+					modifier = opinion_unfaithful_wife
 				}
-
 				if = {
-					limit = { event_target:seduced = { is_female = no } }
-
+					limit = { FROM = { is_female = no } }
 					opinion = {
-						name = opinion_cuckolded
-						who = event_target:seduced
+						who = FROM
+						modifier = opinion_cuckolded
 					}
 				}
 			}
-			else = {
+			if = {
+				limit = { is_female = yes }
 				if = {
 					limit = { gender_equality_trigger = no }
-
 					opinion = {
-						name = opinion_unfaithful_husband
-						who = event_target:seducer
+						who = FROMFROM
+						modifier = opinion_unfaithful_husband
 					}
 				}
-				else = {
-					opinion = {
-						name = opinion_unfaithful_husband_crime
-						who = event_target:seducer
-					}
-				}
-
 				if = {
-					limit = { event_target:seduced = { is_female = yes } }
-
-					add_rival = event_target:seduced
-
+					limit = { gender_equality_trigger = yes }
 					opinion = {
-						name = slut_seductress
-						who = event_target:seduced
+						who = FROMFROM
+						modifier = opinion_unfaithful_husband_crime
+					}
+				}
+				if = {
+					limit = { FROM = { is_female = yes } }
+					add_rival = FROM
+					opinion = {
+						who = FROM
+						modifier = slut_seductress
 					}
 				}
 			}
 		}
-
+		
 		if = {
 			limit = {
-				event_target:seduced = {
-					is_close_relative = event_target:seducer
-					religion_has_incest = no
+				FROM = {
+					is_close_relative = event_target:target_lover_1
+					close_relative_marriages_allowed_trigger = no
 				}
 			}
 			set_character_flag = scandal_temp_incest
+			break = yes
 		}
-		else_if = {
+		if = {
 			limit = {
-				event_target:seduced = {
-					same_sex = event_target:seducer
+				FROM = {
+					is_female = no
+					same_sex = event_target:target_lover_1 
 				}
 			}
-
-			if = {
-				limit = {
-					event_target:seduced = { is_female = no }
-				}
-				set_character_flag = scandal_temp_m_homo
-			}
-			else = {
-				set_character_flag = scandal_temp_f_homo
-			}
+			set_character_flag = scandal_temp_m_homo
+			break = yes
 		}
-		else_if = {
+		if = {
 			limit = {
-				event_target:seduced = {
+				FROM = {
+					is_female = yes
+					same_sex = event_target:target_lover_1 
+				}
+			}
+			set_character_flag = scandal_temp_f_homo
+			break = yes
+		}
+		if = {
+			limit = {
+				FROM = {
 					religion_group = christian
-
 					OR = {
 						is_priest = yes
 						is_ascetic_trigger = yes
@@ -520,23 +511,24 @@ character_event = {
 				}
 			}
 			set_character_flag = scandal_temp_priest
+			break = yes
 		}
-		else_if = {
+		if = {
 			limit = {
-				event_target:seduced = {
+				FROM = {
 					age_diff = {
-						who = event_target:seducer
-						years >= 25
+						who = event_target:target_lover_1
+						years = 25
 					}
 				}
 			}
 			set_character_flag = scandal_temp_age
+			break = yes
 		}
-		else_if = {
+		if = {
 			limit = {
-				event_target:seduced = {
+				FROM = {
 					is_female = yes
-
 					OR = {
 						is_married = yes
 						is_consort = yes
@@ -544,25 +536,25 @@ character_event = {
 				}
 			}
 			set_character_flag = scandal_temp_f_married
+			break = yes
 		}
-		else_if = {
+		if = {
 			limit = {
-				event_target:seducer = {
+				FROMFROM = {
 					is_female = yes
-
 					OR = {
 						is_married = yes
-						is_senior_consort_party = no
+						NOT = { is_senior_consort_party = yes }
 					}
 				}
 			}
 			set_character_flag = scandal_temp_ff_married
+			break = yes
 		}
-		else = {
-			set_character_flag = scandal_temp_adultery
-		}
+		
+		set_character_flag = scandal_temp_adultery
 	}
-
+	
 	desc = {
 		text = EVTDESC_WOL_55_CR
 		trigger = { has_character_flag = scandal_temp_incest }
@@ -582,19 +574,15 @@ character_event = {
 	desc = {
 		text = EVTDESC_WOL_55_AGE_YOUNG
 		trigger = {
-			has_character_flag = scandal_temp_age
-			event_target:seduced = {
-				NOT = { is_older_than = event_target:seducer }
-			}
+			has_character_flag = scandal_temp_age 
+			FROM = { NOT = { is_older_than = ROOT_FROMFROM } }
 		}
 	}
 	desc = {
 		text = EVTDESC_WOL_55_AGE_OLD
 		trigger = {
-			has_character_flag = scandal_temp_age
-			event_target:seduced = {
-				is_older_than = event_target:seducer
-			}
+			has_character_flag = scandal_temp_age 
+			FROM = { is_older_than = ROOT_FROMFROM }
 		}
 	}
 	desc = {
@@ -614,160 +602,199 @@ character_event = {
 		text = EVTDESC_WOL_55
 		trigger = { has_character_flag = scandal_temp_adultery }
 	}
-
+	
 	option = {
-		name = {
-			text = EVTOPTA_WOL_55 # Expose them!
-			trigger = {
-				NOR = {
-					has_character_flag = scandal_temp_incest
-					has_character_flag = scandal_temp_m_homo
-					has_character_flag = scandal_temp_f_homo
-					has_character_flag = scandal_temp_priest
-				}
+		name = EVTOPTA_WOL_55 # Expose them!
+		show_portrait = FROMFROM
+		trigger = {
+			NOR = {
+				has_character_flag = scandal_temp_incest
+				has_character_flag = scandal_temp_m_homo
+				has_character_flag = scandal_temp_f_homo
+				has_character_flag = scandal_temp_priest
 			}
 		}
-		name = {
-			text = EVTOPTA_WOL_55_UNHOLY # Expose the unholy sinners!
-			trigger = {
-				OR = {
-					has_character_flag = scandal_temp_incest
-					has_character_flag = scandal_temp_m_homo
-					has_character_flag = scandal_temp_f_homo
-					has_character_flag = scandal_temp_priest
-				}
-			}
+		ai_chance = {
+			factor = 100
 		}
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.60
-				tooltip = EVTTOOLTIP_WoL_60
-				portrait = yes
+		
+		if = {
+			limit = {
+				is_lover = FROM
 			}
+			remove_lover = FROM
 		}
-
+		if = {
+			limit = {
+				is_lover = FROMFROM
+			}
+			remove_lover = FROMFROM
+		}
+		
+		FROMFROM = { character_event = { id = WoL.60 tooltip = EVTTOOLTIP_WoL_60 } }
+		
 		clr_character_flag = scandal_temp_age
 		clr_character_flag = scandal_temp_f_married
 		clr_character_flag = scandal_temp_ff_married
 		clr_character_flag = scandal_temp_adultery
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_55_UNHOLY # Expose the unholy sinners!
+		show_portrait = FROMFROM
+		trigger = {
+			OR = {
+				has_character_flag = scandal_temp_incest
+				has_character_flag = scandal_temp_m_homo
+				has_character_flag = scandal_temp_f_homo
+				has_character_flag = scandal_temp_priest
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				is_lover = FROM
+			}
+			remove_lover = FROM
+		}
+		if = {
+			limit = {
+				is_lover = FROMFROM
+			}
+			remove_lover = FROMFROM
+		}
+		
+		FROMFROM = { character_event = { id = WoL.60 tooltip = EVTTOOLTIP_WoL_60 } }
+		
 		clr_character_flag = scandal_temp_incest
 		clr_character_flag = scandal_temp_m_homo
 		clr_character_flag = scandal_temp_f_homo
 		clr_character_flag = scandal_temp_priest
 	}
-
+	
 	option = {
-		name = EVTOPTB_WOL_55 # Let it pass
-
-		clr_character_flag = scandal_temp_incest
-		clr_character_flag = scandal_temp_m_homo
-		clr_character_flag = scandal_temp_f_homo
-		clr_character_flag = scandal_temp_priest
-		clr_character_flag = scandal_temp_age
-		clr_character_flag = scandal_temp_f_married
-		clr_character_flag = scandal_temp_ff_married
-		clr_character_flag = scandal_temp_adultery
-
+		name = EVTOPTB_WOL_55 # let it pass
 		ai_chance = {
-			factor = 1
-
-			trigger = {
-				NOR = {
-					is_rival = event_target:seduced
-					is_rival = event_target:seducer
-					is_consort = event_target:seduced
-					is_consort = event_target:seducer
-					is_married = event_target:seduced
-					is_married = event_target:seducer
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					is_rival = FROM
+					is_rival = FROMFROM
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
+				factor = 0
+				OR = {
+					is_consort = FROM
+					is_consort = FROMFROM
+					any_spouse = {
+						OR = {
+							character = FROM
+							character = FROMFROM
+						}
+					}
+				}
+			}
+			modifier = {
 				factor = 0.1
 				trait = cruel
 			}
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
 				trait = zealous
 			}
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = charitable
 			}
-			mult_modifier = {
-				factor = 3
+			modifier = {
+				factor = 3.0
 				trait = kind
 			}
 		}
+		
+		if = {
+			limit = {
+				is_lover = FROM
+			}
+			remove_lover = FROM
+		}
+		if = {
+			limit = {
+				is_lover = FROMFROM
+			}
+			remove_lover = FROMFROM
+		}
+		
+		clr_character_flag = scandal_temp_incest
+		clr_character_flag = scandal_temp_m_homo
+		clr_character_flag = scandal_temp_f_homo
+		clr_character_flag = scandal_temp_priest
+		clr_character_flag = scandal_temp_age
+		clr_character_flag = scandal_temp_f_married
+		clr_character_flag = scandal_temp_ff_married
+		clr_character_flag = scandal_temp_adultery
 	}
-
+	
 	option = {
 		name = EVTOPTC_WOL_55 # Blackmail the seducer
-
-		show_portrait = event_target:seducer
-
+		show_portrait = FROMFROM
 		trigger = {
 			NOR = {
-				is_parent_of = event_target:seduced
-				is_consort = event_target:seduced
-				is_consort = event_target:seducer
-				is_married = event_target:seduced
-				is_married = event_target:seducer
+				is_father = FROM
+				is_mother = FROM
+				is_consort = FROM
+				is_consort = FROMFROM
 			}
-
-			OR = {
-				event_target:seducer = {
+			NOT = {
+				any_spouse = {
 					OR = {
-						is_female = yes
-						is_married = yes
+						character = FROM
+						character = FROMFROM
 					}
 				}
-
+			}
+			OR = {
+				FROMFROM = {
+					is_female = yes
+					is_married = yes
+				}
 				has_character_flag = scandal_temp_incest
 				has_character_flag = scandal_temp_m_homo
 				has_character_flag = scandal_temp_priest
 				has_character_flag = scandal_temp_f_married
 			}
 		}
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			letter_event = {
-				id = WoL.56
-				days = 3
-				tooltip = EVTTOOLTIP_WoL_56
-			}
-		}
-
 		ai_chance = {
-			factor = 1
-
-			mult_modifier = {
-				factor = 10
+			factor = 100
+			modifier = {
+				factor = 10.0
 				trait = greedy
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
 				trait = zealous
 			}
 		}
-	}
-
-	after = {
+		
 		if = {
-			limit = { is_lover = event_target:seduced }
-			remove_lover = event_target:seduced
+			limit = {
+				is_lover = FROM
+			}
+			remove_lover = FROM
 		}
-
 		if = {
-			limit = { is_lover = event_target:seducer }
-			remove_lover = event_target:seducer
+			limit = {
+				is_lover = FROMFROM
+			}
+			remove_lover = FROMFROM
 		}
+		
+		FROMFROM = { letter_event = { id = WoL.56 days = 3 tooltip = EVTTOOLTIP_WoL_56 } }
 	}
 }
 
@@ -911,81 +938,79 @@ letter_event = {
 }
 
 # Seducer: the scandal breaks!
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.60
 	title = EVTTITLE_WOL_60
 	desc = EVTDESC_WOL_60
-	picture = GFX_evt_scandal
+	
+	picture = GFX_evt_courtiers_looking_scandalized
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		save_event_target_as = target_adulterer
-
-		event_target:seduced = {
+		FROMFROM = {
 			character_event = { id = 20 } # Adultery fallout
 			character_event = { id = WoL.61 } # Notification to my lover
 		}
-
+		
 		any_spouse = {
 			limit = {
 				NOR = {
-					character = event_target:seduced
-					character = event_target:scandal_discoverer
+					character = FROMFROM
+					character = FROM
 				}
 			}
-
 			character_event = { id = WoL.62 }
 		}
 	}
-
+	
 	option = {
 		name = {
 			text = EVTOPTA_WOL_60_F
 			trigger = {
-				event_target:seduced = { is_female = yes }
+				FROMFROM = { is_female = yes }
 			}
 		}
 		name = {
 			text = EVTOPTA_WOL_60_M
 			trigger = {
-				event_target:seduced = { is_female = no }
+				FROMFROM = { is_female = no }
 			}
 		}
-
+		
 		if = {
-			limit = { same_sex = event_target:seduced }
-
+			limit = {
+				same_sex = FROMFROM
+			}
 			if = {
 				limit = { is_female = no }
-
 				tooltip = {
 					add_character_modifier = {
 						name = known_sodomite
 						years = 20
 					}
 				}
-
 				prestige = -500
 				piety = -250
 			}
-			else = {
+			if = {
+				limit = { is_female = yes }
 				prestige = -100
 				piety = -50
 			}
 		}
-
+		
 		if = {
 			limit = {
-				is_older_than = event_target:seduced
-
 				age_diff = {
-					who = event_target:seduced
-					years >= 25
+					who = FROMFROM
+					years = 25
 				}
+				is_older_than = FROMFROM
 			}
-
 			tooltip = {
 				add_character_modifier = {
 					name = cradle_robber
@@ -993,40 +1018,36 @@ character_event = {
 				}
 			}
 		}
-
+		
 		if = {
 			limit = {
 				religion_group = christian
-
 				OR = {
 					AND = {
 						is_ruler = yes
 						is_theocracy = yes
 					}
-
 					is_ascetic_trigger = yes
 				}
 			}
-
 			tooltip = {
 				add_character_modifier = {
 					name = adulterous_priest
 					years = 20
 				}
 			}
-
 			piety = -100
 		}
-
+		
 		if = {
 			limit = {
-				is_close_relative = event_target:seduced
-				religion_has_incest = no
+				is_close_relative = FROMFROM
+				close_relative_marriages_allowed_trigger = no
 			}
-
 			if = {
-				limit = { is_female = yes }
-
+				limit = {
+					is_female = yes
+				}
 				tooltip = {
 					add_character_modifier = {
 						name = incestuous_adulteress
@@ -1034,7 +1055,10 @@ character_event = {
 					}
 				}
 			}
-			else = {
+			if = {
+				limit = {
+					is_female = no
+				}
 				tooltip = {
 					add_character_modifier = {
 						name = incestuous_adulterer
@@ -1042,36 +1066,19 @@ character_event = {
 					}
 				}
 			}
-
+			
 			piety = -100
 			prestige = -50
+			
+			break = yes
 		}
-
-		else_if = {
-			limit = { is_female = yes }
-
-			tooltip = {
-				add_character_modifier = {
-					name = adulteress
-					years = 20
-				}
-			}
-
-			if = {
-				limit = { is_married = no }
-				piety = -50
-			}
-			else = {
-				piety = -100
-			}
-		}
-
-		else_if = {
+		
+		if = {
 			limit = {
+				is_female = no
 				is_married = yes
 				NOT = { religion_group = pagan_group }
 			}
-
 			tooltip = {
 				add_character_modifier = {
 					name = adulterer
@@ -1079,28 +1086,47 @@ character_event = {
 				}
 			}
 		}
-
-		else_if = {
+		
+		if = {
 			limit = {
-				event_target:seduced = {
-					is_playable = yes
-					is_opposite_sex = ROOT
+				is_female = yes
+			}
+			tooltip = {
+				add_character_modifier = {
+					name = adulteress
+					years = 20
 				}
 			}
-
 			if = {
-				limit = { event_target:seduced = { real_tier = COUNT } }
+				limit = { is_married = no }
+				piety = -50
+			}
+			if = {
+				limit = { is_married = yes }
+				piety = -100
+			}
+		}
+		
+		if = {
+			limit = {
+				is_female = no
+				NOT = { same_sex = FROMFROM }
+				FROMFROM = { is_playable = yes }
+			}
+			if = {
+				limit = { FROMFROM = { tier = COUNT } }
 				prestige = 25
 			}
-			else_if = {
-				limit = { event_target:seduced = { real_tier = DUKE } }
+			if = {
+				limit = { FROMFROM = { tier = DUKE } }
 				prestige = 50
 			}
-			else_if = {
-				limit = { event_target:seduced = { real_tier = KING } }
+			if = {
+				limit = { FROMFROM = { tier = KING } }
 				prestige = 100
 			}
-			else = {
+			if = {
+				limit = { FROMFROM = { tier = EMPEROR } }
 				prestige = 200
 			}
 		}
@@ -1584,33 +1610,42 @@ character_event = {
 }
 
 # Seducer / Seductress or Hedonist trait gained!
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.99
 	desc = EVTDESC_WOL_99
+	
 	picture = GFX_evt_lovers
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
-		lifestyle_traits < 1
-		NOT = { has_character_flag = wol_no_to_seducer_trait }
+		NOR = {
+			lifestyle_traits = 1
+			has_character_flag = wol_no_to_seducer_trait
+		}
 	}
-
+	
 	immediate = {
 		if = {
-			limit = { can_apply_lame_nickname_trigger = yes }
-
+			limit = {
+				has_nickname = no
+			}
 			if = {
-				limit = { is_female = yes }
-
+				limit = {
+					is_female = yes
+				}
 				random_list = {
 					34 = { give_nickname = nick_the_temptress }
 					33 = { give_nickname = nick_the_beguiling }
-					33 = { give_nickname = nick_the_unchaste }
+					33 = { give_nickname = nick_the_wicked }
 				}
 			}
-			else = {
+			if = {
+				limit = {
+					is_female = no
+				}
 				random_list = {
 					34 = { give_nickname = nick_the_seducer }
 					33 = { give_nickname = nick_the_lewd }
@@ -1619,72 +1654,227 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
-		name = {
-			text = EVTOPTA_WOL_99
-			trigger = {
-				NOR = {
-					religion_group = muslim
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-				}
+		name = EVTOPTA_WOL_99
+		trigger = {
+			is_female = yes
+			NOR = {
+				religion_group = muslim
+				religion_group = zoroastrian_group
+				religion_group = indohelen_group
+				religion_group = indian_group
+				religion_group = graecoroman_group
+				religion_group = celtic_group
+				religion_group = jewish_group
+				culture_group = byzantine
+				culture_group = iranian
+				culture_group = arabic
+				culture_group = indoaryan
+				culture_group = dravidian
+				culture_group = celtic
 			}
 		}
-		name = {
-			text = EVTOPTA_WOL_99_PERS
-			trigger = {
-				OR = {
-					religion_group = muslim
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-				}
-			}
+		ai_chance = {
+			factor = 100
 		}
-
-		trigger = { is_female = yes }
-
 		remove_character_modifier = wol_seducer_2
 		add_trait = master_seductress
-	#	log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seductress!"
-
-		ai_chance = { factor = 100 }
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seductress!"
 	}
-
+		
+	option = {
+		name = EVTOPTA_WOL_99_ARAB #Scheherazade
+		trigger = {
+			is_female = yes
+			OR = {
+				religion_group = muslim
+				AND = {
+					culture_group = arabic
+					NOR = {
+						religion_group = zoroastrian_group
+						religion_group = indohelen_group
+						religion_group = indian_group
+						religion_group = graecoroman_group
+						religion_group = celtic_group
+						religion_group = jewish_group						
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		remove_character_modifier = wol_seducer_2
+		add_trait = master_seductress
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seductress!"
+	}
+		
+	option = {
+		name = EVTOPTA_WOL_99_PERS #Roxana
+		trigger = {
+			is_female = yes
+			OR = {
+				religion_group = zoroastrian_group
+				religion_group = indohelen_group
+				AND = {
+					culture_group = iranian
+					NOR = {
+						religion_group = muslim
+						religion_group = indian_group
+						religion_group = graecoroman_group
+						religion_group = celtic_group
+						religion_group = jewish_group						
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		remove_character_modifier = wol_seducer_2
+		add_trait = master_seductress
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seductress!"
+	}
+		
+	option = {
+		name = EVTOPTA_WOL_99_IND #Kama Sutra
+		trigger = {
+			OR = {
+				religion_group = indian_group
+				AND = {
+					OR = {
+						culture_group = indoaryan
+						culture_group = dravidian
+					}
+					NOR = {
+						religion_group = muslim
+						religion_group = zoroastrian_group
+						religion_group = indohelen_group
+						religion_group = graecoroman_group
+						religion_group = celtic_group
+						religion_group = jewish_group						
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		remove_character_modifier = wol_seducer_2
+		add_trait = master_seductress
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seductress!"
+	}
+		
+	option = {
+		name = EVTOPTA_WOL_99_BYZ #Theodora
+		trigger = {
+			is_female = yes
+			culture_group = byzantine
+			NOR = {
+				religion_group = muslim
+				religion_group = zoroastrian_group
+				religion_group = indohelen_group
+				religion_group = indian_group
+				religion_group = graecoroman_group
+				religion_group = celtic_group
+				religion_group = jewish_group						
+			}
+		}
+		ai_chance = {
+				factor = 100
+		}
+		remove_character_modifier = wol_seducer_2
+		add_trait = master_seductress
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seductress!"
+	}
+		
+	option = {
+		name = EVTOPTA_WOL_99_GRK #Helen of Troy
+		trigger = {
+			religion_group = graecoroman_group
+		}
+		ai_chance = {
+			factor = 100
+		}
+		remove_character_modifier = wol_seducer_2
+		add_trait = master_seductress
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seductress!"
+	}
+		
+	option = {
+		name = EVTOPTA_WOL_99_JEW #Jezebel
+		trigger = {
+			religion_group = jewish_group
+		}
+		ai_chance = {
+			factor = 100
+		}
+		remove_character_modifier = wol_seducer_2
+		add_trait = master_seductress
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seductress!"
+	}
+	
+	option = {
+		name = EVTOPTA_WOL_99_CELT #Morgan le Fay
+		trigger = {
+			is_female = yes
+			OR = {
+				religion_group = celtic_group
+				AND = {
+					culture_group = celtic
+					NOR = {
+						religion_group = muslim
+						religion_group = zoroastrian_group
+						religion_group = indohelen_group
+						religion_group = indian_group
+						religion_group = graecoroman_group
+						religion_group = celtic_group
+						religion_group = jewish_group						
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		remove_character_modifier = wol_seducer_2
+		add_trait = master_seductress
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seductress!"
+	}
+	
 	option = {
 		name = EVTOPTB_WOL_99
-
-		trigger = { is_female = no }
-
+		trigger = {
+			is_female = no
+		}
+		ai_chance = {
+			factor = 100
+		}
 		remove_character_modifier = wol_seducer_2
 		add_trait = master_seducer
-	#	log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seducer!"
-
-		ai_chance = { factor = 100 }
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Seducer!"
 	}
-
+	
 	option = {
 		name = EVTOPTC_WOL_99
-
 		add_trait = hedonist
-	#	log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Hedonist!"
-
 		ai_chance = {
 			factor = 20
-
-			mult_modifier = {
-				factor = 5
+			modifier = {
+				factor = 5.0
 				trait = arbitrary
 			}
 		}
+#		log = "WoL.99: [Root.GetTitledName] achieves the lifestyle Hedonist!"
 	}
-
+	
 	option = {
 		name = EVTOPTD_WOL_99
-
+		ai_chance = {
+			factor = 0
+		}
 		set_character_flag = wol_no_to_seducer_trait
-
-		ai_chance = { factor = 0 }
 	}
 }
 
@@ -4562,12 +4752,11 @@ character_event = {
 }
 
 # Target: Seduction - Dance - Advance Encouraged - Tumble Attempt
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.303
 	title = EVTTITLE_WOL_300
-	picture = GFX_evt_dancing
-	border = GFX_event_normal_frame_intrigue
-
+	
 	desc = {
 		text = EVTDESC_WOL_303
 		trigger = { is_female = no }
@@ -4576,92 +4765,68 @@ character_event = {
 		text = EVTDESC_WOL_303_F
 		trigger = { is_female = yes }
 	}
-
+	
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_intrigue
+	
 	is_triggered_only = yes
-
+	
 	option = { # The flesh is weak
 		name = EVTOPTA_WOL_303
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.306
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_306
-			}
-		}
-
+		
 		ai_chance = {
 			factor = 100
-
-			mult_modifier = {
-				factor = 2
-
-				trigger_if = {
-					limit = {
-						is_female = yes
-						is_opposite_sex = event_target:seducer
+			modifier = {
+				factor = 2.0
+				OR = {
+					is_female = no
+					age = 45
+				}
+			}
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
 					}
-
-					practical_age >= 45
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-
-				personal_opinion = {
-					who = event_target:seducer
-					value < 20
-				}
-			}
-
-			mult_modifier = {
-				factor = 0.5
-
-				is_close_relative = event_target:seducer
-				religion_has_incest = no
-
+				is_close_relative = FROM
+				close_relative_marriages_allowed_trigger = no
 				NOR = {
 					trait = arbitrary
 					trait = lustful
 					trait = hedonist
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-
 				personal_opinion = {
-					who = event_target:seducer
-					value >= 40
+					who = FROM
+					value = 40
 				}
 			}
-
-			mult_modifier = {
-				factor = 2
-
+			modifier = {
+				factor = 2.0
 				personal_opinion = {
-					who = event_target:seducer
-					value >= 60
+					who = FROM
+					value = 60
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-				event_target:seducer = { has_character_modifier = wol_seducer_1 }
+				FROM = { has_character_modifier = wol_seducer_1 }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.25
-				event_target:seducer = { has_character_modifier = wol_seducer_2 }
+				FROM = { has_character_modifier = wol_seducer_2 }
 			}
-
-			mult_modifier = {
-				factor = 5
-
-				event_target:seducer = {
+			modifier = {
+				factor = 5.0
+				FROM = {
 					OR = {
 						trait = master_seducer
 						trait = master_seductress
@@ -4669,56 +4834,64 @@ character_event = {
 				}
 			}
 		}
+		
+		FROM = { character_event = { id = WoL.306 days = 1 tooltip = EVTTOOLTIP_WoL_306 } }
 	}
-
 	option = { # Rebuff
 		name = EVTOPTB_WOL_303
-
-		event_target:seducer = {
-			character_event = {
-				id = WoL.307
-				days = 1
-			}
-		}
-
 		ai_chance = {
 			factor = 100
-
-			trigger = {
-				NOT = { trait = lustful }
+			modifier = {
+				factor = 0
+				trait = lustful
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.01
 				trait = cruel
 			}
 		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = WoL.307 days = 1 } }
+		}
 	}
-
 	option = { # Cruel rebuff
-		name = {
-			text = EVTOPTC_WOL_303
-			trigger = { is_female = no }
-		}
-		name = {
-			text = EVTOPTC_WOL_303_F
-			trigger = { is_female = yes }
-		}
-
-		event_target:seducer = {
-			character_event = {
-				id = WoL.308
-				days = 1
-			}
-		}
-
+		name = EVTOPTC_WOL_303
 		ai_chance = {
 			factor = 100
-
-			trigger = {
-				trait = cruel
-				NOT = { trait = lustful }
+			modifier = {
+				factor = 0
+				trait = lustful
 			}
+			modifier = {
+				factor = 0
+				NOT = { trait = cruel }
+			}
+		}
+		trigger = {
+			is_female = no
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = WoL.308 days = 1 } }
+		}
+	}
+	option = { # Cruel rebuff
+		name = EVTOPTC_WOL_303_F
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				trait = lustful
+			}
+			modifier = {
+				factor = 0
+				NOT = { trait = cruel }
+			}
+		}
+		trigger = {
+			is_female = yes
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = WoL.308 days = 1 } }
 		}
 	}
 }
@@ -5154,89 +5327,110 @@ character_event = {
 }
 
 # Target: Confession of love
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.352
 	title = EVTTITLE_WOL_351
+	
 	picture = GFX_evt_lovers
 	border = GFX_event_normal_frame_intrigue
-
+	
 	desc = {
 		text = EVTDESC_WOL_352_CR
-		trigger = { is_close_relative = event_target:seducer }
+		trigger = {
+			is_close_relative = FROM
+		}
 	}
 	desc = {
 		text = EVTDESC_WOL_352_HOMO
 		trigger = {
-			same_sex = event_target:seducer
-			NOT = { is_close_relative = event_target:seducer }
+			NOT = { is_close_relative = FROM }
+			same_sex = FROM
 		}
 	}
 	desc = {
 		text = EVTDESC_WOL_352
 		trigger = {
-			same_realm = event_target:seducer
-
 			NOR = {
-				is_close_relative = event_target:seducer
-				same_sex = event_target:seducer
+				is_close_relative = FROM
+				same_sex = FROM
 			}
+			same_realm = FROM
 		}
 	}
 	desc = {
 		text = EVTDESC_WOL_352_DISTANT
 		trigger = {
 			NOR = {
-				is_close_relative = event_target:seducer
-				same_sex = event_target:seducer
-				same_realm = event_target:seducer
+				is_close_relative = FROM
+				same_sex = FROM
+				same_realm = FROM
 			}
 		}
 	}
-
+	
 	is_triggered_only = yes
-
-	option = { # Fall for poetry
+	
+	option = { # Fall for poesy
 		name = EVTOPTA_WOL_352_POET
-
 		trigger = { has_character_flag = seduction_whisper_poet }
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.306
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_306_2
-			}
-		}
-
-		clr_character_flag = seduction_whisper_poet
-
+		
 		ai_chance = {
 			factor = 50 # Lower base chance
-
-			seduction_tumble_common_score = yes
-
-			mult_modifier = {
-				factor = 0.1
-
-				learning < 5
-
-				NOR = {
-					trait = scholar
-					trait = mystic
-					trait = poet
-					trait = mastermind_theologian
-					trait = scholarly_theologian
-				}
-			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.25
-
-				age < 25
-
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				close_relative_marriages_allowed_trigger = no
 				NOR = {
+					trait = arbitrary
+					trait = lustful
+					trait = hedonist
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				NOR = {
+					learning = 5
 					trait = scholar
 					trait = mystic
 					trait = poet
@@ -5244,304 +5438,442 @@ character_event = {
 					trait = scholarly_theologian
 				}
 			}
-
-			mult_modifier = {
-				factor = 10
+			modifier = {
+				factor = 0.25
+				NOR = {
+					age = 25
+					trait = scholar
+					trait = mystic
+					trait = poet
+					trait = mastermind_theologian
+					trait = scholarly_theologian
+				}
+			}
+			modifier = {
+				factor = 10.0
 				trait = poet
 			}
-
-			mult_modifier = {
-				factor = 5
+			modifier = {
+				factor = 5.0
 				trait = scholar
 			}
-
-			mult_modifier = {
-				factor = 3
+			modifier = {
+				factor = 3.0
 				trait = mystic
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-				learning >= 10
+				learning = 10
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-				learning >= 12
+				learning = 12
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-				learning >= 15
+				learning = 15
 			}
-
-			mult_modifier = {
-				factor = 4
-
+			modifier = {
+				factor = 4.0
 				OR = {
 					trait = mastermind_theologian
 					trait = scholarly_theologian
 				}
 			}
-
-			mult_modifier = {
-				factor = 2
-
+			modifier = {
+				factor = 2.0
 				OR = {
 					trait = detached_priest
 					trait = dutiful_cleric
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = wroth
 			}
 		}
+		
+		FROM = { character_event = { id = WoL.306 days = 1 tooltip = EVTTOOLTIP_WoL_306_2 } }
+		clr_character_flag = seduction_whisper_poet
 	}
-
+	
 	option = { # Fall for lewdness
 		name = EVTOPTA_WOL_352_LEWD
-
 		trigger = { has_character_flag = seduction_whisper_lewd }
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.306
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_306_2
-			}
-		}
-
-		clr_character_flag = seduction_whisper_lewd
-
+		
 		ai_chance = {
 			factor = 100
-
-			seduction_tumble_common_score = yes
-
-			mult_modifier = {
-				factor = 2
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				close_relative_marriages_allowed_trigger = no
+				NOR = {
+					trait = arbitrary
+					trait = lustful
+					trait = hedonist
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
 				trait = hedonist
 			}
-
-			mult_modifier = {
-				factor = 3
+			modifier = {
+				factor = 3.0
 				trait = lustful
 			}
-
-			mult_modifier = {
-				factor = 2
+			modifier = {
+				factor = 2.0
 				trait = gregarious
-
 			}
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = deceitful
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.25
-
 				is_female = yes
-				age < 25
+				NOT = { age = 25 }
 				NOT = { trait = lustful }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.75
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.75
 				trait = honest
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.75
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.25
 				trait = shy
 			}
 		}
+		
+		FROM = { character_event = { id = WoL.306 days = 1 tooltip = EVTTOOLTIP_WoL_306_2 } }
+		clr_character_flag = seduction_whisper_lewd
 	}
-
+	
 	option = { # Fall for words of love
 		name = EVTOPTA_WOL_352_LOVE
-
 		trigger = { has_character_flag = seduction_whisper_love }
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.306
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_306_2
-			}
-		}
-
-		clr_character_flag = seduction_whisper_love
-
+		
 		ai_chance = {
 			factor = 100
-
-			seduction_tumble_common_score = yes
-
-			mult_modifier = {
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				close_relative_marriages_allowed_trigger = yes
+				NOR = {
+					trait = arbitrary
+					trait = lustful
+					trait = hedonist
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
+			}
+			modifier = {
 				factor = 0.25
 				trait = cynical
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.25
 				trait = paranoid
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = gregarious
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = deceitful
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-				age >= 25
+				age = 25
 			}
-
-			mult_modifier = {
-				factor = 2
-				age < 25
+			modifier = {
+				factor = 2.0
+				NOT = { age = 25 }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.25
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.25
 				trait = honest
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = shy
 			}
-
-			mult_modifier = {
-				factor = 2
+			modifier = {
+				factor = 2.0
 				trait = trusting
 			}
 		}
+		
+		FROM = { character_event = { id = WoL.306 days = 1 tooltip = EVTTOOLTIP_WoL_306_2 } }
+		clr_character_flag = seduction_whisper_love
 	}
-
+	
 	option = { # Fall for seduction trick
 		name = EVTOPTA_WOL_352_BREATH
-
 		trigger = { has_character_flag = seduction_whisper_breath }
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.306
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_306_2
-			}
-		}
-
-		clr_character_flag = seduction_whisper_breath
-
+		
 		ai_chance = {
 			factor = 1000 # Much higher base chance
-			seduction_tumble_common_score = yes
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				close_relative_marriages_allowed_trigger = no
+				NOR = {
+					trait = arbitrary
+					trait = lustful
+					trait = hedonist
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
+			}
 		}
+		
+		FROM = { character_event = { id = WoL.306 days = 1 tooltip = EVTTOOLTIP_WoL_306_2 } }
+		clr_character_flag = seduction_whisper_breath
 	}
 
 	option = { # Fall for astrology
 		name = {
 			text = EVTOPTA_WOL_352_ASTROLOGY_compatible
 			trigger = {
-				event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = yes }
+				FROM = { is_romantic_zodiac_match_with_root_trigger = yes }
 			}
 		}
 		name = {
 			text = EVTOPTA_WOL_352_ASTROLOGY_mismatch
 			trigger = {
-				event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = no }
+				FROM = { is_romantic_zodiac_match_with_root_trigger = no }
+			}
+		}
+
+		if = { limit = { FROM = { is_romantic_zodiac_match_with_root_trigger = yes } }
+			custom_tooltip = {
+				text = EVTOPTA_WOL_352_ASTROLOGY_compatible_TT
+			}
+		}
+		if = { limit = { FROM = { is_romantic_zodiac_match_with_root_trigger = no } }
+			custom_tooltip = {
+				text = EVTOPTA_WOL_352_ASTROLOGY_mismatch_TT
 			}
 		}
 
 		trigger = { has_character_flag = seduction_whats_your_zodiac }
-
-		if = {
-			limit = { event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = yes } }
-			custom_tooltip = { text = EVTOPTA_WOL_352_ASTROLOGY_compatible_TT }
-		}
-		else = {
-			custom_tooltip = { text = EVTOPTA_WOL_352_ASTROLOGY_mismatch_TT }
-		}
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.306
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_306_2
-			}
-		}
-
-		clr_character_flag = seduction_whats_your_zodiac
-
+		
 		ai_chance = {
 			factor = 100
-
-			seduction_tumble_common_score = yes
-
-			mult_modifier = {
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					OR = {
+						trait = arbitrary
+						trait = lustful
+						trait = hedonist
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
 				factor = 1.5
 				trait = mystic
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = erudite
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = scholar
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				society_member_of = hermetics
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-				event_target:seducer = { society_rank >= 3 }
+				FROM = { society_rank >= 3 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
 			}
 		}
+		
+		FROM = { character_event = { id = WoL.306 days = 1 tooltip = EVTTOOLTIP_WoL_306_2 } }
+		clr_character_flag = seduction_whats_your_zodiac
 	}
-
+	
+	
 	option = { # Spurn
 		name = {
 			text = EVTOPTB_WOL_352_POET
@@ -5563,85 +5895,41 @@ character_event = {
 			text = EVTOPTB_WOL_352_ASTROLOGY_compatible
 			trigger = {
 				has_character_flag = seduction_whats_your_zodiac
-				event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = yes }
+				FROM = { is_romantic_zodiac_match_with_root_trigger = yes }
 			}
 		}
 		name = {
 			text = EVTOPTB_WOL_352_ASTROLOGY_mismatch
 			trigger = {
 				has_character_flag = seduction_whats_your_zodiac
-				event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = no }
+				FROM = { is_romantic_zodiac_match_with_root_trigger = no }
 			}
 		}
 
 		if = {
-			limit = { has_character_flag = seduction_whats_your_zodiac }
-
-			if = {
-				limit = { event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = yes } }
-				custom_tooltip = { text = EVTOPTB_WOL_352_ASTROLOGY_compatible_TT }
+			limit = {
+				has_character_flag = seduction_whats_your_zodiac
+				FROM = { is_romantic_zodiac_match_with_root_trigger = yes }
 			}
-			else = {
-				custom_tooltip = { text = EVTOPTB_WOL_352_ASTROLOGY_mismatch_TT }
+			custom_tooltip = {
+				text = EVTOPTB_WOL_352_ASTROLOGY_compatible_TT
 			}
 		}
-
-		event_target:seducer = {
-			set_character_flag = seduction_rebuff_351
-
-			character_event = {
-				id = WoL.353
-				days = 1
+		if = {
+			limit = {
+				has_character_flag = seduction_whats_your_zodiac
+				FROM = { is_romantic_zodiac_match_with_root_trigger = no }
+			}
+			custom_tooltip = {
+				text = EVTOPTB_WOL_352_ASTROLOGY_mismatch_TT
 			}
 		}
-
-		clr_character_flag = seduction_whisper_love
-		clr_character_flag = seduction_whisper_lewd
-		clr_character_flag = seduction_whisper_poet
-		clr_character_flag = seduction_whisper_breath
-		clr_character_flag = seduction_whats_your_zodiac
-
+		
 		ai_chance = {
 			factor = 100
-
-			mult_modifier = {
-				factor = 10
-
+			modifier = {
+				factor = 10.0
 				is_female = yes
-
-				OR = {
-					trait = craven
-					trait = chaste
-
-					any_spouse = {
-						OR = {
-							is_lover = ROOT
-
-							ROOT = {
-								opinion_diff = {
-									first = PREV
-									second = event_target:seducer
-									value >= 10
-								}
-							}
-						}
-					}
-
-					any_consort = {
-						OR = {
-							is_lover = ROOT
-
-							ROOT = {
-								opinion_diff = {
-									first = PREV
-									second = event_target:seducer
-									value >= 10
-								}
-							}
-						}
-					}
-				}
-
 				NOR = {
 					trait = lustful
 					trait = hedonist
@@ -5650,34 +5938,155 @@ character_event = {
 					trait = arbitrary
 					has_focus = focus_seduction
 				}
-
 				is_dumb_trigger = no
+				OR = {
+					trait = craven
+					trait = chaste
+					any_spouse = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+					any_consort = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+				}
 			}
 		}
+		
+		hidden_tooltip = {
+			FROM = {
+				set_character_flag = seduction_rebuff_351
+				character_event = { id = WoL.353 days = 1 }
+			}
+		}
+		
+		clr_character_flag = seduction_whisper_love
+		clr_character_flag = seduction_whisper_lewd
+		clr_character_flag = seduction_whisper_poet
+		clr_character_flag = seduction_whisper_breath
+		clr_character_flag = seduction_whats_your_zodiac
 	}
 
 	option = {
 		name = EVTOPTREFUSE_WOL100
-
-		opinion = {
-			name = opinion_seduced_refused
-			who = event_target:seducer
-			years = 5
-		}
-
-		add_character_modifier = {
-			name = dismissed_proposal
-			years = 5
-		}
-
-		event_target:seducer = {
-			character_event = { id = WoL.120 }
-		}
-
+		
 		ai_chance = {
 			factor = 50
-			seduction_refusal_score = yes
+			modifier = {
+				factor = 0.5
+				FROM = { ai = no }
+			}
+			modifier = {
+				factor = 0.2
+				is_married = no
+				is_consort = no
+				OR = {
+					is_lowborn = yes
+					NOT = { num_of_dynasty_members = 2 }
+					AND = {
+						lower_tier_than = FROM
+						father = { lower_tier_than = FROM }
+						mother = { lower_tier_than = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				OR = {
+					trait = lustful
+					trait = hedonist
+					has_character_modifier = wol_seducer_1
+					has_character_modifier = wol_seducer_2
+					trait = master_seductress
+					trait = master_seducer
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					OR = {
+						trait = master_seductress
+						trait = master_seducer
+					}
+				}
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					has_character_modifier = wol_seducer_2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					has_character_modifier = wol_seducer_1
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = deceitful
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					higher_tier_than = FROM
+					father = { higher_tier_than = FROM }
+					mother = { higher_tier_than = FROM }
+				}
+			}
+			modifier = {
+				factor = 4.0
+				trait = chaste
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 75
+					}
+				}
+			}
 		}
+		opinion = { who = FROM modifier = opinion_seduced_refused months = 60 }
+		add_character_modifier = { name = dismissed_proposal years = 5 }
+		
+		FROM = { character_event = { id = WoL.120 } }
 	}
 }
 
@@ -6393,111 +6802,124 @@ character_event = {
 }
 
 # Seduced: Seduction attempt
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.404
 	title = EVTTITLE_WOL_401
+	
 	picture = GFX_evt_lovers
 	border = GFX_event_normal_frame_intrigue
-
+	
 	desc = {
 		text = EVTDESC_WOL_404_CR
 		trigger = {
-			is_close_relative = event_target:seducer
+			is_close_relative = FROM
 			NOT = { has_character_flag = seduction_outing_note }
 		}
 	}
 	desc = {
 		text = EVTDESC_WOL_404_HOMO
 		trigger = {
-			same_sex = event_target:seducer
-
-			NOR = {
-				is_close_relative = event_target:seducer
-				has_character_flag = seduction_outing_note
-			}
+			NOT = { is_close_relative = FROM }
+			same_sex = FROM
+			NOT = { has_character_flag = seduction_outing_note }
 		}
 	}
 	desc = {
 		text = EVTDESC_WOL_404
 		trigger = {
-			same_realm = event_target:seducer
-
-			NOR = {
-				is_close_relative = event_target:seducer
-				same_sex = event_target:seducer
-				has_character_flag = seduction_outing_note
-			}
+			NOT = { is_close_relative = FROM }
+			NOT = { same_sex = FROM }
+			same_realm = FROM
+			NOT = { has_character_flag = seduction_outing_note }
 		}
 	}
 	desc = {
 		text = EVTDESC_WOL_404_DISTANT
 		trigger = {
-			NOR = {
-				same_realm = event_target:seducer
-				same_sex = event_target:seducer
-				is_close_relative = event_target:seducer
-				has_character_flag = seduction_outing_note
-			}
+			NOT = { is_close_relative = FROM }
+			NOT = { same_sex = FROM }
+			NOT = { same_realm = FROM }
+			NOT = { has_character_flag = seduction_outing_note }
 		}
 	}
 	desc = {
 		text = EVTDESC_WOL_404_HOMO_NOTE
 		trigger = {
-			same_sex = event_target:seducer
+			same_sex = FROM
 			has_character_flag = seduction_outing_note
 		}
 	}
 	desc = {
 		text = EVTDESC_WOL_404_NOTE
 		trigger = {
+			NOT = { same_sex = FROM }
 			has_character_flag = seduction_outing_note
-			NOT = { same_sex = event_target:seducer }
 		}
 	}
-
+	
 	is_triggered_only = yes
-
-	option = { # Fall for poetry
+	
+	option = { # Fall for poesy
 		name = EVTOPTA_WOL_352_POET
-
 		trigger = { has_character_flag = seduction_whisper_poet }
-
-		event_target:seducer = {
-			character_event = {
-				id = WoL.405
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_405
-			}
-		}
-
-		clr_character_flag = seduction_whisper_poet
-		clr_character_flag = seduction_outing_note
-
+		
 		ai_chance = {
 			factor = 50 # Lower base chance
-
-			seduction_tumble_common_score = yes
-
-			mult_modifier = {
-				factor = 0.1
-
-				learning < 5
-
-				NOR = {
-					trait = scholar
-					trait = mystic
-					trait = poet
-					trait = mastermind_theologian
-					trait = scholarly_theologian
-				}
-			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.25
-
-				age < 25
-
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				close_relative_marriages_allowed_trigger = no
 				NOR = {
+					trait = arbitrary
+					trait = lustful
+					trait = hedonist
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				NOR = {
+					learning = 5
 					trait = scholar
 					trait = mystic
 					trait = poet
@@ -6505,306 +6927,449 @@ character_event = {
 					trait = scholarly_theologian
 				}
 			}
-
-			mult_modifier = {
-				factor = 10
+			modifier = {
+				factor = 0.25
+				NOR = {
+					age = 25
+					trait = scholar
+					trait = mystic
+					trait = poet
+					trait = mastermind_theologian
+					trait = scholarly_theologian
+				}
+			}
+			modifier = {
+				factor = 10.0
 				trait = poet
 			}
-
-			mult_modifier = {
-				factor = 5
+			modifier = {
+				factor = 5.0
 				trait = scholar
 			}
-
-			mult_modifier = {
-				factor = 3
+			modifier = {
+				factor = 3.0
 				trait = mystic
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-				learning >= 10
+				learning = 10
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-				learning >= 12
+				learning = 12
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-				learning >= 15
+				learning = 15
 			}
-
-			mult_modifier = {
-				factor = 4
-
+			modifier = {
+				factor = 4.0
 				OR = {
 					trait = mastermind_theologian
 					trait = scholarly_theologian
 				}
 			}
-
-			mult_modifier = {
-				factor = 2
-
+			modifier = {
+				factor = 2.0
 				OR = {
 					trait = detached_priest
 					trait = dutiful_cleric
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = wroth
 			}
 		}
+		
+		FROM = { character_event = { id = WoL.405 days = 1 tooltip = EVTTOOLTIP_WoL_405 } }
+		clr_character_flag = seduction_whisper_poet
+		clr_character_flag = seduction_outing_note
 	}
-
+	
 	option = { # Fall for lewdness
 		name = EVTOPTA_WOL_352_LEWD
-
 		trigger = { has_character_flag = seduction_whisper_lewd }
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.405
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_405
-			}
-		}
-
-		clr_character_flag = seduction_whisper_lewd
-		clr_character_flag = seduction_outing_note
-
+		
 		ai_chance = {
 			factor = 100
-
-			seduction_tumble_common_score = yes
-
-			mult_modifier = {
-				factor = 2
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				close_relative_marriages_allowed_trigger = no
+				NOR = {
+					trait = arbitrary
+					trait = lustful
+					trait = hedonist
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
 				trait = hedonist
 			}
-
-			mult_modifier = {
-				factor = 3
+			modifier = {
+				factor = 3.0
 				trait = lustful
 			}
-
-			mult_modifier = {
-				factor = 2
+			modifier = {
+				factor = 2.0
 				trait = gregarious
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = deceitful
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.25
-
 				is_female = yes
-				age < 25
-				NOT = { trait = lustful }
+				NOR = {
+					age = 25
+					trait = lustful
+				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.75
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.75
 				trait = honest
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.75
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.25
 				trait = shy
 			}
 		}
+		
+		FROM = { character_event = { id = WoL.405 days = 1 tooltip = EVTTOOLTIP_WoL_405 } }
+		clr_character_flag = seduction_whisper_lewd
+		clr_character_flag = seduction_outing_note
 	}
-
+	
 	option = { # Fall for words of love
 		name = EVTOPTA_WOL_352_LOVE
-
 		trigger = { has_character_flag = seduction_whisper_love }
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.405
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_405
-			}
-		}
-
-		clr_character_flag = seduction_whisper_love
-		clr_character_flag = seduction_outing_note
-
+		
 		ai_chance = {
 			factor = 100
-
-			seduction_tumble_common_score = yes
-
-			mult_modifier = {
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				close_relative_marriages_allowed_trigger = no
+				NOR = {
+					trait = arbitrary
+					trait = lustful
+					trait = hedonist
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
+			}
+			modifier = {
 				factor = 0.25
 				trait = cynical
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.25
 				trait = paranoid
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = gregarious
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = deceitful
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-				age > 25
+				age = 25
 			}
-
-			mult_modifier = {
-				factor = 2
-				age < 25
+			modifier = {
+				factor = 2.0
+				NOT = { age = 25 }
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.25
 				trait = kind
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.25
 				trait = honest
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = zealous
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = shy
 			}
-
-			mult_modifier = {
-				factor = 2
+			modifier = {
+				factor = 2.0
 				trait = trusting
 			}
 		}
+		
+		FROM = { character_event = { id = WoL.405 days = 1 tooltip = EVTTOOLTIP_WoL_405 } }
+		clr_character_flag = seduction_whisper_love
+		clr_character_flag = seduction_outing_note
 	}
-
+	
 	option = { # Fall for seduction trick
 		name = EVTOPTA_WOL_352_BREATH
-
 		trigger = { has_character_flag = seduction_whisper_breath }
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.405
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_405
-			}
-		}
-
-		clr_character_flag = seduction_whisper_breath
-
+		
 		ai_chance = {
 			factor = 1000 # Much higher base chance
-			seduction_tumble_common_score = yes
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				close_relative_marriages_allowed_trigger = no
+				NOR = {
+					trait = arbitrary
+					trait = lustful
+					trait = hedonist
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
+			}
 		}
+		
+		FROM = { character_event = { id = WoL.405 days = 1 tooltip = EVTTOOLTIP_WoL_405 } }
+		clr_character_flag = seduction_whisper_breath
 	}
 
 	option = { # Fall for astrology
 		name = {
 			text = EVTOPTA_WOL_352_ASTROLOGY_compatible
 			trigger = {
-				event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = yes }
+				FROM = { is_romantic_zodiac_match_with_root_trigger = yes }
 			}
 		}
+
 		name = {
 			text = EVTOPTA_WOL_352_ASTROLOGY_mismatch
 			trigger = {
-				event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = no }
+				FROM = { is_romantic_zodiac_match_with_root_trigger = no }
+			}
+		}
+
+		if = {
+			limit = { FROM = { is_romantic_zodiac_match_with_root_trigger = yes } }
+			custom_tooltip = {
+				text = EVTOPTA_WOL_352_ASTROLOGY_compatible_TT
+			}
+		}
+		if = {
+			limit = { FROM = { is_romantic_zodiac_match_with_root_trigger = no } }
+			custom_tooltip = {
+				text = EVTOPTA_WOL_352_ASTROLOGY_mismatch_TT
 			}
 		}
 
 		trigger = { has_character_flag = seduction_whats_your_zodiac }
-
-		if = {
-			limit = { event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = yes } }
-			custom_tooltip = { text = EVTOPTA_WOL_352_ASTROLOGY_compatible_TT }
-		}
-		else = {
-			custom_tooltip = { text = EVTOPTA_WOL_352_ASTROLOGY_mismatch_TT }
-		}
-
-		event_target:seducer = {
-			show_scope_change = no
-
-			character_event = {
-				id = WoL.405
-				days = 1
-				tooltip = EVTTOOLTIP_WoL_405
-			}
-		}
-
-		clr_character_flag = seduction_whats_your_zodiac
-
+		
 		ai_chance = {
 			factor = 100
-
-			seduction_tumble_common_score = yes
-
-			mult_modifier = {
+			modifier = {
+				factor = 0.25
+				NOT = {
+					personal_opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				NOT = { religion = messalian }
+				NOT = { religion = zoroastrian }
+				NOT = {
+					OR = {
+						trait = arbitrary
+						trait = lustful
+						trait = hedonist
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				personal_opinion = {
+					who = FROM
+					value = 40
+				}
+			}
+			modifier = {
+				factor = 2.0
+				personal_opinion = {
+					who = FROM
+					value = 60
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { has_character_modifier = wol_seducer_1 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { has_character_modifier = wol_seducer_2 }
+			}
+			modifier = {
 				factor = 1.5
 				trait = mystic
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = erudite
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				trait = scholar
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
 				society_member_of = hermetics
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 1.5
-				event_target:seducer = { society_rank >= 3 }
+				FROM = { society_rank >= 3 }
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					OR = {
+						trait = master_seducer
+						trait = master_seductress
+					}
+				}
 			}
 		}
+		
+		FROM = { character_event = { id = WoL.405 days = 1 tooltip = EVTTOOLTIP_WoL_405 } }
+		clr_character_flag = seduction_whats_your_zodiac
 	}
-
+	
 	option = { # Spurn
 		name = {
 			text = EVTOPTB_WOL_352_POET
@@ -6827,85 +7392,43 @@ character_event = {
 			text = EVTOPTB_WOL_352_ASTROLOGY_compatible
 			trigger = {
 				has_character_flag = seduction_whats_your_zodiac
-				event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = yes }
+				FROM = { is_romantic_zodiac_match_with_root_trigger = yes }
 			}
 		}
 		name = {
 			text = EVTOPTB_WOL_352_ASTROLOGY_mismatch
 			trigger = {
 				has_character_flag = seduction_whats_your_zodiac
-				event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = no }
+				FROM = { is_romantic_zodiac_match_with_root_trigger = no }
 			}
 		}
 
 		if = {
-			limit = { has_character_flag = seduction_whats_your_zodiac }
-
-			if = {
-				limit = { event_target:seducer = { is_romantic_zodiac_match_with_root_trigger = yes } }
-				custom_tooltip = { text = EVTOPTB_WOL_352_ASTROLOGY_compatible_TT }
+			limit = {
+				has_character_flag = seduction_whats_your_zodiac
+				FROM = { is_romantic_zodiac_match_with_root_trigger = yes }
 			}
-			else = {
-				custom_tooltip = { text = EVTOPTB_WOL_352_ASTROLOGY_mismatch_TT }
+			custom_tooltip = {
+				text = EVTOPTB_WOL_352_ASTROLOGY_compatible_TT
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = seduction_whats_your_zodiac
+				FROM = { is_romantic_zodiac_match_with_root_trigger = no }
+			}
+			custom_tooltip = {
+				text = EVTOPTB_WOL_352_ASTROLOGY_mismatch_TT
 			}
 		}
 
-		event_target:seducer = {
-			set_character_flag = seduction_rebuff_401
-
-			character_event = {
-				id = WoL.353
-				days = 1
-			}
-		}
-
-		clr_character_flag = seduction_whisper_love
-		clr_character_flag = seduction_whisper_lewd
-		clr_character_flag = seduction_whisper_poet
-		clr_character_flag = seduction_whisper_breath
-		clr_character_flag = seduction_outing_note
-
+		
 		ai_chance = {
 			factor = 100
-
-			mult_modifier = {
-				factor = 10
-
+			modifier = {
+				factor = 10.0
 				is_female = yes
-
-				OR = {
-					trait = craven
-					trait = chaste
-
-					any_spouse = {
-						OR = {
-							is_lover = ROOT
-
-							ROOT = {
-								opinion_diff = {
-									first = PREV
-									second = event_target:seducer
-									value >= 10
-								}
-							}
-						}
-					}
-
-					any_consort = {
-						OR = {
-							is_lover = ROOT
-
-							ROOT = {
-								opinion_diff = {
-									first = PREV
-									second = event_target:seducer
-									value >= 10
-								}
-							}
-						}
-					}
-				}
-
+				is_dumb_trigger = no
 				NOR = {
 					trait = lustful
 					trait = hedonist
@@ -6914,34 +7437,154 @@ character_event = {
 					trait = arbitrary
 					has_focus = focus_seduction
 				}
-
-				is_dumb_trigger = no
+				OR = {
+					trait = craven
+					trait = chaste
+					any_spouse = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+					any_consort = {
+						OR = {
+							is_lover = ROOT
+							ROOT = {
+								opinion_diff = {
+									first = PREV
+									second = FROM
+									value = 10
+								}
+							}
+						}
+					}
+				}
 			}
 		}
+		
+		hidden_tooltip = {
+			FROM = {
+				set_character_flag = seduction_rebuff_401
+				character_event = { id = WoL.353 days = 1 }
+			}
+		}
+		
+		clr_character_flag = seduction_whisper_love
+		clr_character_flag = seduction_whisper_lewd
+		clr_character_flag = seduction_whisper_poet
+		clr_character_flag = seduction_whisper_breath
+		clr_character_flag = seduction_outing_note
 	}
 
 	option = {
 		name = EVTOPTREFUSE_WOL100
-
-		opinion = {
-			name = opinion_seduced_refused
-			who = event_target:seducer
-			years = 5
-		}
-
-		add_character_modifier = {
-			name = dismissed_proposal
-			years = 5
-		}
-
-		event_target:seducer = {
-			character_event = { id = WoL.120 }
-		}
-
+		
 		ai_chance = {
 			factor = 50
-			seduction_refusal_score = yes
+			modifier = {
+				factor = 0.5
+				FROM = { ai = no }
+			}
+			modifier = {
+				factor = 0.2
+				is_married = no
+				is_consort = no
+				OR = {
+					is_lowborn = yes
+					NOT = { num_of_dynasty_members = 2 }
+					AND = {
+						lower_tier_than = FROM
+						father = { lower_tier_than = FROM }
+						mother = { lower_tier_than = FROM }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				OR = {
+					trait = lustful
+					trait = hedonist
+					has_character_modifier = wol_seducer_1
+					has_character_modifier = wol_seducer_2
+					trait = master_seductress
+					trait = master_seducer
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					OR = {
+						trait = master_seductress
+						trait = master_seducer
+					}
+				}
+			}
+			modifier = {
+				factor = 0.25
+				FROM = {
+					has_character_modifier = wol_seducer_2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					has_character_modifier = wol_seducer_1
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = deceitful
+					trait = arbitrary
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2.0
+				OR = {
+					higher_tier_than = FROM
+					father = { higher_tier_than = FROM }
+					mother = { higher_tier_than = FROM }
+				}
+			}
+			modifier = {
+				factor = 4.0
+				trait = chaste
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				is_married = yes
+				spouse = {
+					reverse_personal_opinion = {
+						who = ROOT
+						value = 75
+					}
+				}
+			}
 		}
+		opinion = { who = FROM modifier = opinion_seduced_refused months = 60 }
+		add_character_modifier = { name = dismissed_proposal years = 5 }
+		
+		FROM = { character_event = { id = WoL.120 } }
 	}
 }
 
@@ -9093,113 +9736,120 @@ character_event = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.562
 	desc = EVTDESC_WOL_562
 	picture = GFX_evt_birth
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
-		hidden_effect = { # Hidden so the ruler does not appear as a portrait for affected characters
-			random_playable_ruler = {
-				limit = {
-					any_realm_lord = {
-						real_tier = BARON
-						ai = yes
-					}
-				}
-
-				preferred_limit = {
-					NOT = { same_realm = ROOT }
-				}
-
-				random_realm_lord = {
-					limit = {
-						real_tier = BARON
-						ai = yes
-					}
-
+		hidden_tooltip = { # Hidden so the Pope does not appear as a portrait for affected characters
+			k_papal_state = {
+				holder_scope = {
 					create_character = {
 						dynasty = none
-						religion = hellenic_pagan
+						religion = graeco_roman
 						culture = irish
 						female = yes
-						dna = gppniiosfag
+						dna="gppniiosfag"
 						age = 20
 					}
-
 					new_character = {
 						ROOT = {
-							create_character = {
-								dynasty = none
-								religion = ROOT
-								culture = ROOT
-								race = PREV
-								genetic_mother = PREV
-								genetic_father = ROOT
-								female = 50
-								age = 0
-								add_trait = bastard
-								add_trait = attractive
-							}
-
-							new_character = {
-								save_event_target_as = target_baby
+							random_list = {
+								50 = {
+									create_character = {
+										dynasty = none
+										religion = ROOT
+										culture = ROOT
+										race = PREV
+										genetic_mother = PREV
+										genetic_father = ROOT
+										female = no
+										age = 0
+										trait = bastard
+										trait = attractive
+									}
+									new_character = {
+										save_event_target_as = target_baby
+									}
+								}
+								50 = {
+									create_character = {
+										dynasty = none
+										religion = ROOT
+										culture = ROOT
+										race = PREV
+										genetic_mother = PREV
+										genetic_father = ROOT
+										female = yes
+										age = 0
+										trait = bastard
+										trait = attractive
+									}
+									new_character = {
+										save_event_target_as = target_baby
+									}
+								}
 							}
 						}
-
 						death = { death_reason = death_natural }
 					}
 				}
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA_WOL_562
-
+		ai_chance = {
+			factor = 100
+		}
 		event_target:target_baby = {
-			show_scope_change = no
-
 			set_father = ROOT
 		}
-
+		
 		if = {
 			limit = { is_married = yes }
-
-			any_spouse = {
-				show_scope_change = no
-
+			spouse = {
 				opinion = {
-					name = opinion_unfaithful_private
 					who = ROOT
+					modifier = opinion_unfaithful_private
 					years = 10
 				}
-
-				hidden_effect = {
-					opinion = {
-						name = opinion_whorespawn
-						who = event_target:target_baby
-						years = 100
+				hidden_tooltip = {
+					event_target:target_baby = {
+						reverse_opinion = {
+							who = PREV
+							modifier = opinion_whorespawn
+							years = 100
+						}
 					}
 				}
 			}
 		}
-
-		random = {
-			chance = 50
-			remove_trait_zealous_effect = yes
+		
+		if = {
+			limit = { trait = zealous }
+			random = {
+				chance = 50
+				remove_trait = zealous
+				hidden_tooltip = {
+					character_event = { id = 38310 days = 1 } # Notify zealous lost
+				}
+			}
 		}
-
-	#	log = "WoL.562: [Root.GetTitledName] has rose bush baby [target_baby.GetFirstName] (lunatic)"
-
-		ai_chance = { factor = 100 }
+#		log = "WoL.562: [Root.GetTitledName] has rose bush baby [target_baby.GetFirstName] (lunatic)"
 	}
-
+	
 	option = {
 		name = EVTOPTB_WOL_562
+		ai_chance = {
+			factor = 1
+		}
 	}
 }
 

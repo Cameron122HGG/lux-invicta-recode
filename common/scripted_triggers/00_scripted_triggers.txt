@@ -148,43 +148,32 @@ is_virgin_trigger = {
 	}
 }
 
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 proselytize_convert_independent_trigger = {
 	owner = {
+		OR = { 
+			FROM = { NOT = { LI_pagan_trigger = yes } }
+			FROM = { has_religion_feature = religion_proselytizing }
+		}
 		independent = yes
-		is_unreformed_pagan_trigger = yes
-		is_within_diplo_range = FROM
-		controls_religion = no
 		NOT = { religion = FROM }
-
+		LI_pagan_trigger = yes
+		is_reformed_religion = no
 		capital_scope = {
 			province = ROOT
 		}
-
+		controls_religion = no
 		FROM = {
-			higher_real_tier_than = COUNT
-
-			trigger_if = {
-				limit = { independent = no }
-				higher_real_tier_than = DUKE
-			}
-
-			trigger_if = {
-				limit = { religion_group = pagan_group }
-				religion_is_proselytizing_trigger = yes
+			higher_tier_than = COUNT
+			OR = {
+				independent = yes
+				higher_tier_than = DUKE
 			}
 		}
-
 		NOT = {
-			has_opinion_modifier = {
-				name = opinion_sent_preacher
-				who = FROM
-			}
+			has_opinion_modifier = { who = FROM modifier = opinion_sent_preacher }
 		}
-
-		trigger_if = {
-			limit = { religion = aztec_pagan }
-			year >= 1350
-		}
+		is_within_diplo_range = FROM
 	}
 }
 

@@ -12,365 +12,415 @@
 ##########################################################
 
 # Vassal believes his liege should transfer a vassal title
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 63000
 	desc = EVTDESC63000
 	picture = GFX_evt_council
 	border = GFX_event_normal_frame_intrigue
-
-	is_triggered_only = yes # on_yearly_pulse, random_events, vassal_requests
-
+	
 	only_playable = yes
-	min_age = 16
-	only_capable = yes
+	capable_only = yes
 	prisoner = no
+	only_men = yes
+	min_age = 16
 	war = no
-
+	
 	trigger = {
 		independent = no
-		NOT = { has_character_flag = requested_vassal_transfer }
-
 		liege = {
-			war = no
+			NOT = { character = ROOT }
 			NOT = { holds_favor_on = ROOT }
-
+			war = no
 			any_vassal = {
+				NOT = { character = ROOT }
 				de_jure_liege = ROOT
 				war = no
 				is_patrician = no
-				NOT = { character = ROOT }
 			}
 		}
+		NOT = { has_character_flag = requested_vassal_transfer }
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 4
+	
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.25
 			trait = greedy
 		}
-
-		mult_modifier = {
-			factor = 2
+		modifier = {
+			factor = 0.5
 			trait = envious
 		}
-
-		mult_modifier = {
-			factor = 4
+		modifier = {
+			factor = 0.25
 			trait = ambitious
 		}
-
-		mult_modifier = {
-			factor = 0.1
+		modifier = {	##added by ASh
+			factor = 0.25
+			trait = rebellious
+		}
+		modifier = {	##added by ASh
+			factor = 0.25
+			trait = naturalleader
+		}
+		modifier = {	##added by ASh
+			factor = 0.25
+			trait = arrogant
+		}
+		modifier = {
+			factor = 10.0
 			trait = content
 		}
-	}
-
-	option = {
-		name = EVTOPTA63000 # Ask my liege for the title
-
-		set_character_flag = requested_vassal_transfer
-
-		liege = {
-			show_scope_change = no
-
-			character_event = {
-				id = 63001
-				days = 4
-				tooltip = EVTTOOLTIP63001
-			}
+		modifier = {	##added by ASh
+			factor = 5.0
+			trait = loyal
 		}
 	}
-
+	
+	option = {
+		name = EVTOPTA63000 # Ask my liege for the title
+		ai_chance = { factor = 100 }
+		set_character_flag = requested_vassal_transfer
+		liege = { character_event = { id = 63001 days = 4 tooltip = EVTTOOLTIP63001 } }
+	}
+	
 	option = {
 		name = EVTOPTB63000 # It's not that important
-
 		ai_chance = { factor = 0 }
 	}
 }
 
 # Vassal requests a transfer of a vassal title
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 63001
 	desc = EVTDESC63001
+	
 	picture = GFX_evt_emissary
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
 
-	trigger = { is_liege_of = FROM } # To make sure no titles have *just* been given away
+
+	trigger = {
+		FROM = {
+			liege = {
+				character = ROOT #to make sure no titles have *just* been given away
+			}
+		}
+	}
 
 	fail_trigger_effect = {
-		FROM = { clr_character_flag = requested_vassal_transfer }
+		FROM = {
+			clr_character_flag = requested_vassal_transfer
+		}
 	}
 
 	option = {
+		trigger = {
+			has_dlc = "Zeus"
+		}
 		name = EVTOPTA63001B # Very well, for a favor
-
-		trigger = {
-			has_dlc = "Conclave"
-			NOT = { owes_favor_to = FROM }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2.0
+				trait = charitable
+			}
+			modifier = {
+				factor = 2.0
+				trait = just
+			}
+			modifier = {
+				factor = 2.0
+				trait = content
+			}
+			modifier = {
+				factor = 0.1
+				trait = greedy
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					opinion = { who = FROM value = 0 }
+				}
+			}
+			modifier = {
+				factor = 2.0
+				opinion = { who = FROM value = 25 }
+			}
 		}
-
 		add_favor = FROM
-
-		FROM = { set_character_flag = vassal_for_favor }
-
+		FROM = {
+			set_character_flag = vassal_for_favor
+		}
 		random_vassal = {
-			show_scope_change = no
-
 			limit = {
+				NOT = { character = FROM }
 				de_jure_liege = FROM
 				war = no
 				is_patrician = no
-				NOT = { character = FROM }
 			}
-
-			character_event = {
-				id = 63002
-				tooltip = EVTTOOLTIP63002
-			}
-		}
-
-		ai_chance = {
-			factor = 50
-
-			trigger = {
-				opinion = {
-					who = FROM
-					value >= 0
-				}
-			}
-
-			mult_modifier = {
-				factor = 2.0
-				trait = charitable
-			}
-
-			mult_modifier = {
-				factor = 2.0
-				trait = just
-			}
-
-			mult_modifier = {
-				factor = 2.0
-				trait = content
-			}
-
-			mult_modifier = {
-				factor = 0.1
-				trait = greedy
-			}
-
-			mult_modifier = {
-				factor = 2.0
-
-				opinion = {
-					who = FROM
-					value >= 25
-				}
-			}
+			character_event = { id = 63002 tooltip = EVTTOOLTIP63002 }
 		}
 	}
-
+	
 	option = {
-		name = EVTOPTA63001 # Very well
-
 		trigger = {
-			NAND = {
-				has_dlc = "Conclave"
-				NOT = { owes_favor_to = FROM }
-			}
+			NOT = { has_dlc = "Zeus" }
 		}
-
-		random_vassal = {
-			show_scope_change = no
-
-			limit = {
-				de_jure_liege = FROM
-				war = no
-				is_patrician = no
-				NOT = { character = FROM }
-			}
-
-			character_event = {
-				id = 63002
-				tooltip = EVTTOOLTIP63002
-			}
-		}
-
+		name = EVTOPTA63001 # Very well
 		ai_chance = {
 			factor = 50
-
-			trigger = {
-				opinion = {
-					who = FROM
-					value >= 0
-				}
-			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = charitable
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = content
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
 				trait = greedy
 			}
-
-			mult_modifier = {
-				factor = 2.0
-
-				opinion = {
-					who = FROM
-					value >= 25
+			modifier = {	## added by Ash
+			factor = 0.5
+			trait = haggler
+			}
+			modifier = {	## added by Ash
+			factor = 2.0
+			trait = reliable
+			}
+			modifier = {	## added by Ash
+			factor = 2.0
+			trait = noblespirit
+			}
+			modifier = {	## added by Ash
+			factor = 2.0
+			trait = submissive
+			}	
+			modifier = {	## added by Ash
+			factor = 5.0
+			trait = frugal
+			}
+			modifier = {	## added by Ash
+			factor = 2.0
+			trait = frivolous
+			}	
+			modifier = {	## added by Ash
+			factor = 2.0
+			trait = spiritual
+			}	
+			modifier = {	## added by Ash
+			factor = 0.5
+			trait = arrogant
+			}
+			modifier = {	## added by Ash
+			factor = 0.5
+			trait = harsh
+			}
+			modifier = {	## added by Ash
+			factor = 0.5
+			trait = demanding
+			}	
+			modifier = {	## added by Ash
+				factor = 0.1
+				trait = selfish
+			}
+			modifier = {	## added by Ash
+				factor = 0.1
+				trait = unreliable
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					opinion = { who = FROM value = 0 }
 				}
 			}
+			modifier = {
+				factor = 2.0
+				opinion = { who = FROM value = 25 }
+			}
+		}
+		random_vassal = {
+			limit = {
+				NOT = { character = FROM }
+				de_jure_liege = FROM
+			}
+			character_event = { id = 63002 tooltip = EVTTOOLTIP63002 }
 		}
 	}
-
 	option = {
 		name = EVTOPTB63001 # I think not
-
-		FROM = {
-			show_scope_change = no
-
-			opinion = {
-				name = opinion_disappointed
-				who = ROOT
-				years = 5
-			}
-
-			character_event = {
-				id = 63003
-				tooltip = EVTTOOLTIP63003
-			}
-		}
-
 		ai_chance = {
 			factor = 50
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = charitable
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {	### added by ASh
+				factor = 0.1
+				trait = spiritual
+			}
+			modifier = {	### added by ASh
+				factor = 0.1
+				trait = friendly
+			}
+			modifier = {	## added by Ash
+			factor = 0
+			trait = reliable
+			}
+			modifier = {	## added by Ash
+			factor = 0
+			trait = noblespirit
+			}
+			modifier = {	## added by Ash
+			factor = 0
+			trait = loyal
+			}
+			modifier = {	## added by Ash
+			factor = 0
+			trait = submissive
+			}	
+			modifier = {	## added by Ash
+			factor = 0.1
+			trait = frugal
+			}
+			modifier = {
 				factor = 0.5
 				trait = content
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 10.0
 				trait = greedy
 			}
+			modifier = {	## added by Ash
+				factor = 10.0
+				trait = selfish
+			}
+			modifier = {	## added by Ash
+				factor = 10.0
+				trait = unreliable
+			}
 		}
+		reverse_opinion = {
+			who = FROM
+			modifier = opinion_disappointed
+			months = 60
+		}
+		FROM = { character_event = { id = 63003 tooltip = EVTTOOLTIP63003 } }
 	}
-
 	option = {
 		name = EVTOPTC63001 # Give the target vassal a claim on the asker
 		tooltip_info = intrigue
-
-		trigger = { intrigue >= 9 }
-
+		trigger = {
+			intrigue = 9
+			NOR = {
+				trait = noblespirit
+				trait = idealistic
+				trait = gullible
+			}
+		}
+		ai_chance = { 
+			factor = 50
+			modifier = {	## added by Ash
+				factor = 10.0
+				trait = selfish
+			}
+			modifier = {	## added by Ash
+				factor = 10.0
+				trait = unreliable
+			}
+			modifier = {	## added by Ash
+				factor = 10.0
+				trait = irrational
+			}
+			modifier = {	## added by Ash
+				factor = 5.0
+				trait = moody
+			}
+			modifier = {	## added by Ash
+				factor = 10.0
+				trait = eccentric
+			}			
+		}
 		random_vassal = {
-			show_scope_change = no
-
 			limit = {
-				de_jure_liege = FROM
-				war = no
-				is_patrician = no
 				NOT = { character = FROM }
+				de_jure_liege = FROM
 			}
-
 			opinion = {
-				name = opinion_delighted
 				who = ROOT
-				years = 5
+				modifier = opinion_delighted
+				months = 60
 			}
-
-			character_event = {
-				id = 63007
-				tooltip = EVTTOOLTIP63007
-			}
+			character_event = { id = 63007 tooltip = EVTTOOLTIP63007 }
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			opinion = {
-				name = opinion_betrayed
-				who = ROOT
-				years = 5
-			}
-
-			character_event = { id = 63004 }
+		reverse_opinion = {
+			who = FROM
+			modifier = opinion_betrayed
+			months = 60
 		}
-
-		ai_chance = { factor = 50 }
+		hidden_tooltip = {
+			FROM = { character_event = { id = 63004 } }
+		}
 	}
-
 	option = {
 		name = EVTOPTD63001 # Placate him with flattery and vague promises (no effect)
 		tooltip_info = diplomacy
-
-		trigger = { diplomacy >= 9 }
-
-		FROM = {
-			show_scope_change = no
-
-			opinion = {
-				name = opinion_impressed
-				who = ROOT
-				years = 2
+		trigger = {
+			OR = {
+				diplomacy = 9
+				trait = cunning
 			}
-
-			letter_event = {
-				id = 63005
-				tooltip = EVTTOOLTIP63005
+			NOR = {
+				trait = noblespirit
+				trait = idealistic
+				trait = gullible
+				trait = irrational
+				trait = moody
+				trait = unreliable
+				trait = selfish
+				trait = reliable
+				trait = constant
+				trait = loyal
 			}
 		}
-
 		ai_chance = {
 			factor = 1000
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = charitable
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = content
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 10.0
 				trait = greedy
 			}
 		}
+		reverse_opinion = {
+			who = FROM
+			modifier = opinion_impressed
+			months = 24
+		}
+		FROM = { letter_event = { id = 63005 tooltip = EVTTOOLTIP63005 } }
 	}
 }
 
@@ -624,204 +674,279 @@ character_event = {
 }
 
 # The liege receives the information
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = 63011
 	desc = EVTDESC63011
-	border = GFX_event_letter_frame_intrigue
-
-	is_triggered_only = yes
+	
 	is_friendly = yes
-
+	
+	border = GFX_event_letter_frame_intrigue_LI
+	
+	is_triggered_only = yes
+	
 	option = {
 		name = EVTOPTA63011 # Imprison the traitor!
-
-		event_target:target_rival = {
-			show_scope_change = no
-
-			character_event = { id = 63012 }
-
-			tooltip = {
-				opinion = {
-					name = opinion_falsely_convicted
-					who = ROOT
-					years = 10
-				}
-			}
-
-			imprison = ROOT
-		}
-
-		tooltip = {
-			reverse_opinion = {
-				name = opinion_grateful
-				who = FROM
-				years = 20
-			}
-		}
-
 		ai_chance = {
 			factor = 25
-
-			trigger = {
-				opinion = {
-					who = FROM
-					value >= -10
-				}
-			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = arbitrary
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = paranoid
 			}
-
-			mult_modifier = {
+			modifier = {	## added by Ash
 				factor = 2.0
-
-				opinion = {
-					who = FROM
-					value >= 25
+				trait = suspicious
+			}
+			modifier = {	## added by Ash
+				factor = 1.5
+				trait = eccentric
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = cunning
+			}
+			modifier = {	## added by Ash
+				factor = 1.5
+				trait = moody
+			}
+			modifier = {	## added by Ash
+				factor = 5.0
+				trait = irrational
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = gullible
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = harsh
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = callous
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = resentful
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = judgemental
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = overimaginative
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					opinion = { who = FROM value = -10 }
 				}
 			}
+			modifier = {
+				factor = 2.0
+				opinion = { who = FROM value = 25 }
+			}
+		}
+		
+		random_vassal = {
+			limit = {
+				FROM = {
+					any_rival = {
+						NOT = { character = ROOT }
+						character = PREVPREV
+						age = 16
+						is_ruler = yes
+						vassal_of = ROOT
+						prisoner = no
+					}
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = 63012 }
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_falsely_convicted
+				years = 10
+			}
+			imprison = ROOT
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTB63011 # This is nonsense
-
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				opinion = {
-					name = opinion_irritated
-					who = ROOT
-					years = 2
-				}
-			}
-
-			letter_event = {
-				id = 63014
-				tooltip = EVTTOOLTIP63014
-			}
-		}
-
-		event_target:target_rival = {
-			show_scope_change = no
-
-			tooltip = {
-				opinion = {
-					name = opinion_grateful
-					who = ROOT
-					years = 2
-				}
-			}
-
-			letter_event = { id = 63020 }
-		}
-
 		ai_chance = {
 			factor = 50
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = arbitrary
 			}
+			modifier = {	## added by Ash
+				factor = 5.0
+				trait = noblespirit
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = goodintuition
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = cautious
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = analytical
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = meticulous
+			}
+			modifier = {	## added by Ash
+				factor = 1.5
+				trait = quick
+			}
+		}
+		reverse_opinion = {
+			who = FROM
+			modifier = opinion_irritated
+			months = 24
+		}
+		
+		FROM = { letter_event = { id = 63014 tooltip = EVTTOOLTIP63014 } }
+		
+		hidden_tooltip = {
+			random_vassal = {
+				limit = {
+					age = 16
+					NOT = { character = ROOT }
+					NOT = { character = FROM }
+					has_character_flag = pleaded_innocence
+				}
+				opinion = {
+					who = ROOT
+					modifier = opinion_grateful
+					years = 2
+				}
+				hidden_tooltip = {
+					letter_event = { id = 63020 }
+				}
+			}
 		}
 	}
-
 	option = {
 		name = EVTOPTC63011 # Tip off the target
 		tooltip_info = intrigue
-
 		trigger = {
-			intrigue >= 6
-
-			# Not already tipped off
-			event_target:target_rival = {
-				NOT = { has_character_flag = pleaded_innocence }
+			intrigue = 6
+			NOT = {
+				any_vassal = {
+					age = 16
+					has_character_flag = pleaded_innocence
+				}
 			}
 		}
-
-		event_target:target_rival = {
-			letter_event = { id = 63015 }
+		ai_chance = { 
+			factor = 50
 		}
-
-		ai_chance = { factor = 50 }
+		random_vassal = {
+			limit = {
+				FROM = {
+					any_rival = {
+						NOT = { character = ROOT }
+						character = PREVPREV
+						age = 16
+						is_ruler = yes
+						vassal_of = ROOT
+						prisoner = no
+					}
+				}
+			}
+			hidden_tooltip = {
+				letter_event = { id = 63015 }
+			}
+		}
 	}
-
+	
 	option = {
 		name = EVTOPTD63011 # Imprison the asker instead
 		tooltip_info = intrigue
-
-		trigger = { intrigue >= 10 }
-
-		FROM = {
-			show_scope_change = no
-
-			imprison = ROOT
-
-			character_event = {
-				id = 63017
-				tooltip = EVTTOOLTIP63017
-			}
-
-			opinion = {
-				name = opinion_betrayed
-				who = ROOT
-				years = 10
-				multiplier = 2
-			}
+		trigger = {
+			intrigue = 10
 		}
-
 		ai_chance = {
 			factor = 50
-
-			trigger = {
-				NOT = { dynasty = FROM }
-
-				opinion = {
-					who = FROM
-					value < 25
-				}
-			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
 				trait = just
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = arbitrary
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 2.0
 				trait = paranoid
 			}
-
-			mult_modifier = {
+			modifier = {	## added by Ash
 				factor = 2.0
-
-				opinion = {
-					who = FROM
-					value < -25
+				trait = selfish
+			}
+			modifier = {	## added by Ash
+				factor = 5.0
+				trait = unreliable
+			}
+			modifier = {	## added by Ash
+				factor = 1.5
+				trait = judgemental
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = irrational
+			}
+			modifier = {	## added by Ash
+				factor = 1.5
+				trait = moody
+			}
+			modifier = {	## added by Ash
+				factor = 2.0
+				trait = eccentric
+			}
+			modifier = {
+				factor = 0
+				dynasty = FROM
+			}
+			modifier = {
+				factor = 0
+				opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = { who = FROM value = -25 }
 				}
+			}
+		}
+		FROM = { 
+			imprison = ROOT
+			character_event = { id = 63017 tooltip = EVTTOOLTIP63017 }
+			opinion = {
+				who = ROOT
+				modifier = opinion_betrayed
+				years = 10
+				multiplier = 2
 			}
 		}
 	}
@@ -1364,281 +1489,291 @@ letter_event = {
 ####################################################################
 
 # Vassal asks liege for a specific title
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 63040
 	desc = EVTDESC63040
+	
 	picture = GFX_evt_emissary
 	border = GFX_event_normal_frame_diplomacy
-
-	is_triggered_only = yes # on_yearly_pulse, random_events, vassal_requests
-
+	
 	only_playable = yes
-	only_capable = yes
+	capable_only = yes
 	prisoner = no
 	min_age = 16
 	ai = yes
-
+	
 	trigger = {
-		has_ambition = obj_gain_any_title
 		independent = no
-
+		has_ambition = obj_gain_any_title
 		liege = {
-			demesne_size >= 3
 			has_regent = no
 			war = no
-
-			any_demesne_title = {
-				real_tier = COUNT
-				can_be_given_away = yes
-
-				location = {
-					is_capital = no
-				}
-			}
-
+			NOT = { has_opinion_modifier = { who = ROOT modifier = requested_land } }
 			NOT = {
-				has_opinion_modifier = {
-					name = requested_land
-					who = ROOT
-				}
+				character = ROOT
+			}
+			demesne_size = 3
+			any_demesne_title = {
+				can_be_given_away = yes
+				tier = COUNT
+				NOT = { location = { is_capital = yes } }
 			}
 		}
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 2
+	
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.5
 			trait = greedy
 		}
-
-		mult_modifier = {
-			factor = 2
+		modifier = {
+			factor = 0.5
 			trait = envious
 		}
-
-		mult_modifier = {
+		modifier = {	## added by Ash
 			factor = 0.5
+			trait = selfish
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = hardworking
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = pompous
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = cunning
+		}
+		modifier = {	## added by Ash
+			factor = 0.8
+			trait = demanding
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = rebellious
+		}
+		modifier = {	## added by Ash
+			factor = 0.8
+			trait = naturalleader
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = arrogant
+		}
+		modifier = {	## added by Ash
+			factor = 0.5
+			trait = confident
+		}
+		modifier = {
+			factor = 2.0
 			trait = kind
 		}
-
-		mult_modifier = {
-			factor = 0.5
+		modifier = {
+			factor = 2.0
 			trait = charitable
 		}
-
-		mult_modifier = {
-			factor = 0.5
+		modifier = {
+			factor = 2.0
 			trait = content
 		}
+		modifier = {	## added by Ash
+			factor = 4.0
+			trait = gullible
+		}
+		modifier = {	## added by Ash
+			factor = 4.0
+			trait = submissive
+		}
+		modifier = {	## added by Ash
+			factor = 4.0
+			trait = weakwilled
+		}
+		modifier = {	## added by Ash
+			factor = 4.0
+			trait = noblespirit
+		}
+		modifier = {	## added by Ash
+			factor = 5.0
+			trait = loyal
+		}
 	}
-
+	
 	immediate = {
 		liege = {
 			random_demesne_title = {
 				limit = {
-					real_tier = COUNT
 					can_be_given_away = yes
-
-					location = {
-						is_capital = no
-					}
+					tier = COUNT
+					NOT = { location = { is_capital = yes } }
 				}
-
 				save_event_target_as = vassal_wanted_title
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA63040 # Ask for the Title
-
+		ai_chance = { factor = 100 }
 		liege = {
-			show_scope_change = no
-
 			opinion = {
-				name = requested_land
 				who = ROOT
 				years = 15
-			}
-
-			letter_event = {
-				id = 63041
-				tooltip = EVTTOOLTIP63041
+				modifier = requested_land
 			}
 		}
+		liege = { letter_event = { id = 63041 tooltip = EVTTOOLTIP63041 } }
 	}
-
+	
 	option = {
 		name = EVTOPTB63040 # Better not
-
 		ai_chance = { factor = 0 }
 	}
 }
 
 # Liege receives the request
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = 63041
 	desc = EVTDESC63041
-	border = GFX_event_letter_frame_diplomacy
-
-	is_triggered_only = yes
+	
 	is_friendly = yes
-
+	
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+	
 	option = {
-		name = EVTOPTD63041 # Accept the request
-
 		trigger = {
-			has_dlc = "Conclave"
+			has_dlc = "Zeus"
 			NOT = { holds_favor_on = FROM }
+		}
+		name = EVTOPTD63041 # Accept the request
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
 		}
 
 		add_favor = FROM
 
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				gain_title = event_target:vassal_wanted_title
-			}
-
-			letter_event = {
-				id = 63042
-				days = 1
-			}
+		event_target:vassal_wanted_title = {
+			gain_title = FROM
 		}
-
-		ai_chance = {
-			factor = 50
-
-			trigger = {
-				NOT = { trait = greedy }
-			}
+		
+		hidden_tooltip = {
+			FROM = { letter_event = { id = 63042 days = 1 } }
 		}
 	}
 
 	option = {
 		name = EVTOPTA63041 # Accept the request
-
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				gain_title = event_target:vassal_wanted_title
-			}
-
-			letter_event = {
-				id = 63042
-				days = 1
-			}
-
-			opinion = {
-				name = opinion_grateful
-				who = ROOT
-				years = 10
-			}
-		}
-
 		ai_chance = {
 			factor = 50
-
-			trigger = {
-				NOT = { trait = greedy }
-
-				opinion = {
-					who = FROM
-					value >= -20
+			modifier = {
+				factor = 0
+				trait = greedy
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					opinion = { who = FROM value = -20 }
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-
-				opinion = {
-					who = FROM
-					value < 25
+				NOT = {
+					opinion = { who = FROM value = 25 }
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-
-				opinion = {
-					who = FROM
-					value < 50
+				NOT = {
+					opinion = { who = FROM value = 50 }
 				}
 			}
-
-			mult_modifier = {
+			modifier = {
 				factor = 3
 				is_friend = FROM
 			}
 		}
-	}
 
+		event_target:vassal_wanted_title = {
+			gain_title = FROM
+		}
+		
+		hidden_tooltip = {
+			FROM = { letter_event = { id = 63042 days = 1 } }
+		}
+		reverse_opinion = {
+			modifier = opinion_grateful
+			who = FROM
+			months = 120
+		}
+	}
+	
 	option = {
 		name = EVTOPTB63041 # Deny the request
-
-		FROM = {
-			show_scope_change = no
-
-			opinion = {
-				name = opinion_disappointed
-				who = ROOT
-				years = 10
-			}
-
-			letter_event = {
-				id = 63043
-				tooltip = EVTTOOLTIP63043
-			}
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 100
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
 				trait = charitable
 			}
-
-			mult_modifier = {
-				factor = 0.75
-
-				opinion = {
-					who = FROM
-					value >= 20
-				}
+			modifier = {	## added by Ash
+				factor = 0.2
+				trait = gullible
 			}
-
-			mult_modifier = {
+			modifier = {	## added by Ash
 				factor = 0.5
-
-				opinion = {
-					who = FROM
-					value >= 50
-				}
+				trait = submissive
+			}
+			modifier = {	## added by Ash
+				factor = 0.1
+				trait = weakwilled
+			}
+			modifier = {	## added by Ash
+				factor = 0.5
+				trait = noblespirit
+			}
+			modifier = {	## added by Ash
+				factor = 0.2
+				trait = loyal
+			}
+			modifier = {
+				factor = 0.75
+				opinion = { who = FROM value = 20 }
+			}
+			modifier = {
+				factor = 0.5
+				opinion = { who = FROM value = 50 }
 			}
 		}
+		FROM = { 
+			opinion = {
+				modifier = opinion_disappointed
+				who = ROOT
+				months = 120
+			}
+			letter_event = { id = 63043 tooltip = EVTTOOLTIP63043 } 
+		}
 	}
-
+	
 	option = {
 		name = EVTOPTC63041 # Deny with superior diplomacy
 		tooltip_info = diplomacy
-
-		trigger = { diplomacy >= 9 }
-
-		FROM = {
-			show_scope_change = no
-
-			letter_event = {
-				id = 63044
-				tooltip = EVTTOOLTIP63044
-			}
+		trigger = {
+			diplomacy = 9
 		}
-
-		ai_chance = { factor = 1000 }
+		ai_chance = { 
+			factor = 1000
+		}
+		FROM = { letter_event = { id = 63044 tooltip = EVTTOOLTIP63044 } }
 	}
 }
 
@@ -1828,74 +1963,63 @@ letter_event = {
 }
 
 # Vassal requests the release of a prisoner
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = 63052
 	desc = EVTDESC63052
-	border = GFX_event_letter_frame_diplomacy
-
-	is_triggered_only = yes
+	
 	is_friendly = yes
-
+	
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+	
 	option = {
 		name = EVTOPTA63052 # Very well
-
-		FROMFROM = {
-			show_scope_change = no
-
-			character_event = {
-				id = 63053
-				days = 1
-				tooltip = EVTTOOLTIP63053
-				portrait = yes
-			}
-		}
-
-		ai_chance = {
+		ai_chance = { 
 			factor = 50
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.1
-
-				opinion = {
-					who = FROM
-					value < -20
+				NOT = {
+					opinion = { who = FROM value = -20 }
 				}
 			}
 		}
-	}
-
-	option = {
-		name = EVTOPTB63052 # Absolutely not!
-
 		FROM = {
 			show_scope_change = no
-
-			opinion = {
-				name = opinion_tyrant
-				who = ROOT
-				years = 10
+			FROM = {
+				show_scope_change = no
+				character_event = { id = 63053 days = 1 tooltip = EVTTOOLTIP63053 }
 			}
-
-			letter_event = { id = 63054 }
 		}
-
-		ai_chance = {
+		show_portrait = FROMFROM
+	}
+	option = {
+		name = EVTOPTB63052 # Absolutely not!
+		ai_chance = { 
 			factor = 50
-
-			mult_modifier = {
+			modifier = {
 				factor = 0.5
-
-				opinion = {
-					who = FROM
-					value >= 50
-				}
+				opinion = { who = FROM value = 50 }
+			}
+		}
+		
+		FROM = {
+			show_scope_change = no
+			opinion = {
+				who = ROOT
+				modifier = opinion_tyrant
+				months = 120
+			}
+			hidden_tooltip = {
+				letter_event = { id = 63054 } 
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTC63052 # How about you join him?
-
+		#tooltip_info = 
 		trigger = {
 			OR = {
 				trait = arbitrary
@@ -1903,55 +2027,41 @@ letter_event = {
 				trait = lunatic
 			}
 		}
-
-		FROM = {
-			show_scope_change = no
-
-			tooltip = {
-				opinion = {
-					who = ROOT
-					name = opinion_tyrant
-					years = 20
-					multiplier = 5
-				}
-			}
-
-			character_event = {
-				id = 63055
-				tooltip = EVTTOOLTIP63055
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 0.1
+				opinion = { who = FROM value = 20 }
 			}
 		}
-
-		ai_chance = {
-			factor = 50
-
-			mult_modifier = {
-				factor = 0.1
-
-				opinion = {
-					who = FROM
-					value >= 20
-				}
+		if = {
+			limit = { trait = noblespirit }
+			remove_trait = noblespirit
+		}
+		FROM = { 
+			show_scope_change = no
+			opinion = {
+				who = ROOT
+				modifier = opinion_tyrant
+				months = 240
+				multiplier = 5
 			}
+			character_event = { id = 63055 tooltip = EVTTOOLTIP63055 } 
 		}
 	}
-
 	option = {
 		name = EVTOPTD63052 # Diplomatic NO
 		tooltip_info = diplomacy
-
-		trigger = { diplomacy >= 9 }
-
+		trigger = {
+			diplomacy = 9
+		}
+		ai_chance = { 
+			factor = 1000
+		}
 		FROM = {
 			show_scope_change = no
-
-			letter_event = {
-				id = 63056
-				tooltip = EVTTOOLTIP63056
-			}
+			letter_event = { id = 63056 tooltip = EVTTOOLTIP63056 }
 		}
-
-		ai_chance = { factor = 1000 }
 	}
 }
 
@@ -2083,73 +2193,77 @@ letter_event = {
 ####################################################################
 
 # A mayor asks for lower taxes
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 63060
 	desc = EVTDESC63060
+	
 	picture = GFX_evt_carriage
 	border = GFX_event_normal_frame_economy
-
-	is_triggered_only = yes # on_decade_pulse, random_events, city_taxes
-
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
 	only_rulers = yes
 	lacks_dlc = "Conclave"
-	min_age = 16
-	only_capable = yes
-	prisoner = no
-
+	
 	trigger = {
 		is_republic = yes
-		independent = no
-		wealth < 300
-
+		NOT = { wealth = 300 }
 		liege = {
-			NOT = { has_law = city_tax_0 }
+			NOR = { 
+				character = ROOT
+				religion = celtic_christ
+				religion = inuit_pagan
+				religion = norse_christ
+				religion = sol_norse
+				religion = sol_slav
+				AND = {
+					is_reformed_religion = no
+					clanic_trigger = yes
+				}
+			}
+			primary_title = {
+				OR = {
+					has_law = city_obligations_3
+					has_law = city_obligations_4
+				}
+			}
 		}
-
+		
 		NOT = {
 			has_opinion_modifier = {
 				who = liege
-				name = opinion_refused_city_tax_law
+				modifier = opinion_refused_city_tax_law
 			}
 		}
 	}
-
-	weight_multiplier = {
-		factor = 1
-
-		mult_modifier = {
-			factor = 2
-			wealth < -10
+	
+	mean_time_to_happen = {
+		months = 2000
+		modifier = {
+			factor = 0.5
+			NOT = { wealth = -10 }
 		}
-
-		mult_modifier = {
-			factor = 2
-			wealth = -100
+		modifier = {
+			factor = 0.5
+			NOT = { wealth = -100 }
 		}
-
-		mult_modifier = {
-			factor = 2
+		modifier = {
+			factor = 0.5
 			trait = greedy
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA63060 # Request a vote for the law change
-
+		ai_chance = { factor = 100 }
 		liege = {
-			show_scope_change = no
-
-			letter_event = {
-				id = 63061
-				days = 4
-				tooltip = EVTTOOLTIP63061
-			}
+			letter_event = { id = 63061 days = 4 tooltip = EVTTOOLTIP63061 }
 		}
 	}
-
 	option = {
 		name = EVTOPTB63060 # Better not
-
 		ai_chance = { factor = 0 }
 	}
 }

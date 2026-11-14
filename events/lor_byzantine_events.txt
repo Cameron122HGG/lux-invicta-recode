@@ -13,118 +13,133 @@ namespace = LoR
 ### Eunuchs
 
 # Introduce Eunuch?
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.800
 	desc = EVTDESCLoR.800
-
-	picture = {
+	picture = { 
+		trigger = { 
+			NOT = {  
+				culture_group = chinese
+				has_dlc = "Jade Dragon"
+			}
+		} 
 		picture = GFX_evt_emissary_byzantine
-		trigger = {
-			NOT = { culture_group = chinese_group }
-		}
 	}
-	picture = {
+	picture = { 
+		trigger = { 
+			culture_group = chinese
+			has_dlc = "Jade Dragon"
+		} 
 		picture = GFX_evt_chinese_emissary
-		trigger = { culture_group = chinese_group }
 	}
-
-	is_triggered_only = yes # on_five_year_pulse, random_events, lor_byzantine_events
-
-	only_playable = yes
-	only_capable = yes
+	
+	capable_only = yes
 	prisoner = no
+	only_playable = yes
 	min_age = 16
-	has_dlc = "Legacy of Rome"
-
+	
 	trigger = {
-		real_tier = EMPEROR
-
+		has_dlc = "Legacy of Rome"
+		real_tier = emperor
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 			culture_group = byzantine
 			culture = persian
-			culture_group = chinese_group
+			culture_group = chinese
 		}
-
-		OR = {
-			can_grant_title = title_imperial_eunuch
-			can_grant_title = title_court_eunuch
+		NOR = {
+			any_courtier = { has_minor_title = title_imperial_eunuch }
+			any_courtier = { has_minor_title = title_court_eunuch }
 		}
-
-		is_inaccessible_trigger = no
+		NOT = { is_inaccessible_trigger = yes }
 	}
-
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
 	option = {
 		name = EVTOPTALoR.800
-
 		custom_tooltip = {
 			text = introduce_eunuch
-
-			random_list = {
-				20 = { character_event = { id = LoR.801 } }
-				20 = { character_event = { id = LoR.802 } }
-				20 = { character_event = { id = LoR.803 } }
-				20 = { character_event = { id = LoR.804 } }
-				20 = { character_event = { id = LoR.805 } }
+			hidden_tooltip = {
+				random_list = {
+					20 = { character_event = { id = LoR.801 } }
+					20 = { character_event = { id = LoR.802 } }
+					20 = { character_event = { id = LoR.803 } }
+					20 = { character_event = { id = LoR.804 } }
+					20 = { character_event = { id = LoR.805 } }
+				}
 			}
 		}
 	}
-
 	option = {
 		name = EVTOPTBLoR.800
-
 		custom_tooltip = { text = no_to_eunuchs }
 	}
 }
 
 # Martial Eunuch
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.801
 	desc = EVTDESCLoR.801
-
-	picture = {
+	picture = { 
+		trigger = { 
+			NOT = {  
+				culture_group = chinese
+				has_dlc = "Jade Dragon"
+			}
+		} 
 		picture = GFX_evt_emissary_byzantine
-		trigger = {
-			NOT = { culture_group = chinese_group }
-		}
 	}
-	picture = {
+	picture = { 
+		trigger = { 
+			culture_group = chinese
+			has_dlc = "Jade Dragon"
+		} 
 		picture = GFX_evt_chinese_emissary
-		trigger = { culture_group = chinese_group }
 	}
-
-	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
+	is_triggered_only = yes
+	
 	option = {
 		name = EVTOPTALoR.801
-
 		create_character = {
 			random_traits = no
-			dynasty = none
+			dynasty = NONE
 			female = no
 			age = 20
 			religion = ROOT
 			culture = ROOT
-
+			trait = eunuch
+			trait = diligent
+			trait = quick
+			trait = brave
+			trait = brilliant_strategist
 			attributes = {
 				martial = 10
 			}
-
-			add_trait = eunuch
-			add_trait = diligent
-			add_trait = quick
-			add_trait = brave
-			add_trait = brilliant_strategist
 		}
-
-		new_character = {
-			if = {
-				limit = { can_hold_title = title_imperial_eunuch }
+		if = { 
+			limit = {
+				ROOT = { 
+					OR = {
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman_empire
+					}
+				}
+			}
+			new_character = {
 				give_minor_title = title_imperial_eunuch
 			}
-			else = {
+		}
+		else = { 
+			new_character = {
 				give_minor_title = title_court_eunuch
 			}
 		}
@@ -132,52 +147,64 @@ character_event = {
 }
 
 # Diplomacy Eunuch
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.802
 	desc = EVTDESCLoR.802
-
-	picture = {
+	picture = { 
+		trigger = { 
+			NOT = {  
+				culture_group = chinese
+				has_dlc = "Jade Dragon"
+			}
+		} 
 		picture = GFX_evt_emissary_byzantine
-		trigger = {
-			NOT = { culture_group = chinese_group }
-		}
 	}
-	picture = {
+	picture = { 
+		trigger = { 
+			culture_group = chinese
+			has_dlc = "Jade Dragon"
+		} 
 		picture = GFX_evt_chinese_emissary
-		trigger = { culture_group = chinese_group }
 	}
-
-	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
+	is_triggered_only = yes
+	
 	option = {
 		name = EVTOPTALoR.801
-
 		create_character = {
 			random_traits = no
-			dynasty = none
+			dynasty = NONE
 			female = no
 			age = 20
 			religion = ROOT
 			culture = ROOT
-
+			trait = eunuch
+			trait = diligent
+			trait = quick
+			trait = gregarious
+			trait = grey_eminence
 			attributes = {
 				diplomacy = 10
 			}
-
-			add_trait = eunuch
-			add_trait = diligent
-			add_trait = quick
-			add_trait = gregarious
-			add_trait = grey_eminence
 		}
-
-		new_character = {
-			if = {
-				limit = { can_hold_title = title_imperial_eunuch }
+		if = { 
+			limit = {
+				ROOT = { 
+					OR = {
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman_empire
+					}
+				}
+			}
+			new_character = {
 				give_minor_title = title_imperial_eunuch
 			}
-			else = {
+		}
+		else = { 
+			new_character = {
 				give_minor_title = title_court_eunuch
 			}
 		}
@@ -185,52 +212,64 @@ character_event = {
 }
 
 # Steward Eunuch
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.803
 	desc = EVTDESCLoR.803
-
-	picture = {
+	picture = { 
+		trigger = { 
+			NOT = {  
+				culture_group = chinese
+				has_dlc = "Jade Dragon"
+			}
+		} 
 		picture = GFX_evt_emissary_byzantine
-		trigger = {
-			NOT = { culture_group = chinese_group }
-		}
 	}
-	picture = {
+	picture = { 
+		trigger = { 
+			culture_group = chinese
+			has_dlc = "Jade Dragon"
+		} 
 		picture = GFX_evt_chinese_emissary
-		trigger = { culture_group = chinese_group }
 	}
-
-	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
+	is_triggered_only = yes
+	
 	option = {
 		name = EVTOPTALoR.801
-
 		create_character = {
 			random_traits = no
-			dynasty = none
+			dynasty = NONE
 			female = no
 			age = 20
 			religion = ROOT
 			culture = ROOT
-
+			trait = eunuch
+			trait = diligent
+			trait = quick
+			trait = temperate
+			trait = midas_touched
 			attributes = {
 				stewardship = 10
 			}
-
-			add_trait = eunuch
-			add_trait = diligent
-			add_trait = quick
-			add_trait = temperate
-			add_trait = midas_touched
 		}
-
-		new_character = {
-			if = {
-				limit = { can_hold_title = title_imperial_eunuch }
+		if = { 
+			limit = {
+				ROOT = { 
+					OR = {
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman_empire
+					}
+				}
+			}
+			new_character = {
 				give_minor_title = title_imperial_eunuch
 			}
-			else = {
+		}
+		else = { 
+			new_character = {
 				give_minor_title = title_court_eunuch
 			}
 		}
@@ -238,52 +277,64 @@ character_event = {
 }
 
 # Spymaster Eunuch
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.804
 	desc = EVTDESCLoR.804
-
-	picture = {
+	picture = { 
+		trigger = { 
+			NOT = {  
+				culture_group = chinese
+				has_dlc = "Jade Dragon"
+			}
+		} 
 		picture = GFX_evt_emissary_byzantine
-		trigger = {
-			NOT = { culture_group = chinese_group }
-		}
 	}
-	picture = {
+	picture = { 
+		trigger = { 
+			culture_group = chinese
+			has_dlc = "Jade Dragon"
+		} 
 		picture = GFX_evt_chinese_emissary
-		trigger = { culture_group = chinese_group }
 	}
-
-	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
+	is_triggered_only = yes
+	
 	option = {
 		name = EVTOPTALoR.801
-
 		create_character = {
 			random_traits = no
-			dynasty = none
+			dynasty = NONE
 			female = no
 			age = 20
 			religion = ROOT
 			culture = ROOT
-
+			trait = eunuch
+			trait = diligent
+			trait = quick
+			trait = deceitful
+			trait = elusive_shadow
 			attributes = {
 				intrigue = 10
 			}
-
-			add_trait = eunuch
-			add_trait = diligent
-			add_trait = quick
-			add_trait = deceitful
-			add_trait = elusive_shadow
 		}
-
-		new_character = {
-			if = {
-				limit = { can_hold_title = title_imperial_eunuch }
+		if = { 
+			limit = {
+				ROOT = { 
+					OR = {
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman_empire
+					}
+				}
+			}
+			new_character = {
 				give_minor_title = title_imperial_eunuch
 			}
-			else = {
+		}
+		else = { 
+			new_character = {
 				give_minor_title = title_court_eunuch
 			}
 		}
@@ -291,52 +342,64 @@ character_event = {
 }
 
 # Learning Eunuch
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.805
 	desc = EVTDESCLoR.805
-
-	picture = {
+	picture = { 
+		trigger = { 
+			NOT = {  
+				culture_group = chinese
+				has_dlc = "Jade Dragon"
+			}
+		} 
 		picture = GFX_evt_emissary_byzantine
-		trigger = {
-			NOT = { culture_group = chinese_group }
-		}
 	}
-	picture = {
+	picture = { 
+		trigger = { 
+			culture_group = chinese
+			has_dlc = "Jade Dragon"
+		} 
 		picture = GFX_evt_chinese_emissary
-		trigger = { culture_group = chinese_group }
 	}
-
-	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
+	is_triggered_only = yes
+	
 	option = {
 		name = EVTOPTALoR.801
-
 		create_character = {
 			random_traits = no
-			dynasty = none
+			dynasty = NONE
 			female = no
 			age = 20
 			religion = ROOT
 			culture = ROOT
-
+			trait = eunuch
+			trait = diligent
+			trait = quick
+			trait = scholar
+			trait = mastermind_theologian
 			attributes = {
 				learning = 10
 			}
-
-			add_trait = eunuch
-			add_trait = diligent
-			add_trait = quick
-			add_trait = scholar
-			add_trait = mastermind_theologian
 		}
-
-		new_character = {
-			if = {
-				limit = { can_hold_title = title_imperial_eunuch }
+		if = { 
+			limit = {
+				ROOT = { 
+					OR = {
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman_empire
+					}
+				}
+			}
+			new_character = {
 				give_minor_title = title_imperial_eunuch
 			}
-			else = {
+		}
+		else = { 
+			new_character = {
 				give_minor_title = title_court_eunuch
 			}
 		}
@@ -736,58 +799,49 @@ character_event = {
 ### Greek Fire Event Series
 
 # Explosion
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = LoR.860
 	title = EVTNAMELoR.860
 	desc = EVTDESCLoR.860
 	picture = GFX_evt_throne_room_byzantine
-
-	is_triggered_only = yes # on_five_year_pulse, random_events, lor_byzantine_events
-
+	
 	ai = no
-	has_dlc = "Legacy of Rome"
-	only_capable = yes
+	capable_only = yes
 	prisoner = no
+	only_playable = yes
 	min_age = 16
-	in_command = no
-
+	
 	trigger = {
-		capital_scope = {
-			province = c_constantinopolis
-		}
-
+		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-
 		OR = {
 			religion_group = christian
-			religion_openly_hellenic_or_reformed_trigger = yes
+			religion_group = graecoroman_group
+			religion_group = indohelen_group
 		}
-
 		NOT = { has_global_flag = greek_fire }
-		is_inaccessible_trigger = no
+		in_command = no
+		capital_scope = { province_id = 517 }	#Konstantinoupolis
+		NOT = { is_inaccessible_trigger = yes }
 	}
-
-	immediate = {
-		set_global_flag = greek_fire
+	
+	mean_time_to_happen = {
+		months = 780
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.860
-
-		narrative_event = {
-			id = LoR.861
-			days = 3
-			tooltip = EVTTOOLTIPLoR.861
-		}
+		narrative_event = { id = LoR.861 days = 3 tooltip = EVTTOOLTIPLoR.861 }
+		set_global_flag = greek_fire
 	}
-
 	option = {
 		name = EVTOPTBLoR.860
-
 		custom_tooltip = { text = not_interested_in_explosion }
+		set_global_flag = greek_fire
 	}
 }
 
@@ -1490,143 +1544,164 @@ character_event = {
 }
 
 # Gift 1
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.887
 	desc = EVTDESCLoR.887
 	picture = GFX_evt_emissary
-
-	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
+	is_triggered_only = yes
+	
 	immediate = {
 		create_random_steward = {
 			random_traits = no
-			dynasty = none
+			dynasty = NONE
 			female = no
 			age = 22
-			religion = ROOT
-			culture = mande
-
+			religion = indoh_hindu
+			culture = hindavi
 			attributes = {
 				stewardship = 6
 			}
-
-			add_trait = eunuch
-			add_trait = diligent
-			add_trait = temperate
-			add_trait = humble
+			trait = eunuch
+			trait = diligent
+			trait = temperate
+			trait = humble
 		}
-
 		new_character = {
 			opinion = {
-				name = opinion_loyal_servant
+				modifier = opinion_loyal_servant
 				who = ROOT
 			}
-
 			random_list = {
-				25 = { add_trait = just }
-				25 = { add_trait = shrewd }
-				25 = { add_trait = stubborn }
-				25 = { add_trait = patient }
+				25 = {
+					add_trait = just
+				}
+				25 = {
+					add_trait = shrewd
+				}
+				25 = {
+					add_trait = stubborn
+				}
+				25 = {
+					add_trait = patient
+				}
 			}
-
 			random_list = {
-				33 = { add_trait = administrator }
-				33 = { add_trait = architect }
-				33 = { add_trait = gardener }
+				33 = {
+					add_trait = administrator
+				}
+				33 = {
+					add_trait = architect
+				}
+				33 = {
+					add_trait = gardener
+				}
 			}
-
 			save_event_target_as = eunuch_gift
 			set_character_flag = eunuch_gift
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.887
-
-		custom_tooltip = { text = eunuch_gift_tooltip }
+		custom_tooltip = {
+			text = eunuch_gift_tooltip
+		}
 	}
-
 	option = {
 		name = EVTOPTBLoR.887
-
-		custom_tooltip = {
-			text = eunuch_declined
-
+		custom_tooltip = { text = eunuch_declined }
+		hidden_tooltip = {
 			event_target:eunuch_gift = {
-				death = { death_reason = death_missing }
+				death = {
+					death_reason = death_missing
+				}
 			}
 		}
 	}
 }
 
 # Gift 2
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.888
 	desc = EVTDESCLoR.887
 	picture = GFX_evt_emissary
-
-	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
+	is_triggered_only = yes
+	
 	immediate = {
 		create_random_diplomat = {
 			random_traits = no
-			dynasty = none
+			dynasty = NONE
 			female = no
 			age = 22
 			religion = ROOT
-			culture = ethiopian
-
+			culture = indohellenic
 			attributes = {
 				diplomacy = 6
 			}
-
-			add_trait = eunuch
-			add_trait = diligent
-			add_trait = temperate
-			add_trait = humble
+			trait = eunuch
+			trait = diligent
+			trait = temperate
+			trait = humble
 		}
-
 		new_character = {
 			opinion = {
-				name = opinion_loyal_servant
+				modifier = opinion_loyal_servant
 				who = ROOT
 			}
-
 			random_list = {
-				25 = { add_trait = honest }
-				25 = { add_trait = kind }
-				25 = { add_trait = gregarious }
-				25 = { add_trait = trusting }
+				25 = {
+					add_trait = honest
+				}
+				25 = {
+					add_trait = kind
+				}
+				25 = {
+					add_trait = gregarious
+				}
+				25 = {
+					add_trait = trusting
+				}
 			}
-
 			random_list = {
-				25 = { add_trait = socializer }
-				25 = { add_trait = game_master }
-				25 = { add_trait = poet }
-				25 = { add_trait = falconer }
+				25 = {
+					add_trait = socializer
+				}
+				25 = {
+					add_trait = game_master
+				}
+				25 = {
+					add_trait = poet
+				}
+				25 = {
+					add_trait = falconer
+				}
 			}
-
 			save_event_target_as = eunuch_gift
 			set_character_flag = eunuch_gift
 		}
 	}
-
 	option = {
 		name = EVTOPTALoR.887
-
-		custom_tooltip = { text = eunuch_gift_tooltip }
+		custom_tooltip = {
+			text = eunuch_gift_tooltip
+		}
 	}
-
 	option = {
 		name = EVTOPTBLoR.887
-
-		custom_tooltip = {
-			text = eunuch_declined
-
+		custom_tooltip = { text = eunuch_declined }
+		hidden_tooltip = {
 			event_target:eunuch_gift = {
-				death = { death_reason = death_missing }
+				death = {
+					death_reason = death_missing
+				}
 			}
 		}
 	}
@@ -1703,78 +1778,95 @@ character_event = {
 }
 
 # Gift 4
+# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.890
 	desc = EVTDESCLoR.887
 	picture = GFX_evt_emissary
-
-	is_triggered_only = yes
+	
 	hide_from = yes
-
+	
+	is_triggered_only = yes
+	
 	immediate = {
 		create_random_soldier = {
 			random_traits = no
-			dynasty = none
+			dynasty = NONE
 			female = no
 			age = 22
 			religion = ROOT
-			culture = bedouin
-
+			culture = sabaean
 			attributes = {
 				martial = 6
 			}
-
-			add_trait = eunuch
-			add_trait = diligent
-			add_trait = temperate
-			add_trait = humble
+			trait = eunuch
+			trait = diligent
+			trait = temperate
+			trait = humble
 		}
-
 		new_character = {
 			opinion = {
-				name = opinion_loyal_servant
+				modifier = opinion_loyal_servant
 				who = ROOT
 			}
-
 			random_list = {
-				25 = { add_trait = brave }
-				25 = { add_trait = wroth }
-				25 = { add_trait = cruel }
-				25 = { add_trait = brawny }
+				25 = {
+					add_trait = brave
+				}
+				25 = {
+					add_trait = wroth
+				}
+				25 = {
+					add_trait = cruel
+				}
+				25 = {
+					add_trait = brawny
+				}
 			}
-
 			random_list = {
-				25 = { add_trait = organizer }
-				25 = { add_trait = inspiring_leader }
-				25 = { add_trait = defensive_leader }
-				25 = { add_trait = desert_expert }
+				25 = {
+					add_trait = organizer
+				}
+				25 = {
+					add_trait = inspiring_leader
+				}
+				25 = {
+					add_trait = defensive_leader
+				}
+				25 = {
+					add_trait = desert_expert
+				}
 			}
-
 			random_list = {
-				33 = { add_trait = duelist }
-				33 = { add_trait = strategist }
-				33 = { add_trait = hunter }
+				33 = {
+					add_trait = duelist
+				}
+				33 = {
+					add_trait = strategist
+				}
+				33 = {
+					add_trait = hunter
+				}
 			}
-
 			save_event_target_as = eunuch_gift
 			set_character_flag = eunuch_gift
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.887
-
-		custom_tooltip = { text = eunuch_gift_tooltip }
+		custom_tooltip = {
+			text = eunuch_gift_tooltip
+		}
 	}
-
 	option = {
 		name = EVTOPTBLoR.887
-
-		custom_tooltip = {
-			text = eunuch_declined
-
+		custom_tooltip = { text = eunuch_declined }
+		hidden_tooltip = {
 			event_target:eunuch_gift = {
-				death = { death_reason = death_missing }
+				death = {
+					death_reason = death_missing
+				}
 			}
 		}
 	}
