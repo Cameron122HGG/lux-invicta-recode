@@ -513,7 +513,7 @@ character_event = {
 				NOT = { event_target:book_province = { always = yes } }
 			}
 
-			802 = { save_event_target_as = book_province } # Alexandria
+			999 = { save_event_target_as = book_province } # Alexandria (LI: was 802, vanilla's number; in LI 802 is Alexandria ad Issum)
 		}
 
 		# Fire the news event
