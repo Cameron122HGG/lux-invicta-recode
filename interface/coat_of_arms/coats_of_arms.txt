@@ -54,48 +54,6 @@ color = {
 		noOfFrames = 40
 	}
 
-		texture = {
-			file = "gfx\\coats_of_arms\\rody10.tga" #10 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 10
-			size = { x = 8 y = 4 }
-			noOfFrames = 32
-			color = 0
-			random = no # Do not use for random CoAs
-		}
-		texture = {
-			file = "gfx\\coats_of_arms\\rody11.tga" #11 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 11
-			size = { x = 8 y = 4 }
-			noOfFrames = 32
-			color = 0
-			random = no # Do not use for random CoAs
-		}
-		texture = {
-			file = "gfx\\coats_of_arms\\rody12.tga" #12 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 12
-			size = { x = 8 y = 4 }
-			noOfFrames = 32
-			color = 0
-			random = no # Do not use for random CoAs
-		}
-		texture = {
-			file = "gfx\\coats_of_arms\\rody13.tga" #13 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 13
-			size = { x = 8 y = 4 }
-			noOfFrames = 32
-			color = 0
-			random = no # Do not use for random CoAs
-		}
-		texture = {
-			file = "gfx\\coats_of_arms\\rody14.tga" #14 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 14
-			size = { x = 8 y = 4 }
-			noOfFrames = 32
-			color = 0
-			random = no # Do not use for random CoAs
-		}
-		texture = {
-			file = "gfx\\coats_of_arms\\rody15.tga" #15 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 15
-			size = { x = 8 y = 4 }
-			noOfFrames = 32
-			color = 0
-			random = no # Do not use for random CoAs
-		}
 	# WHEN ADDING NEW, ALWAYS ADD AT THE END !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111
 	textures = {
 		texture = {
@@ -169,6 +127,48 @@ color = {
 			file = "gfx\\coats_of_arms\\dynasties4.tga" #20
 			size = { x = 16 y = 4 }
 			noOfFrames = 52
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\rody10.tga" #10 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 10
+			size = { x = 8 y = 4 }
+			noOfFrames = 32
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\rody11.tga" #11 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 11
+			size = { x = 8 y = 4 }
+			noOfFrames = 32
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\rody12.tga" #12 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 12
+			size = { x = 8 y = 4 }
+			noOfFrames = 32
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\rody13.tga" #13 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 13
+			size = { x = 8 y = 4 }
+			noOfFrames = 32
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\rody14.tga" #14 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 14
+			size = { x = 8 y = 4 }
+			noOfFrames = 32
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\rody15.tga" #15 restored from the old LI coats_of_arms.txt.bak; dynasty CoAs use texture = 15
+			size = { x = 8 y = 4 }
+			noOfFrames = 32
 			color = 0
 			random = no # Do not use for random CoAs
 		}
