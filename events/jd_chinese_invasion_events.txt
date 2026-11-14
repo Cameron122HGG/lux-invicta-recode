@@ -2276,7 +2276,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = is_displaced_prince }
 
-			1513 = { # LI: Jiuquan, Lux Invicta's province from master (CleanSlate used c_jiuquan, which LI's map lacks)
+			1207 = { # LI: Kroran (Loulan), China's entry point on LI's map - stands in for Jiuquan, which lies off LI's map (CleanSlate used c_jiuquan; master's 1513 is a river tile in LI's map)
 				save_event_target_as = target_province
 			}
 
@@ -3284,7 +3284,7 @@ character_event = {
 				china_spawn_commander_effect = yes
 			}
 
-			1448 = { # LI: Dunhuang, Lux Invicta's province from master (CleanSlate used c_dunhuang, which LI's map lacks)
+			1207 = { # LI: Kroran (Loulan), China's entry point on LI's map - stands in for Dunhuang, which lies off LI's map (CleanSlate used c_dunhuang; master's 1448 is a river tile in LI's map)
 				save_event_target_as = spawn_province
 			}
 
