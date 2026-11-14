@@ -6,9 +6,18 @@ namespace = lidebug
 character_event = {
 	id = lidebug.1
 	hide_window = yes
-	is_triggered_only = yes # on_startup
+	is_triggered_only = yes # on_startup, on_yearly_pulse
+
+	trigger = { # once per game start, then at most every 2 years (the on_actions fire for every character)
+		OR = {
+			NOT = { has_global_flag = lidebug_p0 }
+			had_global_flag = { flag = lidebug_p0 days = 730 }
+		}
+	}
 
 	immediate = {
+		clr_global_flag = lidebug_p0
+		set_global_flag = lidebug_p0
 		log = "LI DEBUG province0: scan started"
 		any_character = {
 			limit = { is_ruler = yes }

@@ -4,3 +4,9 @@ on_startup = {
 		lidebug.1
 	}
 }
+
+on_yearly_pulse = {
+	events = {
+		lidebug.1
+	}
+}
