@@ -433,11 +433,7 @@ transfer_crown_on_abdication_effect = {
 				artifact_type = crown_slavic_fylkir
 				artifact_type = crown_romuva_fylkir
 				artifact_type = crown_finnish_fylkir
-				artifact_type = crown_west_african_fylkir
-				artifact_type = crown_zun_fylkir
 				artifact_type = scepter_bon_fylkir
-				artifact_type = crown_aztec_fylkir
-				artifact_type = scepter_hellenic_fylkir
 			}
 		}
 
