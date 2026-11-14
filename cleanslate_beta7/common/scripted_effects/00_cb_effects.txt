@@ -1,0 +1,76 @@
+# anger_china_effect
+
+# increase_council_power_effect
+# increase_vassal_freedom_effect
+
+# Used in on_add for most CBs
+anger_china_effect = {
+	if = {
+		limit = {
+			defender = {
+				offmap_china = {
+					governor = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+
+		# Clunky stuff to get a nicer tooltip for third-party claimant CBs
+		ROOT = {
+			show_scope_change = no
+
+			if = {
+				limit = {
+					PREV = {
+						character = yes
+						NOT = { character = PREV }
+					}
+				}
+
+				# Attacker in third-party claimant CBs
+				PREV = {
+					sound_effect = china_angered_emperor
+					detract_grace_super_huge_effect = yes
+				}
+			}
+		}
+
+		# Attacker, claimant in third-party CBs
+		ROOT = {
+			sound_effect = china_angered_emperor
+			detract_grace_super_huge_effect = yes
+		}
+	}
+}
+
+increase_council_power_effect = {
+	custom_tooltip = {
+		text = council_power_increased
+
+		while = {
+			count = 2
+
+			trigger_switch = {
+				on_trigger = has_law
+
+				law_voting_power_0          = { add_law_w_cooldown = law_voting_power_1 }
+				war_voting_power_0          = { add_law_w_cooldown = war_voting_power_1 }
+				grant_title_voting_power_0  = { add_law_w_cooldown = grant_title_voting_power_1 }
+				revoke_title_voting_power_0 = { add_law_w_cooldown = revoke_title_voting_power_1 }
+				imprison_voting_power_0     = { add_law_w_cooldown = imprison_voting_power_1 }
+				banish_voting_power_0       = { add_law_w_cooldown = banish_voting_power_1 }
+				execution_voting_power_0    = { add_law_w_cooldown = execution_voting_power_1 }
+			}
+		}
+	}
+}
+
+increase_vassal_freedom_effect = {
+	trigger_switch = {
+		on_trigger = has_law
+
+		vassal_wars_law_1 = { add_law_w_cooldown = vassal_wars_law_0 }
+		vassal_wars_law_2 = { add_law_w_cooldown = vassal_wars_law_1 }
+	}
+}

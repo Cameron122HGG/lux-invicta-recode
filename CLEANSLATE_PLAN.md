@@ -57,8 +57,10 @@ File-level: 7,512 LI-only files and 3,375 LI data files (history, map, gfx) carr
 
 Each phase is its own commit (or several), followed by a run and a log comparison.
 
-0. **Set up.** Copy CleanSlate into the branch. Record a baseline log of CleanSlate alone (no LI)
-   so CleanSlate's own errors, if any, are known.
+0. **Set up.** *(Done 2026-11-14.)* An untouched reference copy of CleanSlate is in
+   `cleanslate_beta7/`, which CK2 ignores; later phases build LI's files from it. A separate test
+   mod, "CleanSlate beta 7 (baseline test)" (`mod/CleanSlate-beta7`, outside the repo), is used to
+   record a baseline log of CleanSlate alone, so CleanSlate's own errors, if any, are known.
 1. **World data.** LI's map, history, landed titles, cultures, religions, dynasties, gfx, music and
    sound replace CleanSlate's. This is where the most errors will appear, because CleanSlate's
    scripts expect vanilla's world. That's expected; phases 2–6 work them down.
@@ -108,4 +110,4 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    first?
 3. **File naming** for LI's own files: `li_*` prefix, or keep the bundled mods' names (`VIET_*`,
    `ze_*`…) so their origin stays visible?
-4. **CleanSlate version:** stay on beta 7, or update to the latest GitHub release first?
+4. ~~**CleanSlate version**~~ Decided: beta 7 is the latest GitHub release (checked 2026-11-14).
