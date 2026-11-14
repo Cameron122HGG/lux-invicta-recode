@@ -312,6 +312,12 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `HFP_holy_order_events` (new): 469 events. 64 step A switch-offs undone (`15_holy_fury.txt`,
      `00_health_effects.txt`, `01_duel_effects.txt`). Calls into later parts switched off: `HF.12405`
      (battle bard bloodline, part 3), `HFP.41090` (crusade levy refill, part 4). No missing dependencies.
+     Test run (+50, all load-time): `HFP_realm_events` (Hansa, Swiss, Antioch, Cyprus, Austria, Byzantine
+     restoration, Papal States/Romagna, HRE stem duchies, Slavic Union, Teutonic/Santiago/Calatrava/Holy
+     Sepulchre formation) and `HFP_holy_order_events` turned out to be vanilla-world realm content, not
+     mechanical. Both taken out again; their 17 entries in `15_holy_fury.txt` switched off with the
+     "later phase 8 part" note. **They move to part 4** (crusades, holy orders and titles, with lore
+     decisions). Part 1 keeps battle, duels, health, pregnancy and random flavour (433 events).
 
 ## Tools (currently in the session scratchpad; move into `tools/` in the repo to keep them)
 
