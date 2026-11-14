@@ -202,6 +202,10 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    default off), the Hellenic temple `tier = BARON`, and the conversion decision's war scope.
 8. **Holy Fury integration**, the first feature on the new base, one part at a time (crusades;
    warrior lodges and duels; religious and flavour). This is partly lore work, decided per part.
+   - The rival-in-battle event (`WoL.11013`/`WoL.11014`, which LI had on master) is commented out
+     in CleanSlate's `wol_war_events.txt` and moved into its Holy Fury duel events (`HFP.10113` in
+     `hfp_duel_events.txt`). LI lacks it while Holy Fury is off; it comes back with the duels part
+     (user decision 2026-11-14: wait for phase 8, don't uncomment master's version).
 
 ## Tools (currently in the session scratchpad; move into `tools/` in the repo to keep them)
 
