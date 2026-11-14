@@ -122,11 +122,24 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      CleanSlate's China preferences check vanilla religions LI lacks (2,583 error lines). LI's
      policies and statuses equal vanilla, so CleanSlate's versions stay. Review CleanSlate's
      `00_offmap_powers.txt` for real fixes later.
+   - **CK2Plus AIO survey (2026-11-14)** (`mod/ck2plus_aio.zip`, 12 Nov 2026, CK2Plus with
+     CleanSlate built in). Of LI's definitions: 435 are CK2Plus content (not vanilla; 28 identical to
+     AIO, 407 changed since LI copied them); 1,555 are vanilla definitions CK2Plus also changed. Of
+     those, 852 (dynasties aside) have no LI-specific content and 203 use LI's own
+     religions/cultures/titles. AIO keeps almost all vanilla DLC content (2,305 of 2,339 CleanSlate
+     events LI never had). `mod/ck2plus.zip` (Jul 2025) is CK2Plus *on top of* CleanSlate, so it holds
+     only CK2Plus's own changes.
+   - **Decision 5:** for definitions LI copied from CK2Plus that have no LI-specific content, use
+     **CK2Plus AIO's current versions** (already migrated to CleanSlate and maintained). Those parts
+     will play like today's CK2Plus. The ~203 that use LI's world are ported by hand.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.
 5. **Vanilla content LI dropped (6,985 definitions).** Re-apply LI's decisions to CleanSlate's
    copies:
+   - **Decision 6 (2026-11-14): leave out** CleanSlate's event/decision content that LI never had
+     (1,687 events in 60 files, plus parts of shared files; per-DLC table in the session notes), and
+     switch off calls to it, keeping random weights. It stays in `cleanslate_beta7/` for later.
    - **DLC switched off** for now. Holy Fury, plus the Jade Dragon / Rajas / Horse Lords pieces LI
      lacked. Same comment style and `N = 0` / `N = { }` rule as on master.
    - **Things LI removed on purpose:** Sunni Islamic schools (Mu'tazila/Ash'ari decisions hidden),
