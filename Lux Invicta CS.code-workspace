@@ -14,7 +14,7 @@
 		],
 
 		"files.associations": {
-			"*.txt": "ck2",
+			"*.txt": "ck2.txt",
 			"*.gui": "ck2",
 			"*.gfx": "ck2",
 			"*.sfx": "ck2",
