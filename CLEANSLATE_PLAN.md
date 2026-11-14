@@ -331,6 +331,14 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      **Moved to step B:** CK2Plus's own Christian sainthood (`CK2Plus_religion_christian_sainthood.txt`):
      it belongs to CK2Plus's Christian religion system (its own on_actions and effects, 5 traits with
      icons, 129 localisation keys), so it comes in with that system, not with Holy Fury.
+   - **Part 3 applied (2026-11-14):** AIO's `HF_bloodline_acquisition_events` (44 events, legendary deeds;
+     5 step A switch-offs undone). `HF_bloodline_events` keeps its 4 LI-wins events; 19 missing events added from
+     AIO: Holy Fury's special executions (brazen bull, macabre banquet, dragon fire) with their 3 prisoner
+     decisions in `HF_bloodline_decisions.txt`, the mental-decay check, the Chinese Imperialism bloodline
+     (`adopt_chinese_imperialism`), and **Ashoka's tests** (its `religion = buddhist` checks → `religion_group =
+     bud_group`). User decision: **not** Alexander's tomb (LI has its own `alexander` bloodline), Teuta or
+     Matilda (tied to vanilla's world); those quests stay switched off. `HF.12405` (battle bards) belongs to
+     part 5 (warrior lodge legends).
    - **"Province 0" traced (2026-11-14).** Events looping over demesne provinces (VIET region checks, saint
      flavour) hit an invalid province. A temporary debug event (removed again) logged rulers holding a
      barony or county with no location: LI's populist revolt (`li_rebel_events_the_old_gods.txt`) created
