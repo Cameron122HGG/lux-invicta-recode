@@ -117,8 +117,6 @@ society_decisions = {
 					limit = {
 						OR = {
 							society_member_of = monastic_order_jain
-							society_member_of = monastic_order_buddhist
-							society_member_of = monastic_order_stoics
 						}
 					}
 
@@ -158,8 +156,6 @@ society_decisions = {
 					limit = {
 						OR = {
 							society_member_of = monastic_order_jain
-							society_member_of = monastic_order_buddhist
-							society_member_of = monastic_order_stoics
 						}
 					}
 

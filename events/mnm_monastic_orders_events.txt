@@ -99,7 +99,6 @@ character_event = {
 			10 = { # Donate to charity
 				trigger = {
 					is_playable = yes
-					NOT = { society_member_of = monastic_order_stoics }
 				}
 
 				society_quest_event = { id = MNM.4011 }
@@ -159,7 +158,6 @@ character_event = {
 					is_playable = yes
 					is_tribal = no
 					is_nomadic = no
-					NOT = { society_member_of = monastic_order_stoics }
 
 					any_demesne_province = {
 						num_of_empty_holdings >= 1
@@ -287,9 +285,7 @@ character_event = {
 			text = EVTOPTA_MNM_4403_NOGOD
 			trigger = {
 				OR = {
-					society_member_of = monastic_order_buddhist
 					society_member_of = monastic_order_jain
-					society_member_of = monastic_order_stoics
 				}
 			}
 		}
@@ -1609,7 +1605,6 @@ character_event = {
 			text = EVTOPTA_MNM_4415_A
 			trigger = {
 				NOR = {
-					religion = buddhist
 					religion = jain
 				}
 			}
@@ -1618,7 +1613,6 @@ character_event = {
 			text = EVTOPTA_MNM_4415_B
 			trigger = {
 				OR = {
-					religion = buddhist
 					religion = jain
 				}
 			}
@@ -1667,7 +1661,6 @@ character_event = {
 			text = EVTOPTA_MNM_4416_A
 			trigger = {
 				NOR = {
-					religion = buddhist
 					religion = jain
 				}
 			}
@@ -1676,7 +1669,6 @@ character_event = {
 			text = EVTOPTA_MNM_4416_B
 			trigger = {
 				OR = {
-					religion = buddhist
 					religion = jain
 				}
 			}
@@ -1709,7 +1701,6 @@ character_event = {
 			text = EVTOPTA_MNM_4415_A
 			trigger = {
 				NOR = {
-					religion = buddhist
 					religion = jain
 				}
 			}
@@ -1718,7 +1709,6 @@ character_event = {
 			text = EVTOPTA_MNM_4415_B
 			trigger = {
 				OR = {
-					religion = buddhist
 					religion = jain
 				}
 			}
@@ -2192,9 +2182,7 @@ character_event = {
 			text = EVTOPTA_MNM_4426_GOD
 			trigger = {
 				NOR = {
-					society_member_of = monastic_order_buddhist
 					society_member_of = monastic_order_jain
-					society_member_of = monastic_order_stoics
 				}
 			}
 		}
@@ -2202,9 +2190,7 @@ character_event = {
 			text = EVTOPTA_MNM_4426_NOGOD
 			trigger = {
 				OR = {
-					society_member_of = monastic_order_buddhist
 					society_member_of = monastic_order_jain
-					society_member_of = monastic_order_stoics
 				}
 			}
 		}
@@ -4112,7 +4098,6 @@ character_event = {
 			text = EVTOPTA_MNM_4400_GOD
 			trigger = {
 				NOR = {
-					society_member_of = monastic_order_buddhist
 					society_member_of = monastic_order_jain
 				}
 			}
@@ -4121,7 +4106,6 @@ character_event = {
 			text = EVTOPTA_MNM_4400_NOGOD
 			trigger = {
 				OR = {
-					society_member_of = monastic_order_buddhist
 					society_member_of = monastic_order_jain
 				}
 			}
@@ -7113,7 +7097,6 @@ character_event = {
 			is_monastic_member_trigger = yes
 
 			NOR = { # Buddhists and Jains have a different power
-				society_member_of = monastic_order_buddhist
 				society_member_of = monastic_order_jain
 			}
 		}
@@ -7877,7 +7860,6 @@ character_event = {
 			is_monastic_member_trigger = yes
 
 			NOR = { # Buddhists and Jains have a different power
-				society_member_of = monastic_order_buddhist
 				society_member_of = monastic_order_jain
 			}
 		}
@@ -7912,7 +7894,6 @@ character_event = {
 		is_monastic_member_trigger = yes
 
 		NOR = { # Buddhists and Jains have a different power
-			society_member_of = monastic_order_buddhist
 			society_member_of = monastic_order_jain
 		}
 	}

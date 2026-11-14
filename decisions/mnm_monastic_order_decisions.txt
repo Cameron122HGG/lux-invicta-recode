@@ -127,7 +127,6 @@ society_decisions = {
 			has_dlc = "Mystics"
 
 			OR = {
-				society_member_of = monastic_order_stoics
 				is_dharmic_monastic_member_trigger = yes
 			}
 
@@ -232,7 +231,6 @@ society_decisions = {
 			OR = {
 				is_dharmic_monastic_member_trigger = yes
 				is_christian_monastic_member_trigger = yes
-				society_member_of = monastic_order_stoics
 			}
 
 			society_rank >= 2
@@ -274,7 +272,6 @@ society_decisions = {
 			OR = {
 				is_christian_monastic_member_trigger = yes
 				is_dharmic_monastic_member_trigger = yes
-				society_member_of = monastic_order_stoics
 			}
 
 			society_rank >= 2
@@ -314,7 +311,6 @@ society_decisions = {
 			}
 
 			NOR = {
-				society_member_of = monastic_order_stoics
 				has_character_flag = donate_to_charity_cooldown
 			}
 		}
@@ -938,7 +934,6 @@ title_decisions = {
 			has_dlc = "Mystics"
 			is_monastic_member_trigger = yes
 			society_rank == 4
-			NOT = { society_member_of = monastic_order_stoics }
 		}
 
 		potential = {
