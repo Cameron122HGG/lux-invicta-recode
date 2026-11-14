@@ -191,9 +191,10 @@ decisions = {
 		ai_check_interval = 60
 		
 		potential = {
+			always = no # hidden: LI has no e_mongol_empire title for this decision to grant
 			is_playable = yes
 			independent = yes
-			culture = mongol
+			#culture = mongol # LI has no mongol culture; decision is hidden (see always = no above)
 			has_dlc = "Horse Lords"
 			government = nomadic_government
 			NOT = { has_global_flag = mongol_horde_united }
@@ -280,16 +281,17 @@ decisions = {
 		ai_check_interval = 60
 		
 		potential = {
+			always = no # hidden: LI has no e_mongol_empire title for this decision to grant
 			is_playable = yes
 			independent = yes
-			culture = mongol
+			#culture = mongol # LI has no mongol culture; decision is hidden (see always = no above)
 			NOT = { has_dlc = "Horse Lords" }
 			government = tribal_government
 			NOT = { has_global_flag = mongol_horde_united }
 		}
 		
 		allow = {
-			culture = mongol
+			#culture = mongol # LI has no mongol culture; decision is hidden (see always = no above)
 			government = tribal_government
 			num_of_count_titles_in_realm = 35
 			prestige = 1500

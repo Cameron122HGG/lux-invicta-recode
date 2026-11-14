@@ -1938,6 +1938,7 @@ targetted_decisions = {
 		ai_check_interval = 60
 		
 		potential = {
+			always = no # hidden: LI removed the Sunni Islamic schools
 			has_dlc = "Sons of Abraham"
 			is_playable = yes
 			religion = sunni
@@ -1960,7 +1961,7 @@ targetted_decisions = {
 		
 		effect = {
 			add_trait = mutazilite
-			character_event = { id = SoA.600 tooltip = EVTTOOLTIP_SoA_600 }
+			#character_event = { id = SoA.600 tooltip = EVTTOOLTIP_SoA_600 } # Sons of Abraham school event not in LI; LI removed the Sunni Islamic schools
 		}
 		
 		revoke_allowed = {
@@ -1994,7 +1995,8 @@ targetted_decisions = {
 		filter = self
 		ai_target_filter = self
 		
-		potential = {	
+		potential = {
+			always = no # hidden: LI removed the Sunni Islamic schools	
 			has_dlc = "Sons of Abraham"
 			is_playable = yes
 			religion = sunni
@@ -2017,7 +2019,7 @@ targetted_decisions = {
 		
 		effect = {
 			add_trait = ashari
-			character_event = { id = SoA.601 tooltip = EVTTOOLTIP_SoA_601 }
+			#character_event = { id = SoA.601 tooltip = EVTTOOLTIP_SoA_601 } # Sons of Abraham school event not in LI; LI removed the Sunni Islamic schools
 		}
 		
 		revoke_allowed = {
