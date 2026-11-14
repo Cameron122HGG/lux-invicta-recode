@@ -38,18 +38,36 @@ def li_files():
                 if f.lower().startswith('li_') or any(w in dp.replace(os.sep, '/') for w in
                         ('common/landed_titles', 'common/cultures', 'common/religions', 'common/dynasties', 'common/bookmarks')):
                     yield os.path.join(dp, f), 'script'
-    for top in ('history', 'interface'):
-        for dp, _, fs in os.walk(os.path.join(REPO, top)):
-            for f in fs: yield os.path.join(dp, f), ('gfx' if top == 'interface' else 'script')
+    for dp, _, fs in os.walk(os.path.join(REPO, 'history')):
+        for f in fs: yield os.path.join(dp, f), 'script'
+    for dp, _, fs in os.walk(os.path.join(REPO, 'interface')):
+        for f in fs:
+            p = os.path.join(dp, f)
+            if is_cleanslate_copy(p): continue
+            yield p, ('script' if f.endswith('.txt') else 'gfx')   # e.g. portrait_properties/*.txt are triggers
+    cl = os.path.join(REPO, 'localisation', 'customizable_localisation')
+    for f in (os.listdir(cl) if os.path.isdir(cl) else []):
+        p = os.path.join(cl, f)
+        if f.endswith('.txt') and not is_cleanslate_copy(p): yield p, 'script'   # scripted text commands
     for f in os.listdir(os.path.join(REPO, 'localisation')):
         if f.endswith('.csv') and not f.startswith('zz_cs_'): yield os.path.join(REPO, 'localisation', f), 'loc'
 
+def is_cleanslate_copy(p):
+    """True when the file is byte-identical to CleanSlate's copy (CleanSlate already uses the new names)"""
+    rel = os.path.relpath(p, REPO)
+    ref = os.path.join(REPO, 'cleanslate_beta7', rel)
+    return os.path.isfile(ref) and open(ref, 'rb').read() == open(p, 'rb').read()
+
 def sub_code(text, rx, repl, hits):
-    # replace only outside comments and quoted strings
+    # replace outside comments; inside quotes only when the whole quoted string is an old ID ("fair")
     out = []; pos = 0
     for m in re.finditer(r'#[^\n]*|"[^"\n]*"', text):
         seg = text[pos:m.start()]
-        out.append(rx.sub(lambda x: (hits.update([x.group(0)]), repl(x))[1], seg)); out.append(m.group(0)); pos = m.end()
+        out.append(rx.sub(lambda x: (hits.update([x.group(0)]), repl(x))[1], seg))
+        q = m.group(0)
+        if q.startswith('"') and q[1:-1] in REN:
+            hits.update([q[1:-1]]); q = '"' + REN[q[1:-1]] + '"'
+        out.append(q); pos = m.end()
     out.append(rx.sub(lambda x: (hits.update([x.group(0)]), repl(x))[1], text[pos:]))
     return ''.join(out)
 
