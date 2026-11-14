@@ -18,6 +18,30 @@ province_event = {
 
 	is_triggered_only = yes # on_rebel_revolt via TOG.999, oldgods_rebel_events.txt
 
+	trigger = { # LI: LI calls HL.2000/HL.2010 straight from on_rebel_revolt (li_on_actions.txt), not via CleanSlate's TOG.999,
+		# so the nomad check TOG.999 made is restored here (conditions copied from CleanSlate's TOG.999)
+		has_dlc = "Horse Lords"
+		culture = owner
+		has_empty_holding = yes # To allow a Clan capital
+
+		owner = {
+			independent = yes
+			is_nomadic = yes
+			risks_minor_clan_rising = yes
+			in_revolt = no
+			NOT = { is_capital = ROOT }
+		}
+
+		NOT = { # Not if there is already an ongoing minor clan uprising
+			top_liege = {
+				any_war = {
+					defender = { character = PREVPREV }
+					using_cb = cb_minor_clan_revolt
+				}
+			}
+		}
+	}
+
 	immediate = {
 		add_province_modifier = {
 			name = recent_county_uprising
@@ -306,6 +330,29 @@ province_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes # on_rebel_revolt via TOG.999, oldgods_rebel_events.txt
+
+	trigger = { # LI: LI calls HL.2000/HL.2010 straight from on_rebel_revolt (li_on_actions.txt), not via CleanSlate's TOG.999,
+		# so the nomad check TOG.999 made is restored here (conditions copied from CleanSlate's TOG.999)
+		has_dlc = "Horse Lords"
+		culture = owner
+		has_empty_holding = yes # To allow a Clan capital
+
+		owner = {
+			independent = yes
+			is_nomadic = yes
+			risks_minor_clan_rising = yes
+			in_revolt = no
+			NOT = { is_capital = ROOT }
+		}
+
+		# Minor clan uprising already under way
+		top_liege = {
+			any_war = {
+				defender = { character = PREVPREV }
+				using_cb = cb_minor_clan_revolt
+			}
+		}
+	}
 
 	immediate = {
 		add_province_modifier = {
