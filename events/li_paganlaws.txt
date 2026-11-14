@@ -6893,13 +6893,11 @@ province_event = {
 				factor = 1.1
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
-							event_target:province_owner = {
-								relative_power = {
-									who = PREV
-									power = 1.0
-								}
+							relative_power = {
+								who = event_target:province_owner
+								power = 1.0
 							}
 						}
 					}
@@ -6909,13 +6907,11 @@ province_event = {
 				factor = 1.25
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
-							event_target:province_owner = {
-								relative_power = {
-									who = PREV
-									power = 1.5
-								}
+							relative_power = {
+								who = event_target:province_owner
+								power = 1.5
 							}
 						}
 					}
@@ -6925,13 +6921,11 @@ province_event = {
 				factor = 1.5
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
-							event_target:province_owner = {
-								relative_power = {
-									who = PREV
-									power = 2.0
-								}
+							relative_power = {
+								who = event_target:province_owner
+								power = 2.0
 							}
 						}
 					}
@@ -6941,13 +6935,11 @@ province_event = {
 				factor = 2.0
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
-							event_target:province_owner = {
-								relative_power = {
-									who = PREV
-									power = 3.0
-								}
+							relative_power = {
+								who = event_target:province_owner
+								power = 3.0
 							}
 						}
 					}
@@ -6957,13 +6949,11 @@ province_event = {
 				factor = 3.0
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
-							event_target:province_owner = {
-								relative_power = {
-									who = PREV
-									power = 4.0
-								}
+							relative_power = {
+								who = event_target:province_owner
+								power = 4.0
 							}
 						}
 					}
@@ -6973,13 +6963,11 @@ province_event = {
 				factor = 5.0
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
-							event_target:province_owner = {
-								relative_power = {
-									who = PREV
-									power = 5.0
-								}
+							relative_power = {
+								who = event_target:province_owner
+								power = 5.0
 							}
 						}
 					}
@@ -7013,7 +7001,7 @@ province_event = {
 				factor = 1.1
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
 							event_target:province_owner = {
 								relative_power = {
@@ -7029,7 +7017,7 @@ province_event = {
 				factor = 1.25
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
 							event_target:province_owner = {
 								relative_power = {
@@ -7045,7 +7033,7 @@ province_event = {
 				factor = 1.5
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
 							event_target:province_owner = {
 								relative_power = {
@@ -7061,7 +7049,7 @@ province_event = {
 				factor = 2.0
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
 							event_target:province_owner = {
 								relative_power = {
@@ -7077,7 +7065,7 @@ province_event = {
 				factor = 3.0
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
 							event_target:province_owner = {
 								relative_power = {
@@ -7093,7 +7081,7 @@ province_event = {
 				factor = 5.0
 				owner = {
 					any_war = {
-						defender = event_target:province_owner
+						defender = { character = event_target:province_owner }
 						any_attacker = {
 							event_target:province_owner = {
 								relative_power = {

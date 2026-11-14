@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "../Lux Invicta CleanSlate"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cwtools.trace.server": "messages",
+		"files.associations": {
+			"**/gfx/**/*.asset": "paradox-ck3",
+			"*.gui": "paradox-gui",
+			"**/localization/**/*.yml": "paradox-loc"
+		}
+	}
+}
