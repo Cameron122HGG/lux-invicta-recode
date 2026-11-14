@@ -2263,7 +2263,6 @@ character_event = {
 					factor = 1.5
 
 					culture_group = altaic
-					NOT = { culture = khitan }
 				}
 
 				mult_modifier = {

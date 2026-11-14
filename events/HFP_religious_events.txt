@@ -1069,156 +1069,12 @@ character_event = {
 				}
 
 				# Historical Pope will want historical Vatican lands
-				mult_modifier = {
-					factor = 1.5
 
-					has_landed_title = k_papacy
 
-					c_roma = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
 
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
 
-				mult_modifier = {
-					factor = 1.5
 
-					has_landed_title = k_papacy
 
-					d_latium = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.45
-
-					has_landed_title = k_papacy
-
-					d_spoleto = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.35
-
-					has_landed_title = k_papacy
-
-					d_ancona = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.25
-
-					has_landed_title = k_papacy
-
-					d_ferrara = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.15
-
-					has_landed_title = k_papacy
-
-					d_benevento = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.25
-
-					has_landed_title = k_papacy
-					FROM = { has_landed_title = e_hre }
-				}
 
 				mult_modifier = {
 					factor = 10
@@ -1246,10 +1102,6 @@ character_event = {
 					}
 				}
 
-				mult_modifier = {
-					factor = 1.5
-					has_landed_title = k_papacy
-				}
 
 				mult_modifier = {
 					factor = 2
@@ -1515,149 +1367,11 @@ character_event = {
 				}
 
 				# Historical Pope will want control over historical Vatican lands
-				mult_modifier = {
-					factor = 1.5
 
-					has_landed_title = k_papacy
 
-					c_roma = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
 
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
 
-				mult_modifier = {
-					factor = 1.5
 
-					has_landed_title = k_papacy
-
-					d_latium = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.45
-
-					has_landed_title = k_papacy
-
-					d_spoleto = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.35
-
-					has_landed_title = k_papacy
-
-					d_ancona = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.25
-
-					has_landed_title = k_papacy
-
-					d_ferrara = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
-
-				mult_modifier = {
-					factor = 1.15
-
-					has_landed_title = k_papacy
-
-					d_benevento = {
-						OR = {
-							holder_scope = {
-								character = FROM
-								is_vassal_or_below_of = FROM
-							}
-
-							any_de_jure_vassal_title = {
-								holder_scope = {
-									OR = {
-										character = FROM
-										is_vassal_or_below_of = FROM
-									}
-								}
-							}
-						}
-					}
-				}
 
 				mult_modifier = {
 					factor = 10

@@ -175,10 +175,6 @@ character_event = {
 			50 = {
 				mult_modifier = {
 					factor = 2
-					culture = afghan
-				}
-				mult_modifier = {
-					factor = 2
 					has_character_flag = flag_denied_title
 				}
 				mult_modifier = {

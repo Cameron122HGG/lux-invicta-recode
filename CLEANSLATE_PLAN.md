@@ -134,6 +134,15 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      merged; those 134 events (with what they call) were restored from master into
      `events/li_restored_events.txt`, and hooked up in `li_on_actions_restored.txt`. Checked: no event
      ID defined twice, and no event listed twice in one on_action.
+   - Follow-up after the "LI wins" run (6,618 lines): 152 more events that LI's restored
+     definitions call, but CleanSlate had removed or merged, were restored from master into
+     `li_restored_events.txt` (no duplicate IDs). `dlc_recommendations` was re-trimmed from
+     CleanSlate's copy (110 dead checks, 24 hints). Behaviour-identical trims were applied to 14
+     CleanSlate files (630 lines removed). **Still open:** ~1,400 load-time errors from whole dead
+     vanilla branches in CleanSlate files (scripted triggers like `religion = lollard`, `if` limits
+     on vanilla religions, Templar-only events). They never run in LI, but removing them safely
+     needs per-case handling (e.g. a dead trigger becomes `always = no`; an `if` with an `else`
+     can't simply be deleted).
    - **CK2Plus AIO survey (2026-11-14)** (`mod/ck2plus_aio.zip`, 12 Nov 2026, CK2Plus with
      CleanSlate built in). Of LI's definitions: 435 are CK2Plus content (not vanilla; 28 identical to
      AIO, 407 changed since LI copied them); 1,555 are vanilla definitions CK2Plus also changed. Of

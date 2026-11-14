@@ -2058,10 +2058,6 @@ pepin_religious = {
 			ROOT = { has_landed_title = e_hre }
 		}
 
-		mult_modifier = {
-			factor = 2
-			ROOT = { has_landed_title = e_francia }
-		}
 
 		mult_modifier = {
 			factor = 0.25

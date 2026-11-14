@@ -87,22 +87,12 @@ religion_peaceful = {
 				FROM = {
 					character = yes
 					OR = {
-						religion = bon_pagan
 						religion = slavic_pagan
-						religion = baltic_pagan
 						religion = finnish_pagan
-						religion = west_african_pagan
 					}
 				}
 			}
 
-			mult_modifier = {
-				factor = 0.01
-				FROM = {
-					character = yes
-					religion = bon_pagan
-				}
-			}
 
 			mult_modifier = {
 				factor = 5
@@ -243,20 +233,10 @@ religion_peaceful = {
 					OR = {
 						religion = norse_pagan
 						religion = tengri_pagan
-						religion = zun_pagan
-						religion = hellenic_pagan
-						religion = west_african_pagan
 					}
 				}
 			}
 
-			mult_modifier = {
-				factor = 0.001
-				FROM = {
-					character = yes
-					religion = aztec_pagan
-				}
-			}
 
 			mult_modifier = {
 				factor = 0.1
@@ -1082,13 +1062,6 @@ religion_astrology = {
 				}
 			}
 
-			mult_modifier = {
-				factor = 1.5
-				FROM = {
-					character = yes
-					religion = aztec_pagan
-				}
-			}
 		}
 	}
 
@@ -1126,7 +1099,6 @@ religion_astrology = {
 					character = yes
 					OR = {
 						religion = norse_pagan
-						religion = baltic_pagan
 					}
 				}
 			}
@@ -1209,7 +1181,6 @@ religion_astrology = {
 					character = yes
 					OR = {
 						religion = norse_pagan
-						religion = aztec_pagan
 					}
 				}
 			}
@@ -1275,7 +1246,6 @@ religion_astrology = {
 				FROM = {
 					character = yes
 					OR = {
-						religion = aztec_pagan
 						religion = tengri_pagan
 					}
 				}
@@ -1317,9 +1287,7 @@ religion_astrology = {
 				FROM = {
 					character = yes
 					OR = {
-						religion = aztec_pagan
 						religion = tengri_pagan
-						religion = west_african_pagan
 					}
 				}
 			}
@@ -1937,7 +1905,6 @@ religion_leadership = {
 
 					NOR = {
 						religion = norse_pagan
-						religion = aztec_pagan
 					}
 				}
 			}
@@ -1972,7 +1939,6 @@ religion_leadership = {
 
 					NOR = {
 						religion = tengri_pagan
-						religion = zun_pagan
 					}
 				}
 			}
@@ -2011,8 +1977,6 @@ religion_leadership = {
 					NOR = {
 						religion = finnish_pagan
 						religion = slavic_pagan
-						religion = baltic_pagan
-						religion = hellenic_pagan
 					}
 				}
 			}
@@ -2236,20 +2200,9 @@ religion_leadership = {
 				factor = 0.1
 				FROM = {
 					character = yes
-					NOR = {
-						religion = bon_pagan
-						religion = west_african_pagan
-					}
 				}
 			}
 
-			mult_modifier = {
-				factor = 0.1
-				FROM = {
-					character = yes
-					religion = zun_pagan
-				}
-			}
 
 			mult_modifier = {
 				factor = 0.1

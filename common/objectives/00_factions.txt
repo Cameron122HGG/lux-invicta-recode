@@ -6970,10 +6970,6 @@ faction_claimant = {
 			character = new_character
 		}
 
-		mult_modifier = {
-			factor = 1.5
-			dynasty = new_character
-		}
 
 		mult_modifier = {
 			factor = 0.7

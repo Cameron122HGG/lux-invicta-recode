@@ -1488,7 +1488,6 @@ letter_event = {
 					OR = {
 						religion_group = christian
 						religion_group = muslim
-						religion = buddhist
 						religion = jain
 					}
 				}
@@ -2965,10 +2964,6 @@ character_event = {
 					}
 				}
 
-				mult_modifier = {
-					factor = 1.5
-					religion = hellenic_pagan_reformed
-				}
 
 				set_character_flag = flag_converter_cynical
 				character_event = { id = HF.20040 }

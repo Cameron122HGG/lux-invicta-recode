@@ -70,16 +70,6 @@ culture_group_spread = {
 		culture_group = altaic
 	}
 	mult_modifier = {
-		factor = 0.05
-		NOT = {
-			has_alternate_start_setting = {
-				setting = culture
-				option = full_random
-			}
-		}
-		culture_group = chinese_group
-	}
-	mult_modifier = {
 		factor = 3
 		NOT = {
 			has_alternate_start_setting = {
@@ -103,7 +93,6 @@ culture_group_spread = {
 			culture_group = celtic
 			culture_group = baltic
 			culture_group = arabic
-			culture_group = dravidian_group
 		}
 	}
 	mult_modifier = { # Boost groups with very many individual cultures even more
@@ -118,7 +107,6 @@ culture_group_spread = {
 			culture_group = byzantine
 			culture_group = finno_ugric
 			culture_group = iranian
-			culture_group = indo_aryan_group
 		}
 	}
 	mult_modifier = {
@@ -206,36 +194,6 @@ culture_spread = {
 	mult_modifier = {
 		factor = 0.8
 		num_culture_provinces > 30
-	}
-	mult_modifier = {
-		factor = 0.1
-		culture = crimean_gothic
-		NOT = {
-			has_alternate_start_setting = {
-				setting = culture
-				option = full_random
-			}
-		}
-	}
-	mult_modifier = {
-		factor = 0.3
-		culture = dalmatian
-		NOT = {
-			has_alternate_start_setting = {
-				setting = culture
-				option = full_random
-			}
-		}
-	}
-	mult_modifier = {
-		factor = 0.3
-		culture = khitan
-		NOT = {
-			has_alternate_start_setting = {
-				setting = culture
-				option = full_random
-			}
-		}
 	}
 	mult_modifier = {
 		factor = 0.3
@@ -506,70 +464,12 @@ religion_spread = {
 		}
 	}
 	mult_modifier = {
-		factor = 0.2
-		religion = miaphysite
-		NOT = {
-			has_alternate_start_setting = {
-				setting = religion
-				option = full_random
-			}
-		}
-	}
-	mult_modifier = {
 		factor = 0.15
 		religion = nestorian
 		NOT = {
 			has_alternate_start_setting = {
 				setting = religion
 				option = full_random
-			}
-		}
-	}
-	mult_modifier = {
-		factor = 0.05
-		religion = taoist
-		NOT = {
-			has_alternate_start_setting = {
-				setting = religion
-				option = full_random
-			}
-		}
-	}
-	mult_modifier = {
-		factor = 0.2
-		religion = manichaean
-		NOT = {
-			has_alternate_start_setting = {
-				setting = religion
-				option = full_random
-			}
-		}
-	}
-	mult_modifier = {
-		factor = 0.2
-		religion = zun_pagan
-		NOR = {
-			has_alternate_start_setting = {
-				setting = religion
-				option = full_random
-			}
-			has_alternate_start_setting = {
-				setting = random_scenario_more_pagans
-				option = checked
-			}
-		}
-	}
-	mult_modifier = {
-		factor = 0.5
-		religion = bon_pagan
-		NOR = {
-			has_alternate_start_setting = {
-				setting = religion
-				option = full_random
-			}
-			has_alternate_start_setting = {
-				setting = random_scenario_more_pagans
-				option = checked
 			}
 		}
 	}

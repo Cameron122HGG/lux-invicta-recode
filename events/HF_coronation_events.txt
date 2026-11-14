@@ -12908,10 +12908,6 @@ character_event = {
 					job_spiritual = { always = yes }
 				}
 
-				mult_modifier = {
-					factor = 0.25
-					dynasty = job_spiritual
-				}
 
 				mult_modifier = {
 					factor = 1.75
