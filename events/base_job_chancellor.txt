@@ -673,7 +673,7 @@ letter_event = {
 
 		if = {
 			limit = { has_global_flag = ck2_tutorial_2 }
-			long_character_event = { id = 107300 }
+			# long_character_event = { id = 107300 } # tutorial event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		ai_chance = {
