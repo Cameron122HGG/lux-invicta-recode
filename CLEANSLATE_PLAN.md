@@ -193,6 +193,47 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    - **Things LI removed on purpose:** Sunni Islamic schools (Mu'tazila/Ash'ari decisions hidden),
      the Mongol decisions (LI has no `e_mongol_empire`), the court griot.
    - **Everything else:** log-driven, as in the pre-CleanSlate pass.
+   - **Step A review (2026-11-14).** Step A matched events by ID, which is wrong in three ways:
+     1. *Renumbered events.* CleanSlate gave many vanilla events new IDs (`910` → `chancellor.001`),
+        so its versions of events LI had looked new and were removed. Restored: the 5 council job
+        event files (173 events; every job action had lost its event), the Charlemagne councillor
+        chain `CK2.18000`–`18004` (with 3 decision calls), and 3 LI-wins job actions translated from
+        old numbers (`913 914`, `900–903`, `20218`) to CleanSlate's IDs.
+     2. *Router events.* CleanSlate turned many MTTH events into triggered-only events started by a
+        new hidden "router" event in its on_actions. Step A removed the routers (new IDs) and zeroed
+        their entries, so LI content went silent without any error line. 42 routers restored with
+        CleanSlate's on_action lines: Muslim honorary titles, polygamy, court ambition, religious,
+        health (Voice of Jesus/Satan), imprisonment, feast/hunt cancelled, Republic trade, relics,
+        WoL business, Nerge, the married-life courtier (`30039`) and the imprisoned Orthodox bishop
+        (`39229`). Holy Fury routers, CleanSlate-only additions and routers whose targets LI reaches
+        itself were left out.
+     3. *Merged decisions.* CleanSlate merged vanilla's 7 devil-worshipper recruit decisions into one,
+        which step A removed; LI's 6 own versions (LI-world religion limits) were restored from master
+        into `li_mnm_society_decisions.txt`.
+     The audit scripts (`renumbered_audit`, `routers`, `dec_audit`, `orphan_targets`) found these; the
+     other candidates were checked by hand and are fine. The 15-candidate and 229-decision audits are
+     done. Housekeeping events `CK2.689/690/691/63106` stay off (LI runs its own 689/63106).
+   - **LI-wins / CleanSlate mismatches (2026-11-14).** Where an event chain mixes LI's and
+     CleanSlate's versions, one side can lack the setup the other expects:
+     - CleanSlate events whose trigger moved into a router but that LI's on_actions fire directly got
+       their trigger back: `HL.2000`/`HL.2010` (minor clan revolt), `100420` (tournament cheating),
+       `TOG.1000` (peasant revolt holding check). LI's `30040` entry now fires the router `30039`.
+     - CleanSlate on_actions that fire LI-wins events needing `FROM` from an LI caller were zeroed
+       (`N = 0`): `TOG.3400` (buffalo woman), `SoA.1003` (master never fired it), `WoL.7042`, and LI's
+       own direct `39230` entry.
+     - Holy order joining: LI's SoA.1030 + CleanSlate's SoA.1031 → master's SoA.1031–1033 + 2864, and
+       an original LI bug fixed (1032 saved `holy_order`, 2864 read `order_target`).
+     - The ultimogeniture faction ultimatum is LI's jordarkelf version again (`jordarkelf_factions.2`).
+     - **Lesson:** after restoring master text, run `tools/cs_renames.py` (`li_restored_events.txt`
+       had missed 24 renames, e.g. `gamer`); master text pasted into CleanSlate-named files needs the
+       renames applied by hand.
+   - **Other log-driven fixes (2026-11-14):** 30 vanilla scripted triggers/effects CleanSlate removed
+     but LI calls (`tools/restore_scripted.py` → `common/scripted_*/000_li_restored_*.txt`);
+     `remove_education_effect`; the warrior-lodge trigger `always = no`; the year-slider and
+     letter-intrigue sprites; LI's original MNM.6990 (9 assassin orders each keyed on its own title)
+     and the Cult of Kali recruit check; 204 dead `secretly_*` opposites; a `trim_dead` sweep over the
+     23 biggest non-localisation script files. Run 3s: 5,341 lines (3,738 localisation, ~1,600 other,
+     of which ~1,330 are dead vanilla checks that can't be removed safely).
 6. **Localisation.** CleanSlate's localisation (reorganised and fixed) plus LI's CSVs, with LI's
    overriding where both define a key. Then trim the French/Spanish/German customizable
    localisation of checks for things LI lacks, using the same behaviour-identical tool.
