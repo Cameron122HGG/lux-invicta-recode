@@ -1,0 +1,300 @@
+# LI: vanilla 3.3.3 scripted triggers that CleanSlate removed (see its master_changelog.txt), restored from master
+# because LI text (LI-wins definitions, restored events, li_* files) still calls them. CleanSlate renames applied.
+# 000_ prefix: loads before the files that use them.
+
+true_religion_group_zoroastrian_group_trigger = {
+	true_religion_group = zoroastrian_group 
+}
+
+
+true_religion_group_pagan_group_trigger = {
+	true_religion_group = pagan_group
+}
+
+
+true_religion_group_muslim_trigger = {
+	true_religion_group = muslim
+}
+
+
+true_religion_group_jewish_group_trigger = {
+	true_religion_group = jewish_group
+}
+
+
+true_religion_group_indian_group_trigger = {
+	true_religion_group = indian_group
+}
+
+
+true_religion_group_christian_trigger = {
+	true_religion_group = christian
+}
+
+
+this_has_super_cool_nickname_trigger = {
+	OR = { 
+		has_nickname = nick_haardraade
+		has_nickname = nick_lodbrok
+		has_nickname = nick_the_boneless
+		has_nickname = nick_bluetooth
+		has_nickname = nick_snake_in_the_eye
+		has_nickname = nick_fairhair
+		has_nickname = nick_whiteshirt
+		has_nickname = nick_the_saoshyant
+		has_nickname = nick_hardeknud
+		has_nickname = nick_the_world_burner
+		has_nickname = nick_the_vatican_prince
+		has_nickname = nick_the_vatican_princess
+		has_nickname = nick_the_pale_prince
+		has_nickname = nick_the_leechlord
+		has_nickname = nick_the_black_boar
+		has_nickname = nick_the_apostate
+		has_nickname = nick_the_hawk_of_quarysh
+		has_nickname = nick_the_submissive 			
+		has_nickname = nick_the_deliverer			
+		has_nickname = nick_the_purified			
+		has_nickname = nick_the_illuminated		
+		has_nickname = nick_the_exalted			
+		has_nickname = nick_the_awoken 			
+		has_nickname = nick_the_bleeding_eyes		
+		has_nickname = nick_the_sky_rider			
+		has_nickname = nick_the_civilized 
+		has_nickname = nick_the_missionary 		
+		has_nickname = nick_the_proselytizer 		
+		has_nickname = nick_the_adjudicator	 	
+		has_nickname = nick_the_enlightened				
+		has_nickname = nick_the_waking_teacher 	
+		has_nickname = nick_the_whirling_spell	
+		has_nickname = nick_the_horse_shepherd	
+		has_nickname = nick_the_educator 	
+		has_nickname = nick_the_white_raven
+		has_nickname = nick_the_salt_snake
+		has_nickname = nick_the_salt_viper
+		has_nickname = nick_the_siren
+		has_nickname = nick_the_wyrm
+		has_nickname = nick_the_fury
+		has_nickname = nick_the_stormforged
+		has_nickname = nick_the_tempest_of_capital
+		has_nickname = the_panther_head 
+		has_nickname = the_thunderbolt 
+		has_nickname = the_whirlwind 
+		has_nickname = the_black_whirlwind 
+		has_nickname = the_winged_tiger 
+		has_nickname = the_turbulent_river_dragon 
+		has_nickname = the_ferocious_giant 
+		has_nickname = the_prodigy 
+		has_nickname = nick_of_the_nine_hostages 
+		has_nickname = nick_gods_torturer 
+		has_nickname = nick_gods_hedonist 
+		has_nickname = nick_gods_cannibal 
+		has_nickname = nick_gods_drunkard
+		has_nickname = nick_papal_lover  
+		has_nickname = nick_gods_seducer 
+		has_nickname = nick_the_red_storm
+		has_nickname = nick_the_scarlet_hands
+		has_nickname = nick_the_blood_monger
+		has_nickname = nick_the_black_skull
+		has_nickname = nick_the_heart_eater
+		has_nickname = nick_the_slaughterer
+		has_nickname = nick_the_spirit_stalker
+		has_nickname = nick_the_soul_flayer
+		has_nickname = nick_the_crimson_reaper
+		has_nickname = nick_the_dreaded
+		has_nickname = nick_the_chest_buster
+		has_nickname = nick_the_angel_of_location
+		has_nickname = nick_the_chosen_of_gabriel
+		has_nickname = nick_the_page_of_lord
+		has_nickname = nick_the_maid_of_virgin
+		has_nickname = nick_the_messenger_of_christ
+		has_nickname = nick_the_deaths_child
+		has_nickname = nick_the_snakeling
+		has_nickname = nick_the_little_spider
+		has_nickname = nick_the_eerie
+		has_nickname = nick_the_little_nightmare
+		has_nickname = nick_the_ripper
+		has_nickname = nick_the_black_widow
+		has_nickname = nick_the_ferrante
+		has_nickname = nick_the_iron_heart
+		has_nickname = nick_the_pale_spider
+		has_nickname = nick_the_grim_mistress
+		has_nickname = nick_the_young_eagle
+		has_nickname = nick_the_green_warrior
+		has_nickname = nick_the_warrior_child
+		has_nickname = nick_the_young_conqueror
+		has_nickname = nick_the_white_knight 
+		has_nickname = nick_the_virago
+		has_nickname = nick_the_bloodhound
+		has_nickname = nick_the_warrior_philosopher
+		has_nickname = nick_the_angel
+		has_nickname = nick_the_pure
+		has_nickname = nick_the_celestial
+		has_nickname = nick_the_radiant
+		has_nickname = nick_the_innocent
+		has_nickname = nick_the_peace_maker
+		has_nickname = nick_the_munificent
+		has_nickname = nick_the_architect
+		has_nickname = nick_the_castellan
+		has_nickname = nick_the_carpenter
+		has_nickname = nick_the_grandiose
+		has_nickname = nick_the_griffin
+		has_nickname = nick_the_compassionate
+		has_nickname = nick_the_founder
+		has_nickname = nick_the_bloodlime
+		has_nickname = nick_the_patron_of_arts
+		has_nickname = nick_the_bastion_of_capital
+		has_nickname = nick_the_holy_mason
+		has_nickname = nick_the_grand_patriarch
+		has_nickname = nick_the_grand_matriarch
+		has_nickname = nick_the_philosopher
+		has_nickname = nick_the_theologian
+		has_nickname = nick_the_zealot
+		has_nickname = nick_the_benevolent
+	}
+}
+
+
+sibling_of_root_trigger = {
+	sibling = ROOT
+}
+
+
+sibling_child_of_root_trigger = {
+	is_nibling_of = ROOT
+}
+
+
+shares_prevs_secret_religion_trigger = {
+	secret_religion = PREV
+}
+
+
+ruler_has_dedicated_temple_trigger = {
+	OR = {
+		has_character_modifier = dedicated_to_zeus
+		has_character_modifier = dedicated_to_poseidon
+		has_character_modifier = dedicated_to_hades
+		has_character_modifier = dedicated_to_hermes
+		has_character_modifier = dedicated_to_demeter
+		has_character_modifier = dedicated_to_athena
+		has_character_modifier = dedicated_to_apollo
+		has_character_modifier = dedicated_to_arthemis
+		has_character_modifier = dedicated_to_ares
+		has_character_modifier = dedicated_to_aphrodite
+		has_character_modifier = dedicated_to_ephaestus
+		has_character_modifier = dedicated_to_hestia
+	}
+}
+
+
+parent_sibling_of_root_trigger = {
+	is_aunt_uncle_of = ROOT
+}
+
+
+is_openly_of_roots_secret_religion_trigger = {
+	religion = { target = ROOT target_type = secret }
+}
+
+
+is_openly_of_prevs_secret_religion_trigger = {
+	religion = { target = PREV target_type = secret }
+}
+
+
+has_disease_trigger = {
+	OR = {
+		trait = consumption
+		trait = slow_fever
+		trait = camp_fever
+		trait = bubonic_plague
+		trait = measles
+		trait = smallpox
+		trait = aztec_disease
+		trait = great_pox
+		trait = flu
+		trait = dysentery
+		trait = gout
+		trait = food_poisoning
+		trait = rabies
+		trait = cancer
+		trait = pneumonic
+
+		trait = dancing_plague
+		trait = scurvy
+		trait = ill
+		trait = leper
+		trait = lovers_pox
+	}
+}
+
+
+has_secret_religion_trait_trigger = {
+	custom_tooltip = {
+		text = no_secret_religion
+		has_secret_religion = yes
+	}
+}
+
+
+has_prevs_secret_religion_truly_trigger = {
+	secret_religion = { target = PREV target_type = true }
+}
+
+
+grandchild_of_root_trigger = {
+	is_grandchild_of = ROOT
+}
+
+
+check_if_crusader_trigger = {
+	conditional_tooltip = {
+		trigger = {
+			ROOT = {
+				religion = catholic
+				OR = {
+					has_pledged_crusade_participation = yes
+					any_war = {
+						using_cb = new_crusade
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = crusade_invalidate_other_wars_TT
+
+			NOT = {
+				AND = {
+					ROOT = {
+						religion = catholic
+						has_pledged_crusade_participation = yes
+					}
+					catholic = {
+						OR = {
+							is_preparing_crusade = yes
+							ROOT = {
+								any_war = {
+									using_cb = new_crusade
+								}
+							}
+						}
+					}
+					FROM = {
+						religion = catholic
+						OR = {
+							has_landed_title = k_papal_state
+							has_pledged_crusade_participation = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+is_ill_trigger = {
+	OR = {
+		has_disease_trigger = yes
+	}
+}

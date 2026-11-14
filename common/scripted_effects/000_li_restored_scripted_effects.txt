@@ -1,0 +1,1569 @@
+# LI: vanilla 3.3.3 scripted effects that CleanSlate removed (see its master_changelog.txt), restored from master
+# because LI text (LI-wins definitions, restored events, li_* files) still calls them. CleanSlate renames applied.
+# 000_ prefix: loads before the files that use them.
+
+landless_pope_effect = {
+	if = {
+		limit = {
+			has_landed_title = k_papal_state
+			NOT = {
+				catholic = {
+					is_name_randomized = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					any_demesne_province = {
+						always = yes
+					}
+					any_realm_lord = {
+						any_demesne_province = {
+							always = yes
+						}
+					}
+				}
+			}
+			#character_event = { id = HFP.40034 }
+			#character_event = { id = HFP.40035 }
+		}
+	}
+}
+
+
+flip_to_secret_religion_effect = {
+	convert_to_secret_religion = yes
+}
+
+
+fire_haruspicy_event_effect = {
+	hidden_tooltip = { #Divination.
+		if = {
+			limit = { 
+				attacker = { 
+					has_religion_feature = religion_haruspicy 
+				} 
+			}
+			attacker = {  
+				character_event = { id = HF.23005 }
+			}
+		}
+		if = {
+			limit = { 
+				defender = { 
+					has_religion_feature = religion_haruspicy 
+				} 
+			}
+			defender = {  
+				character_event = { id = HF.23005 }
+			}
+		}
+	}
+}
+
+
+event_target_old_religion_from_flag_effect = {
+	if = {
+    	limit = { has_character_flag = character_was_antinomian }
+    	antinomian = {
+    		save_event_target_as = old_religion
+    	}
+   }
+	if = {
+		limit = { has_character_flag = character_was_aten }
+			aten = {
+				save_event_target_as = old_religion
+		}
+	}	
+	if = {
+		limit = { has_character_flag = character_was_batembuzi }
+			batembuzi = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_bud_bahusrutiya }
+			bud_bahusrutiya = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_bud_mahayana }
+			bud_mahayana = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_cathar }
+			cathar = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_dionysos }
+			dionysos = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_donatist }
+			donatist = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_druze }
+			druze = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_erlik }
+			erlik = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_haruri }
+			haruri = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_hubal }
+			hubal = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_hurufi }
+			hurufi = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_ibadi }
+			ibadi = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_iconoclast }
+			iconoclast = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_illuyanka }
+			illuyanka = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_irminsul }
+			irminsul = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_jud_sabaoth }
+			jud_sabaoth = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_kharijite }
+			kharijite = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_mand_ruha }
+			mand_ruha = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_mani_ahriman }
+			mani_ahriman = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_mazdakism }
+			mazdakism = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_melkite }
+			melkite = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_montanist }
+			montanist = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_norse_war }
+			norse_war = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_pelagian }
+			pelagian = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_plato_christ }
+			plato_christ = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_plato_islam }
+			plato_islam = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_priscillian }
+			priscillian = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_qarmatian }
+			qarmatian = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_ragnarok }
+			ragnarok = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_saule }
+			saule = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_saura }
+			saura = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_set }
+			set = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_sol_christ }
+			sol_christ = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_sufi }
+			sufi = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_tengri_ahriman }
+			tengri_ahriman = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_vidharma }
+			vidharma = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_yahyanism }
+			yahyanism = {
+				save_event_target_as = old_religion
+		}
+	}
+	if = {
+		limit = { has_character_flag = character_was_zor_angra }
+			zor_angra = {
+				save_event_target_as = old_religion
+		}
+	}
+}
+
+
+clr_religion_char_flag_effect = {
+    clr_character_flag = character_was_antinomian
+	clr_character_flag = character_was_aten
+	clr_character_flag = character_was_batembuzi
+	clr_character_flag = character_was_bud_bahusrutiya
+	clr_character_flag = character_was_bud_mahayana
+	clr_character_flag = character_was_cathar
+	clr_character_flag = character_was_dionysos
+	clr_character_flag = character_was_donatist
+	clr_character_flag = character_was_druze
+	clr_character_flag = character_was_erlik
+	clr_character_flag = character_was_haruri
+	clr_character_flag = character_was_hubal
+	clr_character_flag = character_was_hurufi
+	clr_character_flag = character_was_ibadi
+	clr_character_flag = character_was_iconoclast
+	clr_character_flag = character_was_illuyanka
+	clr_character_flag = character_was_irminsul
+	clr_character_flag = character_was_jud_sabaoth
+	clr_character_flag = character_was_kharijite
+	clr_character_flag = character_was_mand_ruha
+	clr_character_flag = character_was_mani_ahriman
+	clr_character_flag = character_was_mazdakism
+	clr_character_flag = character_was_melkite
+	clr_character_flag = character_was_montanist
+	clr_character_flag = character_was_norse_war
+	clr_character_flag = character_was_pelagian
+	clr_character_flag = character_was_plato_christ
+	clr_character_flag = character_was_plato_islam
+	clr_character_flag = character_was_priscillian 
+	clr_character_flag = character_was_qarmatian
+	clr_character_flag = character_was_ragnarok
+	clr_character_flag = character_was_saule
+	clr_character_flag = character_was_saura
+	clr_character_flag = character_was_set
+	clr_character_flag = character_was_sol_christ
+	clr_character_flag = character_was_sufi
+	clr_character_flag = character_was_tengri_ahriman
+	clr_character_flag = character_was_vidharma
+	clr_character_flag = character_was_yahyanism
+	clr_character_flag = character_was_zor_angra
+}
+
+
+#Used in different sutiation, there conditions on effect. Flag has precedence over religion.
+add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_after_effect_is_run_this_name_is_a_tribute_to_m_effect = {
+	if = {
+    	limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+    						has_character_flag = character_was_antinomian
+    					}
+    				}
+    				religion = antinomian
+    			}
+    			has_character_flag = character_was_antinomian
+			}
+    	}
+    	set_secret_religion = antinomian
+    	clr_character_flag = character_was_antinomian
+		break = yes
+   }
+	if = {	
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_aten 				
+						}
+					}
+					religion = aten
+				}
+				has_character_flag = character_was_aten
+			}
+		}
+		set_secret_religion = aten
+		clr_character_flag = character_was_aten
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_batembuzi 				
+						}
+					}
+					religion = batembuzi
+				}
+				has_character_flag = character_was_batembuzi
+			}
+		}
+		set_secret_religion = batembuzi
+		clr_character_flag = character_was_batembuzi
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_bud_bahusrutiya 				
+						}
+					}
+					religion = bud_bahusrutiya
+				}
+				has_character_flag = character_was_bud_bahusrutiya
+			}
+		}
+		set_secret_religion = bud_bahusrutiya
+		clr_character_flag = character_was_bud_bahusrutiya
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_bud_mahayana 				
+						}
+					}
+					religion = bud_mahayana
+				}
+				has_character_flag = character_was_bud_mahayana
+			}
+		}
+		set_secret_religion = bud_mahayana
+		clr_character_flag = character_was_bud_mahayana
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_cathar 				
+						}
+					}
+					religion = cathar
+				}
+				has_character_flag = character_was_cathar
+			}
+		}
+		set_secret_religion = cathar
+		clr_character_flag = character_was_cathar
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_dionysos 				
+						}
+					}
+					religion = dionysos
+				}
+				has_character_flag = character_was_dionysos
+			}
+		}
+		set_secret_religion = dionysos
+		clr_character_flag = character_was_dionysos
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_donatist 				
+						}
+					}
+					religion = donatist
+				}
+				has_character_flag = character_was_donatist
+			}
+		}
+		set_secret_religion = donatist
+		clr_character_flag = character_was_donatist
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_druze 				
+						}
+					}
+					religion = druze
+				}
+				has_character_flag = character_was_druze
+			}
+		}
+		set_secret_religion = druze
+		clr_character_flag = character_was_druze
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_erlik 				
+						}
+					}
+					religion = erlik
+				}
+				has_character_flag = character_was_erlik
+			}
+		}
+		set_secret_religion = erlik
+		clr_character_flag = character_was_erlik
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_haruri 				
+						}
+					}
+					religion = haruri
+				}
+				has_character_flag = character_was_haruri
+			}
+		}
+		set_secret_religion = haruri
+		clr_character_flag = character_was_haruri
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_hubal 				
+						}
+					}
+					religion = hubal
+				}
+				has_character_flag = character_was_hubal
+			}
+		}
+		set_secret_religion = hubal
+		clr_character_flag = character_was_hubal
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_hurufi 				
+						}
+					}
+					religion = hurufi
+				}
+				has_character_flag = character_was_hurufi
+			}
+		}
+		set_secret_religion = hurufi
+		clr_character_flag = character_was_hurufi
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_ibadi 				
+						}
+					}
+					religion = ibadi
+				}
+				has_character_flag = character_was_ibadi
+			}
+		}
+		set_secret_religion = ibadi
+		clr_character_flag = character_was_ibadi
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_iconoclast 				
+						}
+					}
+					religion = iconoclast
+				}
+				has_character_flag = character_was_iconoclast
+			}
+		}
+		set_secret_religion = iconoclast
+		clr_character_flag = character_was_iconoclast
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_illuyanka 				
+						}
+					}
+					religion = illuyanka
+				}
+				has_character_flag = character_was_illuyanka
+			}
+		}
+		set_secret_religion = illuyanka
+		clr_character_flag = character_was_illuyanka
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_irminsul 				
+						}
+					}
+					religion = irminsul
+				}
+				has_character_flag = character_was_irminsul
+			}
+		}
+		set_secret_religion = irminsul
+		clr_character_flag = character_was_irminsul
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_jud_sabaoth 				
+						}
+					}
+					religion = jud_sabaoth
+				}
+				has_character_flag = character_was_jud_sabaoth
+			}
+		}
+		set_secret_religion = jud_sabaoth
+		clr_character_flag = character_was_jud_sabaoth
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_kharijite 				
+						}
+					}
+					religion = kharijite
+				}
+				has_character_flag = character_was_kharijite
+			}
+		}
+		set_secret_religion = kharijite
+		clr_character_flag = character_was_kharijite
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_mand_ruha 				
+						}
+					}
+					religion = mand_ruha
+				}
+				has_character_flag = character_was_mand_ruha
+			}
+		}
+		set_secret_religion = mand_ruha
+		clr_character_flag = character_was_mand_ruha
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_mani_ahriman 				
+						}
+					}
+					religion = mani_ahriman
+				}
+				has_character_flag = character_was_mani_ahriman
+			}
+		}
+		set_secret_religion = mani_ahriman
+		clr_character_flag = character_was_mani_ahriman
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_mazdakism 				
+						}
+					}
+					religion = mazdakism
+				}
+				has_character_flag = character_was_mazdakism
+			}
+		}
+		set_secret_religion = mazdakism
+		clr_character_flag = character_was_mazdakism
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_melkite 				
+						}
+					}
+					religion = melkite
+				}
+				has_character_flag = character_was_melkite
+			}
+		}
+		set_secret_religion = melkite
+		clr_character_flag = character_was_melkite
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_montanist 				
+						}
+					}
+					religion = montanist
+				}
+				has_character_flag = character_was_montanist
+			}
+		}
+		set_secret_religion = montanist
+		clr_character_flag = character_was_montanist
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_norse_war 				
+						}
+					}
+					religion = norse_war
+				}
+				has_character_flag = character_was_norse_war
+			}
+		}
+		set_secret_religion = norse_war
+		clr_character_flag = character_was_norse_war
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_pelagian 				
+						}
+					}
+					religion = pelagian
+				}
+				has_character_flag = character_was_pelagian
+			}
+		}
+		set_secret_religion = pelagian
+		clr_character_flag = character_was_pelagian
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_plato_christ 				
+						}
+					}
+					religion = plato_christ
+				}
+				has_character_flag = character_was_plato_christ
+			}
+		}
+		set_secret_religion = plato_christ
+		clr_character_flag = character_was_plato_christ
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_plato_islam 				
+						}
+					}
+					religion = plato_islam
+				}
+				has_character_flag = character_was_plato_islam
+			}
+		}
+		set_secret_religion = plato_islam
+		clr_character_flag = character_was_plato_islam
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_priscillian  				
+						}
+					}
+					religion = priscillian 
+				}
+				has_character_flag = character_was_priscillian 				
+			}
+		}
+		set_secret_religion = priscillian 
+		clr_character_flag = character_was_priscillian 
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_qarmatian 				
+						}
+					}
+					religion = qarmatian
+				}
+				has_character_flag = character_was_qarmatian
+			}
+		}
+		set_secret_religion = qarmatian
+		clr_character_flag = character_was_qarmatian
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_ragnarok 				
+						}
+					}
+					religion = ragnarok
+				}
+				has_character_flag = character_was_ragnarok
+			}
+		}
+		set_secret_religion = ragnarok
+		clr_character_flag = character_was_ragnarok
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_saule 				
+						}
+					}
+					religion = saule
+				}
+				has_character_flag = character_was_saule
+			}
+		}
+		set_secret_religion = saule
+		clr_character_flag = character_was_saule
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_saura 				
+						}
+					}
+					religion = saura
+				}
+				has_character_flag = character_was_saura
+			}
+		}
+		set_secret_religion = saura
+		clr_character_flag = character_was_saura
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_set 				
+						}
+					}
+					religion = set
+				}
+				has_character_flag = character_was_set
+			}
+		}
+		set_secret_religion = set
+		clr_character_flag = character_was_set
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_sol_christ 				
+						}
+					}
+					religion = sol_christ
+				}
+				has_character_flag = character_was_sol_christ
+			}
+		}
+		set_secret_religion = sol_christ
+		clr_character_flag = character_was_sol_christ
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_sufi 				
+						}
+					}
+					religion = sufi
+				}
+				has_character_flag = character_was_sufi
+			}
+		}
+		set_secret_religion = sufi
+		clr_character_flag = character_was_sufi
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_tengri_ahriman 				
+						}
+					}
+					religion = tengri_ahriman
+				}
+				has_character_flag = character_was_tengri_ahriman
+			}
+		}
+		set_secret_religion = tengri_ahriman
+		clr_character_flag = character_was_tengri_ahriman
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_vidharma 				
+						}
+					}
+					religion = vidharma
+				}
+				has_character_flag = character_was_vidharma
+			}
+		}
+		set_secret_religion = vidharma
+		clr_character_flag = character_was_vidharma
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_yahyanism 				
+						}
+					}
+					religion = yahyanism
+				}
+				has_character_flag = character_was_yahyanism
+			}
+		}
+		set_secret_religion = yahyanism
+		clr_character_flag = character_was_yahyanism
+		break = yes
+	}	
+	if = {
+			limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+							has_character_flag = character_was_zor_angra 				
+						}
+					}
+					religion = zor_angra
+				}
+				has_character_flag = character_was_zor_angra
+			}
+		}
+		set_secret_religion = zor_angra
+		clr_character_flag = character_was_zor_angra
+				
+	}
+}
+
+
+add_religion_char_flag_effect = {
+	if = {
+    	limit = { religion = antinomian }
+    	set_character_flag = character_was_antinomian
+   }
+	if = {
+		limit = { religion = aten }	
+		set_character_flag = character_was_aten
+	}
+	if = {
+		limit = { religion = batembuzi }	
+		set_character_flag = character_was_batembuzi
+	}
+	if = {
+		limit = { religion = bud_bahusrutiya }	
+		set_character_flag = character_was_bud_bahusrutiya
+	}
+	if = {
+		limit = { religion = bud_mahayana }	
+		set_character_flag = character_was_bud_mahayana
+	}
+	if = {
+		limit = { religion = cathar }	
+		set_character_flag = character_was_cathar
+	}
+	if = {
+		limit = { religion = dionysos }	
+		set_character_flag = character_was_dionysos
+	}
+	if = {
+		limit = { religion = donatist }	
+		set_character_flag = character_was_donatist
+	}
+	if = {
+		limit = { religion = druze }	
+		set_character_flag = character_was_druze
+	}
+	if = {
+		limit = { religion = erlik }	
+		set_character_flag = character_was_erlik
+	}
+	if = {
+		limit = { religion = haruri }	
+		set_character_flag = character_was_haruri
+	}
+	if = {
+		limit = { religion = hubal }	
+		set_character_flag = character_was_hubal
+	}
+	if = {
+		limit = { religion = hurufi }	
+		set_character_flag = character_was_hurufi
+	}
+	if = {
+		limit = { religion = ibadi }	
+		set_character_flag = character_was_ibadi
+	}
+	if = {
+		limit = { religion = iconoclast }	
+		set_character_flag = character_was_iconoclast
+	}
+	if = {
+		limit = { religion = illuyanka }	
+		set_character_flag = character_was_illuyanka
+	}
+	if = {
+		limit = { religion = irminsul }	
+		set_character_flag = character_was_irminsul
+	}
+	if = {
+		limit = { religion = jud_sabaoth }	
+		set_character_flag = character_was_jud_sabaoth
+	}
+	if = {
+		limit = { religion = kharijite }	
+		set_character_flag = character_was_kharijite
+	}
+	if = {
+		limit = { religion = mand_ruha }	
+		set_character_flag = character_was_mand_ruha
+	}
+	if = {
+		limit = { religion = mani_ahriman }	
+		set_character_flag = character_was_mani_ahriman
+	}
+	if = {
+		limit = { religion = mazdakism }	
+		set_character_flag = character_was_mazdakism
+	}
+	if = {
+		limit = { religion = melkite }	
+		set_character_flag = character_was_melkite
+	}
+	if = {
+		limit = { religion = montanist }	
+		set_character_flag = character_was_montanist
+	}
+	if = {
+		limit = { religion = norse_war }	
+		set_character_flag = character_was_norse_war
+	}
+	if = {
+		limit = { religion = pelagian }	
+		set_character_flag = character_was_pelagian
+	}
+	if = {
+		limit = { religion = plato_christ }	
+		set_character_flag = character_was_plato_christ
+	}
+	if = {
+		limit = { religion = plato_islam }	
+		set_character_flag = character_was_plato_islam
+	}
+	if = {
+		limit = { religion = priscillian }	
+		set_character_flag = character_was_priscillian 
+	}
+	if = {
+		limit = { religion = qarmatian }	
+		set_character_flag = character_was_qarmatian
+	}
+	if = {
+		limit = { religion = ragnarok }	
+		set_character_flag = character_was_ragnarok
+	}
+	if = {
+		limit = { religion = saule }	
+		set_character_flag = character_was_saule
+	}
+	if = {
+		limit = { religion = saura }	
+		set_character_flag = character_was_saura
+	}
+	if = {
+		limit = { religion = set }	
+		set_character_flag = character_was_set
+	}
+	if = {
+		limit = { religion = sol_christ }	
+		set_character_flag = character_was_sol_christ
+	}
+	if = {
+		limit = { religion = sufi }	
+		set_character_flag = character_was_sufi
+	}
+	if = {
+		limit = { religion = tengri_ahriman }	
+		set_character_flag = character_was_tengri_ahriman
+	}
+	if = {
+		limit = { religion = vidharma }	
+		set_character_flag = character_was_vidharma
+	}
+	if = {
+		limit = { religion = yahyanism }	
+		set_character_flag = character_was_yahyanism
+	}
+	if = {
+		limit = { religion = zor_angra }	
+		set_character_flag = character_was_zor_angra
+	}
+}
+
+
+check_if_reconquista_finished_effect = {
+	# if = {
+		# limit = {
+			# NOT = {
+				# has_global_flag = reconquista_finished
+			# }
+			# NOT = {
+				# any_province = {
+					# county = {
+						# OR = {
+							# region = custom_leon
+							# region = custom_galicia
+							# region = custom_beja
+							# region = custom_granada
+							# region = custom_castille
+							# region = custom_cordoba
+							# region = custom_valencia
+							# region = custom_navarra
+							# region = custom_balearic
+						# }
+					# }
+					# owner = {
+						# OR = {
+							# AND = {
+								# independent = yes
+								# NOT = {
+									# religion_group = christian
+								# }
+							# }
+							# AND = {
+								# top_liege = {
+									# NOT = {
+										# religion_group = christian
+									# }
+								# }
+							# }
+						# }
+					# }
+				# }
+			# }
+		# }
+		# set_global_flag = reconquista_finished 
+
+		# ROOT = {
+			# narrative_event = { id = HF.49452 }
+		# }
+		# any_playable_ruler = {
+			# narrative_event = { id = HF.49452 }
+		# }
+	# }
+}
+
+
+check_holy_order_donation_effect = {
+	# hidden_tooltip = {
+		# save_event_target_as = holy_order_potential_title
+
+		# if = { # Checking if it is an island the Hospitallers could be interested in 
+				# limit = {
+					# is_title_active = d_knights_hospitaler
+					# d_knights_hospitaler = {
+						# owner = {
+							# religion = ROOT
+						# }
+					# }
+					# ROOT = {
+						# is_heretic = no
+						# NOT = {
+							# has_character_flag = refused_to_give_island_to_knights
+						# }
+					# }
+					# OR = {
+						# title = d_cyprus
+						# AND = {
+							# title = d_sicily
+							# c_malta = {
+								# owner = {
+									# OR = {
+										# character = FROM
+										# any_liege = {
+											# character = FROM
+										# }
+									# }
+								# }
+							# }
+						# }
+						# title = c_malta
+						# title = d_corsica
+						# title = d_sardinia
+						# title = d_krete
+						# AND = {
+							# title = d_abydos
+							# c_lesbos = {
+								# owner = {
+									# OR = {
+										# character = FROM
+										# any_liege = {
+											# character = FROM
+										# }
+									# }
+								# }
+							# }
+						# }
+						# title = c_lesbos
+						# AND = {
+							# title = d_cibyrrhaeot
+							# c_rhodos = {
+								# owner = {
+									# OR = {
+										# character = FROM
+										# any_liege = {
+											# character = FROM
+										# }
+									# }
+								# }
+							# }
+						# }
+						# title = c_rhodos
+						# AND = {
+							# title = d_samos
+							# c_chios = {
+								# owner = {
+									# OR = {
+										# character = FROM
+										# any_liege = {
+											# character = FROM
+										# }
+									# }
+								# }
+							# }
+						# }
+						# title = c_chios
+						# AND = {
+							# title = d_aegean_islands
+							# c_naxos = {
+								# owner = {
+									# OR = {
+										# character = FROM
+										# any_liege = {
+											# character = FROM
+										# }
+									# }
+								# }
+							# }
+						# }
+						# title = c_naxos
+						# title = d_cephalonia
+					# }
+				# }
+				# if = {
+					# limit = {
+						# title = d_abydos
+					# }
+					# c_lesbos = {
+						# save_event_target_as = potential_title
+					# }
+				# }
+				# else_if = {
+					# limit = {
+						# title = d_cibyrrhaeot
+					# }
+					# c_rhodos = {
+						# save_event_target_as = potential_title
+					# }
+				# }
+				# else_if = {
+					# limit = {
+						# title = d_sicily
+					# }
+					# c_malta = {
+						# save_event_target_as = potential_title
+					# }
+				# }
+				# else = {
+					# save_event_target_as = potential_title 
+				# }
+				# ROOT = { save_event_target_as = title_owner }
+				# d_knights_hospitaler = {
+					# owner = {
+						# character_event = { id = HFP.44000 days = 1}
+					# }
+				# }
+		# }
+
+		# if = { # Checking if it is a Duchy the Teutonics could be interested in
+			# limit = {
+				# # Checking that ROOT has the whole Duchy
+				# NOT = {
+					# any_direct_de_jure_vassal_title = {
+						# NOT = {
+							# owner = {
+								# OR = {
+									# character = ROOT
+									# any_liege = {
+										# character = ROOT
+									# }
+								# }
+							# }
+						# }
+					# }
+				# }
+				# # Checking that the Teutonics are active
+				# is_title_active = d_teutonic_order
+				# # Checking that Root is the same religion as the Teutonics
+				# d_teutonic_order = {
+					# owner = {
+						# religion = ROOT
+					# }
+				# }
+				# # Checking that Root don't already own the associated Kingdom of that title
+				# kingdom = {
+					# OR = {
+						# owner = {
+							# NOT = {
+								# character = ROOT
+							# }
+						# }
+						# NOT = {
+							# owner = {
+								# always = yes
+							# }
+						# }
+					# }
+				# }
+				# # Checking that the Teutonics don't already have a Duchy
+				# d_teutonic_order = {
+					# owner = {
+						# NOT = {
+							# any_demesne_title = {
+								# tier = COUNT
+							# }
+						# }
+					# }
+				# }
+				# # Checking that the Teutonics aren't already in a Northern Crusade
+				# d_teutonic_order = {
+					# owner = {
+						# NOT = {
+							# any_war = {
+								# using_cb = northern_crusade_war
+							# }
+						# }
+					# }
+				# }
+				# # Checking the ROOT 
+				# ROOT = {
+					# is_heretic = no
+					# NOT = {
+						# has_character_flag = refused_to_give_land_to_teutonics
+					# }
+				# }
+				# # Duke tier 
+				# tier = DUKE
+				# # Somewhere in the north
+				# OR = {
+					# region = world_europe_north
+					# region = custom_eastern_baltic
+					# region = custom_russia
+				# }
+				# OR = {
+					# # Is by water
+					# any_direct_de_jure_vassal_title = {
+						# location = {
+							# port = yes
+						# }
+						# owner = {
+							# OR = {
+								# character = FROM
+								# any_liege = {
+									# character = FROM
+								# }
+							# }
+						# }
+					# }
+					# # Is the neighbor to another Catholic realm
+					# any_direct_de_jure_vassal_title = {
+						# location = {
+							# any_neighbor_province = {
+								# OR = {
+									# religion = ROOT
+									# owner = {
+										# religion = ROOT
+									# }
+									# owner = {
+										# any_liege = {
+											# religion = ROOT
+										# }
+									# }
+								# }
+							# }
+						# }
+					# }
+				# }
+				# # Is adjacent to infidels
+				# any_direct_de_jure_vassal_title = {
+					# location = {
+						# any_neighbor_province = {
+							# owner = {
+								# OR = {
+									# NOT = {
+										# religion_group = ROOT
+									# }
+									# any_liege = {
+										# NOT = {
+											# religion_group = ROOT
+										# }
+									# }
+								# }
+							# }
+						# }
+					# }
+				# }
+			# }
+			# d_teutonic_order = {
+				# owner = {
+					# character_event = { id = HFP.44005 days = 1}
+				# }
+			# }
+		# }
+	# }
+}
+
+
+check_war_effect = {
+	check_if_reconquista_finished_effect = yes
+	check_holy_order_donation_effect = yes
+}
