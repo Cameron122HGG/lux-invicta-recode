@@ -140,6 +140,16 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    - **Decision 6 (2026-11-14): leave out** CleanSlate's event/decision content that LI never had
      (1,687 events in 60 files, plus parts of shared files; per-DLC table in the session notes), and
      switch off calls to it, keeping random weights. It stays in `cleanslate_beta7/` for later.
+     *(Step A, done 2026-11-14.)* `tools/phase5_leave_out.py` removed 1,967 CleanSlate events and 229
+     decisions that LI's master never had (57 files emptied and deleted, 73 trimmed). It kept 448
+     CleanSlate events that LI's content calls (e.g. its refactored holy-order letters) and counted
+     renamed decisions as LI's. Calls to the removed events were switched off with the note "event
+     left out of the CleanSlate build: LI never had it (decision 6…)":
+     - 211 call sites via `hf_off.py --ids-file=… --note=…`;
+     - ~370 `on_actions` entries via `hf_off_onactions.py` (namespaced IDs);
+     - 157 numeric IDs via `ids_off.py`;
+     - 1 by hand (`repeat_event = { # comment` in `05_competition_effects.txt`).
+     A final scan found no live call to a removed event.
    - **DLC switched off** for now. Holy Fury, plus the Jade Dragon / Rajas / Horse Lords pieces LI
      lacked. Same comment style and `N = 0` / `N = { }` rule as on master.
    - **Things LI removed on purpose:** Sunni Islamic schools (Mu'tazila/Ash'ari decisions hidden),

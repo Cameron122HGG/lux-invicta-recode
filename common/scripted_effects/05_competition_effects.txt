@@ -10351,12 +10351,12 @@ warrior_lodge_arm_wrestling_first_round_effect = {
 						event_target:arm_wrestling_fighter_1 = { has_character_modifier = tribal_festival_bought_bravery_amulet }
 					}
 
-					event_target:arm_wrestling_fighter_2 = {
-						repeat_event = { # Keep FROM in FROM
-							id = HF.25205 # First round sends event to underdog
-							days = 1
-						}
-					}
+					#event_target:arm_wrestling_fighter_2 = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+						#repeat_event = { # Keep FROM in FROM
+							#id = HF.25205 # First round sends event to underdog
+							#days = 1
+						#}
+					#}
 				}
 
 				50 = {
