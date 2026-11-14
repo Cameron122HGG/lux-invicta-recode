@@ -305,6 +305,13 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    - **Per part:** restore AIO's events/societies/decisions for that part; undo step A's switch-offs for
      those IDs (and master-style Holy Fury switch-offs); check dependencies (events, scripted items,
      score values, modifiers, localisation); `trim_dead`; orphaned-target check; test run.
+     Tool: `tools/phase8_hf.py <repo> <aio> <ids_out> <files…> [--apply]`, then `hf_off.py --ids-file=… --note=…`
+     for calls into later parts (note: "Holy Fury event from a later phase 8 part, not restored yet").
+   - **Part 1 applied (2026-11-14):** AIO's `HF_battle_events`, `hfp_duel_events`, `HFP_health_events`,
+     `HFP_pregnancy_events`, `HFP_random_flavor_events` (replaced) and `HFP_realm_events`,
+     `HFP_holy_order_events` (new): 469 events. 64 step A switch-offs undone (`15_holy_fury.txt`,
+     `00_health_effects.txt`, `01_duel_effects.txt`). Calls into later parts switched off: `HF.12405`
+     (battle bard bloodline, part 3), `HFP.41090` (crusade levy refill, part 4). No missing dependencies.
 
 ## Tools (currently in the session scratchpad; move into `tools/` in the repo to keep them)
 
