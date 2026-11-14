@@ -148,6 +148,18 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      29 icons added to `gfx/traits`: LI's own art copied to the new name where LI had it (`fair`,
      `martial_cleric`, `syphilitic`), CleanSlate's icon for the other 26. 7 language-flag icons
      (`gfx/interface/*_flag.dds`) that CleanSlate's interface uses were added too.
+   - **`trim_dead.py` correctness fix (2026-11-14).** With `--scopes` it treated every block as
+     "all of", including `trigger_if`. But a `trigger_if` whose limit can never hold *passes*, so the
+     old tool wrongly removed such blocks from `OR` lists. Fixed: `trigger_if`/`trigger_else_if` with a
+     dead limit count as true; `NAND` with a dead child counts as true; effect, weight and count blocks
+     (`if`, `else`, `calc_true_if`, `ai_chance`, `option`…) pass nothing up. An all-dead `OR` keeps its
+     entries rather than becoming empty. A `trigger_if` that a `trigger_else` follows is never removed.
+     Also new: `society_member_of` checks (against LI's societies), and `--defs` to fold plain
+     definitions such as scripted triggers. **Audit:** every trim made with `--scopes` was re-run from
+     its pre-trim version. 6 branch files were rebuilt (`03_cb_score_values`,
+     `00_religion_feature_triggers`, `00_secret_religious_communities_triggers`, `03_crusade_triggers`,
+     `00_religion_effects`, `00_scripted_effects`). The others, and master's portrait/Holy Fury trims,
+     were already correct.
    - **CK2Plus AIO survey (2026-11-14)** (`mod/ck2plus_aio.zip`, 12 Nov 2026, CK2Plus with
      CleanSlate built in). Of LI's definitions: 435 are CK2Plus content (not vanilla; 28 identical to
      AIO, 407 changed since LI copied them); 1,555 are vanilla definitions CK2Plus also changed. Of

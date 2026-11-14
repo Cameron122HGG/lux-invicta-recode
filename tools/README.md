@@ -43,5 +43,7 @@ Typical paths:
   entries must sit inside a `textures = { }` list, or the game crashes on the loading screen.
 - **An event definition** is a top-level `xxx_event = { id = … }`. A plain `id = …` match also
   catches calls, and that once hid 30 broken calls.
+- **`trigger_if` is not "all of":** a `trigger_if` whose limit can never hold *passes*. Treating it
+  as false and removing it from an `OR` once changed behaviour (fixed and audited 2026-11-14).
 - **Weighted lists:** never comment out a weighted entry. Keep the weight and empty the entry,
   otherwise the odds of everything else in the list change.
