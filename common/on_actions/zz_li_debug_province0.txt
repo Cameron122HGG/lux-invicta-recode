@@ -1,0 +1,6 @@
+# LI: TEMPORARY DEBUG (2026-11-14) - remove with events/zz_li_debug_province0.txt
+on_startup = {
+	events = {
+		lidebug.1
+	}
+}
