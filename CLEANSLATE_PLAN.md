@@ -269,6 +269,14 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    LI's own data and files and carry over. Re-check the ones made in vanilla-derived files:
    `dynasty = 0` → `none`, the holy order expulsion (SoA.1060), the game rules (generate families
    default off), the Hellenic temple `tier = BARON`, and the conversion decision's war scope.
+   *(Done 2026-11-14.)* Every line master's 19 fix commits added was searched for on the branch. Present:
+   history, interface/coats of arms, holy order expulsion (139/139), `d_vesta_temple`, `dynasty = none`,
+   the conversion war scope, the Hellenic temple, the game-rule events (GR.14–23, GR.30), 39704/39706,
+   all switched-off calls. Not needed: master's Holy Fury switch-offs (handled by step A and CleanSlate's
+   own Holy Fury files), `baptized_by_satan` (CleanSlate defines the trait). **Re-applied (4):**
+   generate-families default `off`, `song_dynasty_futou_trigger` (`dynasty = 1051151` → `always = no`),
+   `taoist_opinion` → `tao_opinion` in the earned bloodlines, and the Sunni school decisions
+   (`embrace_mutazila`/`embrace_ashari`) hidden again, each marked "(master fix, phase 7)".
 8. **Holy Fury integration**, the first feature on the new base, one part at a time (crusades;
    warrior lodges and duels; religious and flavour). This is partly lore work, decided per part.
    - The rival-in-battle event (`WoL.11013`/`WoL.11014`, which LI had on master) is commented out

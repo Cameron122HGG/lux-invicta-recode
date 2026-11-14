@@ -2031,6 +2031,7 @@ targeted_decisions = {
 		only_playable = yes
 
 		potential = {
+			always = no # LI: hidden - LI removed the Sunni Islamic schools (their SoA.600/601 events are left out; master fix, phase 7)
 			has_dlc = "Sons of Abraham"
 			religion = sunni
 
@@ -2090,6 +2091,7 @@ targeted_decisions = {
 		only_playable = yes
 
 		potential = {
+			always = no # LI: hidden - LI removed the Sunni Islamic schools (their SoA.600/601 events are left out; master fix, phase 7)
 			has_dlc = "Sons of Abraham"
 			religion = sunni
 

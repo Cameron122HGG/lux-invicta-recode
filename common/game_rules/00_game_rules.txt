@@ -126,14 +126,14 @@ generate_families = {
 	alt_start_default = off
 
 	option = {
+		name = off # LI: default (listed first); LI changed this from vanilla's "on" so 1066 starts stay as before (master fix, phase 7)
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_GENERATE_FAMILIES_OFF_DESC"
+	}
+	option = {
 		name = on
 		text = "RULE_OPTION_ON"
 		desc = "RULE_GENERATE_FAMILIES_ON_DESC"
-	}
-	option = {
-		name = off
-		text = "RULE_OPTION_OFF"
-		desc = "RULE_GENERATE_FAMILIES_OFF_DESC"
 	}
 	option = {
 		name = ai_only

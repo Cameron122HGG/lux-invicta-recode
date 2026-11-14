@@ -70,7 +70,7 @@ filial_piety_maiden_trigger = {
 
 song_dynasty_futou_trigger = {
 	culture = han
-	dynasty = 1051151 # Song Dynasty, known in almost all official artwork as wearing their weird zhangokfutou
+	always = no # LI: was dynasty = 1051151 (Song Dynasty), which does not exist in Lux Invicta (master fix, phase 7)
 	is_female = no
 	is_offmap_tag_including_dead = offmap_china
 }
