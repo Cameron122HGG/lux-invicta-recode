@@ -1079,7 +1079,7 @@ defined_text = {
 
 	text = {
 		trigger = { 
-			trait = fair 
+			trait = attractive 
 			is_female = yes
 			NOT = { trait = horse }
 		}
@@ -1087,7 +1087,7 @@ defined_text = {
 	}
 	text = {
 		trigger = { 
-			trait = fair 
+			trait = attractive 
 			is_female = no
 			NOT = { trait = horse }
 		}
@@ -1331,7 +1331,7 @@ defined_text = {
 			OR = {
 				trait = thrifty_clerk
 				trait = diligent
-				trait = martial_cleric
+				trait = dutiful_cleric
 			}
 		}
 		localisation_key = String_dutiful
@@ -1455,7 +1455,7 @@ defined_text = {
 			OR = {
 				trait = thrifty_clerk
 				trait = diligent
-				trait = martial_cleric
+				trait = dutiful_cleric
 			}
 		}
 		localisation_key = String_Dutiful
@@ -1523,7 +1523,7 @@ defined_text = {
 		trigger = {
 			OR = {
 				trait = detached_priest
-				trait = martial_cleric
+				trait = dutiful_cleric
 				trait = scholarly_theologian
 				trait = mastermind_theologian
 			}
@@ -1574,8 +1574,8 @@ defined_text = {
 	text = {
 		trigger = { 
 			OR = {
-				trait = syphilitic
-				trait = has_aztec_disease 
+				trait = great_pox
+				trait = aztec_disease 
 			}
 		}
 		localisation_key = INSULT_DEMONIC
@@ -1651,7 +1651,7 @@ defined_text = {
 		localisation_key = string_pneumonia
 	}
 	text = {
-		trigger = { trait = syphilitic }
+		trigger = { trait = great_pox }
 		localisation_key = String_syphilis
 	}
 	text = {
@@ -1659,31 +1659,31 @@ defined_text = {
 		localisation_key = String_leprocy
 	}
 	text = {
-		trigger = { trait = has_tuberculosis }
+		trigger = { trait = consumption }
 		localisation_key = String_consumption
 	}
 	text = {
-		trigger = { trait = has_typhoid_fever }
+		trigger = { trait = slow_fever }
 		localisation_key = String_slow_fever
 	}
 	text = {
-		trigger = { trait = has_typhus }
+		trigger = { trait = camp_fever }
 		localisation_key = String_camp_fever
 	}
 	text = {
-		trigger = { trait = has_bubonic_plague }
+		trigger = { trait = bubonic_plague }
 		localisation_key = String_the_Plague
 	}
 	text = {
-		trigger = { trait = has_measles }
+		trigger = { trait = measles }
 		localisation_key = String_measles
 	}
 	text = {
-		trigger = { trait = has_small_pox }
+		trigger = { trait = smallpox }
 		localisation_key = String_smallpox
 	}
 	text = {
-		trigger = { trait = has_aztec_disease }
+		trigger = { trait = aztec_disease }
 		localisation_key = String_syphilis
 	}
 	text = {
@@ -4962,8 +4962,8 @@ defined_text = {
 					NOT = { num_of_lovers = 1 }
 					is_married = no
 					NOR = {
-						trait = seducer
-						trait = seductress
+						trait = master_seducer
+						trait = master_seductress
 						trait = lustful
 						has_focus = focus_seduction
 					}
@@ -4976,7 +4976,7 @@ defined_text = {
 		trigger = {
 			OR = {
 				is_strong_trigger = yes
-				trait = fair
+				trait = attractive
 			}
 		}
 		localisation_key = String_radiant
@@ -5008,10 +5008,10 @@ defined_text = {
 				trait = cruel
 				trait = gluttonous
 				trait = slothful
-				trait = schemer
+				trait = master_schemer
 				trait = wroth
 				is_any_kinslayer_trigger = yes
-				trait = cannibal_trait
+				trait = cannibal
 			}
 		}
 		localisation_key = String_honorable
@@ -5100,7 +5100,7 @@ defined_text = {
 	text = {
 		trigger = {
 			OR = {
-				trait = fair
+				trait = attractive
 				trait = gregarious
 				trait = socializer
 			}
@@ -8803,8 +8803,8 @@ defined_text = {
 			factor = 10
 		}
 		trigger = {
-			trait = fair
-			ROOT = { trait = fair }
+			trait = attractive
+			ROOT = { trait = attractive }
 		}
 	}
 	text = {
@@ -9554,7 +9554,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_eunuch_is_attractive_decent
-		trigger = { trait = fair }
+		trigger = { trait = attractive }
 	}
 	text = {
 		localisation_key = String_eunuch_is_architect_decent
@@ -9619,7 +9619,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_eunuch_is_attractive
-		trigger = { trait = fair }
+		trigger = { trait = attractive }
 	}
 	text = {
 		localisation_key = String_eunuch_is_architect
@@ -9740,7 +9740,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_concubine_is_attractive_decent
-		trigger = { trait = fair }
+		trigger = { trait = attractive }
 	}
 	text = {
 		localisation_key = String_concubine_is_architect_decent
@@ -9805,7 +9805,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_concubine_is_attractive
-		trigger = { trait = fair }
+		trigger = { trait = attractive }
 	}
 	text = {
 		localisation_key = String_concubine_is_architect
@@ -12832,7 +12832,7 @@ defined_text = { #Simple use, describing a character's immediate countenance/app
 	text = {
 		localisation_key = String_handsome
 		trigger = {
-			trait = fair
+			trait = attractive
 			is_female = no
 		}
 		weight_multiplier = { factor = 100 }
@@ -12854,7 +12854,7 @@ defined_text = { #Simple use, describing a character's immediate countenance/app
 	text = {
 		localisation_key = string_stunning
 		trigger = {
-			trait = fair
+			trait = attractive
 			is_female = yes
 		}
 		weight_multiplier = { factor = 100 }
@@ -12877,7 +12877,7 @@ defined_text = { #Simple use, describing a character's immediate countenance/app
 		trigger = {
 			OR = {
 				trait = sturdy
-				trait = is_fat
+				trait = fat
 				NOT = { trait = giant }
 			}
 		}
@@ -12888,7 +12888,7 @@ defined_text = { #Simple use, describing a character's immediate countenance/app
 		trigger = {
 			OR = {
 				trait = sturdy
-				trait = is_fat
+				trait = fat
 			}
 		}
 		weight_multiplier = { factor = 100 }
@@ -12903,7 +12903,7 @@ defined_text = { #Simple use, describing a character's immediate countenance/app
 		trigger = {
 			OR = {
 				is_weak_trigger = yes
-				trait = is_malnourished
+				trait = malnourished
 			}
 		}
 		weight_multiplier = { factor = 100 }
@@ -12920,7 +12920,7 @@ defined_text = { #Simple use, describing a character's immediate countenance/app
 	}
 	text = {
 		localisation_key = string_malnourished
-		trigger = { trait = is_malnourished }
+		trigger = { trait = malnourished }
 		weight_multiplier = { factor = 10 }
 	}
 	text = {
@@ -12934,8 +12934,8 @@ defined_text = { #Simple use, describing a character's immediate countenance/app
 			OR = {
 				is_smart_trigger = yes
 				trait = gregarious
-				trait = seducer
-				trait = seductress
+				trait = master_seducer
+				trait = master_seductress
 				trait = socializer
 			}
 		}
@@ -13387,7 +13387,7 @@ defined_text = { #Intro for the Appeased's response event.
 	text = {
 		trigger = {
 			FROM = {
-				trait = gamer
+				trait = game_master
 				has_character_flag = flag_appease_visit_inside 
 			}
 		}
@@ -13427,7 +13427,7 @@ defined_text = { #Intro for the Appeased's response event.
 					trait = scholar
 					trait = mystic
 					trait = socializer
-					trait = gamer
+					trait = game_master
 					trait = hedonist 
 				}
 				has_character_flag = flag_appease_visit_inside 
@@ -18133,31 +18133,31 @@ defined_text = {
 
 	text = {
 		localisation_key = String_consumption
-		trigger = { trait = has_tuberculosis }
+		trigger = { trait = consumption }
 	}
 	text = {
 		localisation_key = String_slow_fever
-		trigger = { trait = has_typhoid_fever }		
+		trigger = { trait = slow_fever }		
 	}
 	text = {
 		localisation_key = String_camp_fever
-		trigger = { trait = has_typhus }
+		trigger = { trait = camp_fever }
 	}
 	text = {
 		localisation_key = String_the_Plague
-		trigger = { trait = has_bubonic_plague }
+		trigger = { trait = bubonic_plague }
 	}
 	text = {
 		localisation_key = String_measles
-		trigger = { trait = has_measles }
+		trigger = { trait = measles }
 	}
 	text = {
 		localisation_key = String_smallpox
-		trigger = { trait = has_small_pox }
+		trigger = { trait = smallpox }
 	}
 	text = {
 		localisation_key = String_syphilis
-		trigger = { trait = syphilitic }
+		trigger = { trait = great_pox }
 	}
 	text = {
 		localisation_key = String_flu

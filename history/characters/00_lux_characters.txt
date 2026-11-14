@@ -4502,7 +4502,7 @@
 	religion = "sol_apollo"
 	culture = "hellenistic"
 	add_trait = "flamboyant_schemer"
-	add_trait = "fair"
+	add_trait = "attractive"
 	add_trait = "proud"
 	add_trait = "lustful"
 	add_trait = "arbitrary"
@@ -18809,7 +18809,7 @@
 	stewardship = 6
 	religion = "sunni"
 	culture = "kurdish"
-	add_trait = "martial_cleric"
+	add_trait = "dutiful_cleric"
 	father = 93197
 	1048.1.1 = {
 		birth = "1048.1.1"
@@ -18829,7 +18829,7 @@
 	religion = "sunni"
 	culture = "kurdish"
 	add_trait = "brave"
-	add_trait = "martial_cleric"
+	add_trait = "dutiful_cleric"
 	1032.1.1 = {
 		birth = "1032.1.1"
 	}

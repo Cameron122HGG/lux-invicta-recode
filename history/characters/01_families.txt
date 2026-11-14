@@ -169,7 +169,7 @@
 	religion = "dionysos"
 	culture = "hellenistic"
 	trait = "charismatic_negotiator"
-	trait = "fair"
+	trait = "attractive"
 	trait = "hedonist"
 	trait = "mystic"
 	trait = "arbitrary"
@@ -217,7 +217,7 @@
 	culture = "greek"
 	add_trait = "hist_julianos"
 	trait = "twin"
-	trait = "fair"
+	trait = "attractive"
 	trait = "content"
 	
 	1051.1.2 = {
@@ -239,7 +239,7 @@
 	culture = "greek"
 	add_trait = "hist_julianos"
 	trait = "twin"
-	trait = "fair"
+	trait = "attractive"
 	trait = "gregarious"
 	
 	1051.1.2 = {

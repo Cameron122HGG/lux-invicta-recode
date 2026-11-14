@@ -856,7 +856,7 @@
 			factor = 0
 			is_female = no
 			NOT = { trait = detached_priest }
-			NOT = { trait = martial_cleric }
+			NOT = { trait = dutiful_cleric }
 			NOT = { trait = scholarly_theologian }
 			NOT = { trait = mastermind_theologian }
 			NOT = { has_job_title = job_spiritual }
@@ -3301,8 +3301,8 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = has_measles
-				trait = has_small_pox
+				trait = measles
+				trait = smallpox
 			}
 		}
  	}
@@ -3313,8 +3313,8 @@
 			factor = 0
 			OR = {
 				NOT = {
-					trait = has_measles
-					trait = has_small_pox
+					trait = measles
+					trait = smallpox
 				}
 			}
 		}
@@ -3329,7 +3329,7 @@
 		modifier = {
 			factor = 0
 			OR = {
-				trait = has_bubonic_plague
+				trait = bubonic_plague
 			}
 		}
  	}
@@ -3340,7 +3340,7 @@
 			factor = 0
 			OR = {
 				NOT = {
-					trait = has_bubonic_plague
+					trait = bubonic_plague
 				}
 			}
 		}
@@ -4659,7 +4659,7 @@
 		modifier = {
 			factor = 0
 			OR = { 
-				trait = is_fat
+				trait = fat
 				trait = sturdy
 			}
 		}
@@ -4672,7 +4672,7 @@
 		}
 		modifier = {
 			factor = 0
-			trait = is_fat
+			trait = fat
 		}
 		modifier = {
 			factor = 0
@@ -4687,7 +4687,7 @@
 		}
 		modifier = {
 			factor = 0
-			trait = is_fat
+			trait = fat
 		}
 		modifier = {
 			factor = 0
@@ -4706,7 +4706,7 @@
 		}
 		modifier = {
 			factor = 0
-			trait = is_fat
+			trait = fat
 		}
 		modifier = {
 			factor = 0
@@ -4717,7 +4717,7 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			NOT = { trait = is_fat }
+			NOT = { trait = fat }
 		}
 		modifier = {
 			factor = 0
@@ -4728,7 +4728,7 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			NOT = { trait = is_fat }
+			NOT = { trait = fat }
 		}
 		modifier = {
 			factor = 0
@@ -4743,7 +4743,7 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			NOT = { trait = is_fat }
+			NOT = { trait = fat }
 		}
 		modifier = {
 			factor = 0
@@ -4760,7 +4760,7 @@
 			factor = 0
 			OR = { 
 				trait = ill
-				trait = is_malnourished
+				trait = malnourished
 			}
 		}
  	}
@@ -4770,7 +4770,7 @@
 		modifier = {
 			factor = 0
 			NOT = { trait = ill }
-			NOT = { trait = is_malnourished }
+			NOT = { trait = malnourished }
 		}
   	}
 }

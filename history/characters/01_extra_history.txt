@@ -48313,7 +48313,7 @@
 	religion="sunni"
 	culture="levantine_arabic"
 	trait="deceitful"
-	trait="martial_cleric"
+	trait="dutiful_cleric"
 	father=1713081
 	943.1.1={
 		birth="943.1.1"
@@ -48360,7 +48360,7 @@
 	stewardship=4
 	religion="sunni"
 	culture="levantine_arabic"
-	trait="martial_cleric"
+	trait="dutiful_cleric"
 	father=1713084
 	1052.1.1={
 		birth="1052.1.1"
@@ -51736,7 +51736,7 @@
 	culture="egyptian_arabic"
 	trait="zealous"
 	trait="wroth"
-	trait="martial_cleric"
+	trait="dutiful_cleric"
 	trait="sayyid"
 	father=1713324
 	1045.1.1={
@@ -63274,7 +63274,7 @@
 	stewardship=6
 	religion="catholic"
 	culture="norman"
-	trait="martial_cleric"
+	trait="dutiful_cleric"
 	father=1714088
 	1056.1.1 = {
 		birth="1056.1.1"
@@ -63409,7 +63409,7 @@
 	stewardship=8
 	religion="catholic"
 	culture="norman"
-	trait="martial_cleric"
+	trait="dutiful_cleric"
 	father=1714092
 	mother=1714093
 	1011.1.2 = {
@@ -63539,7 +63539,7 @@
 	religion="catholic"
 	culture="norman"
 	trait="honest"
-	trait="martial_cleric"
+	trait="dutiful_cleric"
 	father=1714092
 	mother=1714094
 	1022.1.2 = {
@@ -63620,7 +63620,7 @@
 	stewardship=6
 	religion="catholic"
 	culture="norman"
-	trait="martial_cleric"
+	trait="dutiful_cleric"
 	father=1714099
 	1041.1.2 = {
 		birth="1041.1.2"
@@ -63695,7 +63695,7 @@
 	religion="catholic"
 	culture="norman"
 	trait="kind"
-	trait="martial_cleric"
+	trait="dutiful_cleric"
 	father=1714103
 	1050.1.1 = {
 		birth="1050.1.1"
@@ -63799,7 +63799,7 @@
 	culture="norman"
 	trait="bastard"
 	trait="charitable"
-	trait="martial_cleric"
+	trait="dutiful_cleric"
 	father = 1714104
 	1052.1.2 = {
 		birth="1052.1.2"
@@ -69007,7 +69007,7 @@
 	religion = "almaqah"
 	culture = "sabaean"
 	father = 1714513
-	add_trait = "fair"
+	add_trait = "attractive"
 	add_trait = "hist_almaqah"
 	1041.1.1 = {
 		birth = "1041.1.1"
@@ -70804,7 +70804,7 @@
 	religion = "sethian" 
 	culture = "levantine_arabic"
 	father = 1714651
-	add_trait = "fair"
+	add_trait = "attractive"
 	intrigue = 12
 	1050.1.1= {
 		birth="1050.1.1"
@@ -72081,7 +72081,7 @@
 	father = 1714747
 	religion = "sol_islam"
 	culture = "greek"
-	add_trait = "fair"
+	add_trait = "attractive"
 	add_trait = "hist_ptolemaios"
 	1049.1.1 = {
 		birth = "1049.1.1"
@@ -72138,7 +72138,7 @@
 	father = 1711675
 	religion = "sol_apollo"
 	culture = "hellenistic"
-	add_trait = "fair"
+	add_trait = "attractive"
 	intrigue = 15
 	add_trait = "hist_ptolemaios"
 	1049.1.1 = {
@@ -74167,7 +74167,7 @@
 	father = 1714905
 	religion = "sunni"
 	culture = "bedouin_arabic"
-	add_trait = "fair"
+	add_trait = "attractive"
 	1049.1.1 = {
 		birth = "1049.1.1"
 	}
@@ -74326,7 +74326,7 @@
 	father = 1714918
 	religion = "ghazi_islam"
 	culture = "levantine_arabic"
-	add_trait = "fair"
+	add_trait = "attractive"
 	1050.1.1 = {
 		birth = "1050.1.1"
 	}
@@ -74498,7 +74498,7 @@
 	father = 1714931
 	religion = "ghazi_islam"
 	culture = "levantine_arabic"
-	add_trait = "fair"
+	add_trait = "attractive"
 	1050.1.1 = {
 		birth = "1050.1.1"
 	}
@@ -75053,7 +75053,7 @@
 	father = 1714974
 	religion = "nestorian" 
 	culture = "syroaramean"
-	add_trait = "fair"
+	add_trait = "attractive"
 	1050.1.1 = {
 		birth = "1050.1.1"
 	}
