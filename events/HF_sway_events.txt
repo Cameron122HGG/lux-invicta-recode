@@ -160,10 +160,6 @@ character_event = {
 						trait = sympathy_indohellens
 					}
 					event_target:potential_antagonized = { 
-						ROOT = { NOT = { religion_group = inti_group } }
-						trait = sympathy_intis
-					}
-					event_target:potential_antagonized = { 
 						ROOT = { NOT = { religion_group = inuit_group } }
 						trait = sympathy_inuit
 					}
@@ -7687,7 +7683,7 @@ character_event = {
 				FROM = { religion_group = inti_group }
 				FROM = { has_character_flag = flag_appease_kind_religion_group }
 			} 
-			random = { chance = 30 add_trait = sympathy_intis }
+			#random = { chance = 30 add_trait = sympathy_intis } # trait not in Lux Invicta (Holy Fury switched off)
 		} 		
 		if = { 
 			limit = { 
@@ -8181,7 +8177,7 @@ character_event = {
 				NOT = { trait = sympathy_intis }
 				FROM = { religion_group = inti_group }
 			} 
-			random = { chance = 30 add_trait = sympathy_intis }
+			#random = { chance = 30 add_trait = sympathy_intis } # trait not in Lux Invicta (Holy Fury switched off)
 		}		
 		if = { 
 			limit = { 

@@ -1690,10 +1690,6 @@ letter_event = {
 					}
 				}
 				modifier = {
-					factor = 0		# Catholics only.
-					has_landed_title = d_fraticelli
-				}
-				modifier = {
 					factor = 1.5
 					trait = gluttonous
 				}
@@ -12162,7 +12158,6 @@ character_event = {
 							trait = excommunicated
 							trait = possessed 
 							NOT = { religion_head = { has_landed_title = k_papal_state } }
-							has_landed_title = e_latin_empire #Disavowed historically.
 						}
 					}
 					modifier = { #More distant/Less powerful Kingdom less likely to be crowned by the Pope.
@@ -12221,10 +12216,8 @@ character_event = {
 									has_minor_title = title_cardinal
 									has_minor_title = title_fraticelli_cardinal
 									any_claim = { title = k_papal_state } #Antipope
-									any_claim = { title = d_fraticelli } #Antipope
 								}
 								NOT = { has_landed_title = k_papal_state }
-								NOT = { has_landed_title = d_fraticelli }
 							}
 						} 
 					}
@@ -12235,7 +12228,6 @@ character_event = {
 						factor = 0
 						NOT = { trait = excommunicated }
 						NOT = { trait = possessed }
-						NOT = { has_landed_title = e_latin_empire }
 						tier = EMPEROR
 					}
 					modifier = { #Respectable Kings are crowned by Bishops.
@@ -12251,10 +12243,8 @@ character_event = {
 								has_minor_title = title_cardinal
 								has_minor_title = title_fraticelli_cardinal
 								any_claim = { title = k_papal_state } #Antipope
-								any_claim = { title = d_fraticelli } #Antipope
 							}
 							NOT = { has_landed_title = k_papal_state }
-							NOT = { has_landed_title = d_fraticelli }
 						}
 					}
 					add_trait = crowned_by_priest
@@ -15787,98 +15777,98 @@ character_event = {
 				has_landed_title = e_hre 
 				any_artifact = { artifact_type = crown_hre }
 			}
-			add_trait = dead_crown_hre
+			#add_trait = dead_crown_hre # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = e_byzantium 
 				any_artifact = { artifact_type = crown_byzantine }
 			}
-			add_trait = dead_crown_byzantine
+			#add_trait = dead_crown_byzantine # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = d_norse_pagan_reformed 
 				any_artifact = { artifact_type = crown_fylkir }
 			}
-			add_trait = dead_crown_fylkir
+			#add_trait = dead_crown_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = d_tengri_pagan_reformed 
 				any_artifact = { artifact_type = crown_tengri_fylkir }
 			}
-			add_trait = dead_crown_tengri_fylkir
+			#add_trait = dead_crown_tengri_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = d_finnish_pagan_reformed 
 				any_artifact = { artifact_type = crown_finnish_fylkir }
 			}
-			add_trait = dead_crown_finnish_fylkir
+			#add_trait = dead_crown_finnish_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = d_slavic_pagan_reformed 
 				any_artifact = { artifact_type = crown_slavic_fylkir }
 			}
-			add_trait = dead_crown_slavic_fylkir
+			#add_trait = dead_crown_slavic_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = d_baltic_pagan_reformed 
 				any_artifact = { artifact_type = crown_romuva_fylkir }
 			}
-			add_trait = dead_crown_romuva_fylkir
+			#add_trait = dead_crown_romuva_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = d_west_african_pagan_reformed 
 				any_artifact = { artifact_type = crown_west_african_fylkir }
 			}
-			add_trait = dead_crown_west_african_fylkir
+			#add_trait = dead_crown_west_african_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = d_bon_reformed 
 				any_artifact = { artifact_type = scepter_bon_fylkir }
 			}
-			add_trait = dead_scepter_bon_fylkir
+			#add_trait = dead_scepter_bon_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = d_zun_pagan_reformed 
 				any_artifact = { artifact_type = crown_zun_fylkir }
 			}
-			add_trait = dead_crown_zun_fylkir
+			#add_trait = dead_crown_zun_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = k_hellenic_pagan
 				any_artifact = { artifact_type = scepter_hellenic_fylkir }
 			}
-			add_trait = dead_scepter_hellenic_fylkir
+			#add_trait = dead_scepter_hellenic_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = d_aztec_reformed 
 				any_artifact = { artifact_type = crown_aztec_fylkir }
 			}
-			add_trait = dead_crown_aztec_fylkir
+			#add_trait = dead_crown_aztec_fylkir # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = e_persia 
 				any_artifact = { artifact_type = crown_pahlavi }
 			}
-			add_trait = dead_crown_pahlavi
+			#add_trait = dead_crown_pahlavi # trait not in Lux Invicta (Holy Fury switched off)
 		}
 		if =  { 
 			limit =  { 
 				has_landed_title = k_italy 
 				any_artifact = { artifact_type = iron_crown_of_lombardy }
 			}
-			add_trait = dead_iron_crown_lombardy
+			#add_trait = dead_iron_crown_lombardy # trait not in Lux Invicta (Holy Fury switched off)
 		}
 	}
 }
