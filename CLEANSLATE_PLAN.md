@@ -318,6 +318,19 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      mechanical. Both taken out again; their 17 entries in `15_holy_fury.txt` switched off with the
      "later phase 8 part" note. **They move to part 4** (crusades, holy orders and titles, with lore
      decisions). Part 1 keeps battle, duels, health, pregnancy and random flavour (433 events).
+     Re-run: 1,693 (part 1 done).
+   - **Part 2 applied (2026-11-14):** AIO's `HF_sainthood_events`, `HF_saint_flavour_events`,
+     `HF_saintly_bloodlines_events`, `HF_ancestor_worship_events` (49 events); 16 step A switch-offs undone
+     (`HF.40000` beatification and `HF.40100` ancestor worship are live again). Pagan sainthood is gated by
+     the `religion_beatification` feature, which LI's reformed faiths can already choose. User decisions:
+     all of LI's reformed pagan faiths can found saintly bloodlines; Celtic → Germanic family, Egyptian and
+     Near-Eastern → Hellenic (both commented as stand-ins), Sol → Hellenic. New
+     `common/scripted_triggers/li_pagan_saint_triggers.txt` (9 families, 50 faiths); the event's 45 vanilla
+     faith branches check those triggers, the bloodline takes the saint's own faith, the pagan description
+     checks "not Christian", `k_papacy` → `k_papal_state` (LI's Pope). Aztec branches stay (no LI faith).
+     **Moved to step B:** CK2Plus's own Christian sainthood (`CK2Plus_religion_christian_sainthood.txt`):
+     it belongs to CK2Plus's Christian religion system (its own on_actions and effects, 5 traits with
+     icons, 129 localisation keys), so it comes in with that system, not with Holy Fury.
 
 ## Tools (currently in the session scratchpad; move into `tools/` in the repo to keep them)
 
