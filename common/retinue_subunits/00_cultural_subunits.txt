@@ -31,7 +31,6 @@ RETTYPE_CUL_ENG = {
 		can_have_retinues = yes
 		is_nomadic = no
 		OR = {
-			culture = english
 			culture = welsh
 		}
 	}
@@ -96,7 +95,6 @@ RETTYPE_CUL_ALTAIC = {
 			culture_group = altaic
 			culture_group = iranian
 		}
-		NOT = { culture = jurchen }
 	}
 
 	modifier = {
@@ -117,7 +115,6 @@ RETTYPE_CUL_FRANK_NOR_GER = {
 		is_nomadic = no
 
 		OR = {
-			culture = french
 			culture = occitan
 			culture = norman
 			culture = german
@@ -158,7 +155,6 @@ RETTYPE_CUL_ITA = {
 
 		OR = {
 			culture = italian
-			culture = dalmatian
 		}
 	}
 
@@ -219,7 +215,6 @@ RETTYPE_CUL_NORTHGER = {
 
 		OR = {
 			culture_group = north_germanic
-			culture = anglo_saxon
 			culture = saxon
 			culture = frisian
 		}
@@ -263,7 +258,6 @@ RETTYPE_CUL_ARAB = {
 		culture_group = arabic
 
 		NOR = {
-			culture = andalusian
 			culture = berber
 		}
 	}
@@ -323,10 +317,7 @@ RETTYPE_CUL_BYZ = {
 		culture_group = byzantine
 
 		NOR = {
-			culture = coptic
 			culture = alan
-			culture = assyrian
-			culture = arberian
 		}
 	}
 

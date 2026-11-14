@@ -237,14 +237,11 @@ targeted_decisions = {
 			trigger = {
 				NOR = {
 					has_landed_title = e_china_west_governor
-					has_landed_title = e_latin_empire
-					has_landed_title = e_outremer
 					has_landed_title = k_jerusalem
 
 					any_liege = {
 						OR = {
 							has_landed_title = k_jerusalem
-							has_landed_title = e_outremer
 						}
 					}
 
@@ -258,34 +255,16 @@ targeted_decisions = {
 						is_powerful_vassal = yes
 					}
 
-					AND = {
-						NOR = {
-							year >= 1150
-							non_historical_culture_names_in_alt_start_trigger = yes
-						}
-
-						capital_scope = { culture = norse }
-
-						OR = {
-							culture = swedish
-							culture = norwegian
-							culture = danish
-							culture = norman
-						}
-					}
 
 					AND = {
 						capital_scope = {
 							OR = {
-								culture = anglo_saxon
 								culture = norman
 							}
 						}
 
 						OR = {
-							culture = anglo_saxon
 							culture = norman
-							culture = english
 						}
 					}
 
@@ -304,10 +283,6 @@ targeted_decisions = {
 						culture = italian
 					}
 
-					AND = {
-						capital_scope = { culture = frankish }
-						culture = french
-					}
 
 					AND = {
 						capital_scope = { culture = frisian }
@@ -323,13 +298,11 @@ targeted_decisions = {
 						capital_scope = { culture = visigothic }
 						OR = {
 							culture_group = iberian
-							culture = andalusian
 							culture = occitan
 							religion_group = muslim
 						}
 					}
 
-					culture = nahua
 				}
 			}
 		}

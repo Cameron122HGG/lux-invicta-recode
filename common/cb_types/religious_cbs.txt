@@ -1989,7 +1989,6 @@ new_crusade = {
 								any_demesne_title = {
 									limit = {
 										real_tier = EMPEROR
-										NOT = { title = e_nicaea }
 									}
 
 									destroy_landed_title = THIS
@@ -2620,7 +2619,6 @@ religious = {
 
 				OR = {
 					is_reformed_religion = yes
-					religion = aztec_pagan
 				}
 			}
 
@@ -2813,7 +2811,6 @@ religious = {
 
 				OR = {
 					is_reformed_religion = yes
-					religion = aztec_pagan
 				}
 			}
 

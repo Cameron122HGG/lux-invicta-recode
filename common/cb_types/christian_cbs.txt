@@ -814,7 +814,6 @@ northern_crusade_war = {
 					# Become the Teutonic State, if they aren't already
 					if = {
 						limit = {
-							NOT = { has_landed_title = k_teutonic_state }
 						}
 
 						k_teutonic_state = {
