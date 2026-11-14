@@ -1,0 +1,274 @@
+# Lux Invicta definitions extracted from master:common/event_modifiers/00_event_modifiers.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+martial_unrest = {
+	local_revolt_risk = 0.1
+	local_tax_modifier = -0.5
+	icon = 31
+}
+messianic_unrest = {
+	local_revolt_risk = 0.1
+	local_tax_modifier = -0.5
+	icon = 31
+}
+populist_unrest = {
+	local_revolt_risk = 0.1
+	local_tax_modifier = -0.5
+	icon = 31
+}
+held_pagan_feast_timer = {
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.3
+	icon = 13
+}
+faction_loosen_clan_control_ultimatum_timer = { icon = 1 }
+expelled_d_enemies_of_avidya = {
+	icon = 35
+}
+expelled_d_ahrimans_divs = {
+	icon = 35
+}
+expelled_d_holy_doctors = {
+	icon = 35
+}
+expelled_d_council_of_aesir = {
+	icon = 35
+}
+expelled_d_warriors_of_oasis = {
+	icon = 35
+}
+expelled_d_blue_wolves = {
+	icon = 35
+}
+expelled_d_order_of_righteous = {
+	icon = 35
+}
+expelled_d_avengers_of_holy_pyre = {
+	icon = 35
+}
+follower_of_yemoja = {
+	icon = 61
+	diplomacy = 2
+	intrigue = -1
+}
+follower_of_ekwensu = {
+	icon = 4
+	stewardship = 2
+	learning = -1
+}
+follower_of_orunmila = {
+	icon = 2
+	learning = 2
+	intrigue = -1
+}
+follower_of_shango = {
+	icon = 13
+	martial = 2
+	diplomacy = -1
+}
+yemojas_blessing = {
+	icon = 39
+	fertility = 0.2
+}
+voice_of_yemoja = {
+	icon = 3
+	general_opinion = 10
+}
+secret_antinomian_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_antinomian
+	}
+}
+secret_aten_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_aten
+	}
+}
+secret_batembuzi_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_batembuzi
+	}
+}
+secret_bud_bahusrutiya_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_bud_bahusrutiya
+	}
+}
+secret_bud_mahayana_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_bud_mahayana
+	}
+}
+secret_dionysos_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_dionysos
+	}
+}
+secret_donatist_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_donatist
+	}
+}
+secret_erlik_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_erlik
+	}
+}
+secret_haruri_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_haruri
+	}
+}
+secret_hubal_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_hubal
+	}
+}
+secret_illuyanka_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_illuyanka
+	}
+}
+secret_irminsul_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_irminsul
+	}
+}
+secret_jud_sabaoth_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_jud_sabaoth
+	}
+}
+secret_mand_ruha_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_mand_ruha
+	}
+}
+secret_mani_ahriman_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_mani_ahriman
+	}
+}
+secret_mazdakism_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_mazdakism
+	}
+}
+secret_melkite_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_melkite
+	}
+}
+secret_montanist_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_montanist
+	}
+}
+secret_norse_war_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_norse_war
+	}
+}
+secret_pelagian_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_pelagian
+	}
+}
+secret_plato_christ_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_plato_christ
+	}
+}
+secret_plato_islam_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_plato_islam
+	}
+}
+secret_priscillian_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_priscillian 
+	}
+}
+secret_ragnarok_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_ragnarok
+	}
+}
+secret_saule_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_saule
+	}
+}
+secret_saura_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_saura
+	}
+}
+secret_set_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_set
+	}
+}
+secret_sol_christ_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_sol_christ
+	}
+}
+secret_sufi_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_sufi
+	}
+}
+secret_tengri_ahriman_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_tengri_ahriman
+	}
+}
+secret_vidharma_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_vidharma
+	}
+}
+secret_yahyanism_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_yahyanism
+	}
+}
+secret_zor_angra_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_zor_angra
+	}
+}

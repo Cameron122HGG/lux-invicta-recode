@@ -1,0 +1,5 @@
+# Lux Invicta definitions extracted from master:common/nicknames/druidic_nicknames.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+nick_pendragon = {
+}

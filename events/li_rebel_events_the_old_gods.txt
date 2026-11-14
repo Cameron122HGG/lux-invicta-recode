@@ -4,20 +4,6 @@
 namespace = luxrevolt
 namespace = TOG
 
-#########################################################
-#
-# Rebel Events for The Old Gods DLC
-# ( TOG.1000 to TOG.1199)
-#
-# NOTE: The Old Gods DLC disables the old rebel system
-#
-#########################################################
-
-# Written by Henrik Fåhraeus
-
-namespace = luxrevolt
-namespace = TOG
-
 ## Revolt selection
 # Triggered from on_rebel_revolt
 province_event = {
@@ -533,235 +519,58 @@ province_event = {
 	option = { # Reinforce messianic revolt
 		trigger = {
 			messianic_soul_trigger = yes
-			has_
+			has_province_flag = ongoing_messianic_revolt
+		}
+		province_event = { id = luxrevolt.1030 }
+		clr_province_flag = ongoing_peasant_revolt
+		clr_province_flag = ongoing_religious_revolt
+		clr_province_flag = ongoing_nationalist_revolt
+		clr_province_flag = ongoing_slave_revolt
+		clr_province_flag = ongoing_heretic_revolt
+		clr_province_flag = ongoing_martial_revolt
+		clr_province_flag = ongoing_messianic_revolt
+		clr_province_flag = ongoing_populist_revolt
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = { # Reinforce populist revolt
 		trigger = {
-			religion_group = FROM
+			has_province_flag = ongoing_populist_revolt
+			populist_soul_trigger = yes
+		}
+		province_event = { id = luxrevolt.1050 }
+		clr_province_flag = ongoing_peasant_revolt
+		clr_province_flag = ongoing_religious_revolt
+		clr_province_flag = ongoing_nationalist_revolt
+		clr_province_flag = ongoing_slave_revolt
+		clr_province_flag = ongoing_heretic_revolt
+		clr_province_flag = ongoing_martial_revolt
+		clr_province_flag = ongoing_messianic_revolt
+		clr_province_flag = ongoing_populist_revolt
+		ai_chance = {
+			factor = 10
 		}
 	}
-	option = {
-		name = EVTOPTB_TOG_1060
-		trigger = {
-			NOT = { religion_group = FROM	}
-		}
-	}
+	# Don't revolt
+	# option = { # Do nothing
+		# name = OK
+		# clr_province_flag = ongoing_peasant_revolt
+		# clr_province_flag = ongoing_religious_revolt
+		# clr_province_flag = ongoing_nationalist_revolt
+		# clr_province_flag = ongoing_slave_revolt
+		# ai_chance = {
+			# factor = 10000
+			# modifier = {
+				# factor = 0
+				# NOT = {
+					# terrain = dryad_forest
+					# owner = { trait = dryad }
+				# }
+			# }
+		# }
+	# }
 }
-
-# Religious Rebels seize a holding. Fired from 'on_siege_over_winner'. Owner of the winning unit is ROOT. The taken Holding title is in FROM.
-character_event = {
-	id = TOG.1065
-	hide_window = yes
-	is_triggered_only = yes
-	
-	trigger = {
-		has_character_flag = religious_revolter
-		rebel = yes
-		FROM = { 
-			is_capital = yes # The capital holding
-		}
-	}
-	
-	immediate = {
-		FROM = {
-			location = {
-				if = {
-					limit = {
-						NOT = { religion = ROOT }
-					}
-			
-					random = {
-						chance = 5
-						religion = ROOT
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_province_modifier = religious_unrest }
-					}
-					add_province_modifier = {
-						name = religious_unrest
-						duration = 730
-					}
-				}
-			}
-		}
-	}
-}
-
-# Religious Rebels rise up to reinforce an ongoing heretic uprising
-# Triggered from [s]"on_rebel_revolt"[/s] luxrevolt.1
-province_event = {
-	id = TOG.1070
-	desc = EVTDESC_TOG_1070
-	picture = GFX_evt_heretic
-	border = GFX_event_normal_frame_war
-	
-	is_triggered_only = yes
-	
-	immediate = {
-	
-		add_province_modifier = {
-			name = recent
-			name = recent_county_uprising
-			duration = 1825 # Five years of -100% revolt risk in this county
-		}
-	
-		owner = {
-			top_liege = {
-				any_war = {
-					limit = {
-						defender = { character = PREV }
-						using_cb = religious_revolt
-						attacker = { religion = ROOT }
-					}
-					attacker = {
-						spawn_religious_reinforcements_effect = yes
-						
-						if = {
-							limit = {
-								has_game_rule = {
-									name = provincial_revolt_strength
-									value = powerful
-								}
-							}
-							spawn_religious_reinforcements_effect = yes
-						}
-						
-						if = {
-							limit = {
-								has_game_rule = {
-									name = provincial_revolt_strength
-									value = very_powerful
-								}
-							}
-							spawn_religious_reinforcements_effect = yes
-							spawn_religious_reinforcements_effect = yes
-							spawn_religious_reinforcements_effect = yes
-						}
-						
-						if = {
-							limit = {
-								has_game_rule = {
-									name = provincial_revolt_strength
-									value = extremely_powerful
-								}
-							}
-							spawn_religious_reinforcements_effect = yes
-							spawn_religious_reinforcements_effect = yes
-							spawn_religious_reinforcements_effect = yes
-							spawn_religious_reinforcements_effect = yes
-							spawn_religious_reinforcements_effect = yes
-						}
-					}
-				}
-			}
-		}
-		
-		owner = {
-			any_liege = { # Inform the lieges
-				character_event = {
-					id = TOG.1071
-				}
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA_TOG_1070"
-	}
-}
-
-#inform lieges of reinforced religious rebellion
-character_event = {
-	id = TOG.1071
-	desc = EVTDESC_TOG_1071
-	picture = GFX_evt_heretic
-	border = GFX_event_normal_frame_war
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA_TOG_1070"
-	}
-}
-
-# Rebels kill a local character. Fired from 'on_siege_over_loc_chars'.
-# Siege winner unit owner in the 'new_character' scope, lost holding title in FROM, local character in ROOT.
-character_event = {
-	id = TOG.1190
-	desc = EVTDESC_TOG_1190
-	picture = GFX_evt_beheading
-	border = GFX_event_normal_frame_war
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		new_character = {
-			rebel = yes
-			
-			OR = {
-				NOT = { religion = ROOT }
-				AND = {
-					NOT = { has_character_flag = heretic_revolter }
-					NOT = { has_character_flag = religious_revolter }
-					NOT = { has_character_flag = shepherds_crusade_leader }
-				}
-			}
-		}
-	}
-	
-	weight_multiplier = {
-		days = 1
-		modifier = {
-			factor = 0.5
-			is_female = yes
-		}
-		modifier = {
-			factor = 0.5
-			is_adult = no
-		}
-	}
-	
-	immediate = {
-		any_liege = { # Inform the victim's lieges
-			character_event = {
-				id = TOG.1191
-			}
-		}
-		new_character = {
-			ROOT = {
-				death = {
-					death_reason = death_rabble
-					#killer = PREV
-				}
-			}
-		}
-	}
-	
-	option = {
-		name = EVTOPTA_TOG_1190
-	}
-}
-
-
-# Lieges informed
-character_event = {
-	id = TOG.1191
-	picture = GFX_evt_beheading
-	desc = EVTDESC_TOG_1191
-	border = GFX_event_normal_frame_war
-	
-	is_triggered_only = yes
-	
-	notification = yes
-	
-	ai = no
-	
-	option = {
-		name = EVTOPTA_TOG_1191
-	}
-}
-
-
 # Messianic revolt "theocratizer" event.
 character_event = {
 	id = luxrevolt.1064
@@ -846,8 +655,6 @@ character_event = {
 		}	
 	}
 }
-
-
 #Slaves rise up (temporary rebel title created, with a leader and a war)
 #Triggered from "on_rebel_revolt"
 province_event = {
@@ -864,7 +671,6 @@ province_event = {
 		if = { #try and find existing slave
 			limit = { ROOT = { NOT = { has_province_flag = slave_leader_found } } }		
 			owner = {
-				random_r
 				random_realm_character = {
 					limit = {
 						trait = slave
@@ -878,7 +684,6 @@ province_event = {
 							trait = ambitious
 							trait = brave
 							trait = liberator
-							is_strong_t
 							is_strong_trigger = yes
 						}
 						NOT = { trait = craven }
@@ -949,7 +754,7 @@ province_event = {
 					spawn_slave_army_effect = yes
 					wealth = 150
 				}
-		
+				
 				if = {
 					limit = {
 						has_game_rule = {
@@ -1033,12 +838,11 @@ province_event = {
 		}
 	}
 }
-
 character_event = {
 	id = luxrevolt.1081
 	desc = EVTDESC_TOG_106199
 	picture = GFX_evt_peasants
-	border = GFX_event_normal_frame_wa
+	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
 	
@@ -1061,7 +865,6 @@ character_event = {
 							}
 							AND = {
 								holding_type = temple
-								
 								has_building = tp_asoiaf_slavepit_1
 							}
 						}
@@ -1071,12 +874,10 @@ character_event = {
 					}
 				}
 			}
-			character_eve
 			character_event = { id = slavery.1001 tooltip = "EVTTOOLTIPSLAVERY1001" }
 		}
 	}
 }
-
 character_event = {
 	id = luxrevolt.1082
 	desc = EVTDESC_TOG_106199
@@ -1090,7 +891,6 @@ character_event = {
 		character_event = { id = slavery.1001 tooltip = "EVTTOOLTIPSLAVERY1001" }
 	}
 }
-
 # A liberator seizes a holding containing a slave camp. Fired from 'on_siege_won_leader'.
 character_event = {
 	id = luxrevolt.1085
@@ -1128,7 +928,6 @@ character_event = {
 					capital_holding = { title = FROM }
 					OR = {
 						family_palace = { has_building = fp_asoiaf_slavepit_1 }
-						any_vassal = { family_palace = { ha
 						any_vassal = { family_palace = { has_building = fp_asoiaf_slavepit_1 } }
 					}
 				}
@@ -1164,7 +963,6 @@ character_event = {
 		}
 	}
 }
-
 character_event = {
 	id = luxrevolt.1086
 	desc = "EVTDESC_TOG_106699"
@@ -1181,7 +979,6 @@ character_event = {
 					OR = {
 						AND = {
 							holding_type = castle
-					
 							has_building = ca_asoiaf_slavepit_1
 						}
 						AND = {
@@ -1214,7 +1011,6 @@ character_event = {
 						}
 						remove_building = ct_asoiaf_slavepit_5
 						remove_building = ct_asoiaf_slavepit_4
-						remove_building
 						remove_building = ct_asoiaf_slavepit_3
 						remove_building = ct_asoiaf_slavepit_2
 						remove_building = ct_asoiaf_slavepit_1
@@ -1225,7 +1021,6 @@ character_event = {
 						}
 						remove_building = tp_asoiaf_slavepit_5
 						remove_building = tp_asoiaf_slavepit_4
-						remove_b
 						remove_building = tp_asoiaf_slavepit_3
 						remove_building = tp_asoiaf_slavepit_2
 						remove_building = tp_asoiaf_slavepit_1
@@ -1252,7 +1047,6 @@ character_event = {
 		}
 	}
 }
-
 character_event = {
 	id = luxrevolt.1087
 	desc = "EVTDESC_TOG_106699"
@@ -1273,7 +1067,6 @@ character_event = {
 		}
 	}
 }
-
 # Liberated slaves rally to join their liberator
 province_event = {
 	id = luxrevolt.1088
@@ -1282,7 +1075,6 @@ province_event = {
 	
 	immediate = { FROM = { character_event = { id = luxrevolt.1091 } } }
 }
-
 # Slave rebels rise up to reinforce an ongoing provincial peasant revolt
 # Triggered from [s]"on_rebel_revolt"[/s] luxrevolt.1
 province_event = {
@@ -1309,14 +1101,12 @@ province_event = {
 					attacker = { character_event = { id = luxrevolt.1091 } }
 				}
 				any_realm_province = {
-					lim
 					limit = {					
 						OR = {
 							has_province_modifier = slave_modifier_1
 							has_province_modifier = slave_modifier_2
 							has_province_modifier = slave_modifier_3
 							has_province_modifier = slave_modifier_4
-			
 							has_province_modifier = slave_modifier_5
 						}
 						NOT = { has_province_modifier = slave_revolt_modifier }
@@ -1337,7 +1127,7 @@ province_event = {
 				limit = {
 					capital_scope = { province_id = ROOT }
 					is_merchant_republic = yes
-		
+				}
 				any_vassal = {
 					limit = { family_palace = { has_building = fp_asoiaf_slavepit_1 } }
 					character_event = { id = luxrevolt.1093 tooltip = "EVTTOOLTIPSLAVERY1001" }
@@ -1346,7 +1136,6 @@ province_event = {
 		}
 	}
 }
-
 character_event = {
 	id = luxrevolt.1091
 	desc = "EVTDESCTOG107199"
@@ -1398,7 +1187,6 @@ character_event = {
 		}	
 	}
 }
-
 character_event = {
 	id = luxrevolt.1092
 	desc = EVTDESC_TOG_107299
@@ -1439,7 +1227,6 @@ character_event = {
 		}				
 	}
 }
-
 character_event = {
 	id = luxrevolt.1093
 	desc = EVTDESC_TOG_107299
@@ -1566,7 +1353,6 @@ province_event = {
 		name = "EVTOPTA_TOG_1000"
 	}
 }
-
 #Inform lieges of new peasant revolt
 character_event = {
 	id = luxrevolt.1001
@@ -1580,7 +1366,6 @@ character_event = {
 		name = "EVTOPTA_TOG_1000"
 	}
 }
-
 # Martial rebels seize a holding. Fired from 'on_siege_won_leader'.
 character_event = {
 	id = luxrevolt.1005
@@ -1611,7 +1396,6 @@ character_event = {
 		}
 	}
 }
-
 # Martial Rebels rise up to reinforce an ongoing provincial martial revolt
 # Triggered from [s]"on_rebel_revolt"[/s] luxrevolt.1
 province_event = {
@@ -1862,7 +1646,6 @@ province_event = {
 											light_cavalry = { 3 3 }
 											light_infantry = { 11 11 }
 										}
-										attrit
 										attrition = 1.0
 										disband_on_peace = yes
 									}
@@ -1873,7 +1656,7 @@ province_event = {
 									random_traits = yes
 									dynasty = none
 									religion = THIS
-									culture = THI
+									culture = THIS
 									female = no
 									age = 25
 									trait = martial_challenger
@@ -2109,7 +1892,6 @@ province_event = {
 		name = "EVTOPTA_TOG_1010"
 	}
 }
-
 #Inform lieges of reinforced peasant revolt
 character_event = {
 	id = luxrevolt.1011
@@ -2123,7 +1905,6 @@ character_event = {
 		name = "EVTOPTA_TOG_1010"
 	}
 }
-
 # Peasant Rebels rise up (temporary rebel title created, with a leader and a war)
 # Triggered from [s]"on_rebel_revolt"[/s] luxrevolt.1
 province_event = {
@@ -2305,7 +2086,6 @@ province_event = {
 						troops = {
 							archers = { 6 6 }
 							light_cavalry = { 3 3 }
-				
 							light_infantry = { 11 11 }
 						}
 						attrition = 1.0
@@ -2326,7 +2106,6 @@ province_event = {
 							home = ROOT
 							owner = PREV
 							scaled_by_biggest_garrison = 0.75
-							tr
 							troops = {
 								archers = { 6 6 }
 								light_cavalry = { 3 3 }
@@ -2585,7 +2364,6 @@ province_event = {
 		name = "EVTOPTA_TOG_1000"
 	}
 }
-
 #Inform lieges of new peasant revolt
 character_event = {
 	id = luxrevolt.1021
@@ -2599,7 +2377,6 @@ character_event = {
 		name = "EVTOPTA_TOG_1000"
 	}
 }
-
 # Peasants seize a holding. Fired from 'on_siege_won_leader'.
 character_event = {
 	id = luxrevolt.1025
@@ -2631,7 +2408,6 @@ character_event = {
 		}
 	}
 }
-
 # Messianic Rebels rise up to reinforce an ongoing provincial messianic revolt
 # Triggered from [s]"on_rebel_revolt"[/s] luxrevolt.1
 province_event = {
@@ -2855,7 +2631,6 @@ province_event = {
 										troops = {
 											archers = { 6 6 }
 											light_cavalry = { 3 3 }
-											light_infantry = 
 											light_infantry = { 11 11 }
 										}
 										attrition = 1.0
@@ -2866,7 +2641,6 @@ province_event = {
 									random_traits = yes
 									dynasty = none
 									religion = THIS
-							
 									culture = THIS
 									female = no
 									age = 31
@@ -3130,7 +2904,6 @@ province_event = {
 		name = "EVTOPTA_TOG_1010"
 	}
 }
-
 #Inform lieges of reinforced peasant revolt
 character_event = {
 	id = luxrevolt.1031
@@ -3144,7 +2917,6 @@ character_event = {
 		name = "EVTOPTA_TOG_1010"
 	}
 }
-
 # Peasant Rebels rise up (temporary rebel title created, with a leader and a war)
 # Triggered from [s]"on_rebel_revolt"[/s] luxrevolt.1
 province_event = {
@@ -3299,7 +3071,6 @@ province_event = {
 						female = no
 						age = 31
 						trait = revolutionary
-						trait = tough_sol
 						trait = tough_soldier
 					}
 					new_character = {
@@ -3322,7 +3093,6 @@ province_event = {
 					spawn_unit = {
 						province = ROOT
 						home = ROOT
-						ow
 						owner = THIS
 						leader = THIS
 						scaled_by_biggest_garrison = 0.75
@@ -3607,7 +3377,6 @@ province_event = {
 		name = "EVTOPTA_TOG_1000"
 	}
 }
-
 #Inform lieges of new peasant revolt
 character_event = {
 	id = luxrevolt.1041
@@ -3621,7 +3390,6 @@ character_event = {
 		name = "EVTOPTA_TOG_1000"
 	}
 }
-
 # Peasants seize a holding. Fired from 'on_siege_won_leader'.
 character_event = {
 	id = luxrevolt.1045
@@ -3653,7 +3421,6 @@ character_event = {
 		}
 	}
 }
-
 # Peasant Rebels rise up to reinforce an ongoing provincial peasant revolt
 # Triggered from [s]"on_rebel_revolt"[/s] luxrevolt.1
 province_event = {
@@ -3854,7 +3621,6 @@ province_event = {
 											archers = { 6 6 }
 											light_cavalry = { 3 3 }
 											light_infantry = { 11 11 }
-				
 										}
 										attrition = 1.0
 									}
@@ -3865,4 +3631,302 @@ province_event = {
 									religion = THIS
 									culture = THIS
 									female = no
-									
+									age = 30
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.75
+										troops = {
+											archers = { 6 6 }
+											light_cavalry = { 3 3 }
+											light_infantry = { 11 11 }
+										}
+										attrition = 1.0
+										disband_on_peace = yes
+									}
+								}
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 31
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.75
+										troops = {
+											archers = { 6 6 }
+											light_cavalry = { 3 3 }
+											light_infantry = { 11 11 }
+										}
+										attrition = 1.0
+										disband_on_peace = yes
+									}
+								}
+							}
+							17 = {
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 25
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.5
+										troops = {
+											archers = { 6 6 }
+											light_cavalry = { 3 3 }
+											light_infantry = { 11 11 }
+										}
+										attrition = 1.0
+									}
+								}
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 30
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.5
+										troops = {
+											archers = { 6 6 }
+											light_cavalry = { 3 3 }
+											light_infantry = { 11 11 }
+										}
+										attrition = 1.0
+										disband_on_peace = yes
+									}
+								}
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 31
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.5
+										troops = {
+											archers = { 6 6 }
+											light_cavalry = { 3 3 }
+											light_infantry = { 11 11 }
+										}
+										attrition = 1.0
+										disband_on_peace = yes
+									}
+								}
+							}
+							16 = {
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 25
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.75
+										troops = {
+											archers = { 6 6 }
+											light_infantry = { 14 14 }
+										}
+										attrition = 1.0
+									}
+								}
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 30
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.75
+										troops = {
+											archers = { 6 6 }
+											light_infantry = { 14 14 }
+										}
+										attrition = 1.0
+										disband_on_peace = yes
+									}
+								}
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 31
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.75
+										troops = {
+											archers = { 6 6 }
+											light_infantry = { 14 14 }
+										}
+										attrition = 1.0
+										disband_on_peace = yes
+									}
+								}
+							}
+							17 = {
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 25
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.5
+										troops = {
+											archers = { 6 6 }
+											light_infantry = { 14 14 }
+										}
+										attrition = 1.0
+									}
+								}
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 30
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.5
+										troops = {
+											archers = { 6 6 }
+											light_infantry = { 14 14 }
+										}
+										attrition = 1.0
+										disband_on_peace = yes
+									}
+								}
+								create_character = {
+									random_traits = yes
+									dynasty = none
+									religion = THIS
+									culture = THIS
+									female = no
+									age = 31
+									trait = revolutionary
+									trait = tough_soldier
+								}
+								new_character = {
+									spawn_unit = {
+										province = ROOT
+										home = ROOT
+										owner = PREV
+										scaled_by_biggest_garrison = 0.5
+										troops = {
+											archers = { 6 6 }
+											light_infantry = { 14 14 }
+										}
+										attrition = 1.0
+										disband_on_peace = yes
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		owner = {
+			any_liege = { # Inform the lieges
+				character_event = {
+					id = luxrevolt.1051
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_TOG_1010"
+	}
+}
+#Inform lieges of reinforced peasant revolt
+character_event = {
+	id = luxrevolt.1051
+	desc = EVTDESC_luxrevolt_1051
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_TOG_1010"
+	}
+}

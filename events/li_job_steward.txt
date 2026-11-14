@@ -2,161 +2,6 @@
 # Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
 
 
-			years = 10
-		}
-		
-		opinion = {
-			who = FROM
-			modifier = squeezed_for_extra_tribute
-			years = 10
-		}
-		
-		hidden_tooltip = {
-			FROM = { character_event = { id = 20227 } } # Notifications
-		}
-	}
-	
-	option = {
-		name = EVTOPTB20226 # Refuse
-		ai_chance = {
-			factor = 100
-			modifier = {
-				factor = 5.0
-				trait = greedy
-			}
-			modifier = {
-				factor = 2.0
-				NOT = {
-					opinion = {
-						who = event_target:tribute_asker
-						value = -24
-					}
-				}
-			}
-			modifier = {
-				factor = 2.0
-				NOT = {
-					opinion = {
-						who = event_target:tribute_asker
-						value = -49
-					}
-				}
-			}
-			modifier = {
-				factor = 2.0
-				NOT = {
-					opinion = {
-						who = event_target:tribute_asker
-						value = -74
-					}
-				}
-			}
-		}
-		
-		opinion = {
-			who = event_target:tribute_asker
-			modifier = squeezed_for_extra_tribute
-			years = 5
-		}
-		
-		hidden_tooltip = {
-			FROM = { character_event = { id = 20229 } } # Notifications
-		}
-	}
-}
-
-# 20227: The target accepts to pay extra tribute. Steward notified.
-character_event = {
-	id = 20227
-	title = EVTNAME20225
-	desc = EVTDESC20227
-	picture = GFX_evt_carriage
-	border = GFX_event_normal_frame_economy
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		liege = {
-			 character_event = { id = 20228 } # Liege notified
-		}
-	}
-	
-	option = {
-		name = EXCELLENT
-	}
-}
-
-# 20228: The target accepts to pay extra tribute. Liege notified.
-character_event = {
-	id = 20228
-	title = EVTNAME20225
-	desc = EVTDESC20228
-	picture = GFX_evt_carriage
-	border = GFX_event_normal_frame_economy
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EXCELLENT
-		
-		transfer_scaled_wealth = {
-			from = FROMFROM
-			min = 5
-			value = 1.0 # One year's income
-		}
-		
-		tooltip = {
-			reverse_opinion = {
-				who = FROMFROM
-				modifier = squeezed_for_extra_tribute
-				years = 10
-			}
-		}
-	}
-}
-
-# 20229: The target refuses to pay extra tribute. Steward notified.
-character_event = {
-	id = 20229
-	title = EVTNAME20225
-	desc = EVTDESC20229
-	picture = GFX_evt_emissary
-	border = GFX_event_normal_frame_economy
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		liege = {
-			 character_event = { id = 20231 } # Liege notified
-		}
-	}
-	
-	option = {
-		name = EVTOPTA20229
-	}
-}
-
-# 20231: The target refuses to pay extra tribute. Liege notified.
-character_event = {
-	id = 20231
-	title = EVTNAME20225
-	desc = EVTDESC20231
-	picture = GFX_evt_emissary
-	border = GFX_event_normal_frame_economy
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA20231
-		
-		opinion = {
-			who = FROMFROM
-			modifier = refused_extra_tribute
-			years = 5
-		}
-	}
-}
-
 # 320500: Prosperity Increase
 character_event = {
 	id = 320500
@@ -230,7 +75,6 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.05
-			NOT = { ste
 			NOT = { stewardship = 4 }
 		}
 		modifier = {
@@ -378,8 +222,177 @@ character_event = {
 		#liege = { letter_event = { id = 320501 days = 7 tooltip = "EVTTOOLTIP320501" } } # event exists nowhere, not even in vanilla
 	}
 }
-
 # 320502: Peasant Obstructionism
 character_event = {
 	id = 320502
 	title = "EVTNAME320502"
+	desc = "EVTDESC320502"
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_economy
+	
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_job_action = action_advance_eco_tech
+		location = {
+			NOT = { has_province_modifier = province_prosperity_1 }
+			NOT = { has_province_modifier = peasant_obstructionism }
+			owner = {
+				job_treasurer = {
+					character = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			factor = 0.9
+			NOT = { opinion = { who = liege value = -100 } }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { opinion = { who = liege value = -75 } }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { opinion = { who = liege value = -50 } }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { opinion = { who = liege value = -25 } }
+		}
+		modifier = {
+			factor = 1.05
+			opinion = { who = liege value = 25 }
+		}
+		modifier = {
+			factor = 1.05
+			opinion = { who = liege value = 50 }
+		}
+		modifier = {
+			factor = 1.05
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 1.05
+			opinion = { who = liege value = 100 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stewardship = 1 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stewardship = 2 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stewardship = 3 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stewardship = 4 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stewardship = 5 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stewardship = 6 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stewardship = 7 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stewardship = 8 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stewardship = 9 }
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 11
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 12
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 13
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 14
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 15
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 16
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 17
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 18
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 19
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 20
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 21
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 22
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 23
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 24
+		}
+		modifier = {
+			factor = 1.05
+			stewardship = 25
+		}
+		modifier = {
+			factor = 0.75
+			location = {
+				NOT = { culture = ROOT }
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA320502"
+		tooltip = {
+			add_province_modifier = {
+				name = peasant_obstructionism
+				duration = 730
+			}
+		}
+		#liege = { letter_event = { id = 320503 days = 7 tooltip = "EVTTOOLTIP320503" } } # event exists nowhere, not even in vanilla
+	}
+}

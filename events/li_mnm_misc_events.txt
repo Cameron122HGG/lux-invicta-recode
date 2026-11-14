@@ -4,63 +4,59 @@
 namespace = MNM
 namespace = Plus
 
+character_event = {
+	id = Plus.4100
 	hide_window = yes
 
 	is_triggered_only = yes
 
 	immediate = { 
 		FROM = {
-			set_character_flag = trollcrafters_attempted_recruitment
-			set_character_flag = being_recruited_by_the_trollcrafters
+			set_character_flag = the_cult_of_balor_attempted_recruitment
+			set_character_flag = being_recruited_by_the_cult_of_balor
 			character_event = { id = MNM.7001 }
 		}
 	}
 }
-
 character_event = {
-	id = MNM.10015
-	hide_wind
+	id = Plus.4101
 	hide_window = yes
 
 	is_triggered_only = yes
 
 	immediate = { 
 		FROM = {
-			set_character_flag = cult_of_kali_attempted_recruitment
-			set_character_flag = being_recruited_by_the_cult_of_kali
+			set_character_flag = cult_of_angra_mainyu_attempted_recruitment
+			set_character_flag = being_recruited_by_cult_of_angra_mainyu
 			character_event = { id = MNM.7001 }
 		}
 	}
 }
-
 character_event = {
-	id = MNM.10016
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = { 
-		FROM = {
-			set_character_flag = neo_sarkites_attempted_recruitment
-			set_character_flag = being_recruited_by_the_neo_sarkites
-			character_event = { id = MNM.7001 }
-		}
-	}
-}
-
-character_event = {
-	id = MNM.10017
-	hide_
+	id = Plus.4102
 	hide_window = yes
 
 	is_triggered_only = yes
 
 	immediate = { 
 		FROM = {
-			set_character_flag = plaguebringers_attempted_recruitment
-			set_character_flag = being_recruited_by_the_plaguebringers
+			set_character_flag = jinn_attempted_recruitment
+			set_character_flag = being_recruited_by_the_jinn
 			character_event = { id = MNM.7001 }
 		}
 	}
 }
 character_event = {
-	id = MNM.100
+	id = Plus.4104
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = {
+			set_character_flag = apepcult_attempted_recruitment
+			set_character_flag = being_recruited_by_the_apepcult
+			character_event = { id = MNM.7001 }
+		}
+	}
+}

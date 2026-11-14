@@ -1,0 +1,148 @@
+# Lux Invicta definitions extracted from master:common/minor_titles/00_minor_titles.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+title_dregvant = {
+	dignity = 0.01
+	grant_limit = 1
+	opinion_effect = -15
+	
+	monthly_prestige = -0.2
+	
+	is_unique = yes
+	allowed_to_hold = {
+		NOT = { primary_title = { temporary = yes } }
+		is_adult = yes
+		OR = {
+			trait = cruel
+			trait = kinslayer
+			trait = slothful
+			trait = wroth
+			trait = deceitful
+		}
+		NOT = {
+			trait = incapable
+		}
+	}
+	allowed_to_grant = {
+		religion_group = zoroastrian_group
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		primary_title = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+title_ashavan = {
+	dignity = 0.01
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_prestige = 0.2
+	
+	allowed_to_hold = {
+		NOT = { primary_title = { temporary = yes } }
+		is_adult = yes
+		OR = {
+			trait = kind
+			trait = diligent
+			trait = patient
+			trait = honest
+		}
+		NOT = {
+			trait = incapable
+		}
+	}
+	allowed_to_grant = {
+		religion_group = zoroastrian_group
+		is_feudal = yes
+		primary_title = {
+			higher_tier_than = duke
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+title_sraoshavarez = {
+	dignity = 0.01
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.02
+	monthly_prestige = 0.1
+	
+	is_unique = yes
+	allowed_to_hold = {
+		NOT = { primary_title = { temporary = yes } }
+		age = 16
+		is_female = no
+		religion_group = zoroastrian_group
+		NOT = {
+			trait = incapable
+		}
+	}
+	allowed_to_grant = {
+		religion_group = zoroastrian_group
+		is_feudal = yes
+		primary_title = {
+		higher_tier_than = duke
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+title_shapsheraz = {
+	dignity = 0.01
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 5
+	
+	monthly_salary = 0.02
+	monthly_prestige = 0.1
+	
+	is_unique = yes
+	allowed_to_hold = {
+		NOT = { primary_title = { temporary = yes } }
+		age = 16
+		is_female = no
+		NOT = {
+			trait = incapable
+		}
+	}
+	allowed_to_grant = {
+		religion_group = zoroastrian_group
+		is_feudal = yes
+		primary_title = {
+			higher_tier_than = count
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}

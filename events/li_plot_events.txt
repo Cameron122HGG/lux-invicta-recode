@@ -4,15 +4,15 @@
 namespace = lux
 namespace = jordarkelf_factions
 
-					limit = {
-						faction_power = { faction = faction_claimant power = 0.75 }
-						NOT = { faction_power = { faction = faction_claimant power = 1.5 } }
-					}
-					random_list = {
-						75 = {
-						}
-						5 = {
-							character_event = { id = 45000 days = 17 } # A great number of rebels flock to the revolte
+# Demand accepted - crown authority
+letter_event = {
+	id = lux.8067
+	desc = "EVTDESClux8067"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EXCELLENT"
 		clr_character_flag = faction_lower_CA_ultimatum_taken
 		
 		add_character_modifier = {
@@ -22,321 +22,63 @@ namespace = jordarkelf_factions
 		}
 	}
 }
-
-# Demand accepted - gain a vassal title
+# Inform faction backer - clan control
 letter_event = {
-	id = 8068
-	desc = "EVTDESC8068"
+	id = lux.8095
+	desc = "EVTDESClux8095"
+	
+	show_from_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA8068"
-	}	
-}
-
-# Demand accepted - Independence
-letter_event = {
-	id = 8069
-	desc = "
-						character = ROOT
-					}
-				}
-			}
-			death = {
-				death_reason = death_murder
-				killer = FROMFROMFROM
-			}
-			break = yes
+		name = "GOOD"
+		reverse_opinion = {
+			modifier = opinion_grateful
+			who = FROMFROM
+			years = 5
 		}
-		if = {
-			limit = {
-				is_alive = yes
-			}
-			death = {
-				death_reason = death_murder
-				killer = FROMFROM
-			}
-		}
-	}
-	
-}
-
-# Decadent Debauchery - Dies, murderer NOT discovered
-character_event = {
-	id = 7957
-	desc = "EVTDESC7956"
-	picture = GFX_evt_death
-	border = GFX_event_normal_frame_intrigue
-	
-	hide_from = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA7957"
 		
-		if = {
-			limit = {
-				FROMFROMFROM = {
-					OR = {
-						has_plot = plot_kill_character
-						has_plot = plot_kill_spouse
-					}
-					plot_target_char = {
-						character = ROOT
-					}
-				}
-			}
-			death = {
-				death_reason = death_murder_unknown
-				killer = FROMFROMFROM
-			}
-			break = yes
-		}
-		if = {
-			limit = {
-				is_alive = yes
-			}
-			death = {
-				death_reason = death_murder_unknown
-				killer = FROMFROM
-			}
+		add_character_modifier = {
+			name = faction_loosen_clan_control_ultimatum_timer
+			hidden = yes
+			duration = 3650
 		}
 	}
 }
-
-# Decadent Debauchery - Lives, murderer discovered
-character_event = {
-	id = 7958
-	desc = "EVTDESC7958"
-	picture = GFX_evt_jugglers
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA7958"
-	}
-}
-
-# Decadent Debauchery - Lives, murderer NOT discovered
-character_event = {
-	id = 7959
-	desc = "EVTDESC7959"
-	picture = GFX_evt_jugglers
-	border = GFX_event_normal_frame_intrigue
-	
-	hide_from = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA7959"
-	}
-}
-
-# Decadent Debauchery - Backer informs Plotter of plan
-character_event = {
-	id = 7960
-	desc = "EVTDESC7960"
-	picture = GFX_evt_jugglers
-	border = GFX_event_normal_frame_intrigue
+# Ultimatum - tanistry
+letter_event = {
+	id = jordarkelf_factions.1
+	desc = "EVTDESCjordarkelf_factions.1"
 	
 	is_triggered_only = yes
 	
 	trigger = {
-		plot_target_char = {
-			is_alive = yes
-		}
+		FROM = { in_faction = faction_succ_tanistry }
 	}
 	
 	immediate = {
-		plot_target_char = { save_event_target_as = plot_target }
-	}
-	
-	option = {
-		name = "EVTOPTA7960"
-		set_character_flag = murder_in_motion
-		FROM = { character_event = { id = 7961 tooltip = "EVTTOOLTIP8161" } }
-		hidden_tooltip = {
-			any_plot_backer = {
-				limit = {
-					NOT = { character = FROM }
-				}
-				character_event = { id = 7962 days = 1 }
-			}
-		}
-	}
-}
-
-# Decadent Debauchery - Plotter tells backer to go ahead
-character_event = {
-	id = 7961
-	desc = "EVTDESC7961"
-	picture = GFX_evt_whispers
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA8161"
-		event_target:plot_target = { character_event = { id = 7955 days = 27 tooltip = "EVTTOOLTIP7955" } }
-	}
-}
-
-# Decadent Debauchery - Initiator informs other plotter
-character_event = {
-	id = 7962
-	desc = "EVTDESC7962"
-	picture = GFX_evt_jugglers
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA8162"
-	}
-}
-
-# Decadent Debauchery - Notification: Success, but discovered
-character_event = {
-	id = 7963
-	desc = "EVTDESC7963"
-	picture = GFX_evt_shadowy_cabal
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		character_event = { id = 10 } # Consequences of discovery
-		clear_event_target = target_victim
-	}
-	
-	option = {
-		name = "EVTOPTA7963"
-	}
-}
-
-# Decadent Debauchery - Notification: Success, and NOT discovered
-character_event = {
-	id = 7964
-	desc = "EVTDESC7964"
-	picture = GFX_evt_shadowy_cabal
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA7964"
-	}
-}
-
-# Decadent Debauchery - Notification: Failure, and discovered
-character_event = {
-	id = 7965
-	desc = "EVTDESC7965"
-	picture = GFX_evt_shadowy_cabal
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		character_event = { id = 11 } # Consequences of discovery
-		clear_event_target = target_victim
-		
-		if = {
-			limit = { 
-				plot_target_char = {
-					character = FROM
-				}
-				OR = {
-					has_plot = plot_kill_character
-					has_plot = plot_kill_spouse
-				}
-			}
-			reveal_plot = yes
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA7965"
-		if = {
-			limit = { 
-				plot_target_char = {
-					character = FROM
-				}
-				OR = {
-					has_plot = plot_kill_character
-					has_plot = plot_kill_spouse
-				}
-			}
-			clr_character_flag = murder_in_motion
-			tooltip = { reveal_plot = yes }
-		}
-	}
-}
-
-# Decadent Debauchery - Notification: Failure, but NOT discovered
-character_event = {
-	id = 7966
-	desc = "EVTDESC7966"
-	picture = GFX_evt_shadowy_cabal
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA8166"
-		
-		if = {
-			limit = { 
-				plot_target_char = {
-					character = FROM
-				}
-				OR = {
-					has_plot = plot_kill_character
-					has_plot = plot_kill_spouse
-				}
-			}
-			clr_character_flag = murder_in_motion
-		}
-	}
-}
-
-# Ultimatum - antiking
-letter_event = {
-	id = 8200
-	desc = EVTDESC8200
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		FROM = { in_faction = faction_antiking }
-	}
-	
-	immediate = {
-		FROM = {
+		FROM = { 
 			diplomatic_immunity = yes 
 			any_faction_backer = {
-				faction = faction_antiking
+				faction = faction_succ_tanistry
 				diplomatic_immunity = yes
 			}
 		}
 	}
 	
 	option = {
-		name = EVTOPTA8000
+		name = "EVTOPTA8000"
 		ai_chance = {
-			factor = 5
+			factor = 20
 			modifier = {
-				factor = 0
+				factor = 0			
 				NOT = {
 					FROM = {
 						faction_power = 
 						{
-							faction = faction_antiking
-							power = 1.0
+							faction = faction_succ_tanistry
+							power = 0.5
 						}
 					}
 				}
@@ -375,74 +117,28 @@ letter_event = {
 			any_vassal = {
 				limit = {
 					ai = no
-					NOT = { in_faction = faction_antiking }
+					NOT = { in_faction = faction_succ_tanistry }
 				}
-				character_event = { id = 8202 }
+				character_event = { id = jordarkelf_factions.3 }
 			}
 			FROM = {
-				letter_event = { id = 8203 }
+				letter_event = { id = jordarkelf_factions.5 }
 				any_faction_backer = {
-					faction = faction_antiking
-					letter_event = { id = 8201 }
+					faction = faction_succ_tanistry
+					letter_event = { id = jordarkelf_factions.7 }
 					diplomatic_immunity = no
 				}
 				diplomatic_immunity = no
 			}
 		}
 		FROM = {
-			religion_authority = {
-				modifier = deposed_antipope
-				years = 50
+			faction_succ_tanistry = { # The target (title) of the faction
+				succession = tanistry
 			}
-			faction_antiking = { # The target (title) of the faction
-				if = {
-					limit = { has_law = investiture_law_1 }
-					add_law_w_cooldown = investiture_law_0
-				}
-			}
-			hidden_tooltip = {
-				if = {
-					limit = {
-						religion = catholic
-					}
-					k_papal_state = {
-						holder_scope = {
-							opinion = {
-								who = PREVPREV
-								modifier = opinion_deposed_antipope
-							}
-						}
-					}
-				}
-#				if = {
-#					limit = {
-#						religion = fraticelli
-#					}
-#					d_fraticelli = {
-#						holder_scope = {
-#							opinion = {
-#								who = PREVPREV
-#								modifier = opinion_deposed_antipope
-#							}
-#						}
-#					}
-#				}
-			}
-		}
-		hidden_tooltip = {
-			rightful_religious_head_scope = {
-				remove_claim = k_papal_state
-#				remove_claim = d_fraticelli
-			}
-		}
-		
-		primary_title = {
-			usurp_title = FROM
 		}
 	}
-	
 	option = {
-		name = "EVTOPTB8000"
+		name = "EVTOPTB8005"
 		ai_chance = {
 			factor = 90
 			modifier = {
@@ -478,7 +174,7 @@ letter_event = {
 				FROM = {
 					faction_power = 
 					{
-						faction = faction_antiking
+						faction = faction_succ_tanistry
 						power = 1.5
 					}
 				}
@@ -488,8 +184,8 @@ letter_event = {
 				FROM = {
 					faction_power = 
 					{
-						faction = faction_antiking
-						power = 1
+						faction = faction_succ_tanistry
+						power = 1.0
 					}
 				}
 			}
@@ -498,7 +194,7 @@ letter_event = {
 				FROM = {
 					faction_power = 
 					{
-						faction = faction_antiking
+						faction = faction_succ_tanistry
 						power = 2.0
 					}
 				}
@@ -508,8 +204,7 @@ letter_event = {
 				FROM = {
 					faction_power = 
 					{
-				
-						faction = faction_antiking
+						faction = faction_succ_tanistry
 						power = 3.0
 					}
 				}
@@ -519,16 +214,16 @@ letter_event = {
 				FROM = {
 					faction_power = 
 					{
-						faction = faction_antiking
+						faction = faction_succ_tanistry
 						power = 4.0
 					}
 				}
-			}
+			}	
 		}
 		hidden_tooltip = {
 			if = {
 				limit = {
-					FROM = { faction_power = { faction = faction_antiking power = 1.0 } }
+					FROM = { faction_power = { faction = faction_succ_tanistry power = 1.0 } }
 				}
 				random = {
 					chance = 25
@@ -537,23 +232,21 @@ letter_event = {
 			}
 		}
 		FROM = {
-			letter_event = { id = 8204 days = 3 tooltip = "EVTTOOLTIP8100" }
+			letter_event = { id = jordarkelf_factions.9 days = 3 tooltip = "EVTTOOLTIP8100" }
 			tooltip = {
-				any_fa
 				any_faction_backer = {
-					faction = faction_antiking
+					faction = faction_succ_tanistry
 				}
 			}
 			hidden_tooltip = {
 				if = {
 					limit = {
-						NOT = { faction_power = { faction = faction_antiking power = 0.75 } }
+						NOT = { faction_power = { faction = faction_succ_tanistry power = 0.75 } }
 					}
 					random_list = {
 						50 = {
 						}
 						30 = {
-							character_event = { id = 45000 days = 17 } # A great number of rebels flock to the revolter
 							character_event = { id = 45000 days = 17 } # A great number of rebels flock to the revolter's banner
 						}
 						20 = {
@@ -563,14 +256,13 @@ letter_event = {
 				}
 				if = {
 					limit = {
-						faction_power = { faction = faction_antiking power = 0.75 }
-						NOT = { faction_power = { faction = faction_antiking power = 1.5 } }
+						faction_power = { faction = faction_succ_tanistry power = 0.75 }
+						NOT = { faction_power = { faction = faction_succ_tanistry power = 1.5 } }
 					}
 					random_list = {
 						75 = {
 						}
 						5 = {
-							charac
 							character_event = { id = 45000 days = 17 } # A great number of rebels flock to the revolter's banner
 						}
 						20 = {
@@ -582,40 +274,228 @@ letter_event = {
 		}
 	}
 }
-
-# Inform faction backer - antiking
+# Ultimatum - ultimogeniture
 letter_event = {
-	id = 8201
-	desc = EVTDESC8201
-	
-	show_from_from = yes
+	id = jordarkelf_factions.2
+	desc = "EVTDESCjordarkelf_factions.2"
 	
 	is_triggered_only = yes
 	
-	opt
+	trigger = {
+		FROM = { in_faction = faction_succ_ultimogeniture }
+	}
+	
+	immediate = {
+		FROM = { 
+			diplomatic_immunity = yes 
+			any_faction_backer = {
+				faction = faction_succ_ultimogeniture
+				diplomatic_immunity = yes
+			}
+		}
+	}
+	
 	option = {
-		name = "GOOD"
-		reverse_opinion = {
-			modifier = opinion_grateful
-			who = FROMFROM
-			years = 5
+		name = "EVTOPTA8000"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.25
+				is_weak_trigger = yes
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}
+			modifier = {
+				factor = 1.25
+				trait = humble
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 1.25
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
 		}
 		
-		add_character_modifier = {
-			name = faction_antiking_ultimatum_timer
-			hidden = yes
-			duration = 3650
+		hidden_tooltip = {
+			any_vassal = {
+				limit = {
+					ai = no
+					NOT = { in_faction = faction_succ_ultimogeniture }
+				}
+				character_event = { id = jordarkelf_factions.4 }
+			}
+			FROM = {
+				letter_event = { id = jordarkelf_factions.6 }
+				any_faction_backer = {
+					faction = faction_succ_ultimogeniture
+					letter_event = { id = jordarkelf_factions.8 }
+					diplomatic_immunity = no
+				}
+				diplomatic_immunity = no
+			}
+		}
+		FROM = {
+			faction_succ_seniority = { # The target (title) of the faction
+				succession = ultimogeniture
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB8005"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 1.25
+				is_strong_trigger = yes
+			}
+			modifier = {
+				factor = 1.25
+				trait = brave
+			}
+			modifier = {
+				factor = 1.25
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = envious
+			}
+			modifier = {
+				factor = 1.25
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.25
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_succ_ultimogeniture
+						power = 1.5
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_succ_ultimogeniture
+						power = 1.0
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_succ_ultimogeniture
+						power = 2.0
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_succ_ultimogeniture
+						power = 3.0
+					}
+				}
+			}	
+			modifier = {
+				factor = 0.5
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_succ_ultimogeniture
+						power = 4.0
+					}
+				}
+			}	
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					FROM = { faction_power = { faction = faction_succ_ultimogeniture power = 1.0 } }
+				}
+				random = {
+					chance = 25
+					character_event = { id = 45002 days = 120 } # Loyalists flock to the liege's banner
+				}
+			}
+		}
+		FROM = {
+			letter_event = { id = jordarkelf_factions.10 days = 3 tooltip = "EVTTOOLTIP8100" }
+			tooltip = {
+				any_faction_backer = {
+					faction = faction_succ_ultimogeniture
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = {
+						NOT = { faction_power = { faction = faction_succ_ultimogeniture power = 0.75 } }
+					}
+					random_list = {
+						50 = {
+						}
+						30 = {
+							character_event = { id = 45000 days = 17 } # A great number of rebels flock to the revolter's banner
+						}
+						20 = {
+							character_event = { id = 45004 days = 17 } # Rebels flock to the revolter's banner
+						}
+					}
+				}
+				if = {
+					limit = {
+						faction_power = { faction = faction_succ_ultimogeniture power = 0.75 }
+						NOT = { faction_power = { faction = faction_succ_ultimogeniture power = 1.5 } }
+					}
+					random_list = {
+						75 = {
+						}
+						5 = {
+							character_event = { id = 45000 days = 17 } # A great number of rebels flock to the revolter's banner
+						}
+						20 = {
+							character_event = { id = 45004 days = 17 } # Rebels flock to the revolter's banner
+						}
+					}
+				}
+			}
 		}
 	}
 }
-
-# Inform other vassals - antiking
+# Inform other vassals - Tanistry
 character_event = {
-	id = 8202
-	desc = EVTDESC8202
+	id = jordarkelf_factions.3
+	desc = "EVTDESCjordarkelf_factions.3"
 	
 	picture = GFX_evt_council
-	border = 
 	border = GFX_event_normal_frame_intrigue
 	
 	show_from_from = yes
@@ -626,17 +506,138 @@ character_event = {
 		name = "I_SEE"
 	}
 }
-
-# Demand accepted - antiking
+# Inform other vassals - Ultimogeniture
+character_event = {
+	id = jordarkelf_factions.4
+	desc = "EVTDESCjordarkelf_factions.4"
+	
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_intrigue
+	
+	show_from_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "I_SEE"
+	}
+}
+# Demand accepted - Tanistry
 letter_event = {
-	id = 8203
-	desc = EVTDESC8203
+	id = jordarkelf_factions.5
+	desc = "EVTDESCjordarkelf_factions.5"
 	
 	is_triggered_only = yes
 	
 	option = {
 		name = "EXCELLENT"
-		clr_character_flag = faction_install_antiking_ultimatum_taken
-		
+		clr_character_flag = faction_succ_tanistry_ultimatum_taken
 		add_character_modifier = {
-			name = faction_ant
+			name = faction_succ_tanistry_ultimatum_timer
+			hidden = yes
+			duration = 3650
+		}
+	}
+}
+# Demand accepted - ultimogeniture
+letter_event = {
+	id = jordarkelf_factions.6
+	desc = "EVTDESCjordarkelf_factions.6"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EXCELLENT"
+		clr_character_flag = faction_succ_ultimogeniture_ultimatum_taken
+		add_character_modifier = {
+			name = faction_succ_ultimogeniture_ultimatum_timer
+			hidden = yes
+			duration = 3650
+		}
+	}
+}
+# Inform faction backer - Tanistry
+letter_event = {
+	id = jordarkelf_factions.7
+	desc = "EVTDESCjordarkelf_factions.7"
+	
+	show_from_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "GOOD"
+		reverse_opinion = {
+			modifier = opinion_grateful
+			who = FROMFROM
+			years = 5
+		}
+		add_character_modifier = {
+			name = faction_succ_tanistry_ultimatum_timer
+			hidden = yes
+			duration = 3650
+		}
+	}
+}
+# Inform faction backer - Ultimogeniture
+letter_event = {
+	id = jordarkelf_factions.8
+	desc = "EVTDESCjordarkelf_factions.8"
+	
+	show_from_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "GOOD"
+		reverse_opinion = {
+			modifier = opinion_grateful
+			who = FROMFROM
+			years = 5
+		}
+		add_character_modifier = {
+			name = faction_succ_ultimogeniture_ultimatum_timer
+			hidden = yes
+			duration = 3650
+		}
+	}
+}
+# Demand rejected - tanistry
+letter_event = {
+	id = jordarkelf_factions.9
+	desc = "EVTDESC8100"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA8100"
+		clr_character_flag = faction_succ_tanistry_ultimatum_taken
+		faction_succ_seniority = { # The target (title) of the faction
+			reverse_war = {
+				target = ROOT
+				casus_belli = change_tanistry_succession_law
+				faction = faction_succ_tanistry
+			}
+		}
+	}
+}
+# Demand rejected - ultimogeniture
+letter_event = {
+	id = jordarkelf_factions.10
+	desc = "EVTDESC8100"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA8100"
+		
+		clr_character_flag = faction_succ_ultimogeniture_ultimatum_taken
+		faction_succ_seniority = { # The target (title) of the faction
+			reverse_war = {
+				target = ROOT
+				casus_belli = change_ultimogeniture_succession_law
+				faction = faction_succ_ultimogeniture
+			}
+		}
+	}
+}

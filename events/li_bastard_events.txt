@@ -2,85 +2,6 @@
 # Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
 
 
-							}
-						}
-					}
-				}
-				20 = {
-					add_trait = shy
-					hidden_tooltip = {
-						character_event = {
-							id = 38263 #Notify Shy
-						}
-						ROOT = {
-							character_event = {
-								id = 38163 #Notify child is Shy
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTC76041"
-		FROM = {
-			random_list = {
-				80 = {
-					add_trait = ambitious
-					hidden_tooltip = {
-						character_event = {
-							id = 38278 #Notify Ambitious
-						}
-						ROOT = {
-							character_event = {
-								id = 38178 #Notify child is Ambitious
-							}
-						}
-					}
-				}
-				20 = {
-					add_trait = proud
-					hidden_tooltip = {
-						character_event = {
-							id = 38261 #Notify Proud
-						}
-						ROOT = {
-							character_event = {
-								id = 38161 #Notify child is Proud
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTD76041"
-		trigger = {
-			religion_group = muslim
-		}
-		FROM = {
-			random_list = {
-				80 = {
-				}
-				20 = {
-					add_trait = zealous
-					hidden_tooltip = {
-						character_event = {
-							id = 38269 #Notify Zealous
-						}
-						ROOT = {
-							character_event = {
-								id = 38169 #Notify child is Zealous
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
 ##AGOT events adapted
 #Lonely whilst campaigning
 character_event = {
@@ -145,7 +66,6 @@ character_event = {
 		scaled_wealth = -0.4
 	}
 	option = {
-		na
 		name = "EVTOPTB76100" #I name you a liar!
 		ai_chance = { 
 			factor = 25
@@ -162,4 +82,102 @@ character_event = {
 				trait = greedy
 			}
 			modifier = {
-				factor = 
+				factor = 1.3
+				trait = deceitful
+			}
+		}
+		prestige = -25
+		random = {
+			chance = 25
+			
+			add_trait = wroth
+			hidden_tooltip = {
+				character_event = {
+					id = 38254 #Notify wroth
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC76100" #so what?
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 1.3
+				trait = lustful
+			}
+			modifier = {
+				factor = 1.3
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.3
+				trait = selfish
+			}
+		}	
+		piety = -35
+		if = {
+			limit = {
+				NOT = {
+					trait = lustful
+				}
+			}
+			random = {
+				chance = 25
+				
+				add_trait = lustful
+				hidden_tooltip = {
+					character_event = {
+						id = 38272 #Notify Lustful
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD76100" #adopt the child
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 1.3
+				trait = kind
+			}
+		}
+		piety = 40
+		create_character = {
+			age = 0
+			trait = bastard
+		}
+		new_character = {
+			set_father = PREV
+		}
+		if = {
+			limit = {
+				is_married = yes
+			}
+			spouse = {
+				character_event = { id = 76101 tooltip = "EVTTOOLTIP308" } # The wife is angered
+			}
+		}
+	}
+}
+# The wife is angered
+character_event = {
+	id = 76101
+	picture = "GFX_evt_quarrel"
+	
+	is_triggered_only = yes 
+		
+	desc = "EVTDESC308"
+
+	option = {
+		name = "EVTOPTA308"	
+		spouse = {
+			reverse_opinion = {
+				who = root
+				modifier = acknowledged_bastard
+				years = 10
+			}
+		}
+	}
+}

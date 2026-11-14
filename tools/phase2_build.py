@@ -78,22 +78,24 @@ vkeys = {}; ckeys = {}
 for rel in sorted(files):
     fol = folder(rel); name = os.path.basename(rel)
     if any(rel == s or rel.startswith(s + '/') for s in WORLD + SKIP): continue
-    dst = os.path.dirname(rel) + '/li_' + name
+    dst = os.path.dirname(rel) + '/' + (name if name.lower().startswith('li_') else 'li_' + name)
     if fol in OWNED:
         plan.append(('copy', rel, dst, None)); stats['owned folder: copied whole'] += 1; per['owned folder'][fol] += 1; continue
     if not name.endswith('.txt'):
         continue
     depth = 1 if fol in WRAP_DEPTH1 else 0
     if fol not in vkeys: vkeys[fol] = keyset(VA, fol, depth); ckeys[fol] = keyset(os.path.join(REPO), fol, depth)
-    b = rd(os.path.join(MT, rel)); n = nc(b)
+    # positions must come from the ORIGINAL bytes (top_blocks skips comments itself); they are used
+    # to cut the definitions out of the original file
+    b = rd(os.path.join(MT, rel))
     if fol == 'events':
-        blocks = [(k, st, en, par) for k, st, en, par in top_blocks(n, 0) if k.endswith(b'_event')]
+        blocks = [(k, st, en, par) for k, st, en, par in top_blocks(b, 0) if k.endswith(b'_event')]
         ids = []
         for k, st, en, par in blocks:
-            im = re.search(rb'\bid\s*=\s*([\w.]+)', n[st:en]); ids.append(im.group(1).decode() if im else None)
+            im = re.search(rb'\bid\s*=\s*([\w.]+)', nc(b[st:en])); ids.append(im.group(1).decode() if im else None)
         keyed = list(zip(ids, blocks))
     else:
-        keyed = [(k.decode(), (k, st, en, par)) for k, st, en, par in top_blocks(n, depth)]
+        keyed = [(k.decode(), (k, st, en, par)) for k, st, en, par in top_blocks(b, depth)]
     new = [(k, bl) for k, bl in keyed if k and k not in vkeys[fol]]
     old = [(k, bl) for k, bl in keyed if k and k in vkeys[fol]]
     clash = [k for k, _ in new if k in ckeys[fol]]

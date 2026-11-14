@@ -1,0 +1,247 @@
+# Lux Invicta definitions extracted from master:common/opinion_modifiers/FF_opinion_modifiers.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+opinion_displeased_ransom = {
+	opinion = -4
+}
+opinion_relieved_ransom = {
+	opinion = 2
+}
+opinion_respectful_ransom = {
+	opinion = 5
+}
+opinion_resentful_ransom = {
+	opinion = -5
+}
+opinion_fabricate_claims_bribe = {
+	opinion = 0
+}
+opinion_wounded = {
+	opinion = -15
+	months = 3600
+}
+opinion_offered_help = {
+	opinion = 20
+}
+opinion_friendly_towards = {
+	opinion = 20
+}
+opinion_war_hopeful = {
+	opinion = 10
+	months = 3600
+}
+opinion_war_neutral = {
+	opinion = 5
+	months = 3600
+}
+opinion_war_veryhopeful = {
+	opinion = 20
+}
+opinion_war_disappointed = {
+	opinion = -20
+}
+opinion_war_jubilant = {
+	opinion = 25
+}
+opinion_job_security_concerns = {
+	opinion = -7
+	months = 12
+}
+opinion_favourite = {
+	opinion = 15
+	months = 120
+}
+opinion_tough_love = {
+	opinion = -15
+	months = 120
+}
+opinion_adoption_rejected = {
+	opinion = -15
+	months = 120
+}
+opinion_adoption_gratefulone = {
+	opinion = 10
+	months = 120
+}
+opinion_adoption_gratefultwo = {
+	opinion = 15
+	months = 120
+}
+opinion_adoption_gratefulthree = {
+	opinion = 20
+	months = 120
+}
+opinion_full_of_love = {
+	opinion = 20
+	months = 120
+}
+opinion_jester_pro = {
+	opinion = 5
+	months = 1200
+}
+opinion_jester_con = {
+	opinion = -10
+	months = 1200
+}
+attempted_murder_of_close_kin = {
+	opinion = -100
+	prison_reason = yes # This one gives righteous cause to imprison a character
+	execute_reason = yes # This one gives righteous cause to revoke ONE title	
+}
+executed_kin = {
+	opinion = -50
+}
+killed_vassal = {
+	opinion = -20
+	prison_reason = yes # This one gives righteous cause to imprison a character
+	execute_reason = yes # This one gives righteous cause to revoke ONE title	
+}
+opinion_attended_ceremony = {
+	opinion = 10
+}
+coronation_rejected = {
+	opinion = -30
+}
+opinion_independent = {
+	opinion = -100
+}
+opinion_fired_from_office = {
+	opinion = -10
+	months = 120
+}
+opinion_defending_liege = {
+	opinion = 30
+}
+opinion_defending_me = {
+	opinion = 20
+}
+opinion_not_defending_me = {
+	opinion = -10
+}
+opinion_approved_law = {
+	opinion = 15
+}
+opinion_ignored_law = {
+	opinion = -15
+}
+opinion_approved_succession_law = {
+	opinion = 25
+}
+opinion_ignored_succession_law = {
+	opinion = -25
+}
+opinion_refused_convert = {
+	opinion = -50
+}
+opinion_settled_jews = {
+	opinion = -10
+}
+opinion_granted_minor_estate = {
+	opinion = 10
+	months = 2400
+}
+opinion_estates_obj = {
+	opinion = 15
+}
+opinion_denied_estates = {
+	opinion = -25
+	months = 240
+}
+opinion_civil_war_loser = {
+	opinion = -25
+	months = 120
+	prison_reason = yes # This one gives righteous cause to imprison a character
+	revoke_reason = yes # This one gives righteous cause to revoke ONE title
+	execute_reason = yes
+}
+opinion_recent_civil_war = {
+	opinion = 25
+	months = 120
+}
+devious_plotter = {
+	opinion = -50
+	prison_reason = yes # This one gives righteous cause to imprison a character
+	execute_reason = yes # This one gives righteous cause to revoke ONE title		
+}
+good_relations = {
+	opinion = 1
+	months = 2400
+}
+bad_relations = {
+	opinion = 1
+	months = 2400
+}
+force_vassalized = {
+	opinion = 50
+	months = 120
+}
+supported_me_at_faction_meeting = {
+	opinion = 25
+	months = 60
+}
+opposed_me_at_faction_meeting = {
+	opinion = -25
+	months = 60
+}
+narcissistic = { ## instead of pompous, from CK2+, by Ash
+	opinion = -5
+	months = 60
+}
+revolting_against = {
+	opinion = -10
+}
+loyal_vassal = {
+	opinion = 100
+	months = 1200
+}
+opinion_fears_tyranny = {
+	opinion = 5
+}
+opinion_suspect_tyranny = {
+	opinion = -5
+}
+opinion_fears_tyrannyten = {
+	opinion = 10
+}
+opinion_suspect_tyrannyten = {
+	opinion = -10
+}
+opinion_fears_tyrannyfifteen = {
+	opinion = 15
+}
+opinion_suspect_tyrannytwelve = {
+	opinion = -12
+}
+opinion_suspect_tyrannyfifteen = {
+	opinion = -15
+}
+opinion_suspect_tyrannytwenty = {
+	opinion = -20
+}
+opinion_loyalty_bought = {
+	opinion = 25
+}
+opinion_bribe_rejected = {
+	opinion = -15
+}
+opinion_loyal = {
+	opinion = 30
+}
+opinion_rejected_approach = {
+	opinion = -25
+}
+opinion_betrayed_loyalty = {
+	opinion = -35
+}
+opinion_impressed_loyalty = {
+	opinion = 40
+}
+opinion_mildly_impressed_loyalty = {
+	opinion = 20
+}
+opinion_unimpressed_loyalty = {
+	opinion = -15
+}
+opinion_aggressive_republic = {
+	opinion = -50
+}

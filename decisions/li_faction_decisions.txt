@@ -2,33 +2,6 @@
 # Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
 
 plot_decisions = {
-								defender = { character = PREV }
-								NOR = {
-									using_cb = depose_liege
-									using_cb = overthrow_ruler
-									using_cb = overthrow_ruler_no_calls
-								}
-							}
-							AND = {
-								attacker = { character = PREV }
-								OR = {
-									using_cb = invasion
-									holy_war_trigger = yes
-									using_cb = tribal_invasion
-#									using_cb = muslim_invasion
-									using_cb = viking_invasion
-									using_cb = claim_all
-									using_cb = claim
-									using_cb = other_claim
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
 	faction_loosen_clan_control_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -134,5 +107,33 @@ plot_decisions = {
 				factor = 0
 				liege = {
 					any_war = {
+						OR = {
+							AND = {
+								defender = { character = PREV }
+								NOR = {
+									using_cb = depose_liege
+									using_cb = overthrow_ruler
+									using_cb = overthrow_ruler_no_calls
+								}
+							}
+							AND = {
+								attacker = { character = PREV }
+								OR = {
+									using_cb = invasion
+									holy_war_trigger = yes
+									using_cb = tribal_invasion
+#									using_cb = muslim_invasion
+									using_cb = viking_invasion
+									using_cb = claim_all
+									using_cb = claim
+									using_cb = other_claim
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 

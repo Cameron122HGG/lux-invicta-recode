@@ -1,0 +1,32 @@
+# Lux Invicta definitions extracted from master:common/council_voting/07_me_pattern.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+me_pattern_against = {
+	icon = 9
+	pattern_type = against
+	status_of_women_0 = {
+		is_female = yes
+		trait = ambitious
+	}
+	status_of_women_1 = {
+		is_female = yes
+		trait = ambitious
+		has_law = status_of_women_2
+	}
+	status_of_women_2 = {
+		is_female = yes
+		trait = ambitious
+		has_law = status_of_women_3
+	}
+	status_of_women_3 = {
+		is_female = yes
+		trait = ambitious
+		has_law = status_of_women_4
+	}
+	slavery_0 = {
+		OR = {
+			trait = slave_owner
+			trait = slave_trader
+		}
+	}
+}

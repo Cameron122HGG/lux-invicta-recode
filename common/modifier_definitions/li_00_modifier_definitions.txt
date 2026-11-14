@@ -1,0 +1,10 @@
+# Lux Invicta definitions extracted from master:common/modifier_definitions/00_modifier_definitions.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+tao_opinion = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+}

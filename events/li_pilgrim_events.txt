@@ -4,228 +4,248 @@
 namespace = SoA
 namespace = lux_soa
 
-		add_trait = sympathy_judaism
-		hidden_tooltip = { character_event = { id = SoA.5090 days = 10 } } # Stay a little longer then go home
-	}
-}
-
-# Self-styled God speaks to the masses - consequences
+# # Mediterranean Christian - Choose destination
 character_event = {
-	id = SoA.5080
-	desc = EVTDESC_SoA_5080
-	picture = GFX_evt_lunatic
+	id = lux_soa.2
+	desc =EVTDESC_SoA_5011
+	picture = GFX_evt_icon
 	border = GFX_event_normal_frame_religion
 	
-	trigger = { 
-		trait = on_pilgrimage
-	}
-	fail_trigger_effect = { 
-		clr_character_flag = pilgrimage_to_canterbury
-		clr_character_flag = pilgrimage_to_jerusalem
-		clr_character_flag = pilgrimage_to_koln
-		clr_character_flag = pilgrimage_to_rome
-		clr_character_flag = pilgrimage_to_santiago
-		clr_character_flag = pilgrimage_to_constantinople
-		clr_character_flag = pilgrimage_to_axum
-		clr_character_flag = pilgrimage_to_antioch
-		clr_character_flag = pilgrimage_to_carthage
-		clr_character_flag = pilgrimage_to_vannes
-		clr_character_flag = abominable_pilgrimage
-		clr_character_flag = do_not_disturb
-		clr_character_flag = preparing_pilgrimage
-		clr_character_flag = activated_pilgrimage
-		hidden_tooltip = { remove_trait = on_pilgrimage }
-	}
-	
 	is_triggered_only = yes
-
+	
 	option = {
-		name = EVTOPTA_SoA_5080
-		prestige = -10
-		clr_character_flag = good_pilgrimage
-		clr_character_flag = bad_pilgrimage
-		set_character_flag = abominable_
-		set_character_flag = abominable_pilgrimage
-		if = {
-			limit = { NOT = { trait = lunatic } }
-			add_trait = lunatic
+		name = EVTOPTA_SoA_5011
+		trigger = {
+			NOT = { capital_scope = { province_id = 814 } }
+		}
+		set_character_flag = pilgrimage_to_jerusalem
+		hidden_tooltip = {
+			character_event = { id = SoA.5022 days = 15 }
 		}
 		if = {
-			limit = { NOT = { trait = wroth } }
-			random = {
-				chance = 50
-				add_trait = wroth
-				hidden_tooltip = {
-					character_event = {
-						days = 2
-						id = 38254 #Notify Wroth
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_PILGRIMAGE_TO_JERUSALEM
+				picture = GFX_evt_pilgrims_epic_journey
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_SoA_5011
+		trigger = {
+			NOT = { capital_scope = { province_id = 804 } }
+		}
+		set_character_flag = pilgrimage_to_antioch
+		hidden_tooltip = {
+			character_event = { id = SoA.5096 days = 15 }
+		}
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_PILGRIMAGE_TO_ANTIOCH
+				picture = GFX_evt_pilgrims_epic_journey
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTB_SoA_5020
+		ai_chance = { factor = 50 }
+		set_character_flag = pilgrimage_to_rome
+		hidden_tooltip = {
+			character_event = { id = SoA.5024 days = 15 }
+		}
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_PILGRIMAGE_TO_ROME
+				picture = GFX_evt_pilgrims_epic_journey
+			}
+		}
+	}
+}
+# Hibernicist - Choose destination
+character_event = {
+	id = lux_soa.3
+	desc = EVTDESC_SoA_5011
+	picture = GFX_evt_cathedral
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	#Vannes
+	option = {
+		name = EVTOPTA_lux_soa_3
+		set_character_flag = pilgrimage_to_vannes
+		hidden_tooltip = { character_event = { id = lux_soa.4 days = 15 } }
+	}
+}
+# Setting out for Vannes (also selects events for road)
+character_event = {
+	id = lux_soa.4
+	desc = EVTDESC_lux_soa_4
+	picture = GFX_evt_pilgrims_epic_journey
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SoA_5021
+		clr_character_flag = preparing_pilgrimage
+		hidden_tooltip = {
+			add_trait = on_pilgrimage
+			set_character_flag = good_pilgrimage
+			narrative_event = { id = lux_soa.5 days = 30 }
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					location = {
+						distance = {
+							where = 77	# Vannes
+							value = 400	# Longer journey
+						}
 					}
 				}
+				random_list = {
+					10 = {  character_event = { id = SoA.5026 days = 5 random = 9 } } # List for longer journeys only
+					10 = {  character_event = { id = SoA.5027 days = 5 random = 9 } }
+					10 = {  narrative_event = { id = SoA.5028 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5029 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5030 days = 5 random = 9 } }
+				}
+			}
+	
+			random_list = {
+				10 = {  character_event = { id = SoA.5031 days = 15 random = 7 } } # List that is always checked
+				10 = {  character_event = { id = SoA.5032 days = 15 random = 7 } }
+				10 = {  narrative_event = { id = SoA.5033 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5034 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5035 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5036 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5037 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5038 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5039 days = 15 random = 7 } }
 			}
 		}
 	}
 }
-
-
-#####
-###########################################
-#                                         #
-# Homecoming                              #
-#                                         #
-# ID SoA5090-SoA5093                      #
-#                                         #
-###########################################
-
-# Event checking result of pilgrimage and sending us on to the respective homecoming event
-character_event = {
-	id = SoA.5090
-
-	trigger = { 
-		trait = on_pilgrimage
-	}
-	fail_trigger_effect = { 
-		clr_character_flag = pilgrimage_to_canterbury
-		clr_character_flag = pilgrimage_to_jerusalem
-		clr_character_flag = pilgrimage_to_koln
-		clr_character_flag = pilgrimage_to_rome
-		clr_character_flag = pilgrimage_to_santiago
-		clr_character_flag = pilgrimage_to_constantinople
-		clr_character_flag = pilgrimage_to_axum
-		clr_character_flag = pilgrimage_to_antioch
-		clr_character_flag = pilgrimage_to_carthage
-		clr_character_flag = pilgrimage_to_vannes
-		clr_character_flag = abominable_pilgrimage
-		clr_character_flag = do_not_disturb
-		clr_character_flag = preparing_pilgrimage
-		clr_character_flag = activated_pilgrimage
-		hidden_tooltip = { remove_trait = on_pilgrimage }
-	}
-	
-	hide_window = yes
+# Arrived at Vannes
+narrative_event = {
+	id = lux_soa.5
+	title = EVTNAME_lux_soa_5
+	desc = EVTDESC_lux_soa_5
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_religion
 	
 	is_triggered_only = yes
-
-	immediate = {
-		if = {
-			limit = { has_character_flag = good_pilgrimage }
-			character_event = { id = SoA.5091 }
-		}
-		if = {
-			limit = { has_character_flag = bad_pilgrimage }
-			character_event = { id = SoA.5092 }
-		}
-		if = {
-			limit = { has_character_flag = abominable_pilgrimage }
-			character_event = { id = SoA.5093 }
-		}
-		if = {
-			limit = {
-				has_quest = q
-				has_quest = quest_monastic_order_pilgrimage_christian
-			}
-			character_event = { id = MNM.4020 days = 1}
-		}
-	}
-}
-
-# Good pilgrimage
-character_event = {
-	id = SoA.5091
-	desc = EVTDESC_SoA_5091
-	picture = GFX_evt_castle_construction
-	border = GFX_event_normal_frame_religion
-	
-	trigger = { 
-		trait = on_pilgrimage
-	
-	fail_trigger_effect = { 
-		clr_character_flag = pilgrimage_to_canterbury
-		clr_character_flag = pilgrimage_to_jerusalem
-		clr_character_flag = pilgrimage_to_koln
-		clr_character_flag = pilgrimage_to_rome
-		clr_character_flag = pilgrimage_to_santiago
-		clr_character_flag = pilgrimage_to_constantinople
-		clr_character_flag = pilgrimage_to_axum
-		clr_character_flag = pilgrimage_to_antioch
-		clr_character_flag = pilgrimage_to_carthage
-		clr_character_flag = pilgrimage_to_vannes
-		clr_character_flag = abominable_pilgrimage
-		clr_character_flag = do_not_disturb
-		clr_character_flag = preparing_pilgrimage
-		clr_character_flag = activated_pilgrimage
-		hidden_tooltip = { remove_trait = on_pilgrimage }
-	}
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		if = {
-			limit = { 
-				ai = n
-				NOT = { has_character_flag = achievement_pilgrim }
-			}
-			set_character_flag = achievement_pilgrim
-		}
-	}
 
 	option = {
-		name = EVTOPTA_SoA_5091
-		clr_character_flag = pilgrimage_to_canterbury
-		clr_character_flag = pilgrimage_to_jerusalem
-		clr_character_flag = pilgrimage_to_koln
-		clr_character_flag = pilgrimage_to_rome
-		clr_character_flag = pilgrimage_to_santiago
-		clr_character_flag = pilgrimage_to_constantinople
-		clr_character_flag = pilgrimage_to_axum
-		clr_character_flag = pilgrimage_to_antioch
-		clr_character_flag = pilgrimage_to_carthage
-		clr_character_flag = pilgrimage_to_vannes
-		clr_character_flag = good_pilgrimage
-		clr_character_flag = do_not_disturb
-		add_trait = pilgrim
-		hidden_tooltip = { remove_trait = on_pilgrimage }
-		piety = 30
+		name = EVTOPTA_lux_soa_5
+		hidden_tooltip = {  character_event = { id = SoA.5055 days = 5 } }
 	}
 }
-
-# Disappointing pilgrimage
+# Arian - Choose destination
 character_event = {
-	id = SoA.5092
-	desc = EVTDESC_SoA_5092
-	picture = GFX_evt_castle_construction
+	id = lux_soa.6
+	desc = EVTDESC_SoA_5011
+	picture = GFX_evt_icon
 	border = GFX_event_normal_frame_religion
-	
-	trigger = { 
-		trait = on_pilgrimage
-	}
-	fail_trigger_effect = { 
-		clr_character_flag = pilgrimage_to_canterbury
-		clr_character_flag = pilgrimage_to_jerusalem
-		clr_character_flag = pilgrimage_to_koln
-		clr_character_flag = pilgrimage_to_rome
-		clr_character_flag = pilgrimage_to_santiago
-		clr_character_flag = pilgrimage_to_constantinople
-		clr_character_flag = pilgrimage_to_axum
-		clr_character_flag = pilgrimage_to_antioch
-        clr_character_flag = pilgrimage_to_carthage
-		clr_character_flag = pilgrimage_to_vannes
-		clr_character_flag = abominable_pilgrimage
-		clr_character_flag = do_not_disturb
-		clr_character_flag = preparing_pilgrimage
-		clr_character_flag = activated_pilgrimage
-		hidden_tooltip = { remove_trait = on_pilgrimage }
-	}
 	
 	is_triggered_only = yes
 	
-	immediate = {
+	option = {
+		name = EVTOPTA_SoA_5011
+		trigger = {
+			NOT = { capital_scope = { province_id = 814 } }
+		}
+		set_character_flag = pilgrimage_to_jerusalem
+		hidden_tooltip = {
+			character_event = { id = SoA.5022 days = 15 }
+		}
 		if = {
-			limit = { 
-				ai = no
-				NOT = { has_character_flag = achievement_pilgrim }
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_PILGRIMAGE_TO_JERUSALEM
+				picture = GFX_evt_pilgrims_epic_journey
 			}
-			set_character_flag = achievement_pilgrim
 		}
 	}
+	
+	option = { #Carthage
+		name = EVTOPTA_lux_soa_6
+		trigger = {
+			NOT = { capital_scope = { province_id = 970 } }
+		}
+		set_character_flag = pilgrimage_to_carthage
+		hidden_tooltip = {
+			character_event = { id = lux_soa.7 days = 15 }
+		}
+	}
+}
+# Setting out for Carthage (also selects events for road)
+character_event = {
+	id = lux_soa.7
+	desc = EVTDESC_lux_soa_7
+	picture = GFX_evt_pilgrims_epic_journey
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SoA_5021
+		clr_character_flag = preparing_pilgrimage
+		hidden_tooltip = {
+			add_trait = on_pilgrimage
+			set_character_flag = good_pilgrimage
+			narrative_event = { id = lux_soa.8 days = 30 }
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					location = {
+						distance = {
+							where = 970	# Carthage
+							value = 400	# Longer journey
+						}
+					}
+				}
+				random_list = {
+					10 = {  character_event = { id = SoA.5026 days = 5 random = 9 } } # List for longer journeys only
+					10 = {  character_event = { id = SoA.5027 days = 5 random = 9 } }
+					10 = {  narrative_event = { id = SoA.5028 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5029 days = 5 random = 9 } }
+					10 = {  character_event = { id = SoA.5030 days = 5 random = 9 } }
+				}
+			}
+	
+			random_list = {
+				10 = {  character_event = { id = SoA.5031 days = 15 random = 7 } } # List that is always checked
+				10 = {  character_event = { id = SoA.5032 days = 15 random = 7 } }
+				10 = {  narrative_event = { id = SoA.5033 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5034 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5035 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5036 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5037 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5038 days = 15 random = 7 } }
+				10 = {  character_event = { id = SoA.5039 days = 15 random = 7 } }
+			}
+		}
+	}
+}
+# Arrived at Carthage
+narrative_event = {
+	id = lux_soa.8
+	title = EVTNAME_lux_soa_8
+	desc = EVTDESC_lux_soa_8
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_religion
+	
+	is_triggered_only = yes
 
 	option = {
+		name = EVTOPTA_lux_soa_8
+		hidden_tooltip = {  character_event = { id = SoA.5055 days = 5 } }
+	}
+}

@@ -85,6 +85,17 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `history`, `history/diplomacy`, `map`.
 2. **LI's new definitions (9,506).** Scripted move into LI-named files. Watch for the 7 keys that
    LI and CleanSlate both added.
+   *(Built 2026-11-14 with `tools/phase2_build.py`; decision 3: `li_` prefix.)* 360 `li_*` files:
+   - LI's 5 wholly-replaced folders (buildings, trade_routes, societies, artifacts,
+     artifact_spawns) replace CleanSlate's whole, as in LI's old `.mod` (50 files).
+   - 259 LI-only files copied whole, comments kept.
+   - 51 files extracted from LI's edited copies of vanilla files: only definitions vanilla lacks,
+     with event namespaces and `decisions = {}` / government-group wrappers.
+   - 351 master files had nothing new; their LI changes are phase 3.
+   - 84 LI definitions whose key CleanSlate also defines (shared CK2Plus heritage, e.g.
+     `faction_succ_ultimogeniture`, `GBC.*` events) are left out, so CleanSlate's version is used.
+     They're listed for phase 3 in `migration_notes/phase2_clashes.txt`.
+   - Checked: all `li_` files have balanced braces; no duplicate event IDs.
 3. **LI's real changes (~527).** For each: diff LI against vanilla, apply only LI's change onto
    CleanSlate's definition, and mark it `# LI:`. The ~1,945 older-vanilla copies take CleanSlate's
    version, with a spot-check of a sample per folder.

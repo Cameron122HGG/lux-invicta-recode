@@ -4,912 +4,6 @@
 namespace = MNM
 namespace = lux_assassins
 
-			limit = { 
-				independent = yes 
-				primary_title = { title = d_hashshashin } 
-				NOT = { religion = qarmatian }
-			}
-			religion = qarmatian
-		}
-
-		if = {
-			limit = {
-				NAND = {
-					independent = yes 
-					primary_title = { title = d_hashshashin }
-					religion = qarmatian
-				}
-				NOT = { secret_religion = qarmatian }
-			}
-			clear_secret_religion = yes
-			set_secret_religion = qarmatian
-		}
-
-		#Try and force them to lvl 3 of the assassins
-		if = {
-			limit = { NOT = { society_member_of = the_assassins } }
-			join_society = the_assassins
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 1
-					society = the_assassins
-				}
-			}
-			society_rank_up = {
-				rank = 2
-				society = the_assassins
-			}
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 2
-					society = the_assassins
-				}
-			}
-			society_rank_up = {
-				rank = 1
-				society = the_assassins
-			}
-		}
-
-		#Make every apropriate courtier member of society
-		if = {
-			limit = { 
-				primary_title = { title = d_hashshashin } 
-				religion = qarmatian
-			} 
-			any_courtier = {
-				religion = qarmatian
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins
-				}
-			}
-			any_vassal = {
-				religion = qarmatian
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins
-				}
-			}
-		}
-		#Changes religion
-		if = {
-			limit = { 
-				independent = yes 
-				primary_title = { title = d_enemies_of_avidya } 
-				NOT = { religion = bud_mahayana }
-			}
-			religion = bud_mahayana
-		}
-
-		if = {
-			limit = {
-				NAND = {
-					independent = yes 
-					primary_title = { title = d_enemies_of_avidya }
-					religion = bud_mahayana
-				}
-				NOT = { secret_religion = bud_mahayana }
-			}
-			clear_secret_religion = yes
-			set_secret_religion = bud_mahayana
-		}
-
-		#Try and force them to lvl 3 of the assassins
-		if = {
-			limit = { NOT = { society_member_of = the_assassins_bud_mahayana } }
-			join_society = the_assassins_bud_mahayana
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 1
-					society = the_assassins_bud_mahayana
-				}
-	
-			society_rank_up = {
-				rank = 2
-				society = the_assassins_bud_mahayana
-			}
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 2
-					society = the_assassins_bud_mahayana
-				}
-			}
-			society_rank_up = {
-				rank = 1
-				society = the_assassins_bud_mahayana
-			}
-		}
-
-		#Make every apropriate courtier member of society
-		if = {
-			limit = { 
-				primary_title = { title = d_enemies_of_avidya } 
-				religion = bud_mahayana
-			} 
-			any_courtier = {
-				religion = bud_mahayana
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_bud_mahayana
-				}
-			}
-			any_vassal = {
-				religion = bud_mahayana
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_bud_mahayana
-				}
-			}
-		}
-		#Changes religion
-		if = {
-			limit = { 
-				independent = yes 
-				primary_title = { title = d_ahrimans_divs } 
-				NOT = { religion = mani_ahriman }
-			}
-			religion = mani_ahriman
-		}
-
-		if = {
-			limit = {
-				NAND = {
-					independent = yes 
-					primary_title = { title = d_ahrimans_divs }
-					religion = mani_ahriman
-				}
-				NOT = { secret_religion = mani_ahriman }
-			}
-			clear_secret_religion = yes
-			set_secret_religion = mani_ahriman
-		}
-
-		#Try and force them to lvl 3 of the assassins
-		if = {
-			limit = { NOT = { society_member_of = the_assassins_mani_ahriman } }
-			join_society = the_assassins_mani_ahriman
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 1
-					society = the_assassins_mani_ahriman
-				}
-			}
-			society_rank_up = {
-				rank = 2
-				society = the_assassins_mani_ahriman
-			}
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 2
-					society = the_assassins_mani_ahriman
-				}
-			}
-			society_rank_up = {
-				rank = 1
-				society = the_assassins_mani_ahriman
-			}
-		}
-
-		#Make every apropriate courtier member of society
-		if = {
-			limit = { 
-				primary_title = { title = d_ahrimans_divs } 
-				religion = mani_ahriman
-			} 
-			any_courtier = {
-				religion = mani_ahriman
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner =
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_mani_ahriman
-				}
-			}
-			any_vassal = {
-				religion = mani_ahriman
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_mani_ahriman
-				}
-			}
-		}
-		#Changes religion
-		if = {
-			limit = { 
-				independent = yes 
-				primary_title = { title = d_holy_doctors } 
-				NOT = { religion = priscillian }
-			}
-			religion = priscillian
-		}
-
-		if = {
-			limit = {
-				NAND = {
-					independent = yes 
-					primary_title = { title = d_holy_doctors }
-					religion = priscillian
-				}
-				NOT = { secret_religion = priscillian }
-			}
-			clear_secret_religion = yes
-			set_secret_religion = priscillian
-		}
-
-		#Try and force them to lvl 3 of the assassins
-		if = {
-			limit = { NOT = { society_member_of = the_assassins_priscillian } }
-			join_society = the_assassins_priscillian
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 1
-					society = the_assassins_priscillian
-				}
-			}
-			society_rank_up = {
-				rank = 2
-				society = the_assassins_priscillian
-			}
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 2
-					society = the_assassins_priscillian
-				}
-			}
-			society_rank_up = {
-				rank = 1
-				society = the_assassins_priscillian
-			}
-		}
-
-		#Make every apropriate courtier member of society
-		if = {
-			limit = { 
-				primary_title = { title = d_holy_doctors } 
-				religion = priscillian
-			} 
-			any_courtier = {
-				religion = priscillian
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_priscillian
-				}
-			}
-			any_vassal = {
-				religion = priscillian
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_priscillian
-				}
-			}
-		}
-		#Change
-		#Changes religion
-		if = {
-			limit = { 
-				independent = yes 
-				primary_title = { title = d_council_of_aesir } 
-				NOT = { religion = ragnarok }
-			}
-			religion = ragnarok
-		}
-
-		if = {
-			limit = {
-				NAND = {
-					independent = yes 
-					primary_title = { title = d_council_of_aesir }
-					religion = ragnarok
-				}
-				NOT = { secret_religion = ragnarok }
-			}
-			clear_secret_religion = yes
-			set_secret_religion = ragnarok
-		}
-
-		#Try and force them to lvl 3 of the assassins
-		if = {
-			limit = { NOT = { society_member_of = the_assassins_ragnarok } }
-			join_society = the_assassins_ragnarok
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 1
-					society = the_assassins_ragnarok
-				}
-			}
-			society_rank_up = {
-				rank = 2
-				society = the_assassins_ragnarok
-			}
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 2
-					society = the_assassins_ragnarok
-				}
-			}
-			society_rank_up = {
-				rank = 1
-				society = the_assassins_ragnarok
-			}
-		}
-
-		#Make every apropriate courtier member of society
-		if = {
-			limit = { 
-				primary_title = { title = d_council_of_aesir } 
-				religion = ragnarok
-			} 
-			any_courtier = {
-				religion = ragnarok
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_ragnarok
-				}
-			}
-			any_vassal = {
-				religion = ragnarok
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_ragnarok
-				}
-			}
-		}
-		#Changes religion
-		if = {
-			limit = { 
-				independent = yes 
-				primary_title = { title = d_warriors_of_oasis } 
-				NOT = { religion = set }
-			}
-			religion = set
-		}
-
-		if = {
-			limit = {
-				NAND = {
-					independent = yes 
-					primary_title = { title = d_warriors_of_oasis }
-					religion = set
-				}
-				NOT = { secret_religion = set }
-			}
-			clear_secret_religion = yes
-			set_secret_religion = set
-		}
-
-		#Try and force them to lvl 3 of the assassins
-		if = {
-			limit = { NOT = { society_member_of = the_assassins_set } }
-			join_society = the_assassins_set
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 1
-					society = the_assassins_s
-				}
-			}
-			society_rank_up = {
-				rank = 2
-				society = the_assassins_set
-			}
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 2
-					society = the_assassins_set
-				}
-			}
-			society_rank_up = {
-				rank = 1
-				society = the_assassins_set
-			}
-		}
-
-		#Make every apropriate courtier member of society
-		if = {
-			limit = { 
-				primary_title = { title = d_warriors_of_oasis } 
-				religion = set
-			} 
-			any_courtier = {
-				religion = set
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_set
-				}
-			}
-			any_vassal = {
-				religion = set
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_set
-				}
-			}
-		}
-		#Changes religion
-		if = {
-			limit = { 
-				independent = yes 
-				primary_title = { title = d_blue_wolves } 
-				NOT = { religion = tengri_ahriman }
-			}
-			religion = tengri_ahriman
-		}
-
-		if = {
-			limit = {
-				NAND = {
-					independent = yes 
-					primary_title = { title = d_blue_wolves }
-					religion = tengri_ahriman
-				}
-				NOT = { secret_religion = tengri_ahriman }
-			}
-			clear_secret_religion = yes
-			set_secret_religion = tengri_ahriman
-		}
-
-		#Try and force them to lvl 3 of the assassins
-		if = {
-			limit = { NOT = { society_member_of = the_assassins_tengri_ahriman } }
-			join_society = the_assassins_tengri_ahriman
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 1
-					society = the_assassins_tengri_ahriman
-				}
-			}
-			society_rank_up = {
-				rank = 2
-				society = the_assassins_tengri_ahriman
-			}
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 2
-					society = the_assassins_tengri_ahriman
-				}
-			}
-			society_rank_up = {
-				rank = 1
-				society = the_assassins_tengri_ahriman
-			}
-		}
-
-		#Make every apropriate courtier member of society
-		if = {
-			limit = { 
-				primary_title = { title = d_blue_wolves } 
-				religion = tengri_ahriman
-			} 
-			any_courtier = {
-				religion = tengri_ahriman
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						p
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_tengri_ahriman
-				}
-			}
-			any_vassal = {
-				religion = tengri_ahriman
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_tengri_ahriman
-				}
-			}
-		}
-		#Changes religion
-		if = {
-			limit = { 
-				independent = yes 
-				primary_title = { title = d_order_of_righteous } 
-				NOT = { religion = yahyanism }
-			}
-			religion = yahyanism
-		}
-
-		if = {
-			limit = {
-				NAND = {
-					independent = yes 
-					primary_title = { title = d_order_of_righteous }
-					religion = yahyanism
-				}
-				NOT = { secret_religion = yahyanism }
-			}
-			clear_secret_religion = yes
-			set_secret_religion = yahyanism
-		}
-
-		#Try and force them to lvl 3 of the assassins
-		if = {
-			limit = { NOT = { society_member_of = the_assassins_yahyanism } }
-			join_society = the_assassins_yahyanism
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 1
-					society = the_assassins_yahyanism
-				}
-			}
-			society_rank_up = {
-				rank = 2
-				society = the_assassins_yahyanism
-			}
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 2
-					society = the_assassins_yahyanism
-				}
-			}
-			society_rank_up = {
-				rank = 1
-				society = the_assassins_yahyanism
-			}
-		}
-
-		#Make every apropriate courtier member of society
-		if = {
-			limit = { 
-				primary_title = { title = d_order_of_righteous } 
-				religion = yahyanism
-			} 
-			any_courtier = {
-				religion = yahyanism
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_yahyanism
-				}
-			}
-			any_vassal = {
-				religion = yahyanism
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_yahyanism
-				}
-			}
-		}
-		#Changes religion
-		if = {
-			limit = { 
-		
-				independent = yes 
-				primary_title = { title = d_avengers_of_holy_pyre } 
-				NOT = { religion = zor_angra }
-			}
-			religion = zor_angra
-		}
-
-		if = {
-			limit = {
-				NAND = {
-					independent = yes 
-					primary_title = { title = d_avengers_of_holy_pyre }
-					religion = zor_angra
-				}
-				NOT = { secret_religion = zor_angra }
-			}
-			clear_secret_religion = yes
-			set_secret_religion = zor_angra
-		}
-
-		#Try and force them to lvl 3 of the assassins
-		if = {
-			limit = { NOT = { society_member_of = the_assassins_zor_angra } }
-			join_society = the_assassins_zor_angra
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 1
-					society = the_assassins_zor_angra
-				}
-			}
-			society_rank_up = {
-				rank = 2
-				society = the_assassins_zor_angra
-			}
-		}
-		if = {
-			limit = {
-				society_rank = {
-					rank == 2
-					society = the_assassins_zor_angra
-				}
-			}
-			society_rank_up = {
-				rank = 1
-				society = the_assassins_zor_angra
-			}
-		}
-
-		#Make every apropriate courtier member of society
-		if = {
-			limit = { 
-				primary_title = { title = d_avengers_of_holy_pyre } 
-				religion = zor_angra
-			} 
-			any_courtier = {
-				religion = zor_angra
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_zor_angra
-				}
-			}
-			any_vassal = {
-				religion = zor_angra
-
-				if = {
-					limit = {
-						is_in_society = no
-						is_adult = yes
-						prisoner = no
-						NOT = { trait = incapable }
-						OR = {
-							is_female = no
-							has_game_rule = {
-								name = gender
-								value = all
-							}
-						}
-					}
-					join_society = the_assassins_zor_angra
-				}
-			}
-		}
-	}
-}
-
-namespace = lux_assassins
-
 #Does recruit approve of mahayana buddhism?
 character_event = {
 	id = lux_assassins.1
@@ -933,7 +27,6 @@ character_event = {
 			FROMFROM = { save_event_target_as = assassins_recruiter }
 		}
 		save_event_target_as = assassins_recruitee
-		set_character_flag = 
 		set_character_flag = ongoing_recruitment
 	}
 
@@ -1034,7 +127,6 @@ character_event = {
 		}
 	}
 }
-
 #Does recruit approve of mani ahriman?
 character_event = {
 	id = lux_assassins.3
@@ -1054,7 +146,6 @@ character_event = {
 
 	immediate = {
 		if = {
-			limit = { NOT = { event_target:assassins_re
 			limit = { NOT = { event_target:assassins_recruiter = { always = yes } } }
 			FROMFROM = { save_event_target_as = assassins_recruiter }
 		}
@@ -1154,16 +245,11 @@ character_event = {
 			#modifier = {
 				#factor = 2
 				#has_crusade_trait_trigger = yes
-				#NOT =
-			#modifier = {
-				#factor = 2
-				#has_crusade_trait_trigger = yes
 				#NOT = { trait = mujahid }
 			#}
 		}
 	}
 }
-
 #Does recruit approve of priscillian?
 character_event = {
 	id = lux_assassins.5
@@ -1262,6 +348,7 @@ character_event = {
 			trigger = { religion_group = christian }
 			text = EVTOPTB_lux_assassins_5_PRISCILLIAN
 		}
+
 		reverse_opinion = {
 			who = event_target:assassins_recruiter
 			modifier = opinion_disagreed_with_opinion
@@ -1286,7 +373,6 @@ character_event = {
 		}
 	}
 }
-
 #Does recruit approve of ragnarok?
 character_event = {
 	id = lux_assassins.7
@@ -1363,7 +449,7 @@ character_event = {
 				is_dumb_trigger = yes
 			}
 			modifier = {
-				factor = 1.
+				factor = 1.5
 				true_religion_group_norsegerman_group_trigger = yes
 			}
 			modifier = {
@@ -1410,7 +496,6 @@ character_event = {
 		}
 	}
 }
-
 #Does recruit approve of set?
 character_event = {
 	id = lux_assassins.9
@@ -1462,7 +547,6 @@ character_event = {
 		ai_chance = {
 			factor = 20
 			modifier = {
-				fa
 				factor = 0
 				trait = zealous
 				NOT = { secret_religion = set }
@@ -1535,7 +619,6 @@ character_event = {
 		}
 	}
 }
-
 #Does recruit approve of ahriman tanrili?
 character_event = {
 	id = lux_assassins.11
@@ -1566,7 +649,6 @@ character_event = {
 	option = {
 		name = {
 			trigger = { NOT = { religion_group = tengri_group } }
-			text = EVTOPTA_lux_assa
 			text = EVTOPTA_lux_assassins_11_NOTTENGRIAHRIMAN
 		}
 		
@@ -1660,7 +742,6 @@ character_event = {
 		}
 	}
 }
-
 #Does recruit approve of yahya?
 character_event = {
 	id = lux_assassins.13
@@ -1672,7 +753,6 @@ character_event = {
 		text = EVTDESC_lux_assassins_13_A
 	}
 	desc = {
-		trigger 
 		trigger = { religion_group = mand_group }
 		text = EVTDESC_lux_assassins_13_B
 	}
@@ -1785,7 +865,6 @@ character_event = {
 		}
 	}
 }
-
 #Does recruit approve of zor angra?
 character_event = {
 	id = lux_assassins.15
@@ -1877,7 +956,6 @@ character_event = {
 		trigger = { true_religion_zor_angra_trigger = no }
 
 		name = {
-			trigger = { NOT = { religion_group = zoroastrian_gr
 			trigger = { NOT = { religion_group = zoroastrian_group } }
 			text = EVTOPTB_lux_assassins_15_NOTZORANGRA
 		}
@@ -1910,7 +988,6 @@ character_event = {
 		}
 	}
 }
-
 #Talking about fighting for the faith, reaction
 character_event = {
 	id = lux_assassins.2
@@ -2026,7 +1103,6 @@ character_event = {
 		}
 	}
 }
-
 #Talking about fighting for the faith, reaction
 character_event = {
 	id = lux_assassins.4
@@ -2142,7 +1218,6 @@ character_event = {
 		}
 	}
 }
-
 #Talking about fighting for the faith, reaction
 character_event = {
 	id = lux_assassins.6
@@ -2210,7 +1285,6 @@ character_event = {
 			}
 			modifier = {
 				factor = 10
-				has
 				has_character_flag = was_trained_as_assassin_protege
 			}
 		}
@@ -2259,7 +1333,6 @@ character_event = {
 		}
 	}
 }
-
 #Talking about fighting for the faith, reaction
 character_event = {
 	id = lux_assassins.8
@@ -2375,7 +1448,6 @@ character_event = {
 		}
 	}
 }
-
 #Talking about fighting for the faith, reaction
 character_event = {
 	id = lux_assassins.10
@@ -2491,7 +1563,6 @@ character_event = {
 		}
 	}
 }
-
 #Talking about fighting for the faith, reaction
 character_event = {
 	id = lux_assassins.12
@@ -2607,7 +1678,6 @@ character_event = {
 		}
 	}
 }
-
 #Talking about fighting for the faith, reaction
 character_event = {
 	id = lux_assassins.14
@@ -2723,7 +1793,6 @@ character_event = {
 		}
 	}
 }
-
 #Talking about fighting for the faith, reaction
 character_event = {
 	id = lux_assassins.16
@@ -2839,7 +1908,6 @@ character_event = {
 		}
 	}
 }
-
 #MISSION: Assassinate a target (Bud Mahayana)
 character_event = {
 	id = lux_assassins.17
@@ -2873,7 +1941,6 @@ character_event = {
 						is_within_diplo_range = ROOT #Not using assassins_bud_mahayana_appropriate_target_trigger here to also find vassals/commanders
 						NOT = { character = ROOT }
 						NOT = { religion = bud_mahayana }
-						NOT = { society_member_of = the_assassins_bu
 						NOT = { society_member_of = the_assassins_bud_mahayana }
 						any_war = {
 							any_attacker = { character = PREV }
@@ -3095,7 +2162,6 @@ character_event = {
 		}
 	}
 }
-
 #MISSION: Assassinate a target (Mani Ahriman)
 character_event = {
 	id = lux_assassins.18
@@ -3110,7 +2176,6 @@ character_event = {
 					any_independent_ruler = { 
 						is_within_diplo_range = ROOT #Not using assassins_mani_ahriman_appropriate_target_trigger here to also find vassals/commanders
 						NOT = { character = ROOT }
-						N
 						NOT = { religion = mani_ahriman }
 						NOT = { society_member_of = the_assassins_mani_ahriman }
 						any_war = {
@@ -3342,7 +2407,6 @@ character_event = {
 		if = {
 			limit = { NOT = { is_within_diplo_range = event_target:assassins_target } }
 			event_target:assassins_target = {
-				clr_ch
 				clr_character_flag = assassins_target_persecutes_mani_ahrimans
 				clr_character_flag = assassins_target_fallback
 				clr_character_flag = assassins_target_war_attacker
@@ -3352,7 +2416,6 @@ character_event = {
 		}
 	}
 }
-
 #MISSION: Assassinate a target (Priscillian)
 character_event = {
 	id = lux_assassins.19
@@ -3588,7 +2651,6 @@ character_event = {
 		if = {
 			limit = { 
 				event_target:assassins_target = { always = yes } 
-	
 				is_within_diplo_range = event_target:assassins_target
 			}
 			random_society_member = {
@@ -3608,7 +2670,6 @@ character_event = {
 		}
 	}
 }
-
 #MISSION: Assassinate a target (Ragnarok)
 character_event = {
 	id = lux_assassins.20
@@ -3822,7 +2883,6 @@ character_event = {
 							any_playable_ruler = {
 								assassins_ragnarok_appropriate_target_trigger = yes
 								NOT = { religion = ragnarok }
-								NOT = { society_m
 								NOT = { society_member_of = the_assassins_ragnarok }
 								
 								OR = {
@@ -3864,7 +2924,6 @@ character_event = {
 		}
 	}
 }
-
 #MISSION: Assassinate a target (Set)
 character_event = {
 	id = lux_assassins.21
@@ -4071,4 +3130,813 @@ character_event = {
 				limit = {
 					assassins_set_appropriate_target_trigger = yes
 					NOT = { character = ROOT }
-					NOT = 
+					NOT = { religion = set }
+					NOT = { society_member_of = the_assassins_set }
+					OR = {
+						NOT = {
+							any_playable_ruler = {
+								assassins_set_appropriate_target_trigger = yes
+								NOT = { religion = set }
+								NOT = { society_member_of = the_assassins_set }
+								
+								OR = {
+									is_evil_trigger = yes
+									trait = zealous
+								}
+							}
+						}
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+					}
+				}
+				save_event_target_as = assassins_target
+				set_character_flag = assassins_target_fallback
+			}
+		}
+
+		if = {
+			limit = { 
+				event_target:assassins_target = { always = yes } 
+				is_within_diplo_range = event_target:assassins_target
+			}
+			random_society_member = {
+				limit = { society_rank = { rank == 4 society = the_assassins_set } }
+				character_event = { id = MNM.6201 }
+			}
+		}
+		if = {
+			limit = { NOT = { is_within_diplo_range = event_target:assassins_target } }
+			event_target:assassins_target = {
+				clr_character_flag = assassins_target_persecutes_sets
+				clr_character_flag = assassins_target_fallback
+				clr_character_flag = assassins_target_war_attacker
+				clr_character_flag = assassins_target_war_attacker_vassal
+				clr_character_flag = assassins_target_war_attacker_commander
+			}
+		}
+	}
+}
+#MISSION: Assassinate a target (Tengri Ahriman)
+character_event = {
+	id = lux_assassins.22
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			40 = { #Infidel ruler at war with mahayana buddhist, or their vassal/commander
+				trigger = {
+					any_independent_ruler = { 
+						is_within_diplo_range = ROOT #Not using assassins_tengri_ahriman_appropriate_target_trigger here to also find vassals/commanders
+						NOT = { character = ROOT }
+						NOT = { religion = tengri_ahriman }
+						NOT = { society_member_of = the_assassins_tengri_ahriman }
+						any_war = {
+							attacker = { character = PREV }
+							defender = { 
+								religion = tengri_ahriman 
+								NOT = { character = ROOT }
+		 
+							}
+						}
+					}
+				}
+
+				#Find the ruler
+				random_independent_ruler = {
+					limit = {
+						is_within_diplo_range = ROOT #Not using assassins_tengri_ahriman_appropriate_target_trigger here to also find vassals/commanders
+						NOT = { character = ROOT }
+						NOT = { religion = tengri_ahriman }
+						NOT = { society_member_of = the_assassins_tengri_ahriman }
+						any_war = {
+							any_attacker = { character = PREV }
+							defender = { 
+								religion = tengri_ahriman 
+								NOT = { character = ROOT }
+							}
+						}
+					}
+
+					if = {
+						limit = {
+							assassins_tengri_ahriman_appropriate_target_trigger = yes
+						}
+						save_event_target_as = assassins_target
+					}
+
+					else =  {
+						save_event_target_as = assassins_aggressor
+						
+						random_vassal = {
+							limit = {
+								assassins_tengri_ahriman_appropriate_target_trigger = yes
+								NOT = { character = ROOT }
+								NOT = { society_member_of = the_assassins_tengri_ahriman }
+								OR = {
+									liege = { is_feudal = yes }
+									any_war = {
+										any_attacker = { character = PREV }
+										defender = { religion = tengri_ahriman }
+									}
+								}
+							}
+							save_event_target_as = assassins_target
+						}
+
+						random_courtier_or_vassal = {
+							limit = {
+								assassins_tengri_ahriman_appropriate_target_trigger = yes
+								NOT = { society_member_of = the_assassins_tengri_ahriman }
+								in_command = yes
+								OR = {
+									is_ruler = no
+									OR = {
+										liege = { is_feudal = yes }
+										any_war = {
+											any_attacker = { character = PREV }
+											defender = { religion = tengri_ahriman }
+										}
+									}
+								}
+							}
+							save_event_target_as = assassins_target
+						}
+
+						event_target:assassins_target = {
+							if = {
+								limit = { independent = yes }
+								set_character_flag = assassins_target_war_attacker
+							}
+							if = {
+								limit = {
+									independent = no
+									in_command = no
+								}
+								set_character_flag = assassins_target_war_attacker_vassal
+							}
+							if = {
+								limit = {
+									independent = no
+									in_command = yes
+								}
+								set_character_flag = assassins_target_war_attacker_commander
+							}
+						}
+					}
+				}
+			}
+			15 = { #Assaulted an assassin
+				trigger = {
+					any_character = {
+						is_offmap_ruler = no 
+						NOT = { character = ROOT }
+						assassins_tengri_ahriman_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_assaulted_member
+					}
+				}
+				random_character = {
+					limit = {
+						is_offmap_ruler = no
+						NOT = { character = ROOT }
+						assassins_tengri_ahriman_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_assaulted_member 
+					}
+					save_event_target_as = assassins_target
+				}
+			}
+			20 = { #Killed an assassin
+				trigger = {
+					any_character = {
+						is_offmap_ruler = no 
+						NOT = { character = ROOT }
+						assassins_tengri_ahriman_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_killed_member
+					}
+				}
+				random_character = {
+					limit = {
+						is_offmap_ruler = no
+						NOT = { character = ROOT }
+						assassins_tengri_ahriman_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_killed_member 
+					}
+					save_event_target_as = assassins_target
+				}
+			}
+			20 = { #Marked for death by GM
+				trigger = {
+					any_character = {
+						is_offmap_ruler = no 
+						NOT = { character = ROOT }
+						assassins_tengri_ahriman_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_marked_for_death
+					}
+				}
+				random_character = {
+					limit = {
+						is_offmap_ruler = no
+						NOT = { character = ROOT }
+						assassins_tengri_ahriman_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_marked_for_death 
+					}
+					save_event_target_as = assassins_target
+				}
+			}
+			15 = { #Cruel non-mahayana buddhist ruler with mahayana buddhist population
+				trigger = {
+					any_independent_ruler = {
+						assassins_tengri_ahriman_appropriate_target_trigger = yes
+						NOT = { character = ROOT }
+						NOT = { society_member_of = the_assassins_tengri_ahriman }
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+						NOT = { religion = tengri_ahriman }
+						any_realm_province = { religion = tengri_ahriman }
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						assassins_tengri_ahriman_appropriate_target_trigger = yes
+						NOT = { character = ROOT }
+						NOT = { society_member_of = the_assassins_tengri_ahriman }
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+						NOT = { religion = tengri_ahriman }
+						any_realm_province = { religion = tengri_ahriman }
+					}
+					save_event_target_as = assassins_target
+					set_character_flag = assassins_target_persecutes_tengri_ahrimans
+				}
+			}
+		}
+
+		if = { #Fallback
+			limit = { NOT = { event_target:assassins_target = { always = yes } } }
+			random_playable_ruler = {
+				limit = {
+					assassins_tengri_ahriman_appropriate_target_trigger = yes
+					NOT = { character = ROOT }
+					NOT = { religion = tengri_ahriman }
+					NOT = { society_member_of = the_assassins_tengri_ahriman }
+					OR = {
+						NOT = {
+							any_playable_ruler = {
+								assassins_tengri_ahriman_appropriate_target_trigger = yes
+								NOT = { religion = tengri_ahriman }
+								NOT = { society_member_of = the_assassins_tengri_ahriman }
+								
+								OR = {
+									is_evil_trigger = yes
+									trait = zealous
+								}
+							}
+						}
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+					}
+				}
+				save_event_target_as = assassins_target
+				set_character_flag = assassins_target_fallback
+			}
+		}
+
+		if = {
+			limit = { 
+				event_target:assassins_target = { always = yes } 
+				is_within_diplo_range = event_target:assassins_target
+			}
+			random_society_member = {
+				limit = { society_rank = { rank == 4 society = the_assassins_tengri_ahriman } }
+				character_event = { id = MNM.6201 }
+			}
+		}
+		if = {
+			limit = { NOT = { is_within_diplo_range = event_target:assassins_target } }
+			event_target:assassins_target = {
+				clr_character_flag = assassins_target_persecutes_tengri_ahrimans
+				clr_character_flag = assassins_target_fallback
+				clr_character_flag = assassins_target_war_attacker
+				clr_character_flag = assassins_target_war_attacker_vassal
+				clr_character_flag = assassins_target_war_attacker_commander
+			}
+		}
+	}
+}
+#MISSION: Assassinate a target (Yahyanism)
+character_event = {
+	id = lux_assassins.23
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			40 = { #Infidel ruler at war with mahayana buddhist, or their vassal/commander
+				trigger = {
+					any_independent_ruler = { 
+						is_within_diplo_range = ROOT #Not using assassins_yahyanism_appropriate_target_trigger here to also find vassals/commanders
+						NOT = { character = ROOT }
+						NOT = { religion = yahyanism }
+						NOT = { society_member_of = the_assassins_yahyanism }
+						any_war = {
+							attacker = { character = PREV }
+							defender = { 
+								religion = yahyanism 
+								NOT = { character = ROOT }
+		 
+							}
+						}
+					}
+				}
+
+				#Find the ruler
+				random_independent_ruler = {
+					limit = {
+						is_within_diplo_range = ROOT #Not using assassins_yahyanism_appropriate_target_trigger here to also find vassals/commanders
+						NOT = { character = ROOT }
+						NOT = { religion = yahyanism }
+						NOT = { society_member_of = the_assassins_yahyanism }
+						any_war = {
+							any_attacker = { character = PREV }
+							defender = { 
+								religion = yahyanism 
+								NOT = { character = ROOT }
+							}
+						}
+					}
+
+					if = {
+						limit = {
+							assassins_yahyanism_appropriate_target_trigger = yes
+						}
+						save_event_target_as = assassins_target
+					}
+
+					else =  {
+						save_event_target_as = assassins_aggressor
+						
+						random_vassal = {
+							limit = {
+								assassins_yahyanism_appropriate_target_trigger = yes
+								NOT = { character = ROOT }
+								NOT = { society_member_of = the_assassins_yahyanism }
+								OR = {
+									liege = { is_feudal = yes }
+									any_war = {
+										any_attacker = { character = PREV }
+										defender = { religion = yahyanism }
+									}
+								}
+							}
+							save_event_target_as = assassins_target
+						}
+
+						random_courtier_or_vassal = {
+							limit = {
+								assassins_yahyanism_appropriate_target_trigger = yes
+								NOT = { society_member_of = the_assassins_yahyanism }
+								in_command = yes
+								OR = {
+									is_ruler = no
+									OR = {
+										liege = { is_feudal = yes }
+										any_war = {
+											any_attacker = { character = PREV }
+											defender = { religion = yahyanism }
+										}
+									}
+								}
+							}
+							save_event_target_as = assassins_target
+						}
+
+						event_target:assassins_target = {
+							if = {
+								limit = { independent = yes }
+								set_character_flag = assassins_target_war_attacker
+							}
+							if = {
+								limit = {
+									independent = no
+									in_command = no
+								}
+								set_character_flag = assassins_target_war_attacker_vassal
+							}
+							if = {
+								limit = {
+									independent = no
+									in_command = yes
+								}
+								set_character_flag = assassins_target_war_attacker_commander
+							}
+						}
+					}
+				}
+			}
+			15 = { #Assaulted an assassin
+				trigger = {
+					any_character = {
+						is_offmap_ruler = no 
+						NOT = { character = ROOT }
+						assassins_yahyanism_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_assaulted_member
+					}
+				}
+				random_character = {
+					limit = {
+						is_offmap_ruler = no
+						NOT = { character = ROOT }
+						assassins_yahyanism_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_assaulted_member 
+					}
+					save_event_target_as = assassins_target
+				}
+			}
+			20 = { #Killed an assassin
+				trigger = {
+					any_character = {
+						is_offmap_ruler = no 
+						NOT = { character = ROOT }
+						assassins_yahyanism_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_killed_member
+					}
+				}
+				random_character = {
+					limit = {
+						is_offmap_ruler = no
+						NOT = { character = ROOT }
+						assassins_yahyanism_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_killed_member 
+					}
+					save_event_target_as = assassins_target
+				}
+			}
+			20 = { #Marked for death by GM
+				trigger = {
+					any_character = {
+						is_offmap_ruler = no 
+						NOT = { character = ROOT }
+						assassins_yahyanism_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_marked_for_death
+					}
+				}
+				random_character = {
+					limit = {
+						is_offmap_ruler = no
+						NOT = { character = ROOT }
+						assassins_yahyanism_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_marked_for_death 
+					}
+					save_event_target_as = assassins_target
+				}
+			}
+			15 = { #Cruel non-mahayana buddhist ruler with mahayana buddhist population
+				trigger = {
+					any_independent_ruler = {
+						assassins_yahyanism_appropriate_target_trigger = yes
+						NOT = { character = ROOT }
+						NOT = { society_member_of = the_assassins_yahyanism }
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+						NOT = { religion = yahyanism }
+						any_realm_province = { religion = yahyanism }
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						assassins_yahyanism_appropriate_target_trigger = yes
+						NOT = { character = ROOT }
+						NOT = { society_member_of = the_assassins_yahyanism }
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+						NOT = { religion = yahyanism }
+						any_realm_province = { religion = yahyanism }
+					}
+					save_event_target_as = assassins_target
+					set_character_flag = assassins_target_persecutes_yahyanisms
+				}
+			}
+		}
+
+		if = { #Fallback
+			limit = { NOT = { event_target:assassins_target = { always = yes } } }
+			random_playable_ruler = {
+				limit = {
+					assassins_yahyanism_appropriate_target_trigger = yes
+					NOT = { character = ROOT }
+					NOT = { religion = yahyanism }
+					NOT = { society_member_of = the_assassins_yahyanism }
+					OR = {
+						NOT = {
+							any_playable_ruler = {
+								assassins_yahyanism_appropriate_target_trigger = yes
+								NOT = { religion = yahyanism }
+								NOT = { society_member_of = the_assassins_yahyanism }
+								
+								OR = {
+									is_evil_trigger = yes
+									trait = zealous
+								}
+							}
+						}
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+					}
+				}
+				save_event_target_as = assassins_target
+				set_character_flag = assassins_target_fallback
+			}
+		}
+
+		if = {
+			limit = { 
+				event_target:assassins_target = { always = yes } 
+				is_within_diplo_range = event_target:assassins_target
+			}
+			random_society_member = {
+				limit = { society_rank = { rank == 4 society = the_assassins_yahyanism } }
+				character_event = { id = MNM.6201 }
+			}
+		}
+		if = {
+			limit = { NOT = { is_within_diplo_range = event_target:assassins_target } }
+			event_target:assassins_target = {
+				clr_character_flag = assassins_target_persecutes_yahyanisms
+				clr_character_flag = assassins_target_fallback
+				clr_character_flag = assassins_target_war_attacker
+				clr_character_flag = assassins_target_war_attacker_vassal
+				clr_character_flag = assassins_target_war_attacker_commander
+			}
+		}
+	}
+}
+#MISSION: Assassinate a target (Zor Angra)
+character_event = {
+	id = lux_assassins.24
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			40 = { #Infidel ruler at war with mahayana buddhist, or their vassal/commander
+				trigger = {
+					any_independent_ruler = { 
+						is_within_diplo_range = ROOT #Not using assassins_zor_angra_appropriate_target_trigger here to also find vassals/commanders
+						NOT = { character = ROOT }
+						NOT = { religion = zor_angra }
+						NOT = { society_member_of = the_assassins_zor_angra }
+						any_war = {
+							attacker = { character = PREV }
+							defender = { 
+								religion = zor_angra 
+								NOT = { character = ROOT }
+		 
+							}
+						}
+					}
+				}
+
+				#Find the ruler
+				random_independent_ruler = {
+					limit = {
+						is_within_diplo_range = ROOT #Not using assassins_zor_angra_appropriate_target_trigger here to also find vassals/commanders
+						NOT = { character = ROOT }
+						NOT = { religion = zor_angra }
+						NOT = { society_member_of = the_assassins_zor_angra }
+						any_war = {
+							any_attacker = { character = PREV }
+							defender = { 
+								religion = zor_angra 
+								NOT = { character = ROOT }
+							}
+						}
+					}
+
+					if = {
+						limit = {
+							assassins_zor_angra_appropriate_target_trigger = yes
+						}
+						save_event_target_as = assassins_target
+					}
+
+					else =  {
+						save_event_target_as = assassins_aggressor
+						
+						random_vassal = {
+							limit = {
+								assassins_zor_angra_appropriate_target_trigger = yes
+								NOT = { character = ROOT }
+								NOT = { society_member_of = the_assassins_zor_angra }
+								OR = {
+									liege = { is_feudal = yes }
+									any_war = {
+										any_attacker = { character = PREV }
+										defender = { religion = zor_angra }
+									}
+								}
+							}
+							save_event_target_as = assassins_target
+						}
+
+						random_courtier_or_vassal = {
+							limit = {
+								assassins_zor_angra_appropriate_target_trigger = yes
+								NOT = { society_member_of = the_assassins_zor_angra }
+								in_command = yes
+								OR = {
+									is_ruler = no
+									OR = {
+										liege = { is_feudal = yes }
+										any_war = {
+											any_attacker = { character = PREV }
+											defender = { religion = zor_angra }
+										}
+									}
+								}
+							}
+							save_event_target_as = assassins_target
+						}
+
+						event_target:assassins_target = {
+							if = {
+								limit = { independent = yes }
+								set_character_flag = assassins_target_war_attacker
+							}
+							if = {
+								limit = {
+									independent = no
+									in_command = no
+								}
+								set_character_flag = assassins_target_war_attacker_vassal
+							}
+							if = {
+								limit = {
+									independent = no
+									in_command = yes
+								}
+								set_character_flag = assassins_target_war_attacker_commander
+							}
+						}
+					}
+				}
+			}
+			15 = { #Assaulted an assassin
+				trigger = {
+					any_character = {
+						is_offmap_ruler = no 
+						NOT = { character = ROOT }
+						assassins_zor_angra_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_assaulted_member
+					}
+				}
+				random_character = {
+					limit = {
+						is_offmap_ruler = no
+						NOT = { character = ROOT }
+						assassins_zor_angra_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_assaulted_member 
+					}
+					save_event_target_as = assassins_target
+				}
+			}
+			20 = { #Killed an assassin
+				trigger = {
+					any_character = {
+						is_offmap_ruler = no 
+						NOT = { character = ROOT }
+						assassins_zor_angra_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_killed_member
+					}
+				}
+				random_character = {
+					limit = {
+						is_offmap_ruler = no
+						NOT = { character = ROOT }
+						assassins_zor_angra_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_killed_member 
+					}
+					save_event_target_as = assassins_target
+				}
+			}
+			20 = { #Marked for death by GM
+				trigger = {
+					any_character = {
+						is_offmap_ruler = no 
+						NOT = { character = ROOT }
+						assassins_zor_angra_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_marked_for_death
+					}
+				}
+				random_character = {
+					limit = {
+						is_offmap_ruler = no
+						NOT = { character = ROOT }
+						assassins_zor_angra_appropriate_target_trigger = yes
+						has_character_flag = assassins_target_marked_for_death 
+					}
+					save_event_target_as = assassins_target
+				}
+			}
+			15 = { #Cruel non-mahayana buddhist ruler with mahayana buddhist population
+				trigger = {
+					any_independent_ruler = {
+						assassins_zor_angra_appropriate_target_trigger = yes
+						NOT = { character = ROOT }
+						NOT = { society_member_of = the_assassins_zor_angra }
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+						NOT = { religion = zor_angra }
+						any_realm_province = { religion = zor_angra }
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						assassins_zor_angra_appropriate_target_trigger = yes
+						NOT = { character = ROOT }
+						NOT = { society_member_of = the_assassins_zor_angra }
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+						NOT = { religion = zor_angra }
+						any_realm_province = { religion = zor_angra }
+					}
+					save_event_target_as = assassins_target
+					set_character_flag = assassins_target_persecutes_zor_angras
+				}
+			}
+		}
+
+		if = { #Fallback
+			limit = { NOT = { event_target:assassins_target = { always = yes } } }
+			random_playable_ruler = {
+				limit = {
+					assassins_zor_angra_appropriate_target_trigger = yes
+					NOT = { character = ROOT }
+					NOT = { religion = zor_angra }
+					NOT = { society_member_of = the_assassins_zor_angra }
+					OR = {
+						NOT = {
+							any_playable_ruler = {
+								assassins_zor_angra_appropriate_target_trigger = yes
+								NOT = { religion = zor_angra }
+								NOT = { society_member_of = the_assassins_zor_angra }
+								
+								OR = {
+									is_evil_trigger = yes
+									trait = zealous
+								}
+							}
+						}
+						OR = {
+							is_evil_trigger = yes
+							trait = zealous
+						}
+					}
+				}
+				save_event_target_as = assassins_target
+				set_character_flag = assassins_target_fallback
+			}
+		}
+
+		if = {
+			limit = { 
+				event_target:assassins_target = { always = yes } 
+				is_within_diplo_range = event_target:assassins_target
+			}
+			random_society_member = {
+				limit = { society_rank = { rank == 4 society = the_assassins_zor_angra } }
+				character_event = { id = MNM.6201 }
+			}
+		}
+		if = {
+			limit = { NOT = { is_within_diplo_range = event_target:assassins_target } }
+			event_target:assassins_target = {
+				clr_character_flag = assassins_target_persecutes_zor_angras
+				clr_character_flag = assassins_target_fallback
+				clr_character_flag = assassins_target_war_attacker
+				clr_character_flag = assassins_target_war_attacker_vassal
+				clr_character_flag = assassins_target_war_attacker_commander
+			}
+		}
+	}
+}

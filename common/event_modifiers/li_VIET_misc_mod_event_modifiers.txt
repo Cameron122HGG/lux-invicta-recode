@@ -1,0 +1,31 @@
+# Lux Invicta definitions extracted from master:common/event_modifiers/VIET_misc_mod_event_modifiers.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+#Jordarkelf
+faction_succ_tanistry_ultimatum_timer = { icon = 34 }
+#Zaldax
+danced_with_the_dead = {
+	learning = 5
+	intrigue = 3
+	church_opinion = -10
+	icon = 18
+}
+#PB
+ransom_timer = { icon = 1 }
+military_cooperation = {
+	icon = 16
+	levy_reinforce_rate = 0.25
+	levy_size = 0.25
+	garrison_size = 0.25
+}
+economic_cooperation = {
+	icon = 16
+	local_tax_modifier = 0.25
+	build_time_modifier = -0.25
+	build_cost_modifier = -0.25
+}
+autonomy_commended = {
+	icon = 16
+	vassal_opinion = 5
+	monthly_character_prestige = 0.25
+}

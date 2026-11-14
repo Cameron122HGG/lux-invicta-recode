@@ -95,6 +95,18 @@ plot_decisions = {
 								OR = {
 									using_cb = invasion
 									holy_war_trigger = yes
-									using_cb = t
+									using_cb = tribal_invasion
+#									using_cb = muslim_invasion
+									using_cb = claim_all
+									using_cb = claim
+									using_cb = other_claim
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
