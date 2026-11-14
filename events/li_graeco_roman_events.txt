@@ -11,7 +11,7 @@ character_event = {
 
 	
 	trigger = { 
-		has_landed_title = c_vesta_temple
+		has_landed_title = d_vesta_temple
 	}
 	
 	immediate = {
@@ -24,7 +24,7 @@ character_event = {
 					trait = vestalis
 					is_female = yes
 				}
-				c_vesta_temple = { gain_title = PREV }
+				d_vesta_temple = { gain_title = PREV }
 				b_vesta_temple = { gain_title = PREV }
 				set_defacto_liege = THIS
 				remove_title = title_vestalis
@@ -94,7 +94,7 @@ character_event = {
 				new_character = {
 					give_minor_title = title_vestalis_maxima
 					set_character_flag = flag_vestalis
-					c_vesta_temple = { gain_title = PREV }
+					d_vesta_temple = { gain_title = PREV }
 					b_vesta_temple = { gain_title = PREV }
 					set_defacto_liege = THIS
 				}
@@ -114,7 +114,7 @@ character_event = {
 	
 	trigger = {
 		trait = vestalis
-		has_landed_title = c_vesta_temple
+		has_landed_title = d_vesta_temple
 		NOT = { has_minor_title = title_vestalis_maxima }
 	}
 	
@@ -302,7 +302,7 @@ character_event = {
 				add_trait = vestalis
 				recalc_succession = yes
 				set_character_flag = flag_vestalis
-				c_vesta_temple = { owner = { change_variable = { which = "num_vestales" value = 1 } } }
+				d_vesta_temple = { owner = { change_variable = { which = "num_vestales" value = 1 } } }
 			}
 		}
 	}

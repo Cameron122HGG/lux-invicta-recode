@@ -21,8 +21,8 @@ targetted_decisions = {
 				religion = graeco_roman_reformed
 				religion = roman_imperial
 			}
-			NOT = { has_landed_title = c_vesta_temple }
-			c_vesta_temple = { owner = { always = yes } } # The Vestal Virgins must exist
+			NOT = { has_landed_title = d_vesta_temple }
+			d_vesta_temple = { owner = { always = yes } } # The Vestal Virgins must exist
 		}
 		potential = {
 			culture_group = latin
@@ -55,7 +55,7 @@ targetted_decisions = {
 		}
 		effect = {
 			set_character_flag = flag_nominated_as_vestalis
-			c_vesta_temple = { owner = { character_event = { id = ancrel.2124 days = 1 } } }
+			d_vesta_temple = { owner = { character_event = { id = ancrel.2124 days = 1 } } }
 		}
 		ai_will_do = {
 			factor = 1
@@ -73,11 +73,11 @@ targetted_decisions = {
 			}
 			modifier = {
 				factor = 0.8
-				NOT = { c_vesta_temple = { owner = { reverse_opinion = { who = FROM value = -40 } } } }
+				NOT = { d_vesta_temple = { owner = { reverse_opinion = { who = FROM value = -40 } } } }
 			}
 			modifier = {
 				factor = 1.25
-				c_vesta_temple = { owner = { reverse_opinion = { who = FROM value = 40 } } }
+				d_vesta_temple = { owner = { reverse_opinion = { who = FROM value = 40 } } }
 			}
 		}
 	}

@@ -1,4 +1,4 @@
 1060.1.1 = {
-	liege = "c_vesta_temple"
+	liege = "d_vesta_temple"
 	holder = 1715926
 }

@@ -4543,7 +4543,7 @@ d_yazdanism_reformed = {
 
 ### Other Religious Titles ###
 
-c_vesta_temple = {
+d_vesta_temple = { # was c_vesta_temple: CK2 only supports landless titles at duchy tier and above; a landless county gave its holder a "province 0" that broke province checks
 	color={ 10 145 120 }
 	color2={ 255 255 255 }
 

@@ -1583,7 +1583,7 @@ gender_laws = {
                         name = gender
                         value = all
                     }
-                    has_landed_title = c_vesta_temple
+                    has_landed_title = d_vesta_temple
                 }
             }
 		}
