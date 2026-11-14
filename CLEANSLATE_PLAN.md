@@ -338,6 +338,14 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `c_vesta_temple`). Original LI bug, on master too; now `tier = DUKE` like every other rebel title,
      and it was the only landless county/barony `create_title` in the mod. Lesson: `on_startup` fires for
      every character, so a once-per-game event needs a global-flag guard.
+   - **Province numbers (2026-11-14).** LI renumbered parts of its map, so numeric province references written
+     for vanilla's map can point elsewhere (vanilla 1513/1448 are river tiles in LI). Fixed: the Jade Dragon
+     invasion spawn points in CleanSlate's `jd_chinese_war_events`/`jd_chinese_invasion_events` (vanilla
+     counties LI lacks → LI's Kroran 1207, Chatigama 1572, Ganges delta 1309; 108 "Invalid province" lines);
+     LI's own `religious_titles.txt` caliphate/holy-city requirements (Jerusalem 774→814, Medina 718→724,
+     Baghdad 693→731, Damascus 809→755, Cordoba 181→192: original LI bug, 39 references); the Library of
+     Alexandria fallback (802→999). **Open:** CleanSlate's `00_province_triggers.txt` (126 numeric references)
+     and `common/technology.txt` (44) look vanilla-numbered and need a proper review.
 
 ## Tools (currently in the session scratchpad; move into `tools/` in the repo to keep them)
 
