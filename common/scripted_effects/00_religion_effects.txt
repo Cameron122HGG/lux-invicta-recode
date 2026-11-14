@@ -1178,12 +1178,28 @@ rebuild_god_name_effect = {
 			OR = {
 				trigger_if = {
 					limit = { religion_is_patriarchal_trigger = yes }
+					NOR = { # There is no matching composition in vanilla
+						religion = west_african_pagan_reformed
+						religion = zun_pagan_reformed
+					}
 				}
 				trigger_if = {
 					limit = { religion_is_matriarchal_trigger = yes }
+					NOR = {
+						religion = west_african_pagan_reformed
+						religion = zun_pagan_reformed
+					}
 				}
 				trigger_if = {
 					limit = { religion_is_dogmatic_trigger = yes }
+					NOR = {
+						religion = west_african_pagan_reformed
+						religion = zun_pagan_reformed
+					}
+				}
+				trigger_if = {
+					limit = { religion_is_proselytizing_trigger = yes }
+					religion = aztec_pagan_reformed
 				}
 				religion_has_holy_family_trigger = yes
 			}

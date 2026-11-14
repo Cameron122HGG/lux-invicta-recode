@@ -12,6 +12,25 @@ coronation_factor = {
 
 horde_guidance_factor = {
 	# Try to guide the Hordes in the right direction
+	mult_modifier = {
+		factor = 0.1
+
+		ROOT = {
+			OR = {
+				dynasty = 613 # Seljuks
+				dynasty = 800 # Timurids
+			}
+		}
+
+		trigger_if = {
+			limit = { region = world_middle_east }
+
+			FROM = {
+				has_landed_title = e_golden_horde
+				year < 1300
+			}
+		}
+	}
 
 
 	mult_modifier = {
