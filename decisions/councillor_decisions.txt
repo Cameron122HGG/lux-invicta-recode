@@ -87,7 +87,7 @@ decisions = {
 
 			liege = {
 				set_character_flag = has_been_proposed_about_titles
-				#character_event = { id = CK2.18000 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = CK2.18000 }
 			}
 		}
 
@@ -164,8 +164,8 @@ decisions = {
 			set_character_flag = getting_help_with_titles
 
 			job_chancellor = {
-				#character_event = { id = CK2.18003 } # Start handing out titles # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#character_event = { id = CK2.18001 } # Notify councillor
+				character_event = { id = CK2.18003 } # Start handing out titles
+				character_event = { id = CK2.18001 } # Notify councillor
 			}
 		}
 
