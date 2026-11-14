@@ -21,7 +21,7 @@ on_yearly_pulse = {
 		# Various Events
 		100 = TOG.3401 # Peijaiset
 		100 = TOG.3402 # Will the real Odin please stand up?
-		100 = TOG.3400 # Son of the Buffalo Woman
+		100 = 0 # was TOG.3400: Son of the Buffalo Woman (LI: Lux Invicta's TOG.3400 needs FROM = the wife and is fired by TOG.3403 from li_on_actions_restored.txt; fired from here it made the ruler his own lover)
 
 		# Former MTTH Events
 		100 = TOG.3109 # Child wants to join the Varangians (Son) - Formerly 200 month MTTH
