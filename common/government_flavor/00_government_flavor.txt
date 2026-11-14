@@ -6,18 +6,32 @@ government_flavor = {
 	name = gov_electorial_aristocratic_monarchy
 	graphics = GFX_evt_found_hre
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-		}
-		NOT = { has_law = ze_administration_laws_2 }
 		OR = {
-			NOT = { has_dlc = "Conclave" }
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		religion_openly_norse_or_reformed_trigger = no
+		religion_openly_tengri_or_reformed_trigger = no
+
+		NOR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -27,39 +41,6 @@ government_flavor = {
 				has_law = war_voting_power_1
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_aristocratic_monarchy
-	graphics = GFX_evt_found_hre
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-		}
-		NOT = { has_law = ze_administration_laws_2 }
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -67,43 +48,31 @@ government_flavor = {
 	name = gov_electorial_aristocratic_monarchy_norse
 	graphics = GFX_evt_viking_funeral_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
+		religion_openly_norse_or_reformed_trigger = yes
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_aristocratic_monarchy_norse
-	graphics = GFX_evt_viking_funeral_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
-		OR = {
-			NOT = { has_dlc = "Conclave" }
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -113,8 +82,6 @@ government_flavor = {
 				has_law = war_voting_power_1
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -122,43 +89,31 @@ government_flavor = {
 	name = gov_electorial_aristocratic_monarchy_tengri
 	graphics = GFX_evt_mongols
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
+		religion_openly_tengri_or_reformed_trigger = yes
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_aristocratic_monarchy_tengri
-	graphics = GFX_evt_mongols
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
-		OR = {
-			NOT = { has_dlc = "Conclave" }
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -168,8 +123,6 @@ government_flavor = {
 				has_law = war_voting_power_1
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -177,14 +130,24 @@ government_flavor = {
 	name = gov_muslim_aristocratic_monarchy
 	graphics = GFX_evt_emissary_arabic
 	priority = 1
+
 	trigger = {
-		government = muslim_government
-		NOT = { has_law = ze_administration_laws_2 }
+		government = muslim_feudal_government
 		mercenary = no
-		OR = {
-			NOT = { has_dlc = "Conclave" }
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -193,24 +156,34 @@ government_flavor = {
 				has_law = imprison_voting_power_1
 				has_law = war_voting_power_1
 			}
-		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
 		}
 	}
 }
+
 government_flavor = {
-	name = gov_egalitarian_muslim_aristocratic_monarchy
+	name = gov_elective_muslim_aristocratic_monarchy
 	graphics = GFX_evt_emissary_arabic
 	priority = 1
+
 	trigger = {
-		government = muslim_government
-		NOT = { has_law = ze_administration_laws_2 }
+		government = muslim_feudal_government
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		NOR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -220,8 +193,6 @@ government_flavor = {
 				has_law = war_voting_power_1
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -229,254 +200,172 @@ government_flavor = {
 	name = gov_hereditary_aristocratic_monarchy
 	graphics = GFX_evt_found_hre
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = indian_group
-		}
-		NOT = { has_law = ze_administration_laws_2 }
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_aristocratic_monarchy
-	graphics = GFX_evt_found_hre
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+
+		NOT = { religion_group = indian_group }
+		religion_openly_tengri_or_reformed_trigger = no
+		religion_openly_norse_or_reformed_trigger = no
 		mercenary = no
+
 		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = indian_group
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		NOT = { has_law = ze_administration_laws_2 }
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_aristocratic_monarchy_norse
 	graphics = GFX_evt_viking_funeral_oldgods
 	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
-		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
 
-government_flavor = {
-	name = gov_egalitarian_hereditary_aristocratic_monarchy_norse
-	graphics = GFX_evt_viking_funeral_oldgods
-	priority = 1
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+		religion_openly_norse_or_reformed_trigger = yes
 		mercenary = no
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_aristocratic_monarchy_tengri
 	graphics = GFX_evt_mongols
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+		religion_openly_tengri_or_reformed_trigger = yes
 		mercenary = no
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_aristocratic_monarchy_tengri
-	graphics = GFX_evt_mongols
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_aristocratic_monarchy_indian
 	graphics = GFX_evt_throne_room_indo_aryan_group
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
 		religion_group = indian_group
-		NOT = { has_law = ze_administration_laws_2 }
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
-		}
-		NOR ={
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_aristocratic_monarchy_indian
-	graphics = GFX_evt_throne_room_indo_aryan_group
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
 		mercenary = no
-		religion_group = indian_group
-		NOT = { has_law = ze_administration_laws_2 }
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_despotic_monarchy
 	graphics = GFX_evt_throne_room
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = zoroastrian_group
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = { has_law = ze_administration_laws_2 }
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		NOT = { religion_group = zoroastrian_group }
+		religion_openly_norse_or_reformed_trigger = no
+		religion_openly_tengri_or_reformed_trigger = no
+
+		NOR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
 		calc_true_if = {
-			amount = 2
+			amount >= 2
+
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -484,39 +373,11 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_despotic_monarchy
-	graphics = GFX_evt_throne_room
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = zoroastrian_group
-		}
-		NOT = { has_law = ze_administration_laws_2 }
+
 		calc_true_if = {
-			amount = 2
+			amount < 7
+
+			has_law = law_voting_power_0
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -524,70 +385,31 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_despotic_monarchy_zoro
 	graphics = GFX_evt_marriage_zoroastrian_group
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
 		religion_group = zoroastrian_group
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+		government = feudal_government
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_despotic_monarchy_zoro
-	graphics = GFX_evt_marriage_zoroastrian_group
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = zoroastrian_group
-		NOT = { has_law = ze_administration_laws_2 }
+
 		calc_true_if = {
-			amount = 2
+			amount >= 2
+
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -595,70 +417,47 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
+
+		calc_true_if = {
+			amount < 7
+
+			has_law = law_voting_power_0
+			has_law = banish_voting_power_0
+			has_law = execution_voting_power_0
+			has_law = revoke_title_voting_power_0
+			has_law = grant_title_voting_power_0
+			has_law = imprison_voting_power_0
+			has_law = war_voting_power_0
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_despotic_monarchy_norse
 	graphics = GFX_evt_longships_at_sea_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+		religion_openly_norse_or_reformed_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_despotic_monarchy_norse
-	graphics = GFX_evt_longships_at_sea_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
+
 		calc_true_if = {
-			amount = 2
+			amount >= 2
+
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -666,34 +465,47 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
+
+		calc_true_if = {
+			amount < 7
+
+			has_law = law_voting_power_0
+			has_law = banish_voting_power_0
+			has_law = execution_voting_power_0
+			has_law = revoke_title_voting_power_0
+			has_law = grant_title_voting_power_0
+			has_law = imprison_voting_power_0
+			has_law = war_voting_power_0
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_despotic_monarchy_tengri
 	graphics = GFX_evt_tengri_throneroom_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
+		religion_openly_tengri_or_reformed_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		NOR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
 		calc_true_if = {
-			amount = 2
+			amount >= 2
+
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -701,80 +513,43 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+
+		calc_true_if = {
+			amount < 7
+
+			has_law = law_voting_power_0
+			has_law = banish_voting_power_0
+			has_law = execution_voting_power_0
+			has_law = revoke_title_voting_power_0
+			has_law = grant_title_voting_power_0
+			has_law = imprison_voting_power_0
+			has_law = war_voting_power_0
 		}
 	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_despotic_monarchy_tengri
-	graphics = GFX_evt_tengri_throneroom_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
 }
 
 government_flavor = {
 	name = gov_muslim_despotic_monarchy
 	graphics = GFX_evt_carriage_arabic
 	priority = 1
+
 	trigger = {
-		government = muslim_government
-		NOT = { has_law = ze_administration_laws_2 }
+		government = muslim_feudal_government
 		mercenary = no
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		NOT = {
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
+				amount >= 2
+
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
 				has_law = revoke_title_voting_power_0
@@ -783,33 +558,45 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+
+		calc_true_if = {
+			amount < 7
+
+			has_law = law_voting_power_0
+			has_law = banish_voting_power_0
+			has_law = execution_voting_power_0
+			has_law = revoke_title_voting_power_0
+			has_law = grant_title_voting_power_0
+			has_law = imprison_voting_power_0
+			has_law = war_voting_power_0
 		}
-	}	
+	}
 }
+
 government_flavor = {
-	name = gov_egalitarian_muslim_despotic_monarchy
+	name = gov_elective_muslim_despotic_monarchy
 	graphics = GFX_evt_carriage_arabic
 	priority = 1
+
 	trigger = {
-		government = muslim_government
-		NOT = { has_law = ze_administration_laws_2 }
-		mercenary = no
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+		government = muslim_feudal_government
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-		NOT = {
+
+		NOR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
+				amount >= 2
+
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
 				has_law = revoke_title_voting_power_0
@@ -818,39 +605,51 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		calc_true_if = {
+			amount < 7
+
+			has_law = law_voting_power_0
+			has_law = banish_voting_power_0
+			has_law = execution_voting_power_0
+			has_law = revoke_title_voting_power_0
+			has_law = grant_title_voting_power_0
+			has_law = imprison_voting_power_0
+			has_law = war_voting_power_0
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_monarchy
 	graphics = GFX_evt_throne_room
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
 		mercenary = no
+
 		NOR = {
-			LI_norse_pagan_trigger = yes
+			religion_openly_norse_or_reformed_trigger = yes
+			religion_openly_tengri_or_reformed_trigger = yes
 			religion_group = indian_group
-			religion_group = tengri_group
 			religion_group = zoroastrian_group
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
+				amount >= 2
+
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
 				has_law = revoke_title_voting_power_0
@@ -859,29 +658,11 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_despotic_monarchy
-	graphics = GFX_evt_throne_room
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = indian_group
-			religion_group = tengri_group
-			religion_group = zoroastrian_group
-		}
-		NOT = { has_law = ze_administration_laws_2 }
+
 		calc_true_if = {
-			amount = 2
+			amount < 7
+
+			has_law = law_voting_power_0
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -889,82 +670,43 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_monarchy_zoro
 	graphics = GFX_evt_marriage_zoroastrian_group
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
 		religion_group = zoroastrian_group
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
+		mercenary = no
+		government = feudal_government
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_despotic_monarchy_zoro
-	graphics = GFX_evt_marriage_zoroastrian_group
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = zoroastrian_group
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -974,70 +716,47 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_monarchy_norse
 	graphics = GFX_evt_longships_at_sea_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+		religion_openly_norse_or_reformed_trigger = yes
 		mercenary = no
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_despotic_monarchy_norse
-	graphics = GFX_evt_longships_at_sea_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -1047,33 +766,47 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_monarchy_tengri
 	graphics = GFX_evt_tengri_throneroom_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+		religion_openly_tengri_or_reformed_trigger = yes
 		mercenary = no
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = {
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -1082,108 +815,48 @@ government_flavor = {
 				has_law = imprison_voting_power_0
 				has_law = war_voting_power_0
 			}
-		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
 		}
 	}
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_despotic_monarchy_tengri
-	graphics = GFX_evt_tengri_throneroom_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_monarchy_indian
 	graphics = GFX_evt_emissary_indo_aryan_group
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
 		religion_group = indian_group
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+		mercenary = no
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_despotic_monarchy_indian
-	graphics = GFX_evt_emissary_indo_aryan_group
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = indian_group
-		NOT = { has_law = ze_administration_laws_2 }
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -1193,23 +866,29 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_absolute_monarchy
 	graphics = GFX_evt_powerful_ruler
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = { has_law = ze_administration_laws_2 }
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		religion_openly_norse_or_reformed_trigger = no
+		religion_openly_tengri_or_reformed_trigger = no
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1217,33 +896,11 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_absolute_monarchy
-	graphics = GFX_evt_powerful_ruler
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-		}
-		NOT = { has_law = ze_administration_laws_2 }
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -1251,33 +908,21 @@ government_flavor = {
 	name = gov_electorial_absolute_monarchy_norse
 	graphics = GFX_evt_viking_throneroom_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+		religion_openly_norse_or_reformed_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_absolute_monarchy_norse
-	graphics = GFX_evt_viking_throneroom_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1285,8 +930,11 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
+
+		NOR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
 	}
 }
 
@@ -1294,33 +942,21 @@ government_flavor = {
 	name = gov_electorial_absolute_monarchy_tengri
 	graphics = GFX_evt_mongols_pillage_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+		religion_openly_tengri_or_reformed_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_absolute_monarchy_tengri
-	graphics = GFX_evt_mongols_pillage_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1328,8 +964,11 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
+
+		NOR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
 	}
 }
 
@@ -1337,10 +976,12 @@ government_flavor = {
 	name = gov_muslim_absolute_monarchy
 	graphics = GFX_evt_throne_room_arabic
 	priority = 1
+
 	trigger = {
-		government = muslim_government
-		NOT = { has_law = ze_administration_laws_2 }
+		government = muslim_feudal_government
 		mercenary = no
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1348,20 +989,30 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
 	}
 }
+
 government_flavor = {
-	name = gov_egalitarian_muslim_absolute_monarchy
+	name = gov_elective_muslim_absolute_monarchy
 	graphics = GFX_evt_throne_room_arabic
 	priority = 1
+
 	trigger = {
-		government = muslim_government
-		NOT = { has_law = ze_administration_laws_2 }
-		mercenary = no
+		government = muslim_feudal_government
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1369,8 +1020,11 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
+
+		NOR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
 	}
 }
 
@@ -1378,16 +1032,14 @@ government_flavor = {
 	name = gov_hereditary_absolute_monarchy
 	graphics = GFX_evt_powerful_ruler
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = indian_group
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = { has_law = ze_administration_laws_2 }
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1395,71 +1047,36 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_absolute_monarchy
-	graphics = GFX_evt_powerful_ruler
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+
+		religion_openly_norse_or_reformed_trigger = no
+		religion_openly_tengri_or_reformed_trigger = no
 		mercenary = no
+
 		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
 			religion_group = indian_group
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		NOT = { has_law = ze_administration_laws_2 }
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_absolute_monarchy_norse
 	graphics = GFX_evt_viking_throneroom_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+		religion_openly_norse_or_reformed_trigger = yes
 		mercenary = no
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_absolute_monarchy_norse
-	graphics = GFX_evt_viking_throneroom_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = ze_administration_laws_2 }
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1467,44 +1084,31 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_absolute_monarchy_tengri
 	graphics = GFX_evt_mongols_pillage_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+		religion_openly_tengri_or_reformed_trigger = yes
 		mercenary = no
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_absolute_monarchy_tengri
-	graphics = GFX_evt_mongols_pillage_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = tengri_group
-		NOT = { has_law = ze_administration_laws_2 }
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1512,44 +1116,31 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_absolute_monarchy_indian
 	graphics = GFX_evt_ruler_riding_elephant
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
 		religion_group = indian_group
-		NOT = { has_law = ze_administration_laws_2 }
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+		mercenary = no
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_absolute_monarchy_indian
-	graphics = GFX_evt_ruler_riding_elephant
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = indian_group
-		NOT = { has_law = ze_administration_laws_2 }
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1557,25 +1148,39 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_absolute_autocracy
 	graphics = GFX_evt_judged_by_ruler
 	priority = 1
+
 	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = indian_group
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
+
+		NOR = {
+			religion_group = indian_group
+			religion_openly_norse_or_reformed_trigger = yes
+			religion_openly_tengri_or_reformed_trigger = yes
+		}
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1583,71 +1188,36 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_absolute_autocracy
-	graphics = GFX_evt_judged_by_ruler
-	priority = 1
-	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+
 		mercenary = no
+
 		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = indian_group
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_absolute_autocracy_norse
 	graphics = GFX_evt_midwinter_blot_oldgods
 	priority = 1
+
 	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		LI_norse_pagan_trigger = yes
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_absolute_autocracy_norse
-	graphics = GFX_evt_midwinter_blot_oldgods
-	priority = 1
-	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+
+		religion_openly_norse_or_reformed_trigger = yes
 		mercenary = no
-		LI_norse_pagan_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1655,44 +1225,34 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_absolute_autocracy_tengri
 	graphics = GFX_evt_steppe_mercenaries
 	priority = 1
+
 	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = tengri_group
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_absolute_autocracy_tengri
-	graphics = GFX_evt_steppe_mercenaries
-	priority = 1
-	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+
+		religion_openly_tengri_or_reformed_trigger = yes
 		mercenary = no
-		religion_group = tengri_group
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1700,44 +1260,34 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_absolute_autocracy_indian
 	graphics = GFX_evt_battle_indo_aryan_group
 	priority = 1
+
 	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = indian_group
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_absolute_autocracy_indian
-	graphics = GFX_evt_battle_indo_aryan_group
-	priority = 1
-	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
+
 		religion_group = indian_group
+		mercenary = no
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1745,19 +1295,34 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_muslim_absolute_autocracy
 	graphics = GFX_evt_lunatic_arabic
 	priority = 1
+
 	trigger = {
-		has_law = ze_administration_laws_2
-		government = muslim_government
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		government = muslim_feudal_government
 		mercenary = no
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1765,20 +1330,28 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
+	}
 }
+
 government_flavor = {
-	name = gov_egalitarian_muslim_absolute_autocracy
+	name = gov_elective_muslim_absolute_autocracy
 	graphics = GFX_evt_lunatic_arabic
 	priority = 1
+
 	trigger = {
-		has_law = ze_administration_laws_2
-		government = muslim_government
-		mercenary = no
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		government = muslim_feudal_government
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1786,23 +1359,34 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_absolute_autocracy
 	graphics = GFX_evt_judged_by_ruler
 	priority = 1
+
 	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
+
+		religion_openly_norse_or_reformed_trigger = no
+		religion_openly_tengri_or_reformed_trigger = no
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1810,67 +1394,33 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_absolute_autocracy
-	graphics = GFX_evt_judged_by_ruler
-	priority = 1
-	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-		}
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_absolute_autocracy_norse
 	graphics = GFX_evt_midwinter_blot_oldgods
 	priority = 1
+
 	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_absolute_autocracy_norse
-	graphics = GFX_evt_midwinter_blot_oldgods
-	priority = 1
-	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
+
+		religion_openly_norse_or_reformed_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1878,42 +1428,33 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_absolute_autocracy_tengri
 	graphics = GFX_evt_steppe_mercenaries
 	priority = 1
+
 	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_absolute_autocracy_tengri
-	graphics = GFX_evt_steppe_mercenaries
-	priority = 1
-	trigger = {
-		has_law = ze_administration_laws_2
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
+
+		religion_openly_tengri_or_reformed_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -1921,37 +1462,79 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
+}
+
+government_flavor = {
+	name = gov_roman_imperial_government
+	graphics = GFX_evt_victory_arch_byzantine
+	priority = 3
+
+	trigger = {
+		government = roman_imperial_government
+		is_landed = yes
+	}
+}
+
+government_flavor = {
+	name = gov_roman_imperial_government_decayed
+	graphics = GFX_evt_rome_falls
+	priority = 3
+
+	trigger = { # Impossible to get
+		government = roman_imperial_government
+		is_landed = no
+
+		NOR = {
+			has_landed_title = e_roman_empire
+			has_landed_title = e_byzantium
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_autocracy
 	graphics = GFX_evt_emissary_byzantine
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
 		mercenary = no
+		NOT = { religion_group = indian_group }
+		religion_openly_norse_or_reformed_trigger = no
+		religion_openly_tengri_or_reformed_trigger = no
+
 		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = indian_group
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -1961,110 +1544,45 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_despotic_autocracy
-	graphics = GFX_evt_emissary_byzantine
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = indian_group
-		}
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_autocracy_norse
 	graphics = GFX_evt_viking_battle_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		LI_norse_pagan_trigger = yes
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_despotic_autocracy_norse
-	graphics = GFX_evt_viking_battle_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+
+		religion_openly_norse_or_reformed_trigger = yes
 		mercenary = no
-		LI_norse_pagan_trigger = yes
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = {
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -2074,70 +1592,55 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_autocracy_tengri
 	graphics = GFX_evt_tengri_throneroom_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		religion_openly_tengri_or_reformed_trigger = yes
 		mercenary = no
-		religion_group = tengri_group
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_despotic_autocracy_tengri
-	graphics = GFX_evt_tengri_throneroom_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = tengri_group
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount >= 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -2147,70 +1650,50 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_autocracy_indian
 	graphics = GFX_evt_emissary_indo_aryan_group
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
 		religion_group = indian_group
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+		mercenary = no
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_despotic_autocracy_indian
-	graphics = GFX_evt_emissary_indo_aryan_group
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = indian_group
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -2220,31 +1703,45 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_muslim_despotic_autocracy
 	graphics = GFX_evt_jugglers_arabic
 	priority = 1
+
 	trigger = {
-		government = muslim_government
-		has_law = ze_administration_laws_2
-		mercenary = no
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		NOT = {
+
+		government = muslim_feudal_government
+		mercenary = no
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -2254,32 +1751,44 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
+	}
 }
+
 government_flavor = {
-	name = gov_egalitarian_muslim_despotic_autocracy
+	name = gov_elective_muslim_despotic_autocracy
 	graphics = GFX_evt_jugglers_arabic
 	priority = 1
+
 	trigger = {
-		government = muslim_government
-		has_law = ze_administration_laws_2
-		mercenary = no
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		NOT = {
+
+		government = muslim_feudal_government
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -2289,35 +1798,47 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_despotic_autocracy
 	graphics = GFX_evt_emissary_byzantine
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
 		}
-		NOT = {
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -2327,71 +1848,52 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_despotic_autocracy
-	graphics = GFX_evt_emissary_byzantine
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-		}
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+
+		religion_openly_norse_or_reformed_trigger = no
+		religion_openly_tengri_or_reformed_trigger = no
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_despotic_autocracy_norse
 	graphics = GFX_evt_viking_battle_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		NOT = {
+
+		religion_openly_norse_or_reformed_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -2401,58 +1903,34 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_despotic_autocracy_norse
-	graphics = GFX_evt_viking_battle_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		has_law = ze_administration_laws_2
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_despotic_autocracy_tengri
 	graphics = GFX_evt_tengri_throneroom_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		has_law = ze_administration_laws_2
+		religion_openly_tengri_or_reformed_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
 		calc_true_if = {
-			amount = 2
+			amount >= 2
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -2460,35 +1938,10 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_despotic_autocracy_tengri
-	graphics = GFX_evt_tengri_throneroom_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		has_law = ze_administration_laws_2
+
 		calc_true_if = {
-			amount = 2
+			amount < 7
+			has_law = law_voting_power_0
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -2496,85 +1949,46 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_aristocratic_autocracy
 	graphics = GFX_evt_throne_room_byzantine
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
 		mercenary = no
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = indian_group
-		}
-		has_law = ze_administration_laws_2
+		NOT = { religion_group = indian_group }
+		religion_openly_norse_or_reformed_trigger = no
+		religion_openly_tengri_or_reformed_trigger = no
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_aristocratic_autocracy
-	graphics = GFX_evt_throne_room_byzantine
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-			religion_group = indian_group
-		}
-		has_law = ze_administration_laws_2
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
+		}
 	}
 }
 
@@ -2582,56 +1996,37 @@ government_flavor = {
 	name = gov_hereditary_aristocratic_autocracy_norse
 	graphics = GFX_evt_vikings_arriving_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
 		mercenary = no
-		LI_norse_pagan_trigger = yes
-		has_law = ze_administration_laws_2
+		religion_openly_norse_or_reformed_trigger = yes
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_aristocratic_autocracy_norse
-	graphics = GFX_evt_vikings_arriving_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		LI_norse_pagan_trigger = yes
-		has_law = ze_administration_laws_2
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
+		}
 	}
 }
 
@@ -2639,56 +2034,37 @@ government_flavor = {
 	name = gov_hereditary_aristocratic_autocracy_tengri
 	graphics = GFX_evt_mongols
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
 		mercenary = no
-		religion_group = tengri_group
-		has_law = ze_administration_laws_2
+		religion_openly_tengri_or_reformed_trigger = yes
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_aristocratic_autocracy_tengri
-	graphics = GFX_evt_mongols
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = tengri_group
-		has_law = ze_administration_laws_2
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
+		}
 	}
 }
 
@@ -2696,56 +2072,37 @@ government_flavor = {
 	name = gov_hereditary_aristocratic_autocracy_indian
 	graphics = GFX_evt_throne_room_indo_aryan_group
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
 		mercenary = no
 		religion_group = indian_group
-		has_law = ze_administration_laws_2
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			government = feudal_government
+			government = monastic_feudal_government
 		}
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_hereditary_aristocratic_autocracy_indian
-	graphics = GFX_evt_throne_room_indo_aryan_group
-	priority = 1
-	trigger = {
-		government = feudal_government
-		NOT = { has_law = succ_feudal_elective }
-		mercenary = no
-		religion_group = indian_group
-		has_law = ze_administration_laws_2
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
+		}
 	}
 }
 
@@ -2753,52 +2110,64 @@ government_flavor = {
 	name = gov_muslim_aristocratic_autocracy
 	graphics = GFX_evt_council_speaker
 	priority = 1
+
 	trigger = {
-		government = muslim_government
 		mercenary = no
-		has_law = ze_administration_laws_2
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
-		}
+		government = muslim_feudal_government
+
 		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
 		}
 	}
 }
+
 government_flavor = {
-	name = gov_egalitarian_muslim_aristocratic_autocracy
+	name = gov_elective_muslim_aristocratic_autocracy
 	graphics = GFX_evt_council_speaker
 	priority = 1
+
 	trigger = {
-		government = muslim_government
-		mercenary = no
-		has_law = ze_administration_laws_2
+		government = muslim_feudal_government
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
 		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
+
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
+		}
 	}
 }
 
@@ -2806,18 +2175,32 @@ government_flavor = {
 	name = gov_electorial_aristocratic_autocracy
 	graphics = GFX_evt_throne_room_byzantine
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-		}
-		has_law = ze_administration_laws_2
+		religion_openly_norse_or_reformed_trigger = no
+		religion_openly_tengri_or_reformed_trigger = no
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -2827,39 +2210,6 @@ government_flavor = {
 				has_law = war_voting_power_1
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_aristocratic_autocracy
-	graphics = GFX_evt_throne_room_byzantine
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		NOR = {
-			LI_norse_pagan_trigger = yes
-			religion_group = tengri_group
-		}
-		has_law = ze_administration_laws_2
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -2867,15 +2217,31 @@ government_flavor = {
 	name = gov_electorial_aristocratic_autocracy_norse
 	graphics = GFX_evt_vikings_arriving_oldgods
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		has_law = ze_administration_laws_2
+		religion_openly_norse_or_reformed_trigger = yes
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -2885,36 +2251,6 @@ government_flavor = {
 				has_law = war_voting_power_1
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_aristocratic_autocracy_norse
-	graphics = GFX_evt_vikings_arriving_oldgods
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
-		has_law = ze_administration_laws_2
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -2922,15 +2258,31 @@ government_flavor = {
 	name = gov_electorial_aristocratic_autocracy_tengri
 	graphics = GFX_evt_mongols
 	priority = 1
+
 	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		has_law = ze_administration_laws_2
+		religion_openly_tengri_or_reformed_trigger = yes
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		OR = {
+			has_law = imperial_administration
+			has_law = ze_administration_laws_2
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -2940,36 +2292,6 @@ government_flavor = {
 				has_law = war_voting_power_1
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_electorial_aristocratic_autocracy_tengri
-	graphics = GFX_evt_mongols
-	priority = 1
-	trigger = {
-		government = feudal_government
-		has_law = succ_feudal_elective
-		religion_group = tengri_group
-		has_law = ze_administration_laws_2
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -2977,48 +2299,21 @@ government_flavor = {
 	name = gov_aristocratic_republic
 	graphics = GFX_evt_family_feud_republic
 	priority = 1
+
 	trigger = {
-		government = merchant_republic_government
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
+		is_patrician = yes
+
+		calc_true_if = {
+			amount >= 6
+
+			has_law = law_voting_power_1
+			has_law = banish_voting_power_1
+			has_law = execution_voting_power_1
+			has_law = revoke_title_voting_power_1
+			has_law = grant_title_voting_power_1
+			has_law = imprison_voting_power_1
+			has_law = war_voting_power_1
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_aristocratic_republic
-	graphics = GFX_evt_family_feud_republic
-	priority = 1
-	trigger = {
-		government = merchant_republic_government
-		OR = {
-			NOT = { has_dlc = "Conclave" }
-			calc_true_if = {
-				amount = 6
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -3026,20 +2321,27 @@ government_flavor = {
 	name = gov_plutocratic_republic
 	graphics = GFX_evt_busy_trading_dock_republic
 	priority = 1
+
 	trigger = {
-		government = merchant_republic_government
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
+		is_patrician = yes
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 7
+				amount >= 2
+
+				has_law = banish_voting_power_0
+				has_law = execution_voting_power_0
+				has_law = revoke_title_voting_power_0
+				has_law = grant_title_voting_power_0
+				has_law = imprison_voting_power_0
+				has_law = war_voting_power_0
+			}
+
+			calc_true_if = {
+				amount < 7
+
 				has_law = law_voting_power_0
 				has_law = banish_voting_power_0
 				has_law = execution_voting_power_0
@@ -3049,50 +2351,19 @@ government_flavor = {
 				has_law = war_voting_power_0
 			}
 		}
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}	
-}
-government_flavor = {
-	name = gov_egalitarian_plutocratic_republic
-	graphics = GFX_evt_busy_trading_dock_republic
-	priority = 1
-	trigger = {
-		government = merchant_republic_government
-		calc_true_if = {
-			amount = 2
-			has_law = banish_voting_power_0
-			has_law = execution_voting_power_0
-			has_law = revoke_title_voting_power_0
-			has_law = grant_title_voting_power_0
-			has_law = imprison_voting_power_0
-			has_law = war_voting_power_0
-		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
-		}
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_oligarchic_republic
 	graphics = GFX_evt_doge_republic
 	priority = 1
+
 	trigger = {
-		government = merchant_republic_government
+		is_patrician = yes
+		higher_real_tier_than = BARON
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -3100,52 +2371,30 @@ government_flavor = {
 		has_law = grant_title_voting_power_0
 		has_law = imprison_voting_power_0
 		has_law = war_voting_power_0
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_oligarchic_republic
-	graphics = GFX_evt_doge_republic
-	priority = 1
-	trigger = {
-		government = merchant_republic_government
-		has_law = law_voting_power_0
-		has_law = banish_voting_power_0
-		has_law = execution_voting_power_0
-		has_law = revoke_title_voting_power_0
-		has_law = grant_title_voting_power_0
-		has_law = imprison_voting_power_0
-		has_law = war_voting_power_0
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
 government_flavor = {
-	name = gov_patrician
+	name = gov_patriciate
 	graphics = GFX_evt_relaxed_ruler
 	priority = 1
+
 	trigger = {
 		is_patrician = yes
-		NOT = { higher_tier_than = BARON }
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
+		is_female = no
+		lower_real_tier_than = COUNT
 	}
 }
+
 government_flavor = {
-	name = gov_egalitarian_patrician
+	name = gov_matriciate
 	graphics = GFX_evt_relaxed_ruler
 	priority = 1
+
 	trigger = {
 		is_patrician = yes
-		NOT = { higher_tier_than = BARON }
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
+		is_female = yes
+		lower_real_tier_than = COUNT
 	}
 }
 
@@ -3153,24 +2402,10 @@ government_flavor = {
 	name = gov_chiefdom
 	graphics = GFX_evt_tribal_lands
 	priority = 1
+
 	trigger = {
+		is_tribal = yes
 		NOT = { has_law = succ_gavelkind }
-		government = tribal_government
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_chiefdom
-	graphics = GFX_evt_tribal_lands
-	priority = 1
-	trigger = {
-		NOT = { has_law = succ_gavelkind }
-		government = tribal_government
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -3178,24 +2413,10 @@ government_flavor = {
 	name = gov_noble_chiefdom
 	graphics = GFX_evt_tribal_lands
 	priority = 1
+
 	trigger = {
-		government = tribal_government
+		is_tribal = yes
 		has_law = succ_gavelkind
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_noble_chiefdom
-	graphics = GFX_evt_tribal_lands
-	priority = 1
-	trigger = {
-		government = tribal_government
-		has_law = succ_gavelkind
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -3203,24 +2424,10 @@ government_flavor = {
 	name = gov_khaganate
 	graphics = GFX_evt_horsemanship
 	priority = 1
+
 	trigger = {
-		government = nomadic_government
+		is_nomadic = yes
 		independent = yes
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_khaganate
-	graphics = GFX_evt_horsemanship
-	priority = 1
-	trigger = {
-		government = nomadic_government
-		independent = yes
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -3228,24 +2435,10 @@ government_flavor = {
 	name = gov_clan
 	graphics = GFX_evt_nomad_camp
 	priority = 1
+
 	trigger = {
-		government = nomadic_government
+		is_nomadic = yes
 		independent = no
-		NOR = {
-			has_law = status_of_women_4
-			has_law = true_cognatic_succession
-		}
-	}
-}
-government_flavor = {
-	name = gov_egalitarian_clan
-	graphics = GFX_evt_nomad_camp
-	priority = 1
-	trigger = {
-		government = nomadic_government
-		independent = no
-		has_law = status_of_women_4
-		has_law = true_cognatic_succession
 	}
 }
 
@@ -3253,6 +2446,7 @@ government_flavor = {
 	name = gov_mercenary
 	graphics = GFX_evt_steppe_mercenaries
 	priority = 1
+
 	trigger = {
 		mercenary = yes
 	}
@@ -3266,15 +2460,23 @@ government_flavor = {
 	name = gov_aristocratic_electorial_hre
 	graphics = GFX_evt_holy_emperor
 	priority = 2
+
 	trigger = {
-		government = feudal_government
-		religion_group = christian
 		has_landed_title = e_hre
-		has_law = succ_feudal_elective
+		religion_group = christian
+		government = feudal_government
+
 		OR = {
-			NOT = { has_dlc = "Conclave" }
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -3291,15 +2493,23 @@ government_flavor = {
 	name = gov_aristocratic_hereditary_hre
 	graphics = GFX_evt_holy_emperor
 	priority = 2
+
 	trigger = {
-		government = feudal_government
-		religion_group = christian
 		has_landed_title = e_hre
-		NOT = { has_law = succ_feudal_elective }
-		OR = {
-			NOT = { has_dlc = "Conclave" }
+		religion_group = christian
+		government = feudal_government
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		trigger_if = {
+			limit = { has_dlc = "Conclave" }
+
 			calc_true_if = {
-				amount = 6
+				amount >= 6
+
 				has_law = law_voting_power_1
 				has_law = banish_voting_power_1
 				has_law = execution_voting_power_1
@@ -3316,13 +2526,20 @@ government_flavor = {
 	name = gov_electorial_despotic_hre
 	graphics = GFX_evt_holy_emperor
 	priority = 2
+
 	trigger = {
-		government = feudal_government
-		religion_group = christian
-		has_law = succ_feudal_elective
 		has_landed_title = e_hre
+		religion_group = christian
+		government = feudal_government
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
 		calc_true_if = {
-			amount = 2
+			amount >= 2
+
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -3330,32 +2547,39 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
+
+		calc_true_if = {
+			amount < 7
+
+			has_law = law_voting_power_0
+			has_law = banish_voting_power_0
+			has_law = execution_voting_power_0
+			has_law = revoke_title_voting_power_0
+			has_law = grant_title_voting_power_0
+			has_law = imprison_voting_power_0
+			has_law = war_voting_power_0
 		}
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_hereditary_despotic_hre
 	graphics = GFX_evt_holy_emperor
 	priority = 2
+
 	trigger = {
-		government = feudal_government
-		religion_group = christian
-		NOT = { has_law = succ_feudal_elective }
 		has_landed_title = e_hre
+		religion_group = christian
+		government = feudal_government
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
 		calc_true_if = {
-			amount = 2
+			amount >= 2
+
 			has_law = banish_voting_power_0
 			has_law = execution_voting_power_0
 			has_law = revoke_title_voting_power_0
@@ -3363,30 +2587,36 @@ government_flavor = {
 			has_law = imprison_voting_power_0
 			has_law = war_voting_power_0
 		}
-		NOT = {
-			calc_true_if = {
-				amount = 7
-				has_law = law_voting_power_0
-				has_law = banish_voting_power_0
-				has_law = execution_voting_power_0
-				has_law = revoke_title_voting_power_0
-				has_law = grant_title_voting_power_0
-				has_law = imprison_voting_power_0
-				has_law = war_voting_power_0
-			}
+
+		calc_true_if = {
+			amount < 7
+
+			has_law = law_voting_power_0
+			has_law = banish_voting_power_0
+			has_law = execution_voting_power_0
+			has_law = revoke_title_voting_power_0
+			has_law = grant_title_voting_power_0
+			has_law = imprison_voting_power_0
+			has_law = war_voting_power_0
 		}
-	}	
+	}
 }
 
 government_flavor = {
 	name = gov_electorial_absolute_hre
 	graphics = GFX_evt_holy_emperor
 	priority = 2
+
 	trigger = {
-		government = feudal_government
-		religion_group = christian
-		has_law = succ_feudal_elective
 		has_landed_title = e_hre
+		religion_group = christian
+		government = feudal_government
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -3401,11 +2631,18 @@ government_flavor = {
 	name = gov_hereditary_absolute_hre
 	graphics = GFX_evt_holy_emperor
 	priority = 2
+
 	trigger = {
-		government = feudal_government
-		religion_group = christian
-		NOT = { has_law = succ_feudal_elective }
 		has_landed_title = e_hre
+		religion_group = christian
+		government = feudal_government
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+
+		# Council is powerless
 		has_law = law_voting_power_0
 		has_law = banish_voting_power_0
 		has_law = execution_voting_power_0
@@ -3418,52 +2655,72 @@ government_flavor = {
 
 government_flavor = {
 	name = gov_aztec
-	graphics = GFX_evt_aztec_court
+	graphics = GFX_evt_throne_room_mesoamerican
 	priority = 2
+
 	trigger = {
+		religion_openly_aztec_or_reformed_trigger = yes
 		independent = yes
-		religion_group = aztec_group
+		NOT = { has_landed_title = e_aztec_empire }
 	}
 }
 
-#government_flavor = {
-#	name = gov_hereditary_zun
-#	graphics = GFX_evt_sun_temple
-#	priority = 2
-#	trigger = {
-#		government = feudal_government
-#		NOT = { has_law = succ_feudal_elective }
-#		OR = {
-#			religion = zun_pagan
-#			religion = zun_pagan_reformed
-#		}
-#		tier = EMPEROR
-#	}
-#}
+government_flavor = {
+	name = gov_hereditary_zun
+	graphics = GFX_evt_sun_temple
+	priority = 2
 
-#government_flavor = {
-#	name = gov_electorial_zun
-#	graphics = GFX_evt_sun_temple
-#	priority = 2
-#	trigger = {
-#		government = feudal_government
-#		has_law = succ_feudal_elective
-#		OR = {
-#			religion = zun_pagan
-#			religion = zun_pagan_reformed
-#		}
-#		tier = EMPEROR
-#	}
-#}
+	trigger = {
+		real_tier = EMPEROR
+		religion_openly_zun_or_reformed_trigger = yes
+		mercenary = no
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+	}
+}
+
+government_flavor = {
+	name = gov_electorial_zun
+	graphics = GFX_evt_sun_temple
+	priority = 2
+
+	trigger = {
+		real_tier = EMPEROR
+		religion_openly_zun_or_reformed_trigger = yes
+
+		OR = {
+			government = feudal_government
+			government = monastic_feudal_government
+		}
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
+	}
+}
 
 government_flavor = {
 	name = gov_duchy_viceroy
 	graphics = GFX_evt_siege
 	priority = 2
+
 	trigger = {
 		is_vice_royalty = yes
-		tier = DUKE
-		NOT = { culture_group = byzantine }
+		real_tier = DUKE
+
+		NOR = {
+			culture_group = byzantine
+			culture = roman
+		}
 	}
 }
 
@@ -3471,10 +2728,15 @@ government_flavor = {
 	name = gov_king_viceroy
 	graphics = GFX_evt_spymaster
 	priority = 2
+
 	trigger = {
 		is_vice_royalty = yes
-		tier = KING
-		NOT = { culture_group = byzantine }
+		real_tier = KING
+
+		NOR = {
+			culture_group = byzantine
+			culture = roman
+		}
 	}
 }
 
@@ -3482,10 +2744,11 @@ government_flavor = {
 	name = gov_duchy_viceroy_byz
 	graphics = GFX_evt_market_byzantine
 	priority = 2
+
 	trigger = {
 		is_vice_royalty = yes
-		tier = DUKE
 		culture_group = byzantine
+		real_tier = DUKE
 	}
 }
 
@@ -3493,10 +2756,34 @@ government_flavor = {
 	name = gov_king_viceroy_byz
 	graphics = GFX_evt_victory_arch_byzantine
 	priority = 2
+
 	trigger = {
 		is_vice_royalty = yes
-		tier = KING
 		culture_group = byzantine
+		real_tier = KING
+	}
+}
+
+government_flavor = {
+	name = gov_duchy_viceroy_roman
+	graphics = GFX_evt_market_byzantine
+	priority = 2
+
+	trigger = {
+		is_vice_royalty = yes
+		culture = roman
+		real_tier = DUKE
+	}
+}
+government_flavor = {
+	name = gov_king_viceroy_roman
+	graphics = GFX_evt_victory_arch_byzantine
+	priority = 2
+
+	trigger = {
+		is_vice_royalty = yes
+		culture = roman
+		real_tier = KING
 	}
 }
 
@@ -3504,14 +2791,20 @@ government_flavor = {
 	name = gov_prince_electorate
 	graphics = GFX_evt_throne_room
 	priority = 2
+
 	trigger = {
-		government = feudal_government
-		religion_group = christian
-		tier = DUKE
-		liege = {
+		top_liege = {
 			has_landed_title = e_hre
-			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+
+			e_hre = {
+				any_elector_character = { character = ROOT }
+			}
 		}
+
+		religion_group = christian
+		real_tier = DUKE
+		government = feudal_government
 	}
 }
 
@@ -3519,14 +2812,20 @@ government_flavor = {
 	name = gov_king_electorate
 	graphics = GFX_evt_throne_room
 	priority = 2
+
 	trigger = {
-		government = feudal_government
-		religion_group = christian
-		tier = KING
-		liege = {
+		top_liege = {
 			has_landed_title = e_hre
-			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+
+			e_hre = {
+				any_elector_character = { character = ROOT }
+			}
 		}
+
+		religion_group = christian
+		real_tier = KING
+		government = feudal_government
 	}
 }
 
@@ -3534,15 +2833,13 @@ government_flavor = {
 	name = gov_carolingian_hegemony
 	graphics = GFX_evt_rival_rulers
 	priority = 2
+
 	trigger = {
+		dynasty = 25061 # Karling
 		independent = yes
-		dynasty = 25061 #Karling
-		government = feudal_government
 		religion_group = christian
-		OR = {
-			tier = KING
-			tier = EMPEROR
-		}
+		higher_real_tier_than = DUKE
+		government = feudal_government
 	}
 }
 
@@ -3550,13 +2847,19 @@ government_flavor = {
 	name = gov_imperial_carolingian_hegemony
 	graphics = GFX_evt_rival_rulers
 	priority = 2
+
 	trigger = {
-		independent = yes
-		dynasty = 25061 #Karling
-		NOT = { has_law = succ_feudal_elective }
-		government = feudal_government
+		dynasty = 25061 # Karling
 		religion_group = christian
-		tier = EMPEROR
+		real_tier = EMPEROR
+		independent = yes
+		mercenary = no
+		government = feudal_government
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
 	}
 }
 
@@ -3564,26 +2867,38 @@ government_flavor = {
 	name = gov_crusader_state
 	graphics = GFX_evt_western_knights_byzantine
 	priority = 2
+
 	trigger = {
-		government = feudal_government
+		OR = {
+			religion = catholic
+			religion = fraticelli
+		}
+
 		independent = yes
-		religion = catholic
-		OR = {
-			capital_scope = { region = world_middle_east }
-			capital_scope = { region = world_africa_north }
-		}
-		OR = {
-			tier = COUNT
-			tier = DUKE
-		}
-		any_realm_province = {
-			religion_group = muslim
-		}
-		NOR = { 
+		government = feudal_government
+
+		NOR = {
 			culture_group = arabic
 			culture_group = iranian
 			culture_group = altaic
-			culture_group = nilo_saharan
+			culture_group = east_african
+		}
+
+		any_realm_province = {
+			religion_group = muslim
+			held_under_PREV = yes
+		}
+
+		capital_scope = {
+			OR = {
+				region = world_middle_east
+				region = world_africa_north
+			}
+		}
+
+		OR = {
+			real_tier = COUNT
+			real_tier = DUKE
 		}
 	}
 }
@@ -3592,50 +2907,97 @@ government_flavor = {
 	name = gov_crusader_kingdom
 	graphics = GFX_evt_western_knights_byzantine
 	priority = 2
+
 	trigger = {
-		government = feudal_government
+		OR = {
+			religion = catholic
+			religion = fraticelli
+		}
+
 		independent = yes
-		religion = catholic
-		OR = {
-			capital_scope = { region = world_middle_east }
-			capital_scope = { region = world_africa_north }
-		}
-		OR = {
-			tier = KING
-			tier = EMPEROR
-		}
-		any_realm_province = {
-			religion_group = muslim
-		}
-		NOR = { 
+		higher_real_tier_than = DUKE
+		government = feudal_government
+
+		NOR = {
 			culture_group = arabic
 			culture_group = iranian
 			culture_group = altaic
-			culture_group = nilo_saharan
+			culture_group = east_african
+		}
+
+		any_realm_province = {
+			religion_group = muslim
+			held_under_PREV = yes
+		}
+
+		OR = {
+			capital_scope = {
+				OR = {
+					region = world_middle_east
+					region = world_africa_north
+				}
+			}
+
+			trait = crusader_king
+			trait = crusader_queen
 		}
 	}
 }
 
-#government_flavor = {
-#	name = gov_nomadic_mongol_empire
-#	graphics = GFX_evt_mongols_pillage_oldgods
-#	priority = 2
-#	trigger = {
-#		government = nomadic_government
-#		has_landed_title = e_mongol_empire
-#	}
-#}
+government_flavor = {
+	name = gov_nomadic_mongol_empire
+	graphics = GFX_evt_mongols_pillage_oldgods
+	priority = 2
 
+	trigger = {
+		has_landed_title = e_mongol_empire
+		is_nomadic = yes
+	}
+}
 
 government_flavor = {
 	name = gov_romuva_eldership
+	graphics = GFX_evt_elder_council
+	priority = 3
+
+	trigger = {
+		has_law = succ_eldership
+		religion_openly_west_african_or_reformed_trigger = no
+
+		capital_scope = {
+			NOT = { region = world_africa }
+		}
+	}
+}
+
+government_flavor = {
+	name = gov_african_eldership
+	graphics = GFX_evt_west_african_ruler
+	priority = 3
+
+	trigger = {
+		has_law = succ_eldership
+
+		OR = {
+			capital_scope = { region = world_africa }
+			religion_openly_west_african_or_reformed_trigger = yes
+		}
+	}
+}
+
+government_flavor = {
+	name = gov_romuva_tribe
 	graphics = GFX_evt_tribal_shrine
 	priority = 2
+
 	trigger = {
-		NOT = { capital_scope = { region = world_africa } }
-		religion_group = baltic_group
-		NOT = { has_law = succ_gavelkind }
-		government = tribal_government
+		religion_openly_baltic_or_reformed_trigger = yes
+		is_tribal = yes
+
+		NOR = {
+			capital_scope = { region = world_africa }
+			has_law = succ_gavelkind
+		}
 	}
 }
 
@@ -3643,11 +3005,17 @@ government_flavor = {
 	name = gov_noble_romuva_eldership
 	graphics = GFX_evt_tribal_shrine
 	priority = 2
+
 	trigger = {
-		NOT = { capital_scope = { region = world_africa } }
-		religion_group = baltic_group
-		government = tribal_government
+		religion_openly_baltic_or_reformed_trigger = yes
+		is_tribal = yes
 		has_law = succ_gavelkind
+
+		NOT = {
+			capital_scope = {
+				region = world_africa
+			}
+		}
 	}
 }
 
@@ -3655,15 +3023,20 @@ government_flavor = {
 	name = gov_norse_chiefdom
 	graphics = GFX_evt_vikings_arriving_oldgods
 	priority = 2
+
 	trigger = {
-		NOT = { capital_scope = { region = world_africa } }
+		religion_openly_norse_or_reformed_trigger = yes
+		is_tribal = yes
+
+		NOR = {
+			capital_scope = { region = world_africa }
+			has_law = succ_gavelkind
+		}
+
 		NAND = {
-			capital_scope = { region = world_europe_west_brittania }
+			capital_scope = { region = world_europe_west_british_isles }
 			culture_group = north_germanic
 		}
-		LI_norse_pagan_trigger = yes
-		NOT = { has_law = succ_gavelkind }
-		government = tribal_government
 	}
 }
 
@@ -3671,15 +3044,20 @@ government_flavor = {
 	name = gov_noble_norse_chiefdom
 	graphics = GFX_evt_viking_throneroom_oldgods
 	priority = 2
+
 	trigger = {
-		NOT = { capital_scope = { region = world_africa } }
+		religion_openly_norse_or_reformed_trigger = yes
+		is_tribal = yes
+		has_law = succ_gavelkind
+
+		capital_scope = {
+			NOT = { region = world_africa }
+		}
+
 		NAND = {
-			capital_scope = { region = world_europe_west_brittania }
+			capital_scope = { region = world_europe_west_british_isles }
 			culture_group = north_germanic
 		}
-		LI_norse_pagan_trigger = yes
-		government = tribal_government
-		has_law = succ_gavelkind
 	}
 }
 
@@ -3687,11 +3065,15 @@ government_flavor = {
 	name = gov_muslim_chiefdom
 	graphics = GFX_evt_joust_arabic
 	priority = 2
+
 	trigger = {
-		NOT = { capital_scope = { region = world_africa } }
 		religion_group = muslim
-		NOT = { has_law = succ_gavelkind }
-		government = tribal_government
+		is_tribal = yes
+
+		NOR = {
+			capital_scope = { region = world_africa }
+			has_law = succ_gavelkind
+		}
 	}
 }
 
@@ -3699,11 +3081,15 @@ government_flavor = {
 	name = gov_noble_muslim_chiefdom
 	graphics = GFX_evt_joust_arabic
 	priority = 2
+
 	trigger = {
-		NOT = { capital_scope = { region = world_africa } }
 		religion_group = muslim
-		government = tribal_government
+		is_tribal = yes
 		has_law = succ_gavelkind
+
+		capital_scope = {
+			NOT = { region = world_africa }
+		}
 	}
 }
 
@@ -3711,26 +3097,30 @@ government_flavor = {
 	name = gov_african_chiefdom
 	graphics = GFX_evt_moors
 	priority = 2
+
 	trigger = {
 		OR = {
+			religion_openly_west_african_or_reformed_trigger = yes
 			capital_scope = { region = world_africa }
-			religion_group = serer_group
 		}
+
+		is_tribal = yes
 		NOT = { has_law = succ_gavelkind }
-		government = tribal_government
 	}
 }
 
 government_flavor = {
 	name = gov_noble_african_chiefdom
-	graphics = GFX_evt_moors
+	graphics = GFX_evt_west_african_ruler
 	priority = 2
+
 	trigger = {
 		OR = {
+			religion_openly_west_african_or_reformed_trigger = yes
 			capital_scope = { region = world_africa }
-			religion_group = serer_group
 		}
-		government = tribal_government
+
+		is_tribal = yes
 		has_law = succ_gavelkind
 	}
 }
@@ -3739,11 +3129,17 @@ government_flavor = {
 	name = gov_hereditary_danelaw
 	graphics = GFX_evt_midwinter_blot_oldgods
 	priority = 2
+
 	trigger = {
-		capital_scope = { region = world_europe_west_brittania }
-		NOT = { has_law = succ_feudal_elective }
-		LI_norse_pagan_trigger = yes
 		culture_group = north_germanic
+		religion_openly_norse_or_reformed_trigger = yes
+		capital_scope = { region = world_europe_west_british_isles }
+		mercenary = no
+
+		NOR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
 	}
 }
 
@@ -3751,21 +3147,48 @@ government_flavor = {
 	name = gov_electorial_danelaw
 	graphics = GFX_evt_midwinter_blot_oldgods
 	priority = 2
+
 	trigger = {
-		capital_scope = { region = world_europe_west_brittania }
-		has_law = succ_feudal_elective
-		LI_norse_pagan_trigger = yes
 		culture_group = north_germanic
+		religion_openly_norse_or_reformed_trigger = yes
+		capital_scope = { region = world_europe_west_british_isles }
+
+		OR = {
+			has_law = succ_feudal_elective
+			has_law = succ_hre_elective
+		}
 	}
 }
 
 government_flavor = {
-	name = gov_order_qarmatian
+	name = gov_theocracy
+	graphics = GFX_evt_heretic
+	priority = 2
+
+	trigger = {
+		is_theocracy = yes
+	}
+}
+
+government_flavor = {
+	name = gov_republic
+	graphics = GFX_evt_powerful_tower
+	priority = 2
+
+	trigger = {
+		is_republic = yes
+		is_patrician = no
+	}
+}
+
+government_flavor = {
+	name = gov_order_shia
 	graphics = GFX_evt_assassination
 	priority = 2
+
 	trigger = {
 		government = order_government
-		religion = qarmatian
+		religion = shiite
 	}
 }
 
@@ -3773,170 +3196,12 @@ government_flavor = {
 	name = gov_order
 	graphics = GFX_evt_society_joining
 	priority = 2
+
 	trigger = {
 		government = order_government
-		NOT = {
-			religion = shiite
-		}
+		NOT = { religion = shiite }
 	}
 }
-
-#####################################
-# Lux Invicta Names (priority 2)	#
-#####################################
-
-government_flavor = {
-	name = gov_order_bud_mahayana
-	graphics = GFX_evt_assassination
-	priority = 2
-	trigger = {
-		government = order_government
-		religion = bud_mahayana
-	}
-}
-government_flavor = {
-	name = gov_order_mani_ahriman
-	graphics = GFX_evt_assassination
-	priority = 2
-	trigger = {
-		government = order_government
-		religion = mani_ahriman
-	}
-}
-government_flavor = {
-	name = gov_order_priscillian
-	graphics = GFX_evt_assassination
-	priority = 2
-	trigger = {
-		government = order_government
-		religion = priscillian
-	}
-}
-government_flavor = {
-	name = gov_order_ragnarok
-	graphics = GFX_evt_assassination
-	priority = 2
-	trigger = {
-		government = order_government
-		religion = ragnarok
-	}
-}
-government_flavor = {
-	name = gov_order_set
-	graphics = GFX_evt_assassination
-	priority = 2
-	trigger = {
-		government = order_government
-		religion = set
-	}
-}
-government_flavor = {
-	name = gov_order_tengri_ahriman
-	graphics = GFX_evt_assassination
-	priority = 2
-	trigger = {
-		government = order_government
-		religion = tengri_ahriman
-	}
-}
-government_flavor = {
-	name = gov_order_yahyanism
-	graphics = GFX_evt_assassination
-	priority = 2
-	trigger = {
-		government = order_government
-		religion = yahyanism
-	}
-}
-government_flavor = {
-	name = gov_order_zor_angra
-	graphics = GFX_evt_assassination
-	priority = 2
-	trigger = {
-		government = order_government
-		religion = zor_angra
-	}
-}
-government_flavor = {
-	name = gov_classical
-	graphics = GFX_evt_gov_classical
-	priority = 1
-	trigger = {
-		government = classical_government
-		
-	}
-}
-
-government_flavor = {
-	name = gov_oriental_monarchy
-	graphics = GFX_evt_gov_oriental_monarchy
-	priority = 1
-	trigger = {
-		government = oriental_monarchy_government
-		
-	}
-}
-
-government_flavor = {
-	name = gov_anarchist
-	graphics = GFX_evt_anarchist
-	priority = 1
-	trigger = {
-		government = anarchist_government
-		
-	}
-}
-
-government_flavor = {
-	name = gov_demagogic
-	graphics = GFX_evt_demagogic
-	priority = 1
-	trigger = {
-		government = demagogic_government
-		
-	}
-}
-
-government_flavor = {
-	name = gov_mystic
-	graphics = GFX_evt_gov_mystic
-	priority = 1
-	trigger = {
-		government = mystic_government
-		
-	}
-}
-
-government_flavor = {
-	name = gov_absolutist
-	graphics = GFX_evt_gov_absolutist
-	priority = 1
-	trigger = {
-		government = absolutist_government
-		
-	}
-}
-
-government_flavor = {
-	name = gov_hegemonic
-	graphics = GFX_evt_gov_hegemonic
-	priority = 1
-	trigger = {
-		government = hegemonic_government
-		
-	}
-}
-
-government_flavor = {
-	name = gov_messianic
-	graphics = GFX_evt_gov_messianic
-	priority = 1
-	trigger = {
-		government = messianic_government
-		
-	}
-}
-
 
 #####################################
 # Special Flavor Names (priority 3) #
@@ -3946,9 +3211,81 @@ government_flavor = {
 	name = gov_terror
 	graphics = GFX_evt_lunatic
 	priority = 3
+
 	trigger = {
-		is_feudal = yes
 		has_character_flag = demon_child_non_pagan
+		is_feudal = yes
+	}
+}
+
+government_flavor = {
+	name = gov_aztec_empire
+	graphics = GFX_evt_throne_room_mesoamerican
+	priority = 3
+
+	trigger = {
+		has_landed_title = e_aztec_empire
+		independent = yes
+	}
+}
+
+government_flavor = {
+	name = gov_patriarchate
+	graphics = GFX_evt_bishop_byzantine
+	priority = 4
+
+	trigger = {
+		is_theocracy = yes
+
+		OR = {
+			is_orthodox_branch = yes
+			is_nestorian_branch = yes
+			is_miaphysite_branch = yes
+		}
+
+		NOT = { religion = bogomilist }
+	}
+}
+
+government_flavor = {
+	name = gov_pope
+	graphics = GFX_evt_pope
+	priority = 4
+
+	trigger = {
+		is_pope = yes
+		NOT = { trait = bad_priest_christian }
+	}
+}
+
+government_flavor = {
+	name = gov_bad_pope
+	graphics = GFX_evt_pope_feast
+	priority = 4
+
+	trigger = {
+		is_pope = yes
+		trait = bad_priest_christian
+	}
+}
+
+government_flavor = {
+	name = gov_confucian
+	graphics = GFX_evt_chinese_emissary
+	priority = 4
+
+	trigger = {
+		government = confucian_bureaucracy
+	}
+}
+
+government_flavor = {
+	name = gov_pretender_chinese_empire
+	graphics = GFX_evt_chinese_emissary
+	priority = 4
+
+	trigger = {
+		government = chinese_imperial_government
 	}
 }
 
@@ -3960,6 +3297,7 @@ government_flavor = {
 	name = gov_revolt
 	graphics = GFX_evt_hiding_from_pursuers
 	priority = 4
+
 	trigger = {
 		in_revolt = yes
 	}
@@ -3973,6 +3311,7 @@ government_flavor = {
 	name = gov_default
 	graphics = GFX_evt_beheading
 	priority = 0
+
 	trigger = {
 		always = yes
 	}

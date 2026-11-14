@@ -1,3 +1,0 @@
-holy_order_check_active_trigger = {
-	# Lux orders need to go here...
-}

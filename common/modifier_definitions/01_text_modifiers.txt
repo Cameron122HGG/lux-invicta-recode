@@ -1,4 +1,4 @@
-bloodline_effect_convert_zhangzhung_and_sumpa = {
+bloodline_effect_architect = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -7,115 +7,7 @@ bloodline_effect_convert_zhangzhung_and_sumpa = {
 	show_value = no
 }
 
-bloodline_effect_great_heroes_appear = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_sky_burial = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_tanistry = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_bloodline_mercenary_traditions = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_israel_loans = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_free_legitimize = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_always_viking = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_faster_hindu = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_roman_culture = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_brazen_bull = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_teuta_ships = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_more_raiders = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_prestige_sacrifice = {
+bloodline_effect_artisan_craftsmen = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -133,7 +25,133 @@ bloodline_effect_ambition = {
 	show_value = no
 }
 
-bloodline_effect_joining_warrior_lodge = {
+bloodline_effect_always_viking = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_battle_bards = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_battle_survivor = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_better_inquisition = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_blinding = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_blood_building = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_bloodline_mercenary_traditions = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_brazen_bull = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_castellan = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_castration = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_cheap_reconquista = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_convert_zhangzhung_and_sumpa = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_crusade_lord = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_dismantle_factions = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_drill = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -151,58 +169,67 @@ bloodline_effect_duel = {
 	show_value = no
 }
 
-bloodline_effect_pet_eagle = {
+bloodline_effect_dynastic_meddling = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
 	is_hidden = no
 	max_decimals = 0
-	show_value = no	
+	show_value = no
 }
 
-bloodline_effect_pet_dog = {
+bloodline_effect_easy_vows = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
 	is_hidden = no
 	max_decimals = 0
-	show_value = no	
+	show_value = no
 }
 
-bloodline_effect_loyal_councilors = {
+bloodline_effect_enatic_cognatic = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
 	is_hidden = no
 	max_decimals = 0
-	show_value = no	
+	show_value = no
 }
 
-bloodline_effect_artisan_craftsmen = {
+bloodline_effect_endearing = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
 	is_hidden = no
 	max_decimals = 0
-	show_value = no	
+	show_value = no
 }
 
-bloodline_effect_battle_bards = {
+bloodline_effect_faster_claims = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
 	is_hidden = no
 	max_decimals = 0
-	show_value = no	
+	show_value = no
 }
 
-bloodline_effect_inspire_commanders = {
+bloodline_effect_faster_dissent = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
 	is_hidden = no
 	max_decimals = 0
-	show_value = no	
+	show_value = no
+}
+
+bloodline_effect_faster_hindu = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
 }
 
 bloodline_effect_fearsome = {
@@ -211,19 +238,10 @@ bloodline_effect_fearsome = {
 	is_monthly = no
 	is_hidden = no
 	max_decimals = 0
-	show_value = no	
+	show_value = no
 }
 
-bloodline_effect_reaver = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no	
-}
-
-trait_effect_capture_commanders = {
+bloodline_effect_free_legitimize = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -238,19 +256,10 @@ bloodline_effect_grand_crusader = {
 	is_monthly = no
 	is_hidden = no
 	max_decimals = 0
-	show_value = no	
-}
-
-bloodline_effect_battle_survivor = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
 	show_value = no
 }
 
-bloodline_effect_crusade_lord = {
+bloodline_effect_great_heroes_appear = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -277,7 +286,7 @@ bloodline_effect_inquisitional = {
 	show_value = no
 }
 
-bloodline_effect_castration = {
+bloodline_effect_inspire_commanders = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -286,7 +295,61 @@ bloodline_effect_castration = {
 	show_value = no
 }
 
-bloodline_effect_blinding = {
+bloodline_effect_israel_loans = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_joining_warrior_lodge = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_knights = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_less_factions = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_loyal_councilors = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_monumental = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_more_raiders = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -304,7 +367,25 @@ bloodline_effect_macabre_banquet = {
 	show_value = no
 }
 
+bloodline_effect_more_philosophers = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
 bloodline_effect_murder_burn = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_murder_child = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -331,7 +412,7 @@ bloodline_effect_murder_stalk = {
 	show_value = no
 }
 
-bloodline_effect_murder_child = {
+bloodline_effect_one_invasion = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -340,66 +421,6 @@ bloodline_effect_murder_child = {
 	show_value = no
 }
 
-bloodline_effect_knights = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_drill = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_less_factions = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_endearing = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_architect = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-bloodline_effect_castellan = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-bloodline_effect_monumental = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
 bloodline_effect_peace_prosperity = {
 	show_as_percent = no
 	is_good = yes
@@ -408,31 +429,8 @@ bloodline_effect_peace_prosperity = {
 	max_decimals = 0
 	show_value = no
 }
-bloodline_effect_faster_claims = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-bloodline_effect_faster_dissent = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-bloodline_effect_dismantle_factions = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-bloodline_effect_blood_building = {
+
+bloodline_effect_pet_dog = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -441,7 +439,52 @@ bloodline_effect_blood_building = {
 	show_value = no
 }
 
-bloodline_effect_more_philosophers = {
+bloodline_effect_pet_eagle = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_prestige_sacrifice = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_princely_elective_boon = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_qarmatian_leader = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_reaver = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_religious_liberation = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -459,7 +502,7 @@ bloodline_effect_revocation_plot = {
 	show_value = no
 }
 
-bloodline_effect_better_inquisition = {
+bloodline_effect_roman_culture = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -468,23 +511,7 @@ bloodline_effect_better_inquisition = {
 	show_value = no
 }
 
-bloodline_effect_dynastic_meddling = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-bloodline_effect_one_invasion = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-bloodline_effect_religious_liberation = {
+bloodline_effect_shiite_leader = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -493,7 +520,25 @@ bloodline_effect_religious_liberation = {
 	show_value = no
 }
 
-bloodline_effect_teutonic_vassals = {
+bloodline_effect_sky_burial = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_tanistry = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+bloodline_effect_teuta_ships = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -511,7 +556,7 @@ bloodline_effect_teutonic_guards = {
 	show_value = no
 }
 
-bloodline_effect_cheap_reconquista = {
+bloodline_effect_teutonic_vassals = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no
@@ -529,25 +574,18 @@ bloodline_effect_wandering_artists = {
 	show_value = no
 }
 
-bloodline_effect_enatic_cognatic = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
-
-bloodline_effect_easy_vows = {
-	show_as_percent = no
-	is_good = yes
-	is_monthly = no
-	is_hidden = no
-	max_decimals = 0
-	show_value = no
-}
+# Other
 
 terrain_no_special_effects = {
+	show_as_percent = no
+	is_good = yes
+	is_monthly = no
+	is_hidden = no
+	max_decimals = 0
+	show_value = no
+}
+
+trait_effect_capture_commanders = {
 	show_as_percent = no
 	is_good = yes
 	is_monthly = no

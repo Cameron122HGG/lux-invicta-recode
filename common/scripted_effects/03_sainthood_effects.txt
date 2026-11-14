@@ -1,0 +1,1408 @@
+# setting_up_saintly_burial_site_effect
+# deciding_upon_saint_effect
+# check_if_ancestor_worship_worthy_effect
+
+setting_up_saintly_burial_site_effect = {
+	save_persistent_event_target = {
+		name = province_saint
+		scope = event_target:saint_person
+	}
+
+	add_province_modifier = {
+		name = tomb_of_a_saint
+		duration = -1
+	}
+
+	owner = {
+		character_event = { id = HF.40022 }
+	}
+}
+
+# Used by Christians to canonize saints. Pagans use check_if_ancestor_worship_worthy_effect
+deciding_upon_saint_effect = {
+	if = {
+		limit = {
+			# Religions without a Religious Head cannot Canonize
+			rightful_religious_head_scope = {
+				always = yes
+			}
+		}
+
+		random = {
+			chance = 1
+
+			# Lower chance when there are more Saints around
+			mult_modifier = {
+				factor = 0.8
+				check_variable = { which = global_saint_number value >= 15 }
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				check_variable = { which = global_saint_number value >= 20 }
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				check_variable = { which = global_saint_number value >= 25 }
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				check_variable = { which = global_saint_number value >= 30 }
+			}
+
+			# Cynical people are less likely to be Canonized
+			mult_modifier = {
+				factor = 0.8
+				trait = cynical
+			}
+
+			# Reduced chance for Popes / Antipopes to become Saints
+			mult_modifier = {
+				factor = 0.4
+
+			#	OR = {
+					is_pope = yes
+
+					# Antipopes can't be beatified anyway
+			#		is_antipope = yes
+			#	}
+			}
+
+			# Baptism sponsors have a higher chance of becoming a Saint
+			mult_modifier = {
+				factor = 1.5
+				has_any_opinion_modifier = opinion_baptism_sponsor_target
+			}
+
+			# Eastern Christians have a lower chance of becoming Saints
+			mult_modifier = {
+				factor = 0.8
+
+				OR = {
+					is_orthodox_branch = yes
+					is_miaphysite_branch = yes
+					is_nestorian_branch = yes
+				}
+			}
+
+			# Players who don't have a saintly bloodline have a higher chance of becoming a Saint
+			mult_modifier = {
+				factor = 2
+
+				ai = no
+
+				NOT = {
+					any_owned_bloodline = {
+						OR = {
+							has_bloodline_flag = defender_of_the_faith
+							has_bloodline_flag = monastic_saintly_bloodline
+							has_bloodline_flag = cultural_saintly_bloodline
+							has_bloodline_flag = inquisitional_saintly_bloodline
+							has_bloodline_flag = jewish_saintly_bloodline
+							has_bloodline_flag = theologian_saintly_bloodline
+						}
+					}
+				}
+			}
+
+			# Positive traits increase your chances of becoming a Saint
+			mult_modifier = {
+				factor = 1.5
+				trait = patient
+			}
+
+			mult_modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+
+			mult_modifier = {
+				factor = 1.5
+				trait = kind
+			}
+
+			mult_modifier = {
+				factor = 1.5
+				trait = chaste
+			}
+
+			mult_modifier = {
+				factor = 1.5
+				trait = charitable
+			}
+
+			mult_modifier = {
+				factor = 1.5
+				trait = temperate
+			}
+
+			mult_modifier = {
+				factor = 1.5
+				trait = humble
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				trait = just
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				has_crusade_trait_trigger = yes
+			}
+
+			# Having the bloodline of a Saint severely decrease your chance of becoming a Saint
+			mult_modifier = {
+				factor = 0.2
+
+				any_owned_bloodline = {
+					OR = {
+						has_bloodline_flag = defender_of_the_faith
+						has_bloodline_flag = monastic_saintly_bloodline
+						has_bloodline_flag = cultural_saintly_bloodline
+						has_bloodline_flag = inquisitional_saintly_bloodline
+						has_bloodline_flag = jewish_saintly_bloodline
+						has_bloodline_flag = theologian_saintly_bloodline
+					}
+
+					bloodline_is_active_for = PREV
+				}
+			}
+
+			# Extra high piety increases your chance of becoming a Saint
+			mult_modifier = {
+				factor = 1.2
+				piety >= 1000
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 1500
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 2000
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 2500
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 3000
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 3500
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 4000
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 4500
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 5000
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 5500
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 6000
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 6500
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 7000
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 7500
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 8000
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 8500
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 9000
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 9500
+			}
+
+			mult_modifier = {
+				factor = 1.2
+				piety >= 10000
+			}
+
+			# First Saint of a Religion is easier
+			mult_modifier = {
+				factor = 3
+
+				religion_scope = {
+					check_variable = {
+						which = number_of_saints
+						value == 0
+					}
+				}
+			}
+
+			random_realm_province = {
+				preferred_limit = { held_under_PREV = yes }
+				province_event = { id = HF.40010 } # Checking time left to Canonization
+			}
+
+			change_variable = {
+				which = global_saint_number
+				value = 1
+			}
+
+			religion_scope = {
+				change_variable = {
+					which = number_of_saints
+					value = 1
+				}
+			}
+		}
+	}
+}
+
+# Used by pagans to canonize ancestors. Christians use deciding_upon_saint_effect
+check_if_ancestor_worship_worthy_effect = {
+	random = {
+		chance = 3
+
+		### Prestige based modifiers ###
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 1500
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 2000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 2500
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 3000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 3500
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 4000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 4500
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 5000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 6000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 7000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 8000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 9000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 10000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 15000
+		}
+
+		mult_modifier = {
+			factor = 1.2
+			prestige >= 20000
+		}
+
+		#### Religion based modifiers ####
+		### Religion Nature ###
+
+		## Peaceful Religion ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			trait = humble
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			trait = content
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			trait = temperate
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			trait = just
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			war = no
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			piety >= 1000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			piety >= 2000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			piety >= 3000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			piety >= 4000
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_peaceful_trigger = yes
+			piety >= 5000
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_is_peaceful_trigger = yes
+			has_education_martial_trigger = yes
+		}
+
+		mult_modifier = {
+			factor = 0.65
+
+			religion_is_peaceful_trigger = yes
+
+			OR = {
+				trait = duelist
+				trait = strategist
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_peaceful_trigger = yes
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_peaceful_trigger = yes
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_peaceful_trigger = yes
+			has_any_leadership_trait_trigger = yes
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_peaceful_trigger = yes
+			war = yes
+		}
+
+		## Warlike Religion ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			trait = brilliant_strategist
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			trait = strong
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			trait = brawny
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_warlike_trigger = yes
+
+			OR = {
+				trait = duelist
+				trait = strategist
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			trait = ambitious
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			trait = brave
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			has_any_leadership_trait_trigger = yes
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			war = yes
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_warlike_trigger = yes
+			has_crusade_trait_trigger = yes
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_is_warlike_trigger = yes
+			trait = humble
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_warlike_trigger = yes
+			trait = content
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_warlike_trigger = yes
+			war = no
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_warlike_trigger = yes
+			has_education_martial_trigger = no
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_warlike_trigger = yes
+			has_any_leadership_trait_trigger = no
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_warlike_trigger = yes
+			has_global_flag = pagan_ghws_unlocked
+			has_crusade_trait_trigger = no
+		}
+
+		## Defensive Religion ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_defensive_trigger = yes
+			trait = craven
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_defensive_trigger = yes
+			trait = patient
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_defensive_trigger = yes
+			trait = cynical
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_defensive_trigger = yes
+			trait = defensive_leader
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_defensive_trigger = yes
+			trait = paranoid
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_defensive_trigger = yes
+			has_education_martial_trigger = yes
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_is_defensive_trigger = yes
+			trait = brave
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_defensive_trigger = yes
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_defensive_trigger = yes
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_defensive_trigger = yes
+			trait = holy_warrior
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_defensive_trigger = yes
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_defensive_trigger = yes
+			has_education_martial_trigger = no
+		}
+
+		## Proselytizing Religion ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_proselytizing_trigger = yes
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_proselytizing_trigger = yes
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_proselytizing_trigger = yes
+
+			OR = {
+				trait = socializer
+				trait = scholar
+				trait = theologian
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_proselytizing_trigger = yes
+
+			OR = {
+				trait = grey_eminence
+				trait = mastermind_theologian
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_proselytizing_trigger = yes
+
+			OR = {
+				trait = celibate
+				trait = erudite
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_proselytizing_trigger = yes
+			diplomacy >= 15
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_proselytizing_trigger = yes
+			learning >= 15
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_is_proselytizing_trigger = yes
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_proselytizing_trigger = yes
+			trait = brave
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_proselytizing_trigger = yes
+			trait = cynical
+		}
+
+		mult_modifier = {
+			factor = 0.65
+
+			religion_is_proselytizing_trigger = yes
+
+			NOR = {
+				trait = socializer
+				trait = scholar
+				trait = theologian
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_proselytizing_trigger = yes
+			has_education_diplomacy_trigger = no
+			has_education_learning_trigger = no
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_proselytizing_trigger = yes
+			diplomacy < 10
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_proselytizing_trigger = yes
+			learning < 10
+		}
+
+		## Dogmatic Religion ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_dogmatic_trigger = yes
+			trait = paranoid
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_dogmatic_trigger = yes
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_dogmatic_trigger = yes
+			trait = cruel
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_dogmatic_trigger = yes
+
+			OR = {
+				trait = brilliant_strategist
+				trait = mastermind_theologian
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_dogmatic_trigger = yes
+
+			OR = {
+				trait = theologian
+				trait = scholar
+				trait = strategist
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_dogmatic_trigger = yes
+			martial >= 15
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_dogmatic_trigger = yes
+			learning >= 15
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_dogmatic_trigger = yes
+			has_crusade_trait_trigger = yes
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_dogmatic_trigger = yes
+			trait = pilgrim
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_is_dogmatic_trigger = yes
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_dogmatic_trigger = yes
+			trait = cynical
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_dogmatic_trigger = yes
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_dogmatic_trigger = yes
+			has_education_martial_trigger = no
+			has_education_learning_trigger = no
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_dogmatic_trigger = yes
+			martial < 10
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_dogmatic_trigger = yes
+			learning < 10
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_dogmatic_trigger = yes
+			has_global_flag = pagan_ghws_unlocked
+			has_crusade_trait_trigger = no
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_dogmatic_trigger = yes
+			NOT = { trait = pilgrim }
+		}
+
+		## Cosmopolitan Religion ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_cosmopolitan_trigger = yes
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_cosmopolitan_trigger = yes
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_cosmopolitan_trigger = yes
+			trait = cynical
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_cosmopolitan_trigger = yes
+
+			OR = {
+				trait = socializer
+				trait = administrator
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_cosmopolitan_trigger = yes
+
+			OR = {
+				trait = grey_eminence
+				trait = midas_touched
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_cosmopolitan_trigger = yes
+			diplomacy >= 15
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_cosmopolitan_trigger = yes
+			stewardship >= 15
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+
+			religion_is_cosmopolitan_trigger = yes
+
+			OR = {
+				trait = envious
+				trait = cruel
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_cosmopolitan_trigger = yes
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_cosmopolitan_trigger = yes
+			has_education_diplomacy_trigger = no
+			has_education_stewardship_trigger = no
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_cosmopolitan_trigger = yes
+			diplomacy < 10
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_cosmopolitan_trigger = yes
+			stewardship < 10
+		}
+
+		### Religion Doctrines ###
+
+		## Holy Family ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+
+			religion_has_holy_family_trigger = yes
+
+			NOT = {
+				any_spouse_even_if_dead = {
+					NOT = { dynasty = ROOT }
+				}
+			}
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_has_holy_family_trigger = yes
+
+			NOT = {
+				any_child_even_if_dead = {
+					trait = inbred
+				}
+			}
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+
+			religion_has_holy_family_trigger = yes
+
+			any_spouse_even_if_dead = {
+				NOT = { dynasty = ROOT }
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.65
+
+			religion_has_holy_family_trigger = yes
+
+			any_child_even_if_dead = {
+				trait = inbred
+			}
+		}
+
+		## Harems ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+
+			religion_has_harems_trigger = yes
+			num_of_spouses >= 2
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+
+			religion_has_harems_trigger = yes
+			num_of_spouses < 2
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_has_harems_trigger = yes
+			trait = chaste
+		}
+
+		## Meritocratic ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_meritocratic_trigger = yes
+			NOT = { is_foe = current_heir }
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_is_meritocratic_trigger = yes
+			is_foe = current_heir
+		}
+
+		## Stable ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_stable_trigger = yes
+			trait = just
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_stable_trigger = yes
+			trait = administrator
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_stable_trigger = yes
+			trait = diligent
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+
+			religion_is_stable_trigger = yes
+			trait = arbitrary
+		}
+
+		mult_modifier = {
+			factor = 0.65
+
+			religion_is_stable_trigger = yes
+
+			OR = {
+				trait = slothful
+				trait = envious
+			}
+		}
+
+		## Jizya ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+
+			religion_has_jizya_trigger = yes
+
+			any_realm_lord = {
+				NOT = { religion = ROOT }
+			}
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+
+			religion_has_jizya_trigger = yes
+
+			NOT = {
+				any_realm_lord = {
+					NOT = { religion = ROOT }
+				}
+			}
+		}
+
+		## Monastic ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_monastic_trigger = yes
+			learning >= 20
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_monastic_trigger = yes
+			trait = celibate
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_monastic_trigger = yes
+			trait = erudite
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_is_monastic_trigger = yes
+			learning < 15
+		}
+
+		## Syncretic ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_syncretic_trigger = yes
+			has_any_sympathy_trait_trigger = yes
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_is_syncretic_trigger = yes
+			has_any_sympathy_trait_trigger = no
+		}
+
+		## Haruspicy ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_has_haruspicy_trigger = yes
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_has_haruspicy_trigger = yes
+			trait = holy_warrior
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_has_haruspicy_trigger = yes
+			martial >= 15
+			learning >= 15
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_has_haruspicy_trigger = yes
+			trait = cynical
+		}
+		mult_modifier = {
+			factor = 0.65
+			religion_has_haruspicy_trigger = yes
+			martial < 15
+			learning < 15
+		}
+
+		## Astrology ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_has_astrology_trigger = yes
+			has_any_astrology_trait_trigger = yes
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_has_astrology_trigger = yes
+			has_any_astrology_trait_trigger = no
+		}
+
+		## Ritual Sacrifice ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_has_ritual_sacrifice_trigger = yes
+			trait = impaler
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_has_ritual_sacrifice_trigger = yes
+			trait = cruel
+		}
+
+		mult_modifier = {
+			factor = 1.5
+
+			religion_has_ritual_sacrifice_trigger = yes
+
+			OR = {
+				trait = bloodthirsty_gods_1
+				trait = bloodthirsty_gods_2
+				trait = bloodthirsty_gods_3
+			}
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+
+			religion_has_ritual_sacrifice_trigger = yes
+
+			NOR = {
+				trait = impaler
+				trait = cruel
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.2
+
+			religion_has_ritual_sacrifice_trigger = yes
+
+			NOR = {
+				trait = bloodthirsty_gods_1
+				trait = bloodthirsty_gods_2
+				trait = bloodthirsty_gods_3
+			}
+		}
+
+		## Adventuring & Sea-faring ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+
+			religion_is_adventuring_and_seafaring_trigger = yes
+
+			OR = {
+				trait = pirate
+				trait = viking
+				trait = ravager
+				trait = sea_queen
+				trait = sea_king
+			}
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+
+			religion_is_adventuring_and_seafaring_trigger = yes
+
+			NOR = {
+				trait = pirate
+				trait = viking
+				trait = ravager
+				trait = sea_queen
+				trait = sea_king
+			}
+		}
+
+		## Unrelenting ##
+		# Positive
+		mult_modifier = {
+			factor = 1.5
+			religion_is_relentless_trigger = yes
+			martial >= 20
+		}
+
+		mult_modifier = {
+			factor = 1.5
+			religion_is_relentless_trigger = yes
+			has_any_leadership_trait_trigger = yes
+		}
+
+		# Negative
+		mult_modifier = {
+			factor = 0.65
+			religion_is_relentless_trigger = yes
+			martial < 15
+		}
+
+		mult_modifier = {
+			factor = 0.65
+			religion_is_relentless_trigger = yes
+			has_any_leadership_trait_trigger = no
+		}
+
+		#### Reduce chance if already have other Ancestor Worshipping Bloodlines ####
+		mult_modifier = {
+			factor = 0.4
+
+			any_owned_bloodline = {
+				has_bloodline_flag = ancestor_worship_bloodline
+				bloodline_is_active_for = PREV
+				count >= 1
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.4
+
+			any_owned_bloodline = {
+				has_bloodline_flag = ancestor_worship_bloodline
+				bloodline_is_active_for = PREV
+				count >= 2
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.4
+
+			any_owned_bloodline = {
+				has_bloodline_flag = ancestor_worship_bloodline
+				bloodline_is_active_for = PREV
+				count >= 3
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.4
+
+			any_owned_bloodline = {
+				has_bloodline_flag = ancestor_worship_bloodline
+				bloodline_is_active_for = PREV
+				count >= 4
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.4
+
+			any_owned_bloodline = {
+				has_bloodline_flag = ancestor_worship_bloodline
+				bloodline_is_active_for = PREV
+				count >= 5
+			}
+		}
+
+		set_character_flag = blessed_ancestor_prestige
+
+		rightful_religious_head_scope = {
+			character_event = {
+				id = HF.40101 # Religious Head is notified about potential Ancestor material
+				days = 3
+			}
+		}
+	}
+}

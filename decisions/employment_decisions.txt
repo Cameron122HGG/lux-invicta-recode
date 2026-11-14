@@ -1,63 +1,44 @@
 decisions = {
-	toggle_employment = {
-		# ai = no
-		only_playable = yes
-		potential = {
-		}
-		effect = {
-			if = {
-				limit = {
-					NOT = { has_character_flag = toggle_employment }
-				}
-				hidden_tooltip = {
-					set_character_flag = toggle_employment
-					set_character_flag = toggle_employment_temp
-				}
-			}
-			if = {
-				limit = {
-					has_character_flag = toggle_employment
-					NOT = { has_character_flag = toggle_employment_temp }
-				}
-				hidden_tooltip = {
-					clr_character_flag = toggle_employment
-				}
-			}
-			clr_character_flag = toggle_employment_temp
-		}
-	}
+
 	employ_soldier = {
-		# ai = no
-		only_playable = yes
+		ai = no
 
 		potential = {
-			has_character_flag = toggle_employment
+			in_seclusion = no
 		}
+
 		allow = {
-			prestige = 10
-			scaled_wealth = 0.2
-			NOT = {
-				has_character_modifier = in_seclusion
-			}
+			prestige >= 25
+			scaled_wealth >= 0.25
 		}
+
 		effect = {
-			prestige = -10
-			scaled_wealth = -0.2
-			hidden_tooltip = {
+			prestige = -25
+			scaled_wealth = -0.25
+
+			custom_tooltip = {
+				text = promoted_commander_TT
+
 				if = {
-					limit = { any_owned_bloodline = { has_bloodline_flag = bloodline_inspire_commanders } }
-					random_list = {
-						95 = {
-							spawn_great_commander_effect = yes
+					limit = {
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_inspire_commanders
+							bloodline_is_active_for = PREV
 						}
-						5 = {
+					}
+
+					random_list = {
+						95 = { spawn_great_commander_effect = yes }
+
+						 5 = {
 							spawn_fantastic_commander_effect = yes
+
 							new_character = {
 								opinion = {
-			 						modifier = opinion_legendary_commander
-			 						years = 50
-			 		  				who = ROOT
-			 					}
+									name = opinion_legendary_commander
+									years = 50
+									who = ROOT
+								}
 							}
 						}
 					}
@@ -66,57 +47,35 @@ decisions = {
 					spawn_good_commander_effect = yes
 				}
 			}
-			custom_tooltip = { text = promoted_commander_TT }
-			character_event = { id = NE.1 }
+
+			character_event = { id = NE.1 } # Notification event for invited character
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { scaled_wealth = 0.6 }
-			}
-			modifier = {
-				factor = 0
-				job_marshal = {
-					martial = 10
-				}
-			}
-			modifier = {
-				factor = 0
-				any_courtier_or_vassal = {
-					martial = 10
-					is_female = no
-					is_adult = yes
-					prisoner = no
-					is_incapable = no
-				}
-			}
+			factor = 0
 		}
 	}
+
 	employ_priest = {
-		# ai = no
-		only_playable = yes
+		ai = no
 
 		potential = {
-			has_character_flag = toggle_employment
+			in_seclusion = no
+			religion_allows_male_temple_holders = yes
 		}
+
 		allow = {
-			piety = 10
-			scaled_wealth = 0.1
-			NOT = {
-				has_character_modifier = in_seclusion
-			}
+			piety >= 25
 		}
+
 		effect = {
-			piety = -10
-			scaled_wealth = -0.1
+			piety = -25
+
 			create_random_priest = {
-				random_traits = yes
-				dynasty = random
 				female = no
+				random_traits = yes
+				dynasty = actually_culture
+
 				attributes = {
 					diplomacy = 2
 					learning = 8
@@ -125,43 +84,30 @@ decisions = {
 					martial = 2
 				}
 			}
+
 			new_character = {
 				remove_trait = slow
 				remove_trait = imbecile
 				remove_trait = dull
-				
-				remove_trait = mystic
-				remove_trait = socializer
-				remove_trait = gamer
-				remove_trait = hedonist
-				remove_trait = duelist
-				remove_trait = hunter
-				remove_trait = strategist
-				remove_trait = administrator
-				remove_trait = architect
-				remove_trait = gardener
-				remove_trait = schemer
-				remove_trait = impaler
-				remove_trait = seducer
-				remove_trait = seductress
-				remove_trait = theologian
-				remove_trait = scholar
-				
-				random_list = { # Flavor Randomization
-					35 = {  } # Nothing
+				remove_lifestyle_trait_effect = yes
+
+				# Flavor Randomization
+				random_list = {
+					35 = {} # Nothing
+					20 = { add_trait = theologian }
 					15 = { change_learning = 2 }
 					10 = { change_learning = 4 }
 					 5 = { change_learning = 6 }
-					20 = { add_trait = theologian }
 					 5 = { add_trait = scholar }
 					 5 = { add_trait = mystic }
 					 5 = { add_trait = shrewd }
 				}
 
-				#If we have a wonder upgrade with "inpires_learning" flag, the priest will be better
+				# If we have a wonder upgrade with "inpires_learning" flag, the priest will be better
 				if = {
 					limit = { ROOT = { realm_wonder_or_upgrade_has_flag_inspires_learning_trigger = yes } }
-					random_list = { 
+
+					random_list = {
 						15 = { add_trait = scholar change_learning = 1 }
 						10 = { add_trait = scholar change_learning = 2 }
 						 5 = { add_trait = scholar change_learning = 3 }
@@ -170,8 +116,9 @@ decisions = {
 						10 = { add_trait = scholarly_theologian }
 						10 = { add_trait = mastermind_theologian }
 					}
+
 					random_list = {
-						50 = {  } # Nothing
+						50 = { } # Nothing
 						10 = { add_trait = genius }
 						10 = { add_trait = chaste }
 						10 = { add_trait = poet }
@@ -180,941 +127,284 @@ decisions = {
 					}
 				}
 
-				hidden_tooltip = {
-					if = {
-						limit = {
-							has_dharmic_religion_trigger = yes
-						}
-						add_trait = brahmin
-						character_event = { id = RoI.30121 }
-					}
-					if = {
-						limit = {
-							has_religion_feature = religion_no_leader
-							LI_pagan_trigger = yes
-						}
-						random_list = {  
-							5 = {
-								add_trait = pagan_branch_1
-							}
-							25 = {
-								add_trait = pagan_branch_2
-							}
-							25 = {
-								add_trait = pagan_branch_3
-							}
-							25 = {
-								add_trait = pagan_branch_4
-							}
-						}
-					}
+				if = {
+					limit = { has_dharmic_religion_trigger = yes }
+					add_trait = brahmin
 				}
+
+				add_religious_traits = yes
 				save_event_target_as = invited_character
 			}
-			character_event = { id = NE.1 }
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { piety = 10 }
-			}
-			modifier = {
-				factor = 0
-				NOT = { scaled_wealth = 0.1 }
-			}
-			modifier = {
-				factor = 0
-				job_spiritual = {
-					learning = 10
-				}
-			}
-			modifier = {
-				factor = 0
-				any_courtier_or_vassal = {
-					learning = 10
-					religion = ROOT
-					is_female = no
-					is_adult = yes
-					prisoner = no
-					is_incapable = no
-				}
-			}
-		}
-	}
-	employ_priestess = {
-		# ai = no
-		only_playable = yes
 
-		potential = {
-			has_character_flag = toggle_employment
-			employ_women_trigger = yes
+			character_event = { id = NE.1 } # Notification event for invited character
 		}
-		allow = {
-			piety = 10
-			scaled_wealth = 0.1
-			NOT = {
-				has_character_modifier = in_seclusion
-			}
-		}
-		effect = {
-			piety = -10
-			scaled_wealth = -0.1
-			if = {
-				limit = {
-					feminist_religions_trigger = yes
-					ultra_feminist_religion_trigger = no
-				}
-				create_random_priest = {
-					random_traits = yes
-					dynasty = random
-					female = yes
-					attributes = {
-						diplomacy = 2
-						learning = 8
-						stewardship = 2
-						intrigue = 2
-						martial = 2
-					}
-				}
-			}
-			if = {
-				limit = {
-					ultra_feminist_religion_trigger = yes
-				}
-				create_random_priest = {
-					random_traits = yes
-					dynasty = random
-					female = yes
-					attributes = {
-						diplomacy = 2
-						learning = 8
-						stewardship = 2
-						intrigue = 2
-						martial = 2
-					}
-				}
-			}
-			new_character = {
-				remove_trait = slow
-				remove_trait = imbecile
-				remove_trait = dull
-				
-				remove_trait = mystic
-				remove_trait = socializer
-				remove_trait = gamer
-				remove_trait = hedonist
-				remove_trait = duelist
-				remove_trait = hunter
-				remove_trait = strategist
-				remove_trait = administrator
-				remove_trait = architect
-				remove_trait = gardener
-				remove_trait = schemer
-				remove_trait = impaler
-				remove_trait = seducer
-				remove_trait = seductress
-				remove_trait = theologian
-				remove_trait = scholar
-				
-				random_list = { # Flavor Randomization
-					35 = { 
-						# Nothing
-					}
-					15 = {
-						change_learning = 2
-					}
-					20 = {
-						add_trait = theologian
-					}
-					5 = {
-						add_trait = scholar
-					}
-					5 = {
-						add_trait = mystic
-					}
-					10 = {
-						change_learning = 4
-					}
-					5 = {
-						change_learning = 6
-					}
-					5 = {
-						add_trait = shrewd
-					}
-				}
-				hidden_tooltip = {
-					if = {
-						limit = {
-							has_dharmic_religion_trigger = yes
-						}
-						add_trait = brahmin
-						character_event = { id = RoI.30121 }
-					}
-					if = {
-						limit = {
-							has_religion_feature = religion_no_leader
-							LI_pagan_trigger = yes
-						}
-						random_list = {  
-							5 = {
-								add_trait = pagan_branch_1
-							}
-							25 = {
-								add_trait = pagan_branch_2
-							}
-							25 = {
-								add_trait = pagan_branch_3
-							}
-							25 = {
-								add_trait = pagan_branch_4
-							}
-						}
-					}
-				}
-				save_event_target_as = invited_character
-			}
-			character_event = { id = NE.1 }
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { piety = 10 }
-			}
-			modifier = {
-				factor = 0
-				NOT = { scaled_wealth = 0.1 }
-			}
-			modifier = {
-				factor = 0
-				job_spiritual = {
-					learning = 10
-				}
-			}
-			modifier = {
-				factor = 0
-				any_courtier_or_vassal = {
-					learning = 10
-					religion = ROOT
-					is_female = yes
-					is_adult = yes
-					prisoner = no
-					is_incapable = no
-				}
-			}
-		}
-	}
-	
-	employ_steward = {
-		# ai = no
-		only_playable = yes
 
-		potential = {
-			has_character_flag = toggle_employment
-		}
-		allow = {
-			scaled_wealth = 0.2
-			NOT = {
-				has_character_modifier = in_seclusion
-			}
-		}
-		effect = {
-			scaled_wealth = -0.2
-			create_random_steward = {
-				random_traits = yes
-				dynasty = random
-				female = no
-				attributes = {
-					diplomacy = 2
-					learning = 2
-					stewardship = 8
-					intrigue = 2
-					martial = 2
-				}
-			}
-			new_character = {
-				remove_trait = slow
-				remove_trait = imbecile
-				remove_trait = dull
-				
-				remove_trait = mystic
-				remove_trait = socializer
-				remove_trait = gamer
-				remove_trait = hedonist
-				remove_trait = duelist
-				remove_trait = hunter
-				remove_trait = strategist
-				remove_trait = administrator
-				remove_trait = architect
-				remove_trait = gardener
-				remove_trait = schemer
-				remove_trait = impaler
-				remove_trait = seducer
-				remove_trait = seductress
-				remove_trait = theologian
-				remove_trait = scholar
-				
-				random_list = { # Flavor Randomization
-					35 = { 
-						# Nothing
-					}
-					15 = {
-						change_stewardship = 2
-					}
-					10 = {
-						add_trait = gardener
-					}
-					10 = {
-						add_trait = architect
-					}
-					10 = {
-						add_trait = administrator
-					}
-					10 = {
-						change_stewardship = 4
-					}
-					5 = {
-						change_stewardship = 6
-					}
-					5 = {
-						add_trait = shrewd
-					}
-				}
-				hidden_tooltip = {
-					if = {
-						limit = {
-							religion_group = indian_group
-						}
-						add_trait = kshatriya
-						character_event = { id = RoI.30121 }
-					}
-					if = {
-						limit = {
-							has_religion_feature = religion_no_leader
-							LI_pagan_trigger = yes
-						}
-						random_list = {  
-							5 = {
-								add_trait = pagan_branch_1
-							}
-							25 = {
-								add_trait = pagan_branch_2
-							}
-							25 = {
-								add_trait = pagan_branch_3
-							}
-							25 = {
-								add_trait = pagan_branch_4
-							}
-						}
-					}
-				}
-				save_event_target_as = invited_character
-			}
-			character_event = { id = NE.1 }
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { scaled_wealth = 0.6 }
-			}
-			modifier = {
-				factor = 0
-				job_treasurer = {
-					stewardship = 10
-				}
-			}
-			modifier = {
-				factor = 0
-				any_courtier_or_vassal = {
-					stewardship = 10
-					is_female = no
-					is_adult = yes
-					prisoner = no
-					is_incapable = no
-				}
-			}
-		}
-	}
-	
-	employ_stewardess = {
-		# ai = no
-		only_playable = yes
-
-		potential = {
-			has_character_flag = toggle_employment
-			employ_women_trigger = yes
-		}
-		allow = {
-			scaled_wealth = 0.2
-			NOT = {
-				has_character_modifier = in_seclusion
-			}
-		}
-		effect = {
-			scaled_wealth = -0.2
-			create_random_steward = {
-				random_traits = yes
-				dynasty = random
-				female = yes
-				attributes = {
-					diplomacy = 2
-					learning = 2
-					stewardship = 8
-					intrigue = 2
-					martial = 2
-				}
-			}
-			new_character = {
-				remove_trait = slow
-				remove_trait = imbecile
-				remove_trait = dull
-				
-				remove_trait = mystic
-				remove_trait = socializer
-				remove_trait = gamer
-				remove_trait = hedonist
-				remove_trait = duelist
-				remove_trait = hunter
-				remove_trait = strategist
-				remove_trait = administrator
-				remove_trait = architect
-				remove_trait = gardener
-				remove_trait = schemer
-				remove_trait = impaler
-				remove_trait = seducer
-				remove_trait = seductress
-				remove_trait = theologian
-				remove_trait = scholar
-				
-				random_list = { # Flavor Randomization
-					35 = { 
-						# Nothing
-					}
-					15 = {
-						change_stewardship = 2
-					}
-					10 = {
-						add_trait = gardener
-					}
-					10 = {
-						add_trait = architect
-					}
-					10 = {
-						add_trait = administrator
-					}
-					10 = {
-						change_stewardship = 4
-					}
-					5 = {
-						change_stewardship = 6
-					}
-					5 = {
-						add_trait = shrewd
-					}
-				}
-				hidden_tooltip = {
-					if = {
-						limit = {
-							has_dharmic_religion_trigger = yes
-						}
-						add_trait = kshatriya
-						character_event = { id = RoI.30121 }
-					}
-					if = {
-						limit = {
-							has_religion_feature = religion_no_leader
-							LI_pagan_trigger = yes
-						}
-						random_list = {  
-							5 = {
-								add_trait = pagan_branch_1
-							}
-							25 = {
-								add_trait = pagan_branch_2
-							}
-							25 = {
-								add_trait = pagan_branch_3
-							}
-							25 = {
-								add_trait = pagan_branch_4
-							}
-						}
-					}
-				}
-				save_event_target_as = invited_character
-			}
-			character_event = { id = NE.1 }
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { scaled_wealth = 0.6 }
-			}
-			modifier = {
-				factor = 0
-				job_treasurer = {
-					stewardship = 10
-				}
-			}
-			modifier = {
-				factor = 0
-				any_courtier_or_vassal = {
-					stewardship = 10
-					is_female = yes
-					is_adult = yes
-					prisoner = no
-					is_incapable = no
-				}
-			}
-		}
-	}
-
-	employ_spymaster = {
-		# ai = no
-		only_playable = yes
-
-		potential = {
-			has_character_flag = toggle_employment
-		}
-		allow = {
-			scaled_wealth = 0.2
-			NOT = {
-				has_character_modifier = in_seclusion
-			}
-		}
-		effect = {
-			scaled_wealth = -0.2
-			if = {
-				limit = {
-					feminist_religions_trigger = no
-					ultra_feminist_religion_trigger = no
-				}
-				create_random_intriguer = {
-					random_traits = yes
-					dynasty = random
-					attributes = {
-						diplomacy = 2
-						learning = 2
-						stewardship = 2
-						intrigue = 8
-						martial = 2
-					}
-				}
-			}
-			if = {
-				limit = {
-					feminist_religions_trigger = yes
-					ultra_feminist_religion_trigger = yes
-				}
-				create_random_intriguer = {
-					random_traits = yes
-					dynasty = random
-					female = yes
-					attributes = {
-						diplomacy = 2
-						learning = 2
-						stewardship = 2
-						intrigue = 8
-						martial = 2
-					}
-				}
-			}
-			new_character = {
-				remove_trait = slow
-				remove_trait = imbecile
-				remove_trait = dull
-				
-				remove_trait = mystic
-				remove_trait = socializer
-				remove_trait = gamer
-				remove_trait = hedonist
-				remove_trait = duelist
-				remove_trait = hunter
-				remove_trait = strategist
-				remove_trait = administrator
-				remove_trait = architect
-				remove_trait = gardener
-				remove_trait = schemer
-				remove_trait = impaler
-				remove_trait = seducer
-				remove_trait = seductress
-				remove_trait = theologian
-				remove_trait = scholar
-				
-				random_list = { # Flavor Randomization
-					35 = { 
-						# Nothing
-					}
-					15 = {
-						change_intrigue = 2
-					}
-					10 = {
-						add_trait = schemer
-					}
-					10 = {
-						add_trait = cunning
-					}
-					10 = {
-						add_trait = perceptive
-					}
-					10 = {
-						change_intrigue = 4
-					}
-					5 = {
-						change_intrigue = 6
-					}
-					5 = {
-						add_trait = shrewd
-					}
-				}
-				hidden_tooltip = {
-					if = {
-						limit = {
-							has_dharmic_religion_trigger = yes
-						}
-						add_trait = kshatriya
-						character_event = { id = RoI.30121 }
-					}
-					if = {
-						limit = {
-							has_religion_feature = religion_no_leader
-							LI_pagan_trigger = yes
-						}
-						random_list = {  
-							5 = {
-								add_trait = pagan_branch_1
-							}
-							25 = {
-								add_trait = pagan_branch_2
-							}
-							25 = {
-								add_trait = pagan_branch_3
-							}
-							25 = {
-								add_trait = pagan_branch_4
-							}
-						}
-					}
-				}
-				save_event_target_as = invited_character
-			}
-			character_event = { id = NE.1 }
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { scaled_wealth = 0.6 }
-			}
-			modifier = {
-				factor = 0
-				job_spymaster = {
-					intrigue = 10
-				}
-			}
-			modifier = {
-				factor = 0
-				any_courtier_or_vassal = {
-					intrigue = 10
-					is_adult = yes
-					prisoner = no
-					is_incapable = no
-				}
-			}
-		}
-	}
-	
-	employ_chancellor = {
-		# ai = no
-		only_playable = yes
-
-		potential = {
-			has_character_flag = toggle_employment
-		}
-		allow = {
-			scaled_wealth = 0.2
-			NOT = {
-				has_character_modifier = in_seclusion
-			}
-		}
-		effect = {
-			scaled_wealth = -0.2
-			if = {
-				limit = {
-					feminist_religions_trigger = no
-					ultra_feminist_religion_trigger = no
-				}
-				create_random_diplomat = {
-					random_traits = yes
-					dynasty = random
-					female = no
-					attributes = {
-						diplomacy = 8
-						learning = 2
-						stewardship = 2
-						intrigue = 2
-						martial = 2
-					}
-				}
-			}
-			if = {
-				limit = {
-					feminist_religions_trigger = yes
-					ultra_feminist_religion_trigger = yes
-				}
-				create_random_diplomat = {
-					random_traits = yes
-					dynasty = random
-					female = yes
-					attributes = {
-						diplomacy = 8
-						learning = 2
-						stewardship = 2
-						intrigue = 2
-						martial = 2
-					}
-				}				
-			}
-			new_character = {
-				remove_trait = slow
-				remove_trait = imbecile
-				remove_trait = dull
-				
-				remove_trait = mystic
-				remove_trait = socializer
-				remove_trait = gamer
-				remove_trait = hedonist
-				remove_trait = duelist
-				remove_trait = hunter
-				remove_trait = strategist
-				remove_trait = administrator
-				remove_trait = architect
-				remove_trait = gardener
-				remove_trait = schemer
-				remove_trait = impaler
-				remove_trait = seducer
-				remove_trait = seductress
-				remove_trait = theologian
-				remove_trait = scholar
-				
-				random_list = { # Flavor Randomization
-					35 = { 
-						# Nothing
-					}
-					15 = {
-						change_diplomacy = 2
-					}
-					10 = {
-						add_trait = gregarious
-					}
-					10 = {
-						add_trait = honest
-					}
-					10 = {
-						add_trait = socializer
-					}
-					10 = {
-						change_diplomacy = 4
-					}
-					5 = {
-						change_diplomacy = 6
-					}
-					5 = {
-						add_trait = shrewd
-					}
-				}
-				hidden_tooltip = {
-					if = {
-						limit = {
-							has_dharmic_religion_trigger = yes
-						}
-						add_trait = kshatriya
-						character_event = { id = RoI.30121 }
-					}
-					if = {
-						limit = {
-							has_religion_feature = religion_no_leader
-							LI_pagan_trigger = yes
-						}
-						random_list = {  
-							5 = {
-								add_trait = pagan_branch_1
-							}
-							25 = {
-								add_trait = pagan_branch_2
-							}
-							25 = {
-								add_trait = pagan_branch_3
-							}
-							25 = {
-								add_trait = pagan_branch_4
-							}
-						}
-					}
-				}
-				save_event_target_as = invited_character
-			}
-			character_event = { id = NE.1 }
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { scaled_wealth = 0.6 }
-			}
-			modifier = {
-				factor = 0
-				job_chancellor = {
-					diplomacy = 10
-				}
-			}
-			modifier = {
-				factor = 0
-				any_courtier_or_vassal = {
-					diplomacy = 10
-					is_adult = yes
-					prisoner = no
-					is_incapable = no
-				}
-			}
-		}
-	}
-	
-	present_debutante = {
-		# ai = no
-		only_playable = yes
-
-		potential = {
-			has_character_flag = toggle_employment
-		}
-		allow = {
-			scaled_wealth = 0.20
-			NOT = {
-				has_character_modifier = in_seclusion
-			}
-		}
-		effect = {
-			scaled_wealth = -0.20
-			random_list = {
-				20 = {
-					create_character = {
-						random_traits = yes
-						trait = fair 
-						dynasty = actually_culture
-						female = yes
-						age = 17
-					}
-				}
-				20 = {
-					create_character = {
-						random_traits = yes
-						trait = gregarious 
-						dynasty = actually_culture
-						female = yes
-						age = 17
-					}
-				}
-				20 = {
-					create_character = {
-						random_traits = yes
-						trait = shy 
-						dynasty = actually_culture
-						female = yes
-						age = 17
-					}
-				}
-				20 = {
-					create_character = {
-						random_traits = yes
-						trait = lustful 
-						dynasty = actually_culture
-						female = yes
-						age = 17
-					}
-				}
-				20 = {
-					create_character = {
-						random_traits = yes
-						trait = deceitful  
-						dynasty = actually_culture
-						female = yes
-						age = 17
-					}
-				}
-			}
-			new_character = {
-				remove_trait = slow
-				remove_trait = imbecile
-				remove_trait = dull
-				
-				hidden_tooltip = {
-					if = {
-						limit = {
-							has_dharmic_religion_trigger = yes
-						}
-						add_trait = kshatriya
-						character_event = { id = RoI.30121 }
-					}
-					if = {
-						limit = {
-							has_religion_feature = religion_no_leader
-							LI_pagan_trigger = yes
-						}
-						random_list = {  
-							5 = {
-								add_trait = pagan_branch_1
-							}
-							25 = {
-								add_trait = pagan_branch_2
-							}
-							25 = {
-								add_trait = pagan_branch_3
-							}
-							25 = {
-								add_trait = pagan_branch_4
-							}
-						}
-					}
-				}
-				set_character_flag = debutante
-				save_event_target_as = invited_character
-			}
-			character_event = { id = NE.1 }
-			add_character_modifier = {
-				name = employment_timer
-				duration = 180
-				hidden = yes
-			}
-			set_character_flag = employed_debutante
-		}
-		revoke_allowed = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 0
 		}
 	}
-	
+
+	employ_priestess = {
+		ai = no
+
+		potential = {
+			in_seclusion = no
+			religion_allows_female_temple_holders = yes
+		}
+
+		allow = {
+			piety >= 25
+		}
+
+		effect = {
+			piety = -25
+
+			create_random_priest = {
+				female = yes
+				random_traits = yes
+				dynasty = actually_culture
+
+				attributes = {
+					diplomacy = 2
+					learning = 8
+					stewardship = 2
+					intrigue = 2
+					martial = 2
+				}
+			}
+
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				remove_lifestyle_trait_effect = yes
+
+				# Flavor Randomization
+				random_list = {
+					35 = {} # Nothing
+					15 = { change_learning = 2 }
+					20 = { add_trait = theologian }
+					 5 = { add_trait = scholar }
+					 5 = { add_trait = mystic }
+					10 = { change_learning = 4 }
+					 5 = { change_learning = 6 }
+					 5 = { add_trait = shrewd }
+				}
+
+				# If we have a wonder upgrade with "inpires_learning" flag, the priest will be better
+				if = {
+					limit = { ROOT = { realm_wonder_or_upgrade_has_flag_inspires_learning_trigger = yes } }
+
+					random_list = {
+						15 = { add_trait = scholar change_learning = 1 }
+						10 = { add_trait = scholar change_learning = 2 }
+						 5 = { add_trait = scholar change_learning = 3 }
+						10 = { add_trait = erudite }
+						10 = { add_trait = physician }
+						10 = { add_trait = scholarly_theologian }
+						10 = { add_trait = mastermind_theologian }
+					}
+
+					random_list = {
+						50 = { } # Nothing
+						10 = { add_trait = genius }
+						10 = { add_trait = chaste }
+						10 = { add_trait = poet }
+						10 = { add_trait = proud }
+						10 = { add_trait = humble }
+					}
+				}
+
+				if = {
+					limit = { has_dharmic_religion_trigger = yes }
+					add_trait = brahmin
+				}
+
+				add_religious_traits = yes
+				save_event_target_as = invited_character
+			}
+
+			character_event = { id = NE.1 } # Notification event for invited character
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	employ_steward = {
+		ai = no
+
+		potential = {
+			in_seclusion = no
+
+			OR = {
+				has_law = true_cognatic_succession
+				has_law = cognatic_succession
+				has_law = agnatic_succession
+			}
+		}
+
+		allow = {
+			scaled_wealth >= 0.25
+		}
+
+		effect = {
+			scaled_wealth = -0.25
+
+			create_random_steward = {
+				random_traits = yes
+				dynasty = actually_culture
+				female = no
+
+				attributes = {
+					diplomacy = 2
+					learning = 2
+					stewardship = 8
+					intrigue = 2
+					martial = 2
+				}
+			}
+
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				remove_lifestyle_trait_effect = yes
+
+				# Flavor Randomization
+				random_list = {
+					35 = {} # Nothing
+					15 = { change_stewardship = 2 }
+					10 = { add_trait = gardener }
+					10 = { add_trait = architect }
+					10 = { add_trait = administrator }
+					10 = { change_stewardship = 4 }
+					 5 = { change_stewardship = 6 }
+					 5 = { add_trait = shrewd }
+				}
+
+				if = {
+					limit = { has_dharmic_religion_trigger = yes }
+					add_trait = kshatriya
+				}
+
+				add_religious_traits = yes
+				save_event_target_as = invited_character
+			}
+
+			character_event = { id = NE.1 } # Notification event for invited character
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	employ_stewardess = {
+		ai = no
+
+		potential = {
+			in_seclusion = no
+
+			OR = {
+				has_law = true_cognatic_succession
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+				gender_equality_trigger = yes
+			}
+		}
+
+		allow = {
+			scaled_wealth >= 0.25
+		}
+
+		effect = {
+			scaled_wealth = -0.25
+
+			create_random_steward = {
+				random_traits = yes
+				dynasty = actually_culture
+				female = yes
+
+				attributes = {
+					diplomacy = 2
+					learning = 2
+					stewardship = 8
+					intrigue = 2
+					martial = 2
+				}
+			}
+
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				remove_lifestyle_trait_effect = yes
+
+				# Flavor Randomization
+				random_list = {
+					35 = {} # Nothing
+					15 = { change_stewardship = 2 }
+					10 = { add_trait = gardener }
+					10 = { add_trait = architect }
+					10 = { add_trait = administrator }
+					10 = { change_stewardship = 4 }
+					 5 = { change_stewardship = 6 }
+					 5 = { add_trait = shrewd }
+				}
+
+				if = {
+					limit = { has_dharmic_religion_trigger = yes }
+					add_trait = kshatriya
+				}
+
+				add_religious_traits = yes
+				save_event_target_as = invited_character
+			}
+
+			character_event = { id = NE.1 } # Notification event for invited character
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	present_debutante = {
+		ai = no
+
+		potential = {
+			in_seclusion = no
+
+			NOR = {
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+			}
+		}
+
+		allow = {
+			scaled_wealth >= 0.20
+		}
+
+		effect = {
+			scaled_wealth = -0.20
+
+			spawn_debutante_effect = yes
+
+			hidden_effect = {
+				event_target:invited_character = {
+					remove_trait = slow
+					remove_trait = imbecile
+					remove_trait = dull
+				}
+			}
+
+			character_event = { id = NE.1 } # Notification event for invited character
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 }

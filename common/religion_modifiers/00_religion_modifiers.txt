@@ -102,16 +102,6 @@ won_religious_revolt = {
 	years = 10
 }
 
-won_decadence_invasion = {
-	authority = 5
-	years = 10
-}
-
-lost_decadence_invasion = {
-	authority = -10
-	years = 10
-}
-
 ruler_converted_from = {
 	authority = -3
 	years = 20
@@ -170,12 +160,6 @@ looted_infidel_temple = {
 	years = 10
 }
 
-# Religious Council
-held_rel_authority_council = {
-	authority = 10
-	years = 10
-}
-
 papacy_instituted = {
 	authority = 10
 	years = 20
@@ -201,22 +185,24 @@ sacrificed_head_good = {
 	authority = 3
 	years = 20
 }
+
 sacrificed_head_bad = {
 	authority = -3
 	years = 20
 }
 
-#MNM modifiers
+# Monks and Mystics modifiers
 temple_desecrated = {
 	authority = -1
 	years = 30
 }
+
 decadent_clergy = {
 	authority = -1
 	years = 5
 }
 
-#JD modifiers
+# Jade Dragon modifiers
 strengthened_religion = {
 	authority = 2
 	years = 50
@@ -227,14 +213,17 @@ baptized_king_to = {
 	authority = 4
 	years = 20
 }
+
 baptized_emperor_to = {
 	authority = 5
 	years = 30
 }
+
 baptized_king_from = {
 	authority = -4
 	years = 20
 }
+
 baptized_emperor_from = {
 	authority = -5
 	years = 30
@@ -250,53 +239,57 @@ cosmopolitan_religion = {
 	years = 1000
 }
 
-pagan_revival = { #Given to other western pagan religions when a western pagan religion is reformed.
+pagan_revival = {		# Given to other western pagan religions when a western pagan religion is reformed
 	authority = 5
 	years = 20
 }
-hellenic_resurgence = { #Christianity loses MA if the Emperor takes over Rome and restores Hellenism.
+
+hellenic_resurgence = {	# Christianity loses MA if the Emperor takes over Rome and restores Hellenism
 	authority = -10
 	years = 100
 }
-zoroastrian_rebirth = { #Sunni/Shia lose MA if the Zoroastrian Persia is restored.
+
+zoroastrian_rebirth = { # Sunni/Shia lose MA if the Zoroastrian Persia is restored
 	authority = -10
 	years = 100
 }
-rome_destroyed = { #Roman Emperor re-enacts Nero's piece.
+
+rome_destroyed = {		# Roman Emperor re-enacts Nero's piece
 	authority = -20
 	years = 1000
 }
 
-great_sacrifice_positive = { 
+great_sacrifice_positive = {
 	authority = 1
 	years = 50
 }
 
-great_sacrifice_negative = { 
+great_sacrifice_negative = {
 	authority = -1
 	years = 50
 }
 
-haruspicy_very_good_omen = { 
+haruspicy_very_good_omen = {
 	authority = 1
 	years = 50
 }
-haruspicy_very_bad_omen = { 
+
+haruspicy_very_bad_omen = {
 	authority = -1
 	years = 50
 }
 
-haruspicy_tempted_faith = { 
+haruspicy_tempted_faith = {
 	authority = -2
 	years = 50
 }
 
-blood_haruspicy_positive = { 
+blood_haruspicy_positive = {
 	authority = 1
 	years = 100
 }
 
-bloodthirsty_mass_sacrifice = { 
+bloodthirsty_mass_sacrifice = {
 	authority = 2
 	years = 100
 }
@@ -315,30 +308,37 @@ built_great_pillar = {
 	authority = 5
 	years = 50
 }
+
 destroyed_great_pillar = {
 	authority = -10
 	years = 10
 }
+
 impious_beatification = {
 	authority = -10
 	years = 15
 }
+
 impious_canonization = {
 	authority = -20
 	years = 30
 }
+
 depose_impious_pope_modifier = {
-	authority = 10 
+	authority = 10
 	years = 30
 }
+
 failed_to_depose_impious_pope_modifier = {
-	authority = -10 
+	authority = -10
 	years = 30
 }
+
 great_tribal_festival_1 = {
 	authority = 1
 	years = 5
 }
+
 great_tribal_festival_2 = {
 	authority = 2
 	years = 5
@@ -353,22 +353,27 @@ theology_debates = {
 	authority = -10
 	years = 100
 }
+
 northern_crusade_won = {
 	authority = 10
 	years = 30
 }
+
 reconquista_won = {
 	authority = 5
 	years = 20
 }
+
 reconquista_lost = {
 	authority = -5
 	years = 20
 }
+
 stopped_reconquista = {
 	authority = 5
 	years = 20
 }
+
 restored_primacy = {
 	authority = 8
 	years = 50

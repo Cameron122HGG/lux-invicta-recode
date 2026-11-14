@@ -1,7 +1,9 @@
 theocracy_governments = {
 
 	theocracy_government = {
-		preferred_holdings = { TEMPLE }
+		preferred_holdings = {
+			TEMPLE
+		}
 		allowed_holdings = {
 			TEMPLE
 			CASTLE
@@ -11,36 +13,35 @@ theocracy_governments = {
 		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
 			TRIBAL
 		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+		}
 		accepts_liege_governments = {
 			feudal_government
-			muslim_government
+			muslim_feudal_government
 			republic_government
 			merchant_republic_government
-			oriental_monarchy_government
-			classical_government
+			monastic_feudal_government
+			chinese_imperial_government
 		}
-		accepts_liege_governments_religion = { # only radical governments from the correct religion are accepted
-			anarchist_government
-			demagogic_government
-			mystic_government
-			absolutist_government
-			hegemonic_government
-			messianic_government
-		}
+
 		frame_suffix = "_theocracy"
 		title_prefix = "temple_"
-		potential = {
-			NOT = {	religion_group = muslim	}
-			is_patrician = no
-		}
-		
 		color = { 220 220 220 }
-		
-		can_create_kingdoms = no
-#		have_gender_laws = no
-		can_be_granted_kingdoms_and_empires_by_other_government = no
 
+		potential = {
+			theocratic_government_potential_trigger = yes
+		}
+
+		allow = {
+			theocratic_government_allow_trigger = yes
+		}
+
+		can_be_granted_kingdoms_and_empires_by_other_government = no
 		can_build_tribal = no
+		can_create_kingdoms = no
+		have_gender_laws = no
+
+		capital_move_delay = 600
 	}
-	
 }

@@ -70,6 +70,19 @@ Each phase is its own commit (or several), followed by a run and a log compariso
 1. **World data.** LI's map, history, landed titles, cultures, religions, dynasties, gfx, music and
    sound replace CleanSlate's. This is where the most errors will appear, because CleanSlate's
    scripts expect vanilla's world. That's expected; phases 2–6 work them down.
+   *(Built 2026-11-14 with `tools/phase1_build.py`.)* Kept from LI: map, history, gfx, music,
+   sound, interface, localisation, and `common/` landed_titles, cultures, religions, dynasties
+   (LI's, per decision 1), graphicalculturetypes, bookmarks, defines.txt. Everything else in
+   `common/`, `decisions/`, `events/` and `dlc_metadata/` is CleanSlate's (LI's versions stay in git
+   on `master`). Details:
+   - CleanSlate's localisation CSVs were added as `localisation/zz_cs_*.csv`, so LI's text wins for
+     the 33,540 keys both define (CK2 uses the first file alphabetically). Phase 6 picks per key.
+   - Interface: only CleanSlate's cleaned copies of vanilla files were added. Its 55 reorganised
+     files (`coat_of_arms/coa_*.txt`, `holdings/CleanSlate_holdings_*.gfx`…) were left out,
+     because they would duplicate LI's `coats_of_arms.txt` and sprites. Review them in phase 3.
+   - LI's trimmed `dlc_recommendations` was replaced by CleanSlate's: redo it in phase 5.
+   - `Lux Invicta.mod` / `mod/lux-invicta-recode.mod`: CleanSlate's `replace_path` list plus
+     `history`, `history/diplomacy`, `map`.
 2. **LI's new definitions (9,506).** Scripted move into LI-named files. Watch for the 7 keys that
    LI and CleanSlate both added.
 3. **LI's real changes (~527).** For each: diff LI against vanilla, apply only LI's change onto

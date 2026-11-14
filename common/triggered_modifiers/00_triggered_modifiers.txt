@@ -5,20 +5,18 @@
 ##################################################
 
 # Bankruptcy
-# negative_money = {
-	# potential = {
-		# is_ruler = yes
-	# }
-	
-	# trigger = {
-		# NOT = { wealth = 0 }
-	# }
-	
-	# icon = 24
-	
-	# land_morale = -0.25
-	
-	# active = no
-# }
+negative_money = {
+	active = no
 
-# commented out above, LIBERT3 has its own money thing
+	potential = {
+		is_ruler = yes
+	}
+
+	trigger = {
+		wealth < 0
+	}
+
+	icon = 24
+
+	land_morale = -0.25
+}

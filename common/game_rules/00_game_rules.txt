@@ -5,8 +5,8 @@
 # rule_token = {
 #	name = "TEXT_KEY_FOR_NAME"
 #	desc = "TEXT_KEY_FOR_LONG_DESC"
-#	group = "TEXT_KEY_FOR_GROUP"					# Used for filtering. A single rule can be in multiple groups 
-#	alt_start_default = option_name					# Default value in alt start. If not set, defaults 
+#	group = "TEXT_KEY_FOR_GROUP"					# Used for filtering. A single rule can be in multiple groups
+#	alt_start_default = option_name					# Default value in alt start. If not set, defaults
 #	option = {										# please note that the first option is always the default option
 #		name = option_token
 #		text = "TEXT_KEY_FOR_OPTION_NAME"
@@ -19,6 +19,7 @@ epidemics = {
 	name = "RULE_EPIDEMICS"
 	dlc = "The Reaper's Due"
 	group = "RULE_GROUP_RIP"
+
 	option = {
 		name = dynamic
 		text = "RULE_EPIDEMICS_DYNAMIC"
@@ -45,6 +46,7 @@ minor_epidemics = {
 	name = "RULE_MINOR_EPIDEMICS"
 	dlc = "The Reaper's Due"
 	group = "RULE_GROUP_RIP"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -62,33 +64,40 @@ minor_epidemics = {
 	}
 }
 
-#mongol_invasion = {
-#	name = "RULE_MONGOL_INVASION"
-#	group = "RULE_GROUP_RAILROADING"
-#	alt_start_default = off
-#	option = {
-#		name = historical
-#		text = "RULE_OPTION_HISTORICAL"
-#		desc = "RULE_MONGOL_INVASION_HISTORICAL_DESC"
-#	}
-#	option = {
-#		name = random
-#		text = "RULE_OPTION_RANDOM"
-#		desc = "RULE_MONGOL_INVASION_RANDOM_DESC"
-#	}
-#	option = {
-#		name = off
-#		achievements = no
-#		text = "RULE_OPTION_OFF"
-#		desc = "RULE_MONGOL_INVASION_OFF_DESC"
-#	}
-#}
+mongol_invasion = {
+	name = "RULE_MONGOL_INVASION"
+	group = "RULE_GROUP_RAILROADING"
+	alt_start_default = off
+
+	option = {
+		name = historical
+		text = "RULE_OPTION_HISTORICAL"
+		desc = "RULE_MONGOL_INVASION_HISTORICAL_DESC"
+	}
+	option = {
+		name = random
+		text = "RULE_OPTION_RANDOM"
+		desc = "RULE_MONGOL_INVASION_RANDOM_DESC"
+	}
+	option = {
+		name = delayed_random
+		text = "RULE_OPTION_DELAYED_RANDOM"
+		desc = "RULE_MONGOL_INVASION_DELAYED_RANDOM_DESC"
+	}
+	option = {
+		name = off
+		achievements = no
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_MONGOL_INVASION_OFF_DESC"
+	}
+}
 
 aztec_invasion = {
 	name = "RULE_AZTEC_INVASION"
 	dlc = "Sunset Invasion"
 	group = "RULE_GROUP_RAILROADING"
 	alt_start_default = off
+
 	option = {
 		name = historical
 		text = "RULE_AZTEC_13TH"
@@ -115,15 +124,16 @@ generate_families = {
 	name = "RULE_GENERATE_FAMILIES"
 	group = "RULE_GROUP_VARIOUS"
 	alt_start_default = off
-	option = {
-		name = off # default (listed first); LI changed this from vanilla's "on" so 1066 starts stay as before
-		text = "RULE_OPTION_OFF"
-		desc = "RULE_GENERATE_FAMILIES_OFF_DESC"
-	}
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
 		desc = "RULE_GENERATE_FAMILIES_ON_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_GENERATE_FAMILIES_OFF_DESC"
 	}
 	option = {
 		name = ai_only
@@ -135,6 +145,7 @@ generate_families = {
 exclave_purge = {
 	name = "RULE_EXCLAVE_PURGE"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = off
 		text = "RULE_OPTION_OFF"
@@ -162,10 +173,10 @@ exclave_purge = {
 	}
 	option = {
 		name = total
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_TOTAL"
 		desc = "RULE_OPTION_EXCLAVE_PURGE_TOTAL_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
@@ -175,6 +186,7 @@ chinese_invasions = {
 	group = "RULE_GROUP_VARIOUS"
 	group = "RULE_GROUP_JD"
 	alt_start_default = none
+
 	option = {
 		name = default
 		text = "RULE_OPTION_ALL"
@@ -182,9 +194,9 @@ chinese_invasions = {
 	}
 	option = {
 		name = adventurers_only
-		achievements = no
 		text = "RULE_OPTION_ADVENTURERS_ONLY"
 		desc = "RULE_ADVENTURERS_ONLY_DESC"
+		achievements = no
 	}
 	option = {
 		name = no_major_invasions
@@ -193,9 +205,9 @@ chinese_invasions = {
 	}
 	option = {
 		name = none
-		achievements = no
 		text = "RULE_OPTION_NONE"
 		desc = "RULE_CHINESE_INVASIONS_NONE_DESC"
+		achievements = no
 	}
 }
 
@@ -204,6 +216,7 @@ chinese_interactions = {
 	dlc = "Jade Dragon"
 	group = "RULE_GROUP_VARIOUS"
 	group = "RULE_GROUP_JD"
+
 	option = {
 		name = within_range
 		text = "RULE_OPTION_WITHIN_RANGE"
@@ -216,9 +229,9 @@ chinese_interactions = {
 	}
 	option = {
 		name = all
-		achievements = no
 		text = "RULE_OPTION_ANYONE"
 		desc = "RULE_ANYONE_DESC"
+		achievements = no
 	}
 }
 
@@ -227,6 +240,7 @@ unjustified_wars = {
 	dlc = "Jade Dragon"
 	group = "RULE_GROUP_WARFARE"
 	group = "RULE_GROUP_JD"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -244,6 +258,7 @@ jade_dragon_cbs = {
 	dlc = "Jade Dragon"
 	group = "RULE_GROUP_WARFARE"
 	group = "RULE_GROUP_JD"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -260,6 +275,7 @@ devil_worshipers = {
 	name = "RULE_DEVIL_WORSHIPERS"
 	dlc = "Monks And Mystics"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -275,6 +291,7 @@ devil_worshipers = {
 secret_cults = {
 	name = "RULE_SECRET_CULTS"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -287,31 +304,34 @@ secret_cults = {
 	}
 }
 
-# turkic_invasions = {
-	# name = "RULE_TURKIC_INVASIONS"
-	# group = "RULE_GROUP_RAILROADING"
-	# option = {
-		# name = historical
-		# text = "RULE_OPTION_HISTORICAL"
-		# desc = "RULE_TURKIC_INVASIONS_HISTORICAL_DESC"
-	# }
-	# option = {
-		# name = random
-		# text = "RULE_OPTION_RANDOM"
-		# desc = "RULE_TURKIC_INVASIONS_RANDOM_DESC"
-	# }
-	# option = {
-		# name = off
-		# achievements = no
-		# text = "RULE_OPTION_OFF"
-		# desc = "RULE_TURKIC_INVASIONS_OFF_DESC"
-	# }
-# }
+turkic_invasions = {
+	name = "RULE_TURKIC_INVASIONS"
+	group = "RULE_GROUP_RAILROADING"
+	alt_start_default = off
+
+	option = {
+		name = historical
+		text = "RULE_OPTION_HISTORICAL"
+		desc = "RULE_TURKIC_INVASIONS_HISTORICAL_DESC"
+	}
+	option = {
+		name = random
+		text = "RULE_OPTION_RANDOM"
+		desc = "RULE_TURKIC_INVASIONS_RANDOM_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_TURKIC_INVASIONS_OFF_DESC"
+		achievements = no
+	}
+}
 
 non_epidemic_diseases = {
 	name = "RULE_NON_EPIDEMIC_DISEASES"
 	dlc = "The Reaper's Due"
 	group = "RULE_GROUP_RIP"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -348,6 +368,7 @@ non_epidemic_diseases = {
 shattered_retreat = {
 	name = "RULE_SHATTERED_RETREAT"
 	group = "RULE_GROUP_WARFARE"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -363,6 +384,7 @@ shattered_retreat = {
 army_movement_lock = {
 	name = "RULE_MOVEMENT_LOCK"
 	group = "RULE_GROUP_WARFARE"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -378,6 +400,7 @@ army_movement_lock = {
 siege_assaults = {
 	name = "RULE_SIEGE_ASSAULTS"
 	group = "RULE_GROUP_WARFARE"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -398,6 +421,7 @@ siege_assaults = {
 siege_events = {
 	name = "RULE_SIEGE_EVENTS"
 	group = "RULE_GROUP_WARFARE"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -418,6 +442,7 @@ siege_events = {
 defensive_pacts = {
 	name = "RULE_DEFENSIVE_PACTS"
 	group = "RULE_GROUP_WARFARE"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -432,7 +457,10 @@ defensive_pacts = {
 
 gender = {
 	name = "RULE_GENDER"
+	dlc = "Conclave"
 	group = "RULE_GROUP_VARIOUS"
+	group = "RULE_GROUP_CONCLAVE"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -445,15 +473,16 @@ gender = {
 	}
 	option = {
 		name = all
-		#achievements = no
 		text = "RULE_OPTION_ALL"
 		desc = "RULE_GENDER_ALL_DESC"
+		#achievements = no
 	}
 }
 
 supernatural_events = {
 	name = "RULE_SUPERNATURAL"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -474,6 +503,7 @@ supernatural_events = {
 silly_events = {
 	name = "RULE_SILLY"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -494,6 +524,7 @@ silly_events = {
 dejure_drift = {
 	name = "RULE_DEJURE"
 	group = "RULE_GROUP_DEJURE_DRIFT"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -514,6 +545,7 @@ dejure_drift = {
 dejure_drift_duration = {
 	name = "RULE_DEJURE_DURATION"
 	group = "RULE_GROUP_DEJURE_DRIFT"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -526,21 +558,22 @@ dejure_drift_duration = {
 	}
 	option = {
 		name = shortest
-		achievements = no
 		text = "RULE_OPTION_SHORTEST"
 		desc = "RULE_DEJURE_DURATION_SHORTEST_DESC"
+		achievements = no
 	}
 	option = {
 		name = shorter
-		#achievements = no
 		text = "RULE_OPTION_SHORTER"
 		desc = "RULE_DEJURE_DURATION_SHORTER_DESC"
+		#achievements = no
 	}
 }
 
 de_jure_requirement = {
 	name = "RULE_DE_JURE_REQUIREMENT"
 	group = "RULE_GROUP_DEJURE_DRIFT"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -557,6 +590,7 @@ nomad_stability = {
 	name = "RULE_NOMAD_STABILITY"
 	dlc = "Horse Lords"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = unstable
 		text = "RULE_OPTION_NOMAD_STABILITY_UNSTABLE"
@@ -572,6 +606,7 @@ nomad_stability = {
 culture_conversion = {
 	name = "RULE_CULTURE_CONVERSION"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -603,6 +638,7 @@ religious_conversion = {
 	name = "RULE_RELIGIOUS_CONVERSION"
 	group = "RULE_GROUP_RELIGION"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -618,6 +654,7 @@ religious_conversion = {
 raiding = {
 	name = "RULE_RAIDING"
 	group = "RULE_GROUP_WARFARE"
+
 	option = {
 		name = historical
 		text = "RULE_OPTION_HISTORICAL"
@@ -625,23 +662,24 @@ raiding = {
 	}
 	option = {
 		name = unrestricted
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_UNRESTRICTED"
 		desc = "RULE_RAIDING_UNRESTRICTED_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 	option = {
 		name = off
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_OFF"
 		desc = "RULE_RAIDING_OFF_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
 adventurers = {
 	name = "RULE_ADVENTURERS"
 	group = "RULE_GROUP_WARFARE"
+
 	option = {
 		name = normal
 		text = "RULE_OPTION_NORMAL"
@@ -649,17 +687,17 @@ adventurers = {
 	}
 	option = {
 		name = rare
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_RARE"
 		desc = "RULE_ADVENTURERS_RARE_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 	option = {
 		name = none
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_NONE"
 		desc = "RULE_ADVENTURERS_NONE_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
@@ -667,6 +705,7 @@ interfaith_marriages = {
 	name = "RULE_INTERFAITH_MARRIAGES"
 	group = "RULE_GROUP_RELIGION"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = restricted
 		text = "RULE_OPTION_RESTRICTED"
@@ -674,15 +713,16 @@ interfaith_marriages = {
 	}
 	option = {
 		name = open
-		achievements = no
 		text = "RULE_OPTION_OPEN"
 		desc = "RULE_IFM_OPEN_DESC"
+		achievements = no
 	}
 }
 
 matrilineal_marriages = {
 	name = "RULE_MATRILINEAL_MARRIAGES"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -699,6 +739,8 @@ dynamic_realms = {
 	name = "RULE_DYNAMIC_REALMS"
 	dlc = "Charlemagne"
 	group = "RULE_GROUP_VARIOUS"
+	group = "RULE_GROUP_CHARLEMAGNE"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -711,24 +753,46 @@ dynamic_realms = {
 	}
 }
 
-#charlemagne_story = {
-#	name = "RULE_CHARLEMAGNE_STORY"
-#	dlc = "Charlemagne"
-#	option = {
-#		name = on
-#		text = "RULE_OPTION_ON"
-#		desc = "RULE_CHARLEMAGNE_STORY_ON_DESC"
-#	}
-#	option = {
-#		name = off
-#		text = "RULE_OPTION_OFF"
-#		desc = "RULE_CHARLEMAGNE_STORY_OFF_DESC"
-#	}
-#}
+charlemagne_story = {
+	name = "RULE_CHARLEMAGNE_STORY"
+	dlc = "Charlemagne"
+	group = "RULE_GROUP_RAILROADING"
+	group = "RULE_GROUP_CHARLEMAGNE"
+	alt_start_default = off
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_CHARLEMAGNE_STORY_ON_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_CHARLEMAGNE_STORY_OFF_DESC"
+	}
+}
+
+otto_story = {
+	name = "RULE_OTTO_STORY"
+	group = "RULE_GROUP_RAILROADING"
+	alt_start_default = off
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_OTTO_STORY_ON_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_OTTO_STORY_OFF_DESC"
+	}
+}
 
 vassal_republics = {
 	name = "RULE_VASSAL_REPUBLICS"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = restricted
 		text = "RULE_OPTION_RESTRICTED"
@@ -736,16 +800,17 @@ vassal_republics = {
 	}
 	option = {
 		name = unrestricted
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_UNRESTRICTED"
 		desc = "RULE_VASSAL_REPUBLICS_UNRESTRICTED_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
 vassal_theocracies = {
 	name = "RULE_VASSAL_THEOCRACIES"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = restricted
 		text = "RULE_OPTION_RESTRICTED"
@@ -753,16 +818,17 @@ vassal_theocracies = {
 	}
 	option = {
 		name = unrestricted
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_UNRESTRICTED"
 		desc = "RULE_VASSAL_THEOCRACIES_UNRESTRICTED_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
 invitation = {
 	name = "RULE_INVITATION"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -770,16 +836,17 @@ invitation = {
 	}
 	option = {
 		name = open
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_OPEN"
 		desc = "RULE_INVITATION_OPEN_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
 diplo_range = {
 	name = "RULE_DIPLO_RANGE"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -792,16 +859,17 @@ diplo_range = {
 	}
 	option = {
 		name = off
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_OFF"
 		desc = "RULE_DIPLO_RANGE_OFF_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
 provincial_revolts = {
 	name = "RULE_PROVINCE_REVOLTS"
 	group = "RULE_GROUP_WARFARE"
+
 	option = {
 		name = normal
 		text = "RULE_OPTION_NORMAL"
@@ -809,23 +877,25 @@ provincial_revolts = {
 	}
 	option = {
 		name = rare
-		#achievements = no
 		text = "RULE_OPTION_RARE"
 		desc = "RULE_PROVINCE_REVOLTS_RARE_DESC"
+		#achievements = no
 	}
 	option = {
 		name = none
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_NONE"
 		desc = "RULE_PROVINCE_REVOLTS_NONE_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
 provincial_revolt_strength = {
 	name = "RULE_PROVINCIAL_REVOLT_STRENGTH"
-	group = "RULE_GROUP_WARFARE"
 	dlc = "The Old Gods"
+	group = "RULE_GROUP_WARFARE"
+	group = "RULE_GROUP_OLD_GODS"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -852,6 +922,7 @@ defensive_attrition = {
 	name = "RULE_DEF_ATTRITION"
 	group = "RULE_GROUP_WARFARE"
 	group = "RULE_GROUP_RELIGION"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -859,23 +930,24 @@ defensive_attrition = {
 	}
 	option = {
 		name = tribal
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_DEF_ATTRITION_TRIBAL"
 		desc = "RULE_DEF_ATTRITION_TRIBAL_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 	option = {
 		name = off
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_OFF"
 		desc = "RULE_DEF_ATTRITION_OFF_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
 pagan_reformation = {
 	name = "RULE_PAGAN_REFORMATION"
 	group = "RULE_GROUP_RELIGION"
+
 	option = {
 		name = allowed
 		text = "RULE_PAGAN_REFORMATION_ALLOWED"
@@ -888,16 +960,17 @@ pagan_reformation = {
 	}
 	option = {
 		name = players
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_PAGAN_REFORMATION_PLAYERS"
 		desc = "RULE_PAGAN_REFORMATION_PLAYERS_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
 regencies = {
 	name = "RULE_REGENCIES"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -905,16 +978,17 @@ regencies = {
 	}
 	option = {
 		name = off
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_OPTION_OFF"
 		desc = "RULE_REGENCIES_OFF_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
 diplo_assassination = {
 	name = "RULE_DIPLO_ASSASSINATION"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = off
 		text = "RULE_DIPLO_ASSASSINATION_OFF"
@@ -922,10 +996,10 @@ diplo_assassination = {
 	}
 	option = {
 		name = on
-		achievements = no
-		alt_start_achievements = no
 		text = "RULE_DIPLO_ASSASSINATION_ON"
 		desc = "RULE_DIPLO_ASSASSINATION_ON_DESC"
+		achievements = no
+		alt_start_achievements = no
 	}
 }
 
@@ -933,6 +1007,7 @@ ai_seduction = {
 	name = "RULE_AI_SEDUCTION"
 	dlc = "Way of Life"
 	group = "RULE_GROUP_WOL"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -949,6 +1024,7 @@ ai_intrigue = {
 	name = "RULE_AI_INTRIGUE"
 	dlc = "Way of Life"
 	group = "RULE_GROUP_WOL"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -966,6 +1042,7 @@ dueling = {
 	dlc = "Way of Life"
 	group = "RULE_GROUP_DIPLOMACY"
 	group = "RULE_GROUP_WOL"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -990,6 +1067,7 @@ dueling = {
 punishment_release_prisoner = {
 	name = "RULE_PUNISHMENT_RELEASE_PRISONER"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1007,6 +1085,7 @@ punishment_release_prisoner = {
 dynasty_title_names = {
 	name = "RULE_DYNASTY_TITLE_NAMES"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1023,6 +1102,7 @@ cultural_title_names = {
 	name = "RULE_CULTURAL_TITLE_NAMES"
 	group = "RULE_GROUP_VARIOUS"
 	alt_start_default = off
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1035,33 +1115,68 @@ cultural_title_names = {
 	}
 }
 
-#multiplayer_assassinations = {
-#	name = "RULE_MULTIPLAYER_ASSASSINATIONS"
-#	option = {
-#		name = default
-#		text = "RULE_OPTION_DEFAULT"
-#		desc = "RULE_MULTIPLAYER_ASSASSINATIONS_DEFAULT_DESC"
-#	}
-#	option = {
-#		name = no_players
-#		text = "RULE_OPTION_NO_PLAYERS"
-#		desc = "RULE_MULTIPLAYER_ASSASSINATIONS_NO_PLAYERS_DESC"
-#	}
-#	option = {
-#		name = no_players_or_heirs
-#		text = "RULE_OPTION_NO_PLAYERS_OR_HEIRS"
-#		desc = "RULE_MULTIPLAYER_ASSASSINATIONS_NO_PLAYERS_OR_HEIRS_DESC"
-#	}
-#	option = {
-#		name = no_player_dynasties
-#		text = "RULE_OPTION_NO_PLAYER_DYNASTIES"
-#		desc = "RULE_MULTIPLAYER_ASSASSINATIONS_NO_PLAYER_DYNASTIES_DESC"
-#	}
-#}
+multiplayer_assassinations = {
+	name = "RULE_MULTIPLAYER_ASSASSINATIONS"
+	group = "RULE_GROUP_MP"
+
+	option = {
+		name = free
+		text = "RULE_OPTION_FREE"
+		desc = "RULE_MULTIPLAYER_ASSASSINATIONS_DEFAULT_DESC"
+	}
+	option = {
+		name = no_players_or_relatives
+		text = "RULE_OPTION_NO_CLOSE_PLAYER_RELATIVES"
+		desc = "RULE_MULTIPLAYER_ASSASSINATIONS_NO_CLOSE_PLAYER_RELATIVES_DESC"
+	}
+	option = {
+		name = no_players
+		text = "RULE_OPTION_NO_PLAYERS"
+		desc = "RULE_MULTIPLAYER_ASSASSINATIONS_NO_PLAYERS_DESC"
+	}
+}
+
+multiplayer_invasions = {
+	name = "RULE_MULTIPLAYER_PLAYER_INVASIONS"
+	group = "RULE_GROUP_MP"
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_MULTIPLAYER_PLAYER_INVASIONS_ON_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_MULTIPLAYER_PLAYER_INVASIONS_OFF_DESC"
+	}
+}
+
+multiplayer_third_party_claims = {
+	name = "RULE_MULTIPLAYER_3RD_PARTY_CLAIMS"
+	group = "RULE_GROUP_MP"
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_MULTIPLAYER_3RD_PARTY_CLAIMS_ON_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_MULTIPLAYER_3RD_PARTY_CLAIMS_OFF_DESC"
+	}
+	option = {
+		name = limited
+		text = "RULE_OPTION_LIMITED"
+		desc = "RULE_MULTIPLAYER_3RD_PARTY_CLAIMS_LIMITED_DESC"
+	}
+}
 
 demesne_size = {
 	name = "RULE_DEMESNE_SIZE"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -1089,6 +1204,7 @@ demesne_size = {
 vassal_limit = {
 	name = "RULE_VASSAL_LIMIT"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = default
 		text = "RULE_OPTION_DEFAULT"
@@ -1116,6 +1232,7 @@ vassal_limit = {
 grant_independence = {
 	name = "RULE_GRANT_INDEPENDENCE"
 	group = "RULE_GROUP_DIPLOMACY"
+
 	option = {
 		name = restricted
 		text = "RULE_OPTION_RESTRICTED"
@@ -1134,6 +1251,7 @@ conclave_education_focuses = {
 	name = "RULE_EDU_FOCUSES"
 	dlc = "Conclave"
 	group = "RULE_GROUP_CONCLAVE"
+
 	option = {
 		name = close_relatives
 		text = "RULE_EDU_FOCUSES_CR"
@@ -1150,10 +1268,124 @@ conclave_education_focuses = {
 		desc = "RULE_EDU_FOCUSES_MINIMAL_DESC"
 	}
 }
+
+dynamic_crusader_states = {
+	name = "RULE_CRUSADER_STATES"
+	group = "RULE_GROUP_CRUSADE"
+
+	option = {
+		name = default
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_DYNAMIC_CRUSADER_STATES_ON"
+	}
+	option = {
+		name = limited
+		text = "RULE_OPTION_LIMITED"
+		desc = "RULE_DYNAMIC_CRUSADER_STATES_LIMITED"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_DYNAMIC_CRUSADER_STATES_OFF"
+	}
+}
+
+shepherds_crusade = {
+	name = "RULE_SHEPHERDS_CRUSADE"
+	dlc = "Sons of Abraham"
+	group = "RULE_GROUP_CRUSADE"
+	group = "RULE_GROUP_SONS_OF_ABRAHAM"
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_SHEPHERDS_CRUSADE_ON"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_SHEPHERDS_CRUSADE_OFF"
+	}
+}
+
+fourth_crusade = {
+	name = "RULE_FOURTH_CRUSADE"
+	dlc = "Holy Fury"
+	group = "RULE_GROUP_CRUSADE"
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_FOURTH_CRUSADE_ON"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_FOURTH_CRUSADE_OFF"
+	}
+}
+
+childrens_crusade = {
+	name = "RULE_CHILDRENS_CRUSADE"
+	dlc = "Holy Fury"
+	group = "RULE_GROUP_CRUSADE"
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_CHILDRENS_CRUSADE_ON"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_CHILDRENS_CRUSADE_OFF"
+	}
+}
+
+northern_crusade = {
+	name = "RULE_NORTHERN_CRUSADE"
+	dlc = "Holy Fury"
+	group = "RULE_GROUP_CRUSADE"
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_NORTHERN_CRUSADE_ON"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_NORTHERN_CRUSADE_OFF"
+	}
+}
+
+reconquista = {
+	name = "RULE_RECONQUISTA"
+	dlc = "Holy Fury"
+	group = "RULE_GROUP_CRUSADE"
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_RECONQUISTA_ON"
+	}
+	option = {
+		name = limited
+		text = "RULE_OPTION_LIMITED"
+		desc = "RULE_RECONQUISTA_LIMITED"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_RECONQUISTA_OFF"
+	}
+}
+
 child_of_destiny = {
 	name = "RULE_CHILD_OF_DESTINY"
 	dlc = "Holy Fury"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1165,10 +1397,12 @@ child_of_destiny = {
 		desc = "RULE_CHILD_OF_DESTINY_OFF"
 	}
 }
+
 pregnancy_flavor = {
 	name = "RULE_PREGNANCY_FLAVOR"
 	dlc = "Holy Fury"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1185,10 +1419,12 @@ pregnancy_flavor = {
 		desc = "RULE_PREGNANCY_FLAVOR_OFF"
 	}
 }
+
 martial_headgear = {
 	name = "RULE_MARTIAL_HEADGEAR"
 	dlc = "Holy Fury"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1200,9 +1436,11 @@ martial_headgear = {
 		desc = "RULE_MARTIAL_HEADGEAR_OFF"
 	}
 }
+
 non_aggression_pacts_block_factions = {
 	name = "RULE_NAP_BLOCK_FACTIONS"
 	group = "RULE_GROUP_WARFARE"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1218,6 +1456,7 @@ non_aggression_pacts_block_factions = {
 blood_splatter_rule = {
 	name = "RULE_BLOOD_SPLATTER"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1230,9 +1469,26 @@ blood_splatter_rule = {
 	}
 }
 
+hellenism_rule = {
+	name = "RULE_HELLENISM"
+	group = "RULE_GROUP_RELIGION"
+
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_HELLENISM_ON"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_HELLENISM_OFF"
+	}
+}
+
 wonder_rule = {
 	name = "RULE_WONDERS"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1248,6 +1504,7 @@ wonder_rule = {
 wonder_rule_historical = {
 	name = "RULE_WONDERS_HISTORICAL"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
@@ -1268,6 +1525,7 @@ wonder_rule_historical = {
 court_limit_rule = {
 	name = "RULE_COURT_LIMIT"
 	group = "RULE_GROUP_VARIOUS"
+
 	option = {
 		name = on
 		text = "RULE_OPTION_ON"
