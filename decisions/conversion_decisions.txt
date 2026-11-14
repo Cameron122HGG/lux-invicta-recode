@@ -612,19 +612,7 @@ convert_to_local_religion = {
 					add_trait = sympathy_indohellens
 				}
 			}
-			if = {
-				limit = {
-					religion_group = inti_group
-					NOT = { trait = sympathy_intis }
-					capital_scope = {
-						NOT = { true_religion_group = ROOT }
-					}
-				}
-				random = {
-					chance = 60
-					add_trait = sympathy_intis
-				}
-			}
+			# LI: removed the inti_group / sympathy_intis branch - Lux Invicta has neither, so it could never run
 			if = {
 				limit = {
 					religion_group = inuit_group
