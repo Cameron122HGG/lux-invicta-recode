@@ -4059,7 +4059,7 @@ character_event = {
 					d_holyapollinarist = {
 						holder_scope = {
 							character_event = {
-								id = SoA.1560
+								id = SoA.1060 # was SoA.1560: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4076,7 +4076,7 @@ character_event = {
 					d_holyarian = {
 						holder_scope = {
 							character_event = {
-								id = SoA.1460
+								id = SoA.1060 # was SoA.1460: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4094,7 +4094,7 @@ character_event = {
 					d_holyashari = {
 						holder_scope = {
 							character_event = {
-								id = SoA.1460
+								id = SoA.1060 # was SoA.1460: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4112,7 +4112,7 @@ character_event = {
 					d_holyathari = {
 						holder_scope = {
 							character_event = {
-								id = SoA.1460
+								id = SoA.1060 # was SoA.1460: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4130,7 +4130,7 @@ character_event = {
 					d_holyaudianist = {
 						holder_scope = {
 							character_event = {
-								id = SoA.1660
+								id = SoA.1060 # was SoA.1660: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4147,7 +4147,7 @@ character_event = {
 					d_holyaztec = {
 						holder_scope = {
 							character_event = {
-								id = SoA.1760
+								id = SoA.1060 # was SoA.1760: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4164,7 +4164,7 @@ character_event = {
 					d_holybud_bahusrutiya = {
 						holder_scope = {
 							character_event = {
-								id = SoA.1860
+								id = SoA.1060 # was SoA.1860: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4181,7 +4181,7 @@ character_event = {
 					d_holybud_mahayana = {
 						holder_scope = {
 							character_event = {
-								id = SoA.1960
+								id = SoA.1060 # was SoA.1960: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4198,7 +4198,7 @@ character_event = {
 					d_holybud_pratyeka = {
 						holder_scope = {
 							character_event = {
-								id = SoA.2060
+								id = SoA.1060 # was SoA.2060: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4215,7 +4215,7 @@ character_event = {
 					d_holybud_pureland = {
 						holder_scope = {
 							character_event = {
-								id = SoA.2160
+								id = SoA.1060 # was SoA.2160: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4232,7 +4232,7 @@ character_event = {
 					d_holybud_sthaviravada = {
 						holder_scope = {
 							character_event = {
-								id = SoA.2260
+								id = SoA.1060 # was SoA.2260: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4249,7 +4249,7 @@ character_event = {
 					d_holybud_vajrayana = {
 						holder_scope = {
 							character_event = {
-								id = SoA.2360
+								id = SoA.1060 # was SoA.2360: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4266,7 +4266,7 @@ character_event = {
 					d_holycatholic = {
 						holder_scope = {
 							character_event = {
-								id = SoA.2460
+								id = SoA.1060 # was SoA.2460: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4283,7 +4283,7 @@ character_event = {
 					d_holydonatist = {
 						holder_scope = {
 							character_event = {
-								id = SoA.2560
+								id = SoA.1060 # was SoA.2560: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4300,7 +4300,7 @@ character_event = {
 					d_holyharuri = {
 						holder_scope = {
 							character_event = {
-								id = SoA.2660
+								id = SoA.1060 # was SoA.2660: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4317,7 +4317,7 @@ character_event = {
 					d_holyhindu = {
 						holder_scope = {
 							character_event = {
-								id = SoA.2760
+								id = SoA.1060 # was SoA.2760: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4334,7 +4334,7 @@ character_event = {
 					d_holyhurufi = {
 						holder_scope = {
 							character_event = {
-								id = SoA.2860
+								id = SoA.1060 # was SoA.2860: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4351,7 +4351,7 @@ character_event = {
 					d_holyiconoclast = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4368,7 +4368,7 @@ character_event = {
 					d_holyilm_islam = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4385,7 +4385,7 @@ character_event = {
 					d_holyindoh_bud = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4402,7 +4402,7 @@ character_event = {
 					d_holyindoh_confucian = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4419,7 +4419,7 @@ character_event = {
 					d_holyindoh_hindu = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4436,7 +4436,7 @@ character_event = {
 					d_holyindoh_zor = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4453,7 +4453,7 @@ character_event = {
 					d_holyjain = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4470,7 +4470,7 @@ character_event = {
 					d_holyjud_zion = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4487,7 +4487,7 @@ character_event = {
 					d_holyjupiter = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4504,7 +4504,7 @@ character_event = {
 					d_holyluwian = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4521,7 +4521,7 @@ character_event = {
 					d_holymani = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4538,7 +4538,7 @@ character_event = {
 					d_holymani_mithra = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4555,7 +4555,7 @@ character_event = {
 					d_holymaturidi = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4572,7 +4572,7 @@ character_event = {
 					d_holymelkite = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4589,7 +4589,7 @@ character_event = {
 					d_holymithra = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4606,7 +4606,7 @@ character_event = {
 					d_holymithra_christ = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4623,7 +4623,7 @@ character_event = {
 					d_holymithra_sol = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4640,7 +4640,7 @@ character_event = {
 					d_holymonophysite = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4657,7 +4657,7 @@ character_event = {
 					d_holymonothelite = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4674,7 +4674,7 @@ character_event = {
 					d_holymurjiah = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4691,7 +4691,7 @@ character_event = {
 					d_holymutazil = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4708,7 +4708,7 @@ character_event = {
 					d_holymwari = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4725,7 +4725,7 @@ character_event = {
 					d_holyneoplato = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4742,7 +4742,7 @@ character_event = {
 					d_holynestorian = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4759,7 +4759,7 @@ character_event = {
 					d_holynyau = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4776,7 +4776,7 @@ character_event = {
 					d_holyorthodox = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4793,7 +4793,7 @@ character_event = {
 					d_holypelagian = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4810,7 +4810,7 @@ character_event = {
 					d_holyplato_christ = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4827,7 +4827,7 @@ character_event = {
 					d_holyplato_christ = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4844,7 +4844,7 @@ character_event = {
 					d_holysabellianist = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4861,7 +4861,7 @@ character_event = {
 					d_holysemipelagian = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4878,7 +4878,7 @@ character_event = {
 					d_holyshiite = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4895,7 +4895,7 @@ character_event = {
 					d_holysol = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4912,7 +4912,7 @@ character_event = {
 					d_holysol_apollo = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4929,7 +4929,7 @@ character_event = {
 					d_holysol_christ = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4946,7 +4946,7 @@ character_event = {
 					d_holysol_mani = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4963,7 +4963,7 @@ character_event = {
 					d_holysolomonic_alexandros = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4980,7 +4980,7 @@ character_event = {
 					d_holysolomonic_christ = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -4997,7 +4997,7 @@ character_event = {
 					d_holysunni = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5014,7 +5014,7 @@ character_event = {
 					d_holyunctionist = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5031,7 +5031,7 @@ character_event = {
 					d_holyyoruba = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5048,7 +5048,7 @@ character_event = {
 					d_holyzahiri = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5065,7 +5065,7 @@ character_event = {
 					d_holyzal = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5082,7 +5082,7 @@ character_event = {
 					d_holyzal_christ = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5099,7 +5099,7 @@ character_event = {
 					d_holyzal_mani = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5116,7 +5116,7 @@ character_event = {
 					d_holyzor_hindu = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5133,7 +5133,7 @@ character_event = {
 					d_holyzoroastrian = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5150,7 +5150,7 @@ character_event = {
 					d_holyahriman_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5167,7 +5167,7 @@ character_event = {
 					d_holyamun_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5184,7 +5184,7 @@ character_event = {
 					d_holyarab_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5201,7 +5201,7 @@ character_event = {
 					d_holyaten_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5218,7 +5218,7 @@ character_event = {
 					d_holybaal_monotheistic_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5235,7 +5235,7 @@ character_event = {
 					d_holybaltic_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5252,7 +5252,7 @@ character_event = {
 					d_holybantu_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5269,7 +5269,7 @@ character_event = {
 					d_holyberber_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5286,7 +5286,7 @@ character_event = {
 					d_holybon_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5303,7 +5303,7 @@ character_event = {
 					d_holybud_zen_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5320,7 +5320,7 @@ character_event = {
 					d_holybud_zor_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5337,7 +5337,7 @@ character_event = {
 					d_holycathar_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5354,7 +5354,7 @@ character_event = {
 					d_holyceltic_christ_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5371,7 +5371,7 @@ character_event = {
 					d_holyceltic_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5388,7 +5388,7 @@ character_event = {
 					d_holychristian_populist_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5405,7 +5405,7 @@ character_event = {
 					d_holychumbylat_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5422,7 +5422,7 @@ character_event = {
 					d_holycybele_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5439,7 +5439,7 @@ character_event = {
 					d_holydruze_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5456,7 +5456,7 @@ character_event = {
 					d_holyerlik_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5473,7 +5473,7 @@ character_event = {
 					d_holyethiopian_war_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5490,7 +5490,7 @@ character_event = {
 					d_holyfinnish_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5507,7 +5507,7 @@ character_event = {
 					d_holygerman_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5524,7 +5524,7 @@ character_event = {
 					d_holygraeco_roman_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5541,7 +5541,7 @@ character_event = {
 					d_holyiberian_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5558,7 +5558,7 @@ character_event = {
 					d_holyilluyanka_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5575,7 +5575,7 @@ character_event = {
 					d_holyindohelen_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5592,7 +5592,7 @@ character_event = {
 					d_holyinuit_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5609,7 +5609,7 @@ character_event = {
 					d_holyisis_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5626,7 +5626,7 @@ character_event = {
 					d_holyjud_ark_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5643,7 +5643,7 @@ character_event = {
 					d_holyjudaism_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5660,7 +5660,7 @@ character_event = {
 					d_holykubera_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5677,7 +5677,7 @@ character_event = {
 					d_holylubu_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5694,7 +5694,7 @@ character_event = {
 					d_holymand_ruha_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5711,7 +5711,7 @@ character_event = {
 					d_holymandaean_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5728,7 +5728,7 @@ character_event = {
 					d_holymani_germanic_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5745,7 +5745,7 @@ character_event = {
 					d_holymani_slavic_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5762,7 +5762,7 @@ character_event = {
 					d_holymari_christ_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5779,7 +5779,7 @@ character_event = {
 					d_holymazdakism_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5796,7 +5796,7 @@ character_event = {
 					d_holymontanist_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5813,7 +5813,7 @@ character_event = {
 					d_holymurugan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5830,7 +5830,7 @@ character_event = {
 					d_holymuslim_aliite_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5847,7 +5847,7 @@ character_event = {
 					d_holymuslim_domination_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5864,7 +5864,7 @@ character_event = {
 					d_holymuslim_sufi_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5881,7 +5881,7 @@ character_event = {
 					d_holynasrani_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5898,7 +5898,7 @@ character_event = {
 					d_holynorse_christ_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5915,7 +5915,7 @@ character_event = {
 					d_holynorse_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5932,7 +5932,7 @@ character_event = {
 					d_holynorthern_sun_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5949,7 +5949,7 @@ character_event = {
 					d_holynyakalagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5966,7 +5966,7 @@ character_event = {
 					d_holypriscillian_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -5983,7 +5983,7 @@ character_event = {
 					d_holyragnarok_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6000,7 +6000,7 @@ character_event = {
 					d_holysaura_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6017,7 +6017,7 @@ character_event = {
 					d_holyserer_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6034,7 +6034,7 @@ character_event = {
 					d_holyset_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6051,7 +6051,7 @@ character_event = {
 					d_holysethian_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6068,7 +6068,7 @@ character_event = {
 					d_holyslavic_christian_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6085,7 +6085,7 @@ character_event = {
 					d_holyslavic_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6102,7 +6102,7 @@ character_event = {
 					d_holysol_boreas_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6119,7 +6119,7 @@ character_event = {
 					d_holysol_islam_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6136,7 +6136,7 @@ character_event = {
 					d_holysol_sahara_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6153,7 +6153,7 @@ character_event = {
 					d_holytao_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6170,7 +6170,7 @@ character_event = {
 					d_holytarhunt_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6187,7 +6187,7 @@ character_event = {
 					d_holyteiwaz_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6204,7 +6204,7 @@ character_event = {
 					d_holytengri_bud_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6221,7 +6221,7 @@ character_event = {
 					d_holytengri_confucian_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6238,7 +6238,7 @@ character_event = {
 					d_holytengri_mani_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6255,7 +6255,7 @@ character_event = {
 					d_holytengri_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6272,7 +6272,7 @@ character_event = {
 					d_holytengri_rod_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6289,7 +6289,7 @@ character_event = {
 					d_holyvattisenyaly_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6306,7 +6306,7 @@ character_event = {
 					d_holyvidharma_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6323,7 +6323,7 @@ character_event = {
 					d_holyvoipel_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6340,7 +6340,7 @@ character_event = {
 					d_holyyazdanism_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6357,7 +6357,7 @@ character_event = {
 					d_holyzande_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6374,7 +6374,7 @@ character_event = {
 					d_holyzor_angra_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6391,7 +6391,7 @@ character_event = {
 					d_holyzulu_pagan_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
@@ -6408,7 +6408,7 @@ character_event = {
 					d_holyzurvanism_reformed = {
 						holder_scope = {
 							character_event = {
-								id = CM.4012
+								id = SoA.1060 # was CM.4012: not in LI; vanilla's per-order expulsion events are identical copies of SoA.1060
 							}
 						}
 					}
