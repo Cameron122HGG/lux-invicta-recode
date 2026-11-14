@@ -6895,9 +6895,11 @@ province_event = {
 					any_war = {
 						defender = event_target:province_owner
 						any_attacker = {
-							relative_power = {
-								who = event_target:province_owner
-								power = 1.0
+							event_target:province_owner = {
+								relative_power = {
+									who = PREV
+									power = 1.0
+								}
 							}
 						}
 					}
@@ -6909,9 +6911,11 @@ province_event = {
 					any_war = {
 						defender = event_target:province_owner
 						any_attacker = {
-							relative_power = {
-								who = event_target:province_owner
-								power = 1.5
+							event_target:province_owner = {
+								relative_power = {
+									who = PREV
+									power = 1.5
+								}
 							}
 						}
 					}
@@ -6923,9 +6927,11 @@ province_event = {
 					any_war = {
 						defender = event_target:province_owner
 						any_attacker = {
-							relative_power = {
-								who = event_target:province_owner
-								power = 2.0
+							event_target:province_owner = {
+								relative_power = {
+									who = PREV
+									power = 2.0
+								}
 							}
 						}
 					}
@@ -6937,9 +6943,11 @@ province_event = {
 					any_war = {
 						defender = event_target:province_owner
 						any_attacker = {
-							relative_power = {
-								who = event_target:province_owner
-								power = 3.0
+							event_target:province_owner = {
+								relative_power = {
+									who = PREV
+									power = 3.0
+								}
 							}
 						}
 					}
@@ -6951,9 +6959,11 @@ province_event = {
 					any_war = {
 						defender = event_target:province_owner
 						any_attacker = {
-							relative_power = {
-								who = event_target:province_owner
-								power = 4.0
+							event_target:province_owner = {
+								relative_power = {
+									who = PREV
+									power = 4.0
+								}
 							}
 						}
 					}
@@ -6965,16 +6975,18 @@ province_event = {
 					any_war = {
 						defender = event_target:province_owner
 						any_attacker = {
-							relative_power = {
-								who = event_target:province_owner
-								power = 5.0
+							event_target:province_owner = {
+								relative_power = {
+									who = PREV
+									power = 5.0
+								}
 							}
 						}
 					}
 				}
 			}
 		}
-		ROOT = {
+		owner = {
 			spawn_unit = {
 				province = ROOT
 				home = ROOT

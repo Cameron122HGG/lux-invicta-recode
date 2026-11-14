@@ -56,7 +56,7 @@
 	religion = "bogomilist"
 	culture = "bulgarian"
 	father = 14015
-	add_trait = hist_tervel
+	#add_trait = hist_tervel # trait was never defined in Lux Invicta
 	1038.1.1 = {
 		birth = "1038.1.1"
 	}
@@ -2469,7 +2469,7 @@
 	religion = "norse_pagan"
 	culture = "norwegian"
 	father=1830329
-	add_trait = "hist_harald"
+	#add_trait = "hist_harald" # trait was never defined in Lux Invicta
 	1040.1.2 = {
 		birth = "1040.1.2"
 	}
@@ -2533,7 +2533,7 @@
 	religion = "norse_pagan"
 	culture = "swedish"
 	father=1830341
-	add_trait = "hist_bjorn"
+	#add_trait = "hist_bjorn" # trait was never defined in Lux Invicta
 	1040.1.2 = {
 		birth = "1040.1.2"
 	}
@@ -4177,7 +4177,7 @@
 	health = 7.5
 	religion = "norse_pagan"
 	culture = "swedish"
-	add_trait = "hist_bjorn"
+	#add_trait = "hist_bjorn" # trait was never defined in Lux Invicta
 	1043.1.2 = {
 		birth = "1043.1.2"
 		create_bloodline = {

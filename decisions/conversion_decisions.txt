@@ -1172,7 +1172,12 @@ decisions = {
 			any_war = {
 				defender = { character = ROOT }
 				attacker = {
-				NOT = { religion = ROOT }
+					NOT = { religion = ROOT }
+				}
+				OR = {
+					holy_war_trigger = yes
+					crusade_trigger = yes
+					#using_cb = sacred_war
 				}
 			}
 			custom_tooltip = {
@@ -1182,11 +1187,6 @@ decisions = {
 					proselyte_religion_trigger = yes
 					}
 				}
-			}
-			OR = {
-				holy_war_trigger = yes
-				crusade_trigger = yes
-				#using_cb = sacred_war
 			}
 		}
 		

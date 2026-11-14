@@ -2995,7 +2995,6 @@ feudal_elective = {
 					trait = sympathy_graecoroman
 					trait = sympathy_indian
 					trait = sympathy_indohellens
-					trait = sympathy_intis
 					trait = sympathy_inuit
 					trait = sympathy_islam
 					trait = sympathy_judaism
@@ -4106,7 +4105,6 @@ tanistry = {
 					 FROM = { religion_group = indohelen_group }
 				 }
 				 AND = {
-					 trait = sympathy_intis
 					 FROM = { religion_group = inti_group }
 				 }
 				 AND = {
@@ -6408,7 +6406,6 @@ tanistry = {
 					trait = sympathy_graecoroman
 					trait = sympathy_indian
 					trait = sympathy_indohellens
-					trait = sympathy_intis
 					trait = sympathy_inuit
 					trait = sympathy_islam
 					trait = sympathy_judaism
@@ -9807,7 +9804,6 @@ elective_gavelkind = {
 					trait = sympathy_graecoroman
 					trait = sympathy_indian
 					trait = sympathy_indohellens
-					trait = sympathy_intis
 					trait = sympathy_inuit
 					trait = sympathy_islam
 					trait = sympathy_judaism
@@ -13535,7 +13531,6 @@ eldership_rules = {
 					trait = sympathy_graecoroman
 					trait = sympathy_indian
 					trait = sympathy_indohellens
-					trait = sympathy_intis
 					trait = sympathy_inuit
 					trait = sympathy_islam
 					trait = sympathy_judaism
@@ -16541,7 +16536,6 @@ eldership_rules = {
 					trait = sympathy_graecoroman
 					trait = sympathy_indian
 					trait = sympathy_indohellens
-					trait = sympathy_intis
 					trait = sympathy_inuit
 					trait = sympathy_islam
 					trait = sympathy_judaism
