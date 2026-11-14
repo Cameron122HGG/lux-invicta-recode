@@ -106,13 +106,12 @@ has_common_devilworship_prerequisites = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 has_satanists_prerequisites = {
 	has_common_devilworship_prerequisites = yes
 
 	OR = {
 		religion_group = christian
-		religion_group = muslim
-		religion_group = zoroastrian_group
 		religion_group = jewish_group
 		religion_openly_zun_or_reformed_trigger = yes
 	}

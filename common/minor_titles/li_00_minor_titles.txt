@@ -44,74 +44,128 @@ title_dregvant = {
 
 	message = yes
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 title_ashavan = {
+	is_unique = yes
+	message = yes
+
 	dignity = 0.01
 	grant_limit = 1
+
 	opinion_effect = 10
-	
-	monthly_prestige = 0.2
-	
+	monthly_prestige = 0.1
+
+	allowed_to_grant = {
+		higher_real_tier_than = DUKE
+		religion_group = zoroastrian_group
+
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+	}
+
 	allowed_to_hold = {
-		NOT = { primary_title = { temporary = yes } }
 		is_adult = yes
+
 		OR = {
 			trait = kind
 			trait = diligent
 			trait = patient
 			trait = honest
 		}
-		NOT = {
-			trait = incapable
+
+		custom_tooltip = {
+			text = court_physician_tooltip_1
+
+			trigger_if = {
+				limit = { is_ruler = yes }
+
+				primary_title = {
+					temporary = no
+				}
+			}
 		}
 	}
-	allowed_to_grant = {
-		religion_group = zoroastrian_group
-		is_feudal = yes
-		primary_title = {
-			higher_tier_than = duke
-		}
+
+	revoke_trigger = {
 	}
-	
+
 	gain_effect = {
 	}
+
 	lose_effect = {
 	}
 
-	message = yes
+	retire_effect = {
+	}
+
+	death_effect = {
+	}
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 title_sraoshavarez = {
-	dignity = 0.01
-	realm_in_name = yes
-	grant_limit = 1
-	opinion_effect = 10
-	
-	monthly_salary = 0.02
-	monthly_prestige = 0.1
-	
 	is_unique = yes
-	allowed_to_hold = {
-		NOT = { primary_title = { temporary = yes } }
-		age = 16
-		is_female = no
-		religion_group = zoroastrian_group
-		NOT = {
-			trait = incapable
-		}
-	}
+	message = yes
+	realm_in_name = yes
+
+	dignity = 0.01
+	grant_limit = 1
+
+	opinion_effect = 10
+	monthly_salary = 0.02
+	monthly_prestige = 0.05
+
 	allowed_to_grant = {
 		religion_group = zoroastrian_group
-		is_feudal = yes
-		primary_title = {
-		higher_tier_than = duke
+		higher_real_tier_than = DUKE
+
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
 		}
 	}
-	
+
+	allowed_to_hold = {
+		religion_group = zoroastrian_group
+		is_adult = yes
+
+		# TODO: Create scripted trigger with custom_tooltip (Is allowed to hold temples)
+		OR = {
+			is_female = no
+			AND = {
+				religion_allows_female_temple_holders = yes
+				ROOT = { religion_allows_female_temple_holders = yes }
+			}
+		}
+
+		custom_tooltip = {
+			text = court_physician_tooltip_1
+
+			trigger_if = {
+				limit = { is_ruler = yes }
+
+				primary_title = {
+					temporary = no
+				}
+			}
+		}
+	}
+
+	revoke_trigger = {
+	}
+
 	gain_effect = {
 	}
+
 	lose_effect = {
 	}
 
-	message = yes
+	retire_effect = {
+	}
+
+	death_effect = {
+	}
 }
 title_shapsheraz = {
 	dignity = 0.01

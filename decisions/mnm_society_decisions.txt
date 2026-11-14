@@ -330,8 +330,10 @@ society_decisions = {
 targeted_decisions = {
 
 	# Shared abduct decision
+	# LI: CK2Plus AIO version (step B, decision 5)
 	decision_abduct = {
 		ai = no
+		is_in_society = yes
 
 		from_potential = {
 			OR = {
@@ -460,10 +462,12 @@ targeted_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	stop_abduct_decision = {
 		filter = self
 
 		ai = no
+		is_in_society = yes
 
 		potential = {
 			has_any_opinion_modifier = opinion_abducting
@@ -499,8 +503,10 @@ targeted_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	stop_abduct_decision_target = {
 		ai = no
+		is_in_society = yes
 
 		from_potential = {
 			has_any_opinion_modifier = opinion_abducting

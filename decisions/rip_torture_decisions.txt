@@ -337,6 +337,7 @@ targeted_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	prisoner_mutilate = {
 		filter = court
 		ai_target_filter = court
@@ -386,6 +387,15 @@ targeted_decisions = {
 					trait = eunuch
 				}
 			}
+
+			trigger_if = {
+				limit = { has_character_flag = recently_mutilated }
+
+				had_character_flag = {
+					flag = recently_mutilated
+					years >= 2
+				}
+			}
 		}
 
 		allow = {
@@ -395,6 +405,8 @@ targeted_decisions = {
 
 		effect = {
 			hidden_effect = {
+				set_character_flag = recently_mutilated
+
 				FROM = {
 					if = {
 						limit = {
@@ -592,6 +604,7 @@ targeted_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	prisoner_read_poetry = {
 		filter = court
 		ai_target_filter = court
@@ -612,6 +625,29 @@ targeted_decisions = {
 			host = { character = FROM }
 			prisoner = yes
 			age >= 13
+
+			trigger_if = {
+				limit = {
+					has_character_flag = read_poem_1
+					has_character_flag = read_poem_2
+					has_character_flag = read_poem_3
+				}
+
+				had_character_flag = {
+					flag = read_poem_1
+					days >= 45
+				}
+
+				had_character_flag = {
+					flag = read_poem_2
+					days >= 45
+				}
+
+				had_character_flag = {
+					flag = read_poem_3
+					days >= 45
+				}
+			}
 		}
 
 		allow = {
@@ -622,23 +658,78 @@ targeted_decisions = {
 		effect = {
 			hidden_effect = {
 				FROM = {
+					# TODO: Sort out weird flag checking logic below
 					random_list = {
 						33 = {
+							trigger = {
+								ROOT = {
+									NOR = {
+										has_character_flag = read_poem_1
+										has_character_flag = read_poem_2
+									}
+								}
+							}
+
 							# Poem 1
 							character_event = { id = RIP.20023 }
-							ROOT = { character_event = { id = RIP.20024 } }
+
+							ROOT = {
+								set_character_flag = read_poem_1
+								character_event = { id = RIP.20024 }
+								clr_character_flag = read_poem_3
+							}
 						}
 
 						33 = {
+							trigger = {
+								ROOT = {
+									OR = {
+										has_character_flag = read_poem_1
+										has_character_flag = read_poem_2
+										has_character_flag = read_poem_3
+									}
+
+									NOR = {
+										has_character_flag = read_poem_2
+										has_character_flag = read_poem_3
+									}
+								}
+							}
+
 							# Poem 2
 							character_event = { id = RIP.20025 }
-							ROOT = { character_event = { id = RIP.20026 } }
+
+							ROOT = {
+								set_character_flag = read_poem_2
+								character_event = { id = RIP.20026 }
+								clr_character_flag = read_poem_1
+							}
 						}
 
 						33 = {
+							trigger = {
+								ROOT = {
+									OR = {
+										has_character_flag = read_poem_1
+										has_character_flag = read_poem_2
+										has_character_flag = read_poem_3
+									}
+
+									NOR = {
+										has_character_flag = read_poem_1
+										has_character_flag = read_poem_3
+									}
+								}
+							}
+
 							# Poem 3
 							character_event = { id = RIP.20027 }
-							ROOT = { character_event = { id = RIP.20028 } }
+
+							ROOT = {
+								set_character_flag = read_poem_3
+								character_event = { id = RIP.20028 }
+								clr_character_flag = read_poem_2
+							}
 						}
 					}
 
@@ -689,6 +780,7 @@ targeted_decisions = {
 	}
 
 	# Humiliate
+	# LI: CK2Plus AIO version (step B, decision 5)
 	prisoner_humiliation = {
 		filter = court
 		ai_target_filter = court
@@ -708,6 +800,7 @@ targeted_decisions = {
 			host = { character = FROM }
 			prisoner = yes
 			practical_age >= 13
+			NOT = { has_character_modifier = publicly_humiliated }
 		}
 
 		allow = {

@@ -24,34 +24,52 @@
 
 
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_lord = {
-	dignity = 0.01
+	message = no
 	realm_in_name = yes
+	show_as_title = yes
+
+	dignity = 0.1
 	grant_limit = 1000
-	opinion_effect = 0
-	
+
+	monthly_prestige = 0.05
+
+	allowed_to_grant = {
+		always = no
+	}
+
 	allowed_to_hold = {
-		OR = {
-			primary_title = { temporary = no }
-			NOT = {
+		has_minor_title = title_lord
+
+		custom_tooltip = {
+			text = court_physician_tooltip_1
+
+			trigger_if = {
+				limit = { is_ruler = yes }
+
 				primary_title = {
-					always = yes
+					temporary = no
 				}
 			}
 		}
-		has_minor_title = title_lord
 	}
-	
-	allowed_to_grant = {
-		always = no		#By event only
+
+	revoke_trigger = {
+		always = no
 	}
-	
+
 	gain_effect = {
 	}
+
 	lose_effect = {
 	}
 
-	message = no
+	retire_effect = {
+	}
+
+	death_effect = {
+	}
 }
 
 title_king_of_romans = {

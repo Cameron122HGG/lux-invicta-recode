@@ -89,12 +89,15 @@ bad_priest_muslim = {
 	child_insult_adj = INSULT_CRUMMY
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 bad_priest_norse = {
 	religious = yes
 	customizer = no
 	random = no
 
 	potential = {
+		religion_openly_norse_or_reformed_trigger = yes
+
 		OR = {
 			is_theocracy = yes
 			is_ruler = no

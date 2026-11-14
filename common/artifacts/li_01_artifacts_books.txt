@@ -1043,36 +1043,48 @@ how_to_hold_a_sword = {
 	picture = "GFX_book_martial_a1"
 	slot = library
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 a_soldiers_life = {
-	quality = 4
+	picture = "GFX_book_martial_a2"
+	slot = library
+	flags = { about_martial fiction book created }
+
+	quality = 2
+
 	combat_rating = 1
+	land_organisation = 0.025
+
 	command_modifier = {
 		morale_defence = 0.05
 	}
-	land_organisation = 0.025
-	flags = { about_martial fiction book created }
-	picture = "GFX_book_martial_a2"
-	slot = library
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 a_history_of_armor = {
-	quality = 4
-	siege_defence = 0.025
-	command_modifier = {
-		morale_defence = 0.15
-	}
-	flags = { about_martial book created }
 	picture = "GFX_book_martial_b2"
 	slot = library
-}
-the_life_of_root = {
-	quality = 4
-	land_morale = 0.025
+	flags = { about_martial book created }
+
+	quality = 2
+
+	siege_defence = 0.025
+
 	command_modifier = {
 		morale_defence = 0.15
 	}
-	flags = { about_martial book created }
+}
+# LI: CK2Plus AIO version (step B, decision 5)
+the_life_of_root = {
 	picture = "GFX_book_martial_a2"
 	slot = library
+	flags = { about_martial book created }
+
+	quality = 2
+
+	land_morale = 0.025
+
+	command_modifier = {
+		morale_defence = 0.15
+	}
 }
 military_strategy_guide = {
 	quality = 3

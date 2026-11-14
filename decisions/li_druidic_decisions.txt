@@ -174,40 +174,33 @@ decisions = {
 			}
 		}
 	}
+	# LI: CK2Plus AIO version (step B, decision 5)
 	assign_bard = { # For the AI, because they are dumb enough not to hand out minor titles
+		ai_check_interval = 12
+
+		only_playable = yes
+
 		potential = {
+			can_grant_title = title_court_bard
 			ai = yes
-			druidic_religion_trigger = yes
-			NOT = { 
-				any_courtier = {
-					has_minor_title = title_court_bard
-				}
-			}
 		}
+
 		allow = {
-			primary_title = { higher_tier_than = BARON }
 			any_courtier = {
-				trait = poet
-				is_female = no
-				is_adult = yes
+				can_hold_title = title_court_bard
+				prisoner = no
 			}
 		}
+
 		effect = {
 			random_courtier = {
-				limit = {
-					is_adult = yes
-					is_female = no
-					trait = poet
-				}
+				limit = { can_hold_title = title_court_bard }
 				give_minor_title = title_court_bard
 			}
-			
 		}
+
 		ai_will_do = {
 			factor = 1
-			modifier = {
-				factor = 0.75 #Decrease chance AI will do this - they'll still do it eventually anyways, this will just prevent them from doing it immediately
-			}
 		}
 	}
 }

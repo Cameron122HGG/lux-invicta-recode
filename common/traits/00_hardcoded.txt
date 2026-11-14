@@ -28,6 +28,7 @@ born_in_the_purple = {
 }
 
 # Controls Muslim decadence gain
+# LI: CK2Plus AIO version (step B, decision 5)
 decadent = {
 	customizer = no
 	random = no
@@ -41,6 +42,17 @@ decadent = {
 	}
 
 	combat_rating = -10 # old value: -1
+	muslim_opinion = -25
+	same_opinion = 50
+
+	land_morale = -0.2
+	global_revolt_risk = 0.02
+	global_tax_modifier = -0.2
+	monthly_character_piety = -1.0
+
+	ai_zeal = -50
+	ai_greed = 20
+	ai_honor = -20
 
 	male_insult = INSULT_SYBARITE
 	female_insult = INSULT_SYBARITE

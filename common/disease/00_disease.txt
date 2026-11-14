@@ -650,6 +650,7 @@ camp_fever = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 bubonic_plague = {
 	rip = yes
 	always_get_message = yes
@@ -666,6 +667,9 @@ bubonic_plague = {
 	effect = {
 		local_tax_modifier = -0.75
 		supply_limit = -4
+		levy_size = -1.25
+		local_build_time_modifier = 4
+		local_revolt_risk = 0.005
 		max_attrition = 0.075
 	}
 
@@ -895,8 +899,8 @@ bubonic_plague = {
 	}
 
 	timeperiod = { # Dynamic plague outbreak, take 2 (late game)
-		start_date = 1269.1.1
-		end_date = 1453.1.1
+		start_date = 1400.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.01
 		min_nb_province = 1
@@ -1131,7 +1135,7 @@ bubonic_plague = {
 
 		months = 0
 		min_nb_province = 1
-		max_nb_province = 20
+		max_nb_province = 15
 
 		one_only = yes
 
@@ -1301,7 +1305,7 @@ bubonic_plague = {
 
 	timeperiod = { # Absurdly deadly plague - doesn't care if it's happened before!
 		start_date = 760.1.1
-		end_date = 1400.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.0008
 		min_nb_province = 1
@@ -1320,6 +1324,7 @@ bubonic_plague = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 measles = {
 	rip = yes
 	always_get_message = no
@@ -1334,6 +1339,8 @@ measles = {
 
 	effect = {
 		local_tax_modifier = -0.1
+		levy_size = -0.25
+		local_build_time_modifier = 1
 		supply_limit = -2
 		max_attrition = 0.025
 		disease_defence = 0.2
@@ -1442,7 +1449,7 @@ measles = {
 
 	timeperiod = { # Minor Outbreak
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.016
 		max_total_provinces = 5
@@ -1464,7 +1471,7 @@ measles = {
 
 	timeperiod = { # Normal Outbreak
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.006
 		max_total_provinces = 19
@@ -1476,7 +1483,7 @@ measles = {
 
 	timeperiod = { # 'More' Normal Outbreak
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.005
 		max_total_provinces = 19
@@ -1495,7 +1502,7 @@ measles = {
 
 	timeperiod = { # Major Outbreak
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.0008
 		max_total_provinces = 42
@@ -1517,7 +1524,7 @@ measles = {
 
 	timeperiod = { # 'More' Major Outbreak
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.002
 		max_total_provinces = 42
@@ -1752,6 +1759,7 @@ smallpox = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 syphilis = {
 	rip = yes
 	always_get_message = no
@@ -1770,6 +1778,7 @@ syphilis = {
 		supply_limit = -3
 		max_attrition = 0.05
 		disease_defence = 0.2
+		local_revolt_risk = 0.001
 	}
 
 	yearly_province_pulse = {
@@ -1875,7 +1884,7 @@ syphilis = {
 
 	timeperiod = { # Normal Outbreak
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.010
 		max_total_provinces = 15
@@ -1891,7 +1900,7 @@ syphilis = {
 
 	timeperiod = { # 'More' Normal Outbreak
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.005
 		max_total_provinces = 15
@@ -1911,7 +1920,7 @@ syphilis = {
 
 	timeperiod = { # Major Outbreak
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.001
 		max_total_provinces = 92
@@ -1934,7 +1943,7 @@ syphilis = {
 
 	timeperiod = { # 'More' Major Outbreak
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		outbreak_chance = 0.001
 		max_total_provinces = 92
@@ -1954,6 +1963,7 @@ syphilis = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 dancing_plague = {
 	rip = yes
 	always_get_message = yes
@@ -2036,7 +2046,7 @@ dancing_plague = {
 
 	timeperiod = {
 		start_date = 769.1.1
-		end_date = 1452.1.1
+		end_date = 9999.1.1
 
 		max_total_provinces = 10
 		min_nb_province = 1

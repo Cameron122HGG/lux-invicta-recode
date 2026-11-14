@@ -46,23 +46,27 @@ expelled_d_order_of_righteous = {
 expelled_d_avengers_of_holy_pyre = {
 	icon = 35
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 follower_of_yemoja = {
-	icon = 61
+	icon = 87
 	diplomacy = 2
 	intrigue = -1
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 follower_of_ekwensu = {
-	icon = 4
+	icon = 7
 	stewardship = 2
 	learning = -1
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 follower_of_orunmila = {
-	icon = 2
+	icon = 3
 	learning = 2
 	intrigue = -1
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 follower_of_shango = {
-	icon = 13
+	icon = 25
 	martial = 2
 	diplomacy = -1
 }
@@ -70,8 +74,9 @@ yemojas_blessing = {
 	icon = 39
 	fertility = 0.2
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 voice_of_yemoja = {
-	icon = 3
+	icon = 5
 	general_opinion = 10
 }
 secret_antinomian_community = {

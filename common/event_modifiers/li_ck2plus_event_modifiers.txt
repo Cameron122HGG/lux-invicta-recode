@@ -39,7 +39,11 @@
 
 ramadan_timer = { icon = 1 }
 
-loan_timer = { icon = 24 monthly_character_piety = -0.25 }
+# LI: CK2Plus AIO version (step B, decision 5)
+loan_timer = {
+	icon = 12
+	monthly_character_piety = -0.25
+}
 
 indulgence_timer = { icon = 1 }
 
@@ -51,15 +55,17 @@ victory_timer = { icon = 1 }
 
 employment_timer = { icon = 1 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 holding_epic_tournament = {
-	icon = 7
+	icon = 13
 }
 
 # New
 
+# LI: CK2Plus AIO version (step B, decision 5)
 peasant_obstructionism = {
-	local_revolt_risk = 0.02
-	icon = 32
+	local_revolt_risk = 0.01
+	icon = 28
 }
 
 # # Fiefs

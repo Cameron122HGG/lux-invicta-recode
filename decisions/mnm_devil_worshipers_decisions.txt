@@ -330,6 +330,7 @@ targeted_decisions = {
 	}
 
 	# Power: Dark healing
+	# LI: CK2Plus AIO version (step B, decision 5)
 	devil_worshipers_dark_healing = {
 		filter = self
 		ai_target_filter = self
@@ -375,7 +376,22 @@ targeted_decisions = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			factor = 0.5
+
+			mult_modifier = {
+				factor = 2
+
+				OR = {
+					is_ill = yes
+					is_maimed_trigger = yes
+					has_injury_trigger = yes
+					trait = infirm
+					trait = mangled
+					trait = eunuch
+					trait = blinded
+					trait = incapable
+				}
+			}
 		}
 	}
 

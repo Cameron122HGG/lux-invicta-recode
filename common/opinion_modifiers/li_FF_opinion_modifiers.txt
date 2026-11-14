@@ -83,13 +83,18 @@ opinion_jester_con = {
 	opinion = -10
 	months = 1200
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 attempted_murder_of_close_kin = {
 	opinion = -100
 	prison_reason = yes # This one gives righteous cause to imprison a character
-	execute_reason = yes # This one gives righteous cause to revoke ONE title	
+	execute_reason = yes # This one gives righteous cause to revoke ONE title
+	banish_reason = yes
+	crime = yes
+	disable_non_aggression_pacts = yes
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 executed_kin = {
-	opinion = -50
+	opinion = -30
 }
 killed_vassal = {
 	opinion = -20
@@ -99,11 +104,17 @@ killed_vassal = {
 opinion_attended_ceremony = {
 	opinion = 10
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 coronation_rejected = {
-	opinion = -30
+	opinion = -20
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_independent = {
 	opinion = -100
+	prison_reason = yes
+	execute_reason = yes
+	banish_reason = yes
+	inherit = yes
 }
 opinion_fired_from_office = {
 	opinion = -10
@@ -118,14 +129,16 @@ opinion_defending_me = {
 opinion_not_defending_me = {
 	opinion = -10
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_approved_law = {
-	opinion = 15
+	opinion = 10
 }
 opinion_ignored_law = {
 	opinion = -15
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_approved_succession_law = {
-	opinion = 25
+	opinion = 15
 }
 opinion_ignored_succession_law = {
 	opinion = -25
@@ -136,23 +149,27 @@ opinion_refused_convert = {
 opinion_settled_jews = {
 	opinion = -10
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_granted_minor_estate = {
 	opinion = 10
-	months = 2400
+	years = 200
 }
 opinion_estates_obj = {
 	opinion = 15
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_denied_estates = {
-	opinion = -25
-	months = 240
+	opinion = -15
+	years = 20
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_civil_war_loser = {
 	opinion = -25
-	months = 120
+	years = 10
 	prison_reason = yes # This one gives righteous cause to imprison a character
 	revoke_reason = yes # This one gives righteous cause to revoke ONE title
 	execute_reason = yes
+	banish_reason = yes
 }
 opinion_recent_civil_war = {
 	opinion = 25
@@ -171,9 +188,10 @@ bad_relations = {
 	opinion = 1
 	months = 2400
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 force_vassalized = {
 	opinion = 50
-	months = 120
+	years = 10
 }
 supported_me_at_faction_meeting = {
 	opinion = 25
@@ -187,11 +205,15 @@ narcissistic = { ## instead of pompous, from CK2+, by Ash
 	opinion = -5
 	months = 60
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 revolting_against = {
 	opinion = -10
+	disable_non_aggression_pacts = yes
+	years = 200
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 loyal_vassal = {
-	opinion = 100
+	opinion = 50
 	months = 1200
 }
 opinion_fears_tyranny = {
@@ -242,6 +264,7 @@ opinion_mildly_impressed_loyalty = {
 opinion_unimpressed_loyalty = {
 	opinion = -15
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_aggressive_republic = {
-	opinion = -50
+	opinion = -30
 }

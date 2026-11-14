@@ -54,39 +54,51 @@ title_flamen_dialis = {
 	message = yes
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_flaminica_dialis = {
+	message = no
+
 	dignity = 0.10
 	grant_limit = 1
 
 	monthly_salary = 0.000
-	monthly_prestige = 0.005
+	monthly_prestige = 0.025
 	monthly_piety = 0.005
 
-	allowed_to_hold = {
-		OR = {
-			primary_title = { temporary = no }
-			NOT = {
-				primary_title = {
-					always = yes
-				}
-			}
-		}
-		spouse = { has_minor_title = title_flamen_dialis }
-		any_liege = {
-			LI_roman_imperial_trigger = yes
-		}
-	}
-	
 	allowed_to_grant = {
 		always = no
 	}
 
+	allowed_to_hold = {
+		spouse = { has_minor_title = title_flamen_dialis }
+
+		custom_tooltip = {
+			text = court_physician_tooltip_1
+
+			trigger_if = {
+				limit = { is_ruler = yes }
+
+				primary_title = {
+					temporary = no
+				}
+			}
+		}
+	}
+
+	revoke_trigger = {
+	}
+
 	gain_effect = {
 	}
+
 	lose_effect = {
 	}
 
-	message = no
+	retire_effect = {
+	}
+
+	death_effect = {
+	}
 }
 
 
@@ -145,39 +157,51 @@ title_flamen_martialis = {
 	message = yes
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_flaminica_martialis = {
+	message = no
+
 	dignity = 0.09
 	grant_limit = 1
 
 	monthly_salary = 0.000
-	monthly_prestige = 0.005
+	monthly_prestige = 0.025
 	monthly_piety = 0.005
 
-	allowed_to_hold = {
-		OR = {
-			primary_title = { temporary = no }
-			NOT = {
-				primary_title = {
-					always = yes
-				}
-			}
-		}
-		spouse = { has_minor_title = title_flamen_martialis }
-		any_liege = {
-			LI_roman_imperial_trigger = yes
-		}
-	}
-	
 	allowed_to_grant = {
 		always = no
 	}
 
+	allowed_to_hold = {
+		any_spouse = { has_minor_title = title_flamen_martialis }
+
+		custom_tooltip = {
+			text = court_physician_tooltip_1
+
+			trigger_if = {
+				limit = { is_ruler = yes }
+
+				primary_title = {
+					temporary = no
+				}
+			}
+		}
+	}
+
+	revoke_trigger = {
+	}
+
 	gain_effect = {
 	}
+
 	lose_effect = {
 	}
 
-	message = no
+	retire_effect = {
+	}
+
+	death_effect = {
+	}
 }
 
 
@@ -241,37 +265,49 @@ title_flamen_quirinalis = {
 	message = yes
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_flaminica_quirinalis = {
+	message = no
+
 	dignity = 0.08
 	grant_limit = 1
 
 	monthly_salary = 0.000
-	monthly_prestige = 0.005
+	monthly_prestige = 0.025
 	monthly_piety = 0.005
 
-	allowed_to_hold = {
-		OR = {
-			primary_title = { temporary = no }
-			NOT = {
-				primary_title = {
-					always = yes
-				}
-			}
-		}
-		spouse = { has_minor_title = title_flamen_martialis }
-		any_liege = {
-			LI_roman_imperial_trigger = yes
-		}
-	}
-	
 	allowed_to_grant = {
 		always = no
 	}
 
+	allowed_to_hold = {
+		any_spouse = { has_minor_title = title_flamen_martialis }
+
+		custom_tooltip = {
+			text = court_physician_tooltip_1
+
+			trigger_if = {
+				limit = { is_ruler = yes }
+
+				primary_title = {
+					temporary = no
+				}
+			}
+		}
+	}
+
+	revoke_trigger = {
+	}
+
 	gain_effect = {
 	}
+
 	lose_effect = {
 	}
 
-	message = no
+	retire_effect = {
+	}
+
+	death_effect = {
+	}
 }

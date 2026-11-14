@@ -85,59 +85,65 @@ decisions = {
 		# }
 	# }#bring
 	
+	# LI: CK2Plus AIO version (step B, decision 5)
 	request_important_prisoners = {
 		is_high_prio = yes
+
+		only_playable = yes
+
 		potential = {
-			is_ruler = yes
-			prisoner = no
-			primary_title = { higher_tier_than = BARON }	
+			higher_real_tier_than = BARON
+
 			any_realm_lord = {
+				ai = yes
+				NOT = { war_with = ROOT }
+
 				any_courtier = {
 					prisoner = yes
-					host = { character = PREVPREV }
-					OR = {
-						AND = {
-							primary_title = { higher_tier_than = BARON }
-							war_with = ROOT
-						}
-						liege = {
-							is_close_relative = PREV
-							primary_title = { higher_tier_than = BARON }
-							war_with = ROOT
-						}							
-					}	
+					higher_real_tier_than = BARON
+					war_with = ROOT
 				}
 			}
 		}
 
-		allow = { prestige = 0 }
+		allow = {
+			prisoner = no
+			prestige >= 0
+		}
 
 		effect = {
 			any_realm_lord = {
-				any_courtier = {		
-					limit = {
+				show_scope_change = no
+
+				limit = {
+					ai = yes
+					NOT = { war_with = ROOT }
+
+					any_courtier = {
 						prisoner = yes
-						host = { character = PREVPREV }
-						OR = {
-							AND = {
-								primary_title = { higher_tier_than = BARON }
-								war_with = ROOT
-							}
-							liege = {
-								is_close_relative = PREV
-								primary_title = { higher_tier_than = BARON }
-								war_with = ROOT
-							}							
-						}
-					}
-					custom_tooltip = { text = EVTTOOLTIPprisreq }
-					hidden_tooltip = {
-						prisoner = no
-						imprison = ROOT
+						higher_real_tier_than = BARON
+						war_with = ROOT
 					}
 				}
-			}	
+
+				any_courtier = {
+					show_scope_change = no
+
+					limit = {
+						prisoner = yes
+						higher_real_tier_than = BARON
+						war_with = ROOT
+					}
+
+					hidden_effect = {
+						imprison = no
+					}
+
+					imprison = ROOT
+				}
+			}
 		}
+
 		ai_will_do = {
 			factor = 1
 		}

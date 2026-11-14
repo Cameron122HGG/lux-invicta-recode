@@ -49,21 +49,25 @@ laws = {
 	# CENTRALIZATION LAWS
 	##############################
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	centralization_0 = {
 		group = centralization
 		default = yes
 
-		demesne_size = 0
 		vassal_limit = 10
 
 		potential = {
+			always = no # Integrated into Crown Authority
+
 			holder_scope = {
-				is_nomadic = no
 				higher_real_tier_than = COUNT
+				is_nomadic = no
 			}
 		}
 
 		allow = {
+			show_only_failed_conditions = yes
+
 			trigger_if = {
 				limit = {
 					OR = {
@@ -73,6 +77,8 @@ laws = {
 						has_law = centralization_4
 					}
 				}
+
+				show_only_failed_conditions = yes
 
 				has_law = centralization_1
 			}

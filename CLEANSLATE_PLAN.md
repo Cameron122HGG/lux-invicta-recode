@@ -170,6 +170,15 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    - **Decision 5:** for definitions LI copied from CK2Plus that have no LI-specific content, use
      **CK2Plus AIO's current versions** (already migrated to CleanSlate and maintained). Those parts
      will play like today's CK2Plus. The ~203 that use LI's world are ported by hand.
+   - **Step B (decision 5), started 2026-11-14** with `tools/phase5b_aio.py` (survey, then `--apply`
+     per folder). A definition is swapped for AIO's text when LI's master copy differs from vanilla,
+     AIO's differs from CleanSlate's/vanilla's, LI's text uses none of LI's own names, and the mod's
+     current block is not LI-wins, world data, an on_action list or a Holy Fury file. Marker:
+     `# LI: CK2Plus AIO version (step B, decision 5)`. Survey: 484 real swaps; 606 where the mod
+     (CleanSlate) already equals AIO; 443 that need AIO content the mod lacks (`in_command_trigger`,
+     `obj_get_nick`, Holy Fury lodges…); 544 that use LI's world (hand port).
+     **Batch 1 applied:** 298 definitions in 78 files (modifiers, traits, static modifiers, decisions,
+     CBs, laws, minor titles, artifacts…). **Batch 2 (186 events)** waits for a test run.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.

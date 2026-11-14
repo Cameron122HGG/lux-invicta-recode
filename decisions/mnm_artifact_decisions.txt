@@ -9,8 +9,9 @@
 ###########################################
 
 decisions = {
+	# LI: CK2Plus AIO version (step B, decision 5)
 	employ_a_smith = {
-		ai_check_interval = 36
+		ai_check_interval = 48
 
 		only_playable = yes
 
@@ -105,6 +106,7 @@ decisions = {
 
 			mult_modifier = { # CleanSlate: Was bizarrely located deeper in the event chain in vanilla
 				factor = 0.5
+
 				any_artifact = { has_artifact_flag = crown_jewel }
 
 				NOR = {

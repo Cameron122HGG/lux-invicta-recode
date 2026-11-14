@@ -16,27 +16,42 @@ tall = {
 	vassal_opinion = 5
 
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 agile = {
 	birth = 100
 	inherit_chance = 25
-	
-	martial = 1
-	intrigue = 1
-	
+	both_parent_has_trait_inherit_chance = 50
+
+	opposites = {
+		clubfooted
+	}
+
 	health = 0.5
-	
+	combat_rating = 20
+
+	male_compliment_adj = COMPL_SWIFT
+	female_compliment_adj = COMPL_SWIFT
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 perceptive = {
 	birth = 100
 	inherit_chance = 25
+	both_parent_has_trait_inherit_chance = 50
 
 	opposites =  {
 		absentminded
+		slow
+		imbecile
 	}
-	
-	martial = 1
+
+	learning = 1
+	stewardship = 1
 	intrigue = 2
-	
+
+	combat_rating = 10
+
+	male_compliment_adj = COMPL_SHARP
+	female_compliment_adj = COMPL_SHARP
 }
 melodious_voice = {
 	birth = 100
@@ -51,84 +66,112 @@ melodious_voice = {
 	
 	sex_appeal_opinion = 5
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 powerful_voice = {
-	birth = 100
+	birth = 50
 	inherit_chance = 25
+	both_parent_has_trait_inherit_chance = 50
 
 	opposites =  {
 		melodious_voice
 		calm_voice
+		weak
 	}
-	
+
 	diplomacy = 1
 	martial = 1
-	
+
+	combat_rating = 10
+
 	sex_appeal_opinion = 5
 
+	male_compliment_adj = COMPL_MIGHTY_VOICE
+	female_compliment_adj = COMPL_MIGHTY_VOICE
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 ambidextrous = {
 	birth = 50
 	inherit_chance = 25
+	both_parent_has_trait_inherit_chance = 50
 
 	opposites =  {
 		lefthanded
 	}
-		
-	martial = 1
-	stewardship = 1
-	learning = 1
 
+	combat_rating = 20
+
+	male_compliment_adj = COMPL_DEFT
+	female_compliment_adj = COMPL_DEFT
+	male_insult_adj = INSULT_DOUBLE_HANDED
+	female_insult_adj = INSULT_DOUBLE_HANDED
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 wrymouth = {
-	birth = 50
+	birth = 25
 	inherit_chance = 25
+	both_parent_has_trait_inherit_chance = 50
 
-	health = -0.2		
+	opposites = {
+		attractive
+	}
+
 	diplomacy = -1
-	
+
 	sex_appeal_opinion = -10
 
+	male_insult_adj = INSULT_DROOLING
+	female_insult_adj = INSULT_DROOLING
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 deaf = {
-	birth = 50
+	birth = 10
 	inherit_chance = 25
+	both_parent_has_trait_inherit_chance = 50
 
 	same_opinion = 5
 
-	diplomacy = -1		
-	martial = -1
+	combat_rating = -20
+
+	diplomacy = -2
 	intrigue = -2
 
+	male_insult_adj = INSULT_DEAF
+	female_insult_adj = INSULT_DEAF
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 absentminded = {
-	birth = 100
+	birth = 50
 	inherit_chance = 25
+	both_parent_has_trait_inherit_chance = 50
 
 	opposites =  {
 		perceptive
 	}
 
-	same_opinion = 5
+	combat_rating = -10
 
-	diplomacy = -1		
+	stewardship = -1
 	martial = -1
 	intrigue = -1
 
+	male_compliment_adj = COMPL_DAYDREAMER
+	female_compliment_adj = COMPL_DAYDREAMER
+	male_insult_adj = INSULT_OBLIVIOUS
+	female_insult_adj = INSULT_OBLIVIOUS
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 calm_voice = {
-	birth = 100
+	birth = 50
 	inherit_chance = 25
+	both_parent_has_trait_inherit_chance = 50
 
 	opposites =  {
 		melodious_voice
 		powerful_voice
 	}
 
-	sex_appeal_opinion = 5
-
+	general_opinion = 5
 	diplomacy = 1
-	intrigue = 1
-
 }
 fertile = {
 	birth = 100
@@ -139,14 +182,27 @@ fertile = {
 	fertility = 0.1
 
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 imposing = {
-	birth = 50
+	birth = 25
 	inherit_chance = 25
+	both_parent_has_trait_inherit_chance = 50
+
+	opposites = {
+		humble
+		craven
+		content
+		weak
+	}
 
 	martial = 1
-	
 	vassal_opinion = 5
+	combat_rating = 10
 
+	male_compliment_adj = COMPL_IMPOSING
+	female_compliment_adj = COMPL_IMPOSING
+	male_insult_adj = INSULT_SCARY
+	female_insult_adj = INSULT_SCARY
 }
 #Placeholder traits
 

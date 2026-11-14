@@ -4,8 +4,8 @@ law_groups = {
 		allowed_for_councillors = yes
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	vassal_wars_law = {
-		law_type = realm
 		allowed_for_councillors = yes
 	}
 }
@@ -73,20 +73,40 @@ de_jure_laws = {
 	}
 
 	# VASSAL WAR DECLARATION LAWS
+	# LI: CK2Plus AIO version (step B, decision 5)
 	vassal_wars_law_0 = {
 		group = vassal_wars_law
 		default = yes
 
 		potential = {
-			has_dlc = "Conclave"
-
 			holder_scope = {
 				is_feudal = yes
 				NOT = { government = order_government }
 			}
+
+			OR = {
+				has_law = crown_authority_0
+				has_law = crown_authority_1
+				has_law = crown_authority_2
+				has_law = crown_authority_3
+				has_law = crown_authority_4
+			}
 		}
 
 		allow = {
+			show_only_failed_conditions = yes
+
+			trigger_if = {
+				limit = { has_dlc = "Conclave" }
+
+				show_only_failed_conditions = yes
+
+				holder_scope = {
+					show_scope_change = no
+					has_law = law_voting_power_0
+				}
+			}
+
 			trigger_if = {
 				limit = {
 					OR = {
@@ -96,12 +116,31 @@ de_jure_laws = {
 					}
 				}
 
-				has_law = vassal_wars_law_1
+				show_only_failed_conditions = yes
+
+				OR = {
+					has_law = vassal_wars_law_1
+					has_law = vassal_wars_law_2
+				}
 			}
 		}
 
 		pass_effect = {
 			# log = "vassal_wars_law_0 pass ([This.GetFullBaseName])"
+
+			if = {
+				limit = {
+					has_game_started = yes
+					NOT = { has_title_flag = non_manual_law_change } # No opinion penalty
+
+					OR = {
+						has_law = vassal_wars_law_1
+						has_law = vassal_wars_law_2
+					}
+				}
+
+				decreased_crown_authority_effect = yes
+			}
 		}
 
 		effect = {

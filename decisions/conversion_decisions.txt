@@ -1,5 +1,6 @@
 targeted_decisions = {
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	convert_to_liege_religion = {
 		filter = self
 
@@ -7,10 +8,15 @@ targeted_decisions = {
 
 		potential = {
 			independent = no
-			NOT = { religion = liege }
 			religion_group = liege
 			controls_religion = no
 			holy_order = no
+
+			NOR = {
+				religion = liege
+				rightful_religious_head = ROOT
+				has_character_flag = converted_religion
+			}
 		}
 
 		allow = {
@@ -37,8 +43,8 @@ targeted_decisions = {
 				copy_religious_branch_from_target_effect = yes
 			}
 
-			prestige = -500
-			piety = 250
+			set_character_flag = converted_religion
+			piety = -100
 
 			if = {
 				limit = { higher_real_tier_than = BARON }
@@ -67,6 +73,7 @@ targeted_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	convert_to_liege_religion_on_liege = {
 		filter = liege
 
@@ -74,6 +81,8 @@ targeted_decisions = {
 
 		from_potential = {
 			controls_religion = no
+			holy_order = no
+			NOT = { rightful_religious_head = THIS }
 		}
 
 		potential = {
@@ -98,8 +107,8 @@ targeted_decisions = {
 					copy_religious_branch_from_target_effect = yes
 				}
 
-				prestige = -500
-				piety = 250
+				set_character_flag = converted_religion
+				piety = -100
 
 				if = {
 					limit = { higher_real_tier_than = BARON }

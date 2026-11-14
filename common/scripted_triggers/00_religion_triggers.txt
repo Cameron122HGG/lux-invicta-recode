@@ -1044,10 +1044,13 @@ religion_openly_aztec_or_reformed_trigger = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 has_dharmic_religion_trigger = {
 	OR = {
 		religion = hindu
+		religion = buddhist
 		religion = jain
+		religion = bon_pagan
 	}
 }
 

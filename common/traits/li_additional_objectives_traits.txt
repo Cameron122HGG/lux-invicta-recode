@@ -47,20 +47,11 @@ champion = {
 	customizer = no
 }
 
-counterspy = { 
-#	potential = { always = no }
+# LI: CK2Plus AIO version (step B, decision 5)
+counterspy = {
 	intrigue = 1
-	learning = 1
+
 	same_opinion = -5
-	
-	monthly_character_prestige = 0.25
-	
-	ai_ambition = 10
-	ai_rationality = 10
-	
-	command_modifier = {
-		morale_offence = 0.05
-	}
 
 	customizer = no
 }

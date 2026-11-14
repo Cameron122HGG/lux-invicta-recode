@@ -1420,6 +1420,7 @@ offmap_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	chinese_grace_offer_concubine = {
 		button_name = offmap_gifts
 
@@ -2193,7 +2194,7 @@ offmap_decisions = {
 		}
 
 		ai_will_do = {
-			factor = 0.5
+			factor = 0.3
 		}
 	}
 
@@ -4541,6 +4542,7 @@ offmap_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	chinese_imperial_marriage = {
 		button_name = offmap_boons
 
@@ -4575,13 +4577,13 @@ offmap_decisions = {
 
 					has_offmap_currency = {
 						offmap = offmap_china
-						value >= 750
+						value >= 1050
 					}
 				}
 				trigger_else = {
 					has_offmap_currency = {
 						offmap = offmap_china
-						value >= 1000
+						value >= 1400
 					}
 				}
 
@@ -4674,13 +4676,13 @@ offmap_decisions = {
 
 					add_offmap_currency = {
 						offmap = offmap_china
-						value = -750
+						value = -1050
 					}
 				}
 				else = {
 					add_offmap_currency = {
 						offmap = offmap_china
-						value = -1000
+						value = -1400
 					}
 
 					custom_tooltip = { text = chinese_imperial_marriage_peace_deal_tt }
@@ -4709,7 +4711,7 @@ offmap_decisions = {
 		}
 
 		ai_will_do = {
-			factor = 0.1
+			factor = 0.05
 
 			mult_modifier = {
 				factor = 0.5

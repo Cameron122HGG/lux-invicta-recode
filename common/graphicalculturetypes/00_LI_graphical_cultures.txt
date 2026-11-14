@@ -9,9 +9,8 @@ southgothgfx = {
 gaelicgfx = {
 	skin_tone = 0
 }
-latingfx = {
-	skin_tone = 1
-}
+# LI: CK2Plus AIO version (step B, decision 5)
+latingfx = { skin_tone = 0 }
 
 sarmatobritongfx = {
 	skin_tone = 1
@@ -20,9 +19,8 @@ sarmatobritongfx = {
 indohellengfx = {
 	skin_tone = 1
 }
-alangfx = {
-	skin_tone = 1
-}
+# LI: CK2Plus AIO version (step B, decision 5)
+alangfx = { skin_tone = 0 }
 
 #Muslim
 

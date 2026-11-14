@@ -1294,22 +1294,24 @@ engraved_sword = {
 	slot = ceremonial_weapon
 }
 
-crown_hre = { 
-	monthly_character_prestige = 1.0
-	monthly_character_piety = 1.0
-	diplomacy = 4
+# LI: CK2Plus AIO version (step B, decision 5)
+crown_hre = {
+	picture = "GFX_crown_hre"
+	slot = crown
+	flags = { religious christian unique crown jewelry crown_jewel }
+
+	indestructible = yes
 	quality = 5
-	church_opinion = 10
+	stacking = no
+
 	active = {
 		is_feudal = yes
-		OR = { 
-			religion = catholic
-			religion = fraticelli
-		} 
+		is_catholic_branch = yes
 
-	custom_tooltip = { 
-		text = crowned_by_trigger
-		OR = {
+		custom_tooltip = {
+			text = crowned_by_trigger
+
+			OR = {
 				trait = crowned_by_myself
 				trait = crowned_by_pope
 				trait = crowned_by_bishop
@@ -1317,35 +1319,39 @@ crown_hre = {
 			}
 		}
 	}
-	flags = { religious christian unique crown jewelry crown_jewel }
-	stacking = no
-	picture = "GFX_crown_hre"
-	slot = crown
-	stacking = no
-	indestructible = yes
+
 	allowed_gift = {
 		always = no
 	}
+
+	monthly_character_prestige = 1.0
+	monthly_character_piety = 1.0
+	diplomacy = 4
+	church_opinion = 10
 }
 
-crown_byzantine = { 
-	monthly_character_prestige = 1.5
-	monthly_character_piety = 1.5
-	stewardship = 4
+# LI: CK2Plus AIO version (step B, decision 5)
+crown_byzantine = {
+	picture = "GFX_crown_byzantine"
+	slot = crown
+	flags = { religious unique crown jewelry crown_jewel }
+
+	indestructible = yes
 	quality = 5
-	active = { 
+	stacking = no
+
+	active = {
 		is_feudal = yes
 		has_landed_title = e_byzantium
 	}
-	flags = { religious unique crown jewelry crown_jewel }
-	stacking = no
-	picture = "GFX_crown_byzantine"
-	slot = crown
-	stacking = no
-	indestructible = yes
+
 	allowed_gift = {
 		always = no
 	}
+
+	monthly_character_prestige = 1.5
+	monthly_character_piety = 1.5
+	stewardship = 4
 }
 
 crown_pahlavi = { 
@@ -1370,126 +1376,150 @@ crown_pahlavi = {
 	}
 }
 
-crown_fylkir = { 
+# LI: CK2Plus AIO version (step B, decision 5)
+crown_fylkir = {
+	picture = "GFX_crown_fylkir"
+	slot = crown
+	flags = { religious unique crown jewelry crown_jewel }
+
+	indestructible = yes
+	quality = 4
+	stacking = no
+
+	active = {
+		has_landed_title = d_norse_pagan_reformed
+	}
+
+	allowed_gift = {
+		always = no
+	}
+
 	monthly_character_prestige = 0.4
 	monthly_character_piety = 0.7
 	stewardship = 2
 	martial = 2
 	tribal_opinion = 10
-	quality = 4
-	active = { 
-		has_landed_title = d_norse_pagan_reformed
-	}
-	flags = { religious unique crown jewelry crown_jewel }
-	stacking = no
-	picture = "GFX_crown_fylkir"
+}
+
+# LI: CK2Plus AIO version (step B, decision 5)
+crown_tengri_fylkir = {
+	picture = "GFX_crown_tengri_fylkir"
 	slot = crown
-	stacking = no
+	flags = { religious unique crown jewelry crown_jewel }
+
 	indestructible = yes
+	quality = 4
+	stacking = no
+
+	active = {
+		has_landed_title = d_tengri_pagan_reformed
+	}
+
 	allowed_gift = {
 		always = no
 	}
-}
 
-crown_tengri_fylkir = { 
 	monthly_character_prestige = 0.4
 	monthly_character_piety = 0.7
 	diplomacy = 2
 	martial = 2
 	tribal_opinion = 10
-	quality = 4
-	active = { 
-		has_landed_title = d_tengri_pagan_reformed
-	}
-	flags = { religious unique crown jewelry crown_jewel }
-	stacking = no
-	picture = "GFX_crown_tengri_fylkir"
-	slot = crown
-	stacking = no
-	indestructible = yes
-	allowed_gift = {
-		always = no
-	}
 }
-crown_finnish_fylkir = { 
-	monthly_character_prestige = 0.4
-	monthly_character_piety = 0.7
-	stewardship = 2
-	intrigue = 2
-	tribal_opinion = 10
-	quality = 4
-	active = { 
-		has_landed_title = d_finnish_pagan_reformed
-	}
-	flags = { religious unique crown jewelry crown_jewel }
-	stacking = no
+# LI: CK2Plus AIO version (step B, decision 5)
+crown_finnish_fylkir = {
 	picture = "GFX_crown_finnish_fylkir"
 	slot = crown
-	stacking = no
-	indestructible = yes
-	allowed_gift = {
-		always = no
-	}
-}
-crown_slavic_fylkir = { 
-	monthly_character_prestige = 0.4
-	monthly_character_piety = 0.7
-	stewardship = 2
-	learning = 2
-	tribal_opinion = 10
-	quality = 4
-	active = { 
-		has_landed_title = d_slavic_pagan_reformed
-	}
 	flags = { religious unique crown jewelry crown_jewel }
-	stacking = no
-	picture = "GFX_crown_slavic_fylkir"
-	slot = crown
-	stacking = no
+
 	indestructible = yes
+	quality = 4
+	stacking = no
+
+	active = {
+		has_landed_title = d_finnish_pagan_reformed
+	}
+
 	allowed_gift = {
 		always = no
 	}
-}
-crown_romuva_fylkir = { 
+
 	monthly_character_prestige = 0.4
 	monthly_character_piety = 0.7
 	stewardship = 2
 	intrigue = 2
 	tribal_opinion = 10
-	quality = 4
-	active = { 
-		has_landed_title = d_baltic_pagan_reformed
-	}
-	flags = { religious unique crown jewelry crown_jewel }
-	stacking = no
+}
+# LI: CK2Plus AIO version (step B, decision 5)
+crown_slavic_fylkir = {
 	picture = "GFX_crown_slavic_fylkir"
 	slot = crown
-	stacking = no
+	flags = { religious unique crown jewelry crown_jewel }
+
 	indestructible = yes
+	quality = 4
+	stacking = no
+
+	active = {
+		has_landed_title = d_slavic_pagan_reformed
+	}
+
 	allowed_gift = {
 		always = no
 	}
-}
-scepter_bon_fylkir = { 
+
 	monthly_character_prestige = 0.4
 	monthly_character_piety = 0.7
 	stewardship = 2
 	learning = 2
 	tribal_opinion = 10
-	quality = 4
-	active = { 
-		has_landed_title = d_bon_reformed
-	}
-	flags = { religious scepter unique jewelry crown_jewel }
-	stacking = no
-	picture = "GFX_scepter_bon_fylkir"
-	slot = scepter
-	stacking = no
+}
+# LI: CK2Plus AIO version (step B, decision 5)
+crown_romuva_fylkir = {
+	picture = "GFX_crown_slavic_fylkir"
+	slot = crown
+	flags = { religious unique crown jewelry crown_jewel }
+
 	indestructible = yes
+	quality = 4
+	stacking = no
+
+	active = {
+		has_landed_title = d_baltic_pagan_reformed
+	}
+
 	allowed_gift = {
 		always = no
 	}
+
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	stewardship = 2
+	intrigue = 2
+	tribal_opinion = 10
+}
+# LI: CK2Plus AIO version (step B, decision 5)
+scepter_bon_fylkir = {
+	picture = "GFX_scepter_bon_fylkir"
+	slot = scepter
+	flags = { religious scepter unique jewelry crown_jewel }
+
+	indestructible = yes
+	quality = 4
+	stacking = no
+
+	active = {
+		has_landed_title = d_bon_pagan_reformed
+	}
+
+	allowed_gift = {
+		always = no
+	}
+
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	stewardship = 2
+	learning = 2
+	tribal_opinion = 10
 }
 #Muslim sets & west african sets (daggers also indian)
 dagger_of_glory = {

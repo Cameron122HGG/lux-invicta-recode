@@ -4436,103 +4436,128 @@ monastic_order_pelagian = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 hermetics = {
 	primary_attribute = learning
 	society_ranks_gfx = generic_ranks
 	opinion_to_other_members = +10
 	opinion_per_rank_above = +5
 	sound = hermetic_society_interface
+
+	indestructible = yes
 	society_influence = no
+
 	non_interference = {
 		always = yes
 	}
-	
+
 	active = {
 		has_dlc = "Mystics"
 	}
-	indestructible = yes
-	
+
+	show_society = {
+		trigger_if = {
+			limit = {
+				NOT = { society_member_of = hermetics }
+			}
+
+			OR = {
+				religion_has_astrology_trigger = yes
+				religion_group = christian
+				religion_group = jewish_group
+				religion_group = muslim
+				religion_group = zoroastrian_group
+				religion = taoist
+				religion_openly_zun_or_reformed_trigger = yes
+			}
+		}
+	}
+
 	can_join_society = {
-		hidden_trigger = {
-			NAND = {
-				ai = yes
-				is_society_rank_full = { 
+		trigger_if = {
+			limit = { ai = yes }
+
+			NOT = {
+				is_society_rank_full = {
 					society = hermetics
 					rank = 1
 				}
 			}
-			OR = {
-				is_landed = yes
+		}
+
+		trigger_if = {
+			limit = { has_character_flag = society_join_block }
+			always = no
+		}
+		trigger_else = {
+			learning >= 10
+			is_adult = yes
+
+			trigger_if = {
+				limit = { is_landed = no }
 				is_patrician = yes
 			}
-		}
-		learning = 10
-		OR = {
-			has_religion_feature = religion_astrology
-			scholarly_soul_trigger = yes
-		}
-		NOR = {
-			is_nomadic = yes
-			is_tribal = yes
-		}
-		hidden_trigger = { mercenary = no }
-		age = 16
-		hidden_trigger = {
-			NOT = { has_character_flag = society_join_block }
-		}
-		trigger_if = {
-			limit = { prisoner = yes }
-			prisoner = no
+
+			mercenary = no
+			is_nomadic = no
+			is_tribal = no
+
+			OR = {
+				religion_has_astrology_trigger = yes
+				religion = taoist
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+				religion_group = zoroastrian_group
+				religion_openly_zun_or_reformed_trigger = yes
+			}
 		}
 	}
 
-	show_society = {
-		OR = {
-			has_religion_feature = religion_astrology
-			scholarly_soul_trigger = yes
-			society_member_of = hermetics
-		}
+	potential = { # To remain in society
+		# If something is added here, it could break apprenticeship. Create an event if they can get kicked out. title_hermetics_apprentice
 	}
-	
-	potential = {
-		#If something is added here, it could break apprenticeship. Create an event if they can get kicked out. title_hermetics_apprentice
-	}
-	
+
 	society_rank = {
 		level = 1
 		limit = 200
 		startup_limit = 10
+
 		modifier = {
 			church_opinion = -10
-			#economy_techpoints = 0.05
 		}
+
 		decisions = {
-			hermetics_write_theory_paper # Enables you to write a theorem paper that, if approved, gives you society power
+			hermetics_write_theory_paper # Enables you to write a theorem paper that, if approved, gives you society currency
 		}
 	}
-	
+
 	society_rank = {
 		level = 2
 		limit = 100
 		startup_limit = 6
-		modifier = { 
+
+		modifier = {
 			learning = 1
 			church_opinion = -10
 		}
+
 		decisions = {
 			hermetics_perform_scrying # Enables you to perform a scrying and gain an omen
 			brew_happiness_potion # Enables you to brew a potion
 		}
 	}
-	
+
 	society_rank = {
 		level = 3
 		limit = 50
 		startup_limit = 4
+
 		modifier = {
 			learning = 2
 			church_opinion = -10
 		}
+
 		decisions = {
 			hermetics_make_horoscope # Enables you to "predict" your children's future
 		}
@@ -4542,66 +4567,82 @@ hermetics = {
 		level = 4
 		limit = 20
 		startup_limit = 2
-		modifier = { 
+
+		modifier = {
 			learning = 3
 			church_opinion = -10
 		}
+
 		decisions = {
 			choose_hermetic_art # Enables you to pick/change your lifestyle trait
 			hermetics_write_magnum_opus # Write an enciphered book of lore (artifact)
 		}
 	}
-	
+
 	plots = {
 	}
-	
+
+	ambitions = {
+	}
+
 	monthly_currency_gain = {
 		name = currency_name_hermetics
-		
+
 		per_attribute = {
-    		name = learning
-    		value = 0.5
-    	}
+			name = learning
+			value = 0.5
+		}
+
 		has_trait = {
 			value = 2
 			trait = diligent
 		}
+
 		has_trait = {
 			value = 1
 			trait = scholar
 		}
+
 		has_trait = {
 			value = 1
 			trait = mystic
 		}
+
 		has_trait = {
 			value = 1
 			trait = erudite
 		}
+
 		has_trait = {
 			value = 1
 			trait = stubborn
 		}
+
 		has_trait = {
 			value = 1
 			trait = patient
 		}
+
 		has_trait = {
 			value = 1
 			trait = genius
 		}
+
 		has_trait = {
 			value = 1
 			trait = quick
 		}
+
 		has_trait = {
 			value = 1
 			trait = shrewd
 		}
+
 		has_trait = {
 			value = 1
 			trait = just
 		}
+
 		society_rank = {
 			rank = 4
 			value = 10
@@ -4614,84 +4655,105 @@ hermetics = {
 	member_score = {
 		value = 10
 
-		modifier = {
+		mult_modifier = {
 			factor = 2
 			trait = diligent
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 1.5
 			trait = scholar
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 1.5
 			trait = mystic
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 1.5
 			trait = erudite
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 1.5
 			trait = stubborn
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 1.5
 			trait = patient
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 1.5
+
 			OR = {
 				trait = genius
 				trait = quick
 				trait = shrewd
 			}
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 1.5
 			trait = just
 		}
 	}
-	
+
 	startup_populate = {
-	    trigger = {
+		trigger = {
+			OR = {
+				religion = taoist
+				religion_group = christian
+				religion_group = jewish_group
+				religion_group = muslim
+				religion_group = zoroastrian_group
+				religion_openly_hellenic_or_reformed_trigger = yes
+				religion_openly_zun_or_reformed_trigger = yes
+			}
+
 			ai = yes
-	    	controls_religion = no
-			age = 16
+			is_adult = yes
 			is_in_society = no
 			is_dumb_trigger = no
-			OR = {
-				NOT = { is_priest = yes }
+			controls_religion = no
+
+			trigger_if = {
+				limit = { is_priest = yes }
+
 				OR = {
 					trait = mystic
 					trait = scholar
 					trait = cynical
 				}
 			}
-			OR = {
-				AND = {
-					is_landed = yes
-					OR = { 
-						learning = 14
-						trait = scholar
-						trait = faqih
-						trait = erudite
-						trait = genius
-						trait = mystic
-					}
-				}
-				AND = {
-					learning = 18
-					OR = {
-						trait = scholar
-						trait = faqih
-						trait = erudite
-						trait = genius
-						trait = mystic
-						learning = 20
-					}
+
+			trigger_if = {
+				limit = { is_landed = yes }
+
+				OR = {
+					learning >= 14
+					trait = scholar
+					trait = faqih
+					trait = erudite
+					trait = genius
+					trait = mystic
 				}
 			}
-			scholarly_soul_trigger = yes
+			trigger_else_if = {
+				limit = { learning < 20 }
+
+				learning >= 20
+
+				OR = {
+					trait = scholar
+					trait = faqih
+					trait = erudite
+					trait = genius
+					trait = mystic
+				}
+			}
 		}
 	}
 }
@@ -7821,21 +7883,25 @@ hermetics = {
  }
  
  ###DEVIL WORSHIPERS###
+# LI: CK2Plus AIO version (step B, decision 5)
 the_satanists = {
 	primary_attribute = intrigue
-	is_secret = yes
-	criminal = yes
-	devil_worshipper = yes
 	opinion_to_other_members = +5
-	opinion_to_pretenders = -40			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
-	opinion_to_perceived_members = -40	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_to_pretenders = -40			# Pretenders is the opinion you have of people perceived/discovered to be in your society
+	opinion_to_perceived_members = -40	# Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
 	opinion_per_rank_above = +10
 	sound = devil_worshippers_interface
 	society_ranks_gfx = devil_ranks
+
+	criminal = yes
+	devil_worshipper = yes
+	indestructible = yes
+	is_secret = yes
 	society_influence = no
-	
+
 	active = {
 		has_dlc = "Mystics"
+
 		NOT = {
 			has_game_rule = {
 				name = devil_worshipers
@@ -7843,134 +7909,135 @@ the_satanists = {
 			}
 		}
 	}
-	indestructible = yes
-	
-	can_join_society = {
-		hidden_trigger = {
-			NOT = {
-				has_game_rule = {
-					name = devil_worshipers
-					value = none
-				}
+
+	show_society = {
+		trigger_if = {
+			limit = {
+				NOT = { society_member_of = the_satanists }
 			}
-			NAND = {
-				ai = yes
-				is_society_rank_full = { 
+
+			has_satanists_prerequisites = yes
+		}
+	}
+
+	can_join_society = {
+		trigger_if = {
+			limit = { ai = yes }
+
+			NOT = {
+				is_society_rank_full = {
 					society = the_satanists
 					rank = 1
 				}
 			}
 		}
-		has_satanists_prerequisites = yes
-		hidden_trigger = {
-			NOT = { has_character_flag = society_join_block }
-		}
+
 		trigger_if = {
-			limit = { prisoner = yes }
-			prisoner = no
+			limit = { has_character_flag = society_join_block }
+			always = no
+		}
+		trigger_else = {
+			has_satanists_prerequisites = yes
 		}
 	}
 
-	show_society = {
-		NOT = {
-			has_game_rule = {
-				name = devil_worshipers
-				value = none
-			}
-		}
-		age = 16
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			society_member_of = the_satanists
-		}
+	potential = { # To remain in society
 	}
-
-	potential = { } #no rules
 
 	society_rank = {
 		level = 1
-		limit = 100 
+		limit = 70
 		startup_limit = 10
+
 		decisions = {
 			decision_abduct
-			prisoner_dark_sacrifice #Available Decision: Sacrifice Prisoner
-			#Over time, lose virtues, gain vices. A Soul Corruption-effect is on a yearly pulse (with a chance to do nothing)
+			prisoner_dark_sacrifice # Available Decision: Sacrifice Prisoner
+			# Over time, lose virtues, gain vices. A Soul Corruption-effect is on a yearly pulse (with a chance to do nothing)
 		}
-		
-		#custom_tooltip = unlockable_DW_powers_at_rank_2;
 	}
-	
+
 	society_rank = {
 		level = 2
-		limit = 50
+		limit = 35
 		startup_limit = 6
-		modifier = { 
-			is_visible = {
-				OR = {
-					society_member_of = the_satanists
-					FROM = { is_society_discovered = yes }
-				}
-			}
-			intrigue = 1
-		}
-		decisions = {
-			devil_worshipers_summon_familiar #Available Power: Summon Familiar
-			the_devil_worshipers_tainted_touch #Available Power: Curse people with disease
-			devil_worshipers_demonic_possession #Available Power: Possess someone to make fanatically loyal
-			#Available Power: Abduction plot
-			#unlock new options in Seduction and Spy On?
-		}
-		
-		#custom_tooltip = unlockable_DW_powers_at_rank_3;
-	}
-	
-	society_rank = {
-		level = 3
-		limit = 25 
-		startup_limit = 3
+
 		modifier = {
 			is_visible = {
-				OR = {
-					society_member_of = the_satanists
+				trigger_if = {
+					limit = {
+						NOT = { society_member_of = the_satanists }
+					}
+
 					FROM = { is_society_discovered = yes }
 				}
 			}
+
+			intrigue = 1
+		}
+
+		decisions = {
+			devil_worshipers_summon_familiar	# Available Power: Summon Familiar
+			the_devil_worshipers_tainted_touch	# Available Power: Curse people with disease
+			devil_worshipers_demonic_possession	# Available Power: Possess someone to make fanatically loyal
+			# Available Power: Abduction plot
+			# Unlock new options in Seduction and Spy On?
+		}
+	}
+
+	society_rank = {
+		level = 3
+		limit = 18
+		startup_limit = 3
+
+		modifier = {
+			is_visible = {
+				trigger_if = {
+					limit = {
+						NOT = { society_member_of = the_satanists }
+					}
+
+					FROM = { is_society_discovered = yes }
+				}
+			}
+
 			intrigue = 2
 		}
+
 		decisions = {
-			devil_worshipers_dark_divorce #Available Power: Dark Divorce
-			devil_worshipers_dark_healing #Available Power: Demonic Healing. Sacrifice a prisoner to heal a random illness or maiming.
-			devil_worshipers_invite_disciple_of_devil #Available Decision: Invite a witch to court
-			#Available Power: Love Potion
+			devil_worshipers_dark_divorce				# Available Power: Dark Divorce
+			devil_worshipers_dark_healing				# Available Power: Demonic Healing. Sacrifice a prisoner to heal a random illness or maiming.
+			devil_worshipers_invite_disciple_of_devil	# Available Decision: Invite a witch to court
+			# Available Power: Love Potion
 		}
-		
-		#custom_tooltip = unlockable_DW_powers_at_rank_4;
 	}
 
 	society_rank = {
 		level = 4
-		limit = 1 
+		limit = 1
 		startup_limit = 1
-		modifier = { 
+
+		modifier = {
 			is_visible = {
-				OR = {
-					society_member_of = the_satanists
+				trigger_if = {
+					limit = {
+						NOT = { society_member_of = the_satanists }
+					}
+
 					FROM = { is_society_discovered = yes }
 				}
 			}
+
 			intrigue = 3
 		}
+
 		decisions = {
-			
-			DW_prolong_life #Available Power: Prolong Life
-			DW_demonic_impregnation #Available power: Unholy Impregnation
+			DW_prolong_life			# Available Power: Prolong Life
+			DW_demonic_impregnation	# Available power: Unholy Impregnation
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
+
+		obedience_tooltip = obedience_tooltip
+
 		obedient = {
-			ROOT = {
-				always = yes
-			}
 		}
 	}
 
@@ -7978,7 +8045,7 @@ the_satanists = {
 		plot1_tag
 		plot2_tag
 	}
-    
+
 	ambitions = {
 		ambition1_tag
 		ambition2_tag
@@ -7986,84 +8053,102 @@ the_satanists = {
 
 	monthly_currency_gain = {
 		name = currency_name_the_satanists
-    
+
 		per_attribute = {
 			name = intrigue
 			value = 0.5
 		}
-	triggered_gain = {
-			desc = loc_is_revealed_antichrist
-			trigger = { has_character_modifier = demon_horns
-			}
-			value = 10
-		}
+
 		has_trait = {
 			trait = ambitious
 			value = 5
 		}
+
 		has_trait = {
 			trait = genius
 			value = 4
 		}
+
 		has_trait = {
 			trait = quick
 			value = 3
 		}
+
 		has_trait = {
 			trait = shrewd
 			value = 3
 		}
+
 		has_trait = {
 			trait = hedonist
 			value = 3
 		}
+
 		has_trait = {
 			trait = mystic
 			value = 3
 		}
+
 		has_trait = {
 			trait = master_seducer
 			value = 3
 		}
+
 		has_trait = {
 			trait = master_seductress
 			value = 3
 		}
+
 		has_trait = {
 			trait = master_schemer
 			value = 3
 		}
+
 		has_trait = {
 			trait = impaler
 			value = 3
 		}
+
 		has_trait = {
 			trait = lustful
 			value = 1
 		}
+
 		has_trait = {
 			trait = proud
 			value = 1
 		}
+
 		has_trait = {
 			trait = greedy
 			value = 1
 		}
+
 		has_trait = {
 			trait = deceitful
 			value = 1
 		}
+
 		has_trait = {
 			trait = arbitrary
 			value = 1
 		}
-		#has_trait = {
-			#trait = baptized_by_satan # trait is commented out in 02_traits.txt
-			#value = 5
-		#}
+
+		has_trait = {
+			trait = baptized_by_satan
+			value = 5
+		}
+
 		society_rank = {
 			rank = 4
 			value = 10
+		}
+
+		triggered_gain = {
+			desc = loc_is_revealed_antichrist
+			value = 10
+
+			trigger = { has_character_modifier = demon_horns }
 		}
 	}
 
@@ -8073,104 +8158,29 @@ the_satanists = {
 	member_score = {
 		value = 10
 
-		modifier = {
+		devil_worshipper_member_score = yes
+
+		mult_modifier = {
 			has_character_modifier = demon_horns
 			factor = 2
 		}
-		#modifier = {
-			#trait = baptized_by_satan
-			#factor = 1.75
-		#}
-		modifier = {
-			trait = ambitious
-			factor = 1.5
-		}
-		modifier = {
-			trait = genius
-			factor = 1.3
-		}
-		modifier = {
-			trait = quick
-			factor = 1.3
-		}
-		modifier = {
-			trait = shrewd
-			factor = 1.3
-		}
-		modifier = {
-			trait = hedonist
-			factor = 1.3
-		}
-		modifier = {
-			trait = mystic
-			factor = 1.3
-		}
-		modifier = {
-			trait = master_seducer
-			factor = 1.3
-		}
-		modifier = {
-			trait = master_seductress
-			factor = 1.3
-		}
-		modifier = {
-			trait = master_schemer
-			factor = 1.3
-		}
-		modifier = {
-			trait = impaler
-			factor = 1.3
-		}
-		modifier = {
-			trait = lustful
-			factor = 1.1
-		}
-		modifier = {
-			trait = proud
-			factor = 1.1
-		}
-		modifier = {
-			trait = greedy
-			factor = 1.1
-		}
-		modifier = {
-			trait = deceitful
-			factor = 1.1
-		}
-		modifier = {
-			trait = arbitrary
-			factor = 1.1
+
+		mult_modifier = {
+			trait = baptized_by_satan
+			factor = 1.75
 		}
 	}
-	
+
 	startup_populate = {
 		trigger = {
-			NOT = {
-				has_game_rule = {
-					name = devil_worshipers
-					value = none
-				}
-			}
+			has_satanists_prerequisites = yes
+			lower_real_tier_than = KING
 			ai = yes
 			controls_religion = no
-			OR = {
-				true_religion_group_christian_trigger = yes
-				true_religion_group_jewish_group_trigger = yes
-			}
-			OR = {
-				has_impious_trait_trigger = yes
-				has_vice_trigger = yes
-				trait = drunkard
-				trait = possessed
-				trait = lunatic
-			}
-			age = 16
+			holy_order = no
+			mercenary = no
+			has_secret_religion = no
 			is_in_society = no
-			NOT = { higher_tier_than = DUKE }
-			NOR = {
-				mercenary = yes
-				holy_order = yes
-			}
 		}
 	}
 }

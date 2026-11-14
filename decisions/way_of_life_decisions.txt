@@ -1143,6 +1143,7 @@ decision_break_free = {
 decisions = {
 
 	# Build an observatory (scholarship focus)
+	# LI: CK2Plus AIO version (step B, decision 5)
 	build_observatory = {
 		ai_check_interval = 24
 
@@ -1167,14 +1168,8 @@ decisions = {
 
 		allow = {
 			wealth >= 25
-			is_adult = yes
-			prisoner = no
-
-			custom_tooltip = {
-				text = is_not_busy_trigger_tooltip
-
-				NOT = { has_character_flag = do_not_disturb }
-			}
+			is_not_in_regency_trigger = yes
+			is_inaccessible_trigger = no
 		}
 
 		effect = {
@@ -1184,7 +1179,7 @@ decisions = {
 		}
 
 		ai_will_do = {
-			factor = 0.5
+			factor = 1
 
 			trigger = {
 				wealth >= 50

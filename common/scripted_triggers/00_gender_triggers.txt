@@ -159,6 +159,7 @@ female_can_hold_minor_commander_title_trigger = {
 }
 
 # Sex restrictions on Great Tribal Festival activities.
+# LI: CK2Plus AIO version (step B, decision 5)
 can_enter_festival_physical_competitions_trigger = {
 	is_adult = yes
 
@@ -166,7 +167,7 @@ can_enter_festival_physical_competitions_trigger = {
 		limit = { is_female = no }
 
 		OR = {
-			NOT = { has_religion_feature = religion_matriarchal }
+			religion_is_matriarchal_trigger = no
 			is_member_of_any_warrior_lodge_trigger = yes
 			has_character_flag = special_marshal
 		}
@@ -174,7 +175,7 @@ can_enter_festival_physical_competitions_trigger = {
 	trigger_else = {
 		OR = {
 			trait = shieldmaiden
-			has_religion_feature = religion_matriarchal
+			religion_is_matriarchal_trigger = yes
 			is_member_of_any_warrior_lodge_trigger = yes
 			has_character_flag = special_marshal
 		}

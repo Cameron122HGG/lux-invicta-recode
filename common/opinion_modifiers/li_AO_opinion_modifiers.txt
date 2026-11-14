@@ -2,8 +2,9 @@
 # Used by Ambitions mod, by JGCrusader
 ###########################################
 
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_uncovered_plot = {
-	opinion = 25
+	opinion = 20
 }
 
 opinion_refused_legit_request = {
@@ -40,17 +41,19 @@ opinion_attempt_kidnap = {
 	revoke_reason = yes # This one gives righteous cause to revoke ONE title	
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_kidnapper = {
 	opinion = -100
-	prison_reason = yes
-	revoke_reason = yes
-	banish_reason = yes
-	execute_reason = yes
+	years = 100
+	crime = yes
+	disable_non_aggression_pacts = yes
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_kidnapped_kin = {
 	opinion = -50
-	prison_reason = yes
+	prison_reason = yes # This one gives righteous cause to imprison a character
+	execute_reason = yes # This one gives righteous cause to revoke ONE title
 }
 
 opinion_broke_peace = {
@@ -121,38 +124,51 @@ denied_appointed_regent = {
 	opinion = -10
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 attempted_kidnapping = {
 	opinion = -100
 	prison_reason = yes # This one gives righteous cause to imprison a character
-	revoke_reason = yes # This one gives righteous cause to revoke ONE title	
+	execute_reason = yes # This one gives righteous cause to revoke ONE title
+	banish_reason = yes
+	crime = yes
+	disable_non_aggression_pacts = yes
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 attempted_kidnapping_of_kin = {
 	opinion = -50
 	prison_reason = yes # This one gives righteous cause to imprison a character
-	revoke_reason = yes # This one gives righteous cause to revoke ONE title	
+	execute_reason = yes # This one gives righteous cause to revoke ONE title
+	banish_reason = yes
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 attempted_kidnapping_of_vassal = {
 	opinion = -10
 	prison_reason = yes # This one gives righteous cause to imprison a character
-	revoke_reason = yes # This one gives righteous cause to revoke ONE title	
+	execute_reason = yes # This one gives righteous cause to revoke ONE title
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 devious_plotter = {
-	opinion = -50
+	opinion = -30
 	prison_reason = yes # This one gives righteous cause to imprison a character
-	execute_reason = yes # This one gives righteous cause to revoke ONE title		
+	execute_reason = yes # This one gives righteous cause to revoke ONE title
+	banish_reason = yes
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 kidnapped_me = {
 	opinion = -100
+	years = 100
+	disable_non_aggression_pacts = yes
 }
 executed_friend = {
 	opinion = -35
 	months = 120
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_recent_plot = {
 	opinion = 0
-	months = 60
+	years = 5
 }

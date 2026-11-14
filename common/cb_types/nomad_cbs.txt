@@ -7,6 +7,7 @@
 # nomad_expansion
 # nomad_humiliate_cb
 
+# LI: CK2Plus AIO version (step B, decision 5)
 cb_install_khan = {
 	name = CB_NAME_INSTALLKHAN
 	war_name = WAR_NAME_INSTALLKHAN
@@ -49,16 +50,9 @@ cb_install_khan = {
 	}
 
 	on_success = {
-		any_attacker = {
+		attacker = {
 			show_scope_change = no
-
-			if = {
-				limit = { character = attacker }
-				participation_scaled_prestige = 250
-			}
-			else = {
-				hidden_effect = { participation_scaled_prestige = 250 }
-			}
+			participation_scaled_prestige = 250
 		}
 
 		defender = {
@@ -80,11 +74,17 @@ cb_install_khan = {
 				killer = attacker
 			}
 		}
+
+		any_attacker = {
+			limit = { NOT = { character = attacker } }
+			hidden_effect = { participation_scaled_prestige = 250 }
+		}
 	}
 
 	on_fail = {
 		attacker = {
 			show_scope_change = no
+
 			prestige = -100
 		}
 	}
@@ -97,35 +97,33 @@ cb_install_khan = {
 			imprison = defender
 		}
 
-		any_defender = {
+		defender = {
 			show_scope_change = no
 
-			if = {
-				limit = { character = defender }
+			participation_scaled_prestige = 50
 
-				participation_scaled_prestige = 50
+		#	hidden_effect = {
+		#		if = {
+		#			limit = {
+		#				NOT = {
+		#					has_opinion_modifier = { # Allow free revocation of a title
+		#						name = opinion_traitor
+		#						who = attacker
+		#					}
+		#				}
+		#			}
+		#
+		#			opinion = {
+		#				name = opinion_traitor
+		#				who = attacker
+		#			}
+		#		}
+		#	}
+		}
 
-				hidden_effect = {
-					if = {
-						limit = {
-							NOT = {
-								has_opinion_modifier = { # Allow free revocation of a title
-									name = opinion_traitor
-									who = attacker
-								}
-							}
-						}
-
-						opinion = {
-							name = opinion_traitor
-							who = attacker
-						}
-					}
-				}
-			}
-			else = {
-				hidden_effect = { participation_scaled_prestige = 50 }
-			}
+		any_defender = {
+			limit = { NOT = { character = defender } }
+			hidden_effect = { participation_scaled_prestige = 50 }
 		}
 	}
 
@@ -524,6 +522,7 @@ cb_liberate_nomad_duchy = {
 }
 
 # The CB used by "Minor Clan" revolters in Horse Lords
+# LI: CK2Plus AIO version (step B, decision 5)
 cb_minor_clan_revolt = {
 	name = CB_NAME_MINOR_CLAN_REVOLT
 	war_name = WAR_NAME_MINOR_CLAN_REVOLT
@@ -567,14 +566,16 @@ cb_minor_clan_revolt = {
 		anger_china_effect = yes
 	}
 
-	on_success = {
+	on_success_title = {
+		log = "[Root.GetBestName] (ID: [Root.GetID]) succeeded with [Root.GetHerHis] minor clan revolt against [From.GetBestName] (ID: [From.GetID])"
+
+		usurp_title_plus_barony_if_unlanded = {
+			target = attacker
+			type = revolt
+		}
+
 		attacker = {
 			show_scope_change = no
-
-			usurp_title_plus_barony_if_unlanded = {
-				target = thirdparty_title_scope
-				type = revolt
-			}
 
 			hidden_effect = {
 				set_title_nomad = {
@@ -584,7 +585,7 @@ cb_minor_clan_revolt = {
 			}
 
 			if = {
-				limit = { thirdparty_title_scope = { location = { has_tribal = yes } } }
+				limit = { PREV = { location = { has_tribal = yes } } }
 				set_government_type = tribal_government
 			}
 			else = {
@@ -594,16 +595,15 @@ cb_minor_clan_revolt = {
 			set_defacto_liege = defender
 
 			hidden_effect = {
-				remove_opinion = {
-					name = opinion_evil_tyrant
-					who = defender
-				}
+				wealth = 100
 			}
 		}
 
 		defender = {
 			show_scope_change = no
+
 			prestige = -100
+			clr_character_flag = has_current_revolt
 		}
 	}
 
@@ -611,7 +611,6 @@ cb_minor_clan_revolt = {
 		attacker = {
 			show_scope_change = no
 
-			clear_wealth = yes
 			imprison = defender
 
 			hidden_effect = {
@@ -626,6 +625,7 @@ cb_minor_clan_revolt = {
 			show_scope_change = no
 
 			prestige = 10
+			clr_character_flag = has_current_revolt
 
 			hidden_effect = {
 				opinion = {
@@ -641,7 +641,6 @@ cb_minor_clan_revolt = {
 		attacker = {
 			show_scope_change = no
 
-			clear_wealth = yes
 			imprison = defender
 
 			hidden_effect = {
@@ -656,6 +655,7 @@ cb_minor_clan_revolt = {
 			show_scope_change = no
 
 			prestige = 20
+			clr_character_flag = has_current_revolt
 
 			hidden_effect = {
 				opinion = {

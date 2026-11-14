@@ -122,6 +122,7 @@ HORDE_RETTYPE_CAV4 = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 HORDE_RETTYPE_CAV5 = {
 	first_type = 3 # Light Cavalry
 	first_amount = 200
@@ -129,7 +130,7 @@ HORDE_RETTYPE_CAV5 = {
 	second_type = 4 # Heavy Cavalry
 	second_amount = 50
 
-	hire_cost = 100
+	hire_cost = 50
 
 	maintenance_multiplier = 0.3
 
@@ -148,6 +149,7 @@ HORDE_RETTYPE_CAV5 = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 HORDE_RETTYPE_CAV6 = {
 	first_type = 3 # Light Cavalry
 	first_amount = 100
@@ -155,7 +157,7 @@ HORDE_RETTYPE_CAV6 = {
 	second_type = 4 # Heavy Cavalry
 	second_amount = 150
 
-	hire_cost = 150
+	hire_cost = 75
 
 	maintenance_multiplier = 0.3
 
@@ -174,13 +176,14 @@ HORDE_RETTYPE_CAV6 = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 HORDE_RETTYPE_CAV7 = {
 	first_type = 6 # Special Troops
 	first_amount = 250
 
 	special_troops = horse_archers
 
-	hire_cost = 150
+	hire_cost = 100
 
 	maintenance_multiplier = 0.3
 

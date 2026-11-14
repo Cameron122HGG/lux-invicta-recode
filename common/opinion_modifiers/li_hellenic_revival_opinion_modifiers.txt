@@ -1,26 +1,32 @@
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_hellenic_state_religion = {
 	opinion = 10
-	months = 60
+	years = 5
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_forced_hellenic_state_religion = {
 	opinion = -10
-	months = 60
+	years = 5
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_no_hellenic_state_religion = {
 	opinion = -10
-	months = 60
+	years = 5
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_no_forced_hellenic_state_religion = {
 	opinion = 10
-	months = 60
+	years = 5
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_adopted_hellenic_state_religion = {
 	opinion = 10
-	months = 60
+	years = 5
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 opinion_rejected_hellenic_state_religion = {
 	opinion = -10
-	months = 60
+	years = 5
 }

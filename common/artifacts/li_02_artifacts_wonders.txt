@@ -119,38 +119,56 @@ terrible_armor = {
 }
 
 
+# LI: CK2Plus AIO version (step B, decision 5)
 zweihander_sword = {
-	combat_rating = 15
-	vassal_opinion = 5
-	tribal_opinion = 10
-	command_modifier = {
-		morale_offence = 0.2
-		heavy_infantry = 0.15
-		actual_light_infantry = 0.2
-	}
+	picture = "GFX_zweihander_sword"
+	slot = weapon
+	flags = { combat_weapon sword created }
+
 	quality = 2
+	stacking = no
+
 	active = {
 		is_adult = yes
+
 		OR = {
-			combat_rating = 20
+			likes_germanics = yes
+			likes_latino_iberians = yes
+			culture_group = celtic
+		}
+
+		OR = {
+			combat_rating >= 20
 			trait = strong
 			trait = giant
 			trait = brawny
 		}
 	}
-	flags = { combat_weapon sword created }
-	stacking = no
-	picture = "GFX_zweihander_sword"
-	slot = weapon
+
+	combat_rating = 15
+	vassal_opinion = 5
+	tribal_opinion = 10
+
+	command_modifier = {
+		morale_offence = 0.2
+		heavy_infantry = 0.15
+		actual_light_infantry = 0.2
+	}
 }
 
 #The default name and desccription refer to Cathedral, but this can be overwrritten at spawn
+# LI: CK2Plus AIO version (step B, decision 5)
 wonder_artifact_bells = {
-	quality = 3
-	active = { }
-	monthly_character_prestige = 0.5
+	picture = "GFX_relic_box_iron"
 	flags = { religious bells cathedral_part }
-	picture = "GFX_relic_box_iron"  
+
+	quality = 3
 	stacking = no
+
+	active = {
+		NOT = { religion_group = christian }
+	}
+
+	monthly_character_prestige = 0.5
 }
 

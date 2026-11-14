@@ -452,6 +452,7 @@ title_court_dwarf = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_court_jester = {
 	is_unique = yes
 	message = yes
@@ -462,15 +463,11 @@ title_court_jester = {
 
 	opinion_effect = -5
 	monthly_salary = 0.02
-	monthly_prestige = -0.25
+	monthly_prestige = -0.125
 
 	allowed_to_grant = {
 		higher_real_tier_than = DUKE
-
-		OR = {
-			is_feudal = yes
-			is_tribal = yes
-		}
+		is_feudal = yes
 
 		OR = {
 			religion_group = christian
@@ -484,6 +481,14 @@ title_court_jester = {
 		is_adult = yes
 		in_revolt = no
 		NOT = { has_character_modifier = guru }
+
+		trigger_if = {
+			limit = { prisoner = yes }
+
+			host = {
+				NOT = { is_liege_of = ROOT }
+			}
+		}
 	}
 
 	revoke_trigger = {
@@ -1763,6 +1768,7 @@ title_high_judge = {
 }
 
 # Special - This title determines the heir of a Patrician
+# LI: CK2Plus AIO version (step B, decision 5)
 title_patrician_heir = {
 	is_high_prio = yes
 	message = yes
@@ -1774,7 +1780,7 @@ title_patrician_heir = {
 
 	opinion_effect = 25
 	monthly_salary = 0.01
-	monthly_prestige = 0.20
+	monthly_prestige = 0.15
 
 	allowed_to_grant = {
 		is_patrician = yes
@@ -1782,6 +1788,7 @@ title_patrician_heir = {
 
 	allowed_to_hold = {
 		dynasty = FROM
+		is_ascetic_trigger = no
 		is_ruler = no
 		has_inheritance_blocker = no
 		NOT = { trait = bastard }
@@ -3542,6 +3549,7 @@ title_councilmember_emperor = {
 
 # TAOIST TITLES
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_court_architect = {
 	is_unique = yes
 	message = yes
@@ -3552,7 +3560,7 @@ title_court_architect = {
 
 	opinion_effect = 5
 	monthly_salary = 0.02
-	monthly_prestige = 0.40
+	monthly_prestige = 0.10
 
 	allowed_to_grant = {
 		higher_real_tier_than = DUKE
@@ -3592,6 +3600,7 @@ title_court_architect = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_zhangshi = {
 	is_unique = yes
 	message = yes
@@ -3602,7 +3611,7 @@ title_zhangshi = {
 
 	opinion_effect = 5
 	monthly_salary = 0.02
-	monthly_prestige = 0.40
+	monthly_prestige = 0.10
 
 	allowed_to_grant = {
 		religion = taoist
@@ -3645,6 +3654,7 @@ title_zhangshi = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_canjun = {
 	is_unique = yes
 	message = yes
@@ -3655,7 +3665,7 @@ title_canjun = {
 
 	opinion_effect = 10
 	monthly_salary = 0.075
-	monthly_prestige = 0.75
+	monthly_prestige = 0.25
 
 	allowed_to_grant = {
 		religion = taoist
@@ -3698,6 +3708,7 @@ title_canjun = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_yuhou = {
 	is_unique = yes
 	message = yes
@@ -3708,7 +3719,7 @@ title_yuhou = {
 
 	opinion_effect = 10
 	monthly_salary = 0.075
-	monthly_prestige = 0.75
+	monthly_prestige = 0.25
 
 	allowed_to_grant = {
 		religion = taoist
@@ -3751,6 +3762,7 @@ title_yuhou = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_historiographer = {
 	is_unique = yes
 	message = yes
@@ -3761,7 +3773,7 @@ title_historiographer = {
 
 	opinion_effect = 10
 	monthly_salary = 0.075
-	monthly_prestige = 0.75
+	monthly_prestige = 0.25
 
 	allowed_to_grant = {
 		religion = taoist

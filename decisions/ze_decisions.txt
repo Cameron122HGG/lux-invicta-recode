@@ -1,5 +1,6 @@
 targeted_decisions = {
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	create_mercenary_company_feudal = {
 		filter = home_court
 		ai_target_filter = home_court
@@ -114,7 +115,7 @@ targeted_decisions = {
 		}
 
 		ai_will_do = {
-			factor = 0.05
+			factor = 0.01
 
 			trigger = {
 				controls_religion = no
@@ -146,6 +147,7 @@ targeted_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	change_council_job = {
 		filter = sub_realm
 
@@ -153,7 +155,7 @@ targeted_decisions = {
 
 		from_potential = {
 			has_dlc = "Conclave"
-			NOT = { has_character_flag = swapping_councillors }
+			NOT = { has_character_flag = is_moving_councillor }
 		}
 
 		potential = {
@@ -166,8 +168,10 @@ targeted_decisions = {
 
 		effect = {
 			save_event_target_as = moving_councillor
+			set_character_flag = is_moving_councillor
 
 			FROM = {
+				set_character_flag = is_moving_councillor
 				character_event = { id = ZE.6021 }
 			}
 		}
@@ -244,6 +248,7 @@ targeted_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	change_wards_focus_to_heritage = {
 		filter = court
 		ai_target_filter = court
@@ -294,6 +299,42 @@ targeted_decisions = {
 					culture = FROM
 					religion = FROM
 				}
+			}
+
+			mult_modifier = {
+				factor = 2
+
+				FROM = { trait = zealous }
+				NOT = { religion = educator }
+			}
+
+			mult_modifier = {
+				factor = 0.25
+
+				FROM = { trait = cynical }
+				NOT = { religion = educator }
+			}
+
+			mult_modifier = {
+				factor = 2
+
+				FROM = { trait = diligent }
+				NOT = { culture = educator }
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				trait = humble
+			}
+
+			mult_modifier = {
+				factor = 0.5
+				trait = content
 			}
 		}
 	}
@@ -391,6 +432,7 @@ targeted_decisions = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	change_composition_mercenary_company_feudal = {
 		ai_target_filter = dynasty
 		ai_check_interval = 36
@@ -422,10 +464,11 @@ targeted_decisions = {
 		}
 
 		ai_will_do = {
-			factor = 0.001
+			factor = 0.01
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	send_troops_mercenary_company_feudal = {
 		ai_target_filter = dynasty
 		ai_check_interval = 36
@@ -457,10 +500,11 @@ targeted_decisions = {
 		}
 
 		ai_will_do = {
-			factor = 0.001
+			factor = 0.01
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	introduce_heir = {
 		filter = close_relative
 		ai_target_filter = close_relatives
@@ -482,8 +526,16 @@ targeted_decisions = {
 				}
 			}
 
+			host = { character = FROM }
+
+			is_incapable = no
+			is_ascetic_trigger = no
+
 			NOR = {
 				has_character_flag = introduced_heir
+				trait = bastard
+				trait = celibate
+				trait = eunuch
 
 				any_sibling = {
 					has_character_flag = introduced_heir
@@ -492,34 +544,16 @@ targeted_decisions = {
 		}
 
 		allow = {
-			host = { character = FROM }
-			dynasty = ROOT
 			age >= 12
-			is_adult = no
-			is_landed = no
+			is_ruler = no
 			prisoner = no
-			has_inheritance_blocker = no
-
-			NOT = {
-				custom_tooltip = {
-					text = bastard_eunuch_celibate_or_incapable_tt # TODO: Replace with negative tooltip.
-
-					OR = {
-						trait = bastard
-						trait = eunuch
-						trait = celibate
-						is_incapable = yes
-					}
-				}
-			}
-
+			is_ill = no
 			is_inaccessible_trigger = no
 
 			FROM = {
 				num_of_vassals >= 7
 				war = no
-				prisoner = no
-				is_incapable = no
+				is_not_in_regency_trigger = yes
 				is_inaccessible_trigger = no
 			}
 		}
@@ -539,6 +573,16 @@ targeted_decisions = {
 
 		ai_will_do = {
 			factor = 0.1
+
+			mult_modifier = {
+				factor = 10
+				age >= 15
+			}
+
+			mult_modifier = {
+				factor = 10
+				FROM = { higher_real_tier_than = DUKE }
+			}
 		}
 	}
 
