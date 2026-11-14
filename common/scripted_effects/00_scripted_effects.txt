@@ -27209,7 +27209,7 @@ legitimise_newborn_FROM_effect = {
 		text = EVTTOOLTIP302
 		hidden_tooltip = {
 			if = {
-				limit = { NOT = { dynasty = 0 } }
+				limit = { NOT = { dynasty = none } }
 				dynasty = mother_bastard
 			}
 			mother_even_if_dead = {
@@ -27218,7 +27218,7 @@ legitimise_newborn_FROM_effect = {
 					if = { #bastards who have bastards start new dynasty
 						limit = { 
 							trait = bastard
-							NOT = { dynasty = 0 }
+							NOT = { dynasty = none }
 							PREV = { NOT = { father_even_if_dead = { always = yes } } }
 						}
 						if = {
@@ -27242,7 +27242,7 @@ legitimise_newborn_FROM_effect = {
 					if = { #bastards who have bastards start new dynasty
 						limit = { 
 							trait = bastard
-							NOT = { dynasty = 0 }
+							NOT = { dynasty = none }
 						}
 						if = {
 							limit = { mother_even_if_dead = { dynasty = PREV } }
@@ -27263,7 +27263,7 @@ legitimise_newborn_FROM_effect = {
 				if = { #bastards who have bastards start new dynasty
 					limit = { 
 						trait = bastard
-						NOT = { dynasty = 0 }
+						NOT = { dynasty = none }
 					}
 					if = {
 						limit = { mother_even_if_dead = { dynasty = PREV } }
@@ -27305,12 +27305,12 @@ acknowledge_newborn_FROM_effect = {
 		hidden_tooltip = {
 			if = {
 				limit = { 
-					NOT = { dynasty = 0 } 					
+					NOT = { dynasty = none } 					
 				}
 				if = {
 					limit = { 
 						mother_even_if_dead = { 
-							NOT = { dynasty = 0 } 
+							NOT = { dynasty = none } 
 							NOT = { character = ROOT }
 						}						
 					}
@@ -27319,7 +27319,7 @@ acknowledge_newborn_FROM_effect = {
 				if = {
 					limit = { 
 						father_even_if_dead = { 
-							NOT = { dynasty = 0 } 
+							NOT = { dynasty = none } 
 							NOT = { character = ROOT }
 						}						
 					}
@@ -27328,19 +27328,19 @@ acknowledge_newborn_FROM_effect = {
 			}
 			if = {
 				limit = { 
-					mother_even_if_dead = { dynasty = 0 NOT = { character = ROOT } }
+					mother_even_if_dead = { dynasty = none NOT = { character = ROOT } }
 				}
 				dynasty = none
 			}
 			if = {
 				limit = { 
-					father_even_if_dead = { dynasty = 0 NOT = { character = ROOT } }
+					father_even_if_dead = { dynasty = none NOT = { character = ROOT } }
 				}
 				dynasty = none
 			}
 			mother_even_if_dead = {
 				if = {
-					limit = { NOT = { character = ROOT } NOT = { dynasty = 0 } }
+					limit = { NOT = { character = ROOT } NOT = { dynasty = none } }
 					random_child = {
 						limit = { character = PREVPREV }
 						dynasty = PREV
@@ -27349,7 +27349,7 @@ acknowledge_newborn_FROM_effect = {
 			}
 			father_even_if_dead = {
 				if = {
-					limit = { NOT = { character = ROOT } NOT = { dynasty = 0 } }
+					limit = { NOT = { character = ROOT } NOT = { dynasty = none } }
 					random_child = {
 						limit = { character = PREVPREV }
 						dynasty = PREV
@@ -27389,20 +27389,20 @@ denounce_newborn_FROM_effect = {
 		hidden_tooltip = {
 			if = {
 				limit = { 
-					NOT = { dynasty = 0 } 
-					mother_even_if_dead = { NOT = { dynasty = 0 } }
+					NOT = { dynasty = none } 
+					mother_even_if_dead = { NOT = { dynasty = none } }
 				}
 				dynasty = mother_bastard
 			}
 			if = {
 				limit = { 
-					mother_even_if_dead = { dynasty = 0 }
+					mother_even_if_dead = { dynasty = none }
 				}
 				dynasty = none
 			}
 			mother_even_if_dead = {
 				if = {
-					limit = { NOT = { dynasty = 0 } }
+					limit = { NOT = { dynasty = none } }
 					random_child = {
 						limit = { character = PREVPREV }
 						dynasty = PREV

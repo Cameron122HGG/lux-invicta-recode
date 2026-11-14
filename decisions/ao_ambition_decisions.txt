@@ -245,7 +245,7 @@ decisions = {
 			liege = {
 				NOT = { is_close_relative = ROOT }
 			}
-			NOT = { dynasty = 0 }
+			NOT = { dynasty = none }
 		}
 		
 		effect = {

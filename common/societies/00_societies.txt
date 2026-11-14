@@ -8057,10 +8057,10 @@ the_satanists = {
 			trait = arbitrary
 			value = 1
 		}
-		has_trait = {
-			trait = baptized_by_satan
-			value = 5
-		}
+		#has_trait = {
+			#trait = baptized_by_satan # trait is commented out in 02_traits.txt
+			#value = 5
+		#}
 		society_rank = {
 			rank = 4
 			value = 10

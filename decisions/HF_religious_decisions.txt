@@ -1296,6 +1296,7 @@ title_decisions = {
 		}
 		
 		potential = {
+			tier = BARON # holding_type only works on baronies; the decision filter also lists counties and duchies
 			holding_type = temple 
 			NOR = { 
 				has_flag = flag_dedicated_to_zeus

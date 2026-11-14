@@ -2717,7 +2717,7 @@ character_event = {
 				limit = { father = { NOT = { any_spouse = { any_child = { character = ROOT } } } } }
 				add_trait = bastard
 				if = {
-					limit = { NOT = { dynasty = 0 } }
+					limit = { NOT = { dynasty = none } }
 					dynasty = mother_bastard
 				}	
 			}
@@ -2822,7 +2822,7 @@ character_event = {
 			add_trait = slave
 			#give_minor_title = title_slave
 			if = {
-				limit = { NOT = { dynasty = 0 } }
+				limit = { NOT = { dynasty = none } }
 				dynasty = mother_bastard
 			}	
 		}

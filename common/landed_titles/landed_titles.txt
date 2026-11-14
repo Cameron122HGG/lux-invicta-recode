@@ -6585,6 +6585,7 @@ e_france = {
 				color = { 38 144 211 }
 					holy_site = unctionist
 					holy_site = christian_populist_reformed
+					holy_site = aztec # vanilla holy site; LI had only 3
 				
 				b_paris = {}
 				b_melun = {}
@@ -7383,6 +7384,7 @@ e_spain = {
 					holy_site = arian
 					holy_site = mari_christ_reformed
 					holy_site = priscillian_reformed
+					holy_site = aztec # vanilla holy site; LI had only 3
 				
 				b_cordoba = {}
 				b_alcolea = {}

@@ -1129,7 +1129,6 @@ character_event = {
 		NOR = {
 			trait = on_pilgrimage
 			trait = on_hajj
-			trait = traveling
 		}
 	}
 	
