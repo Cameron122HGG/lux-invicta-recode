@@ -33,6 +33,7 @@ Typical paths:
 | `hf_off_onactions.py` | The same for `on_actions` lists. Weighted `random_events` entries become `N = 0 # was: …`. |
 | `ids_off.py` | The same for any list of event IDs, with your own note: `ids_off.py <mod> "<note>" ID …` (applies directly). |
 | `copy_events.py` | Copies vanilla event definitions into an LI event file after checking the events, scripted effects/triggers and modifiers they need. |
+| `restore_scripted.py` | Restores vanilla scripted triggers/effects that CleanSlate removed but LI text still calls (read from the "Unknown effect-type/trigger-type" lines in `error.log`), with what they call and CleanSlate's renames, into `common/scripted_*/000_li_restored_*.txt`: `restore_scripted.py <repo> <master export> <error.log> [--apply]`. |
 | `fix_buildings.py` | Adds missing building prerequisites in province history, and converts buildings of the wrong holding type (castle/city/temple). Reads the holdings from `error.log`. |
 
 ## Things learned the hard way
