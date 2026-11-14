@@ -43,7 +43,7 @@ character_event = {
 			factor = 200
 			modifier = {
 				factor = 0.5
-				FROMFROM = { trait = fair }
+				FROMFROM = { trait = attractive }
 			}
 			#Old Slave, not much resale value
 			modifier = {
@@ -140,7 +140,7 @@ character_event = {
 							}	
 							OR = {
 								is_strong_trigger = yes
-								trait = fair
+								trait = attractive
 								trait = quick
 								trait = genius
 								trait = tall
@@ -239,7 +239,7 @@ character_event = {
 							}	
 							OR = {
 								is_strong_trigger = yes
-								trait = fair
+								trait = attractive
 								trait = quick
 								trait = genius
 								trait = tall
@@ -290,7 +290,7 @@ character_event = {
 								}	
 								OR = {
 									is_strong_trigger = yes
-									trait = fair
+									trait = attractive
 									trait = quick
 									trait = genius
 									trait = tall
@@ -329,7 +329,7 @@ character_event = {
 					}	
 					OR = {
 						is_strong_trigger = yes
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -505,7 +505,7 @@ character_event = {
 								}	
 								OR = {
 									is_strong_trigger = yes
-									trait = fair
+									trait = attractive
 									trait = quick
 									trait = genius
 									trait = tall
@@ -550,7 +550,7 @@ character_event = {
 					}	
 					OR = {
 						is_strong_trigger = yes
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -740,7 +740,7 @@ character_event = {
 							learning = 12
 							combat_rating = 60
 							is_strong_trigger = yes
-							trait = fair
+							trait = attractive
 							trait = quick
 							trait = genius
 							trait = tall
@@ -781,7 +781,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -961,7 +961,7 @@ character_event = {
 							}
 							OR = {
 								trait = strong
-								trait = fair
+								trait = attractive
 								trait = quick
 								trait = genius
 								trait = tall
@@ -988,7 +988,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -1165,7 +1165,7 @@ character_event = {
 							}	
 							OR = {
 								trait = strong
-								trait = fair
+								trait = attractive
 								trait = quick
 								trait = genius
 								trait = tall
@@ -1192,7 +1192,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -1643,7 +1643,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -2659,7 +2659,7 @@ character_event = {
 					
 					# These traits are Right Out for potential bed slaves
 						trait = ugly
-						trait = syphilitic
+						trait = great_pox
 						trait = leper
 						trait = incapable
 						trait = infirm
@@ -2787,7 +2787,7 @@ character_event = {
 				slave = {
 					has_opinion_modifier = { who = FROM modifier = opinion_my_owner }
 					has_character_flag = flag_potential_bed_slave
-					trait = fair
+					trait = attractive
 				}
 			}
 			
@@ -2802,7 +2802,7 @@ character_event = {
 					has_opinion_modifier = { who = ROOT modifier = opinion_my_owner }
 					NOR = {
 						trait = ugly
-						trait = syphilitic
+						trait = great_pox
 						trait = leper
 						trait = incapable
 						trait = infirm
@@ -3016,14 +3016,14 @@ character_event = {
 				slave = {
 					has_opinion_modifier = { who = ROOT modifier = opinion_my_owner }
 					has_character_flag = flag_potential_bed_slave
-					trait = fair
+					trait = attractive
 				}
 			}
 			slave = {
 				limit = {
 					has_opinion_modifier = { who = ROOT modifier = opinion_my_owner }
 					has_character_flag = flag_potential_bed_slave
-					trait = fair
+					trait = attractive
 				}
 				save_event_target_as = potential_sale_1
 				custom_tooltip = { text = EVTTOOLTIPPUTUPFORSALE }
@@ -3056,7 +3056,7 @@ character_event = {
 					has_opinion_modifier = { who = ROOT modifier = opinion_my_owner }
 					has_character_flag = flag_potential_bed_slave
 					NOT = { character = event_target:potential_sale_1 }
-					trait = fair
+					trait = attractive
 				}
 			}
 			slave = {
@@ -3064,7 +3064,7 @@ character_event = {
 					has_opinion_modifier = { who = ROOT modifier = opinion_my_owner }
 					has_character_flag = flag_potential_bed_slave
 					NOT = { character = event_target:potential_sale_1 }
-					trait = fair
+					trait = attractive
 				}
 				save_event_target_as = potential_sale_2
 				custom_tooltip = { text = EVTTOOLTIPPUTUPFORSALE }
@@ -3102,7 +3102,7 @@ character_event = {
 						character = event_target:potential_sale_1
 						character = event_target:potential_sale_2
 					}
-					trait = fair
+					trait = attractive
 				}
 			}
 			slave = {
@@ -3113,7 +3113,7 @@ character_event = {
 						character = event_target:potential_sale_1
 						character = event_target:potential_sale_2
 					}
-					trait = fair
+					trait = attractive
 				}
 				save_event_target_as = potential_sale_3
 				custom_tooltip = { text = EVTTOOLTIPPUTUPFORSALE }
@@ -4504,7 +4504,7 @@ character_event = {
 			factor = 25
 			modifier = {
 				factor = 2
-				FROM = { trait = fair }
+				FROM = { trait = attractive }
 			}
 			#Old Slave, not much sell on value
 			modifier = {
@@ -4675,7 +4675,7 @@ character_event = {
 							}	
 							OR = {
 								trait = strong
-								trait = fair
+								trait = attractive
 								trait = quick
 								trait = genius
 								trait = tall
@@ -4695,7 +4695,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -4812,7 +4812,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -4971,7 +4971,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -5103,7 +5103,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -5231,7 +5231,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall
@@ -5600,7 +5600,7 @@ character_event = {
 					}	
 					OR = {
 						trait = strong
-						trait = fair
+						trait = attractive
 						trait = quick
 						trait = genius
 						trait = tall

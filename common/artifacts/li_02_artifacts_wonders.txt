@@ -135,7 +135,7 @@ zweihander_sword = {
 			combat_rating = 20
 			trait = strong
 			trait = giant
-			trait = robust
+			trait = brawny
 		}
 	}
 	flags = { combat_weapon sword created }

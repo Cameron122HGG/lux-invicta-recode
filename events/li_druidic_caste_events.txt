@@ -51,7 +51,7 @@ character_event = {
 					random_traits = yes
 					dynasty = random
 					trait = druid
-					trait = martial_cleric
+					trait = dutiful_cleric
 					attributes = {
 						diplomacy = 5
 						martial = 5
@@ -913,7 +913,7 @@ character_event = {
 	trigger = {
 		OR = {
 			trait = detached_priest
-			trait = martial_cleric
+			trait = dutiful_cleric
 			trait = scholarly_theologian
 		}
 	}
@@ -976,14 +976,14 @@ character_event = {
 				FROM = {
 					OR = {
 						trait = detached_priest
-						trait = martial_cleric
+						trait = dutiful_cleric
 					}	
 				}
 			}
 			FROM = {
 				hidden_tooltip = { 
 					remove_trait = detached_priest
-					remove_trait = martial_cleric
+					remove_trait = dutiful_cleric
 				}
 				add_trait = scholarly_theologian
 			}
@@ -1308,27 +1308,27 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			trait = has_tuberculosis
+			trait = consumption
 		}
 		modifier = {
 			factor = 0.75
-			trait = has_typhoid_fever
+			trait = slow_fever
 		}
 		modifier = {
 			factor = 0.75
-			trait = has_typhus
+			trait = camp_fever
 		}
 		modifier = {
 			factor = 0.75
-			trait = has_bubonic_plague
+			trait = bubonic_plague
 		}
 		modifier = {
 			factor = 0.75
-			trait = has_measles
+			trait = measles
 		}		
 		modifier = {
 			factor = 0.75
-			trait = has_small_pox
+			trait = smallpox
 		}
 		modifier = {
 			factor = 0.75

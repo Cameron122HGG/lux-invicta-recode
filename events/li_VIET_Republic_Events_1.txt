@@ -881,11 +881,11 @@ character_event = {
 			random_list = {
 				5 = { add_trait = strong }
 				10 = { add_trait = sturdy }
-				10 = { add_trait = robust }
+				10 = { add_trait = brawny }
 				25 = { }
 			}
 			random_list = {
-				10 = { add_trait = fair }
+				10 = { add_trait = attractive }
 				15 = { add_trait = groomed }
 				75 = { }
 			}

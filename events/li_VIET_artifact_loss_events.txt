@@ -497,7 +497,7 @@ character_event = {
 				set_character_flag = no_court_invites
 				add_random_education_trait = yes	
 				#Guaranteed Traits
-				add_trait = fair
+				add_trait = attractive
 				add_trait = shrewd
 				add_trait = kind
 				add_trait = humble				
@@ -600,7 +600,7 @@ character_event = {
 				set_character_flag = no_court_invites
 				add_random_education_trait = yes	
 				#Guaranteed Traits
-				add_trait = fair
+				add_trait = attractive
 				add_trait = shrewd
 				add_trait = kind
 				add_trait = humble				
@@ -1784,7 +1784,7 @@ character_event = {
 			random_list = {
 				20 = { # Hot brooding jerk
 					set_character_flag = VIET_abacus_merchant_hot_brooding_jerk
-					add_trait = fair
+					add_trait = attractive
 					add_trait = cynical
 					add_trait = proud
 					add_trait = honest

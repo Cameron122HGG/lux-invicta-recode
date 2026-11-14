@@ -887,7 +887,7 @@ character_event = {
 			trait = lunatic
 			trait = cruel
 			trait = patient
-			trait = fair
+			trait = attractive
 			trait = proud
 			#childhood traits
 			trait = brooding
@@ -1935,7 +1935,7 @@ character_event = {
 			trait = lunatic
 			trait = cruel
 			trait = patient
-			trait = fair
+			trait = attractive
 			trait = proud
 			#childhood traits
 			trait = brooding

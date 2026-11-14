@@ -72,11 +72,11 @@ character_event = {
 		}					# Concubinage is meant to be a monogamous relationship (at least for the woman)
 		modifier = {
 			factor = 2.0
-			trait = fair
+			trait = attractive
 		}
 		modifier = {
 			factor = 2.0
-			consort = { trait = fair }
+			consort = { trait = attractive }
 		}
 		modifier = {
 			factor = 0.1
@@ -914,11 +914,11 @@ character_event = { # Wife is insecure about husband's attention to concubines
 					NOR = {
 						trait = infirm
 						trait = incapable
-						trait = fair
+						trait = attractive
 						trait = homosexual
 					}
 				}
-				any_consort = { trait = fair }
+				any_consort = { trait = attractive }
 			}
 			AND = {
 				spouse = { trait = ugly }
@@ -997,7 +997,7 @@ character_event = { # Wife is insecure about husband's attention to concubines
 		modifier = {
 			factor = 0.75
 			any_consort = {
-				trait = fair
+				trait = attractive
 			}
 		}
 		
@@ -2086,13 +2086,13 @@ character_event = { #Courtier 'helps out'  liege's spiteful wife
 			factor = 1.1
 			liege = {
 				spouse = {
-					trait = fair
+					trait = attractive
 				}
 			}
 		}
 		modifier = {
 			factor = 1.1
-			trait = fair
+			trait = attractive
 		}
 		modifier = {
 			factor = 1.1

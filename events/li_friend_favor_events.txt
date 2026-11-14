@@ -103,7 +103,7 @@ character_event = {
 			culture = root
 		}
 		new_character = {
-			add_trait = fair
+			add_trait = attractive
 			add_spouse = FROM
 		}
 		FROM = {

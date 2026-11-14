@@ -4866,7 +4866,7 @@
 	father = 1715938
 	add_trait = "hist_sassanid"
 	add_trait=grey_eminence
-	add_trait=fair
+	add_trait=attractive
 	add_trait=quick
 	add_trait=temperate
 	add_trait=ambitious

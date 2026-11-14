@@ -168,7 +168,7 @@ province_event = {
 		modifier = {
 			factor = 1.10
 			holder_scope = {
-				trait = martial_cleric
+				trait = dutiful_cleric
 			}
 		}
 		modifier = {
@@ -369,7 +369,7 @@ province_event = {
 		modifier = {
 			factor = 1.10
 			holder_scope = {
-				trait = martial_cleric
+				trait = dutiful_cleric
 			}
 		}
 		modifier = {
@@ -584,7 +584,7 @@ province_event = {
 		modifier = {
 			factor = 0.9
 			holder_scope = {
-				trait = martial_cleric
+				trait = dutiful_cleric
 			}
 		}
 		modifier = {
@@ -788,7 +788,7 @@ province_event = {
 		modifier = {
 			factor = 0.9
 			holder_scope = {
-				trait = martial_cleric
+				trait = dutiful_cleric
 			}
 		}
 		modifier = {
@@ -966,7 +966,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.9
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 0.7
@@ -1183,7 +1183,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.9
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 0.7
@@ -1404,7 +1404,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.10
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.5
@@ -1559,7 +1559,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.10
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.5
@@ -1714,7 +1714,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.10
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.5
@@ -1869,7 +1869,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.10
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.5
@@ -2110,7 +2110,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.10
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.5

@@ -4151,9 +4151,9 @@ character_event = {
 	}
 	option = { #ok
 		name = VIETmisc.2108.a
-		tooltip_info = fair
+		tooltip_info = attractive
 		trigger = {
-			trait = fair
+			trait = attractive
 		}
 	}
 	option = { #ok
@@ -4430,7 +4430,7 @@ character_event = {
 			NOT = { trait = imbecile }
 			NOT = { trait = inbred }
 			OR = {
-				trait = fair
+				trait = attractive
 				trait = lustful
 				trait = tall
 				trait = fertile
@@ -4520,7 +4520,7 @@ character_event = {
 				NOT = { trait = imbecile }
 				NOT = { trait = inbred }
 				OR = {
-					trait = fair
+					trait = attractive
 					trait = lustful
 					trait = tall
 					trait = fertile
@@ -4576,7 +4576,7 @@ character_event = {
 			NOT = { trait = weak }
 			OR = {
 				trait = strong
-				trait = fair
+				trait = attractive
 				trait = gregarious
 				trait = brave
 				trait = tall
@@ -4585,7 +4585,7 @@ character_event = {
 				trait = brilliant_strategist
 				trait = groomed
 				trait = sturdy
-				trait = robust
+				trait = brawny
 			}
 		}
 		#has_game_rule = {
@@ -4668,7 +4668,7 @@ character_event = {
 				NOT = { trait = weak }
 				OR = {
 					trait = strong
-					trait = fair
+					trait = attractive
 					trait = gregarious
 					trait = brave
 					trait = tall
@@ -4677,7 +4677,7 @@ character_event = {
 					trait = brilliant_strategist
 					trait = groomed
 					trait = sturdy
-					trait = robust
+					trait = brawny
 				}
 			}
 			reverse_opinion = {
@@ -5111,7 +5111,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.2
-			trait = fair
+			trait = attractive
 		}
 		modifier = {
 			factor = 0.8
@@ -5261,7 +5261,7 @@ character_event = {
 		NOT = { trait = imbecile }
 		NOT = { trait = inbred }
 		OR = {
-			trait = fair
+			trait = attractive
 			trait = lustful
 			trait = tall
 			trait = fertile
@@ -5316,7 +5316,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.2
-			trait = fair
+			trait = attractive
 		}
 		modifier = {
 			factor = 0.8
@@ -11915,7 +11915,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.8
-			trait = fair
+			trait = attractive
 		}
 	}
 	
@@ -12886,7 +12886,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.8
-			trait = fair
+			trait = attractive
 		}
 		modifier = {
 			factor = 1.2

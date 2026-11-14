@@ -381,7 +381,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.95
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 0.80
@@ -445,13 +445,13 @@ character_event = {
 				remove_trait = skilled_tactician
 				remove_trait = brilliant_strategist
 				remove_trait = detached_priest
-				remove_trait = martial_cleric
+				remove_trait = dutiful_cleric
 				remove_trait = scholarly_theologian
 				remove_trait = mastermind_theologian
 			}
 			random_list = {
 				25 = {add_trait= detached_priest }
-				50 = {add_trait= martial_cleric }
+				50 = {add_trait= dutiful_cleric }
 				50 = {add_trait= scholarly_theologian }
 				25 = {add_trait= mastermind_theologian }
 			}
@@ -676,7 +676,7 @@ character_event = {
 		OR = {
 			trait = detached_priest
 			trait = scholarly_theologian
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 	}
 	
@@ -697,7 +697,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.85
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 0.95
@@ -755,13 +755,13 @@ character_event = {
 					trait = detached_priest
 				}
 				hidden_tooltip = { remove_trait = detached_priest }
-				add_trait = martial_cleric
+				add_trait = dutiful_cleric
 			}
 			if = {
 				limit = {
-					trait = martial_cleric
+					trait = dutiful_cleric
 				}
-				hidden_tooltip = { remove_trait = martial_cleric }
+				hidden_tooltip = { remove_trait = dutiful_cleric }
 				add_trait = scholarly_theologian
 			}
 			if = {

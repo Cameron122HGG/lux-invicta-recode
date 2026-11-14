@@ -2901,7 +2901,7 @@ character_event = {
 				OR = {
 					is_female = yes
 					trait = proud
-					trait = fair
+					trait = attractive
 					trait = gregarious
 					trait = lustful
 					trait = trusting
@@ -2923,7 +2923,7 @@ character_event = {
 				OR = {
 					is_female = yes
 					trait = proud
-					trait = fair
+					trait = attractive
 					trait = gregarious
 					trait = lustful
 					trait = trusting
@@ -3936,7 +3936,7 @@ narrative_event = {
 			random_list = {  # Small chance of having some unusual memorable trait
 				1 = { add_trait = blinded }
 				1 = { add_trait = dwarf }
-				1 = { add_trait = fair }
+				1 = { add_trait = attractive }
 				#1 = { add_trait = tall }
 				#1 = { add_trait = imposing }
 				1 = { add_trait = maimed }

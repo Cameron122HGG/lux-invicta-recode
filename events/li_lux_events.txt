@@ -3068,7 +3068,7 @@ character_event = {
 		is_abroad = no
 		NOR = {
 			trait = lustful
-			trait = syphilitic
+			trait = great_pox
 			trait = chaste
 			trait = celibate
 		}
@@ -3093,7 +3093,7 @@ character_event = {
 				}
 			}
 			25 = { 
-				add_trait = syphilitic
+				add_trait = great_pox
 				hidden_tooltip = {
 					character_event = {
 						id = lux_trait_events.2
@@ -3148,7 +3148,7 @@ character_event = {
 		is_abroad = no
 		NOR = {
 			trait = lustful
-			trait = syphilitic
+			trait = great_pox
 			trait = chaste
 			trait = celibate
 		}
@@ -3173,7 +3173,7 @@ character_event = {
 				}
 			}
 			50 = { 
-				add_trait = syphilitic
+				add_trait = great_pox
 				hidden_tooltip = {
 					character_event = {
 						id = lux_trait_events.2
@@ -14933,7 +14933,7 @@ character_event = {
 					20 = { add_trait = veteran }
 					15 = { add_trait = honorable }
 					15 = { add_trait = shrewd }
-					15 = { add_trait = robust }
+					15 = { add_trait = brawny }
 					10 = { add_trait = tolerant }
 				}
 				remove_trait = slow

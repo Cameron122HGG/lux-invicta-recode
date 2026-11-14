@@ -141,7 +141,7 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_martial_cleric"
+		name = "GFX_trait_dutiful_cleric"
 		texturefile = "gfx/traits/martial_cleric.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -246,7 +246,7 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_syphilitic"
+		name = "GFX_trait_great_pox"
 		texturefile = "gfx/traits/syphilitic.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -337,42 +337,42 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_has_tuberculosis"
+		name = "GFX_trait_consumption"
 		texturefile = "gfx/traits/tuberculosis.tga"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_has_typhoid_fever"
+		name = "GFX_trait_slow_fever"
 		texturefile = "gfx/traits/typhoid_fever.tga"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_has_typhus"
+		name = "GFX_trait_camp_fever"
 		texturefile = "gfx/traits/typhus.tga"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_has_bubonic_plague"
+		name = "GFX_trait_bubonic_plague"
 		texturefile = "gfx/traits/bubonic_plague.tga"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_has_measles"
+		name = "GFX_trait_measles"
 		texturefile = "gfx/traits/measles.tga"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_has_small_pox"
+		name = "GFX_trait_smallpox"
 		texturefile = "gfx/traits/small_pox.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -380,7 +380,7 @@ spriteTypes = {
 	}
 	
 	spriteType = {
-		name = "GFX_trait_has_aztec_disease"
+		name = "GFX_trait_aztec_disease"
 		texturefile = "gfx/traits/syphilitic.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -423,7 +423,7 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_fair"
+		name = "GFX_trait_attractive"
 		texturefile = "gfx/traits/fair.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -850,7 +850,7 @@ spriteTypes = {
 	}
 	
 	spriteType = {
-		name = "GFX_trait_experimenter"
+		name = "GFX_trait_direct_leader"
 		texturefile = "gfx/traits/experimenter.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -874,7 +874,7 @@ spriteTypes = {
 	}
 	
 	spriteType = {
-		name = "GFX_trait_flat_terrain_leader"
+		name = "GFX_trait_flat_terrain_expert"
 		texturefile = "gfx/traits/flat_terrain_leader.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -882,7 +882,7 @@ spriteTypes = {
 	}
 	
 	spriteType = {
-		name = "GFX_trait_rough_terrain_leader"
+		name = "GFX_trait_rough_terrain_expert"
 		texturefile = "gfx/traits/rough_terrain_leader.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -890,7 +890,7 @@ spriteTypes = {
 	}
 	
 	spriteType = {
-		name = "GFX_trait_mountain_terrain_leader"
+		name = "GFX_trait_mountain_expert"
 		texturefile = "gfx/traits/mountain_terrain_leader.tga"
 		noOfFrames = 1
 		norefcount = yes
@@ -898,7 +898,7 @@ spriteTypes = {
 	}
 	
 	spriteType = {
-		name = "GFX_trait_desert_terrain_leader"
+		name = "GFX_trait_desert_expert"
 		texturefile = "gfx/traits/desert_terrain_leader.tga"
 		noOfFrames = 1
 		norefcount = yes

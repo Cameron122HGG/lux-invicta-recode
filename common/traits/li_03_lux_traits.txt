@@ -5862,16 +5862,16 @@ hetairos = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
-		tengri_warrior
+		skylord
 		leo_mithras
 		korybantes
 		son_of_mahrem
@@ -5909,14 +5909,14 @@ leo_mithras = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		korybantes
@@ -5955,14 +5955,14 @@ korybantes = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6001,14 +6001,14 @@ son_of_mahrem = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6047,14 +6047,14 @@ mukarrib = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6093,14 +6093,14 @@ azande = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6140,14 +6140,14 @@ induna = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6187,14 +6187,14 @@ nyau_akakairo = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6234,14 +6234,14 @@ son_of_ifri = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6281,14 +6281,14 @@ gongfu_warrior = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6328,14 +6328,14 @@ dragon_knight = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6375,14 +6375,14 @@ guardian_of_elect = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6422,14 +6422,14 @@ seal_holder = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6469,14 +6469,14 @@ warrior_of_light = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6516,14 +6516,14 @@ medjay = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6563,14 +6563,14 @@ vel_wielder = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras
@@ -6611,14 +6611,14 @@ serpent_warrior = {
 		mujahid
 		valhalla_bound
 		crusader
-		eagle_warrior
+		eagle_knight
 		sun_warrior
-		ukkos_shield
+		ukkos_hammer
 		nyames_shield
 		peruns_chosen
-		romuvas_own
+		hound_of_dievas
 		ares_own
-		shaddai
+		kanai
 		gondi_shahansha
 		hetairos
 		leo_mithras

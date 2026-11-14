@@ -148,18 +148,18 @@ character_event = {
 				}
 				if = {
 					limit = {
-						trait = fair
+						trait = attractive
 						NOT = { ROOT = { trait = ugly } }
 					}
 					random = {
 						chance = 5
-						ROOT = { add_trait = fair }
+						ROOT = { add_trait = attractive }
 					}
 				}
 				if = {
 					limit = {
 						trait = ugly
-						NOT = { ROOT = { trait = fair } }
+						NOT = { ROOT = { trait = attractive } }
 					}
 					random = {
 						chance = 5
@@ -471,18 +471,18 @@ character_event = {
 				}
 				if = {
 					limit = {
-						trait = fair
+						trait = attractive
 						NOT = { ROOT = { trait = ugly } }
 					}
 					random = {
 						chance = 5
-						ROOT = { add_trait = fair }
+						ROOT = { add_trait = attractive }
 					}
 				}
 				if = {
 					limit = {
 						trait = ugly
-						NOT = { ROOT = { trait = fair } }
+						NOT = { ROOT = { trait = attractive } }
 					}
 					random = {
 						chance = 5
@@ -808,18 +808,18 @@ character_event = {
 				}
 				if = {
 					limit = {
-						trait = fair
+						trait = attractive
 						NOT = { ROOT = { trait = ugly } }
 					}
 					random = {
 						chance = 5
-						ROOT = { add_trait = fair }
+						ROOT = { add_trait = attractive }
 					}
 				}
 				if = {
 					limit = {
 						trait = ugly
-						NOT = { ROOT = { trait = fair } }
+						NOT = { ROOT = { trait = attractive } }
 					}
 					random = {
 						chance = 5
@@ -1143,18 +1143,18 @@ character_event = {
 				}
 				if = {
 					limit = {
-						trait = fair
+						trait = attractive
 						NOT = { ROOT = { trait = ugly } }
 					}
 					random = {
 						chance = 5
-						ROOT = { add_trait = fair }
+						ROOT = { add_trait = attractive }
 					}
 				}
 				if = {
 					limit = {
 						trait = ugly
-						NOT = { ROOT = { trait = fair } }
+						NOT = { ROOT = { trait = attractive } }
 					}
 					random = {
 						chance = 5

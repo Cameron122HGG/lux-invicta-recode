@@ -671,7 +671,7 @@ character_event = {
 				FROM = {
 					NOR = {
 						trait = detached_priest
-						trait = martial_cleric
+						trait = dutiful_cleric
 						trait = scholarly_theologian
 						trait = mastermind_theologian
 					}
@@ -873,7 +873,7 @@ character_event = {
 			modifier = {
 				factor = 1.1
 				FROM = {
-					trait = martial_cleric
+					trait = dutiful_cleric
 				}
 			}
 			modifier = {
@@ -1007,7 +1007,7 @@ character_event = {
 			modifier = {
 				factor = 1.1
 				FROM = {
-					trait = fair
+					trait = attractive
 				}
 			}
 			modifier = {
@@ -1720,7 +1720,7 @@ character_event = {
 			FROM = {
 				OR = {
 					trait = detached_priest
-					trait = martial_cleric
+					trait = dutiful_cleric
 					trait = scholarly_theologian
 				}
 			}
@@ -1748,7 +1748,7 @@ character_event = {
 			FROM = {
 				NOR = {
 					trait = detached_priest
-					trait = martial_cleric
+					trait = dutiful_cleric
 					trait = scholarly_theologian
 					trait = mastermind_theologian
 				}
@@ -2304,7 +2304,7 @@ narrative_event = {
 			factor = 1.1
 			NOR = {
 				trait = detached_priest
-				trait = martial_cleric
+				trait = dutiful_cleric
 				trait = scholarly_theologian
 				trait = mastermind_theologian
 			}
@@ -2475,7 +2475,7 @@ narrative_event = {
 		}
 		modifier = {
 			factor = 1.1
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.25
@@ -2565,7 +2565,7 @@ narrative_event = {
 		}
 		modifier = {
 			factor = 1.1
-			trait = fair
+			trait = attractive
 		}
 		modifier = {
 			factor = 1.1
@@ -2816,7 +2816,7 @@ narrative_event = {
 			factor = 1.1
 			NOR = {
 				trait = detached_priest
-				trait = martial_cleric
+				trait = dutiful_cleric
 				trait = scholarly_theologian
 				trait = mastermind_theologian
 			}
@@ -2987,7 +2987,7 @@ narrative_event = {
 		}
 		modifier = {
 			factor = 1.1
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.25
@@ -3077,7 +3077,7 @@ narrative_event = {
 		}
 		modifier = {
 			factor = 1.1
-			trait = fair
+			trait = attractive
 		}
 		modifier = {
 			factor = 1.1

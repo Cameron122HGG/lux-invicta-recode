@@ -166,7 +166,7 @@ character_event = {
 			factor = 0.95
 		}
 		modifier = {
-			trait = fair
+			trait = attractive
 			factor = 1.2
 		}
 		modifier = {

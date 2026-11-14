@@ -598,7 +598,7 @@ nick_the_sickly = {
 		OR = {
 			trait = ill
 			trait = pneumonic
-			trait = syphilitic
+			trait = great_pox
 		}
 	}
 	chance = {
@@ -609,7 +609,7 @@ nick_the_sickly = {
 		}
 		modifier = {
 			factor = 2.0
-			trait = syphilitic
+			trait = great_pox
 		}
 	}
 }
@@ -1028,7 +1028,7 @@ nick_the_wild = {
 			trait = craven
 		}
 		OR = {
-			trait = experimenter
+			trait = direct_leader
 			trait = hedonist
 			trait = drunkard
 		}

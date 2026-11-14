@@ -107,7 +107,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.2
-			trait = syphilitic
+			trait = great_pox
 		}
 		modifier = {
 			factor = 1.5
@@ -131,27 +131,27 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_tuberculosis
+			trait = consumption
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_typhoid_fever
+			trait = slow_fever
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_typhus
+			trait = camp_fever
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_bubonic_plague
+			trait = bubonic_plague
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_measles
+			trait = measles
 		}		
 		modifier = {
 			factor = 1.5
-			trait = has_small_pox
+			trait = smallpox
 		}
 		modifier = {
 			factor = 1.5
@@ -265,7 +265,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.2
-			trait = syphilitic
+			trait = great_pox
 		}
 		modifier = {
 			factor = 1.5
@@ -289,27 +289,27 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_tuberculosis
+			trait = consumption
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_typhoid_fever
+			trait = slow_fever
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_typhus
+			trait = camp_fever
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_bubonic_plague
+			trait = bubonic_plague
 		}
 		modifier = {
 			factor = 1.5
-			trait = has_measles
+			trait = measles
 		}		
 		modifier = {
 			factor = 1.5
-			trait = has_small_pox
+			trait = smallpox
 		}
 		modifier = {
 			factor = 1.5

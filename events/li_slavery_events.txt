@@ -312,7 +312,7 @@ character_event = {
 					NOR = {
 						trait = genius
 						trait = quick
-						trait = fair
+						trait = attractive
 						trait = strong
 						trait = tall
 					}
@@ -338,7 +338,7 @@ character_event = {
 					NOR = {
 						trait = genius
 						trait = quick
-						trait = fair
+						trait = attractive
 						trait = strong
 						trait = tall
 					}
@@ -628,7 +628,7 @@ character_event = {
 			}
 			modifier = {
 				factor = 4
-				FROM = { trait = fair }
+				FROM = { trait = attractive }
 			}
 			modifier = {
 				factor = 2
@@ -676,7 +676,7 @@ character_event = {
 						trait = quick
 						trait = genius
 						trait = tall
-						trait = fair
+						trait = attractive
 					}
 				}	
 			}
@@ -1827,7 +1827,7 @@ character_event = {
 			modifier = {
 				factor = 2
 				event_target:breeding_candidate_1 = {
-					trait = fair
+					trait = attractive
 				}
 			}
 			modifier = {
@@ -1948,7 +1948,7 @@ character_event = {
 			modifier = {
 				factor = 2
 				event_target:breeding_candidate_2 = {
-					trait = fair
+					trait = attractive
 				}
 			}
 			modifier = {
@@ -2069,7 +2069,7 @@ character_event = {
 			modifier = {
 				factor = 2
 				event_target:breeding_candidate_3 = {
-					trait = fair
+					trait = attractive
 				}
 			}
 			modifier = {
@@ -4687,7 +4687,7 @@ character_event = {
 								culture = PREV
 								religion = PREV
 								dynasty = none
-								trait = fair
+								trait = attractive
 							}
 						}
 						10 = {
@@ -4697,7 +4697,7 @@ character_event = {
 								culture = PREV
 								religion = PREV
 								dynasty = none
-								trait = fair
+								trait = attractive
 							}
 						}
 						10 = {
@@ -4798,7 +4798,7 @@ character_event = {
 									culture = PREV
 									religion = PREV
 									dynasty = none
-									trait = fair
+									trait = attractive
 								}
 							}
 							10 = {
@@ -4808,7 +4808,7 @@ character_event = {
 									culture = PREV
 									religion = PREV
 									dynasty = none
-									trait = fair
+									trait = attractive
 								}
 							}
 							10 = {
@@ -4906,7 +4906,7 @@ character_event = {
 							culture = random
 							religion = ROOT
 							dynasty = none
-							trait = fair
+							trait = attractive
 						}
 					}
 					10 = {
@@ -4916,7 +4916,7 @@ character_event = {
 							culture = random
 							religion = ROOT
 							dynasty = none
-							trait = fair
+							trait = attractive
 						}
 					}
 					10 = {
@@ -5045,7 +5045,7 @@ character_event = {
 					limit = {
 						OR = {
 							trait = detached_priest 
-							trait = martial_cleric
+							trait = dutiful_cleric
 							trait = scholarly_theologian
 							trait = mastermind_theologian
 						}

@@ -86,7 +86,7 @@ decisions = {
 				
 				remove_trait = mystic
 				remove_trait = socializer
-				remove_trait = gamer
+				remove_trait = game_master
 				remove_trait = hedonist
 				remove_trait = duelist
 				remove_trait = hunter
@@ -94,10 +94,10 @@ decisions = {
 				remove_trait = administrator
 				remove_trait = architect
 				remove_trait = gardener
-				remove_trait = schemer
+				remove_trait = master_schemer
 				remove_trait = impaler
-				remove_trait = seducer
-				remove_trait = seductress
+				remove_trait = master_seducer
+				remove_trait = master_seductress
 				remove_trait = theologian
 				remove_trait = scholar
 				
@@ -109,7 +109,7 @@ decisions = {
 						change_intrigue = 2
 					}
 					10 = {
-						add_trait = schemer
+						add_trait = master_schemer
 					}
 					10 = {
 						add_trait = cunning
@@ -244,7 +244,7 @@ decisions = {
 				
 				remove_trait = mystic
 				remove_trait = socializer
-				remove_trait = gamer
+				remove_trait = game_master
 				remove_trait = hedonist
 				remove_trait = duelist
 				remove_trait = hunter
@@ -252,10 +252,10 @@ decisions = {
 				remove_trait = administrator
 				remove_trait = architect
 				remove_trait = gardener
-				remove_trait = schemer
+				remove_trait = master_schemer
 				remove_trait = impaler
-				remove_trait = seducer
-				remove_trait = seductress
+				remove_trait = master_seducer
+				remove_trait = master_seductress
 				remove_trait = theologian
 				remove_trait = scholar
 				

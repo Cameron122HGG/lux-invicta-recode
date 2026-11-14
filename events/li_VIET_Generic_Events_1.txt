@@ -192,13 +192,13 @@ character_event = {
 		modifier = {
 			factor = 0.8
 			OR = {
-				trait = robust
+				trait = brawny
 				trait = sturdy
 			}
 		}
 		modifier = {
 			factor = 1.2
-			trait = feeble
+			trait = frail
 		}
 		modifier = {
 			factor = 0.8
@@ -2426,7 +2426,7 @@ character_event = {
 				trait = cruel
 				trait = socializer
 				trait = hedonist
-				trait = gamer
+				trait = game_master
 				trait = arbitrary
 				trait = brave
 				trait = proud
@@ -2492,7 +2492,7 @@ character_event = {
 					trait = cruel
 					trait = socializer
 					trait = hedonist
-					trait = gamer
+					trait = game_master
 					trait = arbitrary
 					trait = brave
 					trait = proud
@@ -3286,7 +3286,7 @@ character_event = {
 				learning = 13
 				trait = erudite
 				trait = detached_priest
-				trait = martial_cleric
+				trait = dutiful_cleric
 				trait = scholarly_theologian
 				trait = mastermind_theologian
 				trait = scholar
@@ -3360,7 +3360,7 @@ character_event = {
 					learning = 13
 					trait = erudite
 					trait = detached_priest
-					trait = martial_cleric
+					trait = dutiful_cleric
 					trait = scholarly_theologian
 					trait = mastermind_theologian
 					trait = scholar
@@ -3460,7 +3460,7 @@ character_event = {
 				trait = quick
 				trait = brilliant_strategist
 				trait = skilled_tactician
-				trait = gamer
+				trait = game_master
 				trait = strategist
 				martial = 11
 				intrigue = 11
@@ -3538,7 +3538,7 @@ character_event = {
 					martial = 11
 					intrigue = 11
 					learning = 11
-					trait = gamer
+					trait = game_master
 					trait = strategist
 				}
 			}
@@ -9871,7 +9871,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.2
-			trait = fair
+			trait = attractive
 		}
 		modifier = {
 			factor = 0.8
@@ -10438,7 +10438,7 @@ narrative_event = {
 		new_character = {
 			add_friend = ROOT
 			# His traits aren't that random (based on choice player made)
-			add_trait = fair
+			add_trait = attractive
 			add_trait = poet
 			add_trait = kind
 			add_trait = chaste
@@ -10460,7 +10460,7 @@ narrative_event = {
 				add_spouse = PREV
 				add_lover = PREV
 				# Her traits aren't that random (based on choice player made)
-				add_trait = fair
+				add_trait = attractive
 				add_trait = kind
 				add_trait = chaste
 				add_trait = patient
@@ -10617,7 +10617,7 @@ narrative_event = {
 				chance = 45
 				add_trait = scarred
 			}
-			add_trait = robust
+			add_trait = brawny
 			add_trait = brave
 			add_trait = proud
 			add_trait = diligent

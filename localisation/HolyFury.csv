@@ -11872,11 +11872,11 @@ iron_cross_broken;§Y[Root.GetTitledFirstName]§! breaks the Iron Crown of Lombard
 irresistible;Irresistible;Irrésistible;Unwiderstehlich;;Irresistible;;;;;;;;;x
 irresistible_desc;This character is the subject of many a longing eye.;Ce personnage est l'objet de nombreux regards.;Dieser Charakter ist Gegenstand vieler Sehnsüchte.;;Este personaje es visto con deseo por muchos.;;;;;;;;;x
 is_child_or_sibling_of_yours_tt;Is a child or sibling of yours\n;Est de votre fratrie ou est un de vos enfants\n;Ist Euer Kind oder ein Geschwister von Euch\n;;Es un niño o hermano tuyo\n;;;;;;;;;x
-is_fat;Fat;Corpulence;Fett;;Gordo;;;;;;;;;x
-is_fat_desc;This character is extremely overweight.;Ce personnage a un important surpoids.;Dieser Charakter ist extrem übergewichtig.;;Este personaje tiene un gran sobrepeso.;;;;;;;;;x
+fat;Fat;Corpulence;Fett;;Gordo;;;;;;;;;x
+fat_desc;This character is extremely overweight.;Ce personnage a un important surpoids.;Dieser Charakter ist extrem übergewichtig.;;Este personaje tiene un gran sobrepeso.;;;;;;;;;x
 is_inaccessible_tooltip;Is NOT in Hiding, in Seclusion, out traveling, or otherwise occupied with important business\n;N'est pas caché, en réclusion, parti en voyage ou occupé avec des affaires importantes\n;Ist NICHT im Versteck, in Klausur, auf Reisen oder anderweitig mit wichtigen Aktivitäten beschäftigt\n;;NO está oculto, recluido, viajando u ocupado de otro modo con asuntos importantes\n;;;;;;;;;x
-is_malnourished;Malnourished;Malnutrition;Unterernährt;;Malnutrido;;;;;;;;;x
-is_malnourished_desc;This character has a very fragile health.;Ce personnage a une santé très fragile.;Dieser Charakter hat eine sehr empfindliche Gesundheit.;;Este personaje tiene una salud muy frágil;;;;;;;;;x
+malnourished;Malnourished;Malnutrition;Unterernährt;;Malnutrido;;;;;;;;;x
+malnourished_desc;This character has a very fragile health.;Ce personnage a une santé très fragile.;Dieser Charakter hat eine sehr empfindliche Gesundheit.;;Este personaje tiene una salud muy frágil;;;;;;;;;x
 is_member_of_any_warrior_lodge_tt;Is a member of a Warrior Lodge\n;Est membre d'une §YLoge du Guerrier§!\n;Ist Mitglied einer Kriegerloge\n;;Es miembro de una logia de guerreros\n;;;;;;;;;x
 is_member_of_roots_warrior_lodge_tt;§Y[Root.GetTitledName]§! and §Y[From.GetTitledName]§! are members of the same Warrior Lodge.\n;[Root.Get_Le_TitledNameJ] et [From.Get_le_TitledNameJ] sont membres de la même Loge du Guerrier.\n;§Y[Root.GetTitledName]§! und §Y[From.GetTitledName]§! sind Mitglieder der selben Kriegerloge.\n;;§Y[Root.GetTitledName]§! y §Y[From.GetTitledName]§! son miembros de la misma logia de guerreros.\n;;;;;;;;;x
 israel_female;Blood of [This.GetFirstNameWithNick];Sang de [This.GetFirstNameWithNick];Blut von [This.GetFirstNameWithNick];;Sangre de [This.GetFirstNameWithNick];;;;;;;;;x
@@ -12585,10 +12585,10 @@ opinion_papal_land_donation;Restored Papal lands;A restauré les terres papales;V
 opinion_party_friend;Party Friends;Amis de fête;Partyfreund;;Amigos de fiesta;;;;;x
 opinion_pitiful_shell;Pitiful Shell;N'est plus qu'une ombre pitoyable;Erbärmliche Hülle;;Sombra lamentable;;;;;;;;;x
 opinion_placated_spirits;Placated Spirits;Esprits apaisés;beschwichtigte die Geister;;Espíritus apaciguados;;;;;;;;;x
-opinion_promsied_to_depose_him;Sworn to depose them;A juré de le déposer;Schwor ihn abzusetzen;;Comprometido a destronarle;;;;;;;;x
-opinion_promsied_to_depose_hisantipope;Sworn to depose their Anti-pope;A juré de déposer l'antipape;Schwor ihren Anti-Papst abzusetzen;;Comprometido a destronar a su antipapa;;;;;;;;x
-opinion_promsied_to_depose_me;Sworn to depose me;A juré de me déposer;Schwor mich abzusetzen;;Comprometido a destronarme;;;;;;;;x
-opinion_promsied_to_depose_myantipope;Sworn to depose my Anti-pope;A juré de déposer mon antipape;Schwor meinen Anti-Papst abzusetzen;;Comprometido a destronar a mi antipapa;;;;;;;;x
+opinion_promised_to_depose_him;Sworn to depose them;A juré de le déposer;Schwor ihn abzusetzen;;Comprometido a destronarle;;;;;;;;x
+opinion_promised_to_depose_hisantipope;Sworn to depose their Anti-pope;A juré de déposer l'antipape;Schwor ihren Anti-Papst abzusetzen;;Comprometido a destronar a su antipapa;;;;;;;;x
+opinion_promised_to_depose_me;Sworn to depose me;A juré de me déposer;Schwor mich abzusetzen;;Comprometido a destronarme;;;;;;;;x
+opinion_promised_to_depose_myantipope;Sworn to depose my Anti-pope;A juré de déposer mon antipape;Schwor meinen Anti-Papst abzusetzen;;Comprometido a destronar a mi antipapa;;;;;;;;x
 opinion_rebuked_appeaser_cooldown;Rejected Apology;Excuses rejetées;Wies Entschuldigung zurück;;Disculpa rechazada;;;;;;;;;x
 opinion_renowned_chicken;Keeps Turning Down Duels;Continue à refuser les duels;Lehnt weiterhin Duelle ab;;Sigue rechazando duelos;;;;;;;;;x
 opinion_repudiated_me;Repudiated Me;Répudiation;Wies mich zurück;;Me repudió;;;;;;;;;x

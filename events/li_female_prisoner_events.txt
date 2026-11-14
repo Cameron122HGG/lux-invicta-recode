@@ -45,7 +45,7 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 2.0
-			trait = fair
+			trait = attractive
 		}
 		modifier = {
 			factor = 2.0

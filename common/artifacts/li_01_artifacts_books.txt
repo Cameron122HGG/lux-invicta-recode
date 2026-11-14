@@ -1455,7 +1455,7 @@ the_omnivore = {
 	intrigue = 2
 	general_opinion = -10
 	active = {
-		trait = cannibal_trait
+		trait = cannibal
 	}
 	flags = { cannibal about_stewardship about_intrigue cooking book created }
 	picture = "GFX_book_chef_02"

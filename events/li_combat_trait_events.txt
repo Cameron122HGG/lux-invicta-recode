@@ -39,7 +39,7 @@ character_event = {
 				trait = skilled_warrior
 				trait = master_warrior
 				
-				trait = martial_cleric
+				trait = dutiful_cleric
 				trait = duelist
 				has_job_title = job_marshal
 			}
@@ -106,7 +106,7 @@ character_event = {
 			factor = 1.2
 			guardian = {
 				OR = {
-					trait = martial_cleric
+					trait = dutiful_cleric
 					has_job_title = job_marshal
 					trait = misguided_warrior
 					trait = tough_soldier

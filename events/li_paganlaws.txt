@@ -5408,7 +5408,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.94
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 0.89
@@ -5562,7 +5562,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.94
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 0.89
@@ -5716,7 +5716,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.94
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 0.89
@@ -5870,7 +5870,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.94
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 0.89
@@ -6025,7 +6025,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.2
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.5
@@ -6178,7 +6178,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.2
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.5
@@ -6331,7 +6331,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.2
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.5
@@ -6484,7 +6484,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.2
-			trait = martial_cleric
+			trait = dutiful_cleric
 		}
 		modifier = {
 			factor = 1.5

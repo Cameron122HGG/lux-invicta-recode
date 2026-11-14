@@ -176,8 +176,8 @@ CB_NAME_RESTORE_PAPACY;Restore the Papacy;Restaurer le Grand Septon.;Stellen Sie
 WAR_NAME_RESTORE_PAPACY;$ORDER$$FIRST_ADJ$ War to Restore the Papacy;$ORDER$$FIRST_ADJ$ Guerre pour restaurer le Grand Septon;;;$ORDER$$FIRST_ADJ$ War to Restore the Papacy;;;;;;;;;x
 holy_truce_timer_desc;This character cannot initiate or be the target of a war until this modifier wears off.;Ce personnage ne peut ni être à l'origine d'une guerre ni en être la cible jusqu'à ce que ce modificateur se dissipe.;This character cannot initiate or be the target of a war until this modifier wears off.;;This character cannot initiate or be the target of a war until this modifier wears off.;;;;;;;;;x
 syphilitic_death;of Gonorrhea;de syphilis;am Tripper;;of Gonorrhea;;;;;;;;;x
-syphilitic;Gonorrhea;Syphilis;Tripper;;Gonorrhea;;;;;;;;;x
-syphilitic_desc;This character suffers from the painful venereal plague known as Gonorrhea.;Ce personnage souffre de la douloureuse maladie vénérienne connue sous le nom de syphilis.;Dieser Charakter leidet unter der schmerzhaften venerischen als Tripper bekannten Plage.;;This character suffers from the painful venereal plague known as Gonorrhea.;;;;;;;;;x
+great_pox;Gonorrhea;Syphilis;Tripper;;Gonorrhea;;;;;;;;;x
+great_pox_desc;This character suffers from the painful venereal plague known as Gonorrhea.;Ce personnage souffre de la douloureuse maladie vénérienne connue sous le nom de syphilis.;Dieser Charakter leidet unter der schmerzhaften venerischen als Tripper bekannten Plage.;;This character suffers from the painful venereal plague known as Gonorrhea.;;;;;;;;;x
 create_e_al_andalus;Al-Andalus;Al-Andalus;Al-Andalus;Al-Andalus;Al-Andalus;;;;;;;;;x
 create_e_al_andalus_desc;This decision will give you the Al-Andalus title.;Cette décision vous donnera le titre de Al-Andalus.;Diese Entscheidung wird Ihnen den Titel des Al-Anadlus Kaiserreich einbringen.;This decision will give you the Al-Andalus title.;This decision will give you the Al-Andalus title.;;;;;;;;;x
 create_e_mali;Mali Empire;Empire du Mali;Mali-Reich;Mali Empire;Mali Empire;;;;;;;;;x

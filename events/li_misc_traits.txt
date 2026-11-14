@@ -94,7 +94,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			OR = {
-				trait = fair
+				trait = attractive
 				trait = envious
 				trait = proud
 				trait = gregarious
@@ -248,7 +248,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			OR = {
-				trait = fair
+				trait = attractive
 				trait = strong
 				trait = wroth
 				trait = proud
@@ -1679,7 +1679,7 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			OR = {
-				trait = fair
+				trait = attractive
 				trait = kind
 			}
 		}

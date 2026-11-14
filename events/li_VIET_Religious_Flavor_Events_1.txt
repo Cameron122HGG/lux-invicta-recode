@@ -3209,7 +3209,7 @@ character_event = {
 		trigger = {
 			NOR = {
 				trait = cruel
-				trait = cannibal_trait
+				trait = cannibal
 				trait = gluttonous
 			}
 		}

@@ -280,7 +280,7 @@ nick_the_impotent = {
 		}
 		modifier = {
 			factor = 2.0
-			trait = syphilitic
+			trait = great_pox
 		}
 	}
 }

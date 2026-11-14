@@ -75,7 +75,7 @@
     dynasty = 2100023
     religion = "bud_zen"
     culture = "uyghur"
-	trait = martial_cleric
+	trait = dutiful_cleric
 	trait = socializer
 	trait = humble
 	1036.1.1 = {

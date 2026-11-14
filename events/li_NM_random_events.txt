@@ -1963,7 +1963,7 @@ character_event = {
 	
 	trigger = {
 		has_character_modifier = nm_possessed_freya
-		NOT = { trait = fair  }
+		NOT = { trait = attractive  }
 	}
 	
 	mean_time_to_happen = {
@@ -1973,7 +1973,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA340039"
 		remove_trait = ugly
-		add_trait = fair
+		add_trait = attractive
 		if = {
 			limit = {
 				NOR = {
@@ -2161,7 +2161,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA340044"
 		trigger = {
-			trait = fair
+			trait = attractive
 		}
 		set_character_flag = nm_freya_convinced_farmers
 	}
@@ -2233,7 +2233,7 @@ character_event = {
 	
 	trigger = {
 		trait = nm_volva
-		trait = fair
+		trait = attractive
 		has_character_modifier = nm_possessed_freya
 		has_character_flag = nm_freya_convinced_farmers
 		has_character_flag = nm_has_fucked
@@ -3273,7 +3273,7 @@ character_event = {
 		modifier = {
 			factor = 0.67
 			spouse = {
-				trait = fair
+				trait = attractive
 			}
 		}
 		modifier = {
