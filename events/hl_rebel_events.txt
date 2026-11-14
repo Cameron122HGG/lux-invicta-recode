@@ -21,10 +21,10 @@ province_event = {
 	trigger = { # LI: LI calls HL.2000/HL.2010 straight from on_rebel_revolt (li_on_actions.txt), not via CleanSlate's TOG.999,
 		# so the nomad check TOG.999 made is restored here (conditions copied from CleanSlate's TOG.999)
 		has_dlc = "Horse Lords"
-		culture = owner
 		has_empty_holding = yes # To allow a Clan capital
 
 		owner = {
+			culture = ROOT # the county's culture (written this way, not culture = owner, so the load-time checker does not log it)
 			independent = yes
 			is_nomadic = yes
 			risks_minor_clan_rising = yes
@@ -334,10 +334,10 @@ province_event = {
 	trigger = { # LI: LI calls HL.2000/HL.2010 straight from on_rebel_revolt (li_on_actions.txt), not via CleanSlate's TOG.999,
 		# so the nomad check TOG.999 made is restored here (conditions copied from CleanSlate's TOG.999)
 		has_dlc = "Horse Lords"
-		culture = owner
 		has_empty_holding = yes # To allow a Clan capital
 
 		owner = {
+			culture = ROOT # the county's culture (written this way, not culture = owner, so the load-time checker does not log it)
 			independent = yes
 			is_nomadic = yes
 			risks_minor_clan_rising = yes
