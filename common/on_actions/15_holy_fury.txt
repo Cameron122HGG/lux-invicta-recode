@@ -35,7 +35,7 @@ on_alternate_start = {
 on_yearly_pulse = {
 	events = {
 		#HF.3     # Activate GHW's and holy orders when running randomized rel names (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HF.304   # Child of Destiny gains bloodline if above Duke tier (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HF.304   # Child of Destiny gains bloodline if above Duke tier
 		HF.20405 # Ticking negative opinion modifier for uncrowned Catholic
 		HF.21999 # Main Sway hidden event, no further pulses are required
 		HF.22999 # Main Antagonize hidden event, no further pulses are required
@@ -76,7 +76,7 @@ on_yearly_pulse = {
 
 		yearly_child_of_destiny_chance = {
 			9999 = 0
-			#1 = HF.199 # Extra chance for player children to become Children of Destiny (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			1 = HF.199 # Extra chance for player children to become Children of Destiny
 		}
 	}
 }
@@ -160,7 +160,7 @@ on_decade_pulse = {
 # For characters older than AGE_CHILDHOOD_PULSE but not an adult as defined by ADULT_AGE_FEMALE and ADULT_AGE_MALE
 on_yearly_childhood_pulse = {
 	events = {
-		#HF.302 # Child of Destiny gets extra stats (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HF.302 # Child of Destiny gets extra stats
 
 		HFP.20057 # Hollow Child nickname
 	}
@@ -285,7 +285,7 @@ on_birth = {
 	random_events = {
 		child_of_destiny_chance = { # Chance of a newborn child becoming a Child of Destiny
 			15000 = 0
-			#1 = HF.200 # Child becomes Child of Destiny (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			1 = HF.200 # Child becomes Child of Destiny
 		}
 	}
 }
@@ -294,7 +294,7 @@ on_birth = {
 on_adulthood = {
 	events = {
 		HF.23016 # Reformed pagans with no religious head pick their religious branch
-		#HF.300 # Child of Destiny reaches adulthood (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HF.300 # Child of Destiny reaches adulthood
 		HF.23775 # African adulthood rite
 
 		HFP.20592 # Child of troubled pregnancy speaks to mother
