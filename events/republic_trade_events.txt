@@ -12,6 +12,27 @@ namespace = REP
 ### Shipping Events
 
 
+# LI: CleanSlate router REP.0 restored 2026-11-14 (step A had left it out; it fires LI's REP.1)
+# Shipping Events Tombola delay randomization
+character_event = {
+	id = REP.0
+
+	hide_window = yes
+	is_triggered_only = yes # on_yearly_pulse
+
+	ai = no
+	is_patrician = yes
+	has_dlc = "The Republic"
+
+	immediate = {
+		character_event = {
+			id = REP.1
+			days = 1
+			random = 360
+		}
+	}
+}
+
 # Shipping Events Tombola
 character_event = {
 	id = REP.1
@@ -914,6 +935,26 @@ letter_event = {
 
 ### Dynastic Marriage Events
 
+
+# LI: CleanSlate router REP.399 restored 2026-11-14 (step A had left it out; it fires LI's REP.400)
+# Dynastic Marriage Tombola delay randomization
+character_event = {
+	id = REP.399
+
+	hide_window = yes
+	is_triggered_only = yes # on_yearly_pulse
+
+	is_patrician = yes
+	has_dlc = "The Republic"
+
+	immediate = {
+		character_event = {
+			id = REP.400
+			days = 1
+			random = 360
+		}
+	}
+}
 
 # Dynastic Marriage Tombola
 character_event = {

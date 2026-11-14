@@ -285,6 +285,54 @@
 ###############################################
 
 
+# LI: CleanSlate router 50004 restored 2026-11-14 (step A had left it out; it fires LI's 50005, 50005, 50005, 50005)
+# Request better accommodations - Setup
+character_event = {
+	id = 50004
+
+	is_triggered_only = yes # on_become_imprisoned_any_reason
+	hide_window = yes
+
+	only_rulers = yes
+	min_age = 14
+
+	trigger = {
+		NOT = { has_character_modifier = zun_judgement }
+	}
+
+	immediate = {
+		clear_delayed_event = { id = 50005 }
+
+		trigger_switch = {
+			on_trigger = trait
+
+			gregarious = {
+				character_event = {
+					id = 50005
+					months = 3
+					random = 90
+				}
+			}
+
+			content = {
+				character_event = {
+					id = 50005
+					months = 18
+					random = 180
+				}
+			}
+
+			fallback = {
+				character_event = {
+					id = 50005
+					months = 6
+					random = 180
+				}
+			}
+		}
+	}
+}
+
 # Request better accommodations
 character_event = {
 	id = 50005
@@ -1159,6 +1207,60 @@ character_event = {
 
 ###############################################
 
+
+# LI: CleanSlate router 50024 restored 2026-11-14 (step A had left it out; it fires LI's 50025)
+# Petition liege to release prisoner - Setup
+character_event = {
+	id = 50024
+
+	is_triggered_only = yes # on_become_imprisoned_any_reason
+	hide_window = yes
+
+	friends = yes
+
+	trigger = {
+		host = {
+			ROOT = {
+				is_vassal_or_below_of = PREV
+
+				any_friend = {
+					vassal_of = PREVPREV
+					is_playable = yes
+					is_adult = yes
+					prisoner = no
+				}
+			}
+		}
+	}
+
+	immediate = {
+		save_event_target_as = imprisoned_friend
+
+		host = {
+			save_event_target_as = captor
+		}
+
+		any_friend = {
+			limit = {
+				vassal_of = event_target:captor
+				is_playable = yes
+				is_adult = yes
+				prisoner = no
+			}
+
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
+
+			character_event = {
+				id = 50025
+				years = 1
+				random = 1155 # 3 years 2 months
+			}
+		}
+	}
+}
 
 # Petition liege to release prisoner
 character_event = {

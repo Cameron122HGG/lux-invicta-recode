@@ -24,7 +24,7 @@ on_yearly_pulse = {
 		bear.7 # Secret bear generation
 		bear.1 # Secret bear discovery. Called here and in bear.7, as bear.1 can be temporarily precluded
 		#8700   # Teutonic Order asks for a county (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#39405  # Pope urges ruler to root out heresy in province (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		39405  # Pope urges ruler to root out heresy in province
 		#89501  # Zheng He (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
 		### Otto Events ###
@@ -43,8 +43,8 @@ on_yearly_pulse = {
 		LT.61004 # Add nicknames
 
 		# Possesed Events
-		#6199 # Voice of Jesus tombola (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#6241 # Voice of Satan tombola (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		6199 # Voice of Jesus tombola
+		6241 # Voice of Satan tombola
 
 		# Found Holy Orders
 		#39100 # Formation of the Knights of St John (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
@@ -552,8 +552,8 @@ on_yearly_pulse = {
 			 800 = 0
 
 			  67 = 39441 # Pope learns that you have a heretic advisor
-			1200 = 0 # was 39444: Vassal disappointed in liege having heretic advisor (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-			  10 = 0 # was 39239: Pope/Patriarch demands that a ruler not have heathens employed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			1200 = 39444 # Vassal disappointed in liege having heretic advisor
+			  10 = 39239 # Pope/Patriarch demands that a ruler not have heathens employed
 		}
 
 		courtier_conversion = {
@@ -618,7 +618,7 @@ on_yearly_pulse = {
 on_bi_yearly_pulse = {
 	events = {
 		#89500 # Marco Polo (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#39209 # Pope offers absolution for Kinslaying (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		39209 # Pope offers absolution for Kinslaying
 	}
 
 	random_events = {
@@ -914,11 +914,11 @@ on_bi_yearly_pulse = {
 
 			650 = 0
 
-			200 = 0 # was 73199: I want to be marshal, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-			200 = 0 # was 73209: I want to be spymaster, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-			200 = 0 # was 73219: I want to be treasurer, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-			200 = 0 # was 73229: I want to be lord_spiritual, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-			200 = 0 # was 73239: I want to be Chancellor, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			200 = 73199 # I want to be marshal, I am better...
+			200 = 73209 # I want to be spymaster, I am better...
+			200 = 73219 # I want to be treasurer, I am better...
+			200 = 73229 # I want to be lord_spiritual, I am better...
+			200 = 73239 # I want to be Chancellor, I am better...
 		}
 	}
 }
@@ -1663,10 +1663,10 @@ on_marriage = {
 on_become_imprisoned_any_reason = {
 	events = {
 		685   # Remove in-hiding trait on imprisonment
-		#39219 # Catholic Bishops don't like being in prison (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#39229 # Orthodox Bishops don't like being in prison (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#50004 # Request better accommodations (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#50024 # Petition liege to release prisoner (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		39219 # Catholic Bishops don't like being in prison
+		39229 # Orthodox Bishops don't like being in prison
+		50004 # Request better accommodations
+		50024 # Petition liege to release prisoner
 		#62950 # The sons of Lodbrok exact their revenge on Aella (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		#63049 # An imprisoned character asks a friend to intervene - former MTTH event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
@@ -2899,8 +2899,8 @@ on_war_started = {
 	events = {
 		#70043 # Tournament called off due to war (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		#88293 # Furusiyya called off due to war (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#72114 # Feast called off due to war (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#36088 # Hunt called off due to war (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		72114 # Feast called off due to war
+		36088 # Hunt called off due to war
 	}
 }
 
@@ -3455,7 +3455,7 @@ on_crusade_monthly = {
 	events = {
 		8306 # Pope lifts Excommunication (AI characters only)
 		8460 # Pope offers to forgive Excommunicated Player
-		#8419 # Vassals concerned that an independent ruler is not participating in crusade (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		8419 # Vassals concerned that an independent ruler is not participating in crusade
 	}
 
 	random_events = {

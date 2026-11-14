@@ -13,6 +13,111 @@
 ### CHIEF QADI ###
 
 
+# LI: CleanSlate router 104999 restored 2026-11-14 (step A had left it out; it fires LI's 105000)
+### Woman asks Chief Qadi for a divorce - Setup ###
+character_event = {
+	id = 104999
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+
+	trigger = {
+		has_assigned_minor_title = title_chief_qadi
+
+		any_courtier_or_vassal = {
+			is_female = yes
+			is_incapable = no
+			prisoner = no
+
+			NOR = {
+				has_character_modifier = qadi_divorce_timer
+				has_character_flag = qadi_granted_divorce
+			}
+
+			spouse = {
+				OR = {
+					trait = wroth
+					trait = cruel
+					trait = arbitrary
+					trait = greedy
+
+					reverse_opinion = {
+						who = ROOT
+						value < 0
+					}
+				}
+
+				NOT = { has_minor_title = title_chief_qadi }
+			}
+		}
+	}
+
+	immediate = {
+		any_courtier_or_vassal = {
+			limit = {
+				is_female = yes
+				is_incapable = no
+				prisoner = no
+
+				NOR = {
+					has_character_modifier = qadi_divorce_timer
+					has_character_flag = qadi_granted_divorce
+				}
+
+				spouse = {
+					OR = {
+						trait = wroth
+						trait = cruel
+						trait = arbitrary
+						trait = greedy
+
+						reverse_opinion = {
+							who = ROOT
+							value < 0
+						}
+					}
+
+					NOT = { has_minor_title = title_chief_qadi }
+				}
+			}
+
+			score_value = { # TODO: check that this works properly
+				value = 100
+
+				mult_modifier = {
+					factor = 0.2
+					trait = content
+				}
+
+				mult_modifier = {
+					factor = 2
+					trait = honest
+				}
+
+				mult_modifier = {
+					factor = 0.5
+					num_of_children >= 2
+				}
+
+				mult_modifier = {
+					factor = 0.33
+					num_of_children >= 4
+				}
+
+				mult_modifier = {
+					factor = 0.25
+					num_of_children >= 6
+				}
+			}
+
+			character_event = { id = 105000 }
+		}
+	}
+}
+
 ### Woman asks Chief Qadi for a divorce ###
 character_event = {
 	id = 105000
@@ -438,6 +543,86 @@ character_event = {
 
 
 
+# LI: CleanSlate router 105009 restored 2026-11-14 (step A had left it out; it fires LI's 105010)
+### Suggest a Chief Qadi - Setup ###
+character_event = {
+	id = 105009
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+
+	trigger = {
+		can_grant_title = title_chief_qadi
+
+		any_courtier_or_vassal = {
+			can_hold_title = title_chief_qadi
+			NOT = { is_rival = ROOT }
+		}
+
+		any_courtier_or_vassal = {
+			religion_group = muslim
+			block_general_event_trigger = no
+			war = no
+			in_command = no
+
+			NOR = {
+				has_character_flag = qadi_suggester
+				has_character_flag = new_qadi_suggester
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				religion_group = muslim
+				block_general_event_trigger = no
+				war = no
+				in_command = no
+
+				NOR = {
+					has_character_flag = qadi_suggester
+					has_character_flag = new_qadi_suggester
+				}
+
+				trigger_if = {
+					limit = {
+						NOT = { can_hold_title = title_chief_qadi }
+					}
+
+					ROOT = {
+						any_courtier_or_vassal = {
+							can_hold_title = title_chief_qadi
+							NOT = { is_rival = PREVPREV }
+						}
+					}
+				}
+			}
+
+			preferred_limit = {
+				OR = {
+					trait = diligent
+					trait = ambitious
+				}
+			}
+
+			preferred_limit = {
+				NOR = {
+					trait = slothful
+					trait = content
+				}
+			}
+
+			set_character_flag = qadi_suggester
+			character_event = { id = 105010 }
+		}
+	}
+}
+
 ### Suggest a Chief Qadi ###
 character_event = {
 	id = 105010
@@ -748,6 +933,94 @@ character_event = {
 	}
 }
 
+
+# LI: CleanSlate router 105019 restored 2026-11-14 (step A had left it out; it fires LI's 105020)
+### Suggest a new Chief Qadi - Setup ###
+character_event = {
+	id = 105019
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+
+	trigger = {
+		any_vassal = {
+			has_minor_title = title_chief_qadi
+			learning < 15
+
+			OR = {
+				trait = arbitrary
+				trait = slothful
+			}
+		}
+
+		any_courtier_or_vassal = {
+			can_hold_title = title_chief_qadi
+			learning >= 15
+
+			NOR = {
+				trait = arbitrary
+				trait = slothful
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_chief_qadi }
+			save_event_target_as = old_qadi
+		}
+
+		random_courtier_or_vassal = {
+			limit = {
+				religion_group = muslim
+				block_general_event_trigger = no
+				war = no
+				in_command = no
+				NOT = { has_minor_title = title_chief_qadi }
+
+				trigger_if = {
+					limit = {
+						NOT = { can_hold_title = title_chief_qadi }
+					}
+
+					ROOT = {
+						any_courtier_or_vassal = {
+							can_hold_title = title_chief_qadi
+							learning >= 15
+
+							NOR = {
+								trait = arbitrary
+								trait = slothful
+								is_rival = PREVPREV
+							}
+						}
+					}
+				}
+			}
+
+			preferred_limit = {
+				OR = {
+					trait = diligent
+					trait = ambitious
+				}
+			}
+
+			preferred_limit = {
+				NOR = {
+					trait = content
+					trait = slothful
+				}
+			}
+
+			set_character_flag = new_qadi_suggester
+			character_event = { id = 105020 }
+		}
+	}
+}
 
 ### Suggest a new Chief Qadi ###
 character_event = {
@@ -1138,6 +1411,84 @@ character_event = {
 }
 
 
+# LI: CleanSlate router 105029 restored 2026-11-14 (step A had left it out; it fires LI's 105030)
+### Chief Qadi and the drunkard - Setup ###
+character_event = {
+	id = 105029
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+
+	trigger = {
+		any_courtier_or_vassal = {
+			has_minor_title = title_chief_qadi
+			block_general_event_trigger = no
+			war = no
+			in_command = no
+
+			ROOT = {
+				any_realm_character = {
+					trait = drunkard
+					religion_group = muslim
+					block_general_event_trigger = no
+					war = no
+					in_command = no
+					NOT = { character = PREVPREV }
+				}
+			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 0.2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_chief_qadi
+				trait = drunkard
+			}
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_chief_qadi
+				trait = zealous
+			}
+		}
+	}
+
+	immediate = {
+
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_chief_qadi }
+
+			ROOT = {
+				random_realm_character = {
+					limit = {
+						trait = drunkard
+						religion_group = muslim
+						block_general_event_trigger = no
+						war = no
+						in_command = no
+						NOT = { character = PREVPREV }
+					}
+
+					save_event_target_as = target_drunkard
+				}
+			}
+
+			character_event = { id = 105030 }
+		}
+	}
+}
+
 ### Chief Qadi and the drunkard ###
 character_event = {
 	id = 105030
@@ -1405,6 +1756,94 @@ character_event = {
 	}
 }
 
+
+# LI: CleanSlate router 105034 restored 2026-11-14 (step A had left it out; it fires LI's 105035)
+### Chief Qadi and Zina - Setup ###
+character_event = {
+	id = 105034
+
+	is_triggered_only = yes # on_yearly_pulse
+	hide_window = yes
+
+	only_rulers = yes
+	religion_group = muslim
+	only_men = yes
+	is_married = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+
+	trigger = {
+		has_lover = yes
+		is_inaccessible_trigger = no
+
+		any_lover = {
+			NOT = { is_married = ROOT }
+		}
+
+		spouse = {
+			religion_group = muslim
+		}
+
+		trigger_if = {
+			limit = { trait = zealous }
+
+			OR = {
+				trait = lustful
+				trait = deceitful
+			}
+		}
+
+		NOR = {
+			has_minor_title = title_chief_qadi
+			trait = homosexual
+		}
+
+		liege = {
+			any_courtier_or_vassal = {
+				has_minor_title = title_chief_qadi
+				block_general_event_trigger = no
+			}
+		}
+	}
+
+	immediate = {
+		save_event_target_as = unfaithful_vassal
+
+		liege = {
+			random_courtier_or_vassal = {
+				limit = { has_minor_title = title_chief_qadi }
+				save_event_target_as = chief_qadi
+			}
+
+			random_courtier_or_vassal = { # On the off chance that this fails to find anyone, oh well
+				limit = {
+					religion_group = muslim
+					has_lover = no
+					block_general_event_trigger = no
+
+					NOR = {
+						has_character_modifier = ignored_muslim_sins
+						has_minor_title = title_chief_qadi
+					}
+				}
+
+				preferred_limit = {
+					OR = {
+						trait = just
+						trait = zealous
+					}
+				}
+
+				preferred_limit = {
+					NOT = { trait = deceitful }
+				}
+
+				character_event = { id = 105035 }
+			}
+		}
+	}
+}
 
 ### Chief Qadi and Zina ###
 character_event = {
@@ -2545,6 +2984,102 @@ character_event = {
 ### COURT CALLIGRAPHER ###
 
 
+# LI: CleanSlate router 105049 restored 2026-11-14 (step A had left it out; it fires LI's 105050)
+# Court Calligrapher is asked to decorate the mosque - Setup
+character_event = {
+	id = 105049
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+
+	trigger = {
+		any_courtier_or_vassal = {
+			has_minor_title = title_court_calligrapher
+			religion_group = muslim
+			block_general_event_trigger = no
+			in_command = no
+			NOT = { has_character_modifier = mosque_calligrapher_timer }
+		}
+
+		any_vassal = {
+			religion_group = muslim
+			block_general_event_trigger = no
+			war = no
+			in_command = no
+			NOT = { has_minor_title = title_court_calligrapher }
+
+			any_demesne_title = {
+				real_tier = BARON
+				holding_type = temple
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_court_calligrapher }
+
+			save_event_target_as = court_calligrapher
+
+			add_character_modifier = {
+				name = mosque_calligrapher_timer
+				years = 5
+				hidden = yes
+			}
+		}
+
+		random_vassal = {
+			limit = {
+				religion_group = muslim
+				block_general_event_trigger = no
+				war = no
+				in_command = no
+
+				any_demesne_title = {
+					real_tier = BARON
+					holding_type = temple
+				}
+
+				NOR = {
+					character = event_target:court_calligrapher
+
+					has_opinion_modifier = {
+						name = opinion_disappointed_calligrapher
+						who = event_target:court_calligrapher
+					}
+				}
+			}
+
+			preferred_limit = {
+				OR = {
+					trait = zealous
+					trait = ambitious
+				}
+
+				NOT = { has_minor_title = title_chief_architect }
+			}
+
+			preferred_limit = {
+				NOR = {
+					trait = cynical
+					trait = paranoid
+					has_minor_title = title_chief_architect
+				}
+			}
+
+			preferred_limit = {
+				NOT = { has_minor_title = title_chief_architect }
+			}
+
+			character_event = { id = 105050 }
+		}
+	}
+}
+
 # Court Calligrapher is asked to decorate the mosque
 character_event = {
 	id = 105050
@@ -3032,6 +3567,85 @@ character_event = {
 }
 
 
+# LI: CleanSlate router 105059 restored 2026-11-14 (step A had left it out; it fires LI's 105060)
+### Court Calligrapher created fine Hilya - Setup ###
+character_event = {
+	id = 105059
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+	in_command = no
+
+	trigger = {
+		piety >= 100
+
+		any_courtier_or_vassal = {
+			has_minor_title = title_court_calligrapher
+			religion_group = muslim
+			block_general_event_trigger = no
+			in_command = no
+			NOT = { has_character_modifier = beautiful_hilya }
+
+			OR = {
+				learning >= 20
+				trait = scholar
+				trait = poet
+			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_court_calligrapher
+				trait = zealous
+			}
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_court_calligrapher
+				trait = ambitious
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_court_calligrapher
+				trait = cynical
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_court_calligrapher
+				trait = slothful
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_court_calligrapher }
+			character_event = { id = 105060 }
+		}
+	}
+}
+
 ### Court Calligrapher created fine Hilya ###
 character_event = {
 	id = 105060
@@ -3174,6 +3788,79 @@ character_event = {
 	}
 }
 
+
+# LI: CleanSlate router 105064 restored 2026-11-14 (step A had left it out; it fires LI's 105065)
+### Court Calligrapher: Golden Qu'ran - Setup ###
+character_event = {
+	id = 105064
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+	in_command = no
+
+	trigger = {
+		scaled_wealth = 2
+
+		any_courtier_or_vassal = {
+			has_minor_title = title_court_calligrapher
+			religion_group = muslim
+			age >= 30
+			is_inaccessible_or_incapable_trigger = no
+			in_command = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_court_calligrapher
+				trait = greedy
+			}
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_court_calligrapher
+				trait = deceitful
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_court_calligrapher
+				trait = honest
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_court_calligrapher
+				trait = charitable
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_court_calligrapher }
+			character_event = { id = 105065 }
+		}
+	}
+}
 
 ### Court Calligrapher: Golden Qu'ran ###
 character_event = {
@@ -3577,6 +4264,45 @@ character_event = {
 ### COURT MUSICIAN ###
 
 
+# LI: CleanSlate router 105074 restored 2026-11-14 (step A had left it out; it fires LI's 105075)
+### Court Musician presents a song for the liege/liege's spouse - Setup ###
+character_event = {
+	id = 105074
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+
+	trigger = {
+		higher_real_tier_than = DUKE
+
+		any_courtier_or_vassal = {
+			has_minor_title = title_court_musician
+			religion_group = muslim
+			block_general_event_trigger = no
+			in_command = no
+
+			OR = {
+				diplomacy >= 15
+				trait = poet
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_court_musician }
+
+			save_event_target_as = court_musician
+
+			character_event = { id = 105075 }
+		}
+	}
+}
+
 ### Court Musician presents a song for the liege/liege's spouse ###
 character_event = {
 	id = 105075
@@ -3866,6 +4592,42 @@ character_event = {
 
 ### COURT POET ###
 
+
+# LI: CleanSlate router 105099 restored 2026-11-14 (step A had left it out; it fires LI's 105100)
+### Court Poet writes poem - Setup ###
+character_event = {
+	id = 105099
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+
+	trigger = {
+		higher_real_tier_than = DUKE
+
+		any_courtier_or_vassal = {
+			has_minor_title = title_court_poet
+			religion_group = muslim
+			block_general_event_trigger = no
+			in_command = no
+
+			OR = {
+				diplomacy >= 15
+				trait = poet
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_court_poet }
+			character_event = { id = 105100 }
+		}
+	}
+}
 
 ### Court Poet writes poem ###
 character_event = {
@@ -4180,6 +4942,101 @@ character_event = {
 ### CUPBEARER ###
 
 
+# LI: CleanSlate router 105149 restored 2026-11-14 (step A had left it out; it fires LI's 105150)
+### Cupbearer: Poison Host - Setup###
+character_event = {
+	id = 105149
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+	in_command = no
+
+	trigger = {
+		any_courtier_or_vassal = {
+			has_minor_title = title_cupbearer
+			block_general_event_trigger = no
+			war = no
+			in_command = no
+			NOT = { has_character_modifier = cupbearer_poison_timer }
+
+			OR = {
+				intrigue >= 15
+				diplomacy >= 15
+				trait = deceitful
+				trait = envious
+			}
+
+			opinion = {
+				who = ROOT
+				value < 0
+			}
+
+			host = {
+				character = ROOT
+				at_location = PREV
+			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_cupbearer
+				trait = envious
+			}
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_cupbearer
+				trait = deceitful
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_cupbearer
+				trait = honest
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_cupbearer
+				trait = charitable
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_cupbearer }
+
+			add_character_modifier = {
+				name = cupbearer_poison_timer
+				years = 5
+				hidden = yes
+			}
+
+			character_event = { id = 105150 }
+		}
+	}
+}
+
 ### Cupbearer: Poison Host ###
 character_event = {
 	id = 105150
@@ -4444,6 +5301,84 @@ character_event = {
 
 ### CHIEF ARCHITECT ###
 
+
+# LI: CleanSlate router 105199 restored 2026-11-14 (step A had left it out; it fires LI's 105200)
+### Chief Architect: Suggest improvements to castle - Setup ###
+character_event = {
+	id = 105199
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+	in_command = no
+
+	trigger = {
+		scaled_wealth = 2
+
+		any_courtier_or_vassal = {
+			has_minor_title = title_chief_architect
+			religion_group = muslim
+			block_general_event_trigger = no
+			in_command = no
+			at_location = ROOT
+
+			NOR = {
+				has_character_modifier = architect_improvement_timer
+				has_character_modifier = diligent_architect
+			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_chief_architect
+				trait = envious
+			}
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_chief_architect
+				trait = deceitful
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_chief_architect
+				trait = honest
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_chief_architect
+				trait = charitable
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_chief_architect }
+			character_event = { id = 105200 }
+		}
+	}
+}
 
 ### Chief Architect: Suggest improvements to castle ###
 character_event = {
@@ -4744,6 +5679,137 @@ character_event = {
 
 ### FOOD TASTER ###
 
+
+# LI: CleanSlate router 105249 restored 2026-11-14 (step A had left it out; it fires LI's 105250)
+### Food Taster: Poison host - Setup ###
+character_event = {
+	id = 105249
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, muslim_sultan_honorary_titles
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = muslim
+	prisoner = no
+	in_command = no
+
+	trigger = {
+		any_courtier_or_vassal = {
+			has_minor_title = title_food_taster
+			block_general_event_trigger = no
+			war = no
+			in_command = no
+			NOT = { has_character_modifier = food_taster_poison_timer }
+
+			OR = {
+				intrigue >= 15
+				diplomacy >= 15
+				trait = deceitful
+				trait = envious
+			}
+
+			opinion = {
+				who = ROOT
+				value < 0
+			}
+
+			host = {
+				character = ROOT
+				at_location = PREV
+			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_food_taster
+				trait = envious
+			}
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_food_taster
+				trait = deceitful
+			}
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_food_taster
+				trait = paranoid
+			}
+		}
+
+		mult_modifier = {
+			factor = 2
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_food_taster
+				trait = cynical
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_food_taster
+				trait = honest
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_food_taster
+				trait = charitable
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_food_taster
+				trait = trusting
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.5
+
+			any_courtier_or_vassal = {
+				has_minor_title = title_food_taster
+				trait = zealous
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_food_taster }
+
+			add_character_modifier = {
+				name = food_taster_poison_timer
+				years = 5
+				hidden = yes
+			}
+
+			character_event = { id = 105250 }
+		}
+	}
+}
 
 ### Food Taster: Poison host ###
 character_event = {

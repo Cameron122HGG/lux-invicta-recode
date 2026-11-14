@@ -177,7 +177,7 @@ on_adulthood = {
 # ROOT is defender
 on_war_started = {
 	events = {
-		#TOG.183 # Nerge abandoned due to war (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		TOG.183 # Nerge abandoned due to war
 	}
 }
 

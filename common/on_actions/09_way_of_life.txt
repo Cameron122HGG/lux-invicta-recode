@@ -92,7 +92,7 @@ on_focus_pulse = {
 		250 = WoL.2300 # Your spymaster is plotting!
 
 		# Business Focus
-		#1000 = WoL.10000 # Business Focus Random Event Tombola (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		1000 = WoL.10000 # Business Focus Random Event Tombola
 	}
 }
 

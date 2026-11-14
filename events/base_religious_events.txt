@@ -262,6 +262,46 @@ character_event = {
 }
 
 
+# LI: CleanSlate router 39405 restored 2026-11-14 (step A had left it out; it fires LI's 39403)
+# Pope urges to root out heresy in province - Setup
+character_event = {
+	id = 39405
+
+	is_triggered_only = yes # on_yearly_pulse
+	hide_window = yes
+
+	lacks_dlc = "Sons of Abraham"
+	only_playable = yes
+	religion_group = christian
+	min_age = 16
+
+	trigger = {
+		is_catholic_branch = yes
+		rightful_religious_head_scope = { always = yes }
+
+		any_demesne_province = {
+			religion_group = christian
+			is_heretic = yes
+			owned_by = PREV
+
+			owner = {
+				job_spiritual = {
+					NAND = {
+						has_job_action = action_inquisition
+						at_location = PREVPREV
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		rightful_religious_head_scope = {
+			character_event = { id = 39403 }
+		}
+	}
+}
+
 # Pope urges to root out heresy in province
 character_event = {
 	id = 39403
@@ -462,6 +502,66 @@ letter_event = {
 	}
 }
 
+
+# LI: CleanSlate router 39444 restored 2026-11-14 (step A had left it out; it fires LI's 39445)
+# Vassal disappointed in liege having heretic advisor - Setup
+character_event = {
+	id = 39444
+
+	is_triggered_only = yes # on_yearly_pulse, random_events, heretic_advisor
+	hide_window = yes
+
+	lacks_dlc = "Sons of Abraham"
+	only_playable = yes
+	religion_group = christian
+
+	trigger = {
+		is_heretic = no
+
+		any_voter = {
+			is_heretic = yes
+			religion_group = christian
+			prisoner = no
+		}
+
+		any_vassal = {
+			religion = ROOT
+			is_adult = yes
+			is_incapable = no
+			prisoner = no
+
+			NOT = {
+				has_opinion_modifier = {
+					name = opinion_disappointed
+					who = ROOT
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_vassal = {
+			limit = {
+				religion = ROOT
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+
+				NOT = {
+					has_opinion_modifier = {
+						name = opinion_disappointed
+						who = ROOT
+					}
+				}
+			}
+
+			preferred_limit = { trait = zealous }
+			preferred_limit = { NOT = { trait = cynical } }
+
+			character_event = { id = 39445 }
+		}
+	}
+}
 
 # Vassal disappointed in liege having heretic advisor
 character_event = {
@@ -1176,6 +1276,49 @@ letter_event = {
 }
 
 
+# LI: CleanSlate router 39209 restored 2026-11-14 (step A had left it out; it fires LI's 39210)
+# Pope offers absolution for Kinslaying - Setup
+character_event = {
+	id = 39209
+
+	is_triggered_only = yes # on_bi_yearly_pulse
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = christian
+
+	trigger = {
+		is_catholic_branch = yes
+		is_any_kinslayer_trigger = yes
+		piety >= 100
+		NOT = { has_character_flag = kinslaying_offered }
+
+		rightful_religious_head_scope = {
+			NOT = { has_character_modifier = pope_kinslaying_timer }
+			is_incapable = no
+			prisoner = no
+			war = no
+
+			reverse_opinion = {
+				who = ROOT
+				value >= 0
+			}
+		}
+	}
+
+	immediate = {
+		rightful_religious_head_scope = {
+			add_character_modifier = {
+				name = pope_kinslaying_timer
+				years = 2
+				hidden = yes
+			}
+
+			character_event = { id = 39210 }
+		}
+	}
+}
+
 # Pope offers absolution for Kinslaying
 character_event = {
 	id = 39210
@@ -1310,6 +1453,96 @@ character_event = {
 # Bishops don't like being in prison events...
 ########################################
 
+
+# LI: CleanSlate router 39219 restored 2026-11-14 (step A had left it out; it fires LI's 39220, 39220, 39220)
+# Catholic Chain - Setup
+character_event = {
+	id = 39219
+
+	is_triggered_only = yes # on_become_imprisoned_any_reason
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = christian
+
+	trigger = {
+		is_catholic_branch = yes
+		is_theocracy = yes
+		is_antipope = no
+		controls_religion = no
+		NOT = { has_character_flag = nag_pope_to_help_me }
+
+		host = {
+			religion = ROOT
+
+			rightful_religious_head_scope = {
+				controls_religion = yes
+			}
+		}
+
+		# Don't grovel if we dont like the Pope
+		religion_head = {
+			reverse_opinion = {
+				who = ROOT
+				value >= 25
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				calc_true_if = {
+					amount >= 2
+
+					trait = zealous
+					piety >= 25
+
+					religion_head = {
+						reverse_opinion = {
+							who = ROOT
+							value >= 50
+						}
+					}
+				}
+			}
+
+			character_event = {
+				id = 39220
+				days = 14
+				random = 60
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					trait = zealous
+					piety >= 25
+
+					religion_head = {
+						reverse_opinion = {
+							who = ROOT
+							value >= 50
+						}
+					}
+				}
+			}
+
+			character_event = {
+				id = 39220
+				months = 1
+				random = 90
+			}
+		}
+		else = {
+			character_event = {
+				id = 39220
+				months = 3
+				random = 180
+			}
+		}
+	}
+}
 
 # Bishop in prison whines to pope..
 character_event = {
@@ -1674,6 +1907,76 @@ character_event = {
 }
 
 
+# LI: CleanSlate router 39229 restored 2026-11-14 (step A had left it out; it fires LI's 39230, 39230, 39230, 39230)
+# Orthodox Chain - Setup
+character_event = {
+	id = 39229
+
+	is_triggered_only = yes # on_become_imprisoned_any_reason
+	hide_window = yes
+
+	only_rulers = yes
+	religion_group = christian
+
+	trigger = {
+		is_theocracy = yes
+		is_orthodox_branch = yes
+		religion_authority >= 0.02
+
+		host = {
+			religion = ROOT
+			rightful_religious_head_scope = { always = yes }
+		}
+	}
+
+	immediate = {
+		clear_delayed_event = { id = 39230 }
+
+		host = {
+			if = {
+				limit = {
+					calc_true_if = {
+						amount >= 2
+
+						trait = just
+						trait = zealous
+						religion_authority >= 0.25
+						religion_authority >= 0.50
+					}
+				}
+
+				character_event = {
+					id = 39230
+					days = 100
+					random = 30
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						trait = just
+						trait = zealous
+						religion_authority >= 0.25
+					}
+				}
+
+				character_event = {
+					id = 39230
+					days = 100
+					random = 90
+				}
+			}
+			else = {
+				character_event = {
+					id = 39230
+					days = 100
+					random = 180
+				}
+			}
+		}
+	}
+}
+
 # Orthodox & We got a bishop in jail.
 character_event = {
 	id = 39230
@@ -1734,6 +2037,55 @@ character_event = {
 # Religious Head does not like it when you have heathens in your employ
 ########################################################################
 
+
+# LI: CleanSlate router 39239 restored 2026-11-14 (step A had left it out; it fires LI's 39240)
+# CleanSlate: Orthodox variant merged with Catholic variant
+# Pope/Patriarch demands that a ruler not have heathens employed. - Setup
+character_event = {
+	id = 39239
+
+	is_triggered_only = yes # on_yearly_pulse, random_events, heretic_advisor
+	hide_window = yes
+
+	only_playable = yes
+	religion_group = christian
+
+	trigger = {
+		religion_authority >= 0.20
+		NOT = { has_character_flag = pope_dislikes_heathen_employed }
+
+		OR = {
+			is_catholic_branch = yes
+			is_orthodox_branch = yes
+		}
+
+		rightful_religious_head_scope = {
+			is_incapable = no
+			prisoner = no
+			war = no
+		}
+
+		any_voter = {
+			prisoner = no
+			NOT = { religion_group = christian }
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 4
+			rightful_religious_head_scope = { trait = zealous }
+		}
+	}
+
+	immediate = {
+		rightful_religious_head_scope = {
+			character_event = { id = 39240 }
+		}
+	}
+}
 
 # Pope/Patriarch demands that a ruler not have heathens employed.
 character_event = {

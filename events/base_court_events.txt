@@ -1412,6 +1412,62 @@ character_event = {
 #####################################
 
 
+# LI: CleanSlate router 73199 restored 2026-11-14 (step A had left it out; it fires LI's 73200)
+# Marshal - Setup
+character_event = {
+	id = 73199
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, better_councillor_events
+	hide_window = yes
+
+	only_playable = yes
+	lacks_dlc = "Conclave"
+	prisoner = no
+
+	trigger = {
+		any_courtier = {
+			can_hold_title = job_marshal
+			NOT = { has_character_flag = asked_for_job }
+			is_ruler = no
+			is_councillor = no
+			is_adult = yes
+			is_incapable = no
+			prisoner = no
+
+			ROOT = {
+				job_marshal = {
+					martial < PREVPREV
+					NOT = { has_minor_title = title_regent }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier = {
+			limit = {
+				can_hold_title = job_marshal
+				NOT = { has_character_flag = asked_for_job }
+				is_ruler = no
+				is_councillor = no
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+
+				ROOT = {
+					job_marshal = { martial < PREVPREV }
+				}
+			}
+
+			preferred_limit = { trait = ambitious }
+
+			set_character_flag = asked_for_job
+
+			character_event = { id = 73200 }
+		}
+	}
+}
+
 ### MARSHAL ###
 character_event = {
 	id = 73200
@@ -1651,6 +1707,62 @@ letter_event = {
 }
 
 
+# LI: CleanSlate router 73209 restored 2026-11-14 (step A had left it out; it fires LI's 73210)
+# Spymaster - Setup
+character_event = {
+	id = 73209
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, better_councillor_events
+	hide_window = yes
+
+	only_playable = yes
+	lacks_dlc = "Conclave"
+	prisoner = no
+
+	trigger = {
+		any_courtier = {
+			can_hold_title = job_spymaster
+			NOT = { has_character_flag = asked_for_job }
+			is_ruler = no
+			is_councillor = no
+			is_adult = yes
+			is_incapable = no
+			prisoner = no
+
+			ROOT = {
+				job_spymaster = {
+					intrigue < PREVPREV
+					NOT = { has_minor_title = title_regent }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier = {
+			limit = {
+				can_hold_title = job_spymaster
+				NOT = { has_character_flag = asked_for_job }
+				is_ruler = no
+				is_councillor = no
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+
+				ROOT = {
+					job_spymaster = { intrigue < PREVPREV }
+				}
+			}
+
+			preferred_limit = { trait = ambitious }
+
+			set_character_flag = asked_for_job
+
+			character_event = { id = 73210 }
+		}
+	}
+}
+
 ### Spymaster ###
 character_event = {
 	id = 73210
@@ -1889,6 +2001,62 @@ letter_event = {
 }
 
 
+# LI: CleanSlate router 73219 restored 2026-11-14 (step A had left it out; it fires LI's 73220)
+# Treasurer - Setup
+character_event = {
+	id = 73219
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, better_councillor_events
+	hide_window = yes
+
+	only_playable = yes
+	lacks_dlc = "Conclave"
+	prisoner = no
+
+	trigger = {
+		any_courtier = {
+			can_hold_title = job_treasurer
+			NOT = { has_character_flag = asked_for_job }
+			is_ruler = no
+			is_councillor = no
+			is_adult = yes
+			is_incapable = no
+			prisoner = no
+
+			ROOT = {
+				job_treasurer = {
+					stewardship < PREVPREV
+					NOT = { has_minor_title = title_regent }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier = {
+			limit = {
+				can_hold_title = job_treasurer
+				NOT = { has_character_flag = asked_for_job }
+				is_ruler = no
+				is_councillor = no
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+
+				ROOT = {
+					job_treasurer = { stewardship < PREVPREV }
+				}
+			}
+
+			preferred_limit = { trait = ambitious }
+
+			set_character_flag = asked_for_job
+
+			character_event = { id = 73220 }
+		}
+	}
+}
+
 ### Treasurer ###
 character_event = {
 	id = 73220
@@ -2119,6 +2287,73 @@ letter_event = {
 	}
 }
 
+
+# LI: CleanSlate router 73229 restored 2026-11-14 (step A had left it out; it fires LI's 73230)
+# Lord Spiritual - Setup
+character_event = {
+	id = 73229
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, better_councillor_events
+	hide_window = yes
+
+	only_playable = yes
+	lacks_dlc = "Conclave"
+	prisoner = no
+
+	trigger = {
+		NOR = {
+			religion_group = muslim
+			# Won't claim to be a better chaplain than your religious head...
+			rightful_religious_head = job_spiritual
+		}
+
+		job_spiritual = {
+			NOT = { has_minor_title = title_regent }
+		}
+
+		any_courtier_or_vassal = {
+			can_hold_title = job_spiritual
+			NOT = { has_character_flag = asked_for_job }
+			is_councillor = no
+			is_adult = yes
+
+			trigger_if = {
+				limit = { is_ruler = yes }
+				is_theocracy = yes
+			}
+
+			ROOT = {
+				job_spiritual = { learning < PREVPREV }
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				can_hold_title = job_spiritual
+				NOT = { has_character_flag = asked_for_job }
+				is_councillor = no
+				is_adult = yes
+
+				trigger_if = {
+					limit = { is_ruler = yes }
+					is_theocracy = yes
+				}
+
+				ROOT = {
+					job_spiritual = { learning < PREVPREV }
+				}
+			}
+
+			preferred_limit = { trait = ambitious }
+
+			set_character_flag = asked_for_job
+
+			character_event = { id = 73230 }
+		}
+	}
+}
 
 ### Lord Spiritual ###
 # LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
@@ -2405,6 +2640,62 @@ letter_event = {
 	}
 }
 
+
+# LI: CleanSlate router 73239 restored 2026-11-14 (step A had left it out; it fires LI's 73240)
+# Chancellor - Setup
+character_event = {
+	id = 73239
+
+	is_triggered_only = yes # on_bi_yearly_pulse, random_events, better_councillor_events
+	hide_window = yes
+
+	only_playable = yes
+	lacks_dlc = "Conclave"
+	prisoner = no
+
+	trigger = {
+		any_courtier = {
+			can_hold_title = job_chancellor
+			NOT = { has_character_flag = asked_for_job }
+			is_ruler = no
+			is_councillor = no
+			is_adult = yes
+			is_incapable = no
+			prisoner = no
+
+			ROOT = {
+				job_chancellor = {
+					diplomacy < PREVPREV
+					NOT = { has_minor_title = title_regent }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_courtier = {
+			limit = {
+				can_hold_title = job_chancellor
+				NOT = { has_character_flag = asked_for_job }
+				is_ruler = no
+				is_councillor = no
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
+
+				ROOT = {
+					job_chancellor = { diplomacy < PREVPREV }
+				}
+			}
+
+			preferred_limit = { trait = ambitious }
+
+			set_character_flag = asked_for_job
+
+			character_event = { id = 73240 }
+		}
+	}
+}
 
 ### Chancellor ###
 character_event = {

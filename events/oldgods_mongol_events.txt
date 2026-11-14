@@ -1688,6 +1688,43 @@ character_event = {
 }
 
 
+# LI: CleanSlate router TOG.183 restored 2026-11-14 (step A had left it out; it fires LI's TOG.181, TOG.181)
+# Nerge abandoned due to war
+character_event = {
+	id = TOG.183
+
+	is_triggered_only = yes # on_war_started
+	hide_window = yes
+
+	immediate = {
+		ROOT = {
+			if = {
+				limit = {
+					OR = {
+						has_character_flag = khagan_holding_nerge
+						has_character_flag = khagan_finishing_nerge
+					}
+				}
+
+				character_event = { id = TOG.181 }
+			}
+		}
+
+		FROM = {
+			if = {
+				limit = {
+					OR = {
+						has_character_flag = khagan_holding_nerge
+						has_character_flag = khagan_finishing_nerge
+					}
+				}
+
+				character_event = { id = TOG.181 }
+			}
+		}
+	}
+}
+
 character_event = {
 	id = TOG.181
 	desc = EVTDESC_TOG_181
