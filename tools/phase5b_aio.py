@@ -78,10 +78,10 @@ def keyset(root, folders, depth=0):
             s |= {k for k, a, b in blocks(rd(p), depth)}
     return s
 mod_events = {k for (f, k) in mod if f == 'events'}
-mod_script = keyset(REPO, ['common/scripted_triggers', 'common/scripted_effects'])
+mod_script = keyset(REPO, ['common/scripted_triggers', 'common/scripted_effects', 'common/scripted_score_values'])
 mod_mods = keyset(REPO, ['common/event_modifiers', 'common/opinion_modifiers', 'common/traits', 'common/minor_titles',
                          'common/artifacts', 'common/objectives', 'common/societies'])
-aio_script = keyset(AIO, ['common/scripted_triggers', 'common/scripted_effects'])
+aio_script = keyset(AIO, ['common/scripted_triggers', 'common/scripted_effects', 'common/scripted_score_values'])
 aio_mods = keyset(AIO, ['common/event_modifiers', 'common/opinion_modifiers', 'common/traits', 'common/minor_titles',
                         'common/artifacts', 'common/objectives', 'common/societies'])
 def loc_keys(root):
