@@ -22,6 +22,11 @@ color = {
 		{ 38 38 38 }	#9 Sable (Black)
 		{ 48 137 4 } #10 Vert (Green)
 		{ 132 0 132 }	#11 Purpure (Purple)
+		# 12-14 added from the vanilla palette: some dynasty coats of arms in common/dynasties
+		# (Gladius Christi, Mard-e Koochak, af Faringso, Fuhraeus) use these colour indices
+		{ 51 33 20 }	#12 Brown (vanilla)
+		{ 50 173 192 }	#13 Turquoise (vanilla)
+		{ 1 182 108 }	#14 Teal (vanilla)
 
 		
 		
@@ -31,18 +36,21 @@ color = {
 
 	banned_colors = 
 	{ 
-		{ 0 1 }						#0		
-		{ 0 1 9 }					#1		
-		{ 2 3 4 6 7 8 9 }		#2		
-		{ 2 3 4 7 9 10 }			#3		
-		{ 2 4 6 7 9 10 }		#4		
-		{ 5 10 }				#5		
-		{ 2 4 6 10 11 }			#6		
-		{ 2 3 4 7 8 10 }			#7		
-		{ 2 4 6 7 8 9 }				#8		
-		{ 2 3 4 8 9 10 11 }		#9		
-		{ 3 4 5 6 7 9 10 }			#10		
+		{ 0 1 }						#0
+		{ 0 1 9 }					#1
+		{ 2 3 4 6 7 8 9 12 14 }		#2
+		{ 2 3 4 7 9 10 }			#3
+		{ 2 4 6 7 9 10 13 14 }		#4
+		{ 5 10 14 }				#5 (15 removed: no colour 15)
+		{ 2 4 6 10 11 12 }			#6
+		{ 2 3 4 7 8 10 13 }			#7
+		{ 2 4 6 7 8 9 }				#8
+		{ 2 3 4 8 9 10 11 13 }		#9
+		{ 3 4 5 6 7 9 10 }			#10
 		{ 6 9 11 }					#11
+		{ 6 12 }					#12
+		{ 4 7 9 13 14 }				#13
+		{ 2 4 13 14 }				#14
 	}
 	
 	emblem = {
