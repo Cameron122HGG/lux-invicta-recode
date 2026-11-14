@@ -35,11 +35,20 @@ VALID = {'culture': cultures, 'culture_group': cult_groups, 'religion': religion
          'trait': traits, 'artifact_type': artifacts, 'has_artifact': artifacts,
          'has_landed_title': titles, 'title': titles, 'has_claim': titles, 'has_weak_claim': titles,
          'has_strong_claim': titles}
+# Scope names used in place of a value ("religion = liege", "culture = attacker"). CleanSlate uses
+# these a lot; they are only resolved at runtime, so they are never "dead".
+SCOPE_WORDS = {'liege', 'top_liege', 'owner', 'controller', 'location', 'capital_scope', 'holder', 'holder_scope',
+               'attacker', 'defender', 'thirdparty', 'educator', 'employer', 'host', 'father', 'mother', 'spouse',
+               'real_father', 'mother_even_if_dead', 'father_even_if_dead', 'guardian', 'lover', 'killer',
+               'primary_title', 'culture', 'religion', 'heir', 'player_heir', 'regent', 'betrothed', 'current_heir'}
 def leaf_dead(k, v):
     v = v.strip('"')
     if k not in VALID or VALID[k] is None: return False
     if k == 'title' and not re.match(r'[ekdcb]_', v): return False  # 'title = X' with a non-title value (e.g. a loc key)
-    if v in ('ROOT', 'FROM', 'PREV', 'THIS', 'none', 'random', 'yes', 'no') or v.startswith(('event_target', 'ROOT', 'FROM', 'PREV')): return False
+    if v in ('ROOT', 'FROM', 'PREV', 'THIS', 'none', 'random', 'yes', 'no') or v.startswith(('event_target', 'ROOT', 'FROM', 'PREV', 'THIS')): return False
+    if v in SCOPE_WORDS or v.endswith(('_scope', '_title')) or ':' in v: return False
+    # "religion = d_knights_templar" means "same religion as that title's holder": a scope, not a name
+    if k not in ('title', 'has_landed_title', 'has_claim', 'has_weak_claim', 'has_strong_claim') and re.match(r'[ekdcb]_', v): return False
     return v not in VALID[k]
 
 # ---- parse into nodes with line spans

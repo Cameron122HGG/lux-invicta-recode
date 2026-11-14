@@ -61,6 +61,12 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    `cleanslate_beta7/`, which CK2 ignores; later phases build LI's files from it. A separate test
    mod, "CleanSlate beta 7 (baseline test)" (`mod/CleanSlate-beta7`, outside the repo), is used to
    record a baseline log of CleanSlate alone, so CleanSlate's own errors, if any, are known.
+   **Baseline result** (`Crusader Kings II/CleanSlate_baseline_logs_2026-11-14`): `error.log` has
+   724 lines. They aren't bugs. About 590 are CleanSlate's scope shorthand, which the load-time
+   checker can't resolve (`religion = liege`, `culture = attacker`, `religion = d_knights_templar`,
+   `… = thirdparty_title_scope`); 101 are "event has no picture" for hidden events; 9 are
+   customizable localisation. `historical_setup_errors.log`: 7,370 "Missing scripted successor"
+   (vanilla: 7,367). Count only lines beyond these patterns as migration problems.
 1. **World data.** LI's map, history, landed titles, cultures, religions, dynasties, gfx, music and
    sound replace CleanSlate's. This is where the most errors will appear, because CleanSlate's
    scripts expect vanilla's world. That's expected; phases 2–6 work them down.
