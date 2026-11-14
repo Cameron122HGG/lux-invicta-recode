@@ -274,13 +274,8 @@ character_event = {
 					}
 				}
 
-				random_list = {
-					10 = { c_anxi       = { location = { save_event_target_as = spawn_province } } }
-					10 = { c_dunhuang   = { location = { save_event_target_as = spawn_province } } }
-					10 = { c_jiuquan    = { location = { save_event_target_as = spawn_province } } }
-					10 = { c_kumul      = { location = { save_event_target_as = spawn_province } } } # Yizhou
-					10 = { c_kara_khoja = { location = { save_event_target_as = spawn_province } } } # Gaochang
-					10 = { c_luntai     = { location = { save_event_target_as = spawn_province } } } # Luntai
+				1207 = { # LI: Kroran (Loulan), Lux Invicta's spawn point from master; CleanSlate's random_list used vanilla counties (c_anxi, c_dunhuang...) that LI's map lacks
+					save_event_target_as = spawn_province
 				}
 
 				# Currently not compatible with hardcap 200k
@@ -326,14 +321,11 @@ character_event = {
 			else = {
 				offmap_china = { set_offmap_flag = troop_spawn_india_temp }
 
-				c_samatata = {
-					location = {
-						save_event_target_as = spawn_province
-
-						sea_zone = { # Ganges Eelta
-							save_event_target_as = fleet_spawn_location
-						}
-					}
+				1572 = { # LI: Chatigama, Lux Invicta's spawn point from master (CleanSlate used c_samatata, which LI's map lacks)
+					save_event_target_as = spawn_province
+				}
+				1309 = { # LI: Ganges delta sea zone, as on master
+					save_event_target_as = fleet_spawn_location
 				}
 
 				set_variable = {
