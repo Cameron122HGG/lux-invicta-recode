@@ -13870,6 +13870,8 @@ character_event = {
 
 # Makes sure d_fedayeen owner and subjects have appropriate religion and assassins membership
 # LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI: MNM.6990 fixed 2026-11-14 - the secret-religion and join steps of each order block were not keyed on that order,
+# so every leader ran all 9 blocks (refused by the engine: "Holy Order leader" / "Already part of a society").
 character_event = {
 	id = MNM.6990
 	hide_window = yes
@@ -13904,6 +13906,7 @@ character_event = {
 
 		if = {
 			limit = {
+				primary_title = { title = d_hashshashin } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_hashshashin }
@@ -13917,7 +13920,10 @@ character_event = {
 
 		#Try and force them to lvl 3 of the assassins
 		if = {
-			limit = { NOT = { society_member_of = the_assassins } }
+			limit = {
+				primary_title = { title = d_hashshashin } # LI: only for this order's own leader
+				is_in_society = no # LI: joining fails for someone already in a society
+			}
 			join_society = the_assassins
 		}
 		if = {
@@ -14004,6 +14010,7 @@ character_event = {
 
 		if = {
 			limit = {
+				primary_title = { title = d_enemies_of_avidya } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_enemies_of_avidya }
@@ -14017,7 +14024,10 @@ character_event = {
 
 		#Try and force them to lvl 3 of the assassins
 		if = {
-			limit = { NOT = { society_member_of = the_assassins_bud_mahayana } }
+			limit = {
+				primary_title = { title = d_enemies_of_avidya } # LI: only for this order's own leader
+				is_in_society = no # LI: joining fails for someone already in a society
+			}
 			join_society = the_assassins_bud_mahayana
 		}
 		if = {
@@ -14104,6 +14114,7 @@ character_event = {
 
 		if = {
 			limit = {
+				primary_title = { title = d_ahrimans_divs } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_ahrimans_divs }
@@ -14117,7 +14128,10 @@ character_event = {
 
 		#Try and force them to lvl 3 of the assassins
 		if = {
-			limit = { NOT = { society_member_of = the_assassins_mani_ahriman } }
+			limit = {
+				primary_title = { title = d_ahrimans_divs } # LI: only for this order's own leader
+				is_in_society = no # LI: joining fails for someone already in a society
+			}
 			join_society = the_assassins_mani_ahriman
 		}
 		if = {
@@ -14204,6 +14218,7 @@ character_event = {
 
 		if = {
 			limit = {
+				primary_title = { title = d_holy_doctors } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_holy_doctors }
@@ -14217,7 +14232,10 @@ character_event = {
 
 		#Try and force them to lvl 3 of the assassins
 		if = {
-			limit = { NOT = { society_member_of = the_assassins_priscillian } }
+			limit = {
+				primary_title = { title = d_holy_doctors } # LI: only for this order's own leader
+				is_in_society = no # LI: joining fails for someone already in a society
+			}
 			join_society = the_assassins_priscillian
 		}
 		if = {
@@ -14304,6 +14322,7 @@ character_event = {
 
 		if = {
 			limit = {
+				primary_title = { title = d_council_of_aesir } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_council_of_aesir }
@@ -14317,7 +14336,10 @@ character_event = {
 
 		#Try and force them to lvl 3 of the assassins
 		if = {
-			limit = { NOT = { society_member_of = the_assassins_ragnarok } }
+			limit = {
+				primary_title = { title = d_council_of_aesir } # LI: only for this order's own leader
+				is_in_society = no # LI: joining fails for someone already in a society
+			}
 			join_society = the_assassins_ragnarok
 		}
 		if = {
@@ -14404,6 +14426,7 @@ character_event = {
 
 		if = {
 			limit = {
+				primary_title = { title = d_warriors_of_oasis } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_warriors_of_oasis }
@@ -14417,7 +14440,10 @@ character_event = {
 
 		#Try and force them to lvl 3 of the assassins
 		if = {
-			limit = { NOT = { society_member_of = the_assassins_set } }
+			limit = {
+				primary_title = { title = d_warriors_of_oasis } # LI: only for this order's own leader
+				is_in_society = no # LI: joining fails for someone already in a society
+			}
 			join_society = the_assassins_set
 		}
 		if = {
@@ -14504,6 +14530,7 @@ character_event = {
 
 		if = {
 			limit = {
+				primary_title = { title = d_blue_wolves } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_blue_wolves }
@@ -14517,7 +14544,10 @@ character_event = {
 
 		#Try and force them to lvl 3 of the assassins
 		if = {
-			limit = { NOT = { society_member_of = the_assassins_tengri_ahriman } }
+			limit = {
+				primary_title = { title = d_blue_wolves } # LI: only for this order's own leader
+				is_in_society = no # LI: joining fails for someone already in a society
+			}
 			join_society = the_assassins_tengri_ahriman
 		}
 		if = {
@@ -14604,6 +14634,7 @@ character_event = {
 
 		if = {
 			limit = {
+				primary_title = { title = d_order_of_righteous } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_order_of_righteous }
@@ -14617,7 +14648,10 @@ character_event = {
 
 		#Try and force them to lvl 3 of the assassins
 		if = {
-			limit = { NOT = { society_member_of = the_assassins_yahyanism } }
+			limit = {
+				primary_title = { title = d_order_of_righteous } # LI: only for this order's own leader
+				is_in_society = no # LI: joining fails for someone already in a society
+			}
 			join_society = the_assassins_yahyanism
 		}
 		if = {
@@ -14704,6 +14738,7 @@ character_event = {
 
 		if = {
 			limit = {
+				primary_title = { title = d_avengers_of_holy_pyre } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_avengers_of_holy_pyre }
@@ -14717,7 +14752,10 @@ character_event = {
 
 		#Try and force them to lvl 3 of the assassins
 		if = {
-			limit = { NOT = { society_member_of = the_assassins_zor_angra } }
+			limit = {
+				primary_title = { title = d_avengers_of_holy_pyre } # LI: only for this order's own leader
+				is_in_society = no # LI: joining fails for someone already in a society
+			}
 			join_society = the_assassins_zor_angra
 		}
 		if = {
