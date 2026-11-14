@@ -257,6 +257,14 @@ Each phase is its own commit (or several), followed by a run and a log compariso
 6. **Localisation.** CleanSlate's localisation (reorganised and fixed) plus LI's CSVs, with LI's
    overriding where both define a key. Then trim the French/Spanish/German customizable
    localisation of checks for things LI lacks, using the same behaviour-identical tool.
+   *(Started 2026-11-14.)* The 3,738 log lines were dead title/culture/religion/society checks in
+   customizable localisation (2,453 French, 1,085 Spanish). `trim_dead.py` with unit `text` removed
+   7,768 lines from 6 files: entries that can never be valid, and dead entries in `OR`/`NOR` lists.
+   No `defined_text` lost or emptied; `00_customizable_localisation_DE_Warrior_lodges.txt` was left
+   alone (Holy Fury; it would empty 4 definitions). Missing keys: 115 referenced by events and
+   decisions are in no CSV (CleanSlate alone: 152); most are `create_character` names. The real ones
+   (`EVTDESC_TOG_75xx_*` West African ancestor variants, `EVTDESC66050/66051`) were missing on master
+   too: original LI gaps, for later.
 7. **Re-apply master's fixes that live in replaced files.** Most of the pre-CleanSlate fixes are in
    LI's own data and files and carry over. Re-check the ones made in vanilla-derived files:
    `dynasty = 0` → `none`, the holy order expulsion (SoA.1060), the game rules (generate families
