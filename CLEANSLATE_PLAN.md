@@ -344,8 +344,11 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      counties LI lacks → LI's Kroran 1207, Chatigama 1572, Ganges delta 1309; 108 "Invalid province" lines);
      LI's own `religious_titles.txt` caliphate/holy-city requirements (Jerusalem 774→814, Medina 718→724,
      Baghdad 693→731, Damascus 809→755, Cordoba 181→192: original LI bug, 39 references); the Library of
-     Alexandria fallback (802→999). **Open:** CleanSlate's `00_province_triggers.txt` (126 numeric references)
-     and `common/technology.txt` (44) look vanilla-numbered and need a proper review.
+     Alexandria fallback (802→999). Reviewed and fine: `00_province_triggers.txt` (126 references) is LI's own
+     silk road list, already in LI's numbering (Venetia, Konstantinoupolis, Itil, Merv, Bagdad, the Tarim, the
+     Indian Ocean and Mediterranean sea lanes; 1577/1578 are LI's silk route start points);
+     `common/technology.txt`'s numbers are tech levels; the other audit hits are `trigger_switch` values or
+     already LI-numbered. No further province-number fixes needed.
 
 ## Tools (currently in the session scratchpad; move into `tools/` in the repo to keep them)
 
