@@ -1,0 +1,326 @@
+# Lux Invicta definitions extracted from master:events/oldgods_pagan_feasts.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+namespace = TOG
+
+				character_event = { id = TOG.839 tooltip = EVTTOOLTIP_TOG_669 }
+			}
+			add_lover = FROM
+		}
+	}
+}
+
+# Homosexual Male (Guest 1)
+character_event = {
+	id = TOG.835
+	desc = EVTDESC_TOG_664
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_664
+		tooltip_info = homosexual
+		random = {
+			chance = 50
+			character_event = { id = TOG.839 tooltip = EVTTOOLTIP_TOG_669 }
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = TOG.839 }
+				}
+			}
+		}
+		t
+		tooltip = {
+			add_lover = FROM
+		}
+	}
+}
+
+# Homosexual Female (Guest 1 Hidden)
+character_event = {
+	id = TOG.836
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = jarilo_feast_vassal
+			has_character_flag = pagan_festival_feast_vassal
+		}
+		NOT = { has_character_flag = feast_homosexual }
+		trait = homosexual
+		is_female = yes
+		has_lover = no
+		liege = { 
+			OR = {
+		has_character_flag = holding_pagan_festival
+		has_character_flag = holding_jarilo
+	}
+			NOT = { has_character_flag = feast_homosexual }
+			any_vassal = {
+				OR = {
+					has_character_flag = jari
+					has_character_flag = jarilo_feast_vassal
+					has_character_flag = pagan_festival_feast_vassal
+				}
+				NOT = { has_character_flag = feast_homosexual }
+				NOT = { character = ROOT }
+				opinion = { who = ROOT value =  0 }
+				trait = homosexual
+				is_female = yes
+				has_lover = no
+			}		
+		}
+	}
+	
+#	mean_time_to_happen = {
+#	
+#	mean_time_to_happen = {
+#		days = 40
+#		
+#		modifier = {
+#			factor = 1.1
+#			liege = { num_of_vassals = 10 }
+#		}
+#		modifier = {
+#			factor = 1.2
+#			liege = { num_of_vassals = 20 }
+#		}
+#		modifier = {
+#			factor = 1.3
+#			liege = { num_of_vassals = 30 }
+#		}
+#		modifier = {
+#			factor = 1.4
+#			liege = { num_of_vassals = 40 }
+#		}
+#		modifier = {
+#			factor = 1.5
+#			liege = { num_of_vassals = 50 }
+#		}
+#		modifier = {
+#			factor = 3
+#			liege = { num_of_vassals = 100 }
+#		}
+#	}
+	
+	immediate = {
+		set_character_flag = feast_homosexual
+		liege = { 
+			set_character_flag = feast_homosexual
+			random_vassal = {
+				limit = {
+					OR = {
+						has_character_flag = jarilo_feast_vassal
+						has_character_flag = pagan_festival_feast_vassal
+					}
+					NOT =
+					NOT = { has_character_flag = feast_homosexual }
+					NOT = { character = ROOT }
+					opinion = { who = ROOT value =  0 }
+					trait = homosexual
+					is_female = yes
+				}
+				character_event = { id = TOG.837 }
+				set_character_flag = feast_homosexual
+				add_lover = ROOT
+			}		
+		}
+	}
+}
+
+# Homosexual Female (Guest 2)
+character_event = {
+	id = TOG.837
+	desc = EVTDESC_TOG_664
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_664
+		tooltip_info = homosexual
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = TOG.838 }
+			}
+			liege = {
+				character_event = { id = TOG.840 }
+				any_vassal = {
+					limit = {
+						OR = {
+							has_character_flag = jarilo_feast_vassal
+							has_character_flag = pagan_festival_feast_vassal
+						}
+						NOT = {
+							character = ROOT
+							character = FROM
+						}
+					}
+					character_event = { id = TOG.840 }
+				}
+			}			
+		}
+		tooltip = {
+			random = {
+				chance = 50
+				character_event = { id = TOG.839 tooltip = EVTTOOLTIP_TOG_669 }
+			}
+			add_lover = FROM
+		}
+	}
+}
+
+# Homosexual Female (Guest 1)
+character_event = {
+	id = TOG.838
+	desc = EVTDESC_TOG_664
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_664
+		tooltip_info = homosexual
+		random = {
+			chance = 50
+			character_event = { id = TOG.839 tooltip = EVTTOOLTIP_TOG_669 }
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = TOG.839 }
+				}
+			}
+		}
+		tooltip = {
+			add_lover = FROM
+		}
+	}
+}
+
+# Homosexual Caught
+character_event = {
+	id = TOG.839
+	desc = EVTDESC_TOG_669
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_669
+		tooltip = {
+			liege = {
+				if = {
+					limit = { NOT = { trait = homosexual } }
+					opinion = {
+						modifier = opinion_feast_scandal
+						who = ROOT
+					}
+				}
+				if = {
+					limit = { trait = homosexual }
+					opinion = {
+						modifier = opinion_homosexual_sympathy
+						who = ROOT
+					}
+				}
+		
+				any_vassal = {
+					limit = {
+						OR = {
+							has_character_flag = jarilo_feast_vassal
+							has_character_flag = pagan_festival_feast_vassal
+						}
+						NOT = { character = ROOT }
+						NOT = { trait = homosexual }
+					}
+					opinion = {
+						modifier = opinion_feast_scandal
+						who 
+						who = ROOT
+					}
+				}
+				any_vassal = {
+					limit = {
+						OR = {
+							has_character_flag = jarilo_feast_vassal
+							has_character_flag = pagan_festival_feast_vassal
+						}
+						NOT = { character = ROOT }
+						trait = homosexual
+					}
+					opinion = {
+						modifier = opinion_homosexual_sympathy
+						who = ROOT
+					}
+				}
+			}
+		}	
+	}
+}
+
+# Homosexual Caught (Host and Other Guests)
+character_event = {
+	id = TOG.840
+	desc = EVTDESC_TOG_670
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_670
+		trigger = {
+			NOT = { trait = homosexual }
+		}
+		opinion = {
+			modifier = opinion_feast_scandal
+			who = FROM
+		}
+	}
+	option = {
+		name = EVTOPTB_TOG_670
+		tooltip_info = homosexual
+		trigger = {
+			trait = homosexual
+		}
+		opinion = {
+			modifier = opinion_homosexual_sympathy
+			who = FROM
+		}
+	}
+}
+
+### Feast event bounces
+character_event = { #feast_drunkard
+	id = TOG.841
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		OR = {
+			has_character_flag = holding_jarilo
+			has_character_flag = holding_pagan_festival
+		}
+		NOT = { has_character_flag = feast_drunkard }
+		any_vassal = {
+			OR = {
+				has_character_flag = jarilo_feast_vassal
+				has_character_flag = pagan_festival_feast_vassal
+			}
+			NOT = { has_character_flag = feast_drunkard }
+			trait = drunkard
+		}
+	}
+	
+	immediate = {
+		random_vassal = {

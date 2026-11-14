@@ -1,0 +1,66 @@
+# Lux Invicta definitions extracted from master:events/mnm_misc_events.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+namespace = MNM
+namespace = Plus
+
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = {
+			set_character_flag = trollcrafters_attempted_recruitment
+			set_character_flag = being_recruited_by_the_trollcrafters
+			character_event = { id = MNM.7001 }
+		}
+	}
+}
+
+character_event = {
+	id = MNM.10015
+	hide_wind
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = {
+			set_character_flag = cult_of_kali_attempted_recruitment
+			set_character_flag = being_recruited_by_the_cult_of_kali
+			character_event = { id = MNM.7001 }
+		}
+	}
+}
+
+character_event = {
+	id = MNM.10016
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = {
+			set_character_flag = neo_sarkites_attempted_recruitment
+			set_character_flag = being_recruited_by_the_neo_sarkites
+			character_event = { id = MNM.7001 }
+		}
+	}
+}
+
+character_event = {
+	id = MNM.10017
+	hide_
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = {
+			set_character_flag = plaguebringers_attempted_recruitment
+			set_character_flag = being_recruited_by_the_plaguebringers
+			character_event = { id = MNM.7001 }
+		}
+	}
+}
+character_event = {
+	id = MNM.100

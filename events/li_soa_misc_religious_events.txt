@@ -1,0 +1,1358 @@
+# Lux Invicta definitions extracted from master:events/soa_misc_religious_events.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+namespace = SoA
+namespace = LISoA
+
+	# trigger = {
+		# higher_tier_than = DUKE
+		# OR = {
+			# religion = catholic
+			# is_heresy_of = catholic
+			# religion = unctionist
+			# religion = pelagian
+			# religion = semipelagian
+			# religion = arian
+			# is_heresy_of = arian
+		# }
+		# any_war = {
+			# custom_tooltip = {
+				# text = WAGING_CRUSADE
+				# hidden_tooltip = {
+					# crusade_trigger = yes
+				# }
+			# }
+		# }
+		# any_war = {
+			# NOR = {
+				# using_cb = depose_liege
+				# using_cb = bid_for_independence
+			# }
+		# }
+		# NOT = { has_global_flag = shepherds_crusade }
+	# }
+
+	# mean_time_to_happen = {
+		# months = 1000
+	# }
+	
+	# immediate = {
+		# set_global_flag = shepherds_crusade
+	# }
+	
+	# option = {
+		# name = EVTOPTA_SoA_5401
+		# trigger = {
+			# wealth = 500
+		# }
+		# wealth = -500
+	# }
+	
+	# option = {
+		# name = EVTOPTC_SoA_5401
+		# set_global_flag =
+	# option = {
+		# name = EVTOPTC_SoA_5401
+		# set_global_flag = shepherds_crusade_active
+		# random_realm_province = { province_event = { id = SoA.5405 } }
+	# }
+# }
+
+# province_event = {
+	# id = SoA.5405
+	
+	# hide_window = yes
+	
+	# is_triggered_only = yes
+
+	# immediate = {
+		# create_character = {
+			# random_traits = yes
+			# dynasty = none
+			# religion = FROM
+			# culture = hungarian
+			# female = no
+			# age = 60
+			# trait = martial_cleric
+			# trait = zealous
+			# trait = monk
+		# }
+		# new_character = {
+			# set_character_flag = shepherds_crusade_leader
+			# set_character_flag = special_marshal
+			# give_nickname = nick_the_master_of_hungary
+			# prestige = 50
+			# piety = 200
+			# create_title = {
+				# tier = DUKE
+				# landless = yes
+				# temporary = yes
+				# rebel = yes
+				# culture
+	# immediate = {
+		# create_character = {
+			# random_traits = yes
+			# dynasty = none
+			# religion = FROM
+			# culture = hungarian
+			# female = no
+			# age = 60
+			# trait = martial_cleric
+			# trait = zealous
+			# trait = monk
+		# }
+		# new_character = {
+			# set_character_flag = shepherds_crusade_leader
+			# set_character_flag = special_marshal
+			# give_nickname = nick_the_master_of_hungary
+			# prestige = 50
+			# piety = 200
+			# create_title = {
+				# tier = DUKE
+				# landless = yes
+				# temporary = yes
+				# rebel = yes
+				# culture = ROOT
+				# name = "SHEPHERDS_CRUSADE"
+				# holder = THIS
+			# }
+			# spawn_unit = {
+				# owner = THIS
+				# #leader = THIS
+				# province = ROOT
+				# home = ROOT
+				# troops = {
+					# light_infantry = { 10000 10000 }
+				# }
+				# attrition = 1.0
+				# disband_on_peace = yes
+			# }
+			# spawn_unit = {
+				# owner = THIS
+				# province = ROOT
+				# home = ROOT
+				# troops = {
+					# light_infantry = { 10000 10000 }
+				# }
+				# attrition = 1.0
+				# disband_on_peace = yes
+			# }
+			# spawn_unit = {
+				# owner = THIS
+				# province = ROOT
+				# home = ROOT
+				# troops = {
+					# light_infantry = { 10000 10000 }
+				# }
+				# attrition = 1.0
+				# disband_on_peace = yes
+			# }
+			# set_defacto_liege = FROM
+			# FROM = {
+				# capita
+	# immediate = {
+		# create_character = {
+			# random_traits = yes
+			# dynasty = none
+			# religion = FROM
+			# culture = hungarian
+			# female = no
+			# age = 60
+			# trait = martial_cleric
+			# trait = zealous
+			# trait = monk
+		# }
+		# new_character = {
+			# set_character_flag = shepherds_crusade_leader
+			# set_character_flag = special_marshal
+			# give_nickname = nick_the_master_of_hungary
+			# prestige = 50
+			# piety = 200
+			# create_title = {
+				# tier = DUKE
+				# landless = yes
+				# temporary = yes
+				# rebel = yes
+				# culture = ROOT
+				# name = "SHEPHERDS_CRUSADE"
+				# holder = THIS
+			# }
+			# spawn_unit = {
+				# owner = THIS
+				# #leader = THIS
+				# province = ROOT
+				# home = ROOT
+				# troops = {
+					# light_infantry = { 10000 10000 }
+				# }
+				# attrition = 1.0
+				# disband_on_peace = yes
+			# }
+			# spawn_unit = {
+				# owner = THIS
+				# province = ROOT
+				# home = ROOT
+				# troops = {
+					# light_infantry = { 10000 10000 }
+				# }
+				# attrition = 1.0
+				# disband_on_peace = yes
+			# }
+			# spawn_unit = {
+				# owner = THIS
+				# province = ROOT
+				# home = ROOT
+				# troops = {
+					# light_infantry = { 10000 10000 }
+				# }
+				# attrition = 1.0
+				# disband_on_peace = yes
+			# }
+			# set_defacto_liege = FROM
+			# FROM = {
+				# capital_scope = {
+					# holder_scope = {
+						# reverse_war = {
+							# target = PREVPREVPREV
+							# casus_belli = depose_liege
+						# }
+					# }
+				# }
+			# }
+			# character_event = { id = SoA.5402 days = 365 random = 180 } # Collapse which will come later
+		# }
+	# }
+# }
+
+# # Shepherds crusade collapses
+# character_event = {
+	# id = SoA.5402
+
+	# hide_window = yes
+	
+	# is_triggered_only = yes
+
+	# immediate = {
+		# any_war = {
+				# limit = {
+					# attacker = { character = ROOT }
+				# }
+			# end_war = invalid
+		# }
+		# death = {
+			# death_reason = death_accident
+		# }
+		# clr_global_flag = shepherds_crusade_active
+		# FROMFROM = {
+			# character_event = { id = SoA.5403 }
+		# }
+	# }
+# }
+
+# # Notify player of Shepherds crusade co
+# # Notify player of Shepherds crusade collapse
+# character_event = {
+	# id = SoA.5403
+	# desc = EVTDESC_SoA_5403
+	# picture = GFX_evt_stone_church
+	
+	# is_triggered_only = yes
+	
+	# option = {
+		# name = EVTOPTA_SoA_5403
+	# }
+# }
+
+# # Shepherds' Crusade kills a local Jew or priest. Fired from 'on_siege_over_loc_chars'.
+# # Siege winner unit owner in the 'new_character' scope, lost holding title in FROM, local character in ROOT.
+# character_event = {
+	# id = SoA.5406
+	
+	# hide_window = yes
+	
+	# is_triggered_only = yes
+	
+	# trigger = {
+		# OR = {
+			# religion_group = jewish_group
+			# is_priest = yes
+		# }
+		# new_character = {
+			# rebel = yes
+			# has_character_flag = shepherds_crusade_leader
+		# }
+	# }
+	
+	# immediate = {
+		# random = {
+			# chance = 50
+			# ne
+	# immediate = {
+		# random = {
+			# chance = 50
+			# new_character = {
+				# ROOT = {
+					# death = {
+						# death_reason = death_rabble
+						# killer = PREV
+					# }
+				# }
+			# }
+			# any_liege = { # Inform the victim's lieges
+				# character_event = {
+					# id = SoA.5409
+				# }
+			# }
+		# }
+	# }
+# }
+
+# # Liege notified of killing of character by Shepherds' Crusade
+# character_event = {
+	# id = SoA.5409
+	# desc = EVTDESC_SoA_5409
+	# picture = GFX_evt_beheading
+	# border = GFX_event_normal_frame_war
+	
+	# is_triggered_only = yes
+	
+	# option = {
+		# name = EVTOPTA_SoA_5409
+	# }
+# }
+
+###########################################
+#                                         #
+# Religious tolerance events              #
+# ID SoA.5410-SoA.                        #
+#                  
+###########################################
+#                                         #
+# Religious tolerance events              #
+# ID SoA.5410-SoA.                        #
+#                                         #
+###########################################
+
+# Tolerant character making Christian friend
+character_event = {
+	id = SoA.5410
+	desc = EVTDESC_SoA_5410
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	only_capable = yes
+	min_age = 16
+	
+	trigger = {
+		trait = sympathy_christendom
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = christian
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = christian
+				prisoner = no
+				is_a
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Muslim friend
+character_event = {
+	id = SoA.5411
+	desc = EVTDESC_SoA_5411
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	only_capable = yes
+	min_age = 16
+	
+	trigger = {
+		trait = sympathy_islam
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = muslim
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5411
+		random_courtier = {
+			limit = {
+				religion_group = muslim
+				pri
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Pagan friend
+character_event = {
+	id = SoA.5412
+	desc = EVTDESC_SoA_5412
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	only_capable = yes
+	min_age = 16
+	
+	trigger = {
+		trait = sympathy_pagans
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = pagan_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5412
+		random_courtier = {
+			limit = 
+				religion_group = pagan_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Zoroastrian friend
+character_event = {
+	id = SoA.5413
+	desc = EVTDESC_SoA_5413
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	only_capable = yes
+	min_age = 16
+	
+	trigger = {
+		trait = sympathy_zoroastrianism
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = zoroastrian_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		n
+		name = EVTOPTA_SoA_5413
+		random_courtier = {
+			limit = {
+				religion_group = zoroastrian_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Jewish friend
+character_event = {
+	id = SoA.5414
+	desc = EVTDESC_SoA_5414
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	only_capable = yes
+	min_age = 16
+	
+	trigger = {
+		trait = sympathy_judaism
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = jewish_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5414
+		random_courtier = {
+			limit = {
+				religion_group = jewish_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Zealous character insults other religions
+character_event = {
+	id = SoA.5420
+	desc = EVTDESC_SoA_5420
+	picture = GFX_evt_courtiers_looking_scandalized
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	only_capable = yes
+	min_age = 16
+	
+	trigger = {
+		trait = zealous
+		trait = wroth
+		NOT = { diplomacy = 5 }
+		has_dlc = "Sons of Abraham"
+		higher_tier_than = COUNT
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name 
+		name = EVTOPTA_SoA_5420
+		hidden_tooltip = {
+			any_realm_character = {
+				limit = {
+					prisoner = no
+					is_adult = yes
+					NOR = {
+						religion_group = ROOT
+						trait = incapable
+						is_friend = ROOT
+					}
+				}
+				opinion = {
+					modifier = insulted
+					who = ROOT
+					years = 1
+				}
+			}
+		}
+		custom_tooltip = { text = insulted_realm_infidels }
+	}
+}
+
+# Muslim tolerance towards Judaism and Christianity
+character_event = {
+	id = SoA.5425
+	desc = EVTDESC_SoA_5425
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	religion_group = muslim
+
+	trigger = {
+		religion_group = muslim
+		NOR = {
+			trait = zealous
+			trait = holy_warrior
+	
+			trait = ashari
+			trait = mujahid
+		}
+		OR = {
+			NOT = { trait = sympathy_judaism }
+			NOT = { trait = sympathy_christendom }
+		}		
+		NOT = {
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 0.5
+			trait = cynical
+		}
+		modifier = {
+			factor = 0.5
+			trait = mutazilite
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5425
+		if = {
+			limit = { 
+				NOT = { trait = sympathy_judaism } 
+				NOT = { religion_group = jewish_group } 
+				}
+			add_trait = sympathy_judaism
+		}
+		if = {
+			limit = { 
+				NOT = { trait = sympathy_christendom } 
+				NOT = { religion_group = christian } 
+				}
+			add_trait = sympathy_christend
+		}
+	}
+}
+
+namespace = LISoA
+# Tolerant character making Abrahamic friend
+character_event = {
+	id = LISoA.1
+	desc = EVTDESC_LISoA_1
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_abrahamics
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = abrahamic_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = abrahamic_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapabl
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Anatolian friend
+character_event = {
+	id = LISoA.2
+	desc = EVTDESC_LISoA_2
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_anatolians
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = anatolian_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = anatolian_group
+				prisoner = no
+				is_adult
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making East African friend
+character_event = {
+	id = LISoA.3
+	desc = EVTDESC_LISoA_3
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_east_africans
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = east_african_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				
+				religion_group = east_african_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Arab Pagan friend
+character_event = {
+	id = LISoA.4
+	desc = EVTDESC_LISoA_4
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_arabpagans
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = arabpagan_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVT
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = arabpagan_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Aztec friend
+character_event = {
+	id = LISoA.5
+	desc = EVTDESC_LISoA_5
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_aztecs
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = aztec_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = aztec_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Baltic friend
+character_event = {
+	id = LISoA.6
+	desc = EVTDESC_LISoA_6
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_baltics
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = baltic_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+	
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = baltic_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Bantu friend
+character_event = {
+	id = LISoA.7
+	desc = EVTDESC_LISoA_7
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_bantus
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = bantu_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incap
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = bantu_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Berber friend
+character_event = {
+	id = LISoA.8
+	desc = EVTDESC_LISoA_8
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_berbers
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = berberpagan_group
+			prisoner = no
+			is_adul
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = berberpagan_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Buddhist friend
+character_event = {
+	id = LISoA.9
+	desc = EVTDESC_LISoA_9
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_buddhists
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = bud_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = bud_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Celtic friend
+character_event = {
+	id = LISoA.10
+	desc = EVTDESC_LISoA_10
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_celtics
+		has_dlc = "Sons of Abraham"
+		any_courti
+		any_courtier = {
+			religion_group = celtic_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = celtic_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Chinese friend
+character_event = {
+	id = LISoA.11
+	desc = EVTDESC_LISoA_11
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_chinese
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = chinese_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = chinese_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Norse or Germanic friend
+character_event = {
+	id = LISoA.12
+	desc = EVTDESC_LISoA_12
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_nordic
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = norsegerman_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = norsegerman_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Egyptian friend
+character_event = {
+	id = LISoA.13
+	desc = EVTDESC_LISoA_13
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_egyptian
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = egyptian_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = egyptian_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Finnish friend
+character_event = {
+	id = LISoA.14
+	desc = EVTDESC_LISoA_14
+	picture = GFX_evt_courtiers
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+
+	only_playable = yes
+	prisoner = no
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = sympathy_finnish
+		has_dlc = "Sons of Abraham"
+		any_courtier = {
+			religion_group = finnish_group
+			prisoner = no
+			is_adult = yes
+			NOR = {
+				trait = incapable
+				is_friend = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_5410
+		random_courtier = {
+			limit = {
+				religion_group = finnish_group
+				prisoner = no
+				is_adult = yes
+				NOR = {
+					trait = incapable
+					is_friend = ROOT
+				}
+			}
+			add_friend = ROOT
+		}
+	}
+}
+
+# Tolerant character making Graeco-Roman friend
+character_event = {
+	id = LISo

@@ -1,0 +1,38 @@
+# Lux Invicta definitions extracted from master:events/hl_mercenary_events.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+namespace = HL
+
+			band_creator = {
+				is_alive = yes
+			}
+		}
+		has_character_flag = is_mercenary_leader
+		NOT = { trait = craven }
+	}
+
+	weight_multiplier = {
+		days = 1
+	
+		modifier = {
+			factor = 2
+			mercenary_employer = {
+				is_alive = yes
+			}
+		}
+	}
+	immediate = {
+		primary_title = {
+			band_creator = {
+				if = {
+					limit = {
+						is_alive = yes
+					}
+					character_event = { id = HL.10601 }
+				}
+			}
+		}
+		if = { # Just to make sure
+			limit = {
+				NOT = { has_character_modifier = mercenary_traditions }
+		

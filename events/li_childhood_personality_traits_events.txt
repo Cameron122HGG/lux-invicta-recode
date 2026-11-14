@@ -1,0 +1,1210 @@
+# Lux Invicta definitions extracted from master:events/childhood_personality_traits_events.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+namespace = childhood_traits
+
+	picture = "GFX_evt_child_play"
+	
+	min_age = 6
+	max_age = 16
+	only_men = yes
+	lacks_dlc = "Conclave"
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_guardian = yes
+		NOT = {
+			trait = brave
+		}
+		NOT = {
+			trait = craven
+		}
+		NOT = {
+			trait = gluttonous
+		}
+		NOT = {
+			trait = temperate
+		}
+		NOT = { has_character_flag = is_child_of_destiny }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			trait = clubfooted
+			factor = 1.05
+		}
+		modifier = {
+			trait = harelip
+			factor = 1.10
+		}
+		modifier = {
+			trait = hunchback
+			factor = 1.5
+		}
+		modifier = {
+			trait = lisp
+			factor = 1.05
+		}
+		modifier = {
+			trait = stutter
+			factor = 1.05
+		}
+		modifier = {
+			has_fair_trait_trigger = yes
+			factor = 0.95
+		}
+		modifier = {
+			has_ugly_trait_trigger = yes
+			factor = 1.10
+		}
+		modifier = {
+			trait = dwarf
+			factor = 1.2
+		}		
+		modifier = {
+			trait = genius
+			factor = 0.95
+		}
+		modifier = {
+			OR = {
+				trait = quick
+				trait = shrewd
+			}
+			factor = 0.95
+		}	
+		modifier = {
+			OR = {
+				trait = slow
+				trait = dull
+			}
+			factor = 1.2
+		}
+		modifier = {
+			trait = imbecile
+			factor = 1.5
+		}
+		modifier = {
+			trait = inbred
+			factor = 1.5
+		}
+		modifier = {
+			is_strong_trigger = yes
+			factor = 0.05
+		}
+		modifier = {
+			is_weak_trigger = yes
+			factor = 5.0
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1931"
+		guardian = {
+			character_event = {
+				id = 38231
+				days = 3
+				tooltip = "EVTOOLTIP38231"
+			}
+		}
+	}
+}
+
+# Too curious a child: Guardian finds him/her in the highest tower
+character_even
+	id = 1932
+	desc = "EVTDESC1932"
+	picture = "GFX_evt_child_play"
+	
+	min_age = 6
+	max_age = 16
+	lacks_dlc = "Conclave"
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_guardian = yes
+		NOT = {
+			trait = brave
+		}
+		NOT = {
+			trait = honest
+		}
+		NOT = {
+			trait = deceitful
+		}
+		NOT = {
+			trait = craven
+		}
+		can_be_maimed_trigger = yes
+		NOT = {
+			trait = wounded
+		}
+		NOT = { has_character_flag = is_child_of_destiny }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			trait = clubfooted
+			factor = 0.8
+		}
+		modifier = {
+			trait = harelip
+			factor = 0.9
+		}
+		modifier = {
+			trait = hunchback
+			factor = 0.7
+		}
+		modifier = {
+			trait = lisp
+			factor = 0.95
+		}
+		modifier = {
+			trait = stutter
+			factor = 0.95
+		}
+		modifier = {
+			has_fair_trait_trigger = yes
+			factor = 0.8
+		}
+		modifier = {
+			has_ugly_trait_trigger = yes
+			factor = 1.25
+		}
+		modifier = {
+			trait = dwarf
+			factor = 0.9
+		}		
+		modifier = {
+			trait = genius
+			factor = 1.05
+		}
+		modifier = {
+			OR = {
+				trait = quick
+				trait = shrewd
+			}
+			factor = 1.05
+		}	
+		modifier = {
+			OR = {
+				trait = slow
+				trait = dull
+			}
+			factor = 0.95
+		}
+		
+		modifier = {
+			
+			trait = imbecile
+			factor = 0.5
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.05
+		}
+		modifier = {
+			is_strong_trigger = yes
+			factor = 5.0
+		}
+		modifier = {
+			is_weak_trigger = yes
+			factor = 0.05
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1932"
+		guardian = {
+			character_event = {
+				id = 38232
+				days = 3
+				tooltip = "EVTOOLTIP38232"
+			}
+		}
+	}
+}
+
+# Child is ill
+character_event = {
+	id = 1933
+	desc = "EVTDESC1933"
+	picture = "GFX_evt_child_play"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			has_dlc = "Reapers"
+		}
+		has_guardian = yes
+		trait = ill
+		NOT = { has_character_
+		NOT = { has_character_flag = is_child_of_destiny }
+	}
+	
+	weight_multiplier = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA1933"
+		guardian = {
+			character_event = {
+				id = 38233
+				days = 3
+				tooltip = "EVTOOLTIP38233"
+			}
+		}
+	}
+}
+
+# Homosexual child
+character_event = {
+	id = 1934
+	desc = "EVTDESC1934"
+	picture = "GFX_evt_child_play"
+	
+	min_age = 11
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		has_guardian = yes
+		trait = homosexual
+		NOT = { has_character_flag = is_child_of_destiny }
+	}
+	
+	weight_multiplier = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTO
+		name = "EVTOPTA1934"
+		guardian = {
+			character_event = {
+				id = 38234
+				days = 3
+				tooltip = "EVTOOLTIP38234"
+			}
+		}
+	}
+}
+
+# Child is good at talking to people, and have no problem getting friends
+character_event = {
+	id = 1935
+	desc = "EVTDESC1935"
+	picture = "GFX_evt_child_play"
+	
+	min_age = 6
+	max_age = 16
+	lacks_dlc = "Conclave"
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_guardian = yes
+		OR = {
+			AND = {
+				age = 6
+				intrigue = 3
+			}
+			AND = {
+				age = 11
+				intrigue = 6
+			}
+		}
+		NOT = {
+			trait = honest
+		}
+		NOT = {
+			trait = deceitful
+		}
+		NOT = { has_character_flag = is_child_of_destiny }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			trait = clubfooted
+			factor = 0.8
+		}
+		modifier = {
+			trait = harelip
+			factor = 0.9
+		}
+		modifier = {
+			trait = hunchback
+			factor = 0.7
+		}
+		modifier = {
+			trait = lisp
+			factor = 0.95
+		}
+		modifier = {
+			trait = stutter
+			factor = 0.95
+		}
+		modifier = {
+			has_fair_trait_trigger = yes
+			factor = 0.8
+		
+		modifier = {
+			has_ugly_trait_trigger = yes
+			factor = 1.25
+		}
+		modifier = {
+			trait = dwarf
+			factor = 0.9
+		}		
+		modifier = {
+			trait = genius
+			factor = 1.05
+		}
+		modifier = {
+			OR = {
+				trait = quick
+				trait = shrewd
+			}
+			factor = 1.05
+		}	
+		modifier = {
+			OR = {
+				trait = slow
+				trait = dull
+			}
+			factor = 0.95
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.5
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.05
+		}
+		modifier = {
+			is_strong_trigger = yes
+			factor = 5.
+		}
+		modifier = {
+			is_weak_trigger = yes
+			factor = 0.05
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1935"
+		guardian = {
+			character_event = {
+				id = 38235
+				days = 3
+				tooltip = "EVTOOLTIP38235"
+			}
+		}
+	}
+}
+
+#Child does not have a guardian
+character_event = {
+	id = 1991
+	desc = "EVTDESC1991"
+	picture = "GFX_evt_child_play"
+	
+	min_age = 6
+	max_age = 16
+	prisoner = no
+	capable_only = yes
+	lacks_dlc = "Conclave"
+	
+	trigger = {
+		has_guardian = no
+		independent = no
+		NOT = {	personality_traits = 5 }
+		liege = {
+			any_courtier = {
+				characte
+				character = ROOT
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 16
+	}
+	
+	option = {
+		name = "EVTOPTA1991"
+		if = {
+			limit = {
+				independent = no
+			}
+			liege = {
+				character_event = {
+					id = 2490
+					tooltip = "EVTOOLTIP2490"
+				}
+			}
+		}
+		if = {
+			limit = {
+				independent = yes
+			}
+			regent = {
+				character_event = {
+					id = 2490
+					tooltip = "EVTOOLTIP2490"
+				}
+			}
+		}
+	}
+}
+
+namespace = childhood_traits
+#Cunning plan
+character_event = {
+	id = childhood_traits.1
+	desc = "EVTDESC1000030000"
+	pictu
+	picture = "GFX_blackadder"
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	trigger = {
+		has_guardian = yes
+		OR = {
+			AND = {
+				intrigue = 3
+				age = 6
+			}
+			AND = {
+				intrigue = 5
+				age = 11
+			}
+		}
+		NOT = {
+			trait = cunning
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			OR = {
+				trait = slow
+				trait = dull
+			}
+			factor = 0.7
+		}
+		modifier = {
+			trait = imbecile
+			factor = 0.4
+		}
+		modifier = {
+			OR = {
+				trait = quick
+				trait = shrewd
+			}
+			factor = 1.1
+		}
+		m
+		modifier = {
+			trait = genius
+			factor = 1.5
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030000"
+		add_trait = cunning
+		guardian = {
+			character_event = {
+				id = childhood_traits.2
+				days = 3
+				tooltip = "EVTOOLTIP1000030001"
+			}
+		}
+	}
+}
+
+# Child has a cunning plan!
+character_event = {
+	id = childhood_traits.2
+	desc = EVTDESC1000030001
+	picture = GFX_blackadder
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000030001 #Encourage him to go on with his plans.
+		ai_chance = {
+			factor = 80		
+			modifi
+			modifier = {
+				factor = 0.01
+				trait = charitable
+			}
+		}
+		if = {
+			limit = {
+				is_smart_trigger = yes
+			}
+		}
+		change_intrigue = 1
+		FROM = {
+			add_trait = cunning
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1000030001 #Tell him to stop it!
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 5
+				is_dumb_trigger = yes
+			}
+		}
+		change_intrigue = -1
+	}
+	
+	option = {
+		trigger = { trait = greedy }
+		name = EVTOPTC1000030001 #Sounds like an opportunity to profit!
+		FROM ={
+			add_trait = cunning
+		}
+		change_stewardship = 1
+	}
+}
+
+
+# Fashionable
+character_event = {
+	id = childhood_traits.3
+	desc = "EVTDESC1000030002"
+	picture = "GFX_fashion"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		has_guardian = yes
+		OR = {
+			AND = {
+				diplomacy = 3
+				age = 6
+			}
+			AND = {
+				diplomacy = 5
+				age = 11
+			}
+		}
+		NOR = {
+			trait = honest
+			trait = deceitful
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			trait = clubfooted
+			factor = 0.4
+		}
+		modifier = {
+			trait = harelip
+			factor = 0.9
+		}
+		modifier = {
+			trait = hunch
+			trait = hunchback
+			factor = 0.1
+		}
+		modifier = {
+			trait = lisp
+			factor = 0.95
+		}
+		modifier = {
+			trait = stutter
+			factor = 0.95
+		}
+		modifier = {
+			trait = fair
+			factor = 1.2
+		}
+		modifier = {
+			trait = ugly
+			factor = 0.7
+		}
+		modifier = {
+			trait = dwarf
+			factor = 0.6
+		}				
+		modifier = {
+			trait = imbecile
+			factor = 0.5
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.05
+		}
+		modifier = {
+			is_female = yes
+			factor = 2.0
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1
+		name = "EVTOPTA1000030002"
+		add_trait = fashion
+		guardian = {
+			character_event = {
+				id = childhood_traits.4
+				days = 3
+				tooltip = "EVTOOLTIP1000030003"
+			}
+		}
+	}
+}
+
+# Child likes dresses!
+character_event = {
+	id = childhood_traits.4
+	desc = EVTDESC1000030003
+	picture = GFX_fashion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000030003 #Encourage him.
+		if = {
+			limit = {
+				OR = {
+					trait = gregarious
+					trait = lustful
+				}
+			}
+			change_diplomacy = 1
+		}
+		FROM ={
+			add_trait = fashion
+		}
+	}
+	op
+	option = {
+		name = EVTOPTB1000030003 #Tell him to stop it!
+		ai_chance = {
+			factor = 50		
+			modifier = {
+				factor = 1.90
+				trait = judgmental
+			}
+		}
+		FROM ={
+			add_trait = ambitious
+		}
+	}
+	option = {
+		trigger = { trait = fashion }
+		name = EVTOPTC1000030003 #fashion on fashion action!
+		FROM ={
+			add_trait = fashion
+		}
+		prestige = 50 
+	}
+}
+
+
+# Observant
+character_event = {
+	id = childhood_traits.5
+	desc = "EVTDESC1000030004"
+	picture = "GFX_observant"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { personality_traits = 6 }   ######## ADDED BY ASH
+		has_guardian = yes
+		OR = {
+			AND = {
+				martial = 3
+				age = 6
+			}
+			AND = {
+				martial = 5
+				age = 11
+			}
+		}
+		NOR = {
+			trait = slothful
+			trait = craven
+			trait = shy
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030004"
+		guardian = {
+			character_event = {
+				id = childhood_traits.6
+				tooltip = "EVTOOLTIP1000030004"
+			}
+		}
+	}
+}
+
+# goodcook
+character_event = {
+	id = childhood_traits.7
+	desc = "EVTDESC1000030006"
+	picture = "GFX_observant"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { personality_traits = 6 }   ######## ADDED BY ASH
+		has_guardian = yes
+		OR = {
+			AND = {
+				stewardship = 3
+				age = 6
+			}
+			AND = {
+				stewardship = 5
+				age = 11
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030006"
+		guardian = {
+			character_event = {
+				id = childhood_traits.8
+				tooltip = "EVTOOLTIP1000030006"
+			}
+		}
+	}
+}
+
+# Dog Breeder
+character_event = {
+	id = childhood_traits.9
+	desc = "EVTDESC1000030008"
+	picture = "GFX_dog_breeder"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		has_guardian = yes
+		OR = {
+			AND = {
+				diplomacy = 3
+				age = 6
+			}
+			AND = {
+				diplomacy = 5
+				age = 11
+			}
+		}
+		NOT = {
+			trait = dog_breeder
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030008" #Guardian needs to decide
+		guardian = {
+			character_event = {
+				id = childhood_traits.10
+				tooltip = "EVTOOLTIP1000030008"
+			}
+		}
+	}
+}
+
+# Adventurous
+character_event = {
+	id = childhood_traits.11
+	desc = "EVTDESC1000030010"
+	picture = "GFX_advent"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		has_guardian = yes
+		OR = {
+			AN
+			AND = {
+				martial = 3
+				age = 6
+			}
+			AND = {
+				martial = 5
+				age = 11
+			}
+		}
+		NOR = {
+			trait = slothful
+			trait = craven
+			trait = shy
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030010"
+		guardian = {
+			character_event = {
+				id = childhood_traits.12
+				tooltip = "EVTOOLTIP1000030010"
+			}
+		}
+	}
+}
+
+# Immature
+character_event = {
+	id = childhood_traits.13
+	desc = "EVTDESC1000030012"
+	picture = "GFX_immature"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { num_traits = 6 }   ######## ADDED BY ASH
+		has_guardian = yes
+		OR = {
+			AND = {
+				diplomacy = 1
+				age = 6
+			}
+			AND = {
+				diplomacy = 1
+				age = 11
+			}
+		}
+		NOT = {
+			trait = funny
+		}
+		NOT = {
+			trait = gregarious
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030012"
+		guardian = {
+			characte
+			character_event = {
+				id = childhood_traits.14
+				tooltip = "EVTOOLTIP1000030013"
+			}
+		}
+	}
+}
+
+# Gullible
+character_event = {
+	id = childhood_traits.15
+	desc = "EVTDESC1000030014"
+	picture = "GFX_gull"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { personality_traits = 6 }   ######## ADDED BY ASH
+		has_guardian = yes
+		OR = {
+			AND = {
+				diplomacy = 1
+				age = 6
+			}
+			AND = {
+				diplomacy = 1
+				age = 11
+			}
+		}
+		NOT = {
+			trait = cynical
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030014"
+		guardian = {
+			character_event = {
+				id = childhood_traits.16
+				tooltip = "EVTOOLTIP1000030014"
+			}
+		}
+}
+
+# funny
+character_event = {
+	id = childhood_traits.17
+	desc = "EVTDESC1000030016"
+	picture = "GFX_funny"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			personality_traits = 6   ######## ADDED BY ASH
+			trait = cynical
+		}
+		has_guardian = yes
+		OR = {
+			AND = {
+				diplomacy = 3
+				age = 6
+			}
+			AND = {
+				diplomacy = 5
+				age = 11
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030016"
+		guardian = {
+			character_event = {
+				id = childhood_traits.18
+				tooltip = "EVTOOLTIP1000030016"
+			}
+	}
+}
+
+
+# Narcsist
+character_event = {
+	id = childhood_traits.19
+	desc = "EVTDESC1000030020"
+	picture = "GFX_narc"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			personality_traits = 6   ######## ADDED BY ASH
+			trait = shy
+		}
+		has_guardian = yes
+		OR = {
+			AND = {
+				diplomacy = 3
+				age = 6
+			}
+			AND = {
+				diplomacy = 6
+				age = 11
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030020"
+		guardian = {
+			character_event = {
+				id = childhood_traits.20
+				tooltip = "EVTOOLTIP1000030020"
+			}
+		}
+	}
+}
+
+# Boring
+character_event = {
+	id = childhood_traits.21
+	desc = "EVTDESC1000030022"
+	picture = "GFX_boring"
+	
+	min_age = 6
+	m
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			trait = gregarious
+			trait = poet
+			personality_traits = 6   ######## ADDED BY ASH
+		}
+		has_guardian = yes
+		OR = {
+			AND = {
+				diplomacy = 1
+				age = 6
+			}
+			AND = {
+				diplomacy = 1
+				age = 11
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTA1000030022"
+		guardian = {
+			character_event = {
+				id = childhood_traits.22
+				tooltip = "EVTOOLTIP1000030022"
+			}
+		}
+	}
+}
+
+# sociopath
+character_event = {
+	id = childhood_traits.23
+	desc = "EVTDESC1000030024"
+	picture = "GFX_sociopath"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			num_traits = 6 
+			num_traits = 6   ######## ADDED BY ASH
+			trait = sociable
+			trait = kind
+			trait = charitable
+		}
+		has_guardian = yes
+		OR = {
+			AND = {
+				intrigue = 2
+				age = 6
+			}
+			AND = {
+				intrigue = 3
+				age = 11
+			}
+		
+	}
+
+	option = {
+		name = "EVTOPTA1000030024"
+		guardian = {
+			character_event = {
+				id = childhood_traits.24
+				tooltip = "EVTOOLTIP1000030024"
+			}
+		}
+	}
+}
+
+# judgmental
+character_event = {
+	id = childhood_traits.25
+	desc = "EVTDESC1000030026"
+	picture = "GFX_judgmental"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { num_traits = 6 }   ######## ADDED BY ASH
+		has_guardian = yes
+		OR = {
+			AND = {
+				diplomacy = 2
+				age = 6
+			}
+			AND = {
+				diplomacy =
+				age = 11
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA1000030026"
+		guardian = {
+			character_event = {
+				id = childhood_traits.26
+				tooltip = "EVTOOLTIP1000030026"
+			}
+		}
+	}
+}
+
+# cheap
+char
+# cheap
+character_event = {
+	id = childhood_traits.27
+	desc = "EVTDESC1000030028"
+	picture = "GFX_cheap"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			personality_traits = 6   ######## ADDED 
+			personality_traits = 6   ######## ADDED BY ASH
+			trait = greedy
+		}
+		has_guardian = yes
+		OR = {
+			AND = {
+				stewardship = 3
+				age = 6
+			}
+			AND = {
+				stewardship = 5
+				age = 11
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA1000030028"
+		guardian = {
+			character_event = {
+				id = childhood_traits.28
+				tooltip = "EVTOOLTIP1000030028"
+			}
+		}
+	}
+}
+
+# Sociable
+character_event = {
+	id = childhood_traits.29
+	desc = "EVTDESC1000030018"
+	picture = "GFX_sociable"
+	
+	min_age = 6
+	max_age = 16
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			personality_traits = 6   ######## ADDED BY ASH
+			trait = sociopath
+		}
+		has_guardian = yes
+		O

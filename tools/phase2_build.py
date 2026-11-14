@@ -98,8 +98,11 @@ for rel in sorted(files):
     old = [(k, bl) for k, bl in keyed if k and k in vkeys[fol]]
     clash = [k for k, _ in new if k in ckeys[fol]]
     dup_cs += [(rel, k) for k in clash]
+    # keys CleanSlate also defines (shared CK2Plus heritage): CleanSlate's version is used for now,
+    # LI's goes on the phase 3 review list
+    new = [(k, bl) for k, bl in new if k not in ckeys[fol]]
     if not new: stats['nothing new (phase 3 only)'] += 1; continue
-    if not old:
+    if not old and not clash:
         plan.append(('copy', rel, dst, None)); stats['LI-only file: copied whole'] += 1; per['whole'][fol] += 1
     else:
         plan.append(('extract', rel, dst, new)); stats['extracted from vanilla-derived file'] += 1
@@ -127,6 +130,11 @@ def build_extract(rel, new):
     return nl.join(x.rstrip(b'\r\n') if not x.endswith(nl) else x.rstrip(b'\r\n') for x in out) + nl
 
 if APPLY:
+    notes = os.path.join(REPO, 'migration_notes'); os.makedirs(notes, exist_ok=True)
+    with open(os.path.join(notes, 'phase2_clashes.txt'), 'w', encoding='utf-8', newline='\r\n') as o:
+        o.write('# Phase 2: LI definitions whose key CleanSlate also defines. CleanSlate\'s version is used;\n'
+                '# review LI\'s version (from master) in phase 3.  <master file>\t<key>\n')
+        for rel, k in dup_cs: o.write(f'{rel}\t{k}\n')
     for fol in OWNED:  # LI's folder replaces CleanSlate's
         d = os.path.join(REPO, fol)
         if os.path.isdir(d): shutil.rmtree(d)

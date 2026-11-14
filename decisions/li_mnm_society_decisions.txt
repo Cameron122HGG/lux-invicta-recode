@@ -1,0 +1,540 @@
+# Lux Invicta definitions extracted from master:decisions/mnm_society_decisions.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+targeted_decisions = {
+					interested_in_society = the_trollcrafters
+				}
+				NOT = { has_character_flag = being_recruited_by_the_trollcrafters }
+			}
+			has_trollcrafters_prerequisites = yes
+			FROM = {
+				is_inaccessible_trigger = no
+				custom_tooltip = {
+					text = recruit_delay_timer_tooltip
+					NOT = { has_character_modifier = recruitment_delay_timer }
+				}
+			}
+		}
+		effect = {
+			set_character_flag = trollcrafters_attempted_recruitment
+			set_character_flag = being_recruited_by_the_trollcrafters
+			FROM = {
+				save_event_target_as = satanists_recruiter
+			}
+			hidden_effect = { 
+				character_event = { id = MNM.7001 days = 3 } # recruitment chain
+				character_event = { id = MNM.7030 days = 365 } # sends delayed back up, in case recruitment fails somehow
+				FROM = {
+					if = {
+						limit = { ai = yes }
+						add_character_modifier = {
+							name = recruitment_timer
+							days = 730
+							hidden = yes
+						}
+					}
+					add_character_modifier = {
+						name = recruitment_delay_timer
+						days = 90
+						hidden = yes
+					}
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2 # slow down
+				FROM = { 
+					society = { num_of_society_members > 20 } 
+				}
+			}
+			modifier = {
+				factor = 10 # recruit interested parties
+				interested_in_society = the_trollcrafters
+			}
+			modifier = {
+				factor = 0 # don't recruit characters interested in something else
+				NOT = { interested_in_society = the_trollcrafters }
+				is_interested_in_any_society = yes
+			}
+		}
+	  }
+
+	#Action: cult of kali recruit
+	cult_of_kali_recruit = {
+		is_in_society = yes
+
+		ai_target_filter = realm
+		ai_check_interval = 24
+
+		from_potential = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_character_modifier = recruitment_timer }
+			society_member_of = the_cult_of_kali
+			OR = {
+				ai = no
+				society_rank = {
+					society = the_cult_of_kali
+					rank == 2
+				}
+				society_rank = {
+					society = the_cult_of_kali
+					rank == 3
+				}
+			}
+		}
+		potential = {
+			OR = {
+				FROM = { ai = no }
+				ai = no
+			}
+			OR = {
+				FROM = { ai = yes } # Only checks realm, so by definition in range
+				is_within_diplo_range = FROM
+			}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			is_in_society = no
+
+			#AI cannot invite other AIs when society is full
+			NAND = {
+				ai = yes
+				FROM = { ai = yes }
+				NOT = { can_join_society = the_trollcrafters }
+			}
+
+	
+			#Blocks so AI recruits sensible people (who might say no)
+			OR = {
+				FROM = { ai = no }
+				is_friend = FROM
+				is_lover = FROM
+				is_close_relative = FROM
+				trait = trusting
+				has_impious_trait_trigger = yes
+				trait = drunkard
+				trait = possessed
+				trait = lunatic
+				interested_in_society = the_cult_of_kali
+			}
+
+			NAND = {
+				FROM = { ai = yes }
+				trait = zealous
+			}
+		}
+		allow = {
+			OR = {
+				religion_group = indian_group
+				religion = zor_hindu
+				religion = nasrani_reformed
+				religion = zz01_vedanta
+			}
+			is_inaccessible_trigger = no
+			custom_tooltip = {
+				text = cult_of_kali_recruit_block_tooltip
+				OR = {
+					NOT = { has_character_flag = cult_of_kali_attempted_recruitment }
+					interested_in_society = the_cult_of_kali
+				}
+				NOT = { has_character_flag = being_recruited_by_the_cult_of_kali }
+			}
+			has_cult_of_kali_prerequisites = yes
+			FROM = {
+				is_inaccessible_trigger = no
+				custom_tooltip = {
+					text = recruit_delay_timer_tooltip
+					NOT = { has_character_modifier = recruitment_delay_timer }
+				}
+			}
+		}
+		effect = {
+			set_character_flag = cult_of_kali_attempted_recruitment
+			set_character_flag = being_recruited_by_the_cult_of_kali
+			FROM = {
+				save_event_target_as = satanists_recruiter
+			}
+			hidden_effect = { 
+				character_event = { id = MNM.7001 days = 3 } # recruitment chain
+				character_event = { id = MNM.7030 days = 365 } # sends delayed back up, in case recruitment fails somehow
+				FROM = {
+					if = {
+						limit = { ai = yes }
+						add_character_modifier = {
+							name = recruitment_timer
+							days = 730#Action: plaguebringers_recruit
+							hidden = yes
+						}
+					}
+					add_character_modifier = {
+						name = recruitment_delay_timer
+						days = 90
+						hidden = yes
+					}
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2 # slow down
+				FROM = { 
+					society = { num_of_society_members > 20 } 
+				}
+			}
+			modifier = {
+				factor = 10 # recruit interested parties
+				interested_in_society = the_cult_of_kali
+			}
+			modifier = {
+				factor = 0 # don't recruit characters interested in something else
+				NOT = { interested_in_society = the_cult_of_kali }
+				is_interested_in_any_society = yes
+			}
+		}
+	}
+
+	#Action: jinn recruit
+	jinn_recruit = {
+		is_in_society = yes
+		ai_check_interval = 12
+		filter = all
+		ai_target_filter = realm
+
+		from_potential = {
+			is_adult = 
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_character_modifier = recruitment_timer }
+			society_member_of = arab_jinn_sorcerers
+			OR = {
+				ai = no
+				NOT = {
+					society_rank = {
+						society = arab_jinn_sorcerers
+						rank == 1
+					}
+				}
+			}
+		}
+		potential = {
+			OR = {
+				FROM = { ai = no }
+				ai = no
+			}
+			OR = {
+				FROM = { ai = yes } # Only checks realm, so by definition in range
+				is_within_diplo_range = FROM
+			}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			is_in_society = no
+
+
+			#AI cannot invite other AIs when society is full
+			NAND = {
+				ai = yes
+				FROM = { ai = yes }
+				NOT = { can_join_society = arab_jinn_sorcerers }
+			}
+
+			#Blocks so AI recruits sensible people (who might say no)
+			OR = {
+				FROM = { ai = no }
+				is_friend = FROM
+				is_lover = FROM
+				is_close_relative = FROM
+				trait = trusting
+				has_impious_trait_trigger = yes
+				trait = drunkard
+				trait = possessed
+				trait = lunatic
+				interested_in_society = arab_jinn_sorcerers
+			}
+		}
+		allow = {
+			is_inaccessible_trigger = no
+			custom_tooltip = {
+				text = jinn_recruit_block_tooltip
+				OR = {
+					NOT = { has_character_flag = jinn_attempted_recruitment }
+					interested_in_society = arab_jinn_sorcerers
+				}
+				NOT = { has_character_flag = being_recruited_by_the_jinn }
+			}
+			has_jinn_sorceror_prerequisites = yes
+			FROM = {
+				is_inaccessible_trigger = no
+				custom_tooltip = {
+					text = recruit_delay_timer_tooltip
+					NOT = { has_character_modifier = recruitment_delay_timer }
+				}
+			}
+		}
+		effect = {
+			set_character_flag = jinn_attempted_recruitment
+			set_character_flag = being_recruited_by_the_jinn
+			FROM = {
+				save_event_target_as = satanists_recruiter
+			}
+			hidden_effect = {
+				character_event = { id = MNM.7001 days = 3 } # recruitment chain
+				character_event = { id = MNM.7030 days = 365 } # sends delayed back up, in case recruitment fails somehow
+				FROM = {
+					if = {
+						limit = { ai = yes }
+						add_character_modifier = {
+							name = recruitment_timer
+							days = 730
+							hidden = yes
+						}
+					}
+					add_character_modifier = {
+						name = recruitment_delay_timer
+						days = 90
+						hidden = yes
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 
+				factor = 0.1 # slow down
+			}
+			modifier = {
+				factor = 10 # recruit interested parties
+				interested_in_society = arab_jinn_sorcerers
+			}
+			modifier = {
+				factor = 0 # don't recruit characters interested in something else
+				NOT = { interested_in_society = arab_jinn_sorcerers }
+				is_interested_in_any_society = yes
+			}
+		}
+	}
+
+	#Action: apepcult recruit
+	apepcult_recruit = {
+		is_in_society = yes
+		
+		filter = all
+		ai_target_filter = realm
+		ai_check_interval = 12
+
+		from_potential = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_character_modifier = recruitment_timer }
+			society_member_of = cult_of_apep
+			OR = {
+				ai = no
+				NOT = {
+					society_rank = {
+						society = cult_of_apep
+						rank == 1
+					}
+				}
+			}
+		}
+		potential = {
+			OR = {
+				FROM = { ai = no }
+				ai = no
+			}
+			OR = {
+				FROM = { ai = yes } # Only checks realm, so by definition in range
+				is_within_diplo_range = FROM
+			}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			is_in_society = no
+
+
+			#AI cannot invite other AIs when society is full
+			NAND = {
+				ai = yes
+				FROM = { ai = yes }
+				NOT = { can_join_society = cult_of_apep }
+			}
+
+			#Blocks so AI recruits sensible people (who might say no)
+			OR = {
+				FROM = { ai = no }
+				is_friend = FROM
+				is_lover = FROM
+				is_close_relative = FROM
+				trait = trusting
+				has_impious_trait_trigger = yes
+				trait = drunkard
+				trait = possessed
+				trait = lunatic
+				interested_in_society = cult_of_apep
+			}
+		}
+		allow = {
+			is_inaccessible_trigger = no
+			custom_tooltip = {
+				text = apepcult_recruit_block_tooltip
+				OR = {
+					NOT = { has_character_flag = apepcult_attempted_recruitment }
+					interested_in_society = cult_of_apep
+				}
+				NOT = { has_character_flag = being_recruited_by_the_apepcult }
+			}
+			has_cult_of_apep_prerequisites = yes
+			FROM = {
+				is_inaccessible_trigger = no
+				custom_tooltip = {
+					text = recruit_delay_timer_tooltip
+					NOT = { has_character_modifier = recruitment_delay_timer }
+				}
+			}
+		}
+		effect = {
+			set_character_flag = apepcult_attempted_recruitment
+			set_character_flag = being_recruited_by_the_apepcult
+			FROM = {
+				save_event_target_as = satanists_recruiter
+			}
+			hidden_effect = {
+				character_event = { id = MNM.7001 days = 3 } # recruitment chain
+				character_event = { id = MNM.7030 days = 365 } # sends delayed back up, in case recruitment fails somehow
+				FROM 
+					if = {
+						limit = { ai = yes }
+						add_character_modifier = {
+							name = recruitment_timer
+							days = 730
+							hidden = yes
+						}
+					}
+					add_character_modifier = {
+						name = recruitment_delay_timer
+						days = 90
+						hidden = yes
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.1 # slow down
+			}
+			modifier = {
+				factor = 10 # recruit interested parties
+				interested_in_society = cult_of_apep
+			}
+			modifier = {
+				factor = 0 # don't recruit characters interested in something else
+				NOT = { interested_in_society = cult_of_apep }
+				is_interested_in_any_society = yes
+			}
+		}
+	}
+
+	#Action: cult of balor recruit
+	cult_of_balor_recruit = {
+		is_in_society = yes
+		
+		ai_check_interval = 12
+		ai_target_filter = realm
+
+		from_potential = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_character_modifier = recruitment_timer }
+			society_member_of = the_cult_of_balor
+			OR = {
+				ai = no
+				NOT = {
+					society_rank = {
+						society = the_cult_of_balor
+						rank == 1
+					}
+				}
+			}
+		}
+		potential = {
+			OR = {
+				FROM = { ai = no }
+				ai = no
+			}
+			is_within_diplo_range = FROM
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			is_in_society = no
+
+			#AI cannot invite other AIs when society is full
+			NAND = {
+				ai = yes
+				FROM = { ai = yes }
+				NOT = { can_join_society = the_cult_of_balor }
+			}
+
+			#Blocks so AI recruits sensible people (who might say no)
+			OR = {
+				FROM = { ai = no }
+				is_friend = FROM
+				is_lover = FROM
+				is_close_relative = FROM
+				trait = trusting
+				has_impious_trait_trigger = yes
+				trait = drunkard
+				trait = possessed
+				trait = lunatic
+				interested_in_society = the_cult_of_balor
+			}
+
+			NAND = {
+				FROM = { ai = yes }
+				trait = zealous
+			}
+		}
+		allow = {
+			religion_group = celtic_group
+			is_inaccessible_trigger = no
+			custom_tooltip = {
+				text = cult_of_balor_recruit_block_tooltip
+				OR = {
+					NOT = { has_character_flag = cult_of_balor_attempted_recruitment }
+					interested_in_society = the_cult_of_balor
+				}
+				NOT = { has_character_flag = being_recruited_by_the_cult_of_balor }
+			}
+			has_cult_of_balor_prerequisites = yes
+			FROM = {
+				is_inaccessible_trigger = no
+			}
+		}
+		effect = {
+			set_character_flag = cult_of_balor_attempted_recruitment
+			set_character_flag = being_recruited_by_the_cult_of_balor
+			FROM = {
+				save_event_target_as = satanists_recruiter
+			}
+			hidden_effect = { 
+				character_event = { id = MNM.7001 days = 3 } # recruitment chain
+				character_event = { id = MNM.7030 days = 365 } # sends delayed back up, in case recruitment fails somehow
+				FROM = {
+					if = {
+						limit = { a
+}
+

@@ -1,0 +1,165 @@
+# Lux Invicta definitions extracted from master:events/bastard_events.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+
+							}
+						}
+					}
+				}
+				20 = {
+					add_trait = shy
+					hidden_tooltip = {
+						character_event = {
+							id = 38263 #Notify Shy
+						}
+						ROOT = {
+							character_event = {
+								id = 38163 #Notify child is Shy
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC76041"
+		FROM = {
+			random_list = {
+				80 = {
+					add_trait = ambitious
+					hidden_tooltip = {
+						character_event = {
+							id = 38278 #Notify Ambitious
+						}
+						ROOT = {
+							character_event = {
+								id = 38178 #Notify child is Ambitious
+							}
+						}
+					}
+				}
+				20 = {
+					add_trait = proud
+					hidden_tooltip = {
+						character_event = {
+							id = 38261 #Notify Proud
+						}
+						ROOT = {
+							character_event = {
+								id = 38161 #Notify child is Proud
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD76041"
+		trigger = {
+			religion_group = muslim
+		}
+		FROM = {
+			random_list = {
+				80 = {
+				}
+				20 = {
+					add_trait = zealous
+					hidden_tooltip = {
+						character_event = {
+							id = 38269 #Notify Zealous
+						}
+						ROOT = {
+							character_event = {
+								id = 38169 #Notify child is Zealous
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+##AGOT events adapted
+#Lonely whilst campaigning
+character_event = {
+	id = 76100
+	desc = "EVTDESC76100"
+	picture = GFX_evt_lovers
+	
+	min_age = 16
+	only_men = yes
+	only_playable = yes
+	capable_only = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		war = yes
+		in_command = yes
+		NOR = {
+			trait = chaste
+			trait = celibate
+			trait = homosexual
+		}
+		fertility = 0.4
+	}
+	
+	weight_multiplier = {
+		days = 1
+		
+		modifier = {
+			factor = 2
+			trait = lustful
+		}
+		modifier = {
+			factor = 2
+			trait = gregarious
+		}
+		modifier = {
+			factor = 2
+			trait = hedonist
+		}
+		
+		modifier = {
+			factor = 0.5
+			trait = shy
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA76100" #give her gold to shut her up
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 1.3
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.3
+				trait = honest
+			}
+		}	
+		piety = 35
+		scaled_wealth = -0.4
+	}
+	option = {
+		na
+		name = "EVTOPTB76100" #I name you a liar!
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 0.5
+				trait = kind
+			}
+			modifier = {
+				factor = 1.3
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.3
+				trait = greedy
+			}
+			modifier = {
+				factor = 

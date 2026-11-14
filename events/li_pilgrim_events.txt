@@ -1,0 +1,231 @@
+# Lux Invicta definitions extracted from master:events/pilgrim_events.txt (phase 2 of CLEANSLATE_PLAN.md).
+# Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
+
+namespace = SoA
+namespace = lux_soa
+
+		add_trait = sympathy_judaism
+		hidden_tooltip = { character_event = { id = SoA.5090 days = 10 } } # Stay a little longer then go home
+	}
+}
+
+# Self-styled God speaks to the masses - consequences
+character_event = {
+	id = SoA.5080
+	desc = EVTDESC_SoA_5080
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_religion
+	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_SoA_5080
+		prestige = -10
+		clr_character_flag = good_pilgrimage
+		clr_character_flag = bad_pilgrimage
+		set_character_flag = abominable_
+		set_character_flag = abominable_pilgrimage
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			add_trait = lunatic
+		}
+		if = {
+			limit = { NOT = { trait = wroth } }
+			random = {
+				chance = 50
+				add_trait = wroth
+				hidden_tooltip = {
+					character_event = {
+						days = 2
+						id = 38254 #Notify Wroth
+					}
+				}
+			}
+		}
+	}
+}
+
+
+#####
+###########################################
+#                                         #
+# Homecoming                              #
+#                                         #
+# ID SoA5090-SoA5093                      #
+#                                         #
+###########################################
+
+# Event checking result of pilgrimage and sending us on to the respective homecoming event
+character_event = {
+	id = SoA.5090
+
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { has_character_flag = good_pilgrimage }
+			character_event = { id = SoA.5091 }
+		}
+		if = {
+			limit = { has_character_flag = bad_pilgrimage }
+			character_event = { id = SoA.5092 }
+		}
+		if = {
+			limit = { has_character_flag = abominable_pilgrimage }
+			character_event = { id = SoA.5093 }
+		}
+		if = {
+			limit = {
+				has_quest = q
+				has_quest = quest_monastic_order_pilgrimage_christian
+			}
+			character_event = { id = MNM.4020 days = 1}
+		}
+	}
+}
+
+# Good pilgrimage
+character_event = {
+	id = SoA.5091
+	desc = EVTDESC_SoA_5091
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	trigger = { 
+		trait = on_pilgrimage
+	
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { 
+				ai = n
+				NOT = { has_character_flag = achievement_pilgrim }
+			}
+			set_character_flag = achievement_pilgrim
+		}
+	}
+
+	option = {
+		name = EVTOPTA_SoA_5091
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = good_pilgrimage
+		clr_character_flag = do_not_disturb
+		add_trait = pilgrim
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+		piety = 30
+	}
+}
+
+# Disappointing pilgrimage
+character_event = {
+	id = SoA.5092
+	desc = EVTDESC_SoA_5092
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+        clr_character_flag = pilgrimage_to_carthage
+		clr_character_flag = pilgrimage_to_vannes
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { 
+				ai = no
+				NOT = { has_character_flag = achievement_pilgrim }
+			}
+			set_character_flag = achievement_pilgrim
+		}
+	}
+
+	option = {
