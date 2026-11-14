@@ -331,6 +331,13 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      **Moved to step B:** CK2Plus's own Christian sainthood (`CK2Plus_religion_christian_sainthood.txt`):
      it belongs to CK2Plus's Christian religion system (its own on_actions and effects, 5 traits with
      icons, 129 localisation keys), so it comes in with that system, not with Holy Fury.
+   - **"Province 0" traced (2026-11-14).** Events looping over demesne provinces (VIET region checks, saint
+     flavour) hit an invalid province. A temporary debug event (removed again) logged rulers holding a
+     barony or county with no location: LI's populist revolt (`li_rebel_events_the_old_gods.txt`) created
+     its rebel leader's title as a landless **county**, which CK2 does not support (same cause as
+     `c_vesta_temple`). Original LI bug, on master too; now `tier = DUKE` like every other rebel title,
+     and it was the only landless county/barony `create_title` in the mod. Lesson: `on_startup` fires for
+     every character, so a once-per-game event needs a global-flag guard.
 
 ## Tools (currently in the session scratchpad; move into `tools/` in the repo to keep them)
 
