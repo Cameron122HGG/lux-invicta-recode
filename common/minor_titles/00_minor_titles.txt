@@ -362,7 +362,7 @@ title_commander = {
 				FROM = { government = roman_imperial_government }
 			}
 
-			character_event = { id = HFP.20805 days = 1 }
+			#character_event = { id = HFP.20805 days = 1 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		hidden_effect = { # Because this cannot be added in the passive effects, for some code reason
@@ -380,7 +380,7 @@ title_commander = {
 				FROM = { government = roman_imperial_government }
 			}
 
-			character_event = { id = HFP.20803 days = 1 } # Make sure the commander is not being made a sub-vassal.
+			#character_event = { id = HFP.20803 days = 1 } # Make sure the commander is not being made a sub-vassal. # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		hidden_effect = {

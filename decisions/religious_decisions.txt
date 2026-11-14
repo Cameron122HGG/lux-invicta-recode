@@ -8,77 +8,6 @@
 
 decisions = {
 
-	create_fraticelli_papacy = {
-		ai_check_interval = 36
-
-		is_high_prio = yes
-
-		only_playable = yes
-
-		potential = {
-			religion = fraticelli
-			has_dlc = "Sons of Abraham"
-
-			NOR = {
-				is_title_active = d_fraticelli
-
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-
-		allow = {
-			piety >= 1000
-
-			c_roma = {
-				holder_scope = {
-					OR = {
-						character = ROOT
-						is_vassal_or_below_of = ROOT
-					}
-				}
-			}
-		}
-
-		effect = {
-			activate_title = {
-				title = d_fraticelli
-				status = yes
-			}
-
-			piety = 1000
-
-			hidden_effect = {
-				create_random_priest = {
-					dynasty = none
-					random_traits = yes
-				}
-
-				new_character = {
-					grant_title = d_fraticelli
-					wealth = 500
-
-					opinion = {
-						name = opinion_creator_of_rel_heal
-						who = ROOT
-					}
-				}
-
-				religion_authority = {
-					name = papacy_instituted
-					years = 20
-				}
-			}
-
-			character_event = { id = 39703 }
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
 
 	create_iconoclast_patriarchy = {
 		ai_check_interval = 36
@@ -281,7 +210,7 @@ decisions = {
 				}
 			}
 
-			character_event = { id = 39705 }
+			#character_event = { id = 39705 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		ai_will_do = {
@@ -374,68 +303,5 @@ decisions = {
 		}
 	}
 
-	african_tolerate_abrahamics = {
-		ai_check_interval = 36
-
-		only_playable = yes
-
-		potential = {
-			# Only unreformed. Reformers can pick the Syncretism Doctrine to sympathize with everyone they wish.
-			religion = west_african_pagan
-
-			NOR = {
-				trait = sympathy_christendom
-				trait = sympathy_islam
-				trait = sympathy_judaism
-				has_character_flag = flag_picking_sympathy
-
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-
-		allow = {
-			piety >= 50
-			NOT = { trait = zealous }
-
-			custom_tooltip = {
-				text = african_sympathy_abrahamic
-
-				OR = {
-					any_neighbor_independent_ruler = {
-						OR = {
-							religion_group = christian
-							religion_group = muslim
-							religion_group = jewish_group
-						}
-					}
-
-					any_liege = {
-						OR = {
-							religion_group = christian
-							religion_group = muslim
-							religion_group = jewish_group
-						}
-					}
-				}
-			}
-		}
-
-		effect = {
-			custom_tooltip = {
-				text = tooltip_african_picking_syncretism
-
-				character_event = { id = HFP.23027 }
-			}
-
-			piety = -50
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
 
 }

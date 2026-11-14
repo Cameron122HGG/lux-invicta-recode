@@ -5243,28 +5243,6 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 72114
-
-	hide_window = yes
-	is_triggered_only = yes # on_war_started
-
-	immediate = {
-		ROOT = {
-			if = {
-				limit = { has_character_modifier = holding_large_feast }
-				character_event = { id = 72112 }
-			}
-		}
-
-		FROM = {
-			if = {
-				limit = { has_character_flag = holding_large_feast }
-				character_event = { id = 72112 }
-			}
-		}
-	}
-}
 
 # The feast is cancelled due to war
 character_event = {

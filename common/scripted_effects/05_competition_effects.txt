@@ -10560,10 +10560,10 @@ warrior_lodge_arm_wrestling_first_round_effect = {
 					}
 
 					event_target:arm_wrestling_fighter_1 = {
-						character_event = {
-							id = HF.25205 # First round sends event to underdog
-							days = 1
-						}
+						#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+							#id = HF.25205 # First round sends event to underdog
+							#days = 1
+						#}
 					}
 				}
 			}
@@ -10798,7 +10798,7 @@ warrior_lodge_arm_wrestling_second_round_effect = {
 
 					event_target:arm_wrestling_fighter_1 = { save_event_target_as = wl_arm_wrestling_winner }
 					event_target:arm_wrestling_fighter_2 = { save_event_target_as = wl_arm_wrestling_loser }
-					event_target:wl_arm_wrestling_winner = { character_event = { id = HF.25215 } } # Second round sends event to winner
+					#event_target:wl_arm_wrestling_winner = { character_event = { id = HF.25215 } } # Second round sends event to winner # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 
 				50 = {
@@ -11014,7 +11014,7 @@ warrior_lodge_arm_wrestling_second_round_effect = {
 
 					event_target:arm_wrestling_fighter_2 = { save_event_target_as = wl_arm_wrestling_winner }
 					event_target:arm_wrestling_fighter_1 = { save_event_target_as = wl_arm_wrestling_loser }
-					event_target:wl_arm_wrestling_winner = { character_event = { id = HF.25215 } } # Second round sends event to winner
+					#event_target:wl_arm_wrestling_winner = { character_event = { id = HF.25215 } } # Second round sends event to winner # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 			}
 		}
@@ -11201,7 +11201,7 @@ post_arm_wrestling_flavor_effect = {
 							is_unattractive_trigger = no
 						}
 
-						character_event = { id = HF.25218 }
+						#character_event = { id = HF.25218 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 					}
 				}
 			}
@@ -11315,7 +11315,7 @@ post_arm_wrestling_flavor_effect = {
 							NOT = { trait = shy }
 						}
 
-						character_event = { id = HF.25222 }
+						#character_event = { id = HF.25222 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 					}
 				}
 			}
@@ -12153,7 +12153,7 @@ warrior_lodge_flyting_winner_selection_effect = { # ROOT and FROM are the conten
 				}
 
 				event_target:flyting_contender_1 = { save_event_target_as = flyting_winner }
-				event_target:flyting_contender_2 = { character_event = { id = HF.25262 } } # Loser ping
+				#event_target:flyting_contender_2 = { character_event = { id = HF.25262 } } # Loser ping # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 
 			50 = { # flyting_contender_2 wins
@@ -12590,7 +12590,7 @@ warrior_lodge_flyting_winner_selection_effect = { # ROOT and FROM are the conten
 				}
 
 				event_target:flyting_contender_2 = { save_event_target_as = flyting_winner }
-				event_target:flyting_contender_1 = { character_event = { id = HF.25262 } } # Loser ping
+				#event_target:flyting_contender_1 = { character_event = { id = HF.25262 } } # Loser ping # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -12983,7 +12983,7 @@ pick_potential_WL_drinking_finalists_effect = {
 				}
 
 				event_target:warrior_lodge_drinking_finalist_2 = {
-					character_event = { id = HF.25288 } # Send event to the guy about to lose
+					#character_event = { id = HF.25288 } # Send event to the guy about to lose # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 			}
 
@@ -13127,14 +13127,14 @@ pick_potential_WL_drinking_finalists_effect = {
 				}
 
 				event_target:warrior_lodge_drinking_finalist_1 = {
-					character_event = { id = HF.25288 }
+					#character_event = { id = HF.25288 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 			}
 		}
 	}
 	else = { # Fallback, if no potential winner exists in the first place
 		event_target:WL_host_drinking_game = {
-			character_event = { id = HF.25286 } # Inform host that nobody won
+			#character_event = { id = HF.25286 } # Inform host that nobody won # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 }
@@ -13298,7 +13298,7 @@ pick_potential_WL_drinking_winner_effect = {
 					}
 
 					event_target:warrior_lodge_drinking_finalist_1 = { save_event_target_as = WL_drinking_contest_winner } # Loc purposes
-					event_target:WL_drinking_contest_winner = { character_event = { id = HF.25292 } } # Winner
+					#event_target:WL_drinking_contest_winner = { character_event = { id = HF.25292 } } # Winner # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 
 				25 = {
@@ -13451,7 +13451,7 @@ pick_potential_WL_drinking_winner_effect = {
 					}
 
 					event_target:warrior_lodge_drinking_finalist_2 = { save_event_target_as = WL_drinking_contest_winner } # Loc purposes
-					event_target:WL_drinking_contest_winner = { character_event = { id = HF.25292 } } # Winner
+					#event_target:WL_drinking_contest_winner = { character_event = { id = HF.25292 } } # Winner # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 
 				25 = { # Hero can spot the cheater
@@ -13522,13 +13522,13 @@ pick_potential_WL_drinking_winner_effect = {
 					}
 
 					event_target:WL_host_drinking_game = {
-						character_event = { id = HF.25289 }
+						#character_event = { id = HF.25289 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 					} # Inform host
 				}
 			}
 		}
 		else = { # Fallback, if no potential winner exists in the first place
-			event_target:WL_host_drinking_game = { character_event = { id = HF.25286 } } # Inform host that nobody won
+			#event_target:WL_host_drinking_game = { character_event = { id = HF.25286 } } # Inform host that nobody won # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 }

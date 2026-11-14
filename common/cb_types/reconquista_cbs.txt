@@ -72,7 +72,7 @@ reconquista_aragon = {
 
 			# Attacker
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -90,7 +90,7 @@ reconquista_aragon = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 
@@ -209,7 +209,7 @@ reconquista_balearic = {
 			text = add_allies_reconquista_TT
 
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -225,7 +225,7 @@ reconquista_balearic = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 
@@ -308,7 +308,7 @@ reconquista_beja = {
 
 			# Attacker
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -326,7 +326,7 @@ reconquista_beja = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 
@@ -409,7 +409,7 @@ reconquista_castille = {
 
 			# Attacker
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -427,7 +427,7 @@ reconquista_castille = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 
@@ -509,7 +509,7 @@ reconquista_cordoba = {
 			text = add_allies_reconquista_TT
 
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -526,7 +526,7 @@ reconquista_cordoba = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 
@@ -609,7 +609,7 @@ reconquista_galicia = {
 
 			# Attacker
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -639,7 +639,7 @@ reconquista_galicia = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 
@@ -720,7 +720,7 @@ reconquista_granada = {
 			text = add_allies_reconquista_TT
 
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -737,7 +737,7 @@ reconquista_granada = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 
@@ -820,7 +820,7 @@ reconquista_leon = {
 
 			# Attacker
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -855,7 +855,7 @@ reconquista_leon = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 
@@ -937,7 +937,7 @@ reconquista_navarra = {
 			text = add_allies_reconquista_TT
 
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -954,7 +954,7 @@ reconquista_navarra = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 
@@ -1036,7 +1036,7 @@ reconquista_valencia = {
 			text = add_allies_reconquista_TT
 
 			attacker = {
-				character_event = { id = HF.49210 } # Adding allies to the Reconquista
+				#character_event = { id = HF.49210 } # Adding allies to the Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -1053,7 +1053,7 @@ reconquista_valencia = {
 
 	on_invalidation = {
 		attacker = {
-			character_event = { id = HF.49200 } # Clean up event post-Reconquista
+			#character_event = { id = HF.49200 } # Clean up event post-Reconquista # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 

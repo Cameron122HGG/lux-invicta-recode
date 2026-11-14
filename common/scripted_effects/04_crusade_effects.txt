@@ -46,7 +46,7 @@ pledge_crusade_effect = {
 	if = {
 		limit = { trait = excommunicated }
 
-		letter_event = { id = HFP.41057 }
+		#letter_event = { id = HFP.41057 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 	}
 
 	remove_character_modifier = not_pledged_to_crusade
@@ -98,7 +98,7 @@ defender_unpledge_crusade_effect = {
 
 # Referenced by the "Contribute to Pot" button in the Crusade view for Crusades using the new Crusade system
 contribute_to_crusade_pot_effect = {
-	character_event = { id = HFP.41088 }
+	#character_event = { id = HFP.41088 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 }
 
 # Referenced in code by distribute_crusade_pot
@@ -450,7 +450,7 @@ crusade_give_artifact_effect = {
 
 # Referenced by the "Select Receiver Stance" button in the Crusade view for Crusades using the new Crusade system
 select_crusade_receiver_stance_effect = {
-	character_event = { id = HFP.41091 }
+	#character_event = { id = HFP.41091 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 }
 
 # Crusader King/Queen set up
@@ -476,8 +476,8 @@ setting_up_the_crusader_kingdom_effect = {
 		add_trait = crusader_queen
 	}
 
-	character_event = { id = HFP.41090 days = 1 }
-	character_event = { id = HFP.41090 days = 3 }
+	#character_event = { id = HFP.41090 days = 1 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+	#character_event = { id = HFP.41090 days = 3 }
 
 	if = {
 		limit = { has_dlc = "Holy Fury" }
@@ -672,7 +672,7 @@ crusader_commander_counter_positive_effect = {
 				}
 			}
 
-			narrative_event = { id = HF.49021 }
+			#narrative_event = { id = HF.49021 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 }
@@ -821,7 +821,7 @@ crusade_flavor_event_tombola_effect = {
 				}
 			}
 
-			character_event = { id = HFP.42201 }
+			#character_event = { id = HFP.42201 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# Seeing the local culture
@@ -830,12 +830,12 @@ crusade_flavor_event_tombola_effect = {
 				NOT = { culture = location }
 			}
 
-			character_event = { id = HFP.42202 }
+			#character_event = { id = HFP.42202 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# Dead Crusaders
 		3 = {
-			character_event = { id = HFP.42203 }
+			#character_event = { id = HFP.42203 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# Meeting caravan
@@ -844,7 +844,7 @@ crusade_flavor_event_tombola_effect = {
 				NOT = { has_character_modifier = crusade_event_meeting_caravan_cooldown }
 			}
 
-			character_event = { id = HFP.42204 }
+			#character_event = { id = HFP.42204 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# Reminiscing about home
@@ -853,12 +853,12 @@ crusade_flavor_event_tombola_effect = {
 				NOT = { has_character_modifier = crusade_event_reminiscing_about_home_cooldown }
 			}
 
-			character_event = { id = HFP.42205 }
+			#character_event = { id = HFP.42205 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# The Holy Comet
 		3 = {
-			character_event = { id = HFP.42206 }
+			#character_event = { id = HFP.42206 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# Questioning the faith
@@ -867,7 +867,7 @@ crusade_flavor_event_tombola_effect = {
 				NOT = { has_character_modifier = crusade_event_questioning_the_faith_cooldown }
 			}
 
-			character_event = { id = HFP.42207 }
+			#character_event = { id = HFP.42207 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# The little group of Faithful
@@ -877,22 +877,22 @@ crusade_flavor_event_tombola_effect = {
 				is_alternate_start = no
 			}
 
-			character_event = { id = HFP.42208 }
+			#character_event = { id = HFP.42208 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# The little thief
 		2 = {
-			character_event = { id = HFP.42209 }
+			#character_event = { id = HFP.42209 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# The wise man
 		3 = {
-			character_event = { id = HFP.42210 }
+			#character_event = { id = HFP.42210 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# Coming across a local festival
 		3 = {
-			character_event = { id = HFP.42211 }
+			#character_event = { id = HFP.42211 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# Guided by God or Alcohol
@@ -925,7 +925,7 @@ crusade_flavor_event_tombola_effect = {
 				}
 			}
 
-			character_event = { id = HFP.42212 }
+			#character_event = { id = HFP.42212 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# Meeting a Holy Order
@@ -951,12 +951,12 @@ crusade_flavor_event_tombola_effect = {
 				}
 			}
 
-			character_event = { id = HFP.42213 }
+			#character_event = { id = HFP.42213 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# Crusader Brothel
 		3 = {
-			character_event = { id = HFP.42214 }
+			#character_event = { id = HFP.42214 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		# The men are restless - unused
@@ -1695,10 +1695,10 @@ reconquista_win_effect = {
 						add_law = centralization_3
 					}
 
-					character_event = {
-						id = HFP.41090
-						days = 1
-					}
+					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+						#id = HFP.41090
+						#days = 1
+					#}
 				}
 			}
 		# }
@@ -1744,12 +1744,12 @@ reconquista_win_effect = {
 						religion_group = christian
 					}
 
-					narrative_event = { id = HF.49221 }
+					#narrative_event = { id = HF.49221 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 			}
 		}
 
-		character_event = { id = HF.49200 }
+		#character_event = { id = HF.49200 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 	}
 }
 
@@ -1769,7 +1769,7 @@ reconquista_lose_effect = {
 			years = 20
 		}
 
-		character_event = { id = HF.49200 }
+		#character_event = { id = HF.49200 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 	}
 
 	any_attacker = {
@@ -1846,7 +1846,7 @@ reconquista_lose_effect = {
 					religion_group = christian
 				}
 
-				narrative_event = { id = HF.49220 }
+				#narrative_event = { id = HF.49220 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -1896,10 +1896,10 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			narrative_event = {
-				id = HF.25819 # Notify everyone that the crusade has flopped
-				days = 30
-			}
+			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				#id = HF.25819 # Notify everyone that the crusade has flopped
+				#days = 30
+			#}
 		}
 
 		activate_title = {
@@ -1970,17 +1970,17 @@ move_childrens_crusade_region_effect = {
 				religion_group = christian
 			}
 
-			narrative_event = {
-				id = HF.25815 # Notify everyone that the crusade has reached Genoa and the sea did not part before them
-				days = 30
-			}
+			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				#id = HF.25815 # Notify everyone that the crusade has reached Genoa and the sea did not part before them
+				#days = 30
+			#}
 		}
 
-		narrative_event = {
-			id = HF.25808 # Ping back to main event to check travel progress
-			days = 50
-			random = 100
-		}
+		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			#id = HF.25808 # Ping back to main event to check travel progress
+			#days = 50
+			#random = 100
+		#}
 	}
 	else_if = { # Then shipwreck to Achaia
 		limit = { has_character_flag = flag_children_at_genoa }
@@ -2003,10 +2003,10 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			narrative_event = {
-				id = HF.25816 # Notify everyone that the crusade has shipwrecked into Achaia
-				days = 30
-			}
+			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				#id = HF.25816 # Notify everyone that the crusade has shipwrecked into Achaia
+				#days = 30
+			#}
 		}
 
 		if = {
@@ -2024,11 +2024,11 @@ move_childrens_crusade_region_effect = {
 			}
 		}
 
-		narrative_event = {
-			id = HF.25808 # Ping back to main event to check travel progress
-			days = 50
-			random = 100
-		}
+		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			#id = HF.25808 # Ping back to main event to check travel progress
+			#days = 50
+			#random = 100
+		#}
 	}
 	else_if = { # Then crawl to Nikaea
 		limit = { has_character_flag = flag_children_at_achaia }
@@ -2052,17 +2052,17 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			narrative_event = {
-				id = HF.25817 # Notify everyone that the crusade has crawled its way to Nikaea
-				days = 30
-			}
+			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				#id = HF.25817 # Notify everyone that the crusade has crawled its way to Nikaea
+				#days = 30
+			#}
 		}
 
-		narrative_event = {
-			id = HF.25808 # Ping back to main event to check travel progress
-			days = 50
-			random = 100
-		}
+		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			#id = HF.25808 # Ping back to main event to check travel progress
+			#days = 50
+			#random = 100
+		#}
 	}
 	else_if = { # We actually got there. Start the war
 		limit = { has_character_flag = flag_children_at_nikaea }
@@ -2074,10 +2074,10 @@ move_childrens_crusade_region_effect = {
 		clr_character_flag = flag_children_at_nikaea
 		set_character_flag = flag_children_at_antioch
 
-		narrative_event = {
-			id = HF.25820 # START THE CRUSADE
-			days = 25
-		}
+		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			#id = HF.25820 # START THE CRUSADE
+			#days = 25
+		#}
 
 		any_player = {
 			limit = {
@@ -2085,10 +2085,10 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			narrative_event = {
-				id = HF.25818 # Notify everyone that the crusade has actually reached Antioch and is ready to engage
-				days = 30
-			}
+			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				#id = HF.25818 # Notify everyone that the crusade has actually reached Antioch and is ready to engage
+				#days = 30
+			#}
 		}
 	}
 	else = { # Move directly to Antioch in case something went wrong
@@ -2121,10 +2121,10 @@ move_childrens_crusade_region_effect = {
 			}
 		}
 
-		narrative_event = {
-			id = HF.25820 # START THE CRUSADE
-			days = 25
-		}
+		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			#id = HF.25820 # START THE CRUSADE
+			#days = 25
+		#}
 
 		any_player = {
 			limit = {
@@ -2132,10 +2132,10 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			narrative_event = {
-				id = HF.25818 # Notify everyone that the crusade has actually reached Antioch and is ready to engage
-				days = 30
-			}
+			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				#id = HF.25818 # Notify everyone that the crusade has actually reached Antioch and is ready to engage
+				#days = 30
+			#}
 		}
 	}
 }

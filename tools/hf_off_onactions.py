@@ -13,6 +13,12 @@ lidef = set()
 for f in os.listdir(R + '/events'):
     if f.endswith('.txt'): lidef |= set(re.findall(rb'\bid\s*=\s*([\w.]+)', strip(rd(R + '/events/' + f))))
 HF = {i for i, f in vdef.items() if re.match(r'(?i)(hf|hfp)_', f) and i not in lidef}
+# --ids-file=<file>: switch off exactly these event IDs instead (one per line); --note=<text>: comment text
+_idf = next((a.split('=', 1)[1] for a in sys.argv if a.startswith('--ids-file=')), None)
+if _idf: HF = {l.strip().encode() for l in open(_idf) if l.strip()}
+_nt = next((a.split('=', 1)[1] for a in sys.argv if a.startswith('--note=')), None)
+if _nt: NOTE = b' (' + _nt.encode() + b')'
+
 
 p = os.path.join(R, F); b = rd(p); lines = b.split(b'\n')
 in_list = False; depth = 0; kind = None; done = 0; partial = 0

@@ -2418,25 +2418,6 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = SoA.5998
-
-	is_triggered_only = yes # on_character_convert_religion
-	hide_window = yes
-
-	trigger = {
-		OR = {
-			has_character_flag = preparing_pilgrimage
-			has_character_flag = activated_pilgrimage
-		}
-
-		NOT = { religion_group = christian }
-	}
-
-	immediate = {
-		character_event = { id = SoA.5999 }
-	}
-}
 
 # Clean-up
 character_event = {

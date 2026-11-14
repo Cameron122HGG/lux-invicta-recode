@@ -14,7 +14,7 @@ setting_up_saintly_burial_site_effect = {
 	}
 
 	owner = {
-		character_event = { id = HF.40022 }
+		#character_event = { id = HF.40022 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 	}
 }
 
@@ -281,7 +281,7 @@ deciding_upon_saint_effect = {
 
 			random_realm_province = {
 				preferred_limit = { held_under_PREV = yes }
-				province_event = { id = HF.40010 } # Checking time left to Canonization
+				#province_event = { id = HF.40010 } # Checking time left to Canonization # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 
 			change_variable = {
@@ -1399,10 +1399,10 @@ check_if_ancestor_worship_worthy_effect = {
 		set_character_flag = blessed_ancestor_prestige
 
 		rightful_religious_head_scope = {
-			character_event = {
-				id = HF.40101 # Religious Head is notified about potential Ancestor material
-				days = 3
-			}
+			#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				#id = HF.40101 # Religious Head is notified about potential Ancestor material
+				#days = 3
+			#}
 		}
 	}
 }

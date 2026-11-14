@@ -10,10 +10,10 @@ on_startup = {
 	events = {
 		CK2.689 # Scripted default elective token setup
 		CK2.690 # Reformed religion head title setup
-		easteregg.1337 # Emperor Ticket character spawning event (CleanSlate: Really, guys?)
+		#easteregg.1337 # Emperor Ticket character spawning event (CleanSlate: Really, guys?) (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		LT.32000 # Adding the historical flag to wonders and setting Hagia Sophia cult flag
-		LT.40001 # Turning Yngvar of Kievan Rus Russian/Slavic
-		60700 # Unset Mongol Empire as landless if holder is landed
+		#LT.40001 # Turning Yngvar of Kievan Rus Russian/Slavic (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60700 # Unset Mongol Empire as landless if holder is landed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -23,18 +23,18 @@ on_yearly_pulse = {
 		CK2.63106 # (Safety flag clearance check event)
 		bear.7 # Secret bear generation
 		bear.1 # Secret bear discovery. Called here and in bear.7, as bear.1 can be temporarily precluded
-		8700   # Teutonic Order asks for a county
-		39405  # Pope urges ruler to root out heresy in province
-		89501  # Zheng He
+		#8700   # Teutonic Order asks for a county (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39405  # Pope urges ruler to root out heresy in province (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#89501  # Zheng He (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
 		### Otto Events ###
-		LT.40003 # Otto Lorraine event
-		LT.40005 # Thankmar's Rebellion
-		LT.40012 # Otto's Italy Campaign
-		LT.40014 # Otto's Coronation
+		#LT.40003 # Otto Lorraine event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#LT.40005 # Thankmar's Rebellion (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#LT.40012 # Otto's Italy Campaign (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#LT.40014 # Otto's Coronation (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
 		### Fatimid Events ###
-		LT.40016 # Fatimid Invasion of Egypt
+		#LT.40016 # Fatimid Invasion of Egypt (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
 		# Court maintenance events
 		LT.61001 # Add/remove stats
@@ -43,22 +43,22 @@ on_yearly_pulse = {
 		LT.61004 # Add nicknames
 
 		# Possesed Events
-		6199 # Voice of Jesus tombola
-		6241 # Voice of Satan tombola
+		#6199 # Voice of Jesus tombola (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#6241 # Voice of Satan tombola (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
 		# Found Holy Orders
-		39100 # Formation of the Knights of St John
-		39101 # Formation of the Knights Templar
-		39102 # Formation of the Teutonic Order
+		#39100 # Formation of the Knights of St John (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39101 # Formation of the Knights Templar (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39102 # Formation of the Teutonic Order (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
 		# Unlock Crusades
-		39661 # Start of Christian Crusades – Byzantium Falls
-		39662 # Start of Christian Crusades – Romes Falls
-		39663 # Start of Christian Crusades – Europe Falls
-		39671 # Start of Muslim Jihads - Jerusalem Falls
-		39672 # Start of Muslim Jihads - Mecca Falls
-		39673 # Start of Muslim Jihads - Other Cities Fall
-		39674 # Start of Muslim Jihads - Africa Falls
+		#39661 # Start of Christian Crusades – Byzantium Falls (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39662 # Start of Christian Crusades – Romes Falls (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39663 # Start of Christian Crusades – Europe Falls (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39671 # Start of Muslim Jihads - Jerusalem Falls (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39672 # Start of Muslim Jihads - Mecca Falls (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39673 # Start of Muslim Jihads - Other Cities Fall (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39674 # Start of Muslim Jihads - Africa Falls (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {
@@ -96,7 +96,7 @@ on_yearly_pulse = {
 		100 = 30021 # Spouse accuses spouse of poisoning her/him
 		100 = 30025 # Homosexual spouse
 		100 = 30030 # Spouse in prison: spouse is trying to free her/him
-		100 = 30039 # Annoying courtier
+		100 = 0 # was 30039: Annoying courtier (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		100 = 30045 # Push courtier into river?
 		100 = 30050 # Give spouse a gift: jewellery
 		100 = 30051 # Give spouse a gift: horse
@@ -495,7 +495,7 @@ on_yearly_pulse = {
 			delay = 77
 
 			900 = 0
-			100 = 55004 # Make my court speak English
+			100 = 0 # was 55004: Make my court speak English (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		guardian_offer = {
@@ -506,14 +506,14 @@ on_yearly_pulse = {
 		}
 
 		holy_order_castle_requests = {
-			250 = 8500 # Krak des Chevaliers
-			250 = 8505 # Margat
-			250 = 8510 # Belvoir
-			250 = 8515 # Beth Gibelin
-			250 = 8600 # Beit Dejan
-			250 = 8605 # Belfort
-			250 = 8610 # Athlith
-			250 = 8615 # La Feve
+			250 = 0 # was 8500: Krak des Chevaliers (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			250 = 0 # was 8505: Margat (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			250 = 0 # was 8510: Belvoir (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			250 = 0 # was 8515: Beth Gibelin (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			250 = 0 # was 8600: Beit Dejan (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			250 = 0 # was 8605: Belfort (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			250 = 0 # was 8610: Athlith (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			250 = 0 # was 8615: La Feve (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		turkic_invasions = {
@@ -521,12 +521,12 @@ on_yearly_pulse = {
 
 			1000 = 0
 
-			 144 = 60200 # Seljuk distinguishes himself in a Turkish court
-			  55 = 60207 # Seljuk's successor revitalizes the new state
-			1000 = 60300 # Timur distinguishes himself at a Mongol court
-			  35 = 60307 # Timur's successors revitalize the state
-			1000 = 60400 # Sabuktigin distinguishes himself at a Mongol court
-			 112 = 60600 # A Turkic character wants a foothold in Armenia
+			 144 = 0 # was 60200: Seljuk distinguishes himself in a Turkish court (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			  55 = 0 # was 60207: Seljuk's successor revitalizes the new state (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			1000 = 0 # was 60300: Timur distinguishes himself at a Mongol court (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			  35 = 0 # was 60307: Timur's successors revitalize the state (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			1000 = 0 # was 60400: Sabuktigin distinguishes himself at a Mongol court (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 112 = 0 # was 60600: A Turkic character wants a foothold in Armenia (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		vassal_requests = {
@@ -552,8 +552,8 @@ on_yearly_pulse = {
 			 800 = 0
 
 			  67 = 39441 # Pope learns that you have a heretic advisor
-			1200 = 39444 # Vassal disappointed in liege having heretic advisor
-			  10 = 39239 # Pope/Patriarch demands that a ruler not have heathens employed
+			1200 = 0 # was 39444: Vassal disappointed in liege having heretic advisor (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			  10 = 0 # was 39239: Pope/Patriarch demands that a ruler not have heathens employed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		courtier_conversion = {
@@ -617,8 +617,8 @@ on_yearly_pulse = {
 # Character scope
 on_bi_yearly_pulse = {
 	events = {
-		89500 # Marco Polo
-		39209 # Pope offers absolution for Kinslaying
+		#89500 # Marco Polo (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39209 # Pope offers absolution for Kinslaying (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {
@@ -914,11 +914,11 @@ on_bi_yearly_pulse = {
 
 			650 = 0
 
-			200 = 73199 # I want to be marshal, I am better...
-			200 = 73209 # I want to be spymaster, I am better...
-			200 = 73219 # I want to be treasurer, I am better...
-			200 = 73229 # I want to be lord_spiritual, I am better...
-			200 = 73239 # I want to be Chancellor, I am better...
+			200 = 0 # was 73199: I want to be marshal, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			200 = 0 # was 73209: I want to be spymaster, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			200 = 0 # was 73219: I want to be treasurer, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			200 = 0 # was 73229: I want to be lord_spiritual, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			200 = 0 # was 73239: I want to be Chancellor, I am better... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 	}
 }
@@ -1032,7 +1032,7 @@ on_five_year_pulse = {
 
 		mongol_invasions = {
 			100 = 0
-			250 = 60500 # Mongol Horde starts forming
+			250 = 0 # was 60500: Mongol Horde starts forming (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		possessed_supernatural_events = {
@@ -1078,9 +1078,9 @@ on_five_year_pulse = {
 
 			960 = 0
 
-			50 = 55002 # The English Melting Pot
-			83 = 55003 # English culture is spreading
-			83 = 55005 # Make my vassal speak English
+			50 = 0 # was 55002: The English Melting Pot (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			83 = 0 # was 55003: English culture is spreading (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			83 = 0 # was 55005: Make my vassal speak English (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		ruler_culture_conversion = {
@@ -1102,30 +1102,30 @@ on_five_year_pulse = {
 
 			950 = 0
 
-			 42 = 60010 # Ilkhanate converts to Catholic
-			 63 = 60011 # Ilkhanate converts to Orthodox
-			143 = 60012 # Ilkhanate converts to Sunni
-			143 = 60013 # Ilkhanate converts to Shiite
-			143 = 60014 # Ilkhanate converts to Nestorian
-			 42 = 60020 # Golden Horde converts to Catholic
-			125 = 60021 # Golden Horde converts to Orthodox
-			143 = 60022 # Golden Horde converts to Sunni
-			143 = 60023 # Golden Horde converts to Shiite
-			 42 = 60024 # Golden Horde converts to Nestorian
+			 42 = 0 # was 60010: Ilkhanate converts to Catholic (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 63 = 0 # was 60011: Ilkhanate converts to Orthodox (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			143 = 0 # was 60012: Ilkhanate converts to Sunni (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			143 = 0 # was 60013: Ilkhanate converts to Shiite (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			143 = 0 # was 60014: Ilkhanate converts to Nestorian (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 42 = 0 # was 60020: Golden Horde converts to Catholic (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			125 = 0 # was 60021: Golden Horde converts to Orthodox (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			143 = 0 # was 60022: Golden Horde converts to Sunni (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			143 = 0 # was 60023: Golden Horde converts to Shiite (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 42 = 0 # was 60024: Golden Horde converts to Nestorian (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		shia_caliphate = {
 			delay = 85
 
 			967 = 0
-			 33 = 39640 # Rise of the Shi'a Caliphate
+			 33 = 0 # was 39640: Rise of the Shi'a Caliphate (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		mufti_charity = {
 			delay = 91
 
 			940 = 0
-			 60 = lordspiritual.1101 # The Mufti pockets money meant for the poor
+			 #60 = lordspiritual.1101 # The Mufti pockets money meant for the poor (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 	}
 }
@@ -1133,10 +1133,10 @@ on_five_year_pulse = {
 # Character scope
 on_decade_pulse = {
 	events = {
-		LT.41000 # Rename West-Frisia to Holland
-		39660 # Start of the Christian Crusades - 1090 and Jerusalem Not Christian
-		39670 # Start of the Muslim Jihads - 1187 If There Is Still a Caliph
-		39680 # Start of the Pagan Great Holy Wars
+		#LT.41000 # Rename West-Frisia to Holland (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39660 # Start of the Christian Crusades - 1090 and Jerusalem Not Christian (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39670 # Start of the Muslim Jihads - 1187 If There Is Still a Caliph (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39680 # Start of the Pagan Great Holy Wars (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {
@@ -1421,7 +1421,7 @@ on_siege_won_leader = {
 		300 = 0
 		100 = 8340 # Finds the Spear of Destiny / Holy Lance
 		100 = 8342 # Finds the Holy Grail
-		500 = 8345 # Sack of Jerusalem
+		500 = 0 # was 8345: Sack of Jerusalem (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		5 = LT.21000 # After a Siege, things might get out of control and a sack occur.
 	}
 }
@@ -1463,28 +1463,28 @@ on_siege_lost_leader_trade_post = {
 # FROM is the taken holding title
 on_siege_over_winner = {
 	events = {
-		60100 # Mongols sack Kiev
-		60101 # Mongols sack Novgorod
-		60102 # Mongols sack Krakow
-		60103 # Mongols sack Aachen
-		60104 # Mongols sack Paris
-		60105 # Mongols sack London
-		60106 # Mongols sack Rome
-		60107 # Mongols sack Venice
-		60108 # Mongols sack Constantinople
-		60109 # Mongols sack Lisbon
-		60110 # Mongols sack Smolensk
-		60111 # Mongols sack Prague
-		60112 # Mongols sack Vienna
-		60113 # Mongols sack Esztergom
-		60114 # Mongols sack Athens
-		60115 # Mongols sack Belgrade
-		60116 # Mongols sack Baghdad
-		60117 # Mongols sack Damascus
-		60118 # Mongols sack Jerusalem
-		60119 # Mongols sack Alexandria
-		60120 # Mongols sack Cairo
-		60121 # Mongols sack Mecca
+		#60100 # Mongols sack Kiev (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60101 # Mongols sack Novgorod (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60102 # Mongols sack Krakow (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60103 # Mongols sack Aachen (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60104 # Mongols sack Paris (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60105 # Mongols sack London (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60106 # Mongols sack Rome (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60107 # Mongols sack Venice (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60108 # Mongols sack Constantinople (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60109 # Mongols sack Lisbon (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60110 # Mongols sack Smolensk (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60111 # Mongols sack Prague (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60112 # Mongols sack Vienna (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60113 # Mongols sack Esztergom (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60114 # Mongols sack Athens (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60115 # Mongols sack Belgrade (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60116 # Mongols sack Baghdad (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60117 # Mongols sack Damascus (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60118 # Mongols sack Jerusalem (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60119 # Mongols sack Alexandria (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60120 # Mongols sack Cairo (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#60121 # Mongols sack Mecca (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {
@@ -1638,7 +1638,7 @@ on_pregnancy = {
 # FROM is the attacked kingdom title
 on_crusade_creation = {
 	events = {
-		200 # Any Crusade/Jihad/GHW announcement
+		#200 # Any Crusade/Jihad/GHW announcement (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -1663,12 +1663,12 @@ on_marriage = {
 on_become_imprisoned_any_reason = {
 	events = {
 		685   # Remove in-hiding trait on imprisonment
-		39219 # Catholic Bishops don't like being in prison
-		39229 # Orthodox Bishops don't like being in prison
-		50004 # Request better accommodations
-		50024 # Petition liege to release prisoner
-		62950 # The sons of Lodbrok exact their revenge on Aella
-		63049 # An imprisoned character asks a friend to intervene - former MTTH event
+		#39219 # Catholic Bishops don't like being in prison (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39229 # Orthodox Bishops don't like being in prison (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#50004 # Request better accommodations (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#50024 # Petition liege to release prisoner (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62950 # The sons of Lodbrok exact their revenge on Aella (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#63049 # An imprisoned character asks a friend to intervene - former MTTH event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -1736,9 +1736,9 @@ on_death = {
 		24502    # Death of a good son
 		70041    # Ruler has died, the tournament is over
 		88291    # Ruler has died, the furusiyya is over
-		LT.21100 # Check to see if Henry I of England dies without male son
+		#LT.21100 # Check to see if Henry I of England dies without male son (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		532      # Clears regents if heir has one already
-		680      # Preserve player religion if heir has DLC locked religion
+		#680      # Preserve player religion if heir has DLC locked religion (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		LT.20501 # Sucessor must decide on Burial if it has wonders with burial_ground flag
 	}
 
@@ -1852,7 +1852,7 @@ DEMAND_RELIGIOUS_CONVERSION_INTERACTION_ACCEPT_EVENT = {
 	random_events = {
 		arwa_conversion_check_delay = {
 			delay = 1
-			100 = LT.62002 # Featured Ruler - Arwa Al-Sulayhi - conversion check
+			#100 = LT.62002 # Featured Ruler - Arwa Al-Sulayhi - conversion check (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 	}
 }
@@ -2598,7 +2598,7 @@ on_approve_de_jure_law = {
 # ROOT is province
 on_rebel_revolt = {
 	events = {
-		600 # Only valid without "The Old Gods" DLC
+		#600 # Only valid without "The Old Gods" DLC (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -2732,11 +2732,11 @@ on_navy_returns_with_loot = {
 # FROM is the title
 on_create_title = {
 	events = {
-		62930 # Rename West Francia to France
-		62931 # Rename East Francia to Germany
-		62932 # Rename Middle Francia to Austrasia
-		62933 # Special event for renaming Ruthenia should they be ruled by Russians in Kiev
-		62934 # Reset name if no longer ruled by Russians in Kiev
+		#62930 # Rename West Francia to France (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62931 # Rename East Francia to Germany (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62932 # Rename Middle Francia to Austrasia (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62933 # Special event for renaming Ruthenia should they be ruled by Russians in Kiev (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62934 # Reset name if no longer ruled by Russians in Kiev (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -2745,20 +2745,20 @@ on_create_title = {
 # FROMFROM is the old holder
 on_new_holder = {
 	events = {
-		60504 # Landless status clean-up for e_mongol_empire
+		#60504 # Landless status clean-up for e_mongol_empire (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		533   # Powerful vassals overthrow their liege - faction
 		539   # Fix adventurers turning Tribal land Feudal
-		62930 # Rename West Francia to France
-		62931 # Rename East Francia to Germany
-		62932 # Rename Middle Francia to Austrasia
-		62933 # Special event for renaming Ruthenia should they be ruled by Russians in Kiev
-		62934 # Reset name if no longer ruled by Russians in Kiev
+		#62930 # Rename West Francia to France (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62931 # Rename East Francia to Germany (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62932 # Rename Middle Francia to Austrasia (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62933 # Special event for renaming Ruthenia should they be ruled by Russians in Kiev (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62934 # Reset name if no longer ruled by Russians in Kiev (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {
 		delayed_hagia_sophia_conversion = {
 			delay = 7
-			100 = LT.20900 # Hagia Sophia conversion event
+			#100 = LT.20900 # Hagia Sophia conversion event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 	}
 }
@@ -2768,19 +2768,19 @@ on_new_holder = {
 # FROMFROM is the old holder
 on_new_holder_inheritance = {
 	events = {
-		60504 # Landless status clean-up for e_mongol_empire
+		#60504 # Landless status clean-up for e_mongol_empire (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		533   # Powerful vassals overthrow their liege - faction
-		62930 # Rename West Francia to France
-		62931 # Rename East Francia to Germany
-		62932 # Rename Middle Francia to Austrasia
-		62933 # Special event for renaming Ruthenia should they be ruled by Russians in Kiev
-		62934 # Reset name if no longer ruled by Russians in Kiev
+		#62930 # Rename West Francia to France (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62931 # Rename East Francia to Germany (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62932 # Rename Middle Francia to Austrasia (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62933 # Special event for renaming Ruthenia should they be ruled by Russians in Kiev (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62934 # Reset name if no longer ruled by Russians in Kiev (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {
 		delayed_hagia_sophia_conversion = {
 			delay = 7
-			100 = LT.20900 # Hagia Sophia conversion event
+			#100 = LT.20900 # Hagia Sophia conversion event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 	}
 
@@ -2791,20 +2791,20 @@ on_new_holder_inheritance = {
 # FROMFROM is the old holder
 on_new_holder_usurpation = {
 	events = {
-		60504 # Landless status clean-up for e_mongol_empire
+		#60504 # Landless status clean-up for e_mongol_empire (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		533   # Powerful vassals overthrow their liege - faction
 		539   # Fix adventurers turning Tribal land Feudal
-		62930 # Rename West Francia to France
-		62931 # Rename East Francia to Germany
-		62932 # Rename Middle Francia to Austrasia
-		62933 # Special event for renaming Ruthenia should they be ruled by Russians in Kiev
-		62934 # Reset name if no longer ruled by Russians in Kiev
+		#62930 # Rename West Francia to France (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62931 # Rename East Francia to Germany (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62932 # Rename Middle Francia to Austrasia (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62933 # Special event for renaming Ruthenia should they be ruled by Russians in Kiev (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#62934 # Reset name if no longer ruled by Russians in Kiev (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {
 		delayed_hagia_sophia_conversion = {
 			delay = 7
-			100 = LT.20900 # Hagia Sophia conversion event
+			#100 = LT.20900 # Hagia Sophia conversion event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 	}
 }
@@ -2846,13 +2846,13 @@ on_character_convert_religion = {
 	events = {
 		671   # Set rival conversion flag if eligible
 		63105 # Remove patron deity modifiers for Hindu converts
-		39804 # Remove Bön patron dieties
-		39805 # Remove Kurmazta patron dieties
-		39806 # Remove Taoist Schools
-		LT.62001 # Featured Ruler - Arwa Al-Sulayhi - conversion check
+		#39804 # Remove Bön patron dieties (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39805 # Remove Kurmazta patron dieties (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#39806 # Remove Taoist Schools (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#LT.62001 # Featured Ruler - Arwa Al-Sulayhi - conversion check (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		# RTT
 		39701 # Remove Catholic antipope claim on Papacy
-		39702 # Remove Fraticeli antipope claim on Papacy
+		#39702 # Remove Fraticeli antipope claim on Papacy (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		CK2.691 # Switch succession laws for viceroyalties
 	}
 
@@ -2897,10 +2897,10 @@ on_over_vassal_limit_succession = {
 # ROOT is defender
 on_war_started = {
 	events = {
-		70043 # Tournament called off due to war
-		88293 # Furusiyya called off due to war
-		72114 # Feast called off due to war
-		36088 # Hunt called off due to war
+		#70043 # Tournament called off due to war (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#88293 # Furusiyya called off due to war (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#72114 # Feast called off due to war (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#36088 # Hunt called off due to war (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -2908,7 +2908,7 @@ on_war_started = {
 # ROOT is defender
 on_war_ended_victory = {
 	events = {
-		687 # Not So Great achievement
+		#687 # Not So Great achievement (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -2923,8 +2923,8 @@ on_war_ended_whitepeace = {
 # ROOT is defender
 on_war_ended_defeat = {
 	events = {
-		688 # Not So Great achievement
-		LT.41002 # Rename Hamaland to Gelre
+		#688 # Not So Great achievement (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#LT.41002 # Rename Hamaland to Gelre (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -3004,8 +3004,8 @@ on_hospital_construction_completed = {
 # FROM is holding title
 on_holding_building_start = {
 	events = {
-		LT.41004 # Rename Toxandria to Brabant
-		LT.41006 # Rename Hattuaria to Kleve
+		#LT.41004 # Rename Toxandria to Brabant (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#LT.41006 # Rename Hattuaria to Kleve (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -3455,7 +3455,7 @@ on_crusade_monthly = {
 	events = {
 		8306 # Pope lifts Excommunication (AI characters only)
 		8460 # Pope offers to forgive Excommunicated Player
-		8419 # Vassals concerned that an independent ruler is not participating in crusade
+		#8419 # Vassals concerned that an independent ruler is not participating in crusade (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {

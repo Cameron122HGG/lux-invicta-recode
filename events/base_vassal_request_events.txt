@@ -1705,27 +1705,6 @@ letter_event = {
 # 63049 - 63059
 ####################################################################
 
-# An imprisoned character asks a friend to intervene - Setup
-character_event = {
-	id = 63049
-
-	is_triggered_only = yes # on_become_imprisoned_any_reason
-	hide_window = yes
-
-	trigger = {
-		host = { is_liege_of = ROOT }
-	}
-
-	immediate = {
-		clear_delayed_event = { id = 63050 }
-
-		character_event = {
-			id = 63050
-			months = 1
-			random = 6475 # 15 years
-		}
-	}
-}
 
 # An imprisoned character asks a friend to intervene
 character_event = {

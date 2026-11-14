@@ -33,11 +33,11 @@ troubled_pregnancy_chance_low_effect = {
 		30 = {
 			custom_tooltip = { text = tooltip_pregnancy_gets_worse }
 
-			character_event = {
-				id = HFP.20500 # Critical failure: troubled pregnancy begins
-				days = 35
-				random = 75
-			}
+			#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				#id = HFP.20500 # Critical failure: troubled pregnancy begins
+				#days = 35
+				#random = 75
+			#}
 
 			mult_modifier = {
 				factor = 0.85
@@ -496,11 +496,11 @@ troubled_pregnancy_chance_medium_effect = {
 		50 = {
 			custom_tooltip = { text = tooltip_pregnancy_gets_worse }
 
-			character_event = {
-				id = HFP.20500 # Critical failure: troubled pregnancy begins
-				days = 35
-				random = 75
-			}
+			#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				#id = HFP.20500 # Critical failure: troubled pregnancy begins
+				#days = 35
+				#random = 75
+			#}
 
 			mult_modifier = {
 				factor = 0.85
@@ -1932,7 +1932,7 @@ weight_trait_check_effect = {
 
 			hidden_effect = {
 				remove_weight_modifier_effect = yes
-				character_event = { id = HFP.20601 } # Notification: I am no longer fat
+				#character_event = { id = HFP.20601 } # Notification: I am no longer fat # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 		else_if = {
@@ -1948,7 +1948,7 @@ weight_trait_check_effect = {
 
 			hidden_effect = {
 				remove_weight_modifier_effect = yes
-				character_event = { id = HFP.20602 } # Notification: I am malnourished
+				#character_event = { id = HFP.20602 } # Notification: I am malnourished # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -1972,7 +1972,7 @@ weight_trait_check_effect = {
 
 			hidden_effect = {
 				remove_weight_modifier_effect = yes
-				character_event = { id = HFP.20603 } # Notification: I am no longer malnourished
+				#character_event = { id = HFP.20603 } # Notification: I am no longer malnourished # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 
@@ -1989,7 +1989,7 @@ weight_trait_check_effect = {
 
 			hidden_effect = {
 				remove_weight_modifier_effect = yes
-				character_event = { id = HFP.20600 } # Notification: I am fat
+				#character_event = { id = HFP.20600 } # Notification: I am fat # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 	}
@@ -2005,7 +2005,7 @@ weight_trait_check_effect = {
 			# First time try to fire a special event if character meets any of the conditions, otherwise simply notify
 			weight_flavor_conditions_effect = yes
 			add_trait = fat
-			character_event = { id = HFP.20600 } # Notification: I am fat
+			#character_event = { id = HFP.20600 } # Notification: I am fat # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 		else_if = {
 			limit = {
@@ -2018,7 +2018,7 @@ weight_trait_check_effect = {
 			# First time try to fire a special event if character meets any of the conditions, otherwise simply notify
 			weight_flavor_conditions_effect = yes
 			add_trait = malnourished
-			character_event = { id = HFP.20602 } # Notification: I am malnourished
+			#character_event = { id = HFP.20602 } # Notification: I am malnourished # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 }
@@ -2351,10 +2351,10 @@ weight_flavor_conditions_effect = {
 
 		set_character_flag = flag_primed_physique
 
-		character_event = {
-			id = HFP.20606 # Growing fat - determine reason
-			days = 10
-		}
+		#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			#id = HFP.20606 # Growing fat - determine reason
+			#days = 10
+		#}
 	}
 
 	# If already about to become malnourished and fulfilling one of the special conditions,
@@ -2434,10 +2434,10 @@ weight_flavor_conditions_effect = {
 
 		set_character_flag = flag_primed_physique
 
-		character_event = {
-			id = HFP.20629
-			days = 10
-		}
+		#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			#id = HFP.20629
+			#days = 10
+		#}
 	}
 }
 
@@ -2450,29 +2450,29 @@ this_post_weight_gain_flavor_effect = {
 			5 = {
 				trigger = { trait = stressed }
 
-				character_event = {
-					id = HFP.20607 # Lose stressed
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20607 # Lose stressed
+					#days = 50
+					#random = 50
+				#}
 			}
 
 			5 = {
 				trigger = { trait = depressed }
 
-				character_event = {
-					id = HFP.20608 # Lose depressed
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20608 # Lose depressed
+					#days = 50
+					#random = 50
+				#}
 			}
 
 			2 = {
-				character_event = {
-					id = HFP.20609 # Gain health
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20609 # Gain health
+					#days = 50
+					#random = 50
+				#}
 
 				mult_modifier = {
 					factor = 0.5
@@ -2490,11 +2490,11 @@ this_post_weight_gain_flavor_effect = {
 			}
 
 			2 = {
-				character_event = {
-					id = HFP.20610 # Lose health
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20610 # Lose health
+					#days = 50
+					#random = 50
+				#}
 
 				mult_modifier = {
 					factor = 1.5
@@ -2512,11 +2512,11 @@ this_post_weight_gain_flavor_effect = {
 			}
 
 			3 = {
-				character_event = {
-					id = HFP.20611 # Become charitable, vassal opinion
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20611 # Become charitable, vassal opinion
+					#days = 50
+					#random = 50
+				#}
 
 				mult_modifier = {
 					factor = 0.5
@@ -2535,11 +2535,11 @@ this_post_weight_gain_flavor_effect = {
 					}
 				}
 
-				character_event = {
-					id = HFP.20663 # Become proud
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20663 # Become proud
+					#days = 50
+					#random = 50
+				#}
 			}
 
 			5 = {
@@ -2547,11 +2547,11 @@ this_post_weight_gain_flavor_effect = {
 					NOT = { trait = wroth }
 				}
 
-				character_event = {
-					id = HFP.20664 # Become patient
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20664 # Become patient
+					#days = 50
+					#random = 50
+				#}
 			}
 
 			1 = {
@@ -2563,11 +2563,11 @@ this_post_weight_gain_flavor_effect = {
 					}
 				}
 
-				character_event = {
-					id = HFP.20665 # Become content
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20665 # Become content
+					#days = 50
+					#random = 50
+				#}
 			}
 		}
 	}
@@ -2581,28 +2581,28 @@ this_post_weight_loss_flavor_effect = {
 			5 = {
 				trigger = { trait = stressed }
 
-				character_event = {
-					id = HFP.20607 # Lose stressed
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20607 # Lose stressed
+					#days = 50
+					#random = 50
+				#}
 			}
 			5 = {
 				trigger = { trait = depressed }
 
-				character_event = {
-					id = HFP.20608 # Lose depressed
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20608 # Lose depressed
+					#days = 50
+					#random = 50
+				#}
 			}
 
 			2 = {
-				character_event = {
-					id = HFP.20609 # Gain health
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20609 # Gain health
+					#days = 50
+					#random = 50
+				#}
 
 				mult_modifier = {
 					factor = 0.5
@@ -2620,11 +2620,11 @@ this_post_weight_loss_flavor_effect = {
 			}
 
 			2 = {
-				character_event = {
-					id = HFP.20610 # Lose health
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20610 # Lose health
+					#days = 50
+					#random = 50
+				#}
 
 				mult_modifier = {
 					factor = 1.5
@@ -2642,11 +2642,11 @@ this_post_weight_loss_flavor_effect = {
 			}
 
 			3 = {
-				character_event = {
-					id = HFP.20611 # Become charitable, vassal opinion
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20611 # Become charitable, vassal opinion
+					#days = 50
+					#random = 50
+				#}
 
 				mult_modifier = {
 					factor = 0.5
@@ -2665,11 +2665,11 @@ this_post_weight_loss_flavor_effect = {
 					}
 				}
 
-				character_event = {
-					id = HFP.20663 # Become proud
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20663 # Become proud
+					#days = 50
+					#random = 50
+				#}
 			}
 
 			5 = {
@@ -2677,11 +2677,11 @@ this_post_weight_loss_flavor_effect = {
 					NOT = { trait = wroth }
 				}
 
-				character_event = {
-					id = HFP.20664 # Become patient
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20664 # Become patient
+					#days = 50
+					#random = 50
+				#}
 			}
 
 			1 = {
@@ -2693,11 +2693,11 @@ this_post_weight_loss_flavor_effect = {
 					}
 				}
 
-				character_event = {
-					id = HFP.20665 # Become content
-					days = 50
-					random = 50
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.20665 # Become content
+					#days = 50
+					#random = 50
+				#}
 			}
 		}
 	}

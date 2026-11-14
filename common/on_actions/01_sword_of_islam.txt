@@ -1,10 +1,10 @@
 # Character scope
 on_yearly_pulse = {
 	events = {
-		88000  # Birth of the Assassins
-		88001  # The Assassins spread to Syria
+		#88000  # Birth of the Assassins (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#88001  # The Assassins spread to Syria (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		89000  # Wives fall in love with each other
-		105034 # Chief Qadi and Zina
+		#105034 # Chief Qadi and Zina (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {
@@ -78,13 +78,13 @@ on_bi_yearly_pulse = {
 
 			900 = 0
 
-			 75 = 88010 # Decadent player is warned
-			975 = 88011 # Assassins kill decadent player's random courtier
-			 50 = 88013 # Assassins kill decadent player
-			100 = 88015 # War with the assassins - Courtier is killed
-			 75 = 88019 # War with the assassins - Assassins warn ruler
-			 10 = 88020 # War with the assassins - Assassins kill ruler
-			 20 = 88025 # Courtier is randomly killed
+			 75 = 0 # was 88010: Decadent player is warned (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			975 = 0 # was 88011: Assassins kill decadent player's random courtier (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 50 = 0 # was 88013: Assassins kill decadent player (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			100 = 0 # was 88015: War with the assassins - Courtier is killed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 75 = 0 # was 88019: War with the assassins - Assassins warn ruler (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 10 = 0 # was 88020: War with the assassins - Assassins kill ruler (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 20 = 0 # was 88025: Courtier is randomly killed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		muslim_sultan_honorary_titles = {
@@ -92,24 +92,24 @@ on_bi_yearly_pulse = {
 
 			100 = 0
 
-			120 = 104999 # Woman asks Chief Qadi for a divorce
-			150 = 105009 # Suggest a Chief Qadi
-			140 = 105019 # Suggest a new Chief Qadi
-			 70 = 105029 # Chief Qadi and the drunkard
-			200 = 105049 # Court Calligrapher is asked to decorate the mosque
-			 50 = 105059 # Court Calligrapher created fine Hilya
-			 50 = 105064 # Court Calligrapher: Golden Qu'ran
-			100 = 105149 # Cupbearer: Poison Host
-			100 = 105249 # Food Taster: Poison host
-			100 = 105074 # Court Musician presents a song for the liege/liege's spouse
-			100 = 105099 # Court Poet writes poem
+			120 = 0 # was 104999: Woman asks Chief Qadi for a divorce (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			150 = 0 # was 105009: Suggest a Chief Qadi (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			140 = 0 # was 105019: Suggest a new Chief Qadi (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 70 = 0 # was 105029: Chief Qadi and the drunkard (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			200 = 0 # was 105049: Court Calligrapher is asked to decorate the mosque (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 50 = 0 # was 105059: Court Calligrapher created fine Hilya (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 50 = 0 # was 105064: Court Calligrapher: Golden Qu'ran (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			100 = 0 # was 105149: Cupbearer: Poison Host (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			100 = 0 # was 105249: Food Taster: Poison host (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			100 = 0 # was 105074: Court Musician presents a song for the liege/liege's spouse (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			100 = 0 # was 105099: Court Poet writes poem (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		muslim_honorary_titles = {
 			delay = 54
 
 			900 = 0
-			100 = 105199 # Chief Architect: Suggest improvements to castle
+			100 = 0 # was 105199: Chief Architect: Suggest improvements to castle (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		polygamy_events = {
@@ -117,10 +117,10 @@ on_bi_yearly_pulse = {
 
 			600 = 0
 
-			 80 = 89004 # Secondary Wife thinks she should be First Wife
-			175 = 89014 # First Wife thinks her son should get a county if he is not heir
-			100 = 89019 # Secondary Wife plots to kill heir
-			 50 = 89029 # Evil wife plots to kill sons who aren't hers
+			 80 = 0 # was 89004: Secondary Wife thinks she should be First Wife (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			175 = 0 # was 89014: First Wife thinks her son should get a county if he is not heir (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			100 = 0 # was 89019: Secondary Wife plots to kill heir (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 50 = 0 # was 89029: Evil wife plots to kill sons who aren't hers (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 	}
 }
@@ -135,14 +135,14 @@ on_five_year_pulse = {
 # Character scope
 on_decade_pulse = {
 	random_events = {
-		10 = 88003 # The Assassins resurface!
+		10 = 0 # was 88003: The Assassins resurface! (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
 # Character scope
 on_birth = {
 	events = {
-		105008 # Check for muslim mother's divorce on birth
+		#105008 # Check for muslim mother's divorce on birth (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -159,7 +159,7 @@ on_become_imprisoned_any_reason = {
 # FROM is the taken holding title
 on_siege_won_leader = {
 	events = {
-		88005 # Mongols sack city near the Hashshashin
+		#88005 # Mongols sack city near the Hashshashin (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -167,8 +167,8 @@ on_siege_won_leader = {
 # ROOT is unlanded character
 on_unlanded = {
 	events = {
-		88002 # Assassins scatter
-		88004 # Assassins are destroyed
+		#88002 # Assassins scatter (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#88004 # Assassins are destroyed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 

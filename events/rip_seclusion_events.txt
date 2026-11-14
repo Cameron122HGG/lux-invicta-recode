@@ -5711,53 +5711,7 @@ narrative_event = {
 	}
 }
 
-# Remove seclusion for courtiers on_new_holder
-character_event = {
-	id = RIP.12095
 
-	is_triggered_only = yes # on_new_holder(_inheritance)
-	hide_window = yes
-
-	trigger = { in_seclusion = no }
-
-	immediate = {
-		any_courtier = {
-			limit = { in_seclusion = yes }
-			clr_character_flag = seclusion_events_on
-			clr_character_flag = do_not_disturb
-			remove_character_modifier = in_seclusion
-			remove_character_modifier = tiny_food_shortage
-			remove_character_modifier = minor_food_shortage
-			remove_character_modifier = normal_food_shortage
-			remove_character_modifier = starving_food_shortage
-			remove_character_modifier = greedy_food_shortage
-		}
-	}
-}
-
-# For safety, to prevent everlasting food-shortage from Seclusion
-# Root = the character that got a new host
-# From = the previous host
-# FromFrom = new employer
-character_event = {
-	id = RIP.12096
-
-	is_triggered_only = yes # on_host/employer_change
-	hide_window = yes
-
-	trigger = {
-		FROMFROM = { in_seclusion = no } # If new liege is *not* In Seclusion
-	}
-
-	immediate = {
-		remove_character_modifier = in_seclusion
-		remove_character_modifier = tiny_food_shortage
-		remove_character_modifier = minor_food_shortage
-		remove_character_modifier = normal_food_shortage
-		remove_character_modifier = starving_food_shortage
-		remove_character_modifier = greedy_food_shortage
-	}
-}
 
 # Fires from on_become_imprisoned_any_reason (if you are In Seclusion)
 character_event = {

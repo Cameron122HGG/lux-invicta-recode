@@ -1687,41 +1687,6 @@ character_event = {
 	}
 }
 
-# Nerge abandoned due to war
-character_event = {
-	id = TOG.183
-
-	is_triggered_only = yes # on_war_started
-	hide_window = yes
-
-	immediate = {
-		ROOT = {
-			if = {
-				limit = {
-					OR = {
-						has_character_flag = khagan_holding_nerge
-						has_character_flag = khagan_finishing_nerge
-					}
-				}
-
-				character_event = { id = TOG.181 }
-			}
-		}
-
-		FROM = {
-			if = {
-				limit = {
-					OR = {
-						has_character_flag = khagan_holding_nerge
-						has_character_flag = khagan_finishing_nerge
-					}
-				}
-
-				character_event = { id = TOG.181 }
-			}
-		}
-	}
-}
 
 character_event = {
 	id = TOG.181

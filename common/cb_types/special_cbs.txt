@@ -775,7 +775,7 @@ abrahamic_antihellenic_revolt = {
 
 	on_reverse_demand = {
 		any_player = {
-			narrative_event = { id = HF.23117 } # The Hellenic Emperor won, ensuring the rebirth of the faith
+			#narrative_event = { id = HF.23117 } # The Hellenic Emperor won, ensuring the rebirth of the faith # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		attacker = {
@@ -833,7 +833,7 @@ abrahamic_antihellenic_revolt = {
 
 				if = {
 					limit = { ai = yes }
-					narrative_event = { id = HF.23117 } # The Hellenic Emperor won, ensuring the rebirth of the faith
+					#narrative_event = { id = HF.23117 } # The Hellenic Emperor won, ensuring the rebirth of the faith # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 			}
 		}
@@ -939,7 +939,7 @@ thankmars_rebellion = {
 					dynasty = 669 # Liudolfinger
 				}
 
-				narrative_event = { id = LT.40009 } # Thankmar won rebellion
+				#narrative_event = { id = LT.40009 } # Thankmar won rebellion # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 
 			any_attacker = {
@@ -969,7 +969,7 @@ thankmars_rebellion = {
 
 		defender = {
 			show_scope_change = no
-			narrative_event = { id = LT.40011 } # Otto won against rebellion
+			#narrative_event = { id = LT.40011 } # Otto won against rebellion # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 	}
 

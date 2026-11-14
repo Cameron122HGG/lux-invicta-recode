@@ -42,7 +42,7 @@ on_five_year_pulse = {
 # FROM is imprisoner
 on_become_imprisoned_any_reason = {
 	events = {
-		JD.10022 # Chinese councilor visiting is imprisoned - cancels visit
+		#JD.10022 # Chinese councilor visiting is imprisoned - cancels visit (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -55,7 +55,7 @@ on_death = {
 		JD.3042  # Clear Supply Horses modifier if no longer Nomadic
 		JD.10080 # Your Chinese Prince/Princess has died (for children or spouse - must be read before JD.60310!)
 		JD.60310 # Courtier from China dies
-		JD.10022 # Chinese councilor visiting dies and cancels visit
+		#JD.10022 # Chinese councilor visiting dies and cancels visit (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 

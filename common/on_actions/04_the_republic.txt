@@ -1,15 +1,15 @@
 # Character scope
 on_yearly_pulse = {
 	events = {
-		REP.0 # Shipping Events
-		REP.399 # Dynastic Marriage
+		#REP.0 # Shipping Events (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#REP.399 # Dynastic Marriage (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
 # Character scope
 on_bi_yearly_pulse = {
 	events = {
-		REP.40 # The Rise of the Hansa
+		#REP.40 # The Rise of the Hansa (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {

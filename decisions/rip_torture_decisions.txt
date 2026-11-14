@@ -225,7 +225,7 @@ targeted_decisions = {
 						}
 
 						FROM = { character_event = { id = HF.24002 } }
-						character_event = { id = HF.24003 }
+						#character_event = { id = HF.24003 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 					}
 				}
 			}

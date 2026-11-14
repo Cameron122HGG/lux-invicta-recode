@@ -103,74 +103,7 @@ character_event = {
 	}
 }
 
-# Tournament called off due to war
-character_event = {
-	id = 88293
 
-	is_triggered_only = yes
-	hide_window = yes
-
-	immediate = {
-		ROOT = {
-			if = {
-				limit = { has_character_flag = epic_tournament_furusiyya }
-				character_event = { id = 88294 }
-			}
-		}
-
-		FROM = {
-			if = {
-				limit = { has_character_flag = epic_tournament_furusiyya }
-				character_event = { id = 88294 }
-			}
-		}
-	}
-}
-
-# Tournament called off due to war - ruler
-character_event = {
-	id = 88294
-	title = FURUSIYYATITLE
-	desc = EVTDESC88287
-	picture = GFX_evt_joust
-	border = GFX_event_normal_frame_war
-
-	is_triggered_only = yes
-
-	option = {
-		name = EVTOPTB88251
-
-		wealth = 200
-		prestige = -100
-		decadence = 5
-
-		hidden_effect = {
-			any_realm_character = {
-				limit = { has_character_flag = attending_tournament }
-				character_event = { id = 88287 }
-			}
-
-			remove_character_modifier = epic_tournament_furusiyya
-			clear_delayed_event = { id = 88251 }
-			clear_delayed_event = { id = 88450 }
-			clear_delayed_event = { id = 88460 }
-			clear_delayed_event = { id = 88461 }
-			clear_delayed_event = { id = 88462 }
-			clear_delayed_event = { id = 88463 }
-			clear_delayed_event = { id = 88464 }
-			clr_character_flag = epic_tournament_furusiyya
-			clr_character_flag = attending_tournament_furusiyya
-			clr_character_flag = do_not_disturb
-			clr_character_flag = no_msg_death_furusiyya
-			clr_character_flag = no_msg_maimed_furusiyya
-			clr_character_flag = no_msg_wounded_furusiyya
-			clr_character_flag = tournament_has_ended_furusiyya
-			clr_character_flag = tournament_third_place_furusiyya
-			clr_character_flag = tournament_second_place_furusiyya
-			clr_character_flag = tournament_winner_furusiyya
-		}
-	}
-}
 
 # Tournament has been cancelled - guest
 character_event = {

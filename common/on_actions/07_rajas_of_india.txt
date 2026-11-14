@@ -1,7 +1,7 @@
 # Character scope
 on_yearly_pulse = {
 	events = {
-		HO.100 # Creation of Indian Holy Orders should important cities fall to another religion
+		#HO.100 # Creation of Indian Holy Orders should important cities fall to another religion (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {

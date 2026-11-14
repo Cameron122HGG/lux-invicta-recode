@@ -785,7 +785,7 @@ new_crusade = {
 				}
 
 				# save_event_target_as = crusade_attacker
-				character_event = { id = HFP.41007 } # Beneficiary event - AI only
+				#character_event = { id = HFP.41007 } # Beneficiary event - AI only # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 
 			# A selfish main contributor of the Crusade seizes the land for him/herself or his/her Beneficiary
@@ -1102,7 +1102,7 @@ new_crusade = {
 						}
 					}
 
-					character_event = { id = HFP.41060 } # Pre-event to play as a Beneficiary
+					#character_event = { id = HFP.41060 } # Pre-event to play as a Beneficiary # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 
 				distribute_crusade_pot = {
@@ -1137,7 +1137,7 @@ new_crusade = {
 					}
 
 					any_playable_ruler = {
-						narrative_event = { id = HFP.41160 } # Winning Crusade
+						#narrative_event = { id = HFP.41160 } # Winning Crusade # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 					}
 				}
 
@@ -1341,10 +1341,10 @@ new_crusade = {
 
 								set_defacto_liege = THIS
 
-								character_event = {
-									id = HFP.41090 # Refill the levy, and remove the negative modifiers
-									days = 1
-								}
+								#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+									#id = HFP.41090 # Refill the levy, and remove the negative modifiers
+									#days = 1
+								#}
 
 								if = {
 									limit = {
@@ -1359,7 +1359,7 @@ new_crusade = {
 								}
 							}
 
-							character_event = { id = HFP.41007 } # Beneficiary event - AI only
+							#character_event = { id = HFP.41007 } # Beneficiary event - AI only # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 						}
 					}
 
@@ -1545,7 +1545,7 @@ new_crusade = {
 
 					# Narrative event explaining that Byzantium has been taken out
 					any_character = {
-						narrative_event = { id = HF.49008 } # Byzantium falls
+						#narrative_event = { id = HF.49008 } # Byzantium falls # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 					}
 
 					event_target:byzantine_refugee = {
@@ -1580,7 +1580,7 @@ new_crusade = {
 					}
 
 					any_playable_ruler = {
-						narrative_event = { id = HFP.41160 } # Winning Crusade
+						#narrative_event = { id = HFP.41160 } # Winning Crusade # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 					}
 				}
 
@@ -1691,10 +1691,10 @@ new_crusade = {
 						NOT = { character = event_target:new_crusader_king }
 					}
 
-					narrative_event = {
-						id = HFP.41054 # Play as Crusader King / Queen
-						days = 3
-					}
+					#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+						#id = HFP.41054 # Play as Crusader King / Queen
+						#days = 3
+					#}
 				}
 			}
 
@@ -1711,7 +1711,7 @@ new_crusade = {
 					set_character_flag = grandCrusader
 				}
 				else = {
-					narrative_event = { id = HF.49020 }
+					#narrative_event = { id = HF.49020 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				}
 			}
 
@@ -2040,10 +2040,10 @@ new_crusade = {
 					}
 				}
 
-				character_event = {
-					id = HFP.42300 # Start of event chain
-					days = 3
-				}
+				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HFP.42300 # Start of event chain
+					#days = 3
+				#}
 			}
 		}
 	}

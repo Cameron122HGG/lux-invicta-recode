@@ -76,7 +76,7 @@ on_decade_pulse = {
 			delay = 42
 
 			960 = 0
-			 40 = RIP.21000 # Contemplating mortality
+			 #40 = RIP.21000 # Contemplating mortality (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 	}
 }
@@ -146,7 +146,7 @@ on_loot_settlement = {
 on_new_holder = {
 	events = {
 		RIP.11715 # Removes crown focus on new holder
-		RIP.12095 # Remove seclusion from courtiers
+		#RIP.12095 # Remove seclusion from courtiers (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		RIP.12098 # Check if we need to remove in_seclusion
 	}
 }
@@ -157,7 +157,7 @@ on_new_holder = {
 on_new_holder_inheritance = {
 	events = {
 		RIP.11715 # Removes crown focus on new holder
-		RIP.12095 # Remove seclusion from courtiers
+		#RIP.12095 # Remove seclusion from courtiers (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -200,7 +200,7 @@ on_province_major_modifier = {
 # FROMFROM is new employer
 on_employer_change = {
 	events = {
-		RIP.12096 # For safety, to prevent everlasting food-shortage from Seclusion
+		#RIP.12096 # For safety, to prevent everlasting food-shortage from Seclusion (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -210,6 +210,6 @@ on_employer_change = {
 # FROMFROM is new employer
 on_host_change = {
 	events = {
-		RIP.12096 # For safety, to prevent everlasting food-shortage from Seclusion
+		#RIP.12096 # For safety, to prevent everlasting food-shortage from Seclusion (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }

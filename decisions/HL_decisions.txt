@@ -310,11 +310,11 @@ decisions = {
 
 			if = {
 				limit = { ai = yes }
-				character_event = { id = 60530 } # AI reinforcements
+				#character_event = { id = 60530 } # AI reinforcements # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				population = 50000
 			}
 
-			narrative_event = { id = 60520 } # Notify everyone
+			#narrative_event = { id = 60520 } # Notify everyone # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 		}
 
 		ai_will_do = {
@@ -411,15 +411,15 @@ decisions = {
 
 			if = {
 				limit = { ai = yes }
-				character_event = { id = 60530 } # AI reinforcements
+				#character_event = { id = 60530 } # AI reinforcements # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 				population = 50000
 			}
 
-			narrative_event = { id = 60520 } # Notify myself
+			#narrative_event = { id = 60520 } # Notify myself # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 
 			any_player = {
 				limit = { NOT = { character = ROOT } }
-				narrative_event = { id = 60520 } # And the world
+				#narrative_event = { id = 60520 } # And the world # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 			}
 		}
 

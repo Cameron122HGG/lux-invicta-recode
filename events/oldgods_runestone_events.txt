@@ -2439,38 +2439,3 @@ narrative_event = {
 	}
 }
 
-# Runestones can no longer be commissioned
-character_event = {
-	id = TOG.580
-	desc = EVTDESC_TOG_580
-	picture = GFX_evt_runestone_raising_oldgods
-	border = GFX_event_normal_frame_diplomacy
-
-	is_triggered_only = yes # on_startup; on_yearly_pulse
-
-	ai = no
-	culture_group = north_germanic
-
-	trigger = {
-		year >= 1150
-		year <  1160
-
-		NOR = {
-			has_dynasty_flag = runestones_halted
-
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
-			}
-		}
-	}
-
-	option = {
-		name = EVTOPTA_TOG_580
-
-		custom_tooltip = {
-			text = no_more_runestones
-			set_dynasty_flag = runestones_halted
-		}
-	}
-}

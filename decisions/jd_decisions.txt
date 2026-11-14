@@ -85,10 +85,10 @@ decisions = {
 					}
 				}
 
-				narrative_event = {
-					id = HF.24240
-					tooltip = tooltip_evt_hf_24240
-				}
+				#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					#id = HF.24240
+					#tooltip = tooltip_evt_hf_24240
+				#}
 			}
 
 			custom_tooltip = {
@@ -1205,58 +1205,6 @@ decisions = {
 		}
 	}
 
-	bon_tolerate_indians = {
-		ai_check_interval = 36
-
-		only_playable = yes
-
-		potential = {
-			religion = bon_pagan # Only unreformed. Reformers can pick the Syncretism Doctrine to sympathize with everyone they wish.
-
-			NOR = {
-				trait = sympathy_indian
-
-				has_alternate_start_parameter = {
-					key = religion_names
-					value = random
-				}
-			}
-		}
-
-		allow = {
-			NOT = { trait = zealous }
-
-			custom_tooltip = {
-				text = bon_sympathy_eastern
-
-				OR = {
-					any_vassal = {
-						religion_group = indian_group
-					}
-
-					any_liege = {
-						religion_group = indian_group
-					}
-
-					any_realm_province = {
-						religion_group = indian_group
-						held_under_PREV = yes
-					}
-				}
-			}
-
-			piety >= 50
-		}
-
-		effect = {
-			add_trait = sympathy_indian
-			piety = -50
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
 }
 
 targeted_decisions = {

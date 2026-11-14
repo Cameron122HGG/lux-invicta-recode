@@ -2106,43 +2106,4 @@ character_event = {
 	}
 }
 
-### Notification event for increase in mercenary size
-character_event = {
-	id = 10700
-	desc = EVTDESC_HL_10700
-	picture = GFX_evt_steppe_mercenaries
 
-	is_triggered_only = yes # increase_mercenary_size, mercenary_decisions.txt
-
-	only_capable = yes
-
-	option = {
-		name = EVTOPTA_HL_10700
-
-		custom_tooltip = { text = EVTOPTA_HL_10700_TOOLTIP }
-	}
-}
-
-### Notification event for wasting money on debauchery
-character_event = {
-	id = 10701
-	desc = EVTDESC_HL_10701
-	picture = GFX_evt_steppe_mercenaries
-
-	is_triggered_only = yes # carousing_with_the_men. mercenary_decisions.txt
-
-	only_capable = yes
-
-	option = {
-		name = EVTOPTA_HL_10701
-
-		tooltip = {
-			FROM = {
-				show_scope_change = no
-
-				wealth = -25
-				prestige = 10
-			}
-		}
-	}
-}

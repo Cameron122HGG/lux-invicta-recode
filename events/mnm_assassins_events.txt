@@ -3866,21 +3866,6 @@ character_event = {
 
 ### MISSIONS### (start on 6198)
 
-# CleanSlate: Offset to avoid firing events on same day as random society events. Previously occured between tombola and quest event.
-character_event = {
-	id = MNM.6198
-
-	hide_window = yes
-	is_triggered_only = yes # on_society_bi_yearly_pulse
-
-	immediate = {
-		character_event = {
-			id = MNM.6199
-			days = 7
-			random = 7
-		}
-	}
-}
 
 # Mission tombola
 character_event = {

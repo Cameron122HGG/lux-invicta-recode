@@ -1449,28 +1449,6 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 36088
-
-	is_triggered_only = yes # on_war_started
-	hide_window = yes
-
-	immediate = {
-		ROOT = {
-			if = {
-				limit = { has_character_modifier = holding_grand_hunt }
-				character_event = { id = 36089 }
-			}
-		}
-
-		FROM = {
-			if = {
-				limit = { has_character_modifier = holding_grand_hunt }
-				character_event = { id = 36089 }
-			}
-		}
-	}
-}
 
 # End if we go to war
 character_event = {

@@ -165,32 +165,6 @@ character_event = {
 	}
 }
 
-# Relic is stolen by raiders - Setup
-character_event = {
-	id = SoA.5220
-
-	is_triggered_only = yes # on_siege_over_winner, random_events, fingerbone_stolen
-	hide_window = yes
-
-	has_dlc = "Sons of Abraham"
-
-	trigger = {
-		FROM = {
-			owner = {
-				religion_group = christian
-				has_artifact = finger_of_st_john
-			}
-		}
-	}
-
-	immediate = {
-		FROM = {
-			owner = {
-				character_event = { id = SoA.5204 }
-			}
-		}
-	}
-}
 
 # Relic is stolen by raiders
 character_event = {
@@ -320,98 +294,6 @@ character_event = {
 	}
 }
 
-# Bring relic out to bless the fields - Setup to fire the event between April and June
-character_event = {
-	id = SoA.5221
-
-	is_triggered_only = yes # on_bi_yearly_pulse, random_events, fingerbone
-	hide_window = yes
-
-	only_playable = yes
-	religion_group = christian
-	has_dlc = "Sons of Abraham"
-	min_age = 16
-	only_capable = yes
-	prisoner = no
-
-	trigger = {
-		has_artifact = finger_of_st_john
-	}
-
-	immediate = {
-		trigger_switch = {
-			on_trigger = month
-
-			11 = {
-				character_event = {
-					id = SoA.5207
-					months = 4
-					random = 80
-				}
-			}
-
-			10 = {
-				character_event = {
-					id = SoA.5207
-					months = 5
-					random = 80
-				}
-			}
-
-			9 = {
-				character_event = {
-					id = SoA.5207
-					months = 6
-					random = 80
-				}
-			}
-
-			8 = {
-				character_event = {
-					id = SoA.5207
-					months = 7
-					random = 80
-				}
-			}
-
-			7 = {
-				character_event = {
-					id = SoA.5207
-					months = 8
-					random = 80
-				}
-			}
-
-			4 = {
-				character_event = { id = SoA.5207 }
-			}
-
-			3 = {
-				character_event = {
-					id = SoA.5207
-					months = 1
-					random = 80
-				}
-			}
-
-			2 = {
-				character_event = {
-					id = SoA.5207
-					months = 2
-					random = 80
-				}
-			}
-
-			1 = {
-				character_event = {
-					id = SoA.5207
-					months = 1
-					random = 80
-				}
-			}
-		}
-	}
-}
 
 # Bring relic out to bless the fields
 character_event = {
@@ -3365,39 +3247,6 @@ narrative_event = {
 	}
 }
 
-# Jeanne d'Arc dies
-narrative_event = {
-	id = SoA.5399
-
-	is_triggered_only = yes # on_death
-	hide_window = yes
-
-	trigger = {
-		character = event_target:jeanne_darc
-	}
-
-	immediate = {
-		# Clean-up
-		persistent_event_target:original_liege = {
-			clear_delayed_event = { id = SoA.5355 }
-			clear_delayed_event = { id = SoA.5357 }
-			clear_delayed_event = { id = SoA.5358 }
-			clear_delayed_event = { id = SoA.5359 }
-			clear_delayed_event = { id = SoA.5360 }
-			clear_delayed_event = { id = SoA.5362 }
-			clear_delayed_event = { id = SoA.5364 }
-			clear_delayed_event = { id = SoA.5366 }
-			clear_delayed_event = { id = SoA.5368 }
-			clear_delayed_event = { id = SoA.5370 }
-			clear_delayed_event = { id = SoA.5373 }
-			clear_delayed_event = { id = SoA.5382 }
-			clear_delayed_event = { id = SoA.5392 }
-			clear_delayed_event = { id = SoA.5394 }
-			clear_delayed_event = { id = SoA.5395 }
-			clear_delayed_event = { id = SoA.5398 }
-		}
-	}
-}
 
 ###########################################
 #                                         #

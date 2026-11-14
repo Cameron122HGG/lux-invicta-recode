@@ -1,8 +1,8 @@
 # Character scope
 on_yearly_pulse = {
 	events = {
-		SoA.1209 # Birth of the Bektashi Order
-		CM.4309  # Birth of the Haruriyyah Order
+		#SoA.1209 # Birth of the Bektashi Order (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#CM.4309  # Birth of the Haruriyyah Order (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 
 	random_events = {
@@ -46,10 +46,10 @@ on_yearly_pulse = {
 on_bi_yearly_pulse = {
 	events = {
 		# Found Holy Orders
-		SoA.1709 # Order of Saint Anthony fromed
-		SoA.2609 # Order of Santiago formed
-		SoA.2709 # Order of Calatrava formed
-		SoA.2809 # Order of St Addai formed
+		#SoA.1709 # Order of Saint Anthony fromed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#SoA.2609 # Order of Santiago formed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#SoA.2709 # Order of Calatrava formed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#SoA.2809 # Order of St Addai formed (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
 		# Wicked Priests
 		SoA.5300 # Christian becoming a wicked priest
@@ -76,7 +76,7 @@ on_bi_yearly_pulse = {
 			 96 = SoA.5203 # Misplaced relic
 			 24 = SoA.5205 # Relic mixed up with other bones
 			480 = SoA.5206 # Use relic to heal sickness?
-			240 = SoA.5221 # Bring relic out to bless the fields
+			#240 = SoA.5221 # Bring relic out to bless the fields (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 			 96 = SoA.5208 # Commerce with relics
 			 80 = SoA.5209 # Donate owned relic to church?
 		}
@@ -134,13 +134,13 @@ on_five_year_pulse = {
 
 			1000 = 0
 
-			 60 = SoA.200 # Jewish Diplomat Appears at Court
-			 60 = SoA.201 # Jewish Administrator Appears at Court
-			 60 = SoA.202 # Jewish Spy Appears at Court
-			 96 = SoA.300 # Jewish Expulsion - Loss of economic tech
-			 96 = SoA.301 # Jewish Expulsion - Loss of cultural tech
-			 96 = SoA.302 # Jewish Expulsion - Loss of military tech
-			275 = SoA.560 # Jewish Councillor increases tech
+			 #60 = SoA.200 # Jewish Diplomat Appears at Court (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 #60 = SoA.201 # Jewish Administrator Appears at Court (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 #60 = SoA.202 # Jewish Spy Appears at Court (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 #96 = SoA.300 # Jewish Expulsion - Loss of economic tech (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 #96 = SoA.301 # Jewish Expulsion - Loss of cultural tech (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 #96 = SoA.302 # Jewish Expulsion - Loss of military tech (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			#275 = SoA.560 # Jewish Councillor increases tech (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		muslim_schools = {
@@ -148,10 +148,10 @@ on_five_year_pulse = {
 
 			475 = 0
 
-			 95 = SoA.603 # Ash'ari liege has Mu'tazila vassal
-			 95 = SoA.611 # Mu'tazila liege has Ash'ari vassal
-			430 = SoA.620 # Cynical Ash'ari considers Mu'tazila
-			430 = SoA.621 # Zealous Mu'tazila considers Ash'ari
+			 #95 = SoA.603 # Ash'ari liege has Mu'tazila vassal (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			 #95 = SoA.611 # Mu'tazila liege has Ash'ari vassal (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			#430 = SoA.620 # Cynical Ash'ari considers Mu'tazila (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			#430 = SoA.621 # Zealous Mu'tazila considers Ash'ari (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 
 		muslim_tolerance = {
@@ -187,7 +187,7 @@ on_siege_over_winner = {
 			delay = 2
 
 			850 = 0
-			150 = SoA.5220 # Relic is stolen by raiders
+			#150 = SoA.5220 # Relic is stolen by raiders (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		}
 	}
 }
@@ -227,7 +227,7 @@ on_death = {
 	events = {
 		SoA.5306 # Check for Cadaver Synod
 		SoA.3091 # The Death of the Demon Child?
-		SoA.5399 # Jeanne d'Arc dies
+		#SoA.5399 # Jeanne d'Arc dies (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -306,8 +306,8 @@ on_rel_head_chosen = {
 # FROM scope has the old religion
 on_character_convert_religion = {
 	events = {
-		SoA.566 # Jews Welcomed Back due to ruler now being Jewish!
-		SoA.5998 # End pilgrimage if no longer Christian
+		#SoA.566 # Jews Welcomed Back due to ruler now being Jewish! (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		#SoA.5998 # End pilgrimage if no longer Christian (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -355,6 +355,6 @@ on_unit_entering_province = {
 on_host_change = {
 	events = {
 		SoA.3073 # Witch nanny moves with her charge - Nanny
-		SoA.3079 # Witch nanny moves with her charge - Demon child
+		#SoA.3079 # Witch nanny moves with her charge - Demon child (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }

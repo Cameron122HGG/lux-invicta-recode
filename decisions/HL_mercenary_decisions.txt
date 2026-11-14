@@ -423,7 +423,7 @@ decisions = {
 				band_creator = {
 					if = {
 						limit = { is_alive = yes }
-						character_event = { id = 10700 } # Notify
+						#character_event = { id = 10700 } # Notify # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 					}
 				}
 			}
@@ -536,7 +536,7 @@ decisions = {
 
 				primary_title = {
 					band_creator = {
-						character_event = { id = 10701 } # Notify
+						#character_event = { id = 10701 } # Notify # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
 					}
 				}
 			}

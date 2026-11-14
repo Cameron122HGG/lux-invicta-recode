@@ -44,7 +44,7 @@ on_birth = {
 	events = {
 		MNM.1206  # A Child is born, Hermetic Scrying vision fulfilled
 		MNM.7508  # DW Demon child
-		MNM.20005 # Satanic orgy child born
+		#MNM.20005 # Satanic orgy child born (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
 }
 
@@ -163,7 +163,7 @@ on_settlement_construction_completed = {
 # Fires every two years for characters who are members of any society
 on_society_bi_yearly_pulse = {
 	events = {
-		MNM.6198 # Assassins quest tombola
+		#MNM.6198 # Assassins quest tombola (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		MNM.7200 # Devil Worshipers quest tombola
 		MNM.4000 # Monastic order quest tombola
 		MNM.3000 # Secret religious society quest tombola
