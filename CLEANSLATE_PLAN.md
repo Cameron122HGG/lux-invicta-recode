@@ -114,6 +114,14 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    - 29 vanilla events that CleanSlate removed or inlined, but that LI's content still calls
      (holy order borrowing/donations `SoA.1010/1015/1140`, pagan feasts, pilgrimages, regency
      duels…), restored from LI's master versions into `events/li_restored_events.txt`.
+   - Renames, second pass: character history writes many trait names in quotes (`"fair"`), and
+     LI's `interface/portrait_properties` and `customizable_localisation` `.txt` files are code.
+     `cs_renames.py` now covers both (84 more replacements; files identical to CleanSlate's skipped).
+   - `common/offmap_powers/00_offmap_powers.txt`: LI's master version replaces CleanSlate's whole.
+     LI rebuilt China around its own religions (1,285 changed lines against vanilla), while
+     CleanSlate's China preferences check vanilla religions LI lacks (2,583 error lines). LI's
+     policies and statuses equal vanilla, so CleanSlate's versions stay. Review CleanSlate's
+     `00_offmap_powers.txt` for real fixes later.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.
