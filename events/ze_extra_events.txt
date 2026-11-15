@@ -1802,9 +1802,9 @@ character_event = {
 				}
 				else_if = {
 					limit = {
-						classical_government = yes
+						classical_government_trigger = yes # LI: was classical_government = yes (not a trigger), which set oriental monarchy
 					}
-					set_government_type = oriental_monarchy_government
+					set_government_type = classical_government
 				}
 				else = {
 					set_government_type = feudal_government

@@ -1,0 +1,173 @@
+# LI: Lux Invicta's government flavour names, ported from master (2026-11-15).
+# CleanSlate's 00_government_flavor.txt has no entries for LI's own governments, so their rulers fell through to the
+# failsafe gov_default ("Anarchy"): classical, oriental monarchy, the 6 radical governments, and LI's per-faith holy orders.
+
+government_flavor = {
+	name = gov_order_qarmatian
+	graphics = GFX_evt_assassination
+	priority = 3 # LI: above CleanSlate's generic gov_order (priority 2)
+	trigger = {
+		government = order_government
+		religion = qarmatian
+	}
+}
+
+government_flavor = {
+	name = gov_order_bud_mahayana
+	graphics = GFX_evt_assassination
+	priority = 3 # LI: above CleanSlate's generic gov_order (priority 2)
+	trigger = {
+		government = order_government
+		religion = bud_mahayana
+	}
+}
+
+government_flavor = {
+	name = gov_order_mani_ahriman
+	graphics = GFX_evt_assassination
+	priority = 3 # LI: above CleanSlate's generic gov_order (priority 2)
+	trigger = {
+		government = order_government
+		religion = mani_ahriman
+	}
+}
+
+government_flavor = {
+	name = gov_order_priscillian
+	graphics = GFX_evt_assassination
+	priority = 3 # LI: above CleanSlate's generic gov_order (priority 2)
+	trigger = {
+		government = order_government
+		religion = priscillian
+	}
+}
+
+government_flavor = {
+	name = gov_order_ragnarok
+	graphics = GFX_evt_assassination
+	priority = 3 # LI: above CleanSlate's generic gov_order (priority 2)
+	trigger = {
+		government = order_government
+		religion = ragnarok
+	}
+}
+
+government_flavor = {
+	name = gov_order_set
+	graphics = GFX_evt_assassination
+	priority = 3 # LI: above CleanSlate's generic gov_order (priority 2)
+	trigger = {
+		government = order_government
+		religion = set
+	}
+}
+
+government_flavor = {
+	name = gov_order_tengri_ahriman
+	graphics = GFX_evt_assassination
+	priority = 3 # LI: above CleanSlate's generic gov_order (priority 2)
+	trigger = {
+		government = order_government
+		religion = tengri_ahriman
+	}
+}
+
+government_flavor = {
+	name = gov_order_yahyanism
+	graphics = GFX_evt_assassination
+	priority = 3 # LI: above CleanSlate's generic gov_order (priority 2)
+	trigger = {
+		government = order_government
+		religion = yahyanism
+	}
+}
+
+government_flavor = {
+	name = gov_order_zor_angra
+	graphics = GFX_evt_assassination
+	priority = 3 # LI: above CleanSlate's generic gov_order (priority 2)
+	trigger = {
+		government = order_government
+		religion = zor_angra
+	}
+}
+
+government_flavor = {
+	name = gov_classical
+	graphics = GFX_evt_gov_classical
+	priority = 1
+	trigger = {
+		government = classical_government
+		
+	}
+}
+
+government_flavor = {
+	name = gov_oriental_monarchy
+	graphics = GFX_evt_gov_oriental_monarchy
+	priority = 1
+	trigger = {
+		government = oriental_monarchy_government
+		
+	}
+}
+
+government_flavor = {
+	name = gov_anarchist
+	graphics = GFX_evt_gov_anarchist # LI: master had GFX_evt_anarchist, which does not exist
+	priority = 1
+	trigger = {
+		government = anarchist_government
+		
+	}
+}
+
+government_flavor = {
+	name = gov_demagogic
+	graphics = GFX_evt_gov_demagogic # LI: master had GFX_evt_demagogic, which does not exist
+	priority = 1
+	trigger = {
+		government = demagogic_government
+		
+	}
+}
+
+government_flavor = {
+	name = gov_mystic
+	graphics = GFX_evt_gov_mystic
+	priority = 1
+	trigger = {
+		government = mystic_government
+		
+	}
+}
+
+government_flavor = {
+	name = gov_absolutist
+	graphics = GFX_evt_gov_absolutist
+	priority = 1
+	trigger = {
+		government = absolutist_government
+		
+	}
+}
+
+government_flavor = {
+	name = gov_hegemonic
+	graphics = GFX_evt_gov_hegemonic
+	priority = 1
+	trigger = {
+		government = hegemonic_government
+		
+	}
+}
+
+government_flavor = {
+	name = gov_messianic
+	graphics = GFX_evt_gov_messianic
+	priority = 1
+	trigger = {
+		government = messianic_government
+		
+	}
+}
