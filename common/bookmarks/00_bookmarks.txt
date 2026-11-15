@@ -79,7 +79,7 @@ bm_eastern_splendour ={
 			properties = "aj00n0000000"
 			religion = "sunni"
 			culture = "levantine_arabic"
-			government = muslim_government
+			government = muslim_feudal_government
 		}
 	}
 	selectable_character = {

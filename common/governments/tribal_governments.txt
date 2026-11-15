@@ -13,7 +13,7 @@ tribal_government = {
 			republic_government
 			merchant_republic_government
 			theocracy_government
-			muslim_government
+			muslim_feudal_government
 			oriental_monarchy_government
 			classical_government
 		}

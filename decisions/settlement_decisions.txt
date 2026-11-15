@@ -1919,7 +1919,7 @@ nomad_adopt_feudalism = {
 							picture = GFX_evt_castle_construction
 						}
 					}
-					set_government_type = muslim_government
+					set_government_type = muslim_feudal_government
 				}
 			
 				if = {

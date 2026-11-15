@@ -1792,7 +1792,7 @@ character_event = {
 					limit = {
 						religion_group = muslim
 					}
-					set_government_type = muslim_government
+					set_government_type = muslim_feudal_government
 				}
 				else_if = {
 					limit = {

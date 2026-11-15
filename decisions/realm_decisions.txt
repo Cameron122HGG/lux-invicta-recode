@@ -1451,7 +1451,7 @@ convert_to_feudalism_indep  = {
 						picture = GFX_evt_castle_construction
 					}
 				}
-				set_government_type = muslim_government
+				set_government_type = muslim_feudal_government
 			}
 			
 #			if = {
@@ -1631,7 +1631,7 @@ convert_to_feudalism_vassal = {
 						picture = GFX_evt_castle_construction
 					}
 				}
-				set_government_type = muslim_government
+				set_government_type = muslim_feudal_government
 			}
 			
 			hidden_tooltip = {

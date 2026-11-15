@@ -264,6 +264,21 @@ Each phase is its own commit (or several), followed by a run and a log compariso
        Monastic-order run (logs `LI_CS_monastic_logs_2026-11-15`): 1,723; the Stoic decision's `culture = owner` (load-time
        assert) rewritten as `owner = { culture = PREV }` by `phase5b_monastic.py`. Not done: the Holy Fury saintly-bloodline
        event and the take-vows decision still pick only vanilla orders for Christian branches/faiths.
+   - **Law screen / "Anarchy" (2026-11-15, user report on the Eastern Roman emperor, character 1):**
+     - Not a bug: LI puts `sol` in `feminism_0` (agnatic only), and CleanSlate's law screen lists only the laws a ruler can
+       switch to, not the current one, so the Gender box was empty and Primogeniture (current) wasn't listed.
+     - **"Anarchy"** was the failsafe `gov_default` name: CleanSlate's `00_government_flavor.txt` has no entries for LI's
+       governments. Master's 17 entries ported into `common/government_flavor/li_00_government_flavor.txt` (classical,
+       oriental monarchy, the 6 radical governments, 9 per-faith holy orders at priority 3, above CleanSlate's generic
+       `gov_order`); master's `GFX_evt_anarchist`/`GFX_evt_demagogic` (don't exist) → `GFX_evt_gov_*` (original LI bug).
+     - **Missed CleanSlate renames** (master_changelog.txt check): `muslim_government` → `muslim_feudal_government`
+       (26 references in 11 files: governments, li_demesne_laws, bookmarks, SELIN messianic, realm/settlement decisions,
+       ze_extra_events) and `theocratic_feudal_government` → `monastic_feudal_government` (1). The game logs nothing for an
+       unknown government name, so these were silent. The other changelog renames left in the mod are LI's own world
+       (cultures, titles), LI choices (`k_papal_state`, `d_hashshashin`) or variable names (`assassins_debt`).
+     - `ze_extra_events.txt`: `classical_government = yes` (not a trigger; set oriental monarchy) →
+       `classical_government_trigger = yes` + `set_government_type = classical_government` (original LI bug).
+     Untested in game.
      Left: 199 need AIO content, 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
