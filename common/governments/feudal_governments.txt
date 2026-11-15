@@ -117,6 +117,7 @@ feudal_government = {
 			NOT = { oriental_monarchy_government_trigger = yes }
 			NOT = { classical_government_trigger = yes }
 			NOT = { is_government_potential = order_government }
+			NOT = { is_government_potential = roman_imperial_government } # LI: CleanSlate's feudal group excludes it; LI's feudal_government didn't, so Catholic Roman emperors (S.P.Q.R.) stayed feudal (2026-11-15)
 			is_patrician = no
 		}
 		
