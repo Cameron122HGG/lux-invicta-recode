@@ -1,0 +1,15 @@
+# LI: CK2Plus AIO Roman provincia restoration on LI's map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json
+
+on_startup = {
+	events = {
+		LIprov.1 # Mark e_byzantium / e_roman as the Eastern / Western Roman successors
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		Plus.568 # Eastern successor gone: clear east_rome_lives
+		Plus.570 # Western successor gone: clear west_rome_lives
+		Plus.571 # Successor exists but its flag is missing: restore it
+	}
+}

@@ -287,6 +287,17 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      government whose `potential` passes, and `feudal_government` (LI's version from master) didn't exclude Roman imperial
      rulers the way CleanSlate's `feudal_group_potential_trigger` does. Character 1 (Sol) only escaped it through the
      classical-faith check; Traianus is Catholic. Added `NOT = { is_government_potential = roman_imperial_government }`.
+   - **Roman provincia restoration (user, 2026-11-15), untested:** CK2Plus AIO's `CK2Plus_roman_decisions.txt` rebuilt on
+     LI's map by `tools/phase5b_provincia.py`. Mapping (`migration_notes/provincia_mapping_draft.md`, reviewed): LI's map
+     compared with vanilla's (`provinces.bmp`, local offsets from 989 shared county keys; LI redrew the map, one global fit
+     fails), each LI duchy given to the provincia most of its counties fall in, a few placed by hand; Sardinia et Corsica
+     folded into Italia (user) = 20 provincias, 189 duchies. Built: 20 titular `k_provincia_*` (AIO blocks, capital = LI duchy
+     capital, crusade weights christian + graecoroman_group, region checks on the provincia's own region), claim
+     Eastern/Western succession (AIO's imperial check -> `government = roman_imperial_government`), collapse/expand, 20 create
+     decisions (full control of the duchies -> de jure moves; "near" check uses the provincia's own region),
+     Plus.566/568/569/570/571 (571's west-uses-east typo fixed), LIprov.1 (start: e_byzantium = Eastern, e_roman = Western
+     successor; makes LoR.21's successor option reachable), LIprov.2 (restored notification; AIO's LoR.6 always says Italia),
+     `custom_roman_*` regions, 118 AIO text keys, 20 flags.
      Left: 199 need AIO content, 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an

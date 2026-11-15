@@ -1,0 +1,209 @@
+# LI: CK2Plus AIO Roman provincia restoration on LI's map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json
+
+namespace = Plus
+namespace = LIprov
+
+narrative_event = {
+	id = Plus.566
+	title = EVTNAME_Plus_566
+	desc = EVTDESC_Plus_566
+	picture = GFX_evt_coronation_byzantine
+
+	is_triggered_only = yes
+	major = yes
+
+	immediate = {
+		set_global_flag = east_rome_lives
+		primary_title = { set_title_flag = eastern_roman_successor }
+	}
+
+	option = {
+		name = {
+			text = EVTOPTA_Plus_566
+			trigger = { same_realm = ROOT }
+		}
+		name = {
+			text = I_SEE
+			trigger = { NOT = { same_realm = ROOT } }
+		}
+	}
+}
+
+character_event = {
+	id = Plus.568
+
+	is_triggered_only = yes # on_yearly_pulse
+	hide_window = yes
+
+	has_global_flag = east_rome_lives
+
+	trigger = {
+		owns = event_target:pulse_province
+
+		NOT = {
+			any_independent_ruler = {
+				real_tier = EMPEROR
+				primary_title = { has_title_flag = eastern_roman_successor }
+			}
+		}
+	}
+
+	immediate = {
+		clr_global_flag = east_rome_lives
+	}
+}
+
+narrative_event = {
+	id = Plus.569
+	title = EVTNAME_Plus_569
+	desc = EVTDESC_Plus_569
+	picture = GFX_evt_coronation
+
+	is_triggered_only = yes
+	major = yes
+
+	immediate = {
+		set_global_flag = west_rome_lives
+		primary_title = { set_title_flag = western_roman_successor }
+	}
+
+	option = {
+		name = {
+			text = EVTOPTA_Plus_566
+			trigger = { same_realm = ROOT }
+		}
+		name = {
+			text = I_SEE
+			trigger = { NOT = { same_realm = ROOT } }
+		}
+	}
+}
+
+character_event = {
+	id = Plus.570
+
+	is_triggered_only = yes # on_yearly_pulse
+	hide_window = yes
+
+	only_playable = yes
+	has_global_flag = west_rome_lives
+
+	trigger = {
+		owns = event_target:pulse_province
+
+		NOT = {
+			any_independent_ruler = {
+				real_tier = EMPEROR
+				primary_title = { has_title_flag = western_roman_successor }
+			}
+		}
+	}
+
+	immediate = {
+		clr_global_flag = west_rome_lives
+	}
+}
+
+character_event = {
+	id = Plus.571
+
+	is_triggered_only = yes # on_yearly_pulse
+	hide_window = yes
+
+	only_independent = yes
+	has_dlc = "Legacy of Rome"
+
+	trigger = {
+		trigger_if = {
+			limit = {
+				primary_title = {
+					has_title_flag = eastern_roman_successor
+					real_tier = EMPEROR
+				}
+			}
+			NOT = { has_global_flag = east_rome_lives }
+		}
+		trigger_else_if = {
+			limit = {
+				primary_title = {
+					has_title_flag = western_roman_successor
+					real_tier = EMPEROR
+				}
+			}
+			NOT = { has_global_flag = west_rome_lives }
+		}
+		trigger_else = {
+			primary_title = { title = e_roman_empire }
+			NOT = { has_global_flag = rome_restored }
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				primary_title = { has_title_flag = eastern_roman_successor }
+				NOT = { has_global_flag = east_rome_lives }
+			}
+			set_global_flag = east_rome_lives
+		}
+		else_if = {
+			limit = {
+				primary_title = { has_title_flag = western_roman_successor }
+				NOT = { has_global_flag = west_rome_lives } # LI: AIO checked east_rome_lives here
+			}
+			set_global_flag = west_rome_lives
+		}
+		else_if = {
+			limit = {
+				primary_title = { title = e_roman_empire }
+				NOT = { has_global_flag = rome_restored }
+			}
+			set_global_flag = rome_restored
+		}
+	}
+}
+
+# LI: at game start both Romes exist in 1066 - the Eastern (e_byzantium) and Western (e_roman, S.P.Q.R.) successors
+character_event = {
+	id = LIprov.1
+
+	is_triggered_only = yes # on_startup (fires for every character: global-flag guard)
+	hide_window = yes
+
+	trigger = {
+		NOT = { has_global_flag = li_roman_successors_set }
+	}
+
+	immediate = {
+		set_global_flag = li_roman_successors_set
+
+		e_byzantium = {
+			if = {
+				limit = { holder_scope = { real_tier = EMPEROR } }
+				set_title_flag = eastern_roman_successor
+				set_global_flag = east_rome_lives
+			}
+		}
+		e_roman = {
+			if = {
+				limit = { holder_scope = { real_tier = EMPEROR } }
+				set_title_flag = western_roman_successor
+				set_global_flag = west_rome_lives
+			}
+		}
+	}
+}
+
+# LI: a Roman province is restored (AIO used LoR.6, whose text always names Italia)
+narrative_event = {
+	id = LIprov.2
+	title = EVTNAME_LIprov_2
+	desc = EVTDESC_LIprov_2
+	picture = GFX_evt_victory_arch_byzantine
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTALoR.1
+	}
+}

@@ -1,0 +1,122 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+# LI: Roman provincia restoration (tools/phase5b_provincia.py, 2026-11-15)
+EVTNAME_LIprov_2;A Roman Province Restored;;;;;;;;;;;;;x
+EVTDESC_LIprov_2;For the first time in centuries, the old Roman province of [li_new_provincia.GetBaseName] is whole again under the rule of [Root.GetTitledName]. Its lands answer once more to the Empire, as they did in the days of the Caesars.;;;;;;;;;;;;;x
+CONSUL;Consul;;;;;x
+EVTDESC_Plus_566;[Root.GetHerHisCap] majesty, [Root.GetTitledFirstName] stands today in front of the nobility, clergy, foreign dignitaries, and -most importantly- [Root.GetHighGodName]. An announcement whose words carry the heaviest of weights is made as a new chapter in history is written: The [Root.PrimaryTitle.GetFullName], and most importantly, [Root.GetTitle] [Root.GetDynName] claims succession to the Roman administration in the East. As [Root.GetSheHe] is confirmed by the [Root.GetPriestTitle]s, [Root.GetBestName] is coronated as rightful Emperor in the East.\nA new era has begun, and history will eventually prove whether or not this display of grandiosity was just, or if it will lead to a downfall of vanity.;;Majestät, [Root.GetHerHisCap], [Root.GetTitledFirstName] steht heute vor dem Adel, dem Klerus, ausländischen Würdenträgern und - am wichtigsten - [Root.GetHighGodName]. Eine Ankündigung, deren Worte das schwerste Gewicht haben, wird gemacht, während ein neues Kapitel in der Geschichte geschrieben wird: Der [Root.PrimaryTitle.GetFullName] und vor allem der [Root.GetTitle] [Root.GetDynName] beanspruchen die Nachfolge der römischen Verwaltung im Osten. Da [Root.GetSheHe] von den [Root.GetPriestTitle]s bestätigt wird, wird [Root.GetBestName] als rechtmäßiger Kaiser im Osten gekrönt.\nEine neue Ära hat begonnen, und die Geschichte wird schließlich beweisen, ob diese Zurschaustellung von Grandiosität gerecht war oder ob sie zu einem Untergang der Eitelkeit führen wird.;;;x
+EVTDESC_Plus_569;[Root.GetHerHisCap] majesty, [Root.GetTitledFirstName] stands today in front of the nobility, clergy, foreign dignitaries, and -most importantly- [Root.GetHighGodName]. An announcement whose words carry the heaviest of weights is made as a new chapter in history is written: The [Root.PrimaryTitle.GetFullName], and most importantly, [Root.GetTitle] [Root.GetDynName] claims succession to the Roman administration in the West. As [Root.GetSheHe] is confirmed by the [Root.GetPriestTitle]s, [Root.GetBestName] is coronated as rightful Emperor in the West.\nA new era has begun, and history will eventually prove whether or not this display of grandiosity was just, or if it will lead to a downfall of vanity.;;Majestät, [Root.GetHerHisCap], [Root.GetTitledFirstName] steht heute vor dem Adel, dem Klerus, ausländischen Würdenträgern und - am wichtigsten - [Root.GetHighGodName]. Eine Ankündigung, deren Worte das schwerste Gewicht haben, wird gemacht, während ein neues Kapitel in der Geschichte geschrieben wird: Der [Root.PrimaryTitle.GetFullName] und vor allem der [Root.GetTitle] [Root.GetDynName] beanspruchen die Nachfolge der römischen Verwaltung im Westen. Da [Root.GetSheHe] von den [Root.GetPriestTitle]s bestätigt wird, wird [Root.GetBestName] als rechtmäßiger Kaiser im Westen gekrönt.\nEine neue Ära hat begonnen, und die Geschichte wird schließlich beweisen, ob diese Zurschaustellung von Grandiosität gerecht war oder ob sie zu einem Untergang der Eitelkeit führen wird.;;;x
+EVTNAME_Plus_566;Eastern Roman Empire?;;Oströmisches Reich?;;;x
+EVTNAME_Plus_569;Western Roman Empire?;;Weströmische Reich?;;;x
+EVTOPTA_Plus_566;Praise [Root.GetHighGodName]! Long live the [Root.GetTitle]!;;Gelobt sei [Root.GetHighGodName]! Lang lebe das [Root.GetTitle]!;;;x
+NOT_ROMAN_CAPITAL;Not Capital of the Roman Empire or a successor state;;Nicht Hauptstadt des Römischen Reiches oder eines Nachfolgestaates;;;x
+ROMAN_CONTROL;Is controlled by the Roman Empire or a successor state;;;;;x
+ROMAN_PROVINCE_OF;Provincia;;;;;x
+claim_eastern_roman_empire;Claim Eastern Roman Empire;;Oströmisches Reich beanspruchen;;;x
+claim_eastern_roman_empire_desc;Assert your right as rightful successor to the Eastern part of the Roman Empire.;;Machen Sie Ihr Recht als rechtmäßiger Nachfolger des östlichen Teils des Römischen Reiches geltend.;;;x
+claim_western_roman_empire;Claim Western Roman Empire;;Weströmisches Reich beanspruchen;;;x
+claim_western_roman_empire_desc;Assert your right as rightful successor to the Western part of the Roman Empire.;;Machen Sie Ihr Recht als rechtmäßiger Nachfolger des westlichen Teils des Römischen Reiches geltend.;;;x
+collapse_provincia_decisions;Collapse Provincia Decisions;;Provincia-Entscheidungen kollabieren;;;x
+collapse_provincia_decisions_desc;Collapses all the 'Create Provincia Decisions'.\nThis can be undone.;;Bricht alle 'Provincia-Entscheidungen erstellen' zusammen. Dies kann rückgängig gemacht werden.;;;x
+create_provincia_aegyptus;Create Provincia Aegyptus;;Provincia Aegyptus gründen;;;x
+create_provincia_aegyptus_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere ausgedehnten Besitztümer besser verwalten zu können, müssen wir das Reich so organisieren, wie es die alten Römer taten, und die alten Provinzen wieder einführen.;;;x
+create_provincia_africa;Create Provincia Africa;;Provincia Afrika gründen;;;x
+create_provincia_africa_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_armenia;Create Provincia Armenia;;Gründung der Provincia Armenia;;;x
+create_provincia_armenia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_britannia;Create Provincia Britannia;;Provincia Britannia gründen;;;x
+create_provincia_britannia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_caledonia;Create Provincia Caledonia;;Provincia Caledonia gründen;;;x
+create_provincia_caledonia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_gallia;Create Provincia Gallia;;Provincia Gallia gründen;;;x
+create_provincia_gallia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_germania;Create Provincia Germania;;Provincia Germania gründen;;;x
+create_provincia_germania_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich so organisieren, wie es die alten Römer taten, und die alten Provinzen wieder einführen.;;;x
+create_provincia_hibernia;Create Provincia Hibernia;;Provincia Hibernia schaffen;;;x
+create_provincia_hibernia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_hispania;Create Provincia Hispania;;Provincia Hispania gründen;;;x
+create_provincia_hispania_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_illyricum;Create Provincia Illyricum;;Provincia Illyricum gründen;;;x
+create_provincia_illyricum_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_italia;Create Provincia Italia;;Provincia Italia gründen;;;x
+create_provincia_italia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_macedonia;Create Provincia Macedonia;;Provincia Macedonia gründen;;;x
+create_provincia_macedonia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich ähnlich wie die alten Römer organisieren und die alten Provinzen zurückbringen.;;;x
+create_provincia_mauretania;Create Provincia Mauretania;;Provincia Mauretania gründen;;;x
+create_provincia_mauretania_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_mesopotamia;Create Provincia Mesopotamia;;Provincia Mesopotamia gründen;;;x
+create_provincia_mesopotamia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_pannonia_dacia;Create Provincia Pannonia-Dacia;;Schaffung der Provincia Pannonia-Dacia;;;x
+create_provincia_pannonia_dacia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen zurückbringen.;;;x
+create_provincia_phrygia;Create Provincia Phrygia;;Provincia Phrygien gründen;;;x
+create_provincia_phrygia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen zurückbringen.;;;x
+create_provincia_pontus;Create Provincia Pontus;;Provincia Pontus gründen;;;x
+create_provincia_pontus_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_syria_palaestina;Create Provincia Syria-Palaestina;;Provincia Syria-Palaestina schaffen;;;x
+create_provincia_syria_palaestina_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich so organisieren, wie es die alten Römer taten, und die alten Provinzen wieder einführen.;;;x
+create_provincia_thracia;Create Provincia Thracia;;Provincia Thracia gründen;;;x
+create_provincia_thracia_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen wieder einführen.;;;x
+create_provincia_viennensis;Create Provincia Viennensis;;Provincia Viennensis gründen;;;x
+create_provincia_viennensis_desc;In order to better administer our extensive holdings, we must organize the empire much as the Ancient Romans did and bring back the ancient provinces.;;Um unsere umfangreichen Besitztümer besser verwalten zu können, müssen wir das Reich nach dem Vorbild der alten Römer organisieren und die alten Provinzen zurückbringen.;;;x
+custom_roman_aegyptus;Provincia Aegyptus;;Provinz Aegyptus;;;x
+custom_roman_africa;Provincia Africa;;Provincia Afrika;;;x
+custom_roman_armenia;Provincia Armenia;;Provinz Armenien;;;x
+custom_roman_brittania;Provincia Britannia;;Provinz Britannien;;;x
+custom_roman_caledonia;Provincia Caledonia;;Provincia Kaledonien;;;x
+custom_roman_gallia;Provincia Gallia;;Provinz Gallien;;;x
+custom_roman_germania;Provincia Germania;;Provinz Germanien;;;x
+custom_roman_hibernia;Provincia Hibernia;;Provinz Hibernien;;;x
+custom_roman_hispania;Provincia Hispania;;Provinz Hispanien;;;x
+custom_roman_illyricum;Provincia Illyricum;;Provinz Illyricum;;;x
+custom_roman_italia;Provincia Italia;;Provinz Italien;;;x
+custom_roman_macedonia;Provincia Macedonia;;Provincia Mazedonien;;;x
+custom_roman_mauretania;Provincia Mauretania;;Provinz Mauretanien;;;x
+custom_roman_mesopotamia;Provincia Mesopotamia;;Provinz Mesopotamien;;;x
+custom_roman_pannonia_dacia;Provincia Pannonia-Dacia;;Provincia Pannonien-Dakien;;;x
+custom_roman_phrygia;Provincia Phrygia;;Provinz Phrygien;;;x
+custom_roman_pontus;Provincia Pontus;;Provinz Pontus;;;x
+custom_roman_syria_palaestina;Provincia Syria Palæstina;;Provinz Syrien Palæstina;;;x
+custom_roman_thracia;Provincia Thracia;;Provincia Thracia;;;x
+custom_roman_viennensis;Provincia Viennensis;;Provincia Viennensis;;;x
+egyptian_pagan;Egyptian;Égyptien;Ägyptisch;;Egipcio;x
+expand_provincia_decisions;Expand Provincia Decisions;;Provincia-Entscheidungen erweitern;;;x
+expand_provincia_decisions_desc;Expands all the 'Create Provincia Decisions'.\nThis can be undone.;;Erweitert alle 'Provincia-Beschlüsse erstellen'. \nDies kann rückgängig gemacht werden.;;;x
+k_provincia_aegyptus;Aegyptus;Aegyptus;Aegyptus;;Aegyptus;x
+k_provincia_aegyptus_adj;Egyptian;Egyptian;Ägyptisch;;Egyptian;x
+k_provincia_africa;Africa;;Afrika;;Africa;x
+k_provincia_africa_adj;African;;Afrika;;African;x
+k_provincia_armenia;Armenia;;Armenien;;;x
+k_provincia_armenia_adj;Armenian;;Armenisch;;;x
+k_provincia_britannia;Britannia;Britannia;Britannien;;Britannia;x
+k_provincia_britannia_adj;British;Britannique;Britannien;;British;x
+k_provincia_caledonia;Caledonia;Caledonia;Kaledonien;;Caledonia;x
+k_provincia_caledonia_adj;Caledonian;Caledonian;Kaledonisch;;Caledonian;x
+k_provincia_gallia;Gallia;Gallia;Gallien;;Gallia;x
+k_provincia_gallia_adj;Gaulish;Gaulish;Gallien;;Gaulish;x
+k_provincia_germania;Germania;Germania;Germanien;;Germania;x
+k_provincia_germania_adj;German;Allemand;Deutsch;;Alemán;x
+k_provincia_hibernia;Hibernia;Hibernia;Hibernien;;Hibernia;x
+k_provincia_hibernia_adj;Hibernian;Hibernian;Hibernien;;Hibernian;x
+k_provincia_hispania;Hispania;Hispania;Hispanien;;Hispania;x
+k_provincia_hispania_adj;Hispanic;Hispanic;Hispanisch;;Hispanic;x
+k_provincia_illyricum;Illyricum;Illyricum;Illyricum;;Illyricum;x
+k_provincia_illyricum_adj;Illyrian;Illyrien;Illyrisch;;Ilirio;x
+k_provincia_italia;Italia;;Italien;;Italia;x
+k_provincia_italia_adj;Italian;;Italianisch;;Italiano;x
+k_provincia_macedonia;Macedonia;;Mazedonien;;Macedónico;x
+k_provincia_macedonia_adj;Macedonian;;Mazedonisch;;Macedónio;x
+k_provincia_mauretania;Mauretania;;Mauretanien;;Mauretania;x
+k_provincia_mauretania_adj;Mauretanian;;Mauretanisch;;Mauretania;x
+k_provincia_mesopotamia;Mesopotamia;;Mesopotamien;;Mesopotamia;x
+k_provincia_mesopotamia_adj;Mesopotamian;;Mesopotamien;;Mesopotamian;x
+k_provincia_pannonia_dacia;Pannonia-Dacia;;Pannonien-Dakien;;;x
+k_provincia_pannonia_dacia_adj;Pannonian;;Pannonisch;;;x
+k_provincia_phrygia;Phrygia;;Phrygien;;Phrygia;x
+k_provincia_phrygia_adj;Phrygian;;Phrygisch;;Phrygian;x
+k_provincia_pontus;Pontus;;Pontus;;Pontus;x
+k_provincia_pontus_adj;Pontic;;Pontisch;;Pontic;x
+k_provincia_syria_palaestina;Syria Palæstina;;Syrien Palæstina;;Syria Palæstina;x
+k_provincia_syria_palaestina_adj;Syrian;;Syrien;;Syrian;x
+k_provincia_thracia;Thracia;;Thrakien;;Thracia;x
+k_provincia_thracia_adj;Thracian;;Thrakisch;;Thracian;x
+k_provincia_viennensis;Viennensis;;Viennensis;;Viennensis;x
+k_provincia_viennensis_adj;Viennese;;Wien;;Viennese;x

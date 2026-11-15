@@ -1,0 +1,1295 @@
+# LI: CK2Plus AIO Roman provincia restoration on LI's map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json
+
+k_provincia_aegyptus = {
+	color = { 10 255 180 }
+	color2 = { 255 255 255 }
+	capital	= 1609 # Cairo
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 100 #Crusade target weight
+	sunni = 100 #Crusade target weight
+	shiite = 100 #Crusade target weight
+	orthodox = 20 # Crusade target weight
+	zoroastrian_group = 15 # Crusade target weight
+	egyptian_pagan = 1000 # Crusade target weight
+	zun_pagan_reformed = 100 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_aegyptus } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_aegyptus }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_africa = {
+	color = { 21 255 3 }
+	color2 = { 255 255 255 }
+	capital = 970 # LI: capital of d_tunis
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 10 # Crusade target weight
+	muslim = 20 # Crusade target weight
+	west_african_pagan_reformed = 5 # Crusade target weight
+	egyptian_pagan = 50 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_africa } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_africa }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_armenia = {
+	color = { 240 128 128 }
+	color2 = { 255 255 255 }
+	capital = 691 # LI: capital of d_vaspurakan
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	orthodox = 10 #Crusade target weight
+	tengri_pagan_reformed = 1000 #crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_armenia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_armenia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_britannia = {
+	color = { 202 26 26 }
+	color2 = { 255 255 255 }
+	capital = 65 # LI: capital of d_middlesex
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 10 #Crusade target weight
+	norse_pagan_reformed = 20 # Crusade target weight
+	german_pagan_reformed = 20 # Crusade target weight
+	celtic_pagan_reformed = 50 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_brittania } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_brittania }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_caledonia = {
+	color = { 199 175 12 }
+	color2 = { 255 255 255 }
+	capital = 29 # LI: capital of d_fiobha
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 10 #Crusade target weight
+	norse_pagan_reformed = 20 # Crusade target weight
+	german_pagan_reformed = 20 # Crusade target weight
+	celtic_pagan_reformed = 100 #Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_caledonia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_caledonia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_gallia = {
+	color = { 15 27 187 }
+	color2 = { 255 255 20 }
+	capital = 89 # LI: capital of d_valois
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 100 #Crusade target weight
+	norse_pagan_reformed = 10 # Crusade target weight
+	german_pagan_reformed = 10 # Crusade target weight
+	celtic_pagan_reformed = 30 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_gallia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_gallia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_germania = {
+	color = { 160 95 95 }
+	color2 = { 220 220 20 }
+	capital = 241 # LI: capital of d_franconia
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 10 # Crusade target weight
+	norse_pagan_reformed = 10 # Crusade target weight
+	german_pagan_reformed = 200 # Crusade target weight
+	slavic_pagan_reformed = 10 # Crusade target weight
+	baltic_pagan_reformed = 1 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_germania } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_germania }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_hibernia = {
+	color = { 6 127 2 }
+	color2 = { 255 255 255 }
+	capital = 17 # LI: capital of d_laigin
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 10 #Crusade target weight
+	norse_pagan_reformed = 20 # Crusade target weight
+	german_pagan_reformed = 20 # Crusade target weight
+	celtic_pagan_reformed = 1000 #crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_hibernia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_hibernia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_hispania = {
+	color = { 243 209 23 }
+	color2 = { 200 80 10 }
+	capital = 179 # LI: capital of d_castilla
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 10 # Crusade target weight
+	muslim = 10
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_hispania } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_hispania }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_illyricum = {
+	color = { 205 145 145 }
+	color2 = { 200 0 0 }
+	capital = 462 # LI: capital of d_dalmatia
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	orthodox = 300 # Crusade target weight
+	catholic = 10 #Crusade target weight
+	hellenic_pagan_reformed = 100 #crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_illyricum } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_illyricum }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_italia = {
+	color = { 245 102 97 }
+	capital = 275 # LI: capital of d_latium
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+	greek = "Italia"
+
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_italia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_italia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_macedonia = {
+	color = { 89 140 76 }
+	color2 = { 255 255 20 }
+	capital = 508 # LI: capital of d_thessalonika
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	sunni = 100
+	catholic = 100 #Crusade target weight
+	zoroastrian_group = 50 # Crusade target weight
+	hellenic_pagan_reformed = 500
+	orthodox = 5000 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_macedonia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_macedonia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_mauretania = {
+	color = { 58 41 188 }
+	color2 = { 255 255 255 }
+	capital = 954 # LI: capital of d_marrakech
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 10 #Crusade target weight
+	muslim = 100 # Crusade target weight
+	west_african_pagan_reformed = 100
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_mauretania } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_mauretania }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_mesopotamia = {
+	color = { 55 128 67 }
+	color2 = { 255 255 255 }
+	capital	= 1476 # Baghdad
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	shiite = 100 #Crusade target weight
+	sunni = 100 #Crusade target weight
+	muslim = 40 # Crusade target weight
+	zoroastrian_group = 50 # Crusade target weight
+	zun_pagan_reformed = 300 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_mesopotamia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_mesopotamia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_pannonia_dacia = {
+	color = { 92 198 88 }
+	color2 = { 255 255 255 }
+	capital = 472 # LI: capital of d_pest
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 10 #Crusade target weight
+	slavic_pagan_reformed = 200 # Crusade target weight
+	tengri_pagan_reformed = 1000 #crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_pannonia_dacia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_pannonia_dacia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_phrygia = {
+	color = { 101 102 163 }
+	color2 = { 255 255 23 }
+	capital = 785 # LI: capital of d_nikaea
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 75 # Crusade target weight
+	muslim = 100 # Crusade target weight
+	zoroastrian_group = 100 # Crusade target weight
+	orthodox = 300 # Crusade target weight
+	hellenic_pagan_reformed = 100
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_phrygia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_phrygia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_pontus = {
+	color = { 140 41 171 }
+	color2 = { 255 255 255 }
+	capital = 768 # LI: capital of d_paphlagonia
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	orthodox = 300 # Crusade target weight
+	sunni = 100 # Crusade target weight
+	zoroastrian_group = 50 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_pontus } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_pontus }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_syria_palaestina = {
+	color = { 180 180 180 }
+	color2 = { 255 255 255 }
+	capital = 814 # LI: capital of d_jerusalem
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 250 #Crusade target weight
+	sunni = 50 #Crusade target weight
+	shiite = 50 #Crusade target weight
+	zoroastrian_group = 20 # Crusade target weight
+	egyptian_pagan = 30 #Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_syria_palaestina } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_syria_palaestina }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_thracia = {
+	color = { 122 180 210 }
+	color2 = { 255 255 23 }
+	capital = 517 # LI: capital of d_thrace
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	sunni = 100
+	catholic = 100 #Crusade target weight
+	zoroastrian_group = 50 # Crusade target weight
+	hellenic_pagan_reformed = 500
+	orthodox = 5000 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_thracia } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_thracia }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
+
+k_provincia_viennensis = {
+	color = { 60 153 151 }
+	color2 = { 255 255 20 }
+	capital = 211 # LI: capital of d_dauphine
+	culture = roman
+	title_prefix = ROMAN_PROVINCE_OF
+	title = CONSUL
+	title_female = CONSUL
+	dynasty_title_names = no
+
+	christian = 1000 # Crusade target weight
+	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
+
+	catholic = 700 # Crusade target weight
+
+	allow = {
+		top_liege = {
+			show_scope_change = no
+
+			custom_tooltip = {
+				text = ROMAN_CONTROL
+
+				primary_title = {
+					OR = {
+						title = e_roman_empire
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+			}
+
+			custom_tooltip = {
+				text = NOT_ROMAN_CAPITAL
+
+				capital_scope = { NOT = { region = custom_roman_viennensis } }
+			}
+		}
+
+		can_create_kingdom = yes
+	}
+
+	gain_effect = {
+		if = {
+			limit = {
+				top_liege = {
+					primary_title = {
+						OR = {
+							title = e_roman_empire
+							has_title_flag = eastern_roman_successor
+							has_title_flag = western_roman_successor
+						}
+
+						capital_scope = { region = custom_roman_viennensis }
+					}
+				}
+			}
+
+			destroy_landed_title = FROM
+		}
+	}
+}
