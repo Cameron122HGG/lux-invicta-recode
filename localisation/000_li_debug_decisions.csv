@@ -1,0 +1,70 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+# LI: test decisions (tools/make_debug_decisions.py) - delete with decisions/zz_li_debug_decisions.txt
+li_debug_mode_on;DEBUG: LI test mode: on;;;;;;;;;;;;;x
+li_debug_mode_on_desc;Shows the LI test decisions (resources, Roman tests). They have no AI and do nothing until taken.;;;;;;;;;;;;;x
+li_debug_mode_off;DEBUG: LI test mode: off;;;;;;;;;;;;;x
+li_debug_mode_off_desc;Hides the LI test decisions again.;;;;;;;;;;;;;x
+li_debug_resources;DEBUG: +1000 gold, prestige and piety;;;;;;;;;;;;;x
+li_debug_resources_desc;Enough to afford titles, claims and decisions.;;;;;;;;;;;;;x
+li_debug_tt_east_lives;An Eastern Roman successor exists (east_rome_lives);;;;;;;;;;;;;x
+li_debug_tt_west_lives;A Western Roman successor exists (west_rome_lives);;;;;;;;;;;;;x
+li_debug_tt_restored;The Roman Empire is restored (rome_restored);;;;;;;;;;;;;x
+li_debug_tt_east_mine;My primary title is the Eastern successor;;;;;;;;;;;;;x
+li_debug_tt_west_mine;My primary title is the Western successor;;;;;;;;;;;;;x
+li_debug_tt_gov;I have the Roman imperial government;;;;;;;;;;;;;x
+li_debug_tt_law;My primary title has Imperial Elective;;;;;;;;;;;;;x
+li_debug_tt_collapsed;Provincia decisions are not collapsed;;;;;;;;;;;;;x
+li_debug_roman_status;DEBUG: Roman status (hover);;;;;;;;;;;;;x
+li_debug_roman_status_desc;Hover the allow list: green/red shows the Roman successor flags, government, succession law and provincia list state. Cannot be taken.;;;;;;;;;;;;;x
+li_debug_roman_government;DEBUG: Set Roman imperial government;;;;;;;;;;;;;x
+li_debug_roman_government_desc;Switches you to the Roman imperial government (the game may switch you back if you do not hold a Roman empire as primary title).;;;;;;;;;;;;;x
+li_debug_make_eastern_successor;DEBUG: Make my empire the Eastern successor;;;;;;;;;;;;;x
+li_debug_make_eastern_successor_desc;Flags your primary title as the Eastern Roman successor and sets east_rome_lives, without the claim decision.;;;;;;;;;;;;;x
+li_debug_make_western_successor;DEBUG: Make my empire the Western successor;;;;;;;;;;;;;x
+li_debug_make_western_successor_desc;Flags your primary title as the Western Roman successor and sets west_rome_lives, without the claim decision.;;;;;;;;;;;;;x
+li_debug_clear_successors;DEBUG: Clear all Roman successors;;;;;;;;;;;;;x
+li_debug_clear_successors_desc;Removes both successor flags everywhere, so the claim decisions can be tested.;;;;;;;;;;;;;x
+li_debug_provincias_on;DEBUG: Show provincia shortcuts;;;;;;;;;;;;;x
+li_debug_provincias_on_desc;Lists one shortcut per provincia that restores it at once, as if its decision had passed.;;;;;;;;;;;;;x
+li_debug_provincias_off;DEBUG: Hide provincia shortcuts;;;;;;;;;;;;;x
+li_debug_provincias_off_desc;Hides the provincia shortcuts.;;;;;;;;;;;;;x
+li_debug_restore_provincia_aegyptus;DEBUG: Restore Provincia Aegyptus now;;;;;;;;;;;;;x
+li_debug_restore_provincia_aegyptus_desc;Activates k_provincia_aegyptus and moves its 6 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_africa;DEBUG: Restore Provincia Africa now;;;;;;;;;;;;;x
+li_debug_restore_provincia_africa_desc;Activates k_provincia_africa and moves its 3 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_armenia;DEBUG: Restore Provincia Armenia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_armenia_desc;Activates k_provincia_armenia and moves its 6 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_britannia;DEBUG: Restore Provincia Britannia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_britannia_desc;Activates k_provincia_britannia and moves its 16 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_caledonia;DEBUG: Restore Provincia Caledonia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_caledonia_desc;Activates k_provincia_caledonia and moves its 7 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_gallia;DEBUG: Restore Provincia Gallia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_gallia_desc;Activates k_provincia_gallia and moves its 17 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_germania;DEBUG: Restore Provincia Germania now;;;;;;;;;;;;;x
+li_debug_restore_provincia_germania_desc;Activates k_provincia_germania and moves its 18 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_hibernia;DEBUG: Restore Provincia Hibernia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_hibernia_desc;Activates k_provincia_hibernia and moves its 7 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_hispania;DEBUG: Restore Provincia Hispania now;;;;;;;;;;;;;x
+li_debug_restore_provincia_hispania_desc;Activates k_provincia_hispania and moves its 18 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_illyricum;DEBUG: Restore Provincia Illyricum now;;;;;;;;;;;;;x
+li_debug_restore_provincia_illyricum_desc;Activates k_provincia_illyricum and moves its 7 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_italia;DEBUG: Restore Provincia Italia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_italia_desc;Activates k_provincia_italia and moves its 19 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_macedonia;DEBUG: Restore Provincia Macedonia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_macedonia_desc;Activates k_provincia_macedonia and moves its 8 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_mauretania;DEBUG: Restore Provincia Mauretania now;;;;;;;;;;;;;x
+li_debug_restore_provincia_mauretania_desc;Activates k_provincia_mauretania and moves its 6 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_mesopotamia;DEBUG: Restore Provincia Mesopotamia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_mesopotamia_desc;Activates k_provincia_mesopotamia and moves its 7 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_pannonia_dacia;DEBUG: Restore Provincia Pannonia et Dacia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_pannonia_dacia_desc;Activates k_provincia_pannonia_dacia and moves its 9 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_phrygia;DEBUG: Restore Provincia Phrygia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_phrygia_desc;Activates k_provincia_phrygia and moves its 5 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_pontus;DEBUG: Restore Provincia Pontus now;;;;;;;;;;;;;x
+li_debug_restore_provincia_pontus_desc;Activates k_provincia_pontus and moves its 5 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_syria_palaestina;DEBUG: Restore Provincia Syria Palaestina now;;;;;;;;;;;;;x
+li_debug_restore_provincia_syria_palaestina_desc;Activates k_provincia_syria_palaestina and moves its 11 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_thracia;DEBUG: Restore Provincia Thracia now;;;;;;;;;;;;;x
+li_debug_restore_provincia_thracia_desc;Activates k_provincia_thracia and moves its 5 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x
+li_debug_restore_provincia_viennensis;DEBUG: Restore Provincia Viennensis now;;;;;;;;;;;;;x
+li_debug_restore_provincia_viennensis_desc;Activates k_provincia_viennensis and moves its 9 duchies under it de jure, without the control requirements.;;;;;;;;;;;;;x

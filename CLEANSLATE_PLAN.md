@@ -251,6 +251,10 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      (a timing weight that never applies; harmless). Still waiting: `rivalry_cb` (CB framework), `plot_kill_spouse`,
      `plot_kidnap_liege`, `plot_fabricate_treason(_liege)` (CK2Plus's dishonorable traits), `plot_usurp_wife_decision`
      (FemRule.360). Left: 186 need AIO content, 361 hand port.
+   - **Test decisions (2026-11-15):** `tools/make_debug_decisions.py` -> `decisions/zz_li_debug_decisions.txt` (30 decisions,
+     no AI, shown after "LI test mode: on"): +1000 gold/prestige/piety; Roman status tooltip; set Roman imperial government;
+     make my empire the Eastern/Western successor; clear successors; one restore shortcut per provincia. **Remove before
+     release** (delete the decisions file and `localisation/000_li_debug_decisions.csv`).
      **Monastic orders and druids (2026-11-15), untested:**
      - **Druids:** LI has its own druid system (`li_druidic_caste_events.txt`: MTTH events with `father` follow-ups).
        AIO's ancrel.185-206 are triggered-only from a CK2Plus router the mod lacks, so all 11 stay LI's (keep list).

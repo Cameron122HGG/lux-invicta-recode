@@ -1,0 +1,967 @@
+# LI: TEST DECISIONS (tools/make_debug_decisions.py). Delete this file and localisation/000_li_debug_decisions.csv to remove them.
+
+decisions = {
+	li_debug_mode_on = {
+		ai = no
+
+		potential = {
+			ai = no
+			NOT = { has_global_flag = li_debug_mode }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			set_global_flag = li_debug_mode
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_mode_off = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+		}
+
+		allow = {
+		}
+
+		effect = {
+			clr_global_flag = li_debug_mode
+			clr_global_flag = li_debug_provincias
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_resources = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+		}
+
+		allow = {
+		}
+
+		effect = {
+			wealth = 1000
+			prestige = 1000
+			piety = 1000
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_roman_status = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+		}
+
+		allow = {
+			custom_tooltip = { text = li_debug_tt_east_lives has_global_flag = east_rome_lives }
+			custom_tooltip = { text = li_debug_tt_west_lives has_global_flag = west_rome_lives }
+			custom_tooltip = { text = li_debug_tt_restored has_global_flag = rome_restored }
+			custom_tooltip = { text = li_debug_tt_east_mine primary_title = { has_title_flag = eastern_roman_successor } }
+			custom_tooltip = { text = li_debug_tt_west_mine primary_title = { has_title_flag = western_roman_successor } }
+			custom_tooltip = { text = li_debug_tt_gov government = roman_imperial_government }
+			custom_tooltip = { text = li_debug_tt_law primary_title = { has_law = succ_byzantine_elective } }
+			custom_tooltip = { text = li_debug_tt_collapsed NOT = { has_global_flag = provincia_decisions_collapsed } }
+			always = no
+		}
+
+		effect = {
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_roman_government = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			NOT = { government = roman_imperial_government }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			set_government_type = roman_imperial_government
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_make_eastern_successor = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			real_tier = EMPEROR
+		}
+
+		allow = {
+		}
+
+		effect = {
+			primary_title = {
+				clr_title_flag = western_roman_successor
+				set_title_flag = eastern_roman_successor
+			}
+			set_global_flag = east_rome_lives
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_make_western_successor = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			real_tier = EMPEROR
+		}
+
+		allow = {
+		}
+
+		effect = {
+			primary_title = {
+				clr_title_flag = eastern_roman_successor
+				set_title_flag = western_roman_successor
+			}
+			set_global_flag = west_rome_lives
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_clear_successors = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+		}
+
+		allow = {
+		}
+
+		effect = {
+			any_title = {
+				limit = {
+					OR = {
+						has_title_flag = eastern_roman_successor
+						has_title_flag = western_roman_successor
+					}
+				}
+				clr_title_flag = eastern_roman_successor
+				clr_title_flag = western_roman_successor
+			}
+			clr_global_flag = east_rome_lives
+			clr_global_flag = west_rome_lives
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_provincias_on = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			NOT = { has_global_flag = li_debug_provincias }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			set_global_flag = li_debug_provincias
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_provincias_off = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+		}
+
+		allow = {
+		}
+
+		effect = {
+			clr_global_flag = li_debug_provincias
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_aegyptus = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_aegyptus }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_aegyptus = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_alexandria = { show_scope_change = no de_jure_liege = PREV }
+				d_aswan = { show_scope_change = no de_jure_liege = PREV }
+				d_sinai = { show_scope_change = no de_jure_liege = PREV }
+				d_damietta = { show_scope_change = no de_jure_liege = PREV }
+				d_cairo = { show_scope_change = no de_jure_liege = PREV }
+				d_cyrenaica = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_africa = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_africa }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_africa = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_kabylia = { show_scope_change = no de_jure_liege = PREV }
+				d_tunis = { show_scope_change = no de_jure_liege = PREV }
+				d_tripolitania = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_armenia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_armenia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_armenia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_kartli = { show_scope_change = no de_jure_liege = PREV }
+				d_abkhazia = { show_scope_change = no de_jure_liege = PREV }
+				d_armenia = { show_scope_change = no de_jure_liege = PREV }
+				d_vaspurakan = { show_scope_change = no de_jure_liege = PREV }
+				d_provincia_mesopotamia = { show_scope_change = no de_jure_liege = PREV }
+				d_albania = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_britannia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_britannia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_britannia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_cumbria = { show_scope_change = no de_jure_liege = PREV }
+				d_bernicia = { show_scope_change = no de_jure_liege = PREV }
+				d_derenrice = { show_scope_change = no de_jure_liege = PREV }
+				d_lindsey = { show_scope_change = no de_jure_liege = PREV }
+				d_middle_angles = { show_scope_change = no de_jure_liege = PREV }
+				d_magonsaete = { show_scope_change = no de_jure_liege = PREV }
+				d_gwynedd = { show_scope_change = no de_jure_liege = PREV }
+				d_powys = { show_scope_change = no de_jure_liege = PREV }
+				d_dyfed = { show_scope_change = no de_jure_liege = PREV }
+				d_glywysing = { show_scope_change = no de_jure_liege = PREV }
+				d_hwicce = { show_scope_change = no de_jure_liege = PREV }
+				d_belgarum = { show_scope_change = no de_jure_liege = PREV }
+				d_middlesex = { show_scope_change = no de_jure_liege = PREV }
+				d_norfolk = { show_scope_change = no de_jure_liege = PREV }
+				d_canterbury = { show_scope_change = no de_jure_liege = PREV }
+				d_somerset = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_caledonia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_caledonia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_caledonia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_fidach = { show_scope_change = no de_jure_liege = PREV }
+				d_sudreyjar = { show_scope_change = no de_jure_liege = PREV }
+				d_ce = { show_scope_change = no de_jure_liege = PREV }
+				d_srathchluaidh = { show_scope_change = no de_jure_liege = PREV }
+				d_labhdaidh = { show_scope_change = no de_jure_liege = PREV }
+				d_galloway = { show_scope_change = no de_jure_liege = PREV }
+				d_fiobha = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_gallia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_gallia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_gallia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_burgundy = { show_scope_change = no de_jure_liege = PREV }
+				d_champagne = { show_scope_change = no de_jure_liege = PREV }
+				d_valois = { show_scope_change = no de_jure_liege = PREV }
+				d_flanders = { show_scope_change = no de_jure_liege = PREV }
+				d_brabant = { show_scope_change = no de_jure_liege = PREV }
+				d_luxembourg = { show_scope_change = no de_jure_liege = PREV }
+				d_upper_lorraine = { show_scope_change = no de_jure_liege = PREV }
+				d_upper_burgundy = { show_scope_change = no de_jure_liege = PREV }
+				d_savoie = { show_scope_change = no de_jure_liege = PREV }
+				d_alsace = { show_scope_change = no de_jure_liege = PREV }
+				d_koln = { show_scope_change = no de_jure_liege = PREV }
+				d_brittany = { show_scope_change = no de_jure_liege = PREV }
+				d_anjou = { show_scope_change = no de_jure_liege = PREV }
+				d_normandy = { show_scope_change = no de_jure_liege = PREV }
+				d_rouen = { show_scope_change = no de_jure_liege = PREV }
+				d_orleans = { show_scope_change = no de_jure_liege = PREV }
+				d_berry = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_germania = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_germania }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_germania = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_holland = { show_scope_change = no de_jure_liege = PREV }
+				d_lower_lorraine = { show_scope_change = no de_jure_liege = PREV }
+				d_gelre = { show_scope_change = no de_jure_liege = PREV }
+				d_nordmark = { show_scope_change = no de_jure_liege = PREV }
+				d_brunswick = { show_scope_change = no de_jure_liege = PREV }
+				d_thuringia = { show_scope_change = no de_jure_liege = PREV }
+				d_franconia = { show_scope_change = no de_jure_liege = PREV }
+				d_swabia = { show_scope_change = no de_jure_liege = PREV }
+				d_baden = { show_scope_change = no de_jure_liege = PREV }
+				d_tyrol = { show_scope_change = no de_jure_liege = PREV }
+				d_bavaria = { show_scope_change = no de_jure_liege = PREV }
+				d_bohemia = { show_scope_change = no de_jure_liege = PREV }
+				d_meissen = { show_scope_change = no de_jure_liege = PREV }
+				d_saxony = { show_scope_change = no de_jure_liege = PREV }
+				d_holstein = { show_scope_change = no de_jure_liege = PREV }
+				d_slesvig = { show_scope_change = no de_jure_liege = PREV }
+				d_moravia = { show_scope_change = no de_jure_liege = PREV }
+				d_brandenburg = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_hibernia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_hibernia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_hibernia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_connacht = { show_scope_change = no de_jure_liege = PREV }
+				d_munster = { show_scope_change = no de_jure_liege = PREV }
+				d_osraige = { show_scope_change = no de_jure_liege = PREV }
+				d_meath = { show_scope_change = no de_jure_liege = PREV }
+				d_laigin = { show_scope_change = no de_jure_liege = PREV }
+				d_ulaid = { show_scope_change = no de_jure_liege = PREV }
+				d_breifne = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_hispania = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_hispania }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_hispania = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_barcelona = { show_scope_change = no de_jure_liege = PREV }
+				d_aragon = { show_scope_change = no de_jure_liege = PREV }
+				d_valencia = { show_scope_change = no de_jure_liege = PREV }
+				d_navarra = { show_scope_change = no de_jure_liege = PREV }
+				d_castilla = { show_scope_change = no de_jure_liege = PREV }
+				d_toledo = { show_scope_change = no de_jure_liege = PREV }
+				d_cordoba = { show_scope_change = no de_jure_liege = PREV }
+				d_murcia = { show_scope_change = no de_jure_liege = PREV }
+				d_mallorca = { show_scope_change = no de_jure_liege = PREV }
+				d_granada = { show_scope_change = no de_jure_liege = PREV }
+				d_asturias = { show_scope_change = no de_jure_liege = PREV }
+				d_leon = { show_scope_change = no de_jure_liege = PREV }
+				d_badajoz = { show_scope_change = no de_jure_liege = PREV }
+				d_sevilla = { show_scope_change = no de_jure_liege = PREV }
+				d_algarve = { show_scope_change = no de_jure_liege = PREV }
+				d_beja = { show_scope_change = no de_jure_liege = PREV }
+				d_porto = { show_scope_change = no de_jure_liege = PREV }
+				d_galicia = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_illyricum = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_illyricum }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_illyricum = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_carinthia = { show_scope_change = no de_jure_liege = PREV }
+				d_slavonia = { show_scope_change = no de_jure_liege = PREV }
+				d_croatia = { show_scope_change = no de_jure_liege = PREV }
+				d_bosnia = { show_scope_change = no de_jure_liege = PREV }
+				d_dalmatia = { show_scope_change = no de_jure_liege = PREV }
+				d_dioclea = { show_scope_change = no de_jure_liege = PREV }
+				d_rashka = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_italia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_italia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_italia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_salerno = { show_scope_change = no de_jure_liege = PREV }
+				d_lombardia = { show_scope_change = no de_jure_liege = PREV }
+				d_pedemontium = { show_scope_change = no de_jure_liege = PREV }
+				d_modena = { show_scope_change = no de_jure_liege = PREV }
+				d_toscana = { show_scope_change = no de_jure_liege = PREV }
+				d_pisa = { show_scope_change = no de_jure_liege = PREV }
+				d_latium = { show_scope_change = no de_jure_liege = PREV }
+				d_capua = { show_scope_change = no de_jure_liege = PREV }
+				d_calabria = { show_scope_change = no de_jure_liege = PREV }
+				d_sicily = { show_scope_change = no de_jure_liege = PREV }
+				d_apulia = { show_scope_change = no de_jure_liege = PREV }
+				d_benevento = { show_scope_change = no de_jure_liege = PREV }
+				d_spoleto = { show_scope_change = no de_jure_liege = PREV }
+				d_ancona = { show_scope_change = no de_jure_liege = PREV }
+				d_ferrara = { show_scope_change = no de_jure_liege = PREV }
+				d_verona = { show_scope_change = no de_jure_liege = PREV }
+				d_venice = { show_scope_change = no de_jure_liege = PREV }
+				d_genoa = { show_scope_change = no de_jure_liege = PREV }
+				d_sardinia = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_macedonia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_macedonia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_macedonia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_dyrrachion = { show_scope_change = no de_jure_liege = PREV }
+				d_nikopolis = { show_scope_change = no de_jure_liege = PREV }
+				d_achaia = { show_scope_change = no de_jure_liege = PREV }
+				d_krete = { show_scope_change = no de_jure_liege = PREV }
+				d_athens = { show_scope_change = no de_jure_liege = PREV }
+				d_hellas = { show_scope_change = no de_jure_liege = PREV }
+				d_thessalonika = { show_scope_change = no de_jure_liege = PREV }
+				d_lychnidos = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_mauretania = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_mauretania }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_mauretania = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_marrakech = { show_scope_change = no de_jure_liege = PREV }
+				d_tlemcen = { show_scope_change = no de_jure_liege = PREV }
+				d_alger = { show_scope_change = no de_jure_liege = PREV }
+				d_tangiers = { show_scope_change = no de_jure_liege = PREV }
+				d_fes = { show_scope_change = no de_jure_liege = PREV }
+				d_sijilmasa = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_mesopotamia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_mesopotamia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_mesopotamia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_susa = { show_scope_change = no de_jure_liege = PREV }
+				d_mosul = { show_scope_change = no de_jure_liege = PREV }
+				d_baghdad = { show_scope_change = no de_jure_liege = PREV }
+				d_basra = { show_scope_change = no de_jure_liege = PREV }
+				d_tigris = { show_scope_change = no de_jure_liege = PREV }
+				d_kermanshah = { show_scope_change = no de_jure_liege = PREV }
+				d_kurdistan = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_pannonia_dacia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_pannonia_dacia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_pannonia_dacia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_wallachia = { show_scope_change = no de_jure_liege = PREV }
+				d_nyitra = { show_scope_change = no de_jure_liege = PREV }
+				d_pecs = { show_scope_change = no de_jure_liege = PREV }
+				d_temes = { show_scope_change = no de_jure_liege = PREV }
+				d_pest = { show_scope_change = no de_jure_liege = PREV }
+				d_esztergom = { show_scope_change = no de_jure_liege = PREV }
+				d_ungvar = { show_scope_change = no de_jure_liege = PREV }
+				d_osterreich = { show_scope_change = no de_jure_liege = PREV }
+				d_moldau = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_phrygia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_phrygia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_phrygia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_nikaea = { show_scope_change = no de_jure_liege = PREV }
+				d_samos = { show_scope_change = no de_jure_liege = PREV }
+				d_thracesia = { show_scope_change = no de_jure_liege = PREV }
+				d_anatolia = { show_scope_change = no de_jure_liege = PREV }
+				d_cibyrrhaeot = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_pontus = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_pontus }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_pontus = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_trebizond = { show_scope_change = no de_jure_liege = PREV }
+				d_paphlagonia = { show_scope_change = no de_jure_liege = PREV }
+				d_armeniacon = { show_scope_change = no de_jure_liege = PREV }
+				d_kappadokia = { show_scope_change = no de_jure_liege = PREV }
+				d_charsianon = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_syria_palaestina = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_syria_palaestina }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_syria_palaestina = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_aleppo = { show_scope_change = no de_jure_liege = PREV }
+				d_damascus = { show_scope_change = no de_jure_liege = PREV }
+				d_edessa = { show_scope_change = no de_jure_liege = PREV }
+				d_armenia_minor = { show_scope_change = no de_jure_liege = PREV }
+				d_seleukia = { show_scope_change = no de_jure_liege = PREV }
+				d_antioch = { show_scope_change = no de_jure_liege = PREV }
+				d_tripoli = { show_scope_change = no de_jure_liege = PREV }
+				d_galilee = { show_scope_change = no de_jure_liege = PREV }
+				d_jerusalem = { show_scope_change = no de_jure_liege = PREV }
+				d_ascalon = { show_scope_change = no de_jure_liege = PREV }
+				d_arabia_petrae = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_thracia = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_thracia }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_thracia = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_turnovo = { show_scope_change = no de_jure_liege = PREV }
+				d_vidin = { show_scope_change = no de_jure_liege = PREV }
+				d_makedonia = { show_scope_change = no de_jure_liege = PREV }
+				d_karvuna = { show_scope_change = no de_jure_liege = PREV }
+				d_thrace = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	li_debug_restore_provincia_viennensis = {
+		ai = no
+
+		potential = {
+			ai = no
+			has_global_flag = li_debug_mode
+			has_global_flag = li_debug_provincias
+			NOT = { is_title_active = k_provincia_viennensis }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			k_provincia_viennensis = {
+				activate_title = { title = THIS status = yes }
+				de_jure_liege = ROOT
+				save_event_target_as = li_new_provincia
+				d_aquitaine = { show_scope_change = no de_jure_liege = PREV }
+				d_bourbon = { show_scope_change = no de_jure_liege = PREV }
+				d_auvergne = { show_scope_change = no de_jure_liege = PREV }
+				d_dauphine = { show_scope_change = no de_jure_liege = PREV }
+				d_septimania = { show_scope_change = no de_jure_liege = PREV }
+				d_provence = { show_scope_change = no de_jure_liege = PREV }
+				d_toulouse = { show_scope_change = no de_jure_liege = PREV }
+				d_gascogne = { show_scope_change = no de_jure_liege = PREV }
+				d_poitou = { show_scope_change = no de_jure_liege = PREV }
+			}
+			narrative_event = { id = LIprov.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
