@@ -1,6 +1,7 @@
 # monastic_order_purity_effect
 # join_prev_monastic_order_society
 
+# LI: CK2Plus AIO version (step B, decision 5)
 monastic_order_purity_effect = {
 	if = {
 		limit = {
@@ -78,6 +79,15 @@ monastic_order_purity_effect = {
 				factor = 2
 				piety >= 1000
 			}
+			
+			mult_modifier = {
+				factor = 3
+				OR = {
+					society_member_of = monastic_order_jain
+					society_member_of = monastic_order_buddhist
+					society_member_of = monastic_order_bon
+				}
+			}
 
 			character_event = {
 				id = MNM.4400 # Soul purity effect
@@ -88,6 +98,7 @@ monastic_order_purity_effect = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 join_prev_monastic_order_society = {
 	if = {
 		limit = { PREV = { society_member_of = monastic_order_orthodox } }
@@ -124,5 +135,9 @@ join_prev_monastic_order_society = {
 	else_if = {
 		limit = { PREV = { society_member_of = monastic_order_stoics } }
 		join_society = monastic_order_stoics
+	}
+	else_if = {
+		limit = { PREV = { society_member_of = monastic_order_bon } }
+		join_society = monastic_order_bon
 	}
 }

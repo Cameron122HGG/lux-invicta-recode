@@ -242,6 +242,24 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `has_religion_matching_*`/`special_join` lodge triggers (adapted in phase 8 part 5), `religion_animistic` and
      `religion_no_leader` (AIO adds CK2Plus Celtic/Egyptian religion features). The other 7 rows that used these triggers
      still wait on other content (laws, druids, ancrel events…). Left: 224 need AIO content, 361 hand port.
+     **Monastic orders and druids (2026-11-15), untested:**
+     - **Druids:** LI has its own druid system (`li_druidic_caste_events.txt`: MTTH events with `father` follow-ups).
+       AIO's ancrel.185-206 are triggered-only from a CK2Plus router the mod lacks, so all 11 stay LI's (keep list).
+     - **Orders** (user 2026-11-15), built by `tools/phase5b_monastic.py`: Buddhist order for LI's `bud_group` +
+       `indoh_bud` (`li_buddhist_monastic_trigger`), Bon order for `bon`, Stoics for the Olympian Champions list
+       (`li_lodge_hellenic_trigger`; AIO's `culture = roman` branch dropped). Apostolic left out (no such faith in LI).
+       Files: `common/societies/li_CK2Plus_monastic_orders.txt`, `common/scripted_triggers/li_monastic_order_triggers.txt`,
+       `decisions/li_CK2Plus_monastic_decisions.txt` (Stoic culture conversion), `events/li_CK2Plus_monastic_events.txt`
+       (HF.23124/23125), `interface/li_CK2Plus_monastic_orders.gfx` (Stoic sprites from vanilla, Bon sprites/clothing from
+       AIO; Bon clothing textures are in the Monks and Mystics DLC archive), `localisation/000_li_monastic_orders.csv`.
+     - **Swapped 17** (MNM order events, monastic decisions, purity/join effects, dharmic/Christian member triggers); 4 of
+       them with AIO's Apostolic entries removed (`phase5b_aio.py --drop=monastic_order_apostolic`). Kept as LI:
+       `request_to_rank_up_within_society` (LI's per-faith Assassins).
+     - **Not changed:** the mod's `religion_openly_hellenic/bon_or_reformed_trigger` are CleanSlate's and check vanilla
+       faiths (never true); pointing them at LI faiths would turn on Holy Fury content in 34 places, so it is left for a
+       separate decision. LI's own 7 Christian orders (Adoptionist … Pelagian) are missing from
+       `is_christian_monastic_member_trigger` and the betrayal/rejoin lists (gap from before).
+     Left: 199 need AIO content, 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.

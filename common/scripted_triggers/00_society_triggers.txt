@@ -63,6 +63,7 @@ is_devil_worshiper_trigger = {
 }
 
 # TODO: replace with society flags?
+# LI: CK2Plus AIO version (step B, decision 5)
 is_christian_monastic_member_trigger = {
 	OR = {
 		society_member_of = monastic_order_orthodox
@@ -74,10 +75,13 @@ is_christian_monastic_member_trigger = {
 }
 
 # TODO: replace with society flags?
+# LI: CK2Plus AIO version (step B, decision 5)
 is_dharmic_monastic_member_trigger = {
 	OR = {
 		society_member_of = monastic_order_hindu
+		society_member_of = monastic_order_buddhist
 		society_member_of = monastic_order_jain
+		society_member_of = monastic_order_bon
 	}
 }
 

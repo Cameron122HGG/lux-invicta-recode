@@ -67,7 +67,3 @@ opinion_spurned_CK2+ = {
 allowed_to_serve_holy_order = {
 	opinion = 10
 }
-
-sent_druidic_training = {
-	opinion = 10
-}

@@ -67,3 +67,18 @@ special_join_warrior_lodge_trigger      # adapted to LI faiths in phase 8 part 5
 religion_animistic                      # AIO adds CK2Plus's religion_feature_celtic; LI has its own religion features
 religion_no_leader                      # AIO adds CK2Plus's religion_feature_egyptian; LI has its own religion features
 title_court_bard                        # LI uses its own LI_druidic_trigger (AIO: Celtic only)
+# Druids (2026-11-15): LI has its own druid system (li_druidic_caste_events.txt, MTTH + father follow-ups); AIO's are
+# triggered-only from a CK2Plus router the mod lacks, so swapping would silence them
+ancrel.185                              # LI druidic caste
+ancrel.188                              # LI druidic caste
+ancrel.190                              # LI druidic caste
+ancrel.192                              # LI druidic caste
+ancrel.194                              # LI druidic caste
+ancrel.196                              # LI druidic caste
+ancrel.198                              # LI druidic caste
+ancrel.200                              # LI druidic caste
+ancrel.202                              # LI druidic caste
+ancrel.204                              # LI druidic caste
+ancrel.206                              # LI druidic caste
+# Monastic orders (2026-11-15)
+request_to_rank_up_within_society       # lists LI's per-faith Assassin orders

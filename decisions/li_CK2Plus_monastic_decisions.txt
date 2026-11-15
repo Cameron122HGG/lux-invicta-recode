@@ -1,0 +1,75 @@
+# LI: CK2Plus AIO Stoic order power (step B, 2026-11-15; tools/phase5b_monastic.py)
+
+targeted_decisions = {
+	stoic_order_culture_convert_county = {
+		ai_check_interval = 3
+
+		only_playable = yes
+
+		from_potential = {
+			has_dlc = "Mystics"
+			society_member_of = monastic_order_stoics
+			society_rank == 4
+		}
+
+		potential = {
+			real_tier = COUNT
+
+			location = {
+				NOT = { culture = FROM }
+			}
+
+			holder_scope = {
+				OR = {
+					is_vassal_or_below_of = FROM
+					character = FROM
+				}
+			}
+		}
+
+		allow = {
+			FROM = {
+				society_currency >= 1000
+			}
+
+			location = {
+				NOR = {
+					culture = FROM
+					culture = owner # Cannot convert counties of owners' culture
+				}
+			}
+		}
+
+		effect = {
+			FROM = {
+				show_scope_change = no
+
+				change_society_currency = -1000
+				character_event = { id = HF.23124 } # Notify
+			}
+
+			location = {
+				show_scope_change = no
+
+				culture = FROM
+
+				add_province_modifier = {
+					name = peasant_unrest
+					years = 2
+				}
+			}
+
+			holder_scope = {
+				if = { # Notify county owner
+					limit = {
+						NOT = { character = FROM }
+					}
+
+					character_event = { id = HF.23125 }
+				}
+			}
+		}
+
+		ai_will_do = { factor = 1 }
+	}
+}

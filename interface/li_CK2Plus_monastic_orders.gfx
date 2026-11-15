@@ -1,0 +1,157 @@
+# LI: sprites for the Stoic (vanilla Holy Fury textures; LI's own domestic_societies.gfx replaces vanilla's and lacked them)
+# and Bon (CK2Plus AIO) monastic orders. Step B, 2026-11-15; tools/phase5b_monastic.py
+spriteTypes = {
+	spriteType = {
+		name = "GFX_society_main_background_monastic_order_stoics"
+		texturefile = "gfx\\interface\\societies\\society_bg_monastic_order_stoics.tga"
+	}
+	spriteType = {
+		name = "GFX_society_expansion_background_monastic_order_stoics"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_hermetics.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_small_monastic_order_stoics"
+		texturefile = "gfx\\interface\\societies\\symbol_small_monastic_order_stoics.tga"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_society_influence_monastic_order_stoics"
+		texturefile = "gfx\\interface\\societies\\society_influence_hermetics.dds"
+	}
+	spriteType = {
+		name = "GFX_society_portrait_ring_monastic_order_stoics"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_hermetics.dds"
+	}
+	spriteType = {
+		name = "GFX_society_portrait_ring_small_monastic_order_stoics"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_hermetics.dds"
+	}
+	spriteType = {
+		name = "GFX_society_currency_monastic_order_stoics"
+		texturefile = "gfx\\interface\\societies\\society_currency_hermetics.dds"
+	}
+	spriteType = {
+		name = "GFX_society_main_background_monastic_order_bon"
+		textureFile = "gfx\\interface\\societies\\society_bg_monastic_order_buddhist.dds"
+	}
+	spriteType = {
+		name = "GFX_society_expansion_background_monastic_order_bon"
+		textureFile = "gfx\\interface\\societies\\society_exp_bg_monastic_order_buddhist.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_small_monastic_order_bon"
+		textureFile = "gfx\\interface\\societies\\symbol_small_monastic_order_buddhist.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_society_influence_monastic_order_bon"
+		textureFile = "gfx\\interface\\societies\\society_influence_monastic_order_buddhist.dds"
+	}
+	spriteType = {
+		name = "GFX_society_portrait_ring_monastic_order_bon"
+		textureFile = "gfx\\interface\\societies\\portrait_ring_monastic_order_buddhist.dds"
+	}
+	spriteType = {
+		name = "GFX_society_portrait_ring_small_monastic_order_bon"
+		textureFile = "gfx\\interface\\societies\\portrait_ring_small_monastic_order_buddhist.dds"
+	}
+	spriteType = {
+		name = "GFX_society_currency_monastic_order_bon"
+		textureFile = "gfx\\interface\\societies\\society_currency_monastic_order_buddhist.dds"
+	}
+	spriteType = {
+		name = "GFX_society_monastic_order_bon_vajrayana_male_clothing_behind"
+		textureFile = "gfx/characters/societies/mom_buddhist_vajrayana_male_clothing_behind.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_society_monastic_order_bon_vajrayana_male_clothing_front"
+		textureFile = "gfx/characters/societies/mom_buddhist_vajrayana_male_clothing_front.dds"
+		noOfFrames = 2
+	}
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_monastic_order_bon_vajrayana_clothing_male"
+
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				portrait_society = monastic_order_bon
+				NOT = { portrait_tier = king }
+			}
+		}
+
+		layer = {
+			"GFX_society_monastic_order_bon_vajrayana_male_clothing_behind:c0"
+			"GFX_society_monastic_order_bon_vajrayana_male_clothing_front:c2"
+			"GFX_empty:c3"
+			"GFX_empty:c1"
+			"GFX_empty:c6"
+			"GFX_empty:c7"
+			"GFX_empty:c5"
+			"GFX_empty:c4"
+		}
+
+		# Hide hair, hide beards unless they're old.
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+			4 = {
+				0 = {
+					portrait_age < oldage
+				}
+			}
+		}
+	}
+	spriteType = {
+		name = "GFX_society_monastic_order_bon_vajrayana_female_clothing_behind"
+		textureFile = "gfx/characters/societies/mom_buddhist_vajrayana_female_clothing_behind.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_society_monastic_order_bon_vajrayana_female_clothing_front"
+		textureFile = "gfx/characters/societies/mom_buddhist_vajrayana_female_clothing_front.dds"
+		noOfFrames = 2
+	}
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_monastic_order_bon_vajrayana_clothing_female"
+
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				portrait_society = monastic_order_bon
+				NOT = { portrait_tier = king }
+			}
+		}
+
+		layer = {
+			"GFX_society_monastic_order_bon_vajrayana_female_clothing_behind:c0"
+			"GFX_society_monastic_order_bon_vajrayana_female_clothing_front:c2"
+			"GFX_empty:c3"
+			"GFX_empty:c1"
+			"GFX_empty:c6"
+			"GFX_empty:c7"
+			"GFX_empty:c5"
+			"GFX_empty:c4"
+		}
+
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+	}
+}

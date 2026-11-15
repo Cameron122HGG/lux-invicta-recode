@@ -1,6 +1,6 @@
 """Step B (decision 5, CLEANSLATE_PLAN.md): use CK2Plus AIO's current version for LI definitions copied from
 CK2Plus that carry no LI-specific content.
-usage: python -I phase5b_aio.py <repo> <master_tree> <aio> <vanilla> <report.json> [--folders=a,b] [--keep-li=phase5b_keep_li.txt] [--apply]
+usage: python -I phase5b_aio.py <repo> <master_tree> <aio> <vanilla> <report.json> [--folders=a,b] [--keep-li=phase5b_keep_li.txt] [--drop=a,b] [--apply]
 A definition qualifies when
   - LI (master) has it, and AIO has it, and it is CK2Plus's: either not in vanilla, or AIO's text differs from
     CleanSlate's/vanilla's (CK2Plus changed it);
@@ -20,6 +20,35 @@ for a in sys.argv:
     if a.startswith('--keep-li='):
         KEEP_LI |= {l.split('#')[0].strip() for l in open(a.split('=', 1)[1], encoding='latin-1') if l.split('#')[0].strip()}
 CS = os.path.join(REPO, 'cleanslate_beta7')
+DROP = set(next((a.split('=', 1)[1].split(',') for a in sys.argv if a.startswith('--drop=')), []))
+# --drop=x,y: also swap rows whose only missing needs are these names (content LI left out), removing them from AIO's
+# text: single lines that mention them (list entries, one-line switch entries) and if/else_if blocks whose limit names them.
+def drop_refs(t, names):
+    for x in names:
+        pat = re.compile(r'(?m)^[ \t]*(?:else_if|if)[ \t]*=[ \t]*\{\s*limit[ \t]*=[ \t]*\{[^{}\n]*\b' + re.escape(x) + r'\b')
+        while True:
+            m = pat.search(t)
+            if not m: break
+            i = t.index('{', m.start()); d = 0
+            for j in range(i, len(t)):
+                if t[j] == '{': d += 1
+                elif t[j] == '}':
+                    d -= 1
+                    if d == 0: break
+            e = t.find('\n', j); t = t[:m.start()] + t[(e + 1 if e >= 0 else j + 1):]
+        out = []
+        for line in t.split('\n'):
+            code = line.split('#')[0]
+            if re.search(r'\b' + re.escape(x) + r'\b', code):
+                if code.count('{') != code.count('}'):
+                    raise SystemExit(f'--drop: cannot remove multi-line use of {x}: {line.strip()}')
+                continue
+            out.append(line)
+        t = '\n'.join(out)
+    # an if/else_if emptied by the line removal (its limit had nested braces) must go: an else_if without a limit
+    # would swallow the branches after it
+    t = re.sub(r'(?m)^[ \t]*(?:else_if|if)[ \t]*=[ \t]*\{\s*\}[ \t]*\n', '', t)
+    return t
 DEPTH1 = {'decisions', 'common/governments', 'common/laws', 'common/religion_features'}
 WORLD = {'common/landed_titles', 'common/cultures', 'common/religions', 'common/dynasties', 'common/bookmarks',
          'common/province_setup', 'common/religious_titles', 'common/offmap_powers', 'common/alternate_start',
@@ -148,14 +177,16 @@ print('most-needed AIO items:', need_all.most_common(25))
 if APPLY:
     by_file = defaultdict(list)
     for r in rows:
-        if r['need'] or (ONLY and r['folder'] not in ONLY) or r['key'] in KEEP_LI: continue
+        if (r['need'] and not (DROP and set(r['need']) <= DROP)) or (ONLY and r['folder'] not in ONLY) or r['key'] in KEEP_LI: continue
         by_file[r['mod_file']].append(r)
     n = 0
     for mf, lst in by_file.items():
         p = os.path.join(REPO, mf); s = rd(p); nl = '\r\n' if '\r\n' in s else '\n'
         spans = sorted(((mod[(r['folder'], r['key'])][1], mod[(r['folder'], r['key'])][2], r) for r in lst), reverse=True)
         for a, b, r in spans:
-            new = aio[(r['folder'], r['key'])].replace('\r\n', '\n').replace('\n', nl)
+            new = aio[(r['folder'], r['key'])].replace('\r\n', '\n')
+            if r['need']: new = drop_refs(new, r['need'])
+            new = new.replace('\n', nl)
             ind = s[s.rfind('\n', 0, a) + 1:a]
             s = s[:a] + '# LI: CK2Plus AIO version (step B, decision 5)' + nl + ind + new + s[b:]; n += 1
         assert s.count('{') == s.count('}') or True
