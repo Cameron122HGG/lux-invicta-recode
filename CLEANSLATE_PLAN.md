@@ -279,6 +279,10 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      - `ze_extra_events.txt`: `classical_government = yes` (not a trigger; set oriental monarchy) →
        `classical_government_trigger = yes` + `set_government_type = classical_government` (original LI bug).
      Untested in game.
+   - **Roman imperial government for `e_roman` (user, 2026-11-15), untested:** CleanSlate's `roman_imperial_government`
+     only allowed `e_byzantium`/`e_roman_empire`. LI's `e_roman` (S.P.Q.R., held by Traianus, 501, in 1066) added to
+     `roman_imperial_government_potential_trigger`, Imperial Elective (`succ_byzantine_elective`; after game start the
+     government needs it), the Seniority NAND that mirrors it, and the decayed flavor entry.
      Left: 199 need AIO content, 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an

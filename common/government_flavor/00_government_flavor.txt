@@ -1479,6 +1479,7 @@ government_flavor = {
 		NOR = {
 			has_landed_title = e_roman_empire
 			has_landed_title = e_byzantium
+			has_landed_title = e_roman # LI: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
 		}
 	}
 }

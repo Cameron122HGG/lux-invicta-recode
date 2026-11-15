@@ -235,6 +235,7 @@ succ_seniority = {
 				OR = { 
 					title = e_byzantium
 					title = e_roman_empire
+					title = e_roman # LI: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
 				}
 			}
 			holder_scope = {
@@ -700,6 +701,7 @@ succ_feudal_elective = {
 			OR = {
 				title = e_byzantium
 				title = e_roman_empire
+				title = e_roman # LI: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
 				title = event_target:alternate_byz
 			}
 
