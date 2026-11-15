@@ -242,6 +242,15 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `has_religion_matching_*`/`special_join` lodge triggers (adapted in phase 8 part 5), `religion_animistic` and
      `religion_no_leader` (AIO adds CK2Plus Celtic/Egyptian religion features). The other 7 rows that used these triggers
      still wait on other content (laws, druids, ancrel events…). Left: 224 need AIO content, 361 hand port.
+     **Plots (user, 2026-11-15), untested:** `tools/phase5b_deps.py` now also copies objectives; brought in CK2Plus's
+     `plot_take_revenge`, `plot_replace_regent`, `plot_usurp_wife` and AIO's `plot_gain_title`, `plot_weaken_fellow_vassal`
+     (`common/objectives/li_CK2Plus_plots.txt`), plus `plot_assisted_spying` and `replace_regent_timer`, 6 text keys.
+     `plot_take_revenge`'s checks for CK2Plus's `dishonorable1-10` traits (an honour system LI doesn't have) trimmed with
+     `trim_dead.py` (behaviour-identical: never-matching weights and an always-true NOR). Swapped 9: the six hiding decisions,
+     regency event 61215, MNM.70022/70023. 61215 reads `speed_up_replace_regent`, set only by CK2Plus plot events the mod lacks
+     (a timing weight that never applies; harmless). Still waiting: `rivalry_cb` (CB framework), `plot_kill_spouse`,
+     `plot_kidnap_liege`, `plot_fabricate_treason(_liege)` (CK2Plus's dishonorable traits), `plot_usurp_wife_decision`
+     (FemRule.360). Left: 186 need AIO content, 361 hand port.
      **Monastic orders and druids (2026-11-15), untested:**
      - **Druids:** LI has its own druid system (`li_druidic_caste_events.txt`: MTTH events with `father` follow-ups).
        AIO's ancrel.185-206 are triggered-only from a CK2Plus router the mod lacks, so all 11 stay LI's (keep list).

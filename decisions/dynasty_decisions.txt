@@ -687,6 +687,7 @@ order_to_take_vows = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	send_child_into_hiding = {
 		filter = close_relative
 		ai_target_filter = close_relatives
@@ -741,6 +742,7 @@ order_to_take_vows = {
 							OR = {
 								has_plot = plot_kill_character
 								has_plot = plot_kill_spouse
+								has_plot = plot_take_revenge
 							}
 						}
 					}
@@ -755,7 +757,7 @@ order_to_take_vows = {
 
 			is_inaccessible_trigger = no
 			has_job_title = no
-			in_command = no
+			in_command_trigger = no
 		}
 
 		effect = {
@@ -764,6 +766,7 @@ order_to_take_vows = {
 
 				add_trait = in_hiding
 				set_character_flag = do_not_disturb
+				set_character_flag = in_hiding_murder
 			}
 
 			hidden_effect = {
@@ -774,6 +777,7 @@ order_to_take_vows = {
 						OR = {
 							has_plot = plot_kill_character
 							has_plot = plot_kill_spouse
+							has_plot = plot_take_revenge
 						}
 					}
 
@@ -905,6 +909,7 @@ order_to_take_vows = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	take_child_out_of_hiding = {
 		filter = close_relative
 		ai_target_filter = close_relatives
@@ -921,7 +926,7 @@ order_to_take_vows = {
 
 		potential = {
 			is_child_of = FROM
-			trait = in_hiding
+			has_character_flag = in_hiding_murder
 			host = { character = FROM }
 			is_ruler = no
 			prisoner = no
@@ -936,6 +941,7 @@ order_to_take_vows = {
 			custom_tooltip = {
 				text = come_out_of_hiding_info_tooltip
 
+				clr_character_flag = in_hiding_murder
 				clr_character_flag = do_not_disturb
 				remove_trait = in_hiding
 
@@ -1000,9 +1006,12 @@ order_to_take_vows = {
 						any_known_plotter = {
 							target = ROOT
 
+							plot_power >= 0.5
+
 							OR = {
 								has_plot = plot_kill_character
 								has_plot = plot_kill_spouse
+								has_plot = plot_take_revenge
 							}
 						}
 					}
@@ -1016,6 +1025,7 @@ order_to_take_vows = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	go_into_hiding = {
 		filter = self
 		ai_target_filter = self
@@ -1042,6 +1052,7 @@ order_to_take_vows = {
 						OR = {
 							has_plot = plot_kill_character
 							has_plot = plot_kill_spouse
+							has_plot = plot_take_revenge
 						}
 					}
 				}
@@ -1055,7 +1066,7 @@ order_to_take_vows = {
 
 			is_inaccessible_trigger = no
 			has_job_title = no
-			in_command = no
+			in_command_trigger = no
 		}
 
 		effect = {
@@ -1063,6 +1074,7 @@ order_to_take_vows = {
 				text = go_into_hiding_info_tooltip
 
 				add_trait = in_hiding
+				set_character_flag = in_hiding_murder
 				set_character_flag = do_not_disturb
 
 				# Notify close family and plotters
@@ -1073,6 +1085,7 @@ order_to_take_vows = {
 						OR = {
 							has_plot = plot_kill_character
 							has_plot = plot_kill_spouse
+							has_plot = plot_take_revenge
 						}
 					}
 
@@ -1146,22 +1159,21 @@ order_to_take_vows = {
 			factor = 0.5
 
 			trigger = {
-				has_education_intrigue_trigger = yes
+				OR = {
+					has_character_modifier = suspected_murder_plot
 
-				# NOT = {
-				# 	any_player = {
-				# 		is_primary_heir = ROOT
-				#
-				# 		plot_target_char = {
-				# 			character = ROOT
-				# 		}
-				#
-				# 		OR = {
-				# 			has_plot = plot_kill_character
-				# 			has_plot = plot_kill_spouse
-				# 		}
-				# 	}
-				# }
+					any_known_plotter = {
+						target = ROOT
+
+						plot_power >= 0.5
+
+						OR = {
+							has_plot = plot_kill_character
+							has_plot = plot_kill_spouse
+							has_plot = plot_take_revenge
+						}
+					}
+				}
 			}
 
 			mult_modifier = {
@@ -1191,6 +1203,7 @@ order_to_take_vows = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	come_out_of_hiding = {
 		filter = self
 		ai_target_filter = self
@@ -1202,6 +1215,7 @@ order_to_take_vows = {
 
 		potential = {
 			trait = in_hiding
+			has_character_flag = in_hiding_murder
 			NOT = { has_character_flag = in_religious_seclusion }
 		}
 
@@ -1229,6 +1243,7 @@ order_to_take_vows = {
 				text = come_out_of_hiding_info_tooltip
 
 				clr_character_flag = do_not_disturb
+				clr_character_flag = in_hiding_murder
 				remove_trait = in_hiding
 
 				add_character_modifier = {
@@ -1322,24 +1337,14 @@ order_to_take_vows = {
 					any_known_plotter = {
 						target = ROOT
 
+						plot_power >= 0.5
+
 						OR = {
 							has_plot = plot_kill_character
 							has_plot = plot_kill_spouse
+							has_plot = plot_take_revenge
 						}
 					}
-
-				# 	any_player = {
-				# 		is_primary_heir = ROOT
-				#
-				# 		plot_target_char = {
-				# 			character = ROOT
-				# 		}
-				#
-				# 		OR = {
-				# 			has_plot = plot_kill_character
-				# 			has_plot = plot_kill_spouse
-				# 		}
-				# 	}
 				}
 			}
 
@@ -1350,6 +1355,7 @@ order_to_take_vows = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	send_spouse_into_hiding = {
 		filter = spouse
 		ai_target_filter = spouse
@@ -1362,11 +1368,6 @@ order_to_take_vows = {
 		from_potential = {
 			is_married = yes
 			has_regent = no
-
-			trigger_if = {
-				limit = { ai = yes }
-				has_education_intrigue_trigger = yes
-			}
 		}
 
 		potential = {
@@ -1398,6 +1399,7 @@ order_to_take_vows = {
 							OR = {
 								has_plot = plot_kill_character
 								has_plot = plot_kill_spouse
+								has_plot = plot_take_revenge
 							}
 						}
 					}
@@ -1411,7 +1413,7 @@ order_to_take_vows = {
 			}
 
 			has_job_title = no
-			in_command = no
+			in_command_trigger = no
 			prisoner = no
 		}
 
@@ -1421,6 +1423,7 @@ order_to_take_vows = {
 
 				add_trait = in_hiding
 				set_character_flag = do_not_disturb
+				set_character_flag = in_hiding_murder
 
 				# Notify player and close family and plotters
 				any_plotter = {
@@ -1430,6 +1433,7 @@ order_to_take_vows = {
 						OR = {
 							has_plot = plot_kill_character
 							has_plot = plot_kill_spouse
+							has_plot = plot_take_revenge
 						}
 					}
 
@@ -1501,6 +1505,26 @@ order_to_take_vows = {
 
 		ai_will_do = {
 			factor = 0.25
+
+			trigger = {
+				OR = {
+					has_character_modifier = suspected_murder_plot
+
+					FROM = {
+						any_known_plotter = {
+							target = ROOT
+
+							plot_power >= 0.5
+
+							OR = {
+								has_plot = plot_kill_character
+								has_plot = plot_kill_spouse
+								has_plot = plot_take_revenge
+							}
+						}
+					}
+				}
+			}
 
 			mult_modifier = {
 				factor = 0.1
@@ -1577,6 +1601,7 @@ order_to_take_vows = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	take_spouse_out_of_hiding = {
 		filter = spouse
 		ai_target_filter = spouse
@@ -1593,6 +1618,7 @@ order_to_take_vows = {
 
 		potential = {
 			trait = in_hiding
+			has_character_flag = in_hiding_murder
 			host = { character = FROM }
 			is_ruler = no
 			prisoner = no
@@ -1603,6 +1629,7 @@ order_to_take_vows = {
 				text = come_out_of_hiding_info_tooltip
 
 				remove_trait = in_hiding
+				clr_character_flag = in_hiding_murder
 				clr_character_flag = do_not_disturb
 
 				add_character_modifier = {
@@ -1692,9 +1719,12 @@ order_to_take_vows = {
 						any_known_plotter = {
 							target = ROOT
 
+							plot_power >= 0.5
+
 							OR = {
 								has_plot = plot_kill_character
 								has_plot = plot_kill_spouse
+								has_plot = plot_take_revenge
 							}
 						}
 					}
@@ -1702,7 +1732,7 @@ order_to_take_vows = {
 			}
 
 			mult_modifier = {
-				factor = 0.3
+				factor = 0.1
 				FROM = { trait = paranoid }
 			}
 		}

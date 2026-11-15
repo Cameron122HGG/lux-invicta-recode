@@ -12,7 +12,7 @@ ITEMS = [a for a in sys.argv[3:] if not a.startswith('--')]
 APPLY = '--apply' in sys.argv
 KINDS = [('common/scripted_triggers', 'li_CK2Plus_stepb_triggers.txt'), ('common/scripted_effects', 'li_CK2Plus_stepb_effects.txt'),
          ('common/event_modifiers', 'li_CK2Plus_timers.txt'), ('common/opinion_modifiers', 'li_CK2Plus_opinion_modifiers.txt'),
-         ('common/nicknames', 'li_CK2Plus_nicknames.txt')]
+         ('common/nicknames', 'li_CK2Plus_nicknames.txt'), ('common/objectives', 'li_CK2Plus_plots.txt')]
 LOC_OUT = 'localisation/000_li_CK2Plus_stepb.csv'
 HEAD = '# LI: CK2Plus AIO version (step B, decision 5): dependencies of AIO definitions the mod uses (tools/phase5b_deps.py).'
 def rd(p): return open(p, 'rb').read().decode('latin-1')

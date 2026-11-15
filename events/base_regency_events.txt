@@ -2512,191 +2512,236 @@ character_event = {
 ## REGENCY SERIES, COURTIER WANTS TO REPLACE REGENT ##
 
 ## Courtier thinks he/she would do a better job than current Regent
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61215
 	desc = EVTDESC61215
 	picture = GFX_evt_emissary
 
-	is_triggered_only = yes # on_yearly_pulse, random_events, regency_events
-
+	is_part_of_plot = yes
 	min_age = 16
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
+		has_plot = plot_replace_regent
+		is_plot_active = no
+		plot_power >= 0.75
+		is_ill = no
 		intrigue >= 10
+		in_command_trigger = no
+		is_inaccessible_trigger = no
 
 		liege = {
-			# Regency might not be in effect yet
-			OR = {
-				has_assigned_minor_title = title_regent
-				has_assigned_minor_title = title_appointed_regent
-			}
-
-			trigger_if = {
-				limit = { is_incapable = no }
-
-				age >= 1
-				age < 14
-			}
+			has_regent = yes
+			NOT = { has_character_flag = regent_replace_attempt }
 		}
 
-		trigger_if = {
-			limit = { is_female = yes }
-
-			liege = {
-				OR = {
-					religion_is_matriarchal_trigger = yes
-					gender_equality_trigger = yes
-				}
-			}
+		plot_target_char = {
+			same_liege = ROOT
+			has_minor_title = title_regent
 		}
-		trigger_else = {
-			liege = {
-				religion_is_matriarchal_trigger = no
-			}
-		}
-
-		host = { is_liege_of = ROOT }
-		is_ill = no
 
 		NOR = {
 			has_minor_title = title_regent
-			has_minor_title = title_appointed_regent
+			has_character_modifier = replace_regent_timer
 		}
 	}
 
 	immediate = {
 		liege = {
 			random_courtier_or_vassal = {
-				limit = {
-					OR = {
-						has_minor_title = title_regent
-						has_minor_title = title_appointed_regent
-					}
-				}
-
+				limit = { has_minor_title = title_regent }
 				save_event_target_as = scoped_regent
 			}
 		}
 	}
 
-	weight_multiplier = {
-		factor = 1
+	mean_time_to_happen = {
+		years = 10
 
 		mult_modifier = {
-			factor = 4
-			trait = ambitious
+			factor = 0.75
+			has_character_flag = speed_up_replace_regent
 		}
 
 		mult_modifier = {
-			factor = 3
-			is_close_relative = liege
+			factor = 3.0
+			liege = { is_inaccessible_trigger = yes }
 		}
 
 		mult_modifier = {
-			factor = 4
-			trait = duelist
-		}
+			factor = 2.0
 
-		mult_modifier = {
-			factor = 2
-			trait = envious
+			liege = {
+				is_adult = yes
+				is_incapable = no
+			}
 		}
 
 		mult_modifier = {
 			factor = 1.5
+
+			NOT = { is_close_relative = liege }
+		}
+
+		mult_modifier = {
+			factor = 2.0
+
+			OR = {
+				war = yes
+				liege = { war = yes }
+			}
+		}
+
+		mult_modifier = {
+			factor = 0.75
+			plot_power >= 1.0
+		}
+
+		mult_modifier = {
+			factor = 0.75
+			plot_power >= 1.25
+		}
+
+		mult_modifier = {
+			factor = 0.75
+			plot_power >= 1.50
+		}
+
+		mult_modifier = {
+			factor = 0.75
+			plot_power >= 1.75
+		}
+
+		mult_modifier = {
+			factor = 0.75
+			plot_power >= 2.0
+		}
+
+		mult_modifier = {
+			factor = 0.9
+			num_of_plot_backers >= 2
+		}
+
+		mult_modifier = {
+			factor = 0.9
+			num_of_plot_backers >= 3
+		}
+
+		mult_modifier = {
+			factor = 0.9
+			num_of_plot_backers >= 4
+		}
+
+		mult_modifier = {
+			factor = 0.9
+			num_of_plot_backers >= 5
+		}
+
+		mult_modifier = {
+			factor = 1.25
+			intrigue < 2
+		}
+
+		mult_modifier = {
+			factor = 1.25
+			intrigue <= 4
+		}
+
+		mult_modifier = {
+			factor = 1.25
+			intrigue < 6
+		}
+
+		mult_modifier = {
+			factor = 1.25
+			intrigue < 8
+		}
+
+		mult_modifier = {
+			factor = 0.9
+			intrigue >= 12
+		}
+
+		mult_modifier = {
+			factor = 0.9
 			intrigue >= 14
 		}
 
 		mult_modifier = {
-			factor = 1.5
+			factor = 0.9
+			intrigue >= 16
+		}
+
+		mult_modifier = {
+			factor = 0.9
 			intrigue >= 18
 		}
 
 		mult_modifier = {
-			factor = 1.5
-			intrigue >= 22
-		}
-
-		mult_modifier = {
-			factor = 1.5
-			intrigue >= 26
-		}
-
-		mult_modifier = {
-			factor = 0.5
-			trait = shy
-		}
-
-		mult_modifier = {
-			factor = 0.5
-			trait = humble
-		}
-
-		mult_modifier = {
-			factor = 0.33
-			trait = slothful
-		}
-
-		mult_modifier = {
-			factor = 0.25
-			trait = content
+			factor = 0.9
+			intrigue >= 20
 		}
 	}
 
-	option = { # Challenge to duel
-		name = EVTOPTA61215
-		tooltip_info = duelist
-
-		trigger = { trait = duelist }
-
-		show_portrait = event_target:scoped_regent
-
-		custom_tooltip = {
-			text = EVTTOOLTIP61221
-
-			# REQUIRED event targets for setting up duel evaluation!
-			save_event_target_as = combatant_1						# Person issuing the duel...
-			set_character_flag = flag_duel_no_draws					# Prevents duel from ending in a draw.
-			set_character_flag = flag_courtier_challenging_regent	# Needed for follow-up event in case of victory.
-
-			event_target:scoped_regent = {
-				save_event_target_as = combatant_2					# The target of the duel...
-				set_character_flag = flag_duel_no_backsies			# Make the challenged party unable to decline the duel
-				set_character_flag = flag_duel_no_draws				# Prevents duel from ending in a draw
-			}
-		}
-
-		pacifists_lose_piety_effect = yes
-
-		add_character_modifier = {
-			name = recent_duel_timer
-			years = 1
-			hidden = yes
-		}
-
-		event_target:combatant_2 = {
-			character_event = { id = HFP.10095 }
-		}
-
-		# event_target:scoped_regent = {
-		#	show_scope_change = no
-		#
-		#	character_event = {
-		#		id = 61221
-		#		tooltip = EVTTOOLTIP61221
-		#		days = 2
-		#	}
-		# }
-
-		ai_chance = { factor = 60 }
-	}
+	# option = { # Challenge to duel
+	# 	name = EVTOPTA61215
+	# 	tooltip_info = duelist
+	#
+	# 	trigger = { trait = duelist }
+	#
+	# 	ai_chance = { factor = 60 }
+	#
+	# 	custom_tooltip = {
+	# 		text = EVTTOOLTIP61221
+	#
+	# 		# REQUIRED event targets for setting up duel evaluation!
+	# 		save_event_target_as = combatant_1						# Person issuing the duel...
+	# 		set_character_flag = flag_duel_no_draws					# Prevents duel from ending in a draw.
+	# 		set_character_flag = flag_courtier_challenging_regent	# Needed for follow-up event in case of victory.
+	#
+	# 		event_target:scoped_regent = {
+	# 			save_event_target_as = combatant_2					# The target of the duel...
+	# 			set_character_flag = flag_duel_no_backsies			# Make the challenged party unable to decline the duel
+	# 			set_character_flag = flag_duel_no_draws				# Prevents duel from ending in a draw
+	# 		}
+	# 	}
+	#
+	# 	pacifists_lose_piety_effect = yes
+	#
+	# 	add_character_modifier = {
+	# 		name = recent_duel_timer
+	# 		years = 1
+	# 		hidden = yes
+	# 	}
+	#
+	# 	show_portrait = event_target:scoped_regent
+	#
+	# 	event_target:combatant_2 = {
+	# 		character_event = { id = HFP.10095 }
+	# 	}
+	#
+	# 	# event_target:scoped_regent = {
+	# 	#	show_scope_change = no
+	# 	#
+	# 	#	character_event = {
+	# 	#		id = 61221
+	# 	#		tooltip = EVTTOOLTIP61221
+	# 	#		days = 2
+	# 	#	}
+	# 	# }
+	# }
 
 	option = { # Try to grab Regency
 		name = EVTOPTB61215
+
+		liege = {
+			set_character_flag = regent_replace_attempt
+		}
+
+		activate_plot = yes
 
 		event_target:scoped_regent = {
 			show_scope_change = no
@@ -2706,12 +2751,12 @@ character_event = {
 				tooltip = EVTTOOLTIP61216
 			}
 		}
-
-		ai_chance = { factor = 30 }
 	}
 
 	option = { # Never mind
 		name = EVTOPTC61215
+
+		cancel_plot = yes
 
 		reverse_opinion = {
 			name = opinion_glad
@@ -2719,7 +2764,7 @@ character_event = {
 			years = 2
 		}
 
-		ai_chance = { factor = 10 }
+		ai_chance = { factor = 0 }
 	}
 }
 

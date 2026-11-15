@@ -37,3 +37,13 @@ recent_bon_conversion = {
 	icon = 34
 	local_revolt_risk = 0.01
 }
+
+replace_regent_timer = {
+	icon = 1
+}
+
+plot_assisted_spying = {
+	plot_power_modifier = 0.2
+	plot_discovery_chance = 0.1
+	icon = 9
+}
