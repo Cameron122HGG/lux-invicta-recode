@@ -351,8 +351,18 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      Adapted: `k_papacy` → `k_papal_state`; children's crusade regions `world_europe_west_gaul` →
      `world_europe_west_francia`, `world_middle_east_asia_minor` → `world_asia_minor`; `HFP.42212` picks a ruler
      leading a holy order of the character's faith instead of vanilla's named orders. Crusade announcement
-     event `200` restored from AIO (LI's old 320/322/323 stay for the old system). **Step B next:** the Holy
-     Fury holy-order events (`HFP_holy_order_events`): generic ones adapted, Teutonic/Livonian ones out.
+     event `200` restored from AIO (LI's old 320/322/323 stay for the old system).
+   - **Part 4 step B applied (2026-11-15):** `events/HFP_holy_order_events.txt` is AIO's file cut down to
+     `HFP.44000-44004` (scratchpad `holy_orders.py`). `HFP.44002/44003` (an order leaves a liege it finds unfit)
+     are generic and unchanged. The island request `HFP.44000/44001/44004` now goes to a holy order of the
+     island holder's faith (LI has one per faith, `d_holy<faith>`) instead of `d_knights_hospitaller`: a
+     `random_character` with `holy_order = yes`, `religion = ROOT` and none of the islands yet saves
+     `holy_order_target`, then sends the letter. `d_corsica` → `c_corsica` (a county in LI's `d_sardinia`), the
+     Hospitaller rename dropped, the order keeps its own `holy_order` title, and the donor is saved as
+     `island_donor` for the narrative event. New loc `localisation/000_li_holy_order_events.csv` (sorts before
+     `HolyFury.csv`) names the order. On_actions: `HFP.44000` (3 entries) and `HFP.44002` back on;
+     `HFP.44005/44008/44009` (Teutonic/Livonian) and `HFP.40033/44036` (realm events) keep their switch-off
+     with a "left out by decision" note. **Part 5 next:** warrior lodges.
    - **"Province 0" traced (2026-11-14).** Events looping over demesne provinces (VIET region checks, saint
      flavour) hit an invalid province. A temporary debug event (removed again) logged rulers holding a
      barony or county with no location: LI's populist revolt (`li_rebel_events_the_old_gods.txt`) created

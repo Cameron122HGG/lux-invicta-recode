@@ -1,0 +1,422 @@
+# LI: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
+# LI: phase 8 part 4 step B: the island request goes to the faith's own holy order (LI has one per faith);
+# the Teutonic and Livonian events (HFP.44005-44010) are left out by decision.
+namespace = HFP
+
+# Written by Joachim
+# HFP.44000 - HFP.44999
+
+character_event = {
+	id = HFP.44000
+
+	is_triggered_only = yes # on_new_holder(_inheritance/usurpation)
+	hide_window = yes
+
+	trigger = {
+		FROM = {
+			# Checking if it is an island a holy order could be interested in
+			OR = {
+				title = c_corsica # LI: no d_corsica
+				title = d_sardinia
+				title = d_cephalonia
+				title = d_krete
+				title = d_cyprus
+				title = c_malta
+				title = c_lesbos
+				title = c_rhodos
+				title = c_chios
+				title = c_naxos
+			}
+		}
+
+		has_alternate_start_parameter = {
+			key = religion_names
+			value = historical
+		}
+
+		has_alternate_start_parameter = {
+			key = religion_features
+			value = historical
+		}
+
+		is_heretic = no
+		NOT = { has_character_flag = refused_to_give_island_to_knights }
+	}
+
+	immediate = {
+		FROM = {
+			save_event_target_as = potential_title
+		}
+
+		# LI: every faith has its own holy order, so the faith's order asks (vanilla: the Knights Hospitaller)
+		random_character = {
+			limit = {
+				holy_order = yes
+				religion = ROOT
+
+				# Don't ask yourself for the title
+				NOR = {
+					character = ROOT
+					is_liege_or_above_of = ROOT
+				}
+
+				# Don't have an appropriate island yet
+				c_malta = {
+					holder_scope = {
+						NOR = {
+							character = PREVPREV
+							is_vassal_or_below_of = PREVPREV
+						}
+					}
+				}
+
+				c_lesbos = {
+					holder_scope = {
+						NOR = {
+							character = PREVPREV
+							is_vassal_or_below_of = PREVPREV
+						}
+					}
+				}
+
+				c_rhodos = {
+					holder_scope = {
+						NOR = {
+							character = PREVPREV
+							is_vassal_or_below_of = PREVPREV
+						}
+					}
+				}
+
+				c_chios = {
+					holder_scope = {
+						NOR = {
+							character = PREVPREV
+							is_vassal_or_below_of = PREVPREV
+						}
+					}
+				}
+
+				c_naxos = {
+					holder_scope = {
+						NOR = {
+							character = PREVPREV
+							is_vassal_or_below_of = PREVPREV
+						}
+					}
+				}
+
+				d_sardinia = {
+					NOT = {
+						any_direct_de_jure_vassal_title = {
+							holder_scope = {
+								character = PREVPREVPREV
+								is_vassal_or_below_of = PREVPREVPREV
+							}
+						}
+					}
+				}
+
+				d_cyprus = {
+					NOT = {
+						any_direct_de_jure_vassal_title = {
+							holder_scope = {
+								character = PREVPREVPREV
+								is_vassal_or_below_of = PREVPREVPREV
+							}
+						}
+					}
+				}
+
+				c_corsica = { # LI: a county in d_sardinia (vanilla d_corsica)
+					holder_scope = {
+						NOR = {
+							character = PREVPREV
+							is_vassal_or_below_of = PREVPREV
+						}
+					}
+				}
+
+				d_krete = {
+					NOT = {
+						any_direct_de_jure_vassal_title = {
+							holder_scope = {
+								character = PREVPREVPREV
+								is_vassal_or_below_of = PREVPREVPREV
+							}
+						}
+					}
+				}
+
+				d_cephalonia = {
+					NOT = {
+						any_direct_de_jure_vassal_title = {
+							holder_scope = {
+								character = PREVPREVPREV
+								is_vassal_or_below_of = PREVPREVPREV
+							}
+						}
+					}
+				}
+			}
+
+			save_event_target_as = holy_order_target
+
+			ROOT = {
+				letter_event = {
+					id = HFP.44001
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+# The faith's holy order asks to receive an island (LI: vanilla's Knights Hospitaller)
+letter_event = {
+	id = HFP.44001
+	desc = EVTDESC_HFP_44001
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_HFP_44001
+
+		piety = 100
+		scaled_wealth = 2
+
+		reverse_opinion = {
+			name = opinion_grateful
+			who = event_target:holy_order_target
+			years = 10
+		}
+
+		reverse_opinion = {
+			name = in_non_aggression_pact
+			who = event_target:holy_order_target
+			years = 10
+		}
+
+		custom_tooltip = {
+			text = EVTOPTA_HFP_44001_TT
+
+			event_target:potential_title = {
+				if = {
+					limit = {
+						holder_scope = {
+							OR = {
+								character = ROOT
+								is_vassal_or_below_of = ROOT
+							}
+						}
+					}
+
+					if = {
+						limit = { real_tier = DUKE }
+						destroy_landed_title = THIS
+					}
+					else = {
+						grant_title_no_opinion = event_target:holy_order_target
+					}
+				}
+
+				any_de_jure_vassal_title = {
+					limit = {
+						holder_scope = {
+							OR = {
+								character = ROOT
+								is_vassal_or_below_of = ROOT
+							}
+						}
+					}
+
+					grant_title_no_opinion = event_target:holy_order_target
+				}
+			}
+
+			event_target:holy_order_target = {
+				any_demesne_title = {
+					limit = {
+						trigger_if = {
+							limit = { lower_real_tier_than = DUKE }
+							NOT = { holding_type = castle }
+						}
+						trigger_else = {
+							holy_order = no # LI: keep the order's own title
+						}
+					}
+
+					if = {
+						limit = { real_tier = BARON }
+
+						if = {
+							limit = { holding_type = city }
+
+							create_random_steward = {
+								random_traits = yes
+								dynasty = random
+							}
+						}
+						else = {
+							create_random_priest = {
+								random_traits = yes
+								dynasty = random
+							}
+						}
+					}
+					else = {
+						create_random_soldier = {
+							random_traits = yes
+							dynasty = random
+						}
+					}
+
+					grant_title_no_opinion = new_character
+				}
+			}
+
+			event_target:potential_title = {
+				capital_scope = {
+					event_target:holy_order_target = {
+						if = {
+							limit = {
+								has_landed_title = PREV
+								event_target:potential_title = {
+									real_tier = DUKE
+								}
+							}
+							capital = PREV
+						}
+						else = {
+							capital = event_target:potential_title
+						}
+					}
+				}
+			}
+
+			ROOT = { save_event_target_as = island_donor }
+			narrative_event = { id = HFP.44004 }
+
+			event_target:holy_order_target = {
+				character_event = { id = HFP.41090 days = 1 }
+				character_event = { id = HFP.41090 days = 3 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTB_HFP_44001
+
+		piety = -25
+		set_character_flag = refused_to_give_island_to_knights
+
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Narrative event: the faith's holy order gets its island
+narrative_event = {
+	id = HFP.44004
+	title = EVTTITLE_HFP_44004
+	desc = EVTDESC_HFP_44004
+	picture = GFX_evt_magnificent_castle
+	border = GFX_event_narrative_frame_religion
+
+	is_triggered_only = yes
+	major = yes
+
+	major_trigger = {
+		ai = no
+	}
+
+	option = {
+		name = EVTOPTA_HFP_44004
+	}
+}
+
+# Holy Order decides their liege is unfit to rule over them
+character_event = {
+	id = HFP.44002
+
+	is_triggered_only = yes # on_yearly_pulse
+	hide_window = yes
+
+	ai = yes
+
+	trigger = {
+		holy_order = yes
+		independent = no
+	}
+
+	immediate = {
+		liege = {
+			save_event_target_as = liege_character
+		}
+
+		if = {
+			limit = {
+				OR = {
+					opinion = {
+						who = liege
+						value < -20
+					}
+
+					liege = {
+						OR = {
+							excommunicated_for = ROOT
+							NOT = { religion = ROOT }
+						}
+					}
+				}
+			}
+
+			opinion = {
+				name = opinion_unfit_ruler
+				who = event_target:liege_character
+				years = 30
+			}
+
+			liege = {
+				letter_event = { id = HFP.44003 }
+			}
+
+			any_demesne_title = {
+				limit = {
+					holy_order = no
+
+					any_dejure_liege = {
+						holder_scope = {
+							OR = {
+								character = event_target:liege_character
+
+								AND = {
+									is_vassal_or_below_of = event_target:liege_character
+									NOT = { character = ROOT }
+								}
+							}
+						}
+					}
+				}
+
+				grant_title_no_opinion = event_target:liege_character
+			}
+
+			set_defacto_liege = THIS
+		}
+	}
+}
+
+# Letter informing the previous liege of a Holy Order that the Holy Order has left his / her service
+letter_event = {
+	id = HFP.44003
+	desc = EVTDESC_HFP_44003
+	border = GFX_event_letter_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_HFP_44003
+
+		piety = -50
+	}
+}
