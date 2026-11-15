@@ -41,6 +41,36 @@ li_d = set(re.findall(r'(?m)^\s*(d_[\w-]+)\s*=\s*\{', nc(''.join(rd(p) for p in 
 for p, ds in MAP.items():
     bad = [d for d in ds if d not in li_d]
     if bad: raise SystemExit(f'{p}: unknown duchies {bad}')
+def cut(text, pat):
+    """remove every block whose opening line matches pat (through its closing brace and line end)"""
+    while True:
+        m = re.search(pat, text)
+        if not m: return text
+        a = text.rfind('\n', 0, m.start()) + 1; d = 0
+        for j in range(text.index('{', m.start()), len(text)):
+            if text[j] == '{': d += 1
+            elif text[j] == '}':
+                d -= 1
+                if d == 0: break
+        e = text.find('\n', j); text = text[:a] + text[(e + 1 if e >= 0 else j + 1):]
+# LI province ids per duchy (regions are written as province lists: those load visibly, duchy lists log "0 province")
+_par = {}; _stack = []
+for mm in re.finditer(r'([\w-]+)\s*=\s*\{|\{|\}', nc(''.join(rd(p) for p in glob.glob(os.path.join(REPO, 'common/landed_titles/*.txt'))))):
+    t = mm.group(0)
+    if t == '}':
+        if _stack: _stack.pop()
+    else:
+        k = mm.group(1) or ''
+        if re.match(r'[ekdcb]_', k):
+            _par.setdefault(k, next((x for x in reversed(_stack) if re.match(r'[ekdcb]_', x)), None))
+        _stack.append(k)
+_c2p = {}
+for f in os.listdir(os.path.join(REPO, 'history/provinces')):
+    m = re.match(r'(\d+)', f)
+    if m:
+        mm = re.search(r'(?m)^\s*title\s*=\s*(c_[\w-]+)', rd(os.path.join(REPO, 'history/provinces', f)))
+        if mm: _c2p[mm.group(1)] = int(m.group(1))
+def duchy_provinces(d): return sorted(_c2p[c] for c, p in _par.items() if p == d and c in _c2p)
 def duchy_capital(d):
     m = re.search(r'(?m)^\s*' + d + r'\s*=\s*\{', lt); c = re.search(r'\bcapital\s*=\s*(\d+)', lt[m.end():m.end() + 600]); return c.group(1)
 out = {}
@@ -61,10 +91,16 @@ for p in P:
     b, n = re.subn(r'capital\s*=\s*\d+[^\n]*', f'capital = {duchy_capital(CAPITAL_DUCHY[p])} # LI: capital of {CAPITAL_DUCHY[p]}', b, count=1)
     assert n == 1, p + ': capital not replaced'
     # AIO's crusade weights name vanilla faiths; LI's two weights are added below
-    b = re.sub(r'(?m)^\t\w+ = \d+[ \t]*#[^\n]*[Cc]rusade[^\n]*\n', '', b)
+    # (any top-level "<faith> = <number>" line, with or without a comment; capital is handled above)
+    b = re.sub(r'(?m)^\t(?!capital\b)\w+ = \d+[ \t]*(#[^\n]*)?\n', '', b)
     # the successors at game start count without their flag too (in case LIprov.1 has not run, e.g. an older save)
     b, n = re.subn(r'(?m)^([ \t]*)title = e_roman_empire\n', lambda m: m.group(0) + m.group(1) + START_TITLE + '\n', b)
     assert n >= 2, p + ': successor checks not found'
+    # LI (user, 2026-11-15): the provincia holding the emperor's capital is not hidden - drop CK2Plus's NOT_ROMAN_CAPITAL
+    # check and the gain_effect that destroyed the title when the top liege's capital lies inside it
+    b = cut(b, r'custom_tooltip = \{\s*text = NOT_ROMAN_CAPITAL')
+    b = cut(b, r'(?m)^\tgain_effect = \{')
+    assert 'NOT_ROMAN_CAPITAL' not in b and 'gain_effect' not in b, p
     b = b.replace('\tdynasty_title_names = no\n', '\tdynasty_title_names = no\n\n\tchristian = 1000 # Crusade target weight\n\tgraecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans\n', 1)
     # the title's own region (AIO used vanilla world regions for Hibernia and Pannonia-Dacia, which LI lacks)
     b = re.sub(r'region = (?:custom_roman|world)_\w+', 'region = ' + REGION[p], b)
@@ -76,10 +112,11 @@ claims = []
 for k in ('claim_eastern_roman_empire', 'claim_western_roman_empire'):
     b = block(rdec, k, '\t').replace('has_imperial_government_trigger = yes',
                                       'government = roman_imperial_government # LI: AIO checked CK2Plus\'s imperial governments')
+    b = b.replace('has_dlc = "Legacy of Rome"', '# has_dlc = "Legacy of Rome" # LI: dropped (nothing here needs the DLC)')
     claims.append(b)
 NAND = '\n'.join(f'\t\t\t\tis_title_active = k_provincia_{p}' for p in P)
 def toggle(name, flag_line, eff):
-    return (f'\t{name} = {{\n\t\tis_high_prio = yes\n\n\t\tai = no\n\n\t\tpotential = {{\n\t\t\thas_dlc = "Legacy of Rome"\n'
+    return (f'\t{name} = {{\n\t\tis_high_prio = yes\n\n\t\tai = no\n\n\t\tpotential = {{\n'
             f'{flag_line}\n\t\t\t{SUCC}\n\n\t\t\tNAND = {{\n{NAND}\n\t\t\t}}\n\t\t}}\n\n\t\tallow = {{\n\t\t}}\n\n\t\teffect = {{\n'
             f'\t\t\t{eff}\n\t\t}}\n\n\t\tai_will_do = {{\n\t\t\tfactor = 0\n\t\t}}\n\t}}')
 dec = claims + [toggle('collapse_provincia_decisions', '\t\t\tNOT = { has_global_flag = provincia_decisions_collapsed }', 'set_global_flag = provincia_decisions_collapsed'),
@@ -97,12 +134,10 @@ for p in P:
 		potential = {{
 			{SUCC}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {{
+			NOR = {{ # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = {{ region = {R} }}
 				is_title_active = k_provincia_{p}
 			}}
 
@@ -177,6 +212,7 @@ character_event = {
 
 	immediate = {
 		set_global_flag = li_roman_successors_set
+		log = "LIprov.1: marking the Roman successors (e_byzantium = Eastern, e_roman = Western)"
 
 		e_byzantium = {
 			if = {
@@ -227,7 +263,9 @@ on_yearly_pulse = {
 MS, ME = '# LI: Roman provincia regions (tools/phase5b_provincia.py) - begin', '# LI: Roman provincia regions - end'
 reg = [MS]
 for p in P:
-    reg.append(f'{REGION[p]} = {{\n\tduchies = {{\n' + '\n'.join(f'\t\t{d}' for d in MAP[p]) + '\n\t}\n}')
+    ids = sorted({i for d in MAP[p] for i in duchy_provinces(d)})
+    if not ids: raise SystemExit(p + ': no provinces')
+    reg.append(f'{REGION[p]} = {{ # ' + ' '.join(MAP[p]) + '\n\tprovinces = {\n\t\t' + ' '.join(map(str, ids)) + '\n\t}\n}')
 reg.append('custom_roman_provinces = {\n\tregions = {\n' + '\n'.join(f'\t\t{REGION[p]}' for p in P) + '\n\t}\n}')
 reg.append(ME)
 gr_path = os.path.join(REPO, 'map/geographical_region.txt'); gr = rd(gr_path)

@@ -303,7 +303,12 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      LIprov.1 having run (e.g. an older save); AIO's `capital<tab>=` lines had kept vanilla province IDs (now LI duchy
      capitals); all AIO crusade weights (vanilla faiths) dropped; Plus.566's missing picture replaced. Note: `setup.log` lists
      every duchy-based region with "0 province assigned" (LI's own too) - not an error. By CK2Plus design the provincia holding
-     the emperor's capital is hidden (Italia for S.P.Q.R., Thracia for Byzantium).
+     the emperor's capital was hidden (Italia for S.P.Q.R., Thracia for Byzantium) - removed, see below.
+     Second run (`LI_CS_prov2_logs_2026-11-15`): still no decisions. Changes: the home provincia is shown (user; CK2Plus's
+     capital check in the decisions, the titles' NOT_ROMAN_CAPITAL and the gain_effect that destroyed the title are gone);
+     `has_dlc = "Legacy of Rome"` dropped from all 24 decisions; regions now written as province-ID lists (from LI's
+     province history), so `setup.log` shows their real size; LIprov.1 writes a line to `game.log`; the last 4 crusade
+     weights without a comment dropped.
      Left: 199 need AIO content, 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an

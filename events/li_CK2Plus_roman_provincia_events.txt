@@ -176,6 +176,7 @@ character_event = {
 
 	immediate = {
 		set_global_flag = li_roman_successors_set
+		log = "LIprov.1: marking the Roman successors (e_byzantium = Eastern, e_roman = Western)"
 
 		e_byzantium = {
 			if = {

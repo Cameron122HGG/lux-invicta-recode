@@ -8,7 +8,6 @@ EVTDESC_Plus_569;[Root.GetHerHisCap] majesty, [Root.GetTitledFirstName] stands t
 EVTNAME_Plus_566;Eastern Roman Empire?;;Oströmisches Reich?;;;x
 EVTNAME_Plus_569;Western Roman Empire?;;Weströmische Reich?;;;x
 EVTOPTA_Plus_566;Praise [Root.GetHighGodName]! Long live the [Root.GetTitle]!;;Gelobt sei [Root.GetHighGodName]! Lang lebe das [Root.GetTitle]!;;;x
-NOT_ROMAN_CAPITAL;Not Capital of the Roman Empire or a successor state;;Nicht Hauptstadt des Römischen Reiches oder eines Nachfolgestaates;;;x
 ROMAN_CONTROL;Is controlled by the Roman Empire or a successor state;;;;;x
 ROMAN_PROVINCE_OF;Provincia;;;;;x
 claim_eastern_roman_empire;Claim Eastern Roman Empire;;Oströmisches Reich beanspruchen;;;x

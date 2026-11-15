@@ -6,7 +6,7 @@ decisions = {
 
 		potential = {
 			real_tier = EMPEROR
-			has_dlc = "Legacy of Rome"
+			# has_dlc = "Legacy of Rome" # LI: dropped (nothing here needs the DLC)
 			completely_controls = d_thrace
 
 			NOR = {
@@ -39,7 +39,7 @@ decisions = {
 
 		potential = {
 			real_tier = EMPEROR
-			has_dlc = "Legacy of Rome"
+			# has_dlc = "Legacy of Rome" # LI: dropped (nothing here needs the DLC)
 			completely_controls = d_latium
 
 			NOR = {
@@ -73,7 +73,6 @@ decisions = {
 		ai = no
 
 		potential = {
-			has_dlc = "Legacy of Rome"
 			NOT = { has_global_flag = provincia_decisions_collapsed }
 			OR = {
 				has_landed_title = e_roman_empire
@@ -133,7 +132,6 @@ decisions = {
 		ai = no
 
 		potential = {
-			has_dlc = "Legacy of Rome"
 			has_global_flag = provincia_decisions_collapsed
 			OR = {
 				has_landed_title = e_roman_empire
@@ -210,12 +208,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_aegyptus }
 				is_title_active = k_provincia_aegyptus
 			}
 
@@ -292,12 +288,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_africa }
 				is_title_active = k_provincia_africa
 			}
 
@@ -368,12 +362,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_armenia }
 				is_title_active = k_provincia_armenia
 			}
 
@@ -450,12 +442,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_brittania }
 				is_title_active = k_provincia_britannia
 			}
 
@@ -552,12 +542,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_caledonia }
 				is_title_active = k_provincia_caledonia
 			}
 
@@ -636,12 +624,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_gallia }
 				is_title_active = k_provincia_gallia
 			}
 
@@ -740,12 +726,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_germania }
 				is_title_active = k_provincia_germania
 			}
 
@@ -846,12 +830,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_hibernia }
 				is_title_active = k_provincia_hibernia
 			}
 
@@ -930,12 +912,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_hispania }
 				is_title_active = k_provincia_hispania
 			}
 
@@ -1036,12 +1016,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_illyricum }
 				is_title_active = k_provincia_illyricum
 			}
 
@@ -1120,12 +1098,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_italia }
 				is_title_active = k_provincia_italia
 			}
 
@@ -1228,12 +1204,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_macedonia }
 				is_title_active = k_provincia_macedonia
 			}
 
@@ -1314,12 +1288,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_mauretania }
 				is_title_active = k_provincia_mauretania
 			}
 
@@ -1396,12 +1368,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_mesopotamia }
 				is_title_active = k_provincia_mesopotamia
 			}
 
@@ -1480,12 +1450,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_pannonia_dacia }
 				is_title_active = k_provincia_pannonia_dacia
 			}
 
@@ -1568,12 +1536,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_phrygia }
 				is_title_active = k_provincia_phrygia
 			}
 
@@ -1648,12 +1614,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_pontus }
 				is_title_active = k_provincia_pontus
 			}
 
@@ -1728,12 +1692,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_syria_palaestina }
 				is_title_active = k_provincia_syria_palaestina
 			}
 
@@ -1820,12 +1782,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_thracia }
 				is_title_active = k_provincia_thracia
 			}
 
@@ -1900,12 +1860,10 @@ decisions = {
 				}
 			}
 
-			has_dlc = "Legacy of Rome"
-			is_alternate_start = no
+			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {
+			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
-				capital_scope = { region = custom_roman_viennensis }
 				is_title_active = k_provincia_viennensis
 			}
 

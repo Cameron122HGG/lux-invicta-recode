@@ -1229,292 +1229,123 @@ custom_eastern_access = {
 
 # LI: Roman provincia regions (tools/phase5b_provincia.py) - begin
 
-custom_roman_aegyptus = {
-	duchies = {
-		d_alexandria
-		d_aswan
-		d_sinai
-		d_damietta
-		d_cairo
-		d_cyrenaica
+custom_roman_aegyptus = { # d_alexandria d_aswan d_sinai d_damietta d_cairo d_cyrenaica
+	provinces = {
+		820 821 822 823 824 825 826 827 828 829 831 994 995 996 997 998 999 1000 1001 1002 1003 1004 1005 1006
 	}
 }
 
-custom_roman_africa = {
-	duchies = {
-		d_kabylia
-		d_tunis
-		d_tripolitania
+custom_roman_africa = { # d_kabylia d_tunis d_tripolitania
+	provinces = {
+		965 966 967 968 969 970 971 972 973 974 988 989 990 991 992 993
 	}
 }
 
-custom_roman_armenia = {
-	duchies = {
-		d_kartli
-		d_abkhazia
-		d_armenia
-		d_vaspurakan
-		d_provincia_mesopotamia
-		d_albania
+custom_roman_armenia = { # d_kartli d_abkhazia d_armenia d_vaspurakan d_provincia_mesopotamia d_albania
+	provinces = {
+		682 684 685 686 687 688 689 690 691 736 737 761 763 764 798 799 1264
 	}
 }
 
-custom_roman_brittania = {
-	duchies = {
-		d_cumbria
-		d_bernicia
-		d_derenrice
-		d_lindsey
-		d_middle_angles
-		d_magonsaete
-		d_gwynedd
-		d_powys
-		d_dyfed
-		d_glywysing
-		d_hwicce
-		d_belgarum
-		d_middlesex
-		d_norfolk
-		d_canterbury
-		d_somerset
+custom_roman_brittania = { # d_cumbria d_bernicia d_derenrice d_lindsey d_middle_angles d_magonsaete d_gwynedd d_powys d_dyfed d_glywysing d_hwicce d_belgarum d_middlesex d_norfolk d_canterbury d_somerset
+	provinces = {
+		38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74
 	}
 }
 
-custom_roman_caledonia = {
-	duchies = {
-		d_fidach
-		d_sudreyjar
-		d_ce
-		d_srathchluaidh
-		d_labhdaidh
-		d_galloway
-		d_fiobha
+custom_roman_caledonia = { # d_fidach d_sudreyjar d_ce d_srathchluaidh d_labhdaidh d_galloway d_fiobha
+	provinces = {
+		22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
 	}
 }
 
-custom_roman_gallia = {
-	duchies = {
-		d_burgundy
-		d_champagne
-		d_valois
-		d_flanders
-		d_brabant
-		d_luxembourg
-		d_upper_lorraine
-		d_upper_burgundy
-		d_savoie
-		d_alsace
-		d_koln
-		d_brittany
-		d_anjou
-		d_normandy
-		d_rouen
-		d_orleans
-		d_berry
+custom_roman_gallia = { # d_burgundy d_champagne d_valois d_flanders d_brabant d_luxembourg d_upper_lorraine d_upper_burgundy d_savoie d_alsace d_koln d_brittany d_anjou d_normandy d_rouen d_orleans d_berry
+	provinces = {
+		75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 121 122 123 124 125 126 127 128 129 130 131 212 213 214 215 216 217 218 222 223 229 233 234 235 248 1550
 	}
 }
 
-custom_roman_germania = {
-	duchies = {
-		d_holland
-		d_lower_lorraine
-		d_gelre
-		d_nordmark
-		d_brunswick
-		d_thuringia
-		d_franconia
-		d_swabia
-		d_baden
-		d_tyrol
-		d_bavaria
-		d_bohemia
-		d_meissen
-		d_saxony
-		d_holstein
-		d_slesvig
-		d_moravia
-		d_brandenburg
+custom_roman_germania = { # d_holland d_lower_lorraine d_gelre d_nordmark d_brunswick d_thuringia d_franconia d_swabia d_baden d_tyrol d_bavaria d_bohemia d_meissen d_saxony d_holstein d_slesvig d_moravia d_brandenburg
+	provinces = {
+		120 219 220 221 224 225 226 227 228 230 231 232 236 237 238 239 240 241 242 243 244 245 246 247 249 250 251 252 253 312 313 314 315 316 317 318 319 320 321 322 323 324 326 327 328 329 330 428 429 430 431 432 433 439 444 445 447 448
 	}
 }
 
-custom_roman_hibernia = {
-	duchies = {
-		d_connacht
-		d_munster
-		d_osraige
-		d_meath
-		d_laigin
-		d_ulaid
-		d_breifne
+custom_roman_hibernia = { # d_connacht d_munster d_osraige d_meath d_laigin d_ulaid d_breifne
+	provinces = {
+		5 6 7 8 9 10 11 12 13 14 15 16 17
 	}
 }
 
-custom_roman_hispania = {
-	duchies = {
-		d_barcelona
-		d_aragon
-		d_valencia
-		d_navarra
-		d_castilla
-		d_toledo
-		d_cordoba
-		d_murcia
-		d_mallorca
-		d_granada
-		d_asturias
-		d_leon
-		d_badajoz
-		d_sevilla
-		d_algarve
-		d_beja
-		d_porto
-		d_galicia
+custom_roman_hispania = { # d_barcelona d_aragon d_valencia d_navarra d_castilla d_toledo d_cordoba d_murcia d_mallorca d_granada d_asturias d_leon d_badajoz d_sevilla d_algarve d_beja d_porto d_galicia
+	provinces = {
+		151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209
 	}
 }
 
-custom_roman_illyricum = {
-	duchies = {
-		d_carinthia
-		d_slavonia
-		d_croatia
-		d_bosnia
-		d_dalmatia
-		d_dioclea
-		d_rashka
+custom_roman_illyricum = { # d_carinthia d_slavonia d_croatia d_bosnia d_dalmatia d_dioclea d_rashka
+	provinces = {
+		307 308 309 310 456 457 458 459 460 461 462 463 464 465 466 467 489 490 491
 	}
 }
 
-custom_roman_italia = {
-	duchies = {
-		d_salerno
-		d_lombardia
-		d_pedemontium
-		d_modena
-		d_toscana
-		d_pisa
-		d_latium
-		d_capua
-		d_calabria
-		d_sicily
-		d_apulia
-		d_benevento
-		d_spoleto
-		d_ancona
-		d_ferrara
-		d_verona
-		d_venice
-		d_genoa
-		d_sardinia
+custom_roman_italia = { # d_salerno d_lombardia d_pedemontium d_modena d_toscana d_pisa d_latium d_capua d_calabria d_sicily d_apulia d_benevento d_spoleto d_ancona d_ferrara d_verona d_venice d_genoa d_sardinia
+	provinces = {
+		139 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 1555
 	}
 }
 
-custom_roman_macedonia = {
-	duchies = {
-		d_dyrrachion
-		d_nikopolis
-		d_achaia
-		d_krete
-		d_athens
-		d_hellas
-		d_thessalonika
-		d_lychnidos
+custom_roman_macedonia = { # d_dyrrachion d_nikopolis d_achaia d_krete d_athens d_hellas d_thessalonika d_lychnidos
+	provinces = {
+		492 493 494 496 497 498 499 500 501 503 504 505 506 507 508 509 510 511
 	}
 }
 
-custom_roman_mauretania = {
-	duchies = {
-		d_marrakech
-		d_tlemcen
-		d_alger
-		d_tangiers
-		d_fes
-		d_sijilmasa
+custom_roman_mauretania = { # d_marrakech d_tlemcen d_alger d_tangiers d_fes d_sijilmasa
+	provinces = {
+		951 952 953 954 955 956 957 958 959 960 961 962 963 964 975 976 977 978 979 980 1551 1552 1553 1554
 	}
 }
 
-custom_roman_mesopotamia = {
-	duchies = {
-		d_susa
-		d_mosul
-		d_baghdad
-		d_basra
-		d_tigris
-		d_kermanshah
-		d_kurdistan
+custom_roman_mesopotamia = { # d_susa d_mosul d_baghdad d_basra d_tigris d_kermanshah d_kurdistan
+	provinces = {
+		671 672 673 674 693 694 695 696 697 698 699 700 701 729 730 731 732 733 734 735 738 739 740 1560
 	}
 }
 
-custom_roman_pannonia_dacia = {
-	duchies = {
-		d_wallachia
-		d_nyitra
-		d_pecs
-		d_temes
-		d_pest
-		d_esztergom
-		d_ungvar
-		d_osterreich
-		d_moldau
+custom_roman_pannonia_dacia = { # d_wallachia d_nyitra d_pecs d_temes d_pest d_esztergom d_ungvar d_osterreich d_moldau
+	provinces = {
+		311 446 449 450 451 452 453 454 455 468 469 470 471 472 473 474 475 476 480 481 482 484 485 523 524 525 526 528 532 533 1549
 	}
 }
 
-custom_roman_phrygia = {
-	duchies = {
-		d_nikaea
-		d_samos
-		d_thracesia
-		d_anatolia
-		d_cibyrrhaeot
+custom_roman_phrygia = { # d_nikaea d_samos d_thracesia d_anatolia d_cibyrrhaeot
+	provinces = {
+		771 772 773 774 776 778 779 780 781 782 783 784 785 790
 	}
 }
 
-custom_roman_pontus = {
-	duchies = {
-		d_trebizond
-		d_paphlagonia
-		d_armeniacon
-		d_kappadokia
-		d_charsianon
+custom_roman_pontus = { # d_trebizond d_paphlagonia d_armeniacon d_kappadokia d_charsianon
+	provinces = {
+		762 765 766 767 768 769 770 786 787 788 789 797
 	}
 }
 
-custom_roman_syria_palaestina = {
-	duchies = {
-		d_aleppo
-		d_damascus
-		d_edessa
-		d_armenia_minor
-		d_seleukia
-		d_antioch
-		d_tripoli
-		d_galilee
-		d_jerusalem
-		d_ascalon
-		d_arabia_petrae
+custom_roman_syria_palaestina = { # d_aleppo d_damascus d_edessa d_armenia_minor d_seleukia d_antioch d_tripoli d_galilee d_jerusalem d_ascalon d_arabia_petrae
+	provinces = {
+		743 744 745 746 747 748 749 750 751 752 753 754 755 756 757 758 759 760 791 792 795 796 800 801 802 803 804 805 806 807 808 809 810 811 812 813 814 815 816 817 818 819 1556 1557
 	}
 }
 
-custom_roman_thracia = {
-	duchies = {
-		d_turnovo
-		d_vidin
-		d_makedonia
-		d_karvuna
-		d_thrace
+custom_roman_thracia = { # d_turnovo d_vidin d_makedonia d_karvuna d_thrace
+	provinces = {
+		486 487 488 512 513 514 515 516 517 518 519 520 521 522
 	}
 }
 
-custom_roman_viennensis = {
-	duchies = {
-		d_aquitaine
-		d_bourbon
-		d_auvergne
-		d_dauphine
-		d_septimania
-		d_provence
-		d_toulouse
-		d_gascogne
-		d_poitou
+custom_roman_viennensis = { # d_aquitaine d_bourbon d_auvergne d_dauphine d_septimania d_provence d_toulouse d_gascogne d_poitou
+	provinces = {
+		95 96 97 98 99 100 101 102 103 104 132 133 134 135 136 137 138 140 141 142 143 144 145 146 147 148 149 150 210 211
 	}
 }
 

@@ -31,36 +31,11 @@ k_provincia_aegyptus = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_aegyptus } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_aegyptus }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_africa = {
@@ -94,36 +69,11 @@ k_provincia_africa = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_africa } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_africa }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_armenia = {
@@ -157,36 +107,11 @@ k_provincia_armenia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_armenia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_armenia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_britannia = {
@@ -220,36 +145,11 @@ k_provincia_britannia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_brittania } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_brittania }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_caledonia = {
@@ -283,36 +183,11 @@ k_provincia_caledonia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_caledonia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_caledonia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_gallia = {
@@ -346,36 +221,11 @@ k_provincia_gallia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_gallia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_gallia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_germania = {
@@ -409,36 +259,11 @@ k_provincia_germania = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_germania } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_germania }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_hibernia = {
@@ -472,36 +297,11 @@ k_provincia_hibernia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_hibernia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_hibernia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_hispania = {
@@ -517,7 +317,6 @@ k_provincia_hispania = {
 	christian = 1000 # Crusade target weight
 	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
 
-	muslim = 10
 
 	allow = {
 		top_liege = {
@@ -536,36 +335,11 @@ k_provincia_hispania = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_hispania } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_hispania }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_illyricum = {
@@ -599,36 +373,11 @@ k_provincia_illyricum = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_illyricum } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_illyricum }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_italia = {
@@ -662,36 +411,11 @@ k_provincia_italia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_italia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_italia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_macedonia = {
@@ -707,8 +431,6 @@ k_provincia_macedonia = {
 	christian = 1000 # Crusade target weight
 	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
 
-	sunni = 100
-	hellenic_pagan_reformed = 500
 
 	allow = {
 		top_liege = {
@@ -727,36 +449,11 @@ k_provincia_macedonia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_macedonia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_macedonia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_mauretania = {
@@ -772,7 +469,6 @@ k_provincia_mauretania = {
 	christian = 1000 # Crusade target weight
 	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
 
-	west_african_pagan_reformed = 100
 
 	allow = {
 		top_liege = {
@@ -791,36 +487,11 @@ k_provincia_mauretania = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_mauretania } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_mauretania }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_mesopotamia = {
@@ -854,36 +525,11 @@ k_provincia_mesopotamia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_mesopotamia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_mesopotamia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_pannonia_dacia = {
@@ -917,36 +563,11 @@ k_provincia_pannonia_dacia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_pannonia_dacia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_pannonia_dacia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_phrygia = {
@@ -962,7 +583,6 @@ k_provincia_phrygia = {
 	christian = 1000 # Crusade target weight
 	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
 
-	hellenic_pagan_reformed = 100
 
 	allow = {
 		top_liege = {
@@ -981,36 +601,11 @@ k_provincia_phrygia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_phrygia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_phrygia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_pontus = {
@@ -1044,36 +639,11 @@ k_provincia_pontus = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_pontus } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_pontus }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_syria_palaestina = {
@@ -1107,36 +677,11 @@ k_provincia_syria_palaestina = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_syria_palaestina } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_syria_palaestina }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_thracia = {
@@ -1152,8 +697,6 @@ k_provincia_thracia = {
 	christian = 1000 # Crusade target weight
 	graecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans
 
-	sunni = 100
-	hellenic_pagan_reformed = 500
 
 	allow = {
 		top_liege = {
@@ -1172,36 +715,11 @@ k_provincia_thracia = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_thracia } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_thracia }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
 
 k_provincia_viennensis = {
@@ -1235,34 +753,9 @@ k_provincia_viennensis = {
 				}
 			}
 
-			custom_tooltip = {
-				text = NOT_ROMAN_CAPITAL
-
-				capital_scope = { NOT = { region = custom_roman_viennensis } }
-			}
 		}
 
 		can_create_kingdom = yes
 	}
 
-	gain_effect = {
-		if = {
-			limit = {
-				top_liege = {
-					primary_title = {
-						OR = {
-							title = e_roman_empire
-							AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066
-							has_title_flag = eastern_roman_successor
-							has_title_flag = western_roman_successor
-						}
-
-						capital_scope = { region = custom_roman_viennensis }
-					}
-				}
-			}
-
-			destroy_landed_title = FROM
-		}
-	}
 }
