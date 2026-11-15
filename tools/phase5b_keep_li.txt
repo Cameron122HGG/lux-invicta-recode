@@ -57,3 +57,13 @@ TOG.1060                                # AIO adds a Bon branch on vanilla bon_p
 tributary_cb                            # AIO version only works via a CK2Plus decision flag (trying_to_gain_tributary) the mod lacks
 WoL.1036                                # AIO version expects CK2Plus duel-engine flags; the mod's WoL.1035 is CleanSlate's (chain hand-off)
 WoL.1039                                # same
+# Faith triggers (2026-11-15)
+has_religion_matching_joined_warrior_lodge_trigger # adapted to LI faiths in phase 8 part 5 (li_lodge_* triggers)
+has_religion_matching_available_warrior_lodge_trigger # adapted to LI faiths in phase 8 part 5 (li_lodge_* triggers)
+has_religion_matching_empty_warrior_lodge_trigger # adapted to LI faiths in phase 8 part 5 (li_lodge_* triggers)
+has_religion_matching_any_warrior_lodge_trigger # adapted to LI faiths in phase 8 part 5 (li_lodge_* triggers)
+has_religion_matching_warrior_lodge_to_revive_trigger # adapted to LI faiths in phase 8 part 5 (li_lodge_* triggers)
+special_join_warrior_lodge_trigger      # adapted to LI faiths in phase 8 part 5 (li_lodge_* triggers)
+religion_animistic                      # AIO adds CK2Plus's religion_feature_celtic; LI has its own religion features
+religion_no_leader                      # AIO adds CK2Plus's religion_feature_egyptian; LI has its own religion features
+title_court_bard                        # LI uses its own LI_druidic_trigger (AIO: Celtic only)

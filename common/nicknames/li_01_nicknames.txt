@@ -1038,12 +1038,26 @@ nick_the_berserker = {
 		}
 	}
 }
+# LI: CK2Plus AIO version (step B, decision 5)
 nick_the_raven = {
 	allow = {
-		age = 20
-		culture_group = north_germanic
 		trait = brave
-		martial = 12
+		culture_group = north_germanic
+		martial >= 12
+		age >= 35
+
+		OR = {
+			trait = viking
+			trait = berserker
+			trait = impaler
+		}
+
+		OR = {
+			trait = cruel
+			trait = just
+			trait = ambitious
+		}
+
 		NOR = {
 			trait = slothful
 			trait = infirm
@@ -1051,26 +1065,23 @@ nick_the_raven = {
 			trait = incapable
 			trait = kind
 		}
-		OR = {
-			trait = viking
-			trait = berserker
-			trait = impaler
-		}
-		OR = {
-			trait = cruel
-			trait = just
-			trait = ambitious
-		}
 	}
+
 	chance = {
-		factor = 3
-		modifier = {
-			factor = 1.5
-		religion = norse_pagan
+		factor = 0.6
+
+		mult_modifier = {
+			factor = 5
+			has_ambition = obj_get_nick
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 1.5
-		religion = norse_pagan_reformed
+
+			OR = {
+				religion_openly_norse_or_reformed_trigger = yes
+				religion_openly_german_or_reformed_trigger = yes
+			}
 		}
 	}
 }

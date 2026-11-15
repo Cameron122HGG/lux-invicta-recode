@@ -234,6 +234,14 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      - **CB trim:** CleanSlate's CB files log 202 lines, but CleanSlate alone logs 227: its scope shorthand, not dead
        references. `trim_dead` found only 5 real ones (`indian_cbs` taoist, `tributary_cbs` `e_mongol_empire`).
      - **Left:** 234 need AIO content (CB framework, druids, monastic orders, CK2Plus laws/focuses, plots), 361 hand port.
+     **Faith triggers (2026-11-15), untested:** AIO's `religion_openly_celtic/german/egyptian_or_reformed_trigger` defined
+     on LI faiths in `common/scripted_triggers/li_religion_openly_triggers.txt` (tooltips in
+     `localisation/000_li_religion_openly.csv`), same style as LI's Norse trigger and the same lists as the warrior lodges:
+     Celtic = Celtic group + Celtic Christianity, Germanic = Allfather/Germanic pagan/Irminsul/Teiwaz (+ reformed), Egyptian =
+     the Egyptian group. Swapped: `nick_the_raven`. Kept as LI: `title_court_bard` (LI's `LI_druidic_trigger`), the 6
+     `has_religion_matching_*`/`special_join` lodge triggers (adapted in phase 8 part 5), `religion_animistic` and
+     `religion_no_leader` (AIO adds CK2Plus Celtic/Egyptian religion features). The other 7 rows that used these triggers
+     still wait on other content (laws, druids, ancrel events…). Left: 224 need AIO content, 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.
@@ -477,10 +485,8 @@ Each phase is its own commit (or several), followed by a run and a log compariso
 
 ## Open decisions
 
-1. **Dynasties:** CleanSlate fixed some duplicate dynasty IDs, but LI's dynasty file is LI's own
-   data. Keep LI's and only check the IDs CleanSlate changed?
-2. **Older-vanilla copies (~1,945):** take CleanSlate's version by default, or review each folder
-   first?
-3. **File naming** for LI's own files: `li_*` prefix, or keep the bundled mods' names (`VIET_*`,
-   `ze_*`…) so their origin stays visible?
+1. ~~**Dynasties**~~ Decided 2026-11-14: keep LI's dynasty file (phase 1).
+2. ~~**Older-vanilla copies (~1,945)**~~ Decided 2026-11-14: take CleanSlate's version (phase 3); LI's real
+   changes were ported as LI-wins blocks, CK2Plus-derived ones go through step B.
+3. ~~**File naming**~~ Decided 2026-11-14: `li_` prefix for LI's own files (phase 2).
 4. ~~**CleanSlate version**~~ Decided: beta 7 is the latest GitHub release (checked 2026-11-14).

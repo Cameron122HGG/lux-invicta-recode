@@ -1,0 +1,57 @@
+# LI: CK2Plus AIO trigger names mapped onto Lux Invicta faiths (step B, decision 5; 2026-11-15).
+# Same style as LI's religion_openly_norse_or_reformed_trigger (00_religion_triggers.txt). Faith lists follow the
+# warrior lodge mapping decided with the user (li_warrior_lodge_triggers.txt): Celtic = the Celtic lodge (Celtic group +
+# Celtic Christianity, like the Norse list includes norse_christ), Germanic = the Germanic part of the Wolf Warriors,
+# Egyptian = the Egyptian lodge.
+
+religion_openly_celtic_or_reformed_trigger = { # AIO: celtic_pagan(_reformed)
+	custom_tooltip = {
+		text = religion_openly_celtic_or_reformed_tooltip
+		hidden_trigger = {
+			OR = {
+				religion = celtic_pagan
+				religion = lugh
+				religion = endovellico
+				religion = celtic_christ
+				religion = celtic_pagan_reformed
+				religion = iberian_pagan_reformed
+				religion = celtic_christ_reformed
+			}
+		}
+	}
+}
+
+religion_openly_german_or_reformed_trigger = { # AIO: german_pagan(_reformed)
+	custom_tooltip = {
+		text = religion_openly_german_or_reformed_tooltip
+		hidden_trigger = {
+			OR = {
+				religion = allfather
+				religion = german_pagan
+				religion = irminsul
+				religion = teiwaz
+				religion = german_pagan_reformed
+				religion = teiwaz_reformed
+			}
+		}
+	}
+}
+
+religion_openly_egyptian_or_reformed_trigger = { # AIO: egyptian_pagan(_reformed)
+	custom_tooltip = {
+		text = religion_openly_egyptian_or_reformed_tooltip
+		hidden_trigger = {
+			OR = {
+				religion = amun
+				religion = aten
+				religion = horus_re
+				religion = isis
+				religion = set
+				religion = amun_reformed
+				religion = aten_reformed
+				religion = isis_reformed
+				religion = set_reformed
+			}
+		}
+	}
+}
