@@ -1,0 +1,73 @@
+# LI: CK2Plus AIO's name/description getters for its Celtic and Egyptian warrior lodges (phase 8 part 5, CLEANSLATE_PLAN.md).
+
+defined_text = {
+	name = GetCelticWarriorSocietyName
+	use_first_valid = yes
+
+	text = {
+		trigger = {
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+		localisation_key = warrior_lodge_celtic_random
+	}
+	text = {
+		localisation_key = warrior_lodge_celtic_real
+	}
+}
+
+defined_text = {
+	name = GetCelticWarriorSocietyDesc
+	use_first_valid = yes
+
+	text = {
+		trigger = {
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+		localisation_key = warrior_lodge_celtic_desc_random
+	}
+	text = {
+		localisation_key = warrior_lodge_celtic_desc_real
+	}
+}
+
+defined_text = {
+	name = GetEgyptianWarriorSocietyName
+	use_first_valid = yes
+
+	text = {
+		trigger = {
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+		localisation_key = warrior_lodge_egyptian_random
+	}
+	text = {
+		localisation_key = warrior_lodge_egyptian_real
+	}
+}
+
+defined_text = {
+	name = GetEgyptianWarriorSocietyDesc
+	use_first_valid = yes
+
+	text = {
+		trigger = {
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+		localisation_key = warrior_lodge_egyptian_desc_random
+	}
+	text = {
+		localisation_key = warrior_lodge_egyptian_desc_real
+	}
+}

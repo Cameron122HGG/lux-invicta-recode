@@ -34,6 +34,9 @@ Typical paths:
 | `ids_off.py` | The same for any list of event IDs, with your own note: `ids_off.py <mod> "<note>" ID …` (applies directly). |
 | `copy_events.py` | Copies vanilla event definitions into an LI event file after checking the events, scripted effects/triggers and modifiers they need. |
 | `restore_scripted.py` | Restores vanilla scripted triggers/effects that CleanSlate removed but LI text still calls (read from the "Unknown effect-type/trigger-type" lines in `error.log`), with what they call and CleanSlate's renames, into `common/scripted_*/000_li_restored_*.txt`: `restore_scripted.py <repo> <master export> <error.log> [--apply]`. |
+| `phase8_hf.py` | Phase 8: replaces whole events/ files with CK2Plus AIO's Holy Fury versions, undoes step A's one-line switch-offs for the restored events (`--keep-off=` keeps listed IDs off), and reports missing calls and dependencies. |
+| `phase8_multiline_off.py` | Undoes step A switch-offs written as a commented-out block (`#character_event = { # <note>` … `#}`), which `phase8_hf.py` misses, when every event the block calls now exists. `--keep-off=phase8_keep_off.txt` keeps the left-out crusade chains off. |
+| `phase8_lodges.py` | Phase 8 part 5: builds the warrior lodges from AIO (societies, triggers, decisions, loc, traits, art) and ties them to LI faiths through `li_warrior_lodge_triggers.txt`. Rerunnable; run `phase8_hf.py` on the lodge event files first. |
 | `fix_buildings.py` | Adds missing building prerequisites in province history, and converts buildings of the wrong holding type (castle/city/temple). Reads the holdings from `error.log`. |
 
 ## Things learned the hard way

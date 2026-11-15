@@ -842,12 +842,12 @@ character_event = {
 
 	desc = {
 		text = EVTDESCAHF25021
-		trigger = { religion_group = pagan_group }
+		trigger = { li_lodge_any_trigger = yes }
 	}
 	desc = {
 		text = EVTDESCBHF25021
 		trigger = {
-			NOT = { religion_group = pagan_group }
+			NOT = { li_lodge_any_trigger = yes }
 		}
 	}
 
@@ -912,16 +912,16 @@ character_event = {
 			event_target:scoped_war_sacrifice = { is_alive = yes }
 
 			OR = {
-				religion_openly_norse_or_reformed_trigger = yes
-				religion_openly_slavic_or_reformed_trigger = yes
-				religion_openly_baltic_or_reformed_trigger = yes
-				religion_openly_tengri_or_reformed_trigger = yes
-				religion_openly_finnish_or_reformed_trigger = yes
-				religion_openly_zun_or_reformed_trigger = yes
-				religion_openly_west_african_or_reformed_trigger = yes
+				li_lodge_norse_trigger = yes
+				li_lodge_slavic_trigger = yes
+				li_lodge_baltic_trigger = yes
+				li_lodge_tengri_trigger = yes
+				li_lodge_finnish_trigger = yes
+				li_lodge_zun_trigger = yes
+				li_lodge_west_african_trigger = yes
 				religion_openly_aztec_or_reformed_trigger = yes
-				religion_openly_bon_or_reformed_trigger = yes
-				religion_openly_hellenic_or_reformed_trigger = yes
+				li_lodge_bon_trigger = yes
+				li_lodge_hellenic_trigger = yes
 				religion_has_ritual_sacrifice_trigger = yes
 			}
 		}
@@ -986,16 +986,16 @@ character_event = {
 			event_target:sacrificed_courtier = { always = yes }
 
 			OR = {
-				religion_openly_norse_or_reformed_trigger = yes
-				religion_openly_slavic_or_reformed_trigger = yes
-				religion_openly_baltic_or_reformed_trigger = yes
-				religion_openly_tengri_or_reformed_trigger = yes
-				religion_openly_finnish_or_reformed_trigger = yes
-				religion_openly_zun_or_reformed_trigger = yes
-				religion_openly_west_african_or_reformed_trigger = yes
+				li_lodge_norse_trigger = yes
+				li_lodge_slavic_trigger = yes
+				li_lodge_baltic_trigger = yes
+				li_lodge_tengri_trigger = yes
+				li_lodge_finnish_trigger = yes
+				li_lodge_zun_trigger = yes
+				li_lodge_west_african_trigger = yes
 				religion_openly_aztec_or_reformed_trigger = yes
-				religion_openly_bon_or_reformed_trigger = yes
-				religion_openly_hellenic_or_reformed_trigger = yes
+				li_lodge_bon_trigger = yes
+				li_lodge_hellenic_trigger = yes
 				religion_has_ritual_sacrifice_trigger = yes
 			}
 		}
@@ -1103,7 +1103,7 @@ character_event = {
 
 		if = {
 			limit = {
-				NOT = { religion_group = pagan_group }
+				NOT = { li_lodge_any_trigger = yes }
 				religion_has_ritual_sacrifice_trigger = no
 			}
 			tiered_high_piety_negative_effect = yes
@@ -1139,7 +1139,7 @@ character_event = {
 #			scaled_wealth = { value = -0.25 min = -25 max = -75 }
 #		}
 #		if = {
-#			limit = { NOT = { religion_group = pagan_group } }
+#			limit = { NOT = { li_lodge_any_trigger = yes } }
 #			tiered_piety_negative_effect = yes
 #		}
 #		character_event = { id = HF.25025 }
@@ -1997,7 +1997,7 @@ narrative_event = {
 		trigger = {
 			OR = {
 				society_member_of = warrior_lodge_hellenic
-				religion_openly_hellenic_or_reformed_trigger = yes
+				li_lodge_hellenic_trigger = yes
 				religion_secretly_hellenic_or_reformed_trigger = yes
 				can_join_society = warrior_lodge_hellenic
 			}
@@ -2016,7 +2016,7 @@ narrative_event = {
 		name = EVTOPTBHF25026
 
 		trigger = {
-			religion_openly_hellenic_or_reformed_trigger = no
+			li_lodge_hellenic_trigger = no
 			religion_secretly_hellenic_or_reformed_trigger = no
 			NOT = { society_member_of = warrior_lodge_hellenic }
 		}
@@ -4443,7 +4443,7 @@ character_event = {
 		is_save_game = no
 		society_member_of = warrior_lodge_west_african
 		society_rank == 4
-		religion_openly_west_african_or_reformed_trigger = yes
+		li_lodge_west_african_trigger = yes
 	}
 
 	immediate = {

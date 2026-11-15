@@ -533,7 +533,7 @@ letter_event = { # SUCCESS: Welcome to the society!
 
 		if = { # Give Sympathy trait if appropriate...
 			limit = {
-				NOT = { religion_group = pagan_group }
+				NOT = { li_lodge_any_trigger = yes }
 			}
 
 			# Give Sympathy trait
@@ -2767,56 +2767,56 @@ character_event = {
 	immediate = {
 		if = {
 			limit = {
-				religion_openly_norse_or_reformed_trigger = yes
+				li_lodge_norse_trigger = yes
 				can_join_society = warrior_lodge_norse
 			}
 			join_society = warrior_lodge_norse
 		}
 		else_if = {
 			limit = {
-				religion_openly_baltic_or_reformed_trigger = yes
+				li_lodge_baltic_trigger = yes
 				can_join_society = warrior_lodge_baltic
 			}
 			join_society = warrior_lodge_baltic
 		}
 		else_if = {
 			limit = {
-				religion_openly_finnish_or_reformed_trigger = yes
+				li_lodge_finnish_trigger = yes
 				can_join_society = warrior_lodge_finnish
 			}
 			join_society = warrior_lodge_finnish
 		}
 		else_if = {
 			limit = {
-				religion_openly_slavic_or_reformed_trigger = yes
+				li_lodge_slavic_trigger = yes
 				can_join_society = warrior_lodge_slavic
 			}
 			join_society = warrior_lodge_slavic
 		}
 		else_if = {
 			limit = {
-				religion_openly_west_african_or_reformed_trigger = yes
+				li_lodge_west_african_trigger = yes
 				can_join_society = warrior_lodge_west_african
 			}
 			join_society = warrior_lodge_west_african
 		}
 		else_if = {
 			limit = {
-				religion_openly_zun_or_reformed_trigger = yes
+				li_lodge_zun_trigger = yes
 				can_join_society = warrior_lodge_zun
 			}
 			join_society = warrior_lodge_zun
 		}
 		else_if = {
 			limit = {
-				religion_openly_bon_or_reformed_trigger = yes
+				li_lodge_bon_trigger = yes
 				can_join_society = warrior_lodge_bon
 			}
 			join_society = warrior_lodge_bon
 		}
 		else_if = {
 			limit = {
-				religion_openly_hellenic_or_reformed_trigger = yes
+				li_lodge_hellenic_trigger = yes
 				can_join_society = warrior_lodge_hellenic
 			}
 			join_society = warrior_lodge_hellenic
@@ -2824,7 +2824,7 @@ character_event = {
 		else_if = {
 			limit = {
 				OR = {
-					religion_openly_tengri_or_reformed_trigger = yes
+					li_lodge_tengri_trigger = yes
 					is_nomadic = yes
 				}
 				can_join_society = warrior_lodge_tengri
@@ -2836,7 +2836,7 @@ character_event = {
 		else_if = {
             limit = {
 				OR = {
-					religion_openly_celtic_or_reformed_trigger = yes
+					li_lodge_celtic_trigger = yes
 					AND = {
 						culture = irish
 						is_tribal = yes
@@ -2848,7 +2848,7 @@ character_event = {
         }
 		else_if = {
             limit = {
-				religion_openly_egyptian_or_reformed_trigger = yes
+				li_lodge_egyptian_trigger = yes
                 can_join_society = warrior_lodge_egyptian
             }
             join_society = warrior_lodge_egyptian

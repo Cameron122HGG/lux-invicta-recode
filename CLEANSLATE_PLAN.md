@@ -362,7 +362,43 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `island_donor` for the narrative event. New loc `localisation/000_li_holy_order_events.csv` (sorts before
      `HolyFury.csv`) names the order. On_actions: `HFP.44000` (3 entries) and `HFP.44002` back on;
      `HFP.44005/44008/44009` (Teutonic/Livonian) and `HFP.40033/44036` (realm events) keep their switch-off
-     with a "left out by decision" note. **Part 5 next:** warrior lodges.
+     with a "left out by decision" note.
+   - **Loading screens (2026-11-15):** both descriptors now `replace_path = "gfx/loadingscreens"`, so only LI's
+     `load_0-16`/`load_99` show (the base game's `load_17-20`, Holy Fury era, used to show through; master too).
+   - **Part 5 decisions (user, 2026-11-15):** 11 lodges: vanilla's 9 plus CK2Plus AIO's Celtic (the Fianna) and
+     Egyptian (Champions of the Sun) lodges. Faiths, in `common/scripted_triggers/li_warrior_lodge_triggers.txt`:
+     Wolf Warriors = LI's Norse list + the Germanic faiths; Eagle Warriors = LI's Tengri list; Band of Medeina =
+     Baltic group (+ Saulic); Followers of Otso = Finnic group + Ukpirniq (as the saints); Champions of Perun =
+     Slavic group; Children of the Storm = Serer group, Yoruba and the Bantu faiths; Keepers of the Flame = the
+     desert faiths only (Arabian, Berber, Palmyrene); Sentinels of Light = Bön only; Olympian Champions =
+     Graeco-Roman group, Indo-Hellenic, Luwian and the southern Sol faiths; Celtic lodge = Celtic group + Celtic
+     Christianity; Egyptian lodge = Egyptian group. Other LI faiths use the lodges' generic path (tribal, not
+     zealous, lodge has 10 members), as non-pagans do in vanilla.
+   - **Part 5 applied (2026-11-15):** `tools/phase8_hf.py` on the 9 lodge event files (317 events, 71 step A
+     switch-offs undone), then `tools/phase8_lodges.py` (rerunnable): societies `00_warrior_lodges.txt` (AIO) +
+     `01_li_CK2Plus_warrior_lodges.txt` (CK2Plus Celtic/Egyptian), AIO lodge triggers, AIO lodge decisions with
+     LI's own `duel_decision` kept, CK2Plus `celtic_battle_cry_decision`, AIO lodge customizable loc + CK2Plus
+     name getters (`09_li_CK2Plus_warrior_lodges.txt`), traits `celtic_leader`/`egyptian_leader`
+     (`li_CK2Plus_lodge_traits.txt`) with icons and society art from `ck2plus_aio.zip`
+     (`interface/li_CK2Plus_warrior_lodges.gfx`), modifiers `celtic_battle_cry`/`do_not_disturb`, notify events
+     `PlusBuildings.001-010` (`events/li_CK2Plus_building_notify_events.txt`), loc `000_li_warrior_lodges.csv`
+     (66 AIO keys + tooltips). In the lodge files `religion_openly_<x>_or_reformed_trigger` → `li_lodge_<x>_trigger`
+     (other content keeps the shared triggers), `religion_group = pagan_group` → `li_lodge_any_trigger = yes`,
+     `associated_religion` mapped to LI faiths (dievas, mande_pagan, hubal, bon, graeco_roman, amun); Celtic lines
+     dropped from the Wolf Warriors, Egyptian/vanilla desert lines from the Keepers of the Flame; dead CK2Plus
+     refs dropped (`machas_javelin`/`montu` weights, `ca_con_wall_6`, `martial_lady*` traits).
+     `has_gender_equal_game_rule_trigger` defined as the gender rule `all`. `HF.12405` (battle bards) back on.
+   - **Multi-line switch-offs (found 2026-11-15):** `phase8_hf.py` only undid switch-offs whose own line names the
+     event, so calls step A had commented out as a block (`#character_event = { # <note>` / `#id = …` / `#}`)
+     stayed off in parts 1-4: 70 blocks (duel, health, crusade, competition, bloodline and sainthood effects,
+     CBs, job titles). `tools/phase8_multiline_off.py --keep-off=tools/phase8_keep_off.txt --apply` restored
+     them (Northern Crusade `HF.49112` stays off). Also 4 master-era Holy Fury switch-offs in LI text restored
+     (`HF.20024`, `HF.41300`, `HF.25631`, LI duel decision's `HFP.10095`). **Lesson:** `restore_ids.py` copies the
+     AIO/CleanSlate line holding the ID, which is wrong when LI's line is a one-line call with another wrapper
+     (it produced a bare `id =`, a `clear_delayed_event` and an unwrapped `letter_event`); those 3 were put back
+     from the original commented line. A scan of every `id =` outside an event-call block found no other case.
+   - **Phase 8 status:** parts 1-5 done (untested in game: part 5). Left out by decision: Holy Fury realm events,
+     Reconquista, Teutonic/Livonian orders, Fourth/Northern Crusade, the Alexander/Teuta/Matilda quests.
    - **"Province 0" traced (2026-11-14).** Events looping over demesne provinces (VIET region checks, saint
      flavour) hit an invalid province. A temporary debug event (removed again) logged rulers holding a
      barony or county with no location: LI's populist revolt (`li_rebel_events_the_old_gods.txt`) created

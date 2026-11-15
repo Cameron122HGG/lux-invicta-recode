@@ -10,11 +10,11 @@ on_startup = {
 		HF.23776 # Assign African tattoos
 
 		HFP.30031 # Set up freckles
-		#HFP.40028 # Remove child traits (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
+		#HFP.40028 # Remove child traits (Holy Fury realm event left out by decision (phase 8 part 4, CLEANSLATE_PLAN.md))
 		#HFP.24025 # Enable Eldership for appropriate religions/Doctrines (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		HFP.20804 # Clear Byzantine commander variables on the Emperor
 		#HFP.23028 # Cleanup Monemvasia if Hellenism rule is off (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.24120 # Setup Princely Elector Titles (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
+		#HFP.24120 # Setup Princely Elector Titles (Holy Fury realm event left out by decision (phase 8 part 4, CLEANSLATE_PLAN.md))
 		HFP.11051 # Hidden event to give commanders (who do not have it already) the commander bonus
 	}
 }

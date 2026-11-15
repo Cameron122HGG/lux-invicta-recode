@@ -1,0 +1,14 @@
+# LI: from CK2Plus AIO, needed by the warrior lodge files (phase 8 part 5).
+
+celtic_battle_cry = {
+	icon = 25
+
+	command_modifier = {
+		speed = 0.1
+		religious_enemy = 0.1
+	}
+}
+
+do_not_disturb = {
+	icon = 1
+}

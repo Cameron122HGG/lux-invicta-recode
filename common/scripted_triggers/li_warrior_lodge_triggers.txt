@@ -1,0 +1,264 @@
+# LI: which Lux Invicta faiths belong to each Holy Fury warrior lodge (phase 8 part 5, CLEANSLATE_PLAN.md).
+# The lodge files use these instead of religion_openly_<x>_or_reformed_trigger, which other content uses for
+# faith families and which still lists vanilla faiths for Zun/Bon/Hellenic. Mapping decided with the user 2026-11-15.
+
+li_lodge_norse_trigger = { # Wolf Warriors: LI's Norse list (religion_openly_norse_or_reformed_trigger) + the Germanic faiths
+	custom_tooltip = {
+		text = li_lodge_norse_tt
+		hidden_trigger = {
+			OR = {
+				religion = norse_pagan
+				religion = norse_war
+				religion = nott
+				religion = ragnarok
+				religion = sowilo
+				religion = sol_norse
+				religion = norse_christ
+				religion = norse_pagan_reformed
+				religion = ragnarok_reformed
+				religion = norse_christ_reformed
+				religion = allfather
+				religion = german_pagan
+				religion = irminsul
+				religion = teiwaz
+				religion = german_pagan_reformed
+				religion = teiwaz_reformed
+			}
+		}
+	}
+}
+
+li_lodge_tengri_trigger = { # Eagle Warriors: LI's Tengri list
+	custom_tooltip = {
+		text = li_lodge_tengri_tt
+		hidden_trigger = {
+			OR = {
+				religion = tengri_pagan
+				religion = erlik
+				religion = tengri_ahriman
+				religion = tengri_bud
+				religion = tengri_confucian
+				religion = tengri_mani
+				religion = tengri_rod
+				religion = vattisenyaly
+				religion = tengri_pagan_reformed
+				religion = erlik_reformed
+				religion = tengri_bud_reformed
+				religion = tengri_confucian_reformed
+				religion = tengri_mani_reformed
+				religion = tengri_rod_reformed
+				religion = vattisenyaly_reformed
+			}
+		}
+	}
+}
+
+li_lodge_baltic_trigger = { # Band of Medeina: the Baltic group (LI's list + Saulic)
+	custom_tooltip = {
+		text = li_lodge_baltic_tt
+		hidden_trigger = {
+			OR = {
+				religion = dievas
+				religion = peckols
+				religion = perkunas
+				religion = saule
+				religion = baltic_pagan_reformed
+			}
+		}
+	}
+}
+
+li_lodge_finnish_trigger = { # Followers of Otso: the Finnic group + Ukpirniq (as for the saints, part 2)
+	custom_tooltip = {
+		text = li_lodge_finnish_tt
+		hidden_trigger = {
+			OR = {
+				religion = finnish_pagan
+				religion = ilmatar
+				religion = jumala
+				religion = chumbylat
+				religion = voipel
+				religion = finnish_pagan_reformed
+				religion = chumbylat_reformed
+				religion = voipel_reformed
+				religion = inuit_pagan
+				religion = inuit_pagan_reformed
+			}
+		}
+	}
+}
+
+li_lodge_slavic_trigger = { # Champions of Perun: the Slavic group
+	custom_tooltip = {
+		text = li_lodge_slavic_tt
+		hidden_trigger = {
+			OR = {
+				religion = slavic_pagan
+				religion = perun
+				religion = veles
+				religion = rod
+				religion = svaroh
+				religion = dazhbog
+				religion = svetovid
+				religion = slavic_pagan_reformed
+			}
+		}
+	}
+}
+
+li_lodge_west_african_trigger = { # Children of the Storm: Serer group, Yoruba and the Bantu faiths (user)
+	custom_tooltip = {
+		text = li_lodge_west_african_tt
+		hidden_trigger = {
+			OR = {
+				religion = mande_pagan
+				religion = nyame
+				religion = anansi
+				religion = yoruba
+				religion = serer_reformed
+				religion = batembuzi
+				religion = imana
+				religion = kintu
+				religion = makonde_pagan
+				religion = nyasaye
+				religion = zande_pagan
+				religion = zulu_pagan
+				religion = bantu_pagan_reformed
+				religion = nyakalagan_reformed
+				religion = zande_pagan_reformed
+				religion = zulu_pagan_reformed
+			}
+		}
+	}
+}
+
+li_lodge_zun_trigger = { # Keepers of the Flame: the desert faiths only (user)
+	custom_tooltip = {
+		text = li_lodge_zun_tt
+		hidden_trigger = {
+			OR = {
+				religion = allat
+				religion = attar
+				religion = hubal
+				religion = maher
+				religion = shams
+				religion = talab
+				religion = almaqah
+				religion = arab_pagan_reformed
+				religion = berber_pagan
+				religion = gurzil
+				religion = amanai
+				religion = berber_pagan_reformed
+				religion = palmyran_pagan
+				religion = aglibol
+				religion = beelshamen
+				religion = hadad
+				religion = kothar
+				religion = malakbel
+				religion = baal_monotheistic_reformed
+			}
+		}
+	}
+}
+
+li_lodge_bon_trigger = { # Sentinels of Light: Bön only (user)
+	custom_tooltip = {
+		text = li_lodge_bon_tt
+		hidden_trigger = {
+			OR = {
+				religion = bon
+				religion = bon_reformed
+			}
+		}
+	}
+}
+
+li_lodge_hellenic_trigger = { # Olympian Champions: Graeco-Roman group, Indo-Hellenic, Luwian and the southern Sol faiths (user)
+	custom_tooltip = {
+		text = li_lodge_hellenic_tt
+		hidden_trigger = {
+			OR = {
+				religion = graeco_roman
+				religion = dionysos
+				religion = cybele
+				religion = graeco_roman_reformed
+				religion = cybele_reformed
+				religion = indohelen
+				religion = indohelen_reformed
+				religion = illuyanka
+				religion = tarhunt
+				religion = illuyanka_reformed
+				religion = tarhunt_reformed
+				religion = sol_boreas
+				religion = sol_islam
+				religion = sol_boreas_reformed
+				religion = sol_islam_reformed
+			}
+		}
+	}
+}
+
+li_lodge_celtic_trigger = { # CK2Plus Celtic lodge (the Fianna): the Celtic group + Celtic Christianity (user)
+	custom_tooltip = {
+		text = li_lodge_celtic_tt
+		hidden_trigger = {
+			OR = {
+				religion = celtic_pagan
+				religion = lugh
+				religion = endovellico
+				religion = celtic_christ
+				religion = celtic_pagan_reformed
+				religion = iberian_pagan_reformed
+				religion = celtic_christ_reformed
+			}
+		}
+	}
+}
+
+li_lodge_egyptian_trigger = { # CK2Plus Egyptian lodge (Champions of the Sun): the Egyptian group (user)
+	custom_tooltip = {
+		text = li_lodge_egyptian_tt
+		hidden_trigger = {
+			OR = {
+				religion = amun
+				religion = aten
+				religion = horus_re
+				religion = isis
+				religion = set
+				religion = amun_reformed
+				religion = aten_reformed
+				religion = isis_reformed
+				religion = set_reformed
+			}
+		}
+	}
+}
+
+li_lodge_any_trigger = { # Any faith with a warrior lodge: what vanilla's religion_group = pagan_group means in the lodge files
+	custom_tooltip = {
+		text = li_lodge_any_tt
+		hidden_trigger = {
+			OR = {
+				li_lodge_norse_trigger = yes
+				li_lodge_tengri_trigger = yes
+				li_lodge_baltic_trigger = yes
+				li_lodge_finnish_trigger = yes
+				li_lodge_slavic_trigger = yes
+				li_lodge_west_african_trigger = yes
+				li_lodge_zun_trigger = yes
+				li_lodge_bon_trigger = yes
+				li_lodge_hellenic_trigger = yes
+				li_lodge_celtic_trigger = yes
+				li_lodge_egyptian_trigger = yes
+			}
+		}
+	}
+}
+
+# CK2Plus AIO trigger the lodge files use; the mod checks the gender rule this way elsewhere (CleanSlate has no "plus" value)
+has_gender_equal_game_rule_trigger = {
+	has_game_rule = {
+		name = gender
+		value = all
+	}
+}

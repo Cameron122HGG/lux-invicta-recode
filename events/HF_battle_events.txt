@@ -614,7 +614,7 @@ character_event = {
 
 				good_soldier_outcome_score = yes
 
-				#character_event = { id = HF.12405 } # BATTLE BARDS: Bonus event for any *battle bard bloodline* # Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md)
+				character_event = { id = HF.12405 } # BATTLE BARDS: Bonus event for any *battle bard bloodline*
 			}
 
 			20 = {

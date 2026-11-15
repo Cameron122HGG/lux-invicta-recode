@@ -1,0 +1,26 @@
+# LI: CK2Plus AIO's training traits for its Celtic and Egyptian warrior lodges (phase 8 part 5, CLEANSLATE_PLAN.md).
+
+celtic_leader = {
+	leader = yes
+	random = no
+
+	command_modifier = {
+		terrain = forest
+		terrain = farmlands
+		terrain = hills
+		terrain = plains
+	}
+}
+
+egyptian_leader = {
+	leader = yes
+	random = no
+
+	command_modifier = {
+		terrain = desert
+		terrain = plains
+		speed = 0.1
+		retreat = 0.1
+		siege = 0.2
+	}
+}
