@@ -225,23 +225,23 @@ defined_text = {
 		localisation_key = string_DE_random_mythological_creature_cyclops
 	}
 	text = {
-		trigger = { culture = norse }
+		trigger = { culture_group = north_germanic } # LI: no norse culture
 		localisation_key = string_DE_random_mythological_creature_sleipnir
 	}
 	text = {
-		trigger = { culture = norse }
+		trigger = { culture_group = north_germanic } # LI: no norse culture
 		localisation_key = string_DE_random_mythological_creature_fenrir
 	}
 	text = {
-		trigger = { culture = norse }
+		trigger = { culture_group = north_germanic } # LI: no norse culture
 		localisation_key = string_DE_random_mythological_creature_jormungandr
 	}
 	text = {
-		trigger = { culture = norse }
+		trigger = { culture_group = north_germanic } # LI: no norse culture
 		localisation_key = string_DE_random_mythological_creature_nidhogg
 	}
 	text = {
-		trigger = { culture = norse }
+		trigger = { culture_group = north_germanic } # LI: no norse culture
 		localisation_key = string_DE_random_mythological_creature_draugr
 	}
 	text = {
