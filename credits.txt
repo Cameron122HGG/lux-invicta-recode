@@ -16,3 +16,16 @@ The community of fans of the mod have time again shown themselves to be true her
 Lux Invicta would be nowhere if the fans did not keep playing the mod, and so we give our thanks to
 you all, and help us keep the darkness at bay by playing this glorious mod which Shaytana so
 gracefully gave us.
+
+Lux Invicta Restored Edition is built on CleanSlate (1.0 beta 7) and uses content from CK2Plus
+(the CK2Plus AIO version), both by the CK2Plus team, used with thanks:
+
+- CleanSlate: the fixed and reorganised base game scripts this edition is rebuilt on
+- CK2Plus: Holy Fury content, monastic orders, plots, the Roman provincia restoration and many
+  updated events and decisions
+
+Lux Invicta also carries content from these mods, used with their creators' permission and with thanks:
+
+- VIET (VIET Events): flavour events, artifacts, deaths, ambitions, nicknames and game rules
+- SELIN: the realm law paths (clerical, martial, messianic, populist, scholarly, statist,
+  traditional and tribal) with their modifiers, traits, decisions and events
