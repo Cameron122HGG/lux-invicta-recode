@@ -2,7 +2,7 @@
 # CRUSADERS
 ########################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 ares_own = {
 	opposites = {
 		mujahid
@@ -51,7 +51,7 @@ ares_own = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 crusader = {
 	opposites = {
 		crusader_king
@@ -226,7 +226,7 @@ eagle_knight = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 gondi_shahansha = {
 	opposites = {
 		mujahid
@@ -391,7 +391,7 @@ kanai = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 mujahid = {
 	opposites = {
 		hetairos
@@ -436,7 +436,7 @@ mujahid = {
 	female_compliment = COMPL_MUJAHID
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 nyames_shield = {
 	opposites = {
 		mujahid
@@ -485,7 +485,7 @@ nyames_shield = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 peruns_chosen = {
 	opposites = {
 		mujahid
@@ -534,7 +534,7 @@ peruns_chosen = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 sun_warrior = {
 	opposites = {
 		mujahid
@@ -659,7 +659,7 @@ ukkos_hammer = {
 	female_compliment_adj = COMPL_RIGHTEOUS
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 valhalla_bound  = {
 	opposites = {
 		crusader

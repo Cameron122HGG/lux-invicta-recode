@@ -1227,7 +1227,7 @@ custom_eastern_access = {
 	}
 }
 
-# LI: Roman provincia regions (tools/phase5b_provincia.py) - begin
+# LI RE: Roman provincia regions (tools/phase5b_provincia.py) - begin
 
 custom_roman_aegyptus = { # d_alexandria d_aswan d_sinai d_damietta d_cairo d_cyrenaica
 	provinces = {
@@ -1374,4 +1374,4 @@ custom_roman_provinces = {
 	}
 }
 
-# LI: Roman provincia regions - end
+# LI RE: Roman provincia regions - end

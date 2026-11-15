@@ -1,4 +1,4 @@
-# LI: which Lux Invicta faiths belong to each Holy Fury warrior lodge (phase 8 part 5, CLEANSLATE_PLAN.md).
+# LI RE: which Lux Invicta faiths belong to each Holy Fury warrior lodge (phase 8 part 5, CLEANSLATE_PLAN.md).
 # The lodge files use these instead of religion_openly_<x>_or_reformed_trigger, which other content uses for
 # faith families and which still lists vanilla faiths for Zun/Bon/Hellenic. Mapping decided with the user 2026-11-15.
 

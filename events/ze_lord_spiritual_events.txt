@@ -10,7 +10,7 @@
 namespace = ZE
 
 # Zealous Lord Spiritual asks to go and proselytize among heathens
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = ZE.5000
 	desc = EVTDESC_ZE_5000
@@ -243,7 +243,7 @@ letter_event = {
 }
 
 # Lord Spiritual on mission turns disloyal and and writes letters home about virtues of enemy religion, converting courtiers...
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = ZE.5020
 	desc = EVTDESC_ZE_5020

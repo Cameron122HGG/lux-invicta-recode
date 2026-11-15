@@ -1,4 +1,4 @@
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 family_pattern_for = {
 	icon = 11
 	pattern_type = for
@@ -100,7 +100,7 @@ family_pattern_for = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 family_pattern_against = {
 	icon = 12
 	pattern_type = against

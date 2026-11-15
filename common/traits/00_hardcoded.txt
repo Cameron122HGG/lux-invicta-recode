@@ -28,7 +28,7 @@ born_in_the_purple = {
 }
 
 # Controls Muslim decadence gain
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 decadent = {
 	customizer = no
 	random = no

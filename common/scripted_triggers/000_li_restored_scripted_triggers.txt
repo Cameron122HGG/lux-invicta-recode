@@ -1,4 +1,4 @@
-# LI: vanilla 3.3.3 scripted triggers that CleanSlate removed (see its master_changelog.txt), restored from master
+# LI RE: vanilla 3.3.3 scripted triggers that CleanSlate removed (see its master_changelog.txt), restored from master
 # because LI text (LI-wins definitions, restored events, li_* files) still calls them. CleanSlate renames applied.
 # 000_ prefix: loads before the files that use them.
 

@@ -455,7 +455,7 @@ character_event = {
 		else_if = {
 			limit = { is_liked_by_China_trigger = yes }
 			custom_tooltip = { text = JD_60002_likes_tt }
-			set_character_flag = chinese_envoy_trade_like # LI: was set_character-flag (typo in CleanSlate/vanilla), so the flag was never set
+			set_character_flag = chinese_envoy_trade_like # LI RE: was set_character-flag (typo in CleanSlate/vanilla), so the flag was never set
 		}
 
 		hidden_effect = {
@@ -2085,7 +2085,7 @@ character_event = { # Progress event type 4!  # stay up all night or not
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { #Outcome: Book is finished! It went Great/Good/Decent!
     id = JD.10070    
     title = EVTTITLE_JD_10070

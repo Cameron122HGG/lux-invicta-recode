@@ -17,7 +17,7 @@ def dec(key, potential, effect, allow='', name='', desc=''):
     loc.append(f'{key};DEBUG: {name};;;;;;;;;;;;;x'); loc.append(f'{key}_desc;{desc};;;;;;;;;;;;;x')
     return (f'\t{key} = {{\n\t\tai = no\n\n\t\tpotential = {{\n\t\t\tai = no\n{potential}\t\t}}\n\n\t\tallow = {{\n{allow}\t\t}}\n\n'
             f'\t\teffect = {{\n{effect}\t\t}}\n\n\t\tai_will_do = {{\n\t\t\tfactor = 0\n\t\t}}\n\t}}')
-loc = ['#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x', '# LI: test decisions (tools/make_debug_decisions.py) - delete with decisions/zz_li_debug_decisions.txt']
+loc = ['#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x', '# LI RE: test decisions (tools/make_debug_decisions.py) - delete with decisions/zz_li_debug_decisions.txt']
 D = []
 # ---- switches
 D.append(dec('li_debug_mode_on', '\t\t\tNOT = { has_global_flag = li_debug_mode }\n', '\t\t\tset_global_flag = li_debug_mode\n',
@@ -80,7 +80,7 @@ for p in P:
                  f'\t\t\t\tsave_event_target_as = li_new_provincia\n{move}\t\t\t}}\n\t\t\tnarrative_event = {{ id = LIprov.2 }}\n',
                  name=f'Restore Provincia {NAMES.get(p, p)} now',
                  desc=f'Activates k_provincia_{p} and moves its {len(MAP[p])} duchies under it de jure, without the control requirements.'))
-out = {'decisions/zz_li_debug_decisions.txt': '# LI: TEST DECISIONS (tools/make_debug_decisions.py). Delete this file and localisation/000_li_debug_decisions.csv to remove them.\n\ndecisions = {\n' + '\n\n'.join(D) + '\n}\n',
+out = {'decisions/zz_li_debug_decisions.txt': '# LI RE: TEST DECISIONS (tools/make_debug_decisions.py). Delete this file and localisation/000_li_debug_decisions.csv to remove them.\n\ndecisions = {\n' + '\n\n'.join(D) + '\n}\n',
        'localisation/000_li_debug_decisions.csv': '\n'.join(loc) + '\n'}
 for k, v in out.items(): print(k, v.count('\n'), 'lines')
 print(len(D), 'decisions')

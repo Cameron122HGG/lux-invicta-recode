@@ -1,4 +1,4 @@
-# LI: TEST DECISIONS (tools/make_debug_decisions.py). Delete this file and localisation/000_li_debug_decisions.csv to remove them.
+# LI RE: TEST DECISIONS (tools/make_debug_decisions.py). Delete this file and localisation/000_li_debug_decisions.csv to remove them.
 
 decisions = {
 	li_debug_mode_on = {

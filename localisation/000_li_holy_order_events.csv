@@ -1,5 +1,5 @@
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-# LI: phase 8 part 4 step B (CLEANSLATE_PLAN.md): the island request names the faith's own holy order.
+# LI RE: phase 8 part 4 step B (CLEANSLATE_PLAN.md): the island request names the faith's own holy order.
 EVTDESC_HFP_44001;My dear [Root.GetTitledName]\nOur order has long sought a stronghold that is easily defended, from where we can shield all [Root.Religion.GetName] souls. We think your newfound lands in [potential_title.GetBaseName] might be the perfect place, and we would pay you well for your troubles.\n\nSigned,\n[holy_order_target.GetTitledName];;;;;;;;;;;;;x
 EVTOPTA_HFP_44001;Whatever the [holy_order_target.PrimaryTitle.GetName] wants, I offer.;;;;;;;;;;;;;x
 EVTOPTA_HFP_44001_TT;§Y[potential_title.GetBaseName]§! is given to §Y[holy_order_target.GetTitledName]§!;;;;;;;;;;;;;x

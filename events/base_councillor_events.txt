@@ -1,4 +1,4 @@
-# LI: CleanSlate councillor events restored 2026-11-14. Step A had removed them as "LI never had it", but they are
+# LI RE: CleanSlate councillor events restored 2026-11-14. Step A had removed them as "LI never had it", but they are
 # CleanSlate's renumbered versions of the vanilla Charlemagne councillor events LI had (108000-108020; same EVTDESC_108xxx text),
 # and councillor_decisions.txt calls them.
 namespace = CK2

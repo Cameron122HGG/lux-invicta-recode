@@ -1,7 +1,7 @@
-# LI: CK2Plus AIO Roman provincia restoration on LI's map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json
+# LI RE: CK2Plus AIO Roman provincia restoration on LI's map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json
 
 decisions = {
-	restore_roman_imperium = { # LI: Byzantium and S.P.Q.R. start on their regular government and claim the Roman imperial one here (user, 2026-11-15)
+	restore_roman_imperium = { # LI RE: Byzantium and S.P.Q.R. start on their regular government and claim the Roman imperial one here (user, 2026-11-15)
 		only_independent = yes
 		is_high_prio = yes
 
@@ -53,7 +53,7 @@ decisions = {
 
 		potential = {
 			real_tier = EMPEROR
-			# has_dlc = "Legacy of Rome" # LI: dropped (nothing here needs the DLC)
+			# has_dlc = "Legacy of Rome" # LI RE: dropped (nothing here needs the DLC)
 			completely_controls = d_thrace
 
 			NOR = {
@@ -70,7 +70,7 @@ decisions = {
 		}
 
 		allow = {
-			government = roman_imperial_government # LI: AIO checked CK2Plus's imperial governments
+			government = roman_imperial_government # LI RE: AIO checked CK2Plus's imperial governments
 			realm_size >= 200
 			prestige >= 1500
 			NOT = { trait = uncrowned }
@@ -86,7 +86,7 @@ decisions = {
 
 		potential = {
 			real_tier = EMPEROR
-			# has_dlc = "Legacy of Rome" # LI: dropped (nothing here needs the DLC)
+			# has_dlc = "Legacy of Rome" # LI RE: dropped (nothing here needs the DLC)
 			completely_controls = d_latium
 
 			NOR = {
@@ -103,7 +103,7 @@ decisions = {
 		}
 
 		allow = {
-			government = roman_imperial_government # LI: AIO checked CK2Plus's imperial governments
+			government = roman_imperial_government # LI RE: AIO checked CK2Plus's imperial governments
 			realm_size >= 200
 			prestige >= 1500
 			NOT = { trait = uncrowned }
@@ -128,7 +128,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -187,7 +187,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -246,7 +246,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -255,14 +255,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_aegyptus
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -326,7 +326,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -335,14 +335,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_africa
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -400,7 +400,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -409,14 +409,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_armenia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -480,7 +480,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -489,14 +489,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_britannia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -580,7 +580,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -589,14 +589,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_caledonia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -662,7 +662,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -671,14 +671,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_gallia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -764,7 +764,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -773,14 +773,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_germania
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -868,7 +868,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -877,14 +877,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_hibernia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -950,7 +950,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -959,14 +959,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_hispania
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1054,7 +1054,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1063,14 +1063,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_illyricum
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1136,7 +1136,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1145,14 +1145,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_italia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1242,7 +1242,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1251,14 +1251,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_macedonia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1326,7 +1326,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1335,14 +1335,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_mauretania
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1406,7 +1406,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1415,14 +1415,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_mesopotamia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1488,7 +1488,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1497,14 +1497,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_pannonia_dacia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1574,7 +1574,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1583,14 +1583,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_phrygia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1652,7 +1652,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1661,14 +1661,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_pontus
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1730,7 +1730,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1739,14 +1739,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_syria_palaestina
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1820,7 +1820,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1829,14 +1829,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_thracia
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {
@@ -1898,7 +1898,7 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
-						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them
 						AND = {
 							OR = { title = e_byzantium title = e_roman }
 							holder_scope = { government = roman_imperial_government }
@@ -1907,14 +1907,14 @@ decisions = {
 				}
 			}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = { # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = { # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_viennensis
 			}
 
-			any_realm_province = { # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = { # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {

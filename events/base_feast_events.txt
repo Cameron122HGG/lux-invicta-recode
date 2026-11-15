@@ -805,7 +805,7 @@ character_event = {
 }
 
 # Hunt for boars for winter feast
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 72008
 	desc = EVTDESC72008
@@ -3634,7 +3634,7 @@ character_event = {
 }
 
 # Guest kills Host's servant: Imprison?
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 72056
 	desc = EVTDESC72056
@@ -5287,7 +5287,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 72114 restored 2026-11-14 (step A had left it out; it fires LI's 72112, 72112)
+# LI RE: CleanSlate router 72114 restored 2026-11-14 (step A had left it out; it fires LI's 72112, 72112)
 character_event = {
 	id = 72114
 
@@ -5526,7 +5526,7 @@ character_event = {
 
 ### Poison rival during liege's feast ###
 # CleanSlate: Moved here from base_friends_rivals_events.txt. No longer fires on_yearly_pulse
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100520
 	desc = EVTDESC100520

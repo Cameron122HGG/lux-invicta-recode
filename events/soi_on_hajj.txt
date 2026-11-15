@@ -1352,7 +1352,7 @@ character_event = {
 ### Closer to Mecca
 
 # Oasis
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 86825
 	desc = EVTDESC86825
@@ -1469,7 +1469,7 @@ character_event = {
 }
 
 # Camels
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 86835
 	desc = EVTDESC86835

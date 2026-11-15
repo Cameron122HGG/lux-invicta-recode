@@ -13,7 +13,7 @@ namespace = SoA
 ### Borrowing from holy orders
 
 # The Grand Master demands one of your sons due to debt
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = SoA.1003
 	desc = {
@@ -201,7 +201,7 @@ letter_event = {
 }
 
 # The Grand Master demands the right to build a castle in your demesne
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.1020
 	
@@ -359,7 +359,7 @@ letter_event = {
 ### Expelling holy orders
 
 # Expelling a Holy Order confirmation event
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.2990
 	border = "GFX_event_normal_frame_religion"
@@ -3315,7 +3315,7 @@ letter_event = {
 ### Random holy order events
 
 # The son of a ruler volunteers to join a holy order
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.1030
 	hide_window = yes
@@ -3442,7 +3442,7 @@ character_event = {
 }
 
 # Son or brother asks to join a holy order
-# LI: Lux Invicta's SoA.1031-1033 chain + SoA.2864 (from master), not CleanSlate's SoA.1031 (which merged 1032/1033 and needs
+# LI RE: Lux Invicta's SoA.1031-1033 chain + SoA.2864 (from master), not CleanSlate's SoA.1031 (which merged 1032/1033 and needs
 # event targets set by CleanSlate's own SoA.1030; LI's SoA.1030 above does not set them). CleanSlate renames applied.
 character_event = {
 	id = SoA.1031
@@ -3492,7 +3492,7 @@ character_event = {
 	}
 }
 
-# LI: SoA.1032 saved "holy_order" for every religion but zurvanism_reformed, while SoA.2864 reads "order_target",
+# LI RE: SoA.1032 saved "holy_order" for every religion but zurvanism_reformed, while SoA.2864 reads "order_target",
 # so new members were never moved to their order (original LI bug); all saves are now "order_target".
 character_event = {
 	id = SoA.1032
@@ -4643,7 +4643,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = SoA.1053
 	desc = {

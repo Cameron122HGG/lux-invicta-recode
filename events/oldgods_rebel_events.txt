@@ -21,7 +21,7 @@ province_event = {
 
 	is_triggered_only = yes # on_rebel_revolt via TOG.999; MNM.20017, mnm_devil_worshipers_events.txt
 
-	trigger = { # LI: LI fires TOG.1000 from luxrevolt.1 (and MNM.20017), not via CleanSlate's TOG.999, so TOG.999's holding
+	trigger = { # LI RE: LI fires TOG.1000 from luxrevolt.1 (and MNM.20017), not via CleanSlate's TOG.999, so TOG.999's holding
 		# check is restored here: no peasant revolt where there are only nomad holdings (as in vanilla and CleanSlate)
 		OR = {
 			has_castle = yes
@@ -187,7 +187,7 @@ character_event = {
 }
 
 # Peasant Rebels rise up to reinforce an ongoing provincial peasant revolt
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = TOG.1010
 	desc = EVTDESC_TOG_1010
@@ -281,7 +281,7 @@ character_event = {
 }
 
 # Heretic Rebels rise up (temporary rebel title created, with a leader and a war)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = TOG.1020
 	desc = EVTDESC_TOG_1020
@@ -461,7 +461,7 @@ character_event = {
 }
 
 # Heretic Rebels rise up to reinforce an ongoing heretic uprising
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = TOG.1030
 	desc = EVTDESC_TOG_1030
@@ -1054,7 +1054,7 @@ character_event = {
 
 # Religious Rebels rise up to reinforce an ongoing religious uprising
 # Triggered from "on_rebel_revolt"
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = TOG.1070
 	desc = EVTDESC_TOG_1070

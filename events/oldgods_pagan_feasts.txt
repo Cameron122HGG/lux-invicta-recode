@@ -44,7 +44,7 @@ character_event = {
 }
 
 # Invitations Received (Vassals)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.701
 	desc = EVTDESC_TOG_701
@@ -1309,7 +1309,7 @@ character_event = {
 }
 
 # Invitations Received (Vassals)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.751
 	desc = EVTDESC_TOG_751
@@ -2569,7 +2569,7 @@ character_event = {
 }
 
 # Invitations Received (Vassals)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.801
 	desc = EVTDESC_TOG_801
@@ -2631,7 +2631,7 @@ character_event = {
 }
 
 # Celebration Begins (Liege)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.803
 	desc = EVTDESC_TOG_803

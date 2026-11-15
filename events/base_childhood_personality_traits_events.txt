@@ -159,7 +159,7 @@ character_event = {
 
 # Event ID 2000-2009 is reserved for Gluttonous events #
 # Fosterling gains trait Gluttonous
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2000
 	desc = EVTDESC2000
@@ -502,7 +502,7 @@ character_event = {
 
 # Event ID 2010-2019 is reserved for Temperate events
 # Fosterling is Temperate
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2010
 	desc = EVTDESC2010
@@ -836,7 +836,7 @@ character_event = {
 
 # Event ID 2020-2029 is reserved for Greedy events #
 # Fosterling is Greedy
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2020
 	desc = EVTDESC2020
@@ -1161,7 +1161,7 @@ character_event = {
 
 # Event ID 2030-2039 is reserved for Charitable events #
 # Fosterling is Charitable
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2030
 	desc = EVTDESC2030
@@ -1499,7 +1499,7 @@ character_event = {
 
 # Event ID 2040-2049 is reserved for Slothful events #
 # Fosterling is slothful
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2040
 	desc = EVTDESC2040
@@ -1830,7 +1830,7 @@ character_event = {
 
 # Event ID 2050-2059 is reserved for Diligent events #
 # Fosterling is Diligent
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2050
 	desc = EVTDESC2050
@@ -2196,7 +2196,7 @@ character_event = {
 
 # Event ID 2060-2069 is reserved for Envious events #
 # Fosterling is Envious
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2060
 	desc = EVTDESC2060
@@ -2554,7 +2554,7 @@ character_event = {
 
 # Event ID 2070-2079 is reserved for Kind events #
 # Fosterling is Kind
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2070
 	desc = EVTDESC2070
@@ -2878,7 +2878,7 @@ character_event = {
 
 # Event ID 2080-2089 is reserved for Wroth events #
 # Fosterling is Wroth
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2080
 	desc = EVTDESC2080
@@ -3197,7 +3197,7 @@ character_event = {
 
 # Event ID 2090-2099 is reserved for Patient events #
 # Fosterling is Patient
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2090
 	desc = EVTDESC2090
@@ -3523,7 +3523,7 @@ character_event = {
 
 # Event ID 2100-2109 is reserved for Proud events #
 # Fosterling is Proud
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2100
 	desc = EVTDESC2100
@@ -3842,7 +3842,7 @@ character_event = {
 
 # Event ID 2110-2119 is reserved for Humble events #
 # Fosterling is Humble
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2110
 	desc = EVTDESC2110
@@ -4132,7 +4132,7 @@ character_event = {
 ### Event ID 2120-2129 is reserved for Deceitful events ###
 
 # Fosterling is Deceitful
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2120
 	desc = EVTDESC2120
@@ -5610,7 +5610,7 @@ character_event = {
 
 # Event ID 2170-2179 is reserved for Shy events #
 # Fosterling is Shy
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2170
 	desc = EVTDESC2170
@@ -5937,7 +5937,7 @@ character_event = {
 
 # Event ID 2180-2189 is reserved for Gregarious events #
 # Fosterling is Gregarious
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 2180
 	desc = EVTDESC2180
@@ -7256,7 +7256,7 @@ character_event = {
 }
 
 # Fosterling gains trait Cruel
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 2465
 	desc = EVTDESC2465
@@ -13443,7 +13443,7 @@ character_event = {
 }
 
 # Female Child is playing with swords instead of sewing
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 1921
 	desc = "EVTDESC1921"
@@ -16372,7 +16372,7 @@ character_event = {
 }
 
 # Ward is Ill
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 38233
 	desc = EVTDESC38233

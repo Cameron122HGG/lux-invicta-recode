@@ -8,7 +8,7 @@
 # Written by Johan Andersson
 
 # A famous writer proposes to compose your family chronicles
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73000
 	desc = EVTDESC73000
@@ -185,7 +185,7 @@ character_event = {
 }
 
 # Your young wife takes a passion for romantic poetry. She keeps reading any sort of romantic poetry she can get hold of.
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73001
 	desc = EVTDESC73001
@@ -386,7 +386,7 @@ character_event = {
 }
 
 # The Peasants wants to organise a great carnival and ask for your funding
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73003
 	desc = EVTDESC73003
@@ -444,7 +444,7 @@ character_event = {
 }
 
 ## A talented artist proposes to paint a portrait of your father
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73004
 	desc = EVTDESC73004
@@ -504,7 +504,7 @@ character_event = {
 }
 
 # Luxury clothes are trendy at the moment. What about keeping your courtiers busy by changing the fashion at court?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73005
 	desc = EVTDESC73005
@@ -684,7 +684,7 @@ character_event = {
 }
 
 # Your son has got a servant maid pregnant
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73006
 	desc = EVTDESC73006
@@ -818,7 +818,7 @@ character_event = {
 }
 
 ### Bored wife: Your wife wants latest fashion fad.... ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 73007
 	desc = EVTDESC73007
@@ -943,7 +943,7 @@ character_event = {
 }
 
 # A famous herald proposed his service
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73008
 	desc = EVTDESC73008
@@ -1172,7 +1172,7 @@ character_event = {
 }
 
 # I've been readin 'Ars Moriendi', and it claims that death is not something to be afraid of.
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73010
 	desc = EVTDESC73010
@@ -1417,7 +1417,7 @@ character_event = {
 #####################################
 
 
-# LI: CleanSlate router 73199 restored 2026-11-14 (step A had left it out; it fires LI's 73200)
+# LI RE: CleanSlate router 73199 restored 2026-11-14 (step A had left it out; it fires LI's 73200)
 # Marshal - Setup
 character_event = {
 	id = 73199
@@ -1712,7 +1712,7 @@ letter_event = {
 }
 
 
-# LI: CleanSlate router 73209 restored 2026-11-14 (step A had left it out; it fires LI's 73210)
+# LI RE: CleanSlate router 73209 restored 2026-11-14 (step A had left it out; it fires LI's 73210)
 # Spymaster - Setup
 character_event = {
 	id = 73209
@@ -2006,7 +2006,7 @@ letter_event = {
 }
 
 
-# LI: CleanSlate router 73219 restored 2026-11-14 (step A had left it out; it fires LI's 73220)
+# LI RE: CleanSlate router 73219 restored 2026-11-14 (step A had left it out; it fires LI's 73220)
 # Treasurer - Setup
 character_event = {
 	id = 73219
@@ -2293,7 +2293,7 @@ letter_event = {
 }
 
 
-# LI: CleanSlate router 73229 restored 2026-11-14 (step A had left it out; it fires LI's 73230)
+# LI RE: CleanSlate router 73229 restored 2026-11-14 (step A had left it out; it fires LI's 73230)
 # Lord Spiritual - Setup
 character_event = {
 	id = 73229
@@ -2361,7 +2361,7 @@ character_event = {
 }
 
 ### Lord Spiritual ###
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 73230
 	desc = EVTDESC73230	#I want to be lord_spiritual, I am better...
@@ -2646,7 +2646,7 @@ letter_event = {
 }
 
 
-# LI: CleanSlate router 73239 restored 2026-11-14 (step A had left it out; it fires LI's 73240)
+# LI RE: CleanSlate router 73239 restored 2026-11-14 (step A had left it out; it fires LI's 73240)
 # Chancellor - Setup
 character_event = {
 	id = 73239

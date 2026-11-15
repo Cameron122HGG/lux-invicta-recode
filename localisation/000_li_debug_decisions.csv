@@ -1,5 +1,5 @@
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-# LI: test decisions (tools/make_debug_decisions.py) - delete with decisions/zz_li_debug_decisions.txt
+# LI RE: test decisions (tools/make_debug_decisions.py) - delete with decisions/zz_li_debug_decisions.txt
 li_debug_mode_on;DEBUG: LI test mode: on;;;;;;;;;;;;;x
 li_debug_mode_on_desc;Shows the LI test decisions (resources, Roman tests). They have no AI and do nothing until taken.;;;;;;;;;;;;;x
 li_debug_mode_off;DEBUG: LI test mode: off;;;;;;;;;;;;;x

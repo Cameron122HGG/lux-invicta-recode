@@ -1,6 +1,6 @@
 """Phase 8 (Holy Fury integration), one part at a time: bring in CK2Plus AIO's version of whole Holy Fury event
 files. usage: python -I phase8_hf.py <repo> <aio> <ids_out.txt> <file.txt> [<file.txt> ...] [--apply]
-1. each listed events/ file becomes AIO's version (with an LI header); refuses files carrying "# LI:" changes
+1. each listed events/ file becomes AIO's version (with an LI header); refuses files carrying "# LI RE:" changes
 2. step A's switched-off call sites / on_action entries for the restored events get AIO's line back
    (CleanSlate's if AIO lacks the file or line)
 3. writes <ids_out.txt>: events the new files call that the mod still lacks (switch them off with
@@ -31,9 +31,9 @@ new = {}; restored = set()
 for f in FILES:
     a = os.path.join(AIO, 'events', f); m = os.path.join(REPO, 'events', f)
     assert os.path.exists(a), 'AIO lacks ' + f
-    if os.path.exists(m) and '# LI:' in rd(m): sys.exit('refusing: ' + f + ' carries LI changes')
+    if os.path.exists(m) and '# LI RE:' in rd(m): sys.exit('refusing: ' + f + ' carries LI changes')
     t = rd(a).replace('\r\n', '\n')
-    hdr = '# LI: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).\n'
+    hdr = '# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).\n'
     new[f] = hdr + t; restored |= ids_in(t)
 mod_ids = set()
 for p in glob.glob(os.path.join(REPO, 'events', '*.txt')):

@@ -91,9 +91,9 @@ change_council_job_potential_trigger = {
 }
 
 # THIS is potential councillor
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_chancellor_trigger = {
-	independent = no # LI: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
+	independent = no # LI RE: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
 	OR = {
 		AND = {
 			OR = {
@@ -166,9 +166,9 @@ can_be_chancellor_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_marshal_trigger = {
-	independent = no # LI: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
+	independent = no # LI RE: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
 	OR = {
 		AND = {
 			OR = {
@@ -244,9 +244,9 @@ can_be_marshal_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_treasurer_trigger = {
-	independent = no # LI: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
+	independent = no # LI RE: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
 	OR = {
 		AND = {
 			OR = {
@@ -320,9 +320,9 @@ can_be_treasurer_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_spymaster_trigger = {
-	independent = no # LI: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
+	independent = no # LI RE: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
 	OR = {
 		AND = {
 			OR = {
@@ -414,7 +414,7 @@ can_be_spymaster_trigger = {
 }
 
 can_be_spiritual_trigger = {
-	independent = no # LI: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
+	independent = no # LI RE: checked first so characters without a liege fail before the liege checks below (same result, no "Invalid scope")
 	religion = liege
 	prisoner = no
 	is_incapable = no
@@ -498,7 +498,7 @@ can_be_spiritual_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_councilmember_king_trigger = {
 	independent = no
 	prisoner = no
@@ -555,7 +555,7 @@ can_be_councilmember_king_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_councilmember_emperor_trigger = {
 	independent = no
 	prisoner = no
@@ -717,7 +717,7 @@ can_still_be_commander_byzantine_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_still_be_marshal_byzantine_trigger = {
 	liege = { 
 		character = FROMFROM

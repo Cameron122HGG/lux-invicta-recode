@@ -117,7 +117,7 @@ could_be_temporal_religious_head_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_minor_deity_trigger = {
 	OR = {
 		has_character_modifier = follower_of_perun
@@ -174,25 +174,25 @@ is_norse_secret_religious_society_member_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_slavic_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
 	secret_religion_group = slavic_group
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_tengri_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
 	secret_religion_group = tengri_group
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_baltic_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
 	secret_religion_group = baltic_group
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_finnish_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
 	secret_religion_group = finnish_group
@@ -216,7 +216,7 @@ is_zun_secret_religious_society_member_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_aztec_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
 	secret_religion_group = aztec_group
@@ -240,7 +240,7 @@ is_taoist_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_society_taoist
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_sympathy_for_true_religion_of_prev_trigger = { 
 	 OR = {
 		 AND = {
@@ -386,7 +386,7 @@ has_sympathy_for_true_religion_of_prev_trigger = {
 	 }
  }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_sympathy_for_true_religion_of_root_trigger = { 
 	 OR = {
 		 AND = {
@@ -640,7 +640,7 @@ has_sympathy_for_public_religion_of_from_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_in_prevs_interesting_society_trigger = {
 	OR = {
 		AND = {
@@ -884,7 +884,7 @@ is_in_prevs_interesting_society_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_norse_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_norse_or_reformed_tooltip
@@ -905,7 +905,7 @@ religion_openly_norse_or_reformed_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_baltic_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_baltic_or_reformed_tooltip
@@ -920,7 +920,7 @@ religion_openly_baltic_or_reformed_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_finnish_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_finnish_or_reformed_tooltip
@@ -939,7 +939,7 @@ religion_openly_finnish_or_reformed_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_slavic_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_slavic_or_reformed_tooltip
@@ -958,7 +958,7 @@ religion_openly_slavic_or_reformed_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_tengri_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_tengri_or_reformed_tooltip
@@ -984,7 +984,7 @@ religion_openly_tengri_or_reformed_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_openly_west_african_or_reformed_trigger = {
 	custom_tooltip = {
 		text = religion_openly_west_african_or_reformed_tooltip
@@ -1044,7 +1044,7 @@ religion_openly_aztec_or_reformed_trigger = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 has_dharmic_religion_trigger = {
 	OR = {
 		religion = hindu

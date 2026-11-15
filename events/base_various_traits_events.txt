@@ -349,7 +349,7 @@ character_event = {
 
 ### Stressed: Learning ###
 # CleanSlate: Merged with event 65166
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 65009
 	desc = EVTDESC65009
@@ -855,7 +855,7 @@ character_event = {
 }
 
 # Craven courtier is frightened by ruler
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 65023
 	desc = EVTDESC65023
@@ -1844,7 +1844,7 @@ character_event = {
 }
 
 # I want to stop drinking
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 65049
 	desc = EVTDESC65049
@@ -1916,7 +1916,7 @@ character_event = {
 }
 
 # Drink myself to an early grave
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 65050
 	desc = EVTDESC65050
@@ -2616,7 +2616,7 @@ character_event = {
 }
 
 # Dwarf: Tossing!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 65065
 	desc = EVTDESC65065
@@ -2702,7 +2702,7 @@ character_event = {
 }
 
 # Dwarf: is tossed by FROM
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 65066
 	desc = EVTDESC65066
@@ -3981,7 +3981,7 @@ character_event = {
 }
 
 # Imbecile: Forgot pants
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 65126
 	desc = EVTDESC65126

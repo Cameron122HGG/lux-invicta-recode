@@ -5,7 +5,7 @@
 # parent_for_elective_succession_trigger
 
 # Not really about culture - Used in AI voting logic
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 this_is_warrior_culture_trigger = { #Not really about culture - Used in AI voting logic.
 	NOT = { pacifist = yes }
 	OR = { 
@@ -20,7 +20,7 @@ this_is_warrior_culture_trigger = { #Not really about culture - Used in AI votin
 }
 
 # Not really about culture - Used in AI voting logic
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 this_is_diplomatic_culture_trigger = { #Not really about culture - Used in AI voting logic.
 	OR = {
 		is_feudal = yes
@@ -37,7 +37,7 @@ this_is_diplomatic_culture_trigger = { #Not really about culture - Used in AI vo
 }
 
 # Not really about culture - Used in AI voting logic
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 this_is_spiritual_culture_trigger = { #Not really about culture - Used in AI voting logic.
 	OR = { 
 		religion_group = indian_group

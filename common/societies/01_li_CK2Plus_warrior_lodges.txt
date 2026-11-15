@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO's Celtic and Egyptian warrior lodges (from its 01_CK2Plus_societies.txt; phase 8 part 5, CLEANSLATE_PLAN.md).
+# LI RE: CK2Plus AIO's Celtic and Egyptian warrior lodges (from its 01_CK2Plus_societies.txt; phase 8 part 5, CLEANSLATE_PLAN.md).
 
 warrior_lodge_celtic = {
 	primary_attribute = martial
@@ -493,7 +493,7 @@ warrior_lodge_egyptian = {
 	opinion_per_rank_above = +5
 	sound = warrior_lodge_ambient_01
 	society_ranks_gfx = warriors_ranks
-	associated_religion = amun # LI: was egyptian_pagan
+	associated_religion = amun # LI RE: was egyptian_pagan
 
 	indestructible = yes
 	society_influence = no

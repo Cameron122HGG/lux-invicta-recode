@@ -1,4 +1,4 @@
-# LI: secretly_cathar/druze/hurufi/ibadi/iconoclast/kharijite removed from the opposites lists below (2026-11-14):
+# LI RE: secretly_cathar/druze/hurufi/ibadi/iconoclast/kharijite removed from the opposites lists below (2026-11-14):
 # they were vanilla's old secret-religion traits, which CleanSlate deleted as obsolete, so they no longer exist.
 # Lux Invicta definitions extracted from master:common/traits/02_traits.txt (phase 2 of CLEANSLATE_PLAN.md).
 # Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.

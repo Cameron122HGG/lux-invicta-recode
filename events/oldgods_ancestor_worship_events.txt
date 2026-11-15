@@ -12,7 +12,7 @@ namespace = TOG
 ###ANCESTOR WORSHIP DECISION EVENTS###
 
 # Make a request
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7000
 	desc = EVTDESC_TOG_7000
@@ -1562,7 +1562,7 @@ character_event = {
 # WAR
 
 # Brilliant commander appears
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7030
 	desc = EVTDESC_TOG_7030
@@ -2075,7 +2075,7 @@ character_event = {
 ### MAIN DEITY EVENTS ###
 
 # Main deity event sender
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7100
 
@@ -2544,7 +2544,7 @@ character_event = {
 }
 
 # Remove main deity in case of religious conversion
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7101
 
@@ -2795,7 +2795,7 @@ character_event = {
 }
 
 # Selecting deity, West African
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7200
 	desc = EVTDESC_TOG_7200
@@ -3487,7 +3487,7 @@ character_event = {
 # Events which trigger depending on your main deity
 
 # +1 Diplomacy
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7500
 	border = GFX_event_normal_frame_diplomacy
@@ -3521,7 +3521,7 @@ character_event = {
 }
 
 # +1 Martial
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7501
 	border = GFX_event_normal_frame_war
@@ -3560,7 +3560,7 @@ character_event = {
 }
 
 # +1 Stewardship
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7502
 	border = GFX_event_normal_frame_economy
@@ -3632,7 +3632,7 @@ character_event = {
 }
 
 # +1 Learning
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7504
 	border = GFX_event_normal_frame_religion
@@ -3659,7 +3659,7 @@ character_event = {
 }
 
 # Friendship over same diety
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7506
 	border = GFX_event_normal_frame_diplomacy
@@ -3765,7 +3765,7 @@ character_event = {
 }
 
 # Thunder
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7508
 	border = GFX_event_normal_frame_diplomacy
@@ -3985,7 +3985,7 @@ character_event = {
 }
 
 # Family is doing well
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7512
 	border = GFX_event_normal_frame_diplomacy
@@ -4530,7 +4530,7 @@ character_event = {
 }
 
 # 16 Martial, increased levy
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7516
 	border = GFX_event_normal_frame_war
@@ -4597,7 +4597,7 @@ character_event = {
 }
 
 # 18 diplomacy, vassal boost
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7518
 	border = GFX_event_normal_frame_diplomacy
@@ -4657,7 +4657,7 @@ character_event = {
 }
 
 # 20 Stewardship, tax or prosperity
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7520
 	border = GFX_event_normal_frame_economy
@@ -4849,7 +4849,7 @@ character_event = {
 }
 
 # 24 Learning, tech bonus
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7524 
 	border = GFX_event_normal_frame_religion
@@ -4880,7 +4880,7 @@ character_event = {
 }
 
 # Monument in honor
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7526 
 	border = GFX_event_normal_frame_economy
@@ -5019,7 +5019,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.7527
 	border = GFX_event_normal_frame_economy

@@ -1,7 +1,7 @@
 religion_nature = {
 	buttons = { nature }
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_peaceful = {
 		picture = GFX_religion_feature_peaceful
 		effect = {
@@ -44,7 +44,7 @@ religion_peaceful = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_warlike = {
 		picture = GFX_religion_feature_warlike
 
@@ -160,7 +160,7 @@ religion_peaceful = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_defensive = {
 		picture = GFX_religion_feature_defensive
 
@@ -304,7 +304,7 @@ religion_peaceful = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_proselytizing = {
 		picture = GFX_religion_feature_proselytizing
 		effect = {
@@ -401,7 +401,7 @@ religion_proselytizing = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_dogmatic = {
 		picture = GFX_religion_feature_dogmatic
 		trigger = {
@@ -488,7 +488,7 @@ religion_dogmatic = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_cosmopolitan = {
 		picture = GFX_religion_feature_cosmopolitan
 		effect = {
@@ -580,7 +580,7 @@ religion_cosmopolitan = {
 religion_doctrine = {
 	buttons = { doctrine1 doctrine2 }
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_holy_family = {
 		picture = GFX_religion_feature_holy_family
 		trigger = {
@@ -647,7 +647,7 @@ religion_holy_family = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_meritocratic = {
 		picture = GFX_religion_feature_meritocratic
 		trigger = {
@@ -674,7 +674,7 @@ religion_meritocratic = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_stable = {
 		picture = GFX_religion_feature_stable
 		trigger = {
@@ -700,7 +700,7 @@ religion_stable = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_jizya = {
 		picture = GFX_religion_feature_jizya
 		trigger = {
@@ -725,7 +725,7 @@ religion_jizya = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_monastic = {
 		picture = GFX_religion_feature_monastic
 		trigger = {
@@ -757,7 +757,7 @@ religion_monastic = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_syncretic = { #Gives option for each ruler to pick one of the sympathy_for_traits via decision.
 		picture = GFX_religion_feature_syncretic
 		trigger = {
@@ -791,7 +791,7 @@ religion_syncretic = { #Gives option for each ruler to pick one of the sympathy_
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_haruspicy = { #Gives option to divinate the future before waging a war.
 		picture = GFX_religion_feature_haruspicy
 		potential = {
@@ -809,7 +809,7 @@ religion_haruspicy = { #Gives option to divinate the future before waging a war.
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_astrology = {
 		picture = GFX_religion_feature_astrology
 		potential = {
@@ -1038,7 +1038,7 @@ religion_astrology = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_ritual_sacrifice = {
 		picture = GFX_religion_feature_ritual_sacrifice
 
@@ -1089,7 +1089,7 @@ religion_astrology = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_adventuring = {
 		picture = GFX_religion_feature_adventuring
 
@@ -1130,7 +1130,7 @@ religion_astrology = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_seafaring = {
 		picture = GFX_religion_feature_seafaring
 
@@ -1221,7 +1221,7 @@ religion_astrology = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_relentless = {
 		picture = GFX_religion_feature_relentless
 
@@ -1317,7 +1317,7 @@ religion_astrology = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 religion_beatification = {
 		picture = GFX_religion_feature_beatification
 		trigger = {
@@ -1696,7 +1696,7 @@ religion_beatification = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_feature_bon = {
 		picture = GFX_religion_feature_bon
 
@@ -1834,7 +1834,7 @@ religion_beatification = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_feature_hellenic = {
 		picture = GFX_religion_feature_hellenic
 
@@ -1892,7 +1892,7 @@ religion_beatification = {
 religion_leadership = {
 	buttons = { leadership }
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_temporal_head = {
 		picture = GFX_religion_feature_temporal_head
 
@@ -1935,7 +1935,7 @@ religion_leadership = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_theocratic_head = {
 		picture = GFX_religion_feature_theocratic_head
 
@@ -1971,7 +1971,7 @@ religion_leadership = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_autocephaly = {
 		picture = GFX_religion_feature_autocephaly
 
@@ -2272,7 +2272,7 @@ religion_leadership = {
 	}
 
 	# This purely exists not to mess with the head structures in Shattered World, as that causes very weird results
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	religion_leader_unchanged = {
 		picture = GFX_religion_feature_default
 

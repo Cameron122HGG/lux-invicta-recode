@@ -56,7 +56,7 @@ republic_governments = {
 		court_size_modifier = 10
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 merchant_republic_government = {
 		preferred_holdings = { CITY }
 		allowed_holdings = { 
@@ -198,7 +198,7 @@ merchant_republic_government = {
 		court_size_maintenance_cost_modifier = -0.05
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 republic_government = {
 		preferred_holdings = { CITY }
 		allowed_holdings = { 

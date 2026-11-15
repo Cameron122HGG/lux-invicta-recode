@@ -222,7 +222,7 @@ succession_laws = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 succ_seniority = {
 		vassal_opinion = -5
 		oldest_child_opinion = -15
@@ -230,7 +230,7 @@ succ_seniority = {
 		dynasty_opinion = 5
 	
 		potential = {
-			NAND = { # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
+			NAND = { # LI RE: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
 				is_law_potential = succ_byzantine_elective
 				OR = {
 					has_title_flag = li_roman_imperium
@@ -245,7 +245,7 @@ succ_seniority = {
 				OR = { 
 					title = e_byzantium
 					title = e_roman_empire
-					title = e_roman # LI: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
+					title = e_roman # LI RE: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
 				}
 			}
 			holder_scope = {
@@ -402,14 +402,14 @@ succ_seniority = {
 		}			
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 succ_primogeniture = {
 		oldest_child_opinion = 10
 		youngest_child_opinion = -15
 		child_opinion = -10
 		dynasty_opinion = -5
 		potential = {
-			NAND = { # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
+			NAND = { # LI RE: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
 				is_law_potential = succ_byzantine_elective
 				OR = {
 					has_title_flag = li_roman_imperium
@@ -524,14 +524,14 @@ succ_primogeniture = {
 		}			
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 succ_feudal_elective = {
 		oldest_child_opinion = -15
 		child_opinion = -5
 		dynasty_opinion = -5
 		vassal_opinion = 10
 		potential = {
-			NAND = { # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
+			NAND = { # LI RE: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
 				is_law_potential = succ_byzantine_elective
 				OR = {
 					has_title_flag = li_roman_imperium
@@ -731,7 +731,7 @@ succ_feudal_elective = {
 			OR = {
 				title = e_byzantium
 				title = e_roman_empire
-				title = e_roman # LI: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
+				title = e_roman # LI RE: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
 				title = event_target:alternate_byz
 			}
 
@@ -765,14 +765,14 @@ succ_feudal_elective = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 succ_tanistry = {
 		oldest_child_opinion = -20
 		child_opinion = -10
 		dynasty_opinion = 5
 		vassal_opinion = 5
 		potential = {
-			NAND = { # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
+			NAND = { # LI RE: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
 				is_law_potential = succ_byzantine_elective
 				OR = {
 					has_title_flag = li_roman_imperium
@@ -876,14 +876,14 @@ succ_tanistry = {
 		}			
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 succ_ultimogeniture = {
 		youngest_child_opinion = 10
 		oldest_child_opinion = -15
 		child_opinion = -10
 		dynasty_opinion = -5
 		potential = {
-			NAND = { # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
+			NAND = { # LI RE: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
 				is_law_potential = succ_byzantine_elective
 				OR = {
 					has_title_flag = li_roman_imperium
@@ -987,13 +987,13 @@ succ_ultimogeniture = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 succ_turkish_succession = {
 		oldest_child_opinion = -5
 #		child_opinion = 30
 #		dynasty_opinion = 10
 		potential = {
-			NAND = { # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
+			NAND = { # LI RE: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15); e_byzantium/e_roman only after Restore the Imperium
 				is_law_potential = succ_byzantine_elective
 				OR = {
 					has_title_flag = li_roman_imperium
@@ -1117,7 +1117,7 @@ succ_turkish_succession = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	succ_open_elective = {
 		potential = {
 			OR = {

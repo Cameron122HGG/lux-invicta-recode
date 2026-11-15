@@ -15,7 +15,7 @@ namespace = JD
 #### China launches an invasion... [Hidden, picks an invasion type - Tributary OR Major OR nothing happens]
 # ROOT is governor
 # FROM is offmap
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = JD.10100
     has_dlc = "Jade Dragon"
@@ -1930,7 +1930,7 @@ narrative_event = {
 #########################################################################################################
 ### Spawning Altaic Tribe adventurer... (fires for the governor, from jd_chinese_status_and_policy_events file)
 #########################################################################################################
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = JD.10109
 
@@ -2276,7 +2276,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = is_displaced_prince }
 
-			1207 = { # LI: Kroran (Loulan), China's entry point on LI's map - stands in for Jiuquan, which lies off LI's map (CleanSlate used c_jiuquan; master's 1513 is a river tile in LI's map)
+			1207 = { # LI RE: Kroran (Loulan), China's entry point on LI's map - stands in for Jiuquan, which lies off LI's map (CleanSlate used c_jiuquan; master's 1513 is a river tile in LI's map)
 				save_event_target_as = target_province
 			}
 
@@ -3284,7 +3284,7 @@ character_event = {
 				china_spawn_commander_effect = yes
 			}
 
-			1207 = { # LI: Kroran (Loulan), China's entry point on LI's map - stands in for Dunhuang, which lies off LI's map (CleanSlate used c_dunhuang; master's 1448 is a river tile in LI's map)
+			1207 = { # LI RE: Kroran (Loulan), China's entry point on LI's map - stands in for Dunhuang, which lies off LI's map (CleanSlate used c_dunhuang; master's 1448 is a river tile in LI's map)
 				save_event_target_as = spawn_province
 			}
 
@@ -4276,7 +4276,7 @@ narrative_event = {
 }
 
 # On death remove chinese imperial government if heir not correct culture
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.60210
 	is_triggered_only = yes

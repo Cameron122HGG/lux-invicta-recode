@@ -1,6 +1,6 @@
 decisions = {
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 hold_a_epic_tournament  = {
 		only_independent = yes
 		is_high_prio = yes
@@ -338,7 +338,7 @@ hold_a_epic_tournament  = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 hold_a_furusiyya  = {
 		only_independent = yes
 		is_high_prio = yes
@@ -413,7 +413,7 @@ hold_a_furusiyya  = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 restore_roman_empire = {
 		only_independent = yes
 		is_high_prio = yes
@@ -569,7 +569,7 @@ restore_roman_empire = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 make_rome_capital = {
 		only_independent = yes
 		is_high_prio = yes
@@ -763,7 +763,7 @@ make_rome_capital = {
 
 
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 become_saoshyant = {
 		only_independent = yes
 		is_high_prio = yes
@@ -1296,7 +1296,7 @@ become_saoshyant = {
 	}
 
 	# Hold Wargames - for nomads
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	hold_nomad_wargames = {
 		ai_check_interval = 4
 
@@ -1380,7 +1380,7 @@ become_saoshyant = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 convert_to_feudalism_indep  = {
 		only_independent = yes
 		is_high_prio = yes
@@ -1533,7 +1533,7 @@ convert_to_feudalism_indep  = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 convert_to_feudalism_vassal = {
 		only_playable = yes
 		is_high_prio = yes
@@ -1789,7 +1789,7 @@ convert_to_feudalism_vassal = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 convert_to_republic_indep  = {
 		only_independent = yes
 		is_high_prio = yes
@@ -2030,7 +2030,7 @@ targeted_decisions = {
 		only_playable = yes
 
 		potential = {
-			always = no # LI: hidden - LI removed the Sunni Islamic schools (their SoA.600/601 events are left out; master fix, phase 7)
+			always = no # LI RE: hidden - LI removed the Sunni Islamic schools (their SoA.600/601 events are left out; master fix, phase 7)
 			has_dlc = "Sons of Abraham"
 			religion = sunni
 
@@ -2090,7 +2090,7 @@ targeted_decisions = {
 		only_playable = yes
 
 		potential = {
-			always = no # LI: hidden - LI removed the Sunni Islamic schools (their SoA.600/601 events are left out; master fix, phase 7)
+			always = no # LI RE: hidden - LI removed the Sunni Islamic schools (their SoA.600/601 events are left out; master fix, phase 7)
 			has_dlc = "Sons of Abraham"
 			religion = sunni
 

@@ -54,7 +54,7 @@ title_flamen_dialis = {
 	message = yes
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_flaminica_dialis = {
 	message = no
 
@@ -157,7 +157,7 @@ title_flamen_martialis = {
 	message = yes
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_flaminica_martialis = {
 	message = no
 
@@ -265,7 +265,7 @@ title_flamen_quirinalis = {
 	message = yes
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_flaminica_quirinalis = {
 	message = no
 

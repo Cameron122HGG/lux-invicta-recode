@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8 part 4, CLEANSLATE_PLAN.md); k_papacy -> k_papal_state.
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8 part 4, CLEANSLATE_PLAN.md); k_papacy -> k_papal_state.
 targeted_decisions = {
 	select_crusade_beneficiary = {
 		# Filters don't work for this special decision

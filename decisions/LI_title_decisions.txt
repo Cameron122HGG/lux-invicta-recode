@@ -38,7 +38,7 @@ decisions = {
 				d_canterbury = { de_jure_liege = k_saxons }
 				d_belgarum = { de_jure_liege = k_saxons }
 			}
-			k_saxons = { de_jure_liege = e_britannia } # LI: the Bretwalda's kingdom stays de jure in Britannia (user, 2026-11-15)
+			k_saxons = { de_jure_liege = e_britannia } # LI RE: the Bretwalda's kingdom stays de jure in Britannia (user, 2026-11-15)
 			primary_title = {
 				k_saxons = {
 					grant_title = ROOT

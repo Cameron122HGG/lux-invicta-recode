@@ -457,7 +457,7 @@ character_event = {
 }
 
 # Scary giant letter event determining what is the priest going to ask to the Ruler/Emperor in exchange for the Coronation
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = HF.20201
 	desc = EVTDESCHFA20201
@@ -2383,7 +2383,7 @@ letter_event = {
 }
 
 # Ruler: Bishop asks for son to join holy order
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = HF.20207
 	desc = EVTDESCHFA20207
@@ -3871,7 +3871,7 @@ letter_event = {
 }
 
 # Emperor: Pope wants you to give a Duchy to a Holy Order
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = HF.20217
 	desc = {

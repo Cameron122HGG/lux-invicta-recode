@@ -14,7 +14,7 @@ namespace = MNM
 ### JOINING & RECRUITMENT EVENTS ###
 
 # For Recruit: Do you approve of "alternative views"?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
  	id = MNM.7001
  	desc = {
@@ -265,7 +265,7 @@ character_event = {
 }
 
 # For Recruit: Event notifying recruit that "Something must've gone wrong" (in case recruiter dies)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.6995
 	picture = GFX_evt_state_diplomacy
@@ -424,7 +424,7 @@ character_event = {
 }
 
 # For Recruit: Recruiter continues offering more radical ideas, gives strange idol
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7003
 	desc = EVTDESC_MNM_7003_A
@@ -853,7 +853,7 @@ character_event = {
 }
 
 # For Recruit: Joining begins (seek out books and knowledge on the occult)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7009
 	picture = GFX_evt_ritual_scroll
@@ -985,7 +985,7 @@ character_event = {
 }
 
 # For Recruit: Seal it with blood (loyalty to grand master)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7010
 	picture = GFX_evt_dark_prayer
@@ -1279,7 +1279,7 @@ character_event = {
 }
 
 # For Recruit: Unable to continue induction notification
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.6993
 	picture = GFX_evt_dark_prayer
@@ -1585,7 +1585,7 @@ character_event = {
 }
 
 # You flee
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7019
 	picture = GFX_evt_secret_ceremony
@@ -1695,7 +1695,7 @@ character_event = {
 }
 
 # Opt out failstate
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7020
 	desc = EVTDESC_MNM_7020
@@ -5549,7 +5549,7 @@ character_event = {
 }
 
 # Demonic pregnancy - Birth
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.7508
 
@@ -7154,7 +7154,7 @@ character_event = {
 }
 
 # Satanic Orgy - Aftermath
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.20004
 	picture = GFX_evt_bad_news
@@ -7880,7 +7880,7 @@ character_event = {
 }
 
 # Home Invasion - Main event
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.20015
 	picture = GFX_evt_burning_house

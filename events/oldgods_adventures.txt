@@ -11,7 +11,7 @@
 namespace = TOG
 
 # An ambitious landless claimant begins to plan an adventure for the title
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.1200
 	
@@ -546,7 +546,7 @@ character_event = {
 }
 
 # An ambitious character with no inheritance begins to plan an adventure for a foreign title
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.1210
 	
@@ -841,7 +841,7 @@ character_event = {
 
 # An ambitious character with no inheritance starts an adventure for a foreign title
 # (Temporary title created and a war declared)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = TOG.1212
 

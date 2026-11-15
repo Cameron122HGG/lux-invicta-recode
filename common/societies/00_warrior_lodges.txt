@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8 part 5, CLEANSLATE_PLAN.md); lodges tied to LI faiths (li_warrior_lodge_triggers.txt).
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8 part 5, CLEANSLATE_PLAN.md); lodges tied to LI faiths (li_warrior_lodge_triggers.txt).
 # WARRIOR LODGES:
 # warrior_lodge_norse			- The Wolf Warriors
 # warrior_lodge_tengri			- The Eagle Warriors
@@ -1009,7 +1009,7 @@ warrior_lodge_baltic = {
 	opinion_per_rank_above = +5
 	sound = warrior_lodge_ambient_01
 	society_ranks_gfx = warriors_ranks
-	associated_religion = dievas # LI: was baltic_pagan
+	associated_religion = dievas # LI RE: was baltic_pagan
 
 	indestructible = yes
 	society_influence = no
@@ -2428,7 +2428,7 @@ warrior_lodge_west_african = {
 	opinion_per_rank_above = +5
 	sound = warrior_lodge_ambient_02
 	society_ranks_gfx = warriors_ranks
-	associated_religion = mande_pagan # LI: was west_african_pagan
+	associated_religion = mande_pagan # LI RE: was west_african_pagan
 
 	indestructible = yes
 	society_influence = no
@@ -2905,7 +2905,7 @@ warrior_lodge_zun = {
 	opinion_per_rank_above = +5
 	sound = warrior_lodge_ambient_01
 	society_ranks_gfx = warriors_ranks
-	associated_religion = hubal # LI: was zun_pagan
+	associated_religion = hubal # LI RE: was zun_pagan
 
 	indestructible = yes
 	society_influence = no
@@ -3411,7 +3411,7 @@ warrior_lodge_bon = {
 	opinion_per_rank_above = +5
 	sound = warrior_lodge_ambient_02
 	society_ranks_gfx = warriors_ranks
-	associated_religion = bon # LI: was bon_pagan
+	associated_religion = bon # LI RE: was bon_pagan
 
 	indestructible = yes
 	society_influence = no
@@ -3884,7 +3884,7 @@ warrior_lodge_hellenic = {
 	opinion_per_rank_above = +5
 	sound = warrior_lodge_ambient_01
 	society_ranks_gfx = warriors_ranks
-	associated_religion = graeco_roman # LI: was hellenic_pagan
+	associated_religion = graeco_roman # LI RE: was hellenic_pagan
 
 	indestructible = yes
 	society_influence = no

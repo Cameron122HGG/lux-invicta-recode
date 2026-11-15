@@ -11,7 +11,7 @@
 ###################################################
 
 # Relative demands inheritance due to ambition
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 37000
 	desc = EVTDESC37000
@@ -113,7 +113,7 @@ character_event = {
 }
 
 # Liege responds to the request
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 37001
 	desc = EVTDESC37001
@@ -237,7 +237,7 @@ character_event = {
 }
 
 # The relative is filled with anticipation
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 37002
 	desc = EVTDESC37002
@@ -453,7 +453,7 @@ character_event = {
 }
 
 # Relative reminds liege of promised title
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 37005
 	desc = EVTDESC37005
@@ -765,7 +765,7 @@ character_event = {
 }
 
 # The pretender launches the attack
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 37015
 
@@ -1260,7 +1260,7 @@ character_event = {
 }
 
 # Relative reminds liege of promised marriage
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 37054
 	desc = EVTDESC37054
@@ -1494,7 +1494,7 @@ character_event = {
 }
 
 # Relative who was denied decides to marry in secret
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 37056
 	desc = EVTDESC37056
@@ -1578,7 +1578,7 @@ character_event = {
 }
 
 # The liege is informed of the secret marriage
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 37057
 	desc = EVTDESC37057

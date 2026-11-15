@@ -1,6 +1,6 @@
 feudal_governments = {
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 chinese_imperial_government = {
 		preferred_holdings = { CASTLE CITY }
 		allowed_holdings = {
@@ -79,7 +79,7 @@ chinese_imperial_government = {
 		court_size_modifier = 1000 # Intentionally higher than vanilla, to account for characters sent with the Grace system
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 feudal_government = {
 		preferred_holdings = { CASTLE }
 		allowed_holdings = {
@@ -117,7 +117,7 @@ feudal_government = {
 			NOT = { oriental_monarchy_government_trigger = yes }
 			NOT = { classical_government_trigger = yes }
 			NOT = { is_government_potential = order_government }
-			NOT = { is_government_potential = roman_imperial_government } # LI: CleanSlate's feudal group excludes it; LI's feudal_government didn't, so Catholic Roman emperors (S.P.Q.R.) stayed feudal (2026-11-15)
+			NOT = { is_government_potential = roman_imperial_government } # LI RE: CleanSlate's feudal group excludes it; LI's feudal_government didn't, so Catholic Roman emperors (S.P.Q.R.) stayed feudal (2026-11-15)
 			is_patrician = no
 		}
 		

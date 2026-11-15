@@ -1744,7 +1744,7 @@ letter_event = {
 }
 
 # Give land to an unlanded friend for a favor
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = ZE.22702
 	desc = EVTDESC_ZE_22702
@@ -1802,7 +1802,7 @@ character_event = {
 				}
 				else_if = {
 					limit = {
-						classical_government_trigger = yes # LI: was classical_government = yes (not a trigger), which set oriental monarchy
+						classical_government_trigger = yes # LI RE: was classical_government = yes (not a trigger), which set oriental monarchy
 					}
 					set_government_type = classical_government
 				}

@@ -10,7 +10,7 @@
 # cb_install_antiking
 # powerful_vassal_takeover_war
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 change_seniority_succession_law = {
 	name = CB_NAME_SENIORITY_SUCCESSION_LAW
 	war_name = WAR_NAME_SENIORITY_SUCCESSION_LAW
@@ -211,7 +211,7 @@ change_seniority_succession_law = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 change_primogeniture_succession_law = {
 	name = CB_NAME_PRIMOGENITURE_SUCCESSION_LAW
 	war_name = WAR_NAME_PRIOGENITURE_SUCCESSION_LAW
@@ -412,7 +412,7 @@ change_primogeniture_succession_law = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 change_ultimogeniture_succession_law = {
 	name = CB_NAME_ULTIMOGENITURE_SUCCESSION_LAW
 	war_name = WAR_NAME_ULTIMOGENITURE_SUCCESSION_LAW
@@ -611,7 +611,7 @@ change_ultimogeniture_succession_law = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 change_feudal_elective_succession_law = {
 	name = CB_NAME_FEUDAL_ELECTIVE_SUCCESSION_LAW
 	war_name = WAR_NAME_FEUDAL_ELECTIVE_SUCCESSION_LAW
@@ -824,7 +824,7 @@ change_feudal_elective_succession_law = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 change_gavelkind_succession_law = {
 	name = CB_NAME_GAVELKIND_SUCCESSION_LAW
 	war_name = WAR_NAME_GAVELKIND_SUCCESSION_LAW
@@ -1028,7 +1028,7 @@ change_gavelkind_succession_law = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 lower_crown_authority_law = {
 	name = CB_NAME_LOWER_CROWN_AUTHORITY_LAW
 	war_name = WAR_NAME_LOWER_CROWN_AUTHORITY_LAW
@@ -1453,7 +1453,7 @@ lower_tribal_organization_law = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 increase_council_power_war = {
 	name = CB_NAME_INCREASE_COUNCIL_POWER
 	war_name = WAR_NAME_INCREASE_COUNCIL_POWER
@@ -1652,7 +1652,7 @@ increase_council_power_war = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 cb_faction_independence = {
 	name = CB_NAME_INDEPENDENCE
 	war_name = WAR_NAME_FACTION_INDEPENDENCE
@@ -2120,7 +2120,7 @@ cb_install_antiking = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 powerful_vassal_takeover_war = {
 	name = CB_NAME_POWERFUL_VASSAL_TAKEOVER
 	war_name = WAR_NAME_POWERFUL_VASSAL_TAKEOVER

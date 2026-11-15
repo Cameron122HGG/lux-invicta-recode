@@ -59,7 +59,7 @@ while todo:
         if not any(n in have[x] or n in want[x] for x in have): missing.append(n)
 print('restore:', {k: sorted(v) for k, v in want.items()})
 print('not found anywhere:', missing)
-HDR = ('# LI: vanilla 3.3.3 scripted {} that CleanSlate removed (see its master_changelog.txt), restored from master\n'
+HDR = ('# LI RE: vanilla 3.3.3 scripted {} that CleanSlate removed (see its master_changelog.txt), restored from master\n'
        '# because LI text (LI-wins definitions, restored events, li_* files) still calls them. CleanSlate renames applied.\n'
        '# 000_ prefix: loads before the files that use them.\n\n')
 def calls_other(text):  # callees first, so a definition never calls one further down the file

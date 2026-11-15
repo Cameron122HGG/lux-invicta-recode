@@ -652,7 +652,7 @@ character_event = {
 ###########################################
 
 # [on_birth] Child might be a reincarnation
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.10000
 	hide_window = yes
@@ -914,7 +914,7 @@ character_event = {
 }
 
 # [on_yearly_childhood_pulse] Reincarnation: Youth picks up a personality trait from the previous life
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.10010
 	desc = EVTDESC_RoI_10010
@@ -1149,7 +1149,7 @@ character_event = {
 ###########################################
 
 # Hindu ascetic comes to visit
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.203
 	desc = EVTDESC_RoI_203
@@ -1245,7 +1245,7 @@ character_event = {
 }
 
 # Buddhist ascetic comes to visit
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.206
 	desc = EVTDESC_RoI_206
@@ -1306,7 +1306,7 @@ character_event = {
 }
 
 # Tell me more, Buddhist ascetic
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.207
 	desc = EVTDESC_RoI_204
@@ -1335,7 +1335,7 @@ character_event = {
 }
 
 # Jain ascetic comes to visit
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.209
 	desc = EVTDESC_RoI_209
@@ -2725,7 +2725,7 @@ character_event = {
 }
 
 # Crazed elephant runs amuck
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.158
 	desc = EVTDESC_RoI_158
@@ -2869,7 +2869,7 @@ character_event = {
 }
 
 # Temple elephants are dying
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.163
 	desc = EVTDESC_RoI_163
@@ -3146,7 +3146,7 @@ character_event = {
 }
 
 # Elephant escapes and tries to mate with other elephants
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.168
 	desc = EVTDESC_RoI_168
@@ -3296,7 +3296,7 @@ character_event = {
 }
 
 # Poisons elephant but is found out
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.171
 	desc = EVTDESC_RoI_171
@@ -3369,7 +3369,7 @@ character_event = {
 }
 
 # Starves elephant to death but is found out
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.173
 	desc = EVTDESC_RoI_173
@@ -3442,7 +3442,7 @@ character_event = {
 }
 
 # Pushes elephant over cliff but is found out
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.175
 	desc = EVTDESC_RoI_175
@@ -3500,7 +3500,7 @@ character_event = {
 }
 
 # Elephant is killed with lances and dies, no attempt at subterfuge
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.176
 	desc = EVTDESC_RoI_176
@@ -3882,7 +3882,7 @@ character_event = {
 ###########################################
 
 # Greek troops not wanting to cross the Indus
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.146
 	desc = EVTDESC_RoI_146
@@ -4272,7 +4272,7 @@ character_event = {
 }
 
 # Local Hindu temple asks for donations
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.410
 	desc = EVTDESC_RoI_410
@@ -4381,7 +4381,7 @@ character_event = {
 }
 
 # Buddhist or Jain monks ask for donations
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.411
 	desc = EVTDESC_RoI_411
@@ -4833,7 +4833,7 @@ character_event = {
 # }
 
 # Province converts to other religion!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RoI.3525
 	desc = EVTDESC_RoI_3525

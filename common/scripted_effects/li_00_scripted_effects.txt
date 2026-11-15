@@ -64,7 +64,7 @@ spawn_slave_army_effect = {
 		}
 	}
 	if = {
-		limit = { always = yes } # LI: was can_use_dragon_abilities_trigger = yes, which LI never defined (the game ignored it, so this always ran)
+		limit = { always = yes } # LI RE: was can_use_dragon_abilities_trigger = yes, which LI never defined (the game ignored it, so this always ran)
 		create_random_soldier = {
 			random_traits = yes
 			dynasty = none
@@ -820,7 +820,7 @@ denounce_newborn_FROM_effect = {
 	}
 }
 
-# LI: vanilla 3.3.3 effect CleanSlate dropped; still used by JD.60000 (li_restored_events.txt). martial_cleric -> dutiful_cleric (CleanSlate rename).
+# LI RE: vanilla 3.3.3 effect CleanSlate dropped; still used by JD.60000 (li_restored_events.txt). martial_cleric -> dutiful_cleric (CleanSlate rename).
 remove_education_effect = {
 	remove_trait = naive_appeaser
 	remove_trait = underhanded_rogue

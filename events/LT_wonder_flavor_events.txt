@@ -2671,7 +2671,7 @@ character_event = { # invitation
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = { # What happens at the meeting
 	id = LT.20410
 	desc = EVTDESC_LT_20410

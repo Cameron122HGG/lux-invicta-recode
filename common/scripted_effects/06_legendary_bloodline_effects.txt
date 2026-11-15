@@ -943,7 +943,7 @@ send_new_dog_event_effect = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 spawn_old_duelist_effect = {
 	if = { 
 		limit = { has_religion_feature = religion_matriarchal }
@@ -1244,7 +1244,7 @@ spawn_old_duelist_effect = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 spawn_giant_duelist_effect = {
 	if = { 
 		limit = { has_religion_feature = religion_matriarchal }
@@ -1490,7 +1490,7 @@ spawn_giant_duelist_effect = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 spawn_creature_champion_effect = {
 	if = { 
 		limit = { has_religion_feature = religion_matriarchal }

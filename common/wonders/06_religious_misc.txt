@@ -286,7 +286,7 @@ wonder_pyramid = {
 }
 
 # 6C. Stonehenge (-ish)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_pagan_stones = {
 	picture = GFX_wonder_strip_pagan_stones
 	potential = {

@@ -17,7 +17,7 @@
 namespace = MNM
 
 # Sends rumors
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.9000
 	hide_window = yes
@@ -970,7 +970,7 @@ character_event = {
 }
 
 # Artifact is found
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.9008
 	hide_window = yes

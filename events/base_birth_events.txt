@@ -1387,7 +1387,7 @@ character_event = {
 }
 
 # On-action event: Pregnancy out of wedlock!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 401
 	desc = EVTDESC401
@@ -1569,7 +1569,7 @@ character_event = {
 }
 
 # On-action event: Pregnancy in matrimony, with another father!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 402
 	desc = EVTDESC402
@@ -2425,7 +2425,7 @@ character_event = {
 }
 
 # Wife caught. Consequences...
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 21003
 	
@@ -3239,7 +3239,7 @@ character_event = {
 }
 
 # The father reacts to the bastard birth
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 301
 	desc = EVTDESC301
@@ -3882,7 +3882,7 @@ character_event = {
 }
 
 # On-action event: Birth complications - Pointing out that the baby receives this event, and thus he is the one that has to 'decide' if his mother gets to die or not.
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 313
 
@@ -4442,7 +4442,7 @@ character_event = {
 }
 
 # Mother troubled after giving birth
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 316
 	picture = GFX_evt_illness

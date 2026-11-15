@@ -1,4 +1,4 @@
-# LI: notifications for the Stoic order power (CK2Plus AIO HF_religious_events; step B, 2026-11-15)
+# LI RE: notifications for the Stoic order power (CK2Plus AIO HF_religious_events; step B, 2026-11-15)
 
 namespace = HF
 

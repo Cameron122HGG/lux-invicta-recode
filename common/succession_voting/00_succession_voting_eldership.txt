@@ -5,7 +5,7 @@
 # FROMFROMFROM	The title owner's candidate
 # The voter will vote for the top score candidate calculated from this script
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 eldership_rules = {
 	elector_stances = {
 		elder_ruler = {

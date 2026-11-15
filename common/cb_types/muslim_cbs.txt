@@ -846,7 +846,7 @@ caliphal_subjugation = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 decadence_invasion = {
 	name = CB_NAME_INVASION
 	war_name = WAR_NAME_DEC_INVASION

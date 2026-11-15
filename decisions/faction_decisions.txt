@@ -1,6 +1,6 @@
 plot_decisions = {
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_succ_seniority_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -124,7 +124,7 @@ faction_succ_seniority_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_succ_primogeniture_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -247,7 +247,7 @@ faction_succ_primogeniture_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master's jordarkelf_factionwardecisions.txt), not CleanSlate's - it uses LI's jordarkelf faction war events.
+	# LI RE: Lux Invicta's version (from master's jordarkelf_factionwardecisions.txt), not CleanSlate's - it uses LI's jordarkelf faction war events.
 	faction_succ_ultimogeniture_ultimatum = {
 		is_high_prio = yes
 		
@@ -354,7 +354,7 @@ faction_succ_primogeniture_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_succ_feudal_elective_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -478,7 +478,7 @@ faction_succ_feudal_elective_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_succ_gavelkind_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -601,7 +601,7 @@ faction_succ_gavelkind_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_lower_crown_authority_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -737,7 +737,7 @@ faction_lower_crown_authority_ultimatum = {
 	}
 
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_independence_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -874,7 +874,7 @@ faction_independence_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_claimant_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -1110,7 +1110,7 @@ faction_claimant_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_antiking_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -1214,7 +1214,7 @@ faction_antiking_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_overthrow_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -1318,7 +1318,7 @@ faction_overthrow_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_increase_council_power_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes
@@ -1441,7 +1441,7 @@ faction_increase_council_power_ultimatum = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_powerful_vassal_takeover_ultimatum = {
 		only_playable = yes
 		is_high_prio = yes

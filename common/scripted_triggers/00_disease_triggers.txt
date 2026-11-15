@@ -33,7 +33,7 @@ physician_bad_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 physician_good_trigger = { 
 	OR = {
 		is_learned_trigger = yes

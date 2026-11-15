@@ -389,7 +389,7 @@ character_event = {
 }
 
 # Gain Temperate
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 88506
 	title = RAMADANTITLE

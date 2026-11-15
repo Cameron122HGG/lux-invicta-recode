@@ -26,7 +26,7 @@
 ### or 'The Chinese have a lot of rules about hair' ###
 
 ### Male, and visually Chinese by race and Buddhist religion; and is a Buddhist monk, a chaplain, or a theocratic ruler
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 is_devout_chinese_buddhist_trigger = {			### Male, and visually Chinese by race and Buddhist religion; and is a Buddhist monk, a chaplain, or a theocratic ruler.
 	graphical_culture = chinesegfx
 	LI_bud_trigger = yes # was religion = buddhist, which does not exist in Lux Invicta
@@ -70,7 +70,7 @@ filial_piety_maiden_trigger = {
 
 song_dynasty_futou_trigger = {
 	culture = han
-	always = no # LI: was dynasty = 1051151 (Song Dynasty), which does not exist in Lux Invicta (master fix, phase 7)
+	always = no # LI RE: was dynasty = 1051151 (Song Dynasty), which does not exist in Lux Invicta (master fix, phase 7)
 	is_female = no
 	is_offmap_tag_including_dead = offmap_china
 }

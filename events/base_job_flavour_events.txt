@@ -1083,7 +1083,7 @@ character_event = {
 ### Slothful Chancellor ###
 
 # Chancellor is slothful
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75030
 	desc = EVTDESC75030
@@ -1191,7 +1191,7 @@ character_event = {
 }
 
 # Chancellor is talked sternly to by Liege
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75032
 	desc = EVTDESC75032
@@ -1270,7 +1270,7 @@ character_event = {
 }
 
 # Liege: Chancellor is angry
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75035
 	desc = EVTDESC75035
@@ -1311,7 +1311,7 @@ character_event = {
 ### Lord Spiritual ###
 
 # Lord Spiritual finds infidel
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 75040
 	desc = "EVTDESC75040"
@@ -1641,7 +1641,7 @@ character_event = {
 }
 
 # Lord Spiritual finds a heretic
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 75050
 	desc = "EVTDESC75050"
@@ -2503,7 +2503,7 @@ character_event = {
 }
 
 # Steward is Greedy: Ruler
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75095
 	desc = EVTDESC75095
@@ -2581,7 +2581,7 @@ character_event = {
 }
 
 # Steward is greedy: Steward
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75096
 	desc = EVTDESC75096
@@ -2636,7 +2636,7 @@ character_event = {
 }
 
 # Steward is Greedy: Liege is shown proof
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75097
 	desc = EVTDESC75097
@@ -2653,7 +2653,7 @@ character_event = {
 }
 
 # Steward is Greedy: Liege knows Steward stole money
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75098
 	desc = EVTDESC75098
@@ -2711,7 +2711,7 @@ character_event = {
 }
 
 # Steward is fined
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75099
 	desc = EVTDESC75099
@@ -2899,7 +2899,7 @@ character_event = {
 }
 
 # Marshal is wroth, not a ruler & liege has a city vassal somewhere
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75110
 	desc = EVTDESC75110
@@ -2956,7 +2956,7 @@ character_event = {
 }
 
 # Liege decides if Marshal is guilty or not
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75111
 	desc = EVTDESC75111

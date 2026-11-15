@@ -489,7 +489,7 @@ is_allowed_sparring_duels_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 this_can_duel_with_from_trigger = { 
 	NOR = { 
 		trait = incapable

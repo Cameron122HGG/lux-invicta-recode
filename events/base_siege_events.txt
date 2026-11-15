@@ -1115,7 +1115,7 @@ character_event = { # Other side gets event
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 62010
 	title = EVTNAME62010
@@ -1923,7 +1923,7 @@ character_event = { # Other side gets event
 # new_character is siege winner unit owner
 # FROM is lost holding title
 # ROOT is local character
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 62100
 	picture = GFX_evt_siege

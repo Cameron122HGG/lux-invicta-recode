@@ -12,7 +12,7 @@ namespace = REP
 ### Shipping Events
 
 
-# LI: CleanSlate router REP.0 restored 2026-11-14 (step A had left it out; it fires LI's REP.1)
+# LI RE: CleanSlate router REP.0 restored 2026-11-14 (step A had left it out; it fires LI's REP.1)
 # Shipping Events Tombola delay randomization
 character_event = {
 	id = REP.0
@@ -936,7 +936,7 @@ letter_event = {
 ### Dynastic Marriage Events
 
 
-# LI: CleanSlate router REP.399 restored 2026-11-14 (step A had left it out; it fires LI's REP.400)
+# LI RE: CleanSlate router REP.399 restored 2026-11-14 (step A had left it out; it fires LI's REP.400)
 # Dynastic Marriage Tombola delay randomization
 character_event = {
 	id = REP.399
@@ -1423,7 +1423,7 @@ character_event = {
 }
 
 # Family member marries foreign woman
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = REP.413
 	desc = EVTDESC_REP_413

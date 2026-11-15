@@ -207,7 +207,7 @@ settlement_decisions = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 convert_tribal_to_temple = {
 		only_playable = yes
 		filter = owned
@@ -675,7 +675,7 @@ convert_tribal_to_temple = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 adopt_tribalism = {
 		only_independent = yes
 		filter = sub_realm_owned
@@ -1362,7 +1362,7 @@ adopt_tribalism = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 nomad_adopt_feudalism = {
 		only_independent = yes
 		filter = sub_realm_owned
@@ -2007,7 +2007,7 @@ nomad_adopt_feudalism = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	nomad_adopt_republicanism = {
 		# filter = sub_realm_owned # CleanSlate: Nonfunctional
 		ai_target_filter = sub_realm_owned

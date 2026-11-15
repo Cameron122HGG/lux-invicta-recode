@@ -80,4 +80,4 @@ replace_path = "history/wars"
 replace_path = "history"
 replace_path = "history/diplomacy"
 replace_path = "map"
-replace_path = "gfx/loadingscreens" # LI art only: the base game load_17-20 (Holy Fury era) would show through
+replace_path = "gfx/loadingscreens" # LI RE: art only: the base game load_17-20 (Holy Fury era) would show through

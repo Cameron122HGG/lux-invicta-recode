@@ -3,7 +3,7 @@
 namespace = HF
 
 # on_five_years pulse handling the AI picking a Antagonizing target
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21997
 	hide_window = yes
@@ -547,7 +547,7 @@ character_event = {
 }
 
 # Giant yearly event firing all the events related to appeasement.
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.22000
 	hide_window = yes
@@ -2163,7 +2163,7 @@ character_event = {
 ###############################################################################
 ## Main Slander event.
 # Antagonized: hidden ping, select a random trait to slander. If character has no traits from the list, just go for generic slander.
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.22020
 	hide_window = yes

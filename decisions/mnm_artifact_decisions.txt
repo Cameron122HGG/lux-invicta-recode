@@ -9,7 +9,7 @@
 ###########################################
 
 decisions = {
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	employ_a_smith = {
 		ai_check_interval = 48
 

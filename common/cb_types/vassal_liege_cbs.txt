@@ -244,7 +244,7 @@ bid_for_independence = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 depose_liege = {
 	name = CB_NAME_DEPOSE_LIEGE
 	war_name = WAR_NAME_DEPOSE_LIEGE
@@ -433,7 +433,7 @@ depose_liege = {
 }
 
 # Used when failing to imprison a vassal
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 overthrow_ruler = {
 	name = CB_NAME_OVERTHROWRULER
 	war_name = WAR_NAME_OVERTHROWRULER
@@ -633,7 +633,7 @@ overthrow_ruler = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 overthrow_ruler_no_calls = {
 	name = CB_NAME_OVERTHROWRULER_NC
 	war_name = WAR_NAME_OVERTHROWRULER_NC

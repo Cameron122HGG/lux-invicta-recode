@@ -1,7 +1,7 @@
 # DO NOT ALTER THE NAME OR NUMBER OF THESE!
 
 gender_laws = {
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 agnatic_succession = {
 		female_dynasty_opinion = -5
 	
@@ -60,7 +60,7 @@ agnatic_succession = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 cognatic_succession = {
 		potential = {
 			NOR = {
@@ -133,7 +133,7 @@ cognatic_succession = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 true_cognatic_succession = {
 		male_dynasty_opinion = -5
 		
@@ -207,7 +207,7 @@ true_cognatic_succession = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 enatic_cognatic_succession = {
 		male_dynasty_opinion = -10
 		female_dynasty_opinion = 5
@@ -270,7 +270,7 @@ enatic_cognatic_succession = {
 		}		
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 enatic_succession = {
 		male_dynasty_opinion = -10
 		female_dynasty_opinion = 10

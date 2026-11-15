@@ -3687,7 +3687,7 @@ character_event = {
 # Curious									#
 #############################################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = ZE.13100
 
@@ -4419,7 +4419,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = ZE.13101
 	picture = GFX_evt_courtiers_talking
@@ -4734,7 +4734,7 @@ character_event = {
 }
 
 # Patient educator may make child patient instead
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = ZE.13102
 	picture = GFX_evt_courtiers_talking
@@ -5135,7 +5135,7 @@ character_event = {
 }
 
 # Notify child of Educator intervention and result
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = ZE.13104
 	picture = GFX_evt_courtiers_talking
@@ -5429,7 +5429,7 @@ character_event = {
 #############################################
 
 # idolizer turns into zealous, erudite or weak
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = ZE.13110
 
@@ -6344,7 +6344,7 @@ character_event = {
 #####################################################################
 # Influence events													#
 #####################################################################
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ZE.13615
 

@@ -258,7 +258,7 @@ apply_degree_of_dishonorable_duel_effect = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 apply_any_applicable_harsh_penalties_effect = {
 	if = {
 		limit = {
@@ -553,7 +553,7 @@ evaluate_duel_result_score_effect = {
 }
 
 # Used in HFP.10100
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 evaluate_extra_duel_result_score_effect = { # [SPECIAL CIRCUMSTANCES - OPTIONAL]
 	### Disclaimer: Assumes combatant_1 is ROOT. combatant_2 is referred to as its event_target-name.
 	

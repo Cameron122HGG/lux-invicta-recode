@@ -2222,7 +2222,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 6199 restored 2026-11-14 (step A had left it out; it fires LI's 6201, 6202, 6203, 6218, 6219, 6220, 6221, 6222, 6204, 6205, 6206, 6207, 6208, 62)
+# LI RE: CleanSlate router 6199 restored 2026-11-14 (step A had left it out; it fires LI's 6201, 6202, 6203, 6218, 6219, 6220, 6221, 6222, 6204, 6205, 6206, 6207, 6208, 62)
 # Voice of Jesus tombola
 character_event = {
 	id = 6199
@@ -2881,7 +2881,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 6241 restored 2026-11-14 (step A had left it out; it fires LI's 6224, 6225, 6226, 6203, 6218, 6219, 6220, 6221, 6222, 6227, 6228, 6229, 6230, 62)
+# LI RE: CleanSlate router 6241 restored 2026-11-14 (step A had left it out; it fires LI's 6224, 6225, 6226, 6203, 6218, 6219, 6220, 6221, 6222, 6227, 6228, 6229, 6230, 62)
 # Voice of Satan tombola
 character_event = {
 	id = 6241
@@ -3125,7 +3125,7 @@ character_event = {
 }
 
 # Demon - homosexual
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 6225
 	desc = EVTDESC6225
@@ -3784,7 +3784,7 @@ character_event = {
 ### Lunatic Pagan series
 
 # Rats in the walls
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 6350
 	desc = EVTDESC6350
@@ -3837,7 +3837,7 @@ character_event = {
 }
 
 # Something in the well
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 6351
 	desc = EVTDESC6351
@@ -3890,7 +3890,7 @@ character_event = {
 }
 
 # Tomb raiding
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 6352
 	desc = EVTDESC6352
@@ -3943,7 +3943,7 @@ character_event = {
 }
 
 # A law against the killing of cats
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 6353
 	desc = EVTDESC6353

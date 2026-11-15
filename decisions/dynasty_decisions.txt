@@ -312,7 +312,7 @@ targeted_decisions = {
 	}
 
 	# Unhardcoded decision
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 order_to_take_vows = {
 		only_playable = yes
 		filter = court
@@ -687,7 +687,7 @@ order_to_take_vows = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	send_child_into_hiding = {
 		filter = close_relative
 		ai_target_filter = close_relatives
@@ -909,7 +909,7 @@ order_to_take_vows = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	take_child_out_of_hiding = {
 		filter = close_relative
 		ai_target_filter = close_relatives
@@ -1025,7 +1025,7 @@ order_to_take_vows = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	go_into_hiding = {
 		filter = self
 		ai_target_filter = self
@@ -1203,7 +1203,7 @@ order_to_take_vows = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	come_out_of_hiding = {
 		filter = self
 		ai_target_filter = self
@@ -1355,7 +1355,7 @@ order_to_take_vows = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	send_spouse_into_hiding = {
 		filter = spouse
 		ai_target_filter = spouse
@@ -1601,7 +1601,7 @@ order_to_take_vows = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	take_spouse_out_of_hiding = {
 		filter = spouse
 		ai_target_filter = spouse

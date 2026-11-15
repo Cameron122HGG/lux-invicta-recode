@@ -16,7 +16,7 @@ tall = {
 	vassal_opinion = 5
 
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 agile = {
 	birth = 100
 	inherit_chance = 25
@@ -32,7 +32,7 @@ agile = {
 	male_compliment_adj = COMPL_SWIFT
 	female_compliment_adj = COMPL_SWIFT
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 perceptive = {
 	birth = 100
 	inherit_chance = 25
@@ -53,7 +53,7 @@ perceptive = {
 	male_compliment_adj = COMPL_SHARP
 	female_compliment_adj = COMPL_SHARP
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 melodious_voice = {
 	birth = 50
 	inherit_chance = 25
@@ -73,7 +73,7 @@ melodious_voice = {
 	male_insult_adj = INSULT_SILVER_TONGUE
 	female_insult_adj = INSULT_SILVER_TONGUE
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 powerful_voice = {
 	birth = 50
 	inherit_chance = 25
@@ -95,7 +95,7 @@ powerful_voice = {
 	male_compliment_adj = COMPL_MIGHTY_VOICE
 	female_compliment_adj = COMPL_MIGHTY_VOICE
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 ambidextrous = {
 	birth = 50
 	inherit_chance = 25
@@ -112,7 +112,7 @@ ambidextrous = {
 	male_insult_adj = INSULT_DOUBLE_HANDED
 	female_insult_adj = INSULT_DOUBLE_HANDED
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 wrymouth = {
 	birth = 25
 	inherit_chance = 25
@@ -129,7 +129,7 @@ wrymouth = {
 	male_insult_adj = INSULT_DROOLING
 	female_insult_adj = INSULT_DROOLING
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 deaf = {
 	birth = 10
 	inherit_chance = 25
@@ -145,7 +145,7 @@ deaf = {
 	male_insult_adj = INSULT_DEAF
 	female_insult_adj = INSULT_DEAF
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 absentminded = {
 	birth = 50
 	inherit_chance = 25
@@ -166,7 +166,7 @@ absentminded = {
 	male_insult_adj = INSULT_OBLIVIOUS
 	female_insult_adj = INSULT_OBLIVIOUS
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 calm_voice = {
 	birth = 50
 	inherit_chance = 25
@@ -189,7 +189,7 @@ fertile = {
 	fertility = 0.1
 
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 imposing = {
 	birth = 25
 	inherit_chance = 25

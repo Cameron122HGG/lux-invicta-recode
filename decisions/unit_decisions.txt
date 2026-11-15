@@ -50,7 +50,7 @@ decisions = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 raise_tribal_units = {
 		only_playable = yes
 		is_high_prio = yes
@@ -136,7 +136,7 @@ raise_tribal_units = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 raise_defensive_unit = {
 		only_playable = yes
 		is_high_prio = yes

@@ -7,7 +7,7 @@
 ######################################
 
 ### Wives fall in love with each other
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 89000
 	desc = "EVTDESC89000"
@@ -179,7 +179,7 @@ character_event = {
 ### Secondary Wife schemes to become First Wife
 
 
-# LI: CleanSlate router 89004 restored 2026-11-14 (step A had left it out; it fires LI's 89005, 89005)
+# LI RE: CleanSlate router 89004 restored 2026-11-14 (step A had left it out; it fires LI's 89005, 89005)
 # Secondary Wife thinks she should be First Wife - Setup
 character_event = {
 	id = 89004
@@ -333,7 +333,7 @@ character_event = {
 }
 
 # Secondary Wife thinks she should be First Wife
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89005
 	desc = EVTDESC89005
@@ -430,7 +430,7 @@ character_event = {
 }
 
 # First Wife is murdered by Second Wife
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89006
 	desc = EVTDESC89006
@@ -499,7 +499,7 @@ character_event = {
 }
 
 # Husband is informed of failed murder attempt
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89008
 	desc = EVTDESC89008
@@ -575,7 +575,7 @@ character_event = {
 }
 
 # Second Wife tries to manipulate Husband
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89010
 	desc = EVTDESC89010
@@ -630,7 +630,7 @@ character_event = {
 }
 
 # Former First Wife schemes against new First Wife
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 89011
 	desc = EVTDESC89011
@@ -716,7 +716,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 89014 restored 2026-11-14 (step A had left it out; it fires LI's 89015)
+# LI RE: CleanSlate router 89014 restored 2026-11-14 (step A had left it out; it fires LI's 89015)
 ### First Wife thinks her son should get a county if he is not heir - Setup
 character_event = {
 	id = 89014
@@ -934,7 +934,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 89019 restored 2026-11-14 (step A had left it out; it fires LI's 89020, 89020)
+# LI RE: CleanSlate router 89019 restored 2026-11-14 (step A had left it out; it fires LI's 89020, 89020)
 ### Secondary Wife plots to kill heir - Setup
 character_event = {
 	id = 89019
@@ -1473,7 +1473,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 89029 restored 2026-11-14 (step A had left it out; it fires LI's 89030, 89030)
+# LI RE: CleanSlate router 89029 restored 2026-11-14 (step A had left it out; it fires LI's 89030, 89030)
 ### Evil wife plots to kill sons who aren't hers - Setup
 character_event = {
 	id = 89029

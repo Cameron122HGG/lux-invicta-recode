@@ -1,6 +1,6 @@
 targeted_decisions = {
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 make_shieldmaiden = {
 		only_playable = yes
 		filter = court
@@ -112,7 +112,7 @@ make_shieldmaiden = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 relieve_shieldmaiden = {
 		only_playable = yes
 		filter = court

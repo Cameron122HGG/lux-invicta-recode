@@ -652,7 +652,7 @@ cult_of_angra_mainyu = { # Aka Cult of the Destroyer
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 arab_jinn_sorcerers = {
 	primary_attribute = intrigue
 	opinion_to_other_members = +5

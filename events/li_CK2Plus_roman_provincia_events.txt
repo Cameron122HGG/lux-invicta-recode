@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO Roman provincia restoration on LI's map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json
+# LI RE: CK2Plus AIO Roman provincia restoration on LI's map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json
 
 namespace = Plus
 namespace = LIprov
@@ -7,7 +7,7 @@ narrative_event = {
 	id = Plus.566
 	title = EVTNAME_Plus_566
 	desc = EVTDESC_Plus_566
-	picture = GFX_evt_victory_arch_byzantine # LI: AIO's GFX_evt_coronation_byzantine does not exist
+	picture = GFX_evt_victory_arch_byzantine # LI RE: AIO's GFX_evt_coronation_byzantine does not exist
 
 	is_triggered_only = yes
 	major = yes
@@ -149,7 +149,7 @@ character_event = {
 		else_if = {
 			limit = {
 				primary_title = { has_title_flag = western_roman_successor }
-				NOT = { has_global_flag = west_rome_lives } # LI: AIO checked east_rome_lives here
+				NOT = { has_global_flag = west_rome_lives } # LI RE: AIO checked east_rome_lives here
 			}
 			set_global_flag = west_rome_lives
 		}
@@ -163,7 +163,7 @@ character_event = {
 	}
 }
 
-# LI: at game start both Romes exist in 1066 - the Eastern (e_byzantium) and Western (e_roman, S.P.Q.R.) successors
+# LI RE: at game start both Romes exist in 1066 - the Eastern (e_byzantium) and Western (e_roman, S.P.Q.R.) successors
 character_event = {
 	id = LIprov.1
 
@@ -195,7 +195,7 @@ character_event = {
 	}
 }
 
-# LI: a Roman province is restored (AIO used LoR.6, whose text always names Italia)
+# LI RE: a Roman province is restored (AIO used LoR.6, whose text always names Italia)
 narrative_event = {
 	id = LIprov.2
 	title = EVTNAME_LIprov_2
@@ -209,7 +209,7 @@ narrative_event = {
 	}
 }
 
-# LI: Restore the Imperium (user, 2026-11-15). Yearly (and at start) for Byzantium / S.P.Q.R. before the imperium is
+# LI RE: Restore the Imperium (user, 2026-11-15). Yearly (and at start) for Byzantium / S.P.Q.R. before the imperium is
 # claimed: li_imperium_share = percent of the empire's de jure counties inside the holder's realm.
 character_event = {
 	id = LIprov.3
@@ -258,7 +258,7 @@ character_event = {
 	}
 }
 
-# LI: Restore the Imperium taken
+# LI RE: Restore the Imperium taken
 narrative_event = {
 	id = LIprov.4
 	title = EVTNAME_LIprov_4

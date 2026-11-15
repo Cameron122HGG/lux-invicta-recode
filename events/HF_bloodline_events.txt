@@ -209,7 +209,7 @@ character_event = {
 }
 
 # Sympathy for founder group
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { # Sympathy for founder group
 	id = HF.110
 	desc = HF_110_DESC
@@ -7122,7 +7122,7 @@ character_event = {
 }
 
 # Assassin notified of "Plot target dies, undiscovered"
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.24116
 	desc = EVTDESCHF24116
@@ -7217,7 +7217,7 @@ character_event = {
 }
 
 # Assassin notified of "Plot target dies, discovered"
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.24119
 	desc = EVTDESCHF24119
@@ -12050,7 +12050,7 @@ character_event = {
 }
 
 # Mystic character arrives
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { # Mystic character arrives
 	id = HF.24239
 	desc = { 
@@ -12144,7 +12144,7 @@ character_event = { # Mystic character arrives
 	}
 }
 
-# LI: Holy Fury bloodline events restored from CK2Plus AIO (phase 8 part 3, CLEANSLATE_PLAN.md); step A had left them out.
+# LI RE: Holy Fury bloodline events restored from CK2Plus AIO (phase 8 part 3, CLEANSLATE_PLAN.md); step A had left them out.
 
 # Killed by brazen bull - from targeted decision. - First time.
 character_event = {
@@ -12311,7 +12311,7 @@ narrative_event = {
 
 		mult_modifier = {
 			factor = 3
-			religion_group = bud_group # LI: was religion = buddhist (LI's Buddhist faiths are the bud_group)
+			religion_group = bud_group # LI RE: was religion = buddhist (LI's Buddhist faiths are the bud_group)
 		}
 
 		mult_modifier = {
@@ -12437,21 +12437,21 @@ narrative_event = {
 		mult_modifier = {
 			factor = 1.5
 
-			religion_group = bud_group # LI: was religion = buddhist (LI's Buddhist faiths are the bud_group)
+			religion_group = bud_group # LI RE: was religion = buddhist (LI's Buddhist faiths are the bud_group)
 			piety >= 1000
 		}
 
 		mult_modifier = {
 			factor = 1.5
 
-			religion_group = bud_group # LI: was religion = buddhist (LI's Buddhist faiths are the bud_group)
+			religion_group = bud_group # LI RE: was religion = buddhist (LI's Buddhist faiths are the bud_group)
 			piety >= 1500
 		}
 
 		mult_modifier = {
 			factor = 1.75
 
-			religion_group = bud_group # LI: was religion = buddhist (LI's Buddhist faiths are the bud_group)
+			religion_group = bud_group # LI RE: was religion = buddhist (LI's Buddhist faiths are the bud_group)
 			piety >= 2000
 		}
 

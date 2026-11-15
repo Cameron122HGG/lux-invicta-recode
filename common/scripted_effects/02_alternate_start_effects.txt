@@ -14,7 +14,7 @@
 # randomize_religion_names_effect
 # set_random_coa_effect
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 shattered_conqueror_spawn_effect = {
 	random_independent_ruler = {
 		limit = {

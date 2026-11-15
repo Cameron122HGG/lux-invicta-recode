@@ -266,7 +266,7 @@ decisions = {
 				}
 				set_government_type = classical_government
 			}
-			if = { # LI: Roman emperors keep the Roman imperial government (2026-11-15)
+			if = { # LI RE: Roman emperors keep the Roman imperial government (2026-11-15)
 				limit = { is_government_potential = roman_imperial_government }
 				set_government_type = roman_imperial_government
 			}

@@ -153,7 +153,7 @@ character_event = {
 }
 
 # Crazy cannibal eat character and gain traits
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RIP.11510
 	picture = GFX_evt_impalement

@@ -324,7 +324,7 @@ claim = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 claim_all = {
 	name = CB_NAME_CLAIM_ALL
 	war_name = WAR_NAME_CLAIM_ALL
@@ -1117,7 +1117,7 @@ claim_on_liege_plot = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 claim_on_vassal_plot = {
 	name = CB_NAME_CLAIM_VASSAL
 	war_name = WAR_NAME_CLAIM_VASSAL

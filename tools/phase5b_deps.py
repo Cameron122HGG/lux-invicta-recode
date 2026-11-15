@@ -2,7 +2,7 @@
 usage: python -I phase5b_deps.py <repo> <aio> <item> ... [--apply]
 Each item is looked up in AIO as a top-level block in scripted_triggers / scripted_effects / event_modifiers /
 opinion_modifiers / nicknames, or as a localisation key. Blocks go to li_CK2Plus_<kind>.txt in the same folder
-(appended, with an "# LI: CK2Plus AIO version" header on a new file); localisation keys, plus each copied block's own
+(appended, with an "# LI RE: CK2Plus AIO version" header on a new file); localisation keys, plus each copied block's own
 name/_desc keys, go to localisation/000_li_CK2Plus_stepb.csv. Prints what the copied text needs that neither the
 mod nor this run provides (scripted items, modifiers, events, loc), so those can be added or the item dropped.
 Dry run by default."""
@@ -14,7 +14,7 @@ KINDS = [('common/scripted_triggers', 'li_CK2Plus_stepb_triggers.txt'), ('common
          ('common/event_modifiers', 'li_CK2Plus_timers.txt'), ('common/opinion_modifiers', 'li_CK2Plus_opinion_modifiers.txt'),
          ('common/nicknames', 'li_CK2Plus_nicknames.txt'), ('common/objectives', 'li_CK2Plus_plots.txt')]
 LOC_OUT = 'localisation/000_li_CK2Plus_stepb.csv'
-HEAD = '# LI: CK2Plus AIO version (step B, decision 5): dependencies of AIO definitions the mod uses (tools/phase5b_deps.py).'
+HEAD = '# LI RE: CK2Plus AIO version (step B, decision 5): dependencies of AIO definitions the mod uses (tools/phase5b_deps.py).'
 def rd(p): return open(p, 'rb').read().decode('latin-1')
 def nc(s): return re.sub(r'#[^\n]*', '', s)
 def top_blocks(s):
@@ -77,7 +77,7 @@ if APPLY:
         open(p, 'wb').write(new.replace('\n', '\r\n').encode('latin-1'))
     if add_loc:
         p = os.path.join(REPO, LOC_OUT)
-        old = rd(p).replace('\r\n', '\n') if os.path.exists(p) else '#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x\n# LI: CK2Plus AIO text for step B dependencies (tools/phase5b_deps.py).\n'
+        old = rd(p).replace('\r\n', '\n') if os.path.exists(p) else '#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x\n# LI RE: CK2Plus AIO text for step B dependencies (tools/phase5b_deps.py).\n'
         new = old.rstrip('\n') + '\n' + '\n'.join(aio_loc[k] for k in add_loc) + '\n'
         open(p, 'wb').write(new.replace('\n', '\r\n').encode('latin-1'))
     print('written:', {f: len(v) for f, v in add.items() if v}, 'loc', len(add_loc))

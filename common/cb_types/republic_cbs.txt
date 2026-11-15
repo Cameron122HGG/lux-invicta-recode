@@ -249,7 +249,7 @@ coastal_republic = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 coastal_county_republic = {
 	name = CB_NAME_COASTAL_COUNTY_REPUBLIC
 	war_name = WAR_NAME_COASTAL_COUNTY_REPUBLIC

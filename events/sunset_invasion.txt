@@ -11,7 +11,7 @@ namespace = SSI
 
 # First Contact - Beads and Feathers
 # (There is another version of this event: SoA.3081 - triggered by a Demon Child.)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SSI.1
 
@@ -246,7 +246,7 @@ province_event = {
 }
 
 # First Landing of the Aztecs
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SSI.4
 	title = EVTNAME_SSI_004
@@ -1043,7 +1043,7 @@ narrative_event = {
 }
 
 # Second Landing of the Aztecs
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = SSI.5
 
@@ -1113,7 +1113,7 @@ character_event = {
 }
 
 # Second Landing of the Aztecs
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = SSI.6
 	title = EVTNAME_SSI_006
@@ -1597,7 +1597,7 @@ character_event = {
 }
 
 # Aztecs Hold Ireland
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SSI.41
 	desc = EVTDESC_SSI_041
@@ -1650,7 +1650,7 @@ character_event = {
 }
 
 # Aztecs Hold Britain
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SSI.42
 	desc = EVTDESC_SSI_042
@@ -1717,7 +1717,7 @@ character_event = {
 }
 
 # Aztecs Hold London
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SSI.43
 	desc = EVTDESC_SSI_043

@@ -177,7 +177,7 @@ character_event = {
 }
 
 # Syncretic rulers can pick a random sympathy (Player only)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23003
 	desc = EVTDESCHF23003
@@ -1295,7 +1295,7 @@ character_event = {
 
 ## Divination: on war started, chance to divine outcome
 # Hidden ping to select haruspex
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23005
 	hide_window = yes
@@ -1365,7 +1365,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23007
 	desc = { 
@@ -2345,7 +2345,7 @@ character_event = {
 # Zodiac Signs - Hellenic Flavor
 #######################
 # on_birth event assigns traits on hellenic child.
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23019
 	hide_window = yes
@@ -2490,7 +2490,7 @@ character_event = {
 }
 
 # Guardian: is the child doing well?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23022
 	desc = {
@@ -6524,7 +6524,7 @@ province_event = {
 }
 
 # on_looted_settlement: Bloodline gained at 200 viking_raids variable
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = HF.23212
 	title = EVTTITLE23212
@@ -6727,7 +6727,7 @@ narrative_event = {
 }
 
 # Other players are notified
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = HF.23213
 	title = EVTTITLE23213
@@ -8150,7 +8150,7 @@ character_event = {
 ## Flavor Doctrine events: Astrology + Haruspicy causes Religious Head to interpret the stars 10-yearly (or your Court Chaplain if No Rel Head exists)
 
 # Main event for religious head (it is localized, because the religious head might be Temporal)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = HF.23400
 	title = EVTTITLEAHF23400
@@ -8688,7 +8688,7 @@ character_event = {
 }
 
 # Main event for Court Chaplain of Kings and above (only if no religious head exists)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = HF.23404
 	title = EVTTITLEAHF23404
@@ -8975,7 +8975,7 @@ character_event = {
 ## Haruspicy + Bloodthirsty Gods allows to read your fortune when killing a notable prisoner
 
 # on_death: Hidden ping from the prisoner
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23410
 	hide_window = yes
@@ -15067,7 +15067,7 @@ character_event = {
 
 # on_adulthood (delayed): African rite of passage
 # First select investment for ceremony
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23773
 	desc = EVTDESCAHF23773
@@ -15244,7 +15244,7 @@ character_event = {
 }
 
 # Then select the kind of bonus
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23774
 	desc = { 
@@ -15603,7 +15603,7 @@ character_event = {
 }
 
 # on_adulthood: actual event, firing delay to avoid clutter
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23775
 	hide_window = yes
@@ -15630,7 +15630,7 @@ character_event = {
 }
 
 # on_startup event to assign african face paint
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23776
 	hide_window = yes

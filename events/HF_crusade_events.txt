@@ -1,5 +1,5 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
-# LI: the Fourth Crusade / Latin Empire chain (HF.49000-49008) and the Teutonic Northern Crusade chain (HF.49100-49121) stay switched off (user decision 2026-11-15); only the crusade bloodlines (HF.49020/49021) are live.
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
+# LI RE: the Fourth Crusade / Latin Empire chain (HF.49000-49008) and the Teutonic Northern Crusade chain (HF.49100-49121) stay switched off (user decision 2026-11-15); only the crusade bloodlines (HF.49020/49021) are live.
 namespace = HF
 namespace = HFP
 

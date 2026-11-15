@@ -1,7 +1,7 @@
 # monastic_order_purity_effect
 # join_prev_monastic_order_society
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 monastic_order_purity_effect = {
 	if = {
 		limit = {
@@ -98,7 +98,7 @@ monastic_order_purity_effect = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 join_prev_monastic_order_society = {
 	if = {
 		limit = { PREV = { society_member_of = monastic_order_orthodox } }
@@ -120,7 +120,7 @@ join_prev_monastic_order_society = {
 		limit = { PREV = { society_member_of = monastic_order_monophysite } }
 		join_society = monastic_order_monophysite
 	}
-	# LI: Lux Invicta's own Christian monastic orders (added 2026-11-15)
+	# LI RE: Lux Invicta's own Christian monastic orders (added 2026-11-15)
 	else_if = {
 		limit = { PREV = { society_member_of = monastic_order_adoptionist } }
 		join_society = monastic_order_adoptionist

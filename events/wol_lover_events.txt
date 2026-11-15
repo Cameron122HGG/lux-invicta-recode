@@ -15,7 +15,7 @@ namespace = WoL
 ##########################################
 
 # Spouse suspected of affair - Choices
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.1003
 	picture = GFX_evt_quarrel
@@ -880,7 +880,7 @@ character_event = {
 }
 
 # The spouse responds to the cruel admission
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.1009
 	desc = EVTDESC_WOL_1009
@@ -4228,7 +4228,7 @@ character_event = {
 ##################################################
 
 # Starts with the lover
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.1160
 	desc = EVTDESC_WOL_1160

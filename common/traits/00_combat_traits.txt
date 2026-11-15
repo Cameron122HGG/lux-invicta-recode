@@ -2,7 +2,7 @@
 # COMBAT TRAITS
 ########################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 berserker = {
 	potential = {
 		LI_norse_pagan_trigger = yes
@@ -265,7 +265,7 @@ sea_queen = {
 	female_compliment_adj = COMPL_VIKING_adj
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 viking = {
 	potential = {
 		OR = {

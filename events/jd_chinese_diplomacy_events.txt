@@ -447,7 +447,7 @@ character_event = {
 }
 
 # The visit went well
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = JD.20004
 	has_dlc = "Jade Dragon"
@@ -643,7 +643,7 @@ character_event = {
 }
 
 # You learn about languages!
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = JD.20007
 	has_dlc = "Jade Dragon"
@@ -732,7 +732,7 @@ character_event = {
 }
 
 # You greet them nicely
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = JD.20009
 	has_dlc = "Jade Dragon"
@@ -825,7 +825,7 @@ character_event = {
 }
 
 # Deep meaningful insight
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = JD.20012
 	has_dlc = "Jade Dragon"
@@ -907,7 +907,7 @@ character_event = {
 ### Mini-Expedition to China ####
 
 # Your courtier wants to travel to China!
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = JD.10011
 	has_dlc = "Jade Dragon"
@@ -5926,7 +5926,7 @@ character_event = { # Accept Teacher into Court
 
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { # Radhanite Merchant
 	id = JD.7010
 	desc = EVTDESC_JD_7010

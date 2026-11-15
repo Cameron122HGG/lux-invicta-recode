@@ -1,4 +1,4 @@
-# LI: from CK2Plus AIO, needed by the warrior lodge files (phase 8 part 5).
+# LI RE: from CK2Plus AIO, needed by the warrior lodge files (phase 8 part 5).
 
 celtic_battle_cry = {
 	icon = 25

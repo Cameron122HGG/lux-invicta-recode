@@ -1,6 +1,6 @@
 targeted_decisions = {
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	prisoner_torture = {
 		filter = court
 		ai_target_filter = court
@@ -338,7 +338,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	prisoner_mutilate = {
 		filter = court
 		ai_target_filter = court
@@ -605,7 +605,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	prisoner_read_poetry = {
 		filter = court
 		ai_target_filter = court
@@ -781,7 +781,7 @@ targeted_decisions = {
 	}
 
 	# Humiliate
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	prisoner_humiliation = {
 		filter = court
 		ai_target_filter = court

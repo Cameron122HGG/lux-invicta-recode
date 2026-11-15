@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
 namespace = HF
 
 # Written by Joachim
@@ -684,7 +684,7 @@ character_event = {
 		text = EVTDESC_HF_40020_B
 		trigger = {
 			event_target:saint_person = {
-				NOT = { religion_group = christian } # LI: pagan saints come from many LI groups (was religion_group = pagan_group)
+				NOT = { religion_group = christian } # LI RE: pagan saints come from many LI groups (was religion_group = pagan_group)
 			}
 		}
 	}
@@ -1076,97 +1076,97 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_germanic_trigger = yes } # LI: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_germanic_trigger = yes } # LI RE: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_germanic_01
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_germanic_01
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_romuva_trigger = yes } # LI: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_romuva_trigger = yes } # LI RE: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_romuva_01
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_romuva_01
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_slavic_trigger = yes } # LI: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_slavic_trigger = yes } # LI RE: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_slavic_01
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_slavic_01
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_tengri_trigger = yes } # LI: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_tengri_trigger = yes } # LI RE: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_tengri_01
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_tengri_01
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_suomenusko_trigger = yes } # LI: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_suomenusko_trigger = yes } # LI RE: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_01
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_01
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 								}
 							}
 						}
@@ -1190,78 +1190,78 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_african_trigger = yes } # LI: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_african_trigger = yes } # LI RE: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_african_01
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_african_01
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_zun_trigger = yes } # LI: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_zun_trigger = yes } # LI RE: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_zun_01
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_zun_01
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_hellenic_trigger = yes } # LI: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_hellenic_trigger = yes } # LI RE: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_01
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_01
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_bon_trigger = yes } # LI: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_bon_trigger = yes } # LI RE: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_bon_01
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_bon_01
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 								}
 							}
 						}
@@ -1321,21 +1321,21 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_hellenic_trigger = yes } # LI: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_hellenic_trigger = yes } # LI RE: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_02
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_02
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 								}
 							}
 						}
@@ -1377,97 +1377,97 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_germanic_trigger = yes } # LI: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_germanic_trigger = yes } # LI RE: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_germanic_03
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_germanic_03
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_romuva_trigger = yes } # LI: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_romuva_trigger = yes } # LI RE: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_romuva_03
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_romuva_03
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_slavic_trigger = yes } # LI: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_slavic_trigger = yes } # LI RE: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_slavic_03
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_slavic_03
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_tengri_trigger = yes } # LI: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_tengri_trigger = yes } # LI RE: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_tengri_03
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_tengri_03
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_suomenusko_trigger = yes } # LI: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_suomenusko_trigger = yes } # LI RE: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_03
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_03
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 								}
 							}
 						}
@@ -1491,78 +1491,78 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_african_trigger = yes } # LI: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_african_trigger = yes } # LI RE: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_african_03
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_african_03
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_zun_trigger = yes } # LI: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_zun_trigger = yes } # LI RE: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_zun_03
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_zun_03
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_hellenic_trigger = yes } # LI: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_hellenic_trigger = yes } # LI RE: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_03
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_03
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_bon_trigger = yes } # LI: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_bon_trigger = yes } # LI RE: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_bon_03
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_bon_03
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 								}
 							}
 						}
@@ -1613,98 +1613,98 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_germanic_trigger = yes } # LI: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_germanic_trigger = yes } # LI RE: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_germanic_04
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_germanic_04
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_romuva_trigger = yes } # LI: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_romuva_trigger = yes } # LI RE: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_romuva_04
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_romuva_04
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_slavic_trigger = yes } # LI: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_slavic_trigger = yes } # LI RE: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_slavic_04
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_slavic_04
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
 							limit = {
-								li_saints_tengri_trigger = yes # LI: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
+								li_saints_tengri_trigger = yes # LI RE: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
 							}
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_tengri_04
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_tengri_04
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_suomenusko_trigger = yes } # LI: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_suomenusko_trigger = yes } # LI RE: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_04
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_04
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 								}
 							}
 						}
@@ -1728,78 +1728,78 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_african_trigger = yes } # LI: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_african_trigger = yes } # LI RE: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_african_04
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_african_04
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_zun_trigger = yes } # LI: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_zun_trigger = yes } # LI RE: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_zun_04
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_zun_04
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_hellenic_trigger = yes } # LI: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_hellenic_trigger = yes } # LI RE: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_04
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_04
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_bon_trigger = yes } # LI: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_bon_trigger = yes } # LI RE: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_bon_04
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_bon_04
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 								}
 							}
 						}
@@ -1843,97 +1843,97 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_germanic_trigger = yes } # LI: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_germanic_trigger = yes } # LI RE: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_germanic_05
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_germanic_05
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_romuva_trigger = yes } # LI: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_romuva_trigger = yes } # LI RE: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_romuva_05
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_romuva_05
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_slavic_trigger = yes } # LI: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_slavic_trigger = yes } # LI RE: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_slavic_05
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_slavic_05
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_tengri_trigger = yes } # LI: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_tengri_trigger = yes } # LI RE: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_tengri_05
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_tengri_05
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_suomenusko_trigger = yes } # LI: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_suomenusko_trigger = yes } # LI RE: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_05
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_05
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 								}
 							}
 						}
@@ -1957,78 +1957,78 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_african_trigger = yes } # LI: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_african_trigger = yes } # LI RE: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_african_05
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_african_05
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_zun_trigger = yes } # LI: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_zun_trigger = yes } # LI RE: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_zun_05
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_zun_05
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_hellenic_trigger = yes } # LI: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_hellenic_trigger = yes } # LI RE: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_05
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_05
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_bon_trigger = yes } # LI: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_bon_trigger = yes } # LI RE: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_bon_05
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_bon_05
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 								}
 							}
 						}
@@ -2070,97 +2070,97 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_germanic_trigger = yes } # LI: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_germanic_trigger = yes } # LI RE: was religion = norse_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_germanic_06
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_germanic_06
-									religion = event_target:saint_person # LI: the saint's own faith (was norse_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was norse_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_romuva_trigger = yes } # LI: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_romuva_trigger = yes } # LI RE: was religion = baltic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_romuva_06
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_romuva_06
-									religion = event_target:saint_person # LI: the saint's own faith (was baltic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was baltic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_slavic_trigger = yes } # LI: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_slavic_trigger = yes } # LI RE: was religion = slavic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_slavic_06
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_slavic_06
-									religion = event_target:saint_person # LI: the saint's own faith (was slavic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was slavic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_tengri_trigger = yes } # LI: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_tengri_trigger = yes } # LI RE: was religion = tengri_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_tengri_06
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_tengri_06
-									religion = event_target:saint_person # LI: the saint's own faith (was tengri_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was tengri_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_suomenusko_trigger = yes } # LI: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_suomenusko_trigger = yes } # LI RE: was religion = finnish_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_06
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_suomenusko_06
-									religion = event_target:saint_person # LI: the saint's own faith (was finnish_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was finnish_pagan_reformed)
 								}
 							}
 						}
@@ -2184,78 +2184,78 @@ character_event = {
 							}
 						}
 						else_if = {
-							limit = { li_saints_african_trigger = yes } # LI: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_african_trigger = yes } # LI RE: was religion = west_african_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_african_06
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_african_06
-									religion = event_target:saint_person # LI: the saint's own faith (was west_african_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was west_african_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_zun_trigger = yes } # LI: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_zun_trigger = yes } # LI RE: was religion = zun_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_zun_06
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_zun_06
-									religion = event_target:saint_person # LI: the saint's own faith (was zun_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was zun_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_hellenic_trigger = yes } # LI: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_hellenic_trigger = yes } # LI RE: was religion = hellenic_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_06
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_hellenic_06
-									religion = event_target:saint_person # LI: the saint's own faith (was hellenic_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was hellenic_pagan_reformed)
 								}
 							}
 						}
 						else_if = {
-							limit = { li_saints_bon_trigger = yes } # LI: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
+							limit = { li_saints_bon_trigger = yes } # LI RE: was religion = bon_pagan_reformed (li_pagan_saint_triggers.txt)
 
 							if = {
 								limit = { is_female = yes }
 
 								create_bloodline = {
 									type = saintly_bloodline_bon_06
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 									inheritance = matrilineal
 								}
 							}
 							else = {
 								create_bloodline = {
 									type = saintly_bloodline_bon_06
-									religion = event_target:saint_person # LI: the saint's own faith (was bon_pagan_reformed)
+									religion = event_target:saint_person # LI RE: the saint's own faith (was bon_pagan_reformed)
 								}
 							}
 						}
@@ -2339,7 +2339,7 @@ narrative_event = {
 		picture = GFX_evt_pagan_reformation
 		trigger = {
 			event_target:saint_person = {
-				NOT = { religion_group = christian } # LI: pagan saints come from many LI groups (was religion_group = pagan_group)
+				NOT = { religion_group = christian } # LI RE: pagan saints come from many LI groups (was religion_group = pagan_group)
 			}
 		}
 	}
@@ -3618,7 +3618,7 @@ narrative_event = {
 	is_triggered_only = yes # depose_impious_pope
 
 	immediate = {
-		k_papal_state = { # LI: CleanSlate's k_papacy is LI's k_papal_state (the Pope)
+		k_papal_state = { # LI RE: CleanSlate's k_papacy is LI's k_papal_state (the Pope)
 			holder_scope = {
 				save_event_target_as = current_pope
 			}

@@ -10,7 +10,7 @@
 namespace = RIP
 
 # Learned Pilgrim - Assists at hospital
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RIP.4501
 	desc = EVTDESC_RIP_4501

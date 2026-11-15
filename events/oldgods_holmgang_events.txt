@@ -10,7 +10,7 @@
 namespace = TOG
 
 # Liege Hates You (Invisible)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.5015
 	hide_window = yes
@@ -133,7 +133,7 @@ character_event = {
 }
 
 # Fellow Vassal Hates You (Invisible)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.5016
 	hide_window = yes
@@ -293,7 +293,7 @@ character_event = {
 }
 
 # Your Vassal Hates You (Invisible)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.5017
 	hide_window = yes

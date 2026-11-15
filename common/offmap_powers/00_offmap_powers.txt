@@ -1,4 +1,4 @@
-# LI: this whole file is Lux Invicta's own version (from master), not CleanSlate's: LI rebuilt the
+# LI RE: this whole file is Lux Invicta's own version (from master), not CleanSlate's: LI rebuilt the
 # Chinese offmap power around LI's religions and world (1,285 changed lines against vanilla).
 # CleanSlate's version (cleanslate_beta7/) is mostly reformatting; review it for real fixes in phase 3.
 

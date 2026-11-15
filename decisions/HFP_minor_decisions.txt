@@ -272,7 +272,7 @@ decisions = {
 
 
 	# African Flavor
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 tell_a_story_decision = {
     	only_playable = yes
 		ai_check_interval = 36

@@ -3,7 +3,7 @@
 # ducal_county_conquest
 # unjust_conquest
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 force_vassalization = {
 	name = CB_NAME_FORCE_VASSALIZATION
 	war_name = WAR_NAME_FORCE_VASSALIZATION
@@ -647,7 +647,7 @@ ducal_county_conquest = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 unjust_conquest = { # New7
 	name = CB_NAME_UNJUST_COUNTY_CONQUEST
 	war_name = WAR_NAME_UNJUST_COUNTY_CONQUEST

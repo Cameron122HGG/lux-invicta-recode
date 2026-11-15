@@ -1,4 +1,4 @@
-# LI: CleanSlate job events restored 2026-11-14. Step A had removed them as "LI never had it", but they are
+# LI RE: CleanSlate job events restored 2026-11-14. Step A had removed them as "LI never had it", but they are
 # CleanSlate's renumbered versions of the vanilla job events LI had (e.g. 910 -> chancellor.001), and job_actions calls them.
 namespace = marshal
 

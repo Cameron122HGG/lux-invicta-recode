@@ -759,7 +759,7 @@ character_event = {
 }
 
 # Jailor Tar 'n' Feather
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.15001
 	desc = EVTDESCRIP.15001
@@ -876,7 +876,7 @@ character_event = {
 }
 
 # Jailor Stocks
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.15003
 	desc = EVTDESCRIP.15003
@@ -993,7 +993,7 @@ character_event = {
 }
 
 # Jailor Walk of Shame
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.15005
 	desc = EVTDESCRIP.15005
@@ -1110,7 +1110,7 @@ character_event = {
 }
 
 # Jailor Tar 'n' Feather NOMAD
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.15007
 	desc = EVTDESCRIP.15007

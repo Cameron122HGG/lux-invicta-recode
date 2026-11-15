@@ -13,7 +13,7 @@ namespace = SoA
 
 # Confirm decision and check religion
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5000
 	desc = EVTDESC_SoA_5000
@@ -113,7 +113,7 @@ character_event = {
 ###########################################
 
 # Choose destination as Eastern Christian
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5011
 	desc = EVTDESC_SoA_5011
@@ -352,7 +352,7 @@ character_event = {
 }
 
 # Catholic - Where to go - West
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5019
 	desc = EVTDESC_SoA_5019
@@ -434,7 +434,7 @@ character_event = {
 }
 
 # Catholic - Where to go - Med - the oldest sites
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5020
 	desc = EVTDESC_SoA_5020
@@ -532,7 +532,7 @@ character_event = {
 ###########################################
 
 # Setting out (also selects events for road)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5021
 	desc = EVTDESC_SoA_5021
@@ -782,7 +782,7 @@ character_event = {
 }
 
 # Philosophical ponderings
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.5031
 	desc = EVTDESC_SoA_5031
@@ -1114,7 +1114,7 @@ character_event = {
 }
 
 # Moral choice - steal or give
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.5038
 	desc = EVTDESC_SoA_5038
@@ -1239,7 +1239,7 @@ character_event = {
 }
 
 # Meets holy knight as travel companion - makes friend who is member of a holy order
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5047
 	desc = EVTDESC_SoA_5047

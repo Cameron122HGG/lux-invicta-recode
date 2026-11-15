@@ -1,6 +1,6 @@
 nomadic_governments = {
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 nomadic_government = {
 		preferred_holdings = { NOMAD }
 		allowed_holdings = { NOMAD }

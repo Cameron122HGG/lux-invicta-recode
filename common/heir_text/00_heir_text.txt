@@ -203,7 +203,7 @@ heir_text_traits_attractive = { # Attractive
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 heir_text_traits_tolerant = { # Tolerant
 	weight_multiplier = {
 		factor = 50

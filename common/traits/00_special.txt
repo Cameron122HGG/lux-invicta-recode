@@ -82,7 +82,7 @@ reincarnation = {
 	random = no
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 immortal = {
 	customizer = no
 	random = no

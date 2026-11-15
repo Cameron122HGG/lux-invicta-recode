@@ -74,19 +74,19 @@ land_province = {
 	max_attrition = 0.05
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 mild_winter = {
 	supply_limit = -1
 	max_attrition = 0.1
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 normal_winter = {
 	supply_limit = -1.5
 	max_attrition = 0.15
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 severe_winter = {
 	supply_limit = -2.5
 	max_attrition = 0.2
@@ -100,14 +100,14 @@ no_adjacent_controlled = {
 }
 
 # Another culture in the same culture group
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 same_culture_group = {
 	local_tax_modifier = -0.05
 	levy_size = -0.05
 }
 
 # A culture in another culture group
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 non_accepted_culture = {
 	local_revolt_risk = 0.01
 	local_tax_modifier = -0.1
@@ -136,7 +136,7 @@ nomad_ruling_clan_too_powerful = {
 }
 
 # Isolated county
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 county_isolated = {
 	local_revolt_risk = 0.02
 }
@@ -148,7 +148,7 @@ new_administration = {
 	local_tax_modifier = -0.3
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 recently_conquered = {
 	levy_size = -2
 	levy_reinforce_rate = -1
@@ -196,14 +196,14 @@ occupied_different_religiongroup = {
 	local_tax_modifier = -0.75
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 looted_modifier = {
 	local_tax_modifier = -0.25
 
 	icon = 12
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 maintaining_mercenary_band = {
 	levy_size = -0.3
 	max_manpower_mult = -0.1
@@ -211,7 +211,7 @@ maintaining_mercenary_band = {
 	icon = 26
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 maintaining_mercenary_band_2 = {
 	levy_size = -0.4
 	max_manpower_mult = -0.1
@@ -219,7 +219,7 @@ maintaining_mercenary_band_2 = {
 	icon = 26
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 maintaining_mercenary_band_3 = {
 	levy_size = -0.5
 	max_manpower_mult = -0.1
@@ -227,7 +227,7 @@ maintaining_mercenary_band_3 = {
 	icon = 26
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 maintaining_mercenary_band_4 = {
 	levy_size = -0.6
 	max_manpower_mult = -0.1
@@ -235,7 +235,7 @@ maintaining_mercenary_band_4 = {
 	icon = 26
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 maintaining_mercenary_band_5 = {
 	levy_size = -0.7
 	max_manpower_mult = -0.1
@@ -243,7 +243,7 @@ maintaining_mercenary_band_5 = {
 	icon = 26
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 maintaining_mercenary_band_6 = {
 	levy_size = -0.8
 	max_manpower_mult = -0.1
@@ -251,7 +251,7 @@ maintaining_mercenary_band_6 = {
 	icon = 26
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 maintaining_mercenary_band_7 = {
 	levy_size = -0.9
 	max_manpower_mult = -0.1
@@ -275,7 +275,7 @@ troops_tutorial = {
 under_siege = {
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 revolt_risk = {
 }
 
@@ -285,7 +285,7 @@ foreign_rebels = {
 	local_revolt_risk = 0.05
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 jizya_tax = {
 	local_tax_modifier = 0.2
 	levy_size = -0.4
@@ -300,7 +300,7 @@ settled_adventurer = {
 # Combat Static Modifiers
 ##########################################################################
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 river_crossing = {
 	icon = 2
 	archers_offensive = -0.05
@@ -314,7 +314,7 @@ river_crossing = {
     war_elephants_offensive = -0.15
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 major_river_crossing = {
 	icon = 2
 	archers_offensive = -0.1
@@ -328,7 +328,7 @@ major_river_crossing = {
     war_elephants_offensive = -0.2
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 strait_crossing = {
 	icon = 3
 	archers_defensive = -0.15
@@ -352,7 +352,7 @@ strait_crossing = {
     war_elephants_offensive = -0.3
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 amphibious_landing = {
 	icon = 4
 	archers_offensive = -0.05
@@ -406,7 +406,7 @@ defenderbonus_jungle = {
 	horse_archers_offensive = -0.15
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 defenderbonus_forest = {
 	icon = 1
 	light_infantry_defensive = 0.1
@@ -433,7 +433,7 @@ personally_leading_troops = {
 # Attribute Mods: Multiplied by the value (including councillor and spouse additions)
 ##########################################################################
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 static_diplomacy_mod = {
 	monthly_character_prestige = 0.02
 }
@@ -441,12 +441,12 @@ static_diplomacy_mod = {
 static_intrigue_mod = {
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 static_stewardship_mod = {
 	global_tax_modifier = 0.015
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 static_martial_mod = {
 	land_organisation = 0.01
 	siege_defence = 0.01
@@ -478,7 +478,7 @@ pretender_modifier = {
 # Settlement Base Modifiers
 ##########################################################################
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 castle = {
 	tax_income = 4
 	fort_level = 3
@@ -492,7 +492,7 @@ castle = {
 	land_organisation = 0.2
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 city = {
 	tax_income = 8
 	fort_level = 1
@@ -504,7 +504,7 @@ city = {
 	land_organisation = 0.2
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 temple = {
 	tax_income = 6
 	fort_level = 2
@@ -531,7 +531,7 @@ tribal = {
 	build_time_modifier = 365
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nomad = {
 	tax_income = 0
 	fort_level = 1
@@ -542,7 +542,7 @@ nomad = {
 	land_organisation = 0
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 trade_post = {
 	tax_income = 4
 	fort_level = 0
@@ -613,7 +613,7 @@ age_adult = {
 }
 
 # 50-69
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 age_old = {
 	combat_rating = -15
 	fertility = -0.2
@@ -625,7 +625,7 @@ age_old = {
 }
 
 # 70+
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 age_very_old = {
 	combat_rating = -35
 	fertility = -0.4

@@ -2518,7 +2518,7 @@ character_event = {
 }
 
 # A Physician-Missionary arrives in a Tribal or Nomadic Court
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RIP.4100
 	desc = EVTDESC_RIP_4100
@@ -6228,7 +6228,7 @@ character_event = {
 }
 
 # Reactions to crazy ruler (everyone else)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.29107
 	desc = EVTDSC_RIP_29107
@@ -8332,7 +8332,7 @@ character_event = {
 }
 
 # Child is reborn ancestor
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RIP.29805
 	hide_window = yes
@@ -8863,7 +8863,7 @@ letter_event = {
 }
 
 # Vassal agrees, asking for money
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30003
 	desc = EVTDESC_RIP_30003
@@ -9014,7 +9014,7 @@ letter_event = {
 }
 
 # Vassal agrees, asking for a Favor
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30007
 	desc = EVTDESC_RIP_30007
@@ -9113,7 +9113,7 @@ letter_event = {
 }
 
 # Vassal is asked by Liege to stop war of aggression against another vassal - can't refuse since the liege calls in a favor
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30010
 	desc = EVTDESC_RIP_30010
@@ -10138,7 +10138,7 @@ letter_event = {
 }
 
 # Vassal agrees, asking for money
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30043
 	desc = EVTDESC_RIP_30043
@@ -10275,7 +10275,7 @@ letter_event = {
 }
 
 # Vassal agrees, asking for a Favor
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30047
 	desc = EVTDESC_RIP_30047
@@ -10360,7 +10360,7 @@ letter_event = {
 }
 
 # Vassal is asked by Liege to institute Gavelkind Law - can't refuse since the liege calls in a favor
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = RIP.30050
 	desc = EVTDESC_RIP_30050
@@ -11080,7 +11080,7 @@ character_event = {
 }
 
 # Suicide attempt through hanging
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.30208
 	picture = GFX_evt_scandal
@@ -11634,7 +11634,7 @@ character_event = {
 }
 
 # You talk, they want room and board
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RIP.30223
 	picture = GFX_evt_wise_woman
@@ -13405,7 +13405,7 @@ narrative_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RIP.30301
 	picture = GFX_evt_end_of_days

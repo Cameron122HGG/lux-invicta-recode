@@ -1,5 +1,5 @@
 """Phase 3, "LI's version wins": definitions LI changed that use LI's own content get LI's master
-version in place of CleanSlate's, marked # LI:. Also adds LI's own on_action entries.
+version in place of CleanSlate's, marked # LI RE:. Also adds LI's own on_action entries.
 usage: python -I phase3_li_wins.py <repo_dir> <master_tree> <vanilla_dir> [--apply]
 - Only definitions that exist in vanilla, differ in LI, and use LI-only names (religions, cultures,
   titles, traits, modifiers, scripted triggers/effects, events) are replaced.
@@ -138,7 +138,7 @@ if APPLY:
     for rel, items in plan.items():
         p = os.path.join(REPO, rel); b = rd(p); nl = b'\r\n' if b'\r\n' in b else b'\n'
         for st, en, lb, key in sorted(items, reverse=True):
-            ins = b'# LI: Lux Invicta\'s version (from master), not CleanSlate\'s - it uses LI\'s own world.' + nl + rename(lb).replace(b'\r\n', b'\n').replace(b'\n', nl)
+            ins = b'# LI RE: Lux Invicta\'s version (from master), not CleanSlate\'s - it uses LI\'s own world.' + nl + rename(lb).replace(b'\r\n', b'\n').replace(b'\n', nl)
             b = b[:st] + ins + b[en:]
         t = nc(b); assert t.count(b'{') == t.count(b'}'), rel
         open(p, 'wb').write(b)

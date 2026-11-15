@@ -1420,7 +1420,7 @@ offmap_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	chinese_grace_offer_concubine = {
 		button_name = offmap_gifts
 
@@ -3445,7 +3445,7 @@ offmap_decisions = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 chinese_grace_offer_artifact = {
 		only_playable = yes
 		button_name = offmap_gifts
@@ -3746,7 +3746,7 @@ chinese_grace_offer_artifact = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	chinese_kow_tow_pilgrimage = {
 		button_name = offmap_gifts
 
@@ -4543,7 +4543,7 @@ offmap_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	chinese_imperial_marriage = {
 		button_name = offmap_boons
 

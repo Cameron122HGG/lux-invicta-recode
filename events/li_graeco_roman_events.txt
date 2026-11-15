@@ -129,7 +129,7 @@ character_event = {
 }
 
 # The Vestalis Maxima should be the guardian of all underage Vestalis
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.2120
 
@@ -169,7 +169,7 @@ character_event = {
 }
 
 # A Vestalis must retire after 30 years
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.2121
 	desc = EVTDESC_ancrel_2121
@@ -218,7 +218,7 @@ character_event = {
 }
 
 # Cleanup when a Vestalis lost her title by some way other than retiring
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.2122
 
@@ -248,7 +248,7 @@ character_event = {
 }
 
 #[on_death] Cleanup when a Vestalis dies
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.2123
 

@@ -1,7 +1,7 @@
 # Lux Invicta copy of the vanilla/DLC file "li_CK2Plus_plots.txt": checks for cultures, religions
 # and dynasties that do not exist in LI were removed (behaviour otherwise unchanged; units that could
 # never match were dropped).
-# LI: CK2Plus AIO version (step B, decision 5): dependencies of AIO definitions the mod uses (tools/phase5b_deps.py).
+# LI RE: CK2Plus AIO version (step B, decision 5): dependencies of AIO definitions the mod uses (tools/phase5b_deps.py).
 
 plot_take_revenge = {
 	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse

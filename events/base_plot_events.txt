@@ -1372,7 +1372,7 @@ letter_event = {
 
 
 # Ultimatum - feudal elective
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8015
 	desc = EVTDESC8015
@@ -1996,7 +1996,7 @@ letter_event = {
 }
 
 # Ultimatum - crown authority
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8025
 	desc = EVTDESC8025
@@ -2320,7 +2320,7 @@ letter_event = {
 }
 
 # Ultimatum - tribal organization
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = 8027
 	desc = EVTDESC8027
@@ -2762,7 +2762,7 @@ letter_event = {
 }
 
 # Regent is in on the plot - Crown Authority
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = 8026
 	desc = EVTDESC8026
@@ -2810,7 +2810,7 @@ letter_event = {
 }
 
 # Regent is in on the plot - Tribal Organization
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = 8031
 	desc = "EVTDESClux_8026"
@@ -22299,7 +22299,7 @@ character_event = {
 }
 
 # Ultimatum - antiking
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8200
 	desc = EVTDESC8200
@@ -23012,7 +23012,7 @@ letter_event = {
  }
 
 # Ultimatum - increase council power
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8215
 	desc = EVTDESC8215
@@ -23417,7 +23417,7 @@ letter_event = {
  }
 
 # Ultimatum - powerful vassal takeover
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8220
 	desc = EVTDESC8220
@@ -24009,7 +24009,7 @@ letter_event = {
 }
 
 # Winning war notification - New title holder
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8226
 	desc = EVTDESC8226

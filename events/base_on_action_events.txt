@@ -269,7 +269,7 @@ character_event = {
 # Adulterer: event_target:target_adulterer
 ###########################################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 20
 	
@@ -2649,7 +2649,7 @@ diploresponse_event = {
 # ROOT is employer
 # FROM is employers "employee"
 # new_character is the other spouse.
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 500
 	desc = EVTDESC500
@@ -3303,7 +3303,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = 670
 	title = "EVTNAME670"
@@ -4257,7 +4257,7 @@ character_event = {
 # ROOT is the target title
 # new_character is the Enemy
 # FROM is the Pope/Caliph
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = 534
 	title = EVTNAME534
@@ -4541,7 +4541,7 @@ character_event = {
 	}
 }
 
-# LI: crusade announcement restored from CK2Plus AIO (phase 8 part 4): Holy Fury's crusade preparation (HFP_crusade_events) fires it;
+# LI RE: crusade announcement restored from CK2Plus AIO (phase 8 part 4): Holy Fury's crusade preparation (HFP_crusade_events) fires it;
 # step A had left it out because LI's old crusade system announces with 320/322/323, which stay as they are.
 # Any Crusade/Jihad/GHW announcement
 # Called from 'on_crusade_creation'

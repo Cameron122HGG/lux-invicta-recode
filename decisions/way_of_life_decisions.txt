@@ -53,7 +53,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 seduce_decision = {
 		only_playable = yes
 		
@@ -593,7 +593,7 @@ seduce_decision = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 decision_break_free = {
 		only_playable = yes
 		is_high_prio = yes
@@ -1143,7 +1143,7 @@ decision_break_free = {
 decisions = {
 
 	# Build an observatory (scholarship focus)
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	build_observatory = {
 		ai_check_interval = 24
 

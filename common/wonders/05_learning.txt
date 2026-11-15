@@ -9,7 +9,7 @@
 ##################################################
 
 # 5A. Grand University
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_university = {
 	picture = GFX_wonder_strip_university
 	potential = {
@@ -160,7 +160,7 @@ wonder_university = {
 }
 
 # 5B. Grand Library
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_library = {
 	picture = GFX_wonder_strip_library
 	potential = {

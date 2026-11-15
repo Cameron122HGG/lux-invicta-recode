@@ -1628,7 +1628,7 @@ character_event = {
 
 # Muslim ruler tries to convince a dynasty member to lose the 'Decadent' Trait
 # Fired from decision "convince_to_straighten_up"
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91350
 	desc = EVTDESC91350
@@ -1861,7 +1861,7 @@ character_event = {
 }
 
 # The decadent character refuses
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91351
 	desc = EVTDESC91351
@@ -2103,7 +2103,7 @@ character_event = {
 }
 
 # The decadent character refuses the diplomatic attempt
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91356
 	desc = EVTDESC91356
@@ -2167,7 +2167,7 @@ character_event = {
 }
 
 # Attempt at religious persuasion
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 91360
 	desc = EVTDESC91360
@@ -2676,7 +2676,7 @@ character_event = {
 }
 
 # Other rulers of the dynasty are notified of the failure to straighten the character up
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91369
 	desc = EVTDESC91369
@@ -2721,7 +2721,7 @@ character_event = {
 }
 
 # The decadent character tries to bribe dynasty head
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91372
 	desc = EVTDESC91372
@@ -2817,7 +2817,7 @@ character_event = {
 }
 
 # The decadent character justifies his decadence
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91373
 	desc = EVTDESC91373
@@ -2961,7 +2961,7 @@ character_event = {
 }
 
 # Dynasty head is asked by wife to leave decadent character alone
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 91375
 	desc = EVTDESC91375

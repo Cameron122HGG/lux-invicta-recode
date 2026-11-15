@@ -90,7 +90,7 @@ character_event = {
 }
 
 ### Shieldmaiden fights alongside her liege, but is struck down
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { 
 	id = 79001
 	desc = EVTDESC_79001
@@ -633,7 +633,7 @@ character_event = {
 }
 
 # Shieldmaiden training montage
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 79007
 	desc = EVTDESC_79007
@@ -789,7 +789,7 @@ character_event = {
 }
 
 ### Shieldmaiden intervenes in combat for her liege
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 79009
 	desc = EVTDESC_79009

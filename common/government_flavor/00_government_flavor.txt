@@ -2,7 +2,7 @@
 # Standard Flavor Names #
 #########################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 government_flavor = {
 	name = gov_electorial_aristocratic_monarchy
 	graphics = GFX_evt_found_hre
@@ -1479,7 +1479,7 @@ government_flavor = {
 		NOR = {
 			has_landed_title = e_roman_empire
 			has_landed_title = e_byzantium
-			has_landed_title = e_roman # LI: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
+			has_landed_title = e_roman # LI RE: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
 		}
 	}
 }

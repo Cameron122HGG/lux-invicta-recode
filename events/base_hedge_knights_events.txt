@@ -516,7 +516,7 @@ character_event = {
 }
 
 # A young woman has been seduced by a hedge knight
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 71004
 	desc = EVTDESC71004

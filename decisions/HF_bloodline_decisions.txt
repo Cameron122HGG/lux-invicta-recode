@@ -547,7 +547,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: restored from CK2Plus AIO (phase 8 part 3, CLEANSLATE_PLAN.md); step A had left them out.
+	# LI RE: restored from CK2Plus AIO (phase 8 part 3, CLEANSLATE_PLAN.md); step A had left them out.
 	prisoner_brazen_bull = {
 		diplomacy_icon = GFX_special_bloodline_decision
 

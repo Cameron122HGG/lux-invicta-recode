@@ -77,7 +77,7 @@ character_event = {
 # Knight is guardian to your child - child gains traits #
 #########################################################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = CM.2020
 	

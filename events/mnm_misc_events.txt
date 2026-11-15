@@ -105,7 +105,7 @@ character_event = {
 			interested_in_society = the_satanists
 			interested_in_society = the_trollcrafters
 			interested_in_society = the_cult_of_kali
-			# interested_in_society = the_cold_ones # LI: society not in Lux Invicta
+			# interested_in_society = the_cold_ones # LI RE: society not in Lux Invicta
 			interested_in_society = the_plaguebringers
 			interested_in_society = the_vodouns
 			interested_in_society = the_bacchants
@@ -122,7 +122,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.10011
 	hide_window = yes
@@ -760,7 +760,7 @@ character_event = {
 }
 
 # Choose a society to force the AI to join.
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.10031
 	hide_window = yes

@@ -4,7 +4,7 @@
 # TRIGGERED ONLY
 ################
 nick_the_exile = {}
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_poet = {
 	allow = {
 		trait = poet
@@ -20,7 +20,7 @@ nick_the_poet = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_benign = {
 	allow = {
 		trait = kind
@@ -37,7 +37,7 @@ nick_the_benign = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_eloquent = {
 	allow = {
 		age >= 35
@@ -69,7 +69,7 @@ nick_the_eloquent = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_meek = {
 	allow = {
 		age >= 35
@@ -98,7 +98,7 @@ nick_the_meek = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_prudent = {
 	allow = {
 		trait = patient
@@ -127,7 +127,7 @@ nick_the_prudent = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_learned = {
 	allow = {
 		trait = scholar
@@ -151,7 +151,7 @@ nick_the_learned = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_cunning = {
 	allow = {
 		trait = deceitful
@@ -181,7 +181,7 @@ nick_the_cunning = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_indolent = {
 	allow = {
 		trait = slothful
@@ -208,7 +208,7 @@ nick_the_indolent = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_downcast = {
 	allow = {
 		trait = depressed
@@ -229,7 +229,7 @@ nick_the_downcast = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_mild = {
 	allow = {
 		trait = kind
@@ -246,7 +246,7 @@ nick_the_mild = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_stout = {
 	allow = {
 		trait >= gluttonous
@@ -263,7 +263,7 @@ nick_the_stout = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_planter = {
 	allow = {
 		trait = gardener
@@ -279,7 +279,7 @@ nick_the_planter = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_ugly = {
 	allow = {
 		trait = ugly
@@ -295,7 +295,7 @@ nick_the_ugly = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_short = {
 	allow = {
 		trait = dwarf
@@ -311,7 +311,7 @@ nick_the_short = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_parricide = {
 	allow = {
 		trait = kinslayer
@@ -327,7 +327,7 @@ nick_the_parricide = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_mystic = {
 	allow = {
 		trait = mystic
@@ -345,7 +345,7 @@ nick_the_mystic = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_bad = {
 	allow = {
 		age >= 35
@@ -362,7 +362,7 @@ nick_the_bad = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_honorable = {
 	allow = {
 		trait = honest
@@ -379,7 +379,7 @@ nick_the_honorable = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_treacherous = {
 	allow = {
 		trait = deceitful
@@ -396,7 +396,7 @@ nick_the_treacherous = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_scarred = {
 	allow = {
 		trait = scarred
@@ -422,7 +422,7 @@ nick_the_scarred = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_quiet = {
 	allow = {
 		trait = shy
@@ -439,7 +439,7 @@ nick_the_quiet = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_truthful = {
 	allow = {
 		trait = honest
@@ -456,7 +456,7 @@ nick_the_truthful = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_distrustful = {
 	allow = {
 		trait = deceitful
@@ -473,7 +473,7 @@ nick_the_distrustful = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_peaceful = {
 	allow = {
 		trait = content
@@ -490,7 +490,7 @@ nick_the_peaceful = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_pompous = {
 	allow = {
 		diplomacy >= 10
@@ -508,7 +508,7 @@ nick_the_pompous = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_infirm = {
 	allow = {
 		trait = infirm
@@ -524,7 +524,7 @@ nick_the_infirm = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_reluctant = {
 	allow = {
 		trait = craven
@@ -541,7 +541,7 @@ nick_the_reluctant = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_brilliant = {
 	allow = {
 		trait = genius
@@ -558,7 +558,7 @@ nick_the_brilliant = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_upright = {
 	allow = {
 		trait = just
@@ -576,7 +576,7 @@ nick_the_upright = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_candid = {
 	allow = {
 		trait = honest
@@ -593,7 +593,7 @@ nick_the_candid = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_clubfoot = {
 	allow = {
 		trait = clubfooted
@@ -609,7 +609,7 @@ nick_the_clubfoot = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_suspicious = {
 	allow = {
 		trait = cynical
@@ -641,7 +641,7 @@ nick_the_suspicious = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_eagle = {
 	allow = {
 		trait = brave
@@ -673,7 +673,7 @@ nick_the_eagle = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_seemly = {
 	allow = {
 		trait = charitable
@@ -711,7 +711,7 @@ nick_the_seemly = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_wanton = {
 	allow = {
 		ruled_years >= 10
@@ -744,7 +744,7 @@ nick_the_wanton = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_sickly = {
 	allow = {
 		is_weak_trigger = yes
@@ -776,7 +776,7 @@ nick_the_sickly = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_ox = {
 	allow = {
 		age >= 35
@@ -803,7 +803,7 @@ nick_the_ox = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_stuttering_and_lame = {
 	allow = {
 		trait = clubfooted
@@ -820,7 +820,7 @@ nick_the_stuttering_and_lame = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_noisy = {
 	allow = {
 		trait = drunkard
@@ -837,7 +837,7 @@ nick_the_noisy = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_duelist = {
 	allow = {
 		trait = duelist
@@ -859,7 +859,7 @@ nick_the_duelist = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_eunuch = {
 	allow = {
 		trait = eunuch
@@ -875,7 +875,7 @@ nick_the_eunuch = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_purpleborn = {
 	allow = {
 		trait = born_in_the_purple
@@ -892,7 +892,7 @@ nick_the_purpleborn = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_madman = {
 	allow = {
 		trait = lunatic
@@ -909,7 +909,7 @@ nick_the_madman = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_slobberer = {
 	allow = {
 		trait >= wroth
@@ -936,7 +936,7 @@ nick_the_slobberer = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_one_eyed = {
 	allow = {
 		trait = one_eyed
@@ -952,7 +952,7 @@ nick_the_one_eyed = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_oak = {
 	allow = {
 		age = 30
@@ -981,7 +981,7 @@ nick_the_oak = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_merchant = {
 	allow = {
 		age >= 35
@@ -1006,7 +1006,7 @@ nick_the_merchant = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_berserker = {
 	allow = {
 		trait = berserker
@@ -1038,7 +1038,7 @@ nick_the_berserker = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_raven = {
 	allow = {
 		trait = brave
@@ -1085,7 +1085,7 @@ nick_the_raven = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_bloodaxe = {
 	allow = {
 		culture_group = north_germanic
@@ -1118,7 +1118,7 @@ nick_the_bloodaxe = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_battler = {
 	allow = {
 		culture_group = iberian
@@ -1151,7 +1151,7 @@ nick_the_battler = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_terrible_eyes = {
 	allow = {
 		culture_group = east_slavic
@@ -1184,7 +1184,7 @@ nick_the_terrible_eyes = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_powerful = {
 	allow = {
 		culture_group = south_slavic
@@ -1242,7 +1242,7 @@ nick_the_wrymouth_syren = {
 #		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_fanged = {
 	allow = {
 		culture_group = celtic
@@ -1275,7 +1275,7 @@ nick_the_fanged = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_wild = {
 	allow = {
 		culture_group = west_germanic
@@ -1308,7 +1308,7 @@ nick_the_wild = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_defenderofgodsfaith = {
 	allow = {
 		culture_group = arabic
@@ -1341,7 +1341,7 @@ nick_the_defenderofgodsfaith = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_ashik = {
 	allow = {
 		trait = poet
@@ -1374,7 +1374,7 @@ nick_the_minnesinger = {
 #		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_skald = {
 	allow = {
 		trait = poet
@@ -1392,7 +1392,7 @@ nick_the_skald = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_scop = {
 	allow = {
 		trait = poet
@@ -1410,7 +1410,7 @@ nick_the_scop = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_hotspur = {
 	allow = {
 		ruled_years >= 15
@@ -1439,7 +1439,7 @@ nick_the_hotspur = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_peculiar = {
 	allow = {
 		ruled_years >= 10
@@ -1471,7 +1471,7 @@ nick_the_peculiar = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_apathetic = {
 	allow = {
 		ruled_years >= 10
@@ -1504,7 +1504,7 @@ nick_the_apathetic = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_child = {
 	allow = {
 		ruled_years >= 5
@@ -1545,7 +1545,7 @@ nick_the_child = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_warrior = {
 	allow = {
 		ruled_years >= 10
@@ -1610,7 +1610,7 @@ nick_the_warrior = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_tempest = {
 	allow = {
 		ruled_years >= 5
@@ -1648,7 +1648,7 @@ nick_the_tempest = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_fierce = {
 	allow = {
 		ruled_years >= 5
@@ -1686,7 +1686,7 @@ nick_the_fierce = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_iron = {
 	allow = {
 		ruled_years >= 5
@@ -1723,7 +1723,7 @@ nick_the_iron = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_implacable = {
 	allow = {
 		ruled_years >= 5
@@ -1761,7 +1761,7 @@ nick_the_implacable = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_anointed = {
 	allow = {
 		ruled_years >= 5
@@ -1800,7 +1800,7 @@ nick_the_anointed = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_strict = {
 	allow = {
 		ruled_years >= 10
@@ -1833,7 +1833,7 @@ nick_the_strict = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_illustrious = {
 	allow = {
 		ruled_years >= 15
@@ -1881,7 +1881,7 @@ nick_the_illustrious = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_rich = {
 	allow = {
 		ruled_years >= 10
@@ -1912,7 +1912,7 @@ nick_the_rich = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_godless = {
 	allow = {
 		piety < 0
@@ -1943,7 +1943,7 @@ nick_the_godless = {
 		}
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_extravagant = {
 	allow = {
 		age >= 35

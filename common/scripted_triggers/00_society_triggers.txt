@@ -63,7 +63,7 @@ is_devil_worshiper_trigger = {
 }
 
 # TODO: replace with society flags?
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 is_christian_monastic_member_trigger = {
 	OR = {
 		society_member_of = monastic_order_orthodox
@@ -71,7 +71,7 @@ is_christian_monastic_member_trigger = {
 		society_member_of = monastic_order_dominican
 		society_member_of = monastic_order_nestorian
 		society_member_of = monastic_order_monophysite
-		# LI: Lux Invicta's own Christian monastic orders (added 2026-11-15)
+		# LI RE: Lux Invicta's own Christian monastic orders (added 2026-11-15)
 		society_member_of = monastic_order_adoptionist
 		society_member_of = monastic_order_apollinarist
 		society_member_of = monastic_order_iconoclast
@@ -83,7 +83,7 @@ is_christian_monastic_member_trigger = {
 }
 
 # TODO: replace with society flags?
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 is_dharmic_monastic_member_trigger = {
 	OR = {
 		society_member_of = monastic_order_hindu
@@ -118,7 +118,7 @@ has_common_devilworship_prerequisites = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 has_satanists_prerequisites = {
 	has_common_devilworship_prerequisites = yes
 
@@ -129,7 +129,7 @@ has_satanists_prerequisites = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_trollcrafters_prerequisites = {
 	has_common_devilworship_prerequisites = yes
 	OR = {
@@ -138,7 +138,7 @@ has_trollcrafters_prerequisites = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_cult_of_kali_prerequisites = {
 	has_common_devilworship_prerequisites = yes
 	OR = {
@@ -163,7 +163,7 @@ has_cold_ones_prerequisites = {
 	has_common_devilworship_prerequisites = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_plaguebringers_prerequisites = {
 	has_common_devilworship_prerequisites = yes
 	OR = {	
@@ -175,7 +175,7 @@ has_plaguebringers_prerequisites = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_vodouns_prerequisites = {
 	has_common_devilworship_prerequisites = yes
 	OR = {
@@ -184,7 +184,7 @@ has_vodouns_prerequisites = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_bacchants_prerequisites = {
 	has_common_devilworship_prerequisites = yes
 	OR = { 
@@ -352,7 +352,7 @@ ok_sr_induction_mission_target_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 ok_sr_sympathy_mission_target_trigger = {
 	 has_secret_religion_trait_trigger = no
 	 ROOT = {

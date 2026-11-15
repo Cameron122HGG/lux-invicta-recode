@@ -7,7 +7,7 @@
 
 # preferred_gender_based_on_laws_trigger
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 gender_equality_trigger = {
 	OR = {
 		feminist_religions_trigger = yes
@@ -51,7 +51,7 @@ male_can_hold_minor_title_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 female_can_hold_minor_title_trigger = {
 	trigger_if = {
 		limit = {
@@ -104,7 +104,7 @@ female_can_hold_minor_title_trigger = {
 
 # Currently only used under a custom tooltip, but need not be
 # TODO: Should probably replace trigger_ifs with custom tooltips
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 female_can_hold_minor_commander_title_trigger = {
 	trigger_if = {
 		limit = {
@@ -159,7 +159,7 @@ female_can_hold_minor_commander_title_trigger = {
 }
 
 # Sex restrictions on Great Tribal Festival activities.
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 can_enter_festival_physical_competitions_trigger = {
 	is_adult = yes
 

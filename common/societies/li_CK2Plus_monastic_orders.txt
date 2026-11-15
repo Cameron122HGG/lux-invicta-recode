@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO monastic orders mapped onto LI faiths (step B, 2026-11-15; tools/phase5b_monastic.py)
+# LI RE: CK2Plus AIO monastic orders mapped onto LI faiths (step B, 2026-11-15; tools/phase5b_monastic.py)
 
 monastic_order_buddhist = {
 	primary_attribute = diplomacy
@@ -627,7 +627,7 @@ monastic_order_stoics = {
 			is_tribal = no
 			is_nomadic = no
 
-			# LI: AIO's culture = roman branch dropped (no roman culture in LI)
+			# LI RE: AIO's culture = roman branch dropped (no roman culture in LI)
 			li_lodge_hellenic_trigger = yes
 		}
 	}
@@ -663,7 +663,7 @@ monastic_order_stoics = {
 			is_tribal = no
 			is_nomadic = no
 
-			# LI: AIO's culture = roman branch dropped (no roman culture in LI)
+			# LI RE: AIO's culture = roman branch dropped (no roman culture in LI)
 			li_lodge_hellenic_trigger = yes
 
 			NOT = { trait = excommunicated }
@@ -927,7 +927,7 @@ monastic_order_stoics = {
 
 	startup_populate = {
 		trigger = {
-			# LI: AIO's culture = roman branch dropped (no roman culture in LI)
+			# LI RE: AIO's culture = roman branch dropped (no roman culture in LI)
 			li_lodge_hellenic_trigger = yes
 
 			is_adult = yes

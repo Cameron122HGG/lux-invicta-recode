@@ -108,7 +108,7 @@ nomad_agitation = {
 	icon = 60
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 negative_money = {
 	land_morale = -1
 	monthly_character_prestige = -1
@@ -4506,7 +4506,7 @@ secret_hurufi_community = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 secret_qarmatian_community = {
 	icon = 35
 	is_visible = {

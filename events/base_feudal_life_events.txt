@@ -273,7 +273,7 @@ character_event = {
 }
 
 # Wolf hunting - Luparii
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4085
 	desc = EVTDESC4085
@@ -625,7 +625,7 @@ character_event = {
 }
 
 # Cattle Rustling
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4035
 	desc = EVTDESC4035
@@ -725,7 +725,7 @@ character_event = {
 }
 
 # Band O'Brothers
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4010
 	desc = EVTDESC4010
@@ -866,7 +866,7 @@ character_event = {
 }
 
 # Kidnapping : Start
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4045
 	desc = EVTDESC4045
@@ -1285,7 +1285,7 @@ character_event = {
 }
 
 # I spy a spy!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4050
 	desc = EVTDESC4050
@@ -1524,7 +1524,7 @@ character_event = {
 ################################################################################
 
 # Poachers! Start
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4020
 	desc = EVTDESC4020
@@ -1677,7 +1677,7 @@ character_event = {
 }
 
 # Poachers: Liege
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4022
 	desc = EVTDESC4022
@@ -2015,7 +2015,7 @@ character_event = {
 }
 
 # Mercy, cried the thief
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4006
 	desc = EVTDESC4006
@@ -2580,7 +2580,7 @@ character_event = {
 ################################################################################
 
 # Falconry
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4060
 	desc = EVTDESC4060
@@ -2755,7 +2755,7 @@ character_event = {
 # Satirical Puppet Show ID 4105 - moved to summer_fair_events.txt
 
 # Banquette: Start
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4110
 	desc = EVTDESC4110
@@ -3087,7 +3087,7 @@ character_event = {
 }
 
 # Market Day
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4115
 	desc = EVTDESC4115
@@ -3260,7 +3260,7 @@ character_event = {
 }
 
 # Jousting
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4120
 	desc = EVTDESC4120
@@ -3410,7 +3410,7 @@ character_event = {
 }
 
 # Tournaments
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4125
 	desc = EVTDESC4125
@@ -3654,7 +3654,7 @@ character_event = {
 }
 
 # Wedding
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4135
 	desc = EVTDESC4135
@@ -3772,7 +3772,7 @@ character_event = {
 # Funeral Procession ID 4140 - moved to mourning_events.txt
 
 # Bard
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4145
 	desc = EVTDESC4145
@@ -4299,7 +4299,7 @@ character_event = {
 # Performing Bear ID 4170 - moved to summer_fair_events.txt
 
 # Bal des Ardents
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4175
 	desc = EVTDESC4175

@@ -61,7 +61,7 @@ any_neighbor_province_has_light_rain_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 silk_road_trade_post_trigger = {
 	custom_tooltip = {
 		text = silk_road_province_desc

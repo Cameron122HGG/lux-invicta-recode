@@ -4,7 +4,7 @@ law_groups = {
 		allowed_for_councillors = yes
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	vassal_wars_law = {
 		allowed_for_councillors = yes
 	}
@@ -73,7 +73,7 @@ de_jure_laws = {
 	}
 
 	# VASSAL WAR DECLARATION LAWS
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	vassal_wars_law_0 = {
 		group = vassal_wars_law
 		default = yes

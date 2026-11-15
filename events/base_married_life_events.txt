@@ -1859,7 +1859,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate's 30039 restored 2026-11-14 (step A had removed it as "LI never had it"). CleanSlate split vanilla's 30040:
+# LI RE: CleanSlate's 30039 restored 2026-11-14 (step A had removed it as "LI never had it"). CleanSlate split vanilla's 30040:
 # 30039 picks the annoying councillor and fires 30040, which no longer picks one itself.
 # Annoying courtier - start
 character_event = {

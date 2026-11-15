@@ -174,7 +174,7 @@ decisions = {
 			}
 		}
 	}
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	assign_bard = { # For the AI, because they are dumb enough not to hand out minor titles
 		ai_check_interval = 12
 

@@ -12,7 +12,7 @@
 namespace = WoL
 
 # Study religious myths?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.7000
 	picture = GFX_evt_bishop
@@ -79,7 +79,7 @@ character_event = {
 }
 
 # Results of studying religous scriptures or stories
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.7001
 	picture = GFX_evt_bishop
@@ -232,7 +232,7 @@ character_event = {
 }
 
 # Visit holy site and speak with priests there (not Muslims, Christians, Jews or Indians)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.7020
 	desc = EVTDESC_WoL_7020
@@ -306,7 +306,7 @@ character_event = {
 }
 
 # Experience at holy site
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.7021
 	desc = EVTDESC_WoL_7021
@@ -483,7 +483,7 @@ character_event = {
 }
 
 # Theologian's view of other religions
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.7042
 	desc = EVTDESC_WoL_7042
@@ -554,7 +554,7 @@ character_event = {
 }
 
 # Question own faith
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.7050
 	
@@ -661,7 +661,7 @@ character_event = {
 }
 
 # Embrace heresy?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.7060
 	desc = EVTDESC_WoL_7060
@@ -996,7 +996,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.7091
 	picture = GFX_evt_religious_exultation

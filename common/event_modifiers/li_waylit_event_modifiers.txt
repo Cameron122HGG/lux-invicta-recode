@@ -1,6 +1,6 @@
 #waylit
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 stalwart_defender = {
 	martial = 1
 	monthly_character_prestige = 0.5
@@ -14,13 +14,13 @@ modifier_hidden = {
 	icon = 5
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 escaped_siege = {
 	intrigue = 2
 	icon = 35
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 left_at_siege = {
 	icon = 36
 }

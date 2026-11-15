@@ -233,7 +233,7 @@ narrative_event = {
 }
 
 # Child (ruler or child to ruler) gets lost in woods. Is taken in and rescued by wolves..
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = HL.1020
 	title = EVTTITLE_HL_1001
@@ -822,7 +822,7 @@ narrative_event = {
 }
 
 # Return home, wife/lover/everyone is worried. Say something about it…
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = HL.1250
 	title = EVTTITLE_HL_1250
@@ -2254,7 +2254,7 @@ character_event = {
 }
 
 # Check for Wolf's Blood inheritance
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = HL.1701
 

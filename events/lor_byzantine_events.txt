@@ -13,7 +13,7 @@ namespace = LoR
 ### Eunuchs
 
 # Introduce Eunuch?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.800
 	desc = EVTDESCLoR.800
@@ -82,7 +82,7 @@ character_event = {
 }
 
 # Martial Eunuch
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.801
 	desc = EVTDESCLoR.801
@@ -147,7 +147,7 @@ character_event = {
 }
 
 # Diplomacy Eunuch
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.802
 	desc = EVTDESCLoR.802
@@ -212,7 +212,7 @@ character_event = {
 }
 
 # Steward Eunuch
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.803
 	desc = EVTDESCLoR.803
@@ -277,7 +277,7 @@ character_event = {
 }
 
 # Spymaster Eunuch
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.804
 	desc = EVTDESCLoR.804
@@ -342,7 +342,7 @@ character_event = {
 }
 
 # Learning Eunuch
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.805
 	desc = EVTDESCLoR.805
@@ -489,7 +489,7 @@ character_event = {
 ### Varangian Hippodrome Riots
 
 # Hippodrome Riots
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = LoR.840
 	desc = EVTDESCLoR.840
@@ -801,7 +801,7 @@ character_event = {
 ### Greek Fire Event Series
 
 # Explosion
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = LoR.860
 	title = EVTNAMELoR.860
@@ -1546,7 +1546,7 @@ character_event = {
 }
 
 # Gift 1
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.887
 	desc = EVTDESCLoR.887
@@ -1627,7 +1627,7 @@ character_event = {
 }
 
 # Gift 2
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.888
 	desc = EVTDESCLoR.887
@@ -1780,7 +1780,7 @@ character_event = {
 }
 
 # Gift 4
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.890
 	desc = EVTDESCLoR.887

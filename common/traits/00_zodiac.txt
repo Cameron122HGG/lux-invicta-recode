@@ -1,5 +1,5 @@
 # Zodiac Signs
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_aquarius = {
 	potential = {
 		OR = {
@@ -23,7 +23,7 @@ zodiac_aquarius = {
 	ai_greed = -20
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_aries = {
 	opposites = {
 		zodiac_libra
@@ -48,7 +48,7 @@ zodiac_aries = {
 	ai_greed = -20	
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_cancer = {
 	opposites = {
 		zodiac_capricorn
@@ -71,7 +71,7 @@ zodiac_cancer = {
 	ai_zeal = -20	
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_capricorn = {
 	opposites = {
 		zodiac_cancer
@@ -94,7 +94,7 @@ zodiac_capricorn = {
 	ai_ambition = 20	
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_gemini = {
 	opposites = {
 		zodiac_sagittarius
@@ -118,7 +118,7 @@ zodiac_gemini = {
 	ai_greed = 20
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_leo = {
 	opposites = {
 		zodiac_aquarius
@@ -144,7 +144,7 @@ zodiac_leo = {
 
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_libra = {
 	opposites = {
 		zodiac_aries
@@ -168,7 +168,7 @@ zodiac_libra = {
 	ai_rationality = 40
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_pisces = {
 	opposites = {
 		zodiac_virgo
@@ -192,7 +192,7 @@ zodiac_pisces = {
 	ai_honor = 40
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_sagittarius = {
 	opposites = {
 		zodiac_gemini
@@ -216,7 +216,7 @@ zodiac_sagittarius = {
 	ai_honor = 20
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_scorpio = {
 	opposites = {
 		zodiac_taurus
@@ -241,7 +241,7 @@ zodiac_scorpio = {
 	ai_rationality = -20	
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_taurus = {
 	opposites = {
 		zodiac_scorpio
@@ -264,7 +264,7 @@ zodiac_taurus = {
 	ai_ambition = 40
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zodiac_virgo = {
 	opposites = {
 		zodiac_pisces

@@ -1467,7 +1467,7 @@ character_event = {
 }
 
 # Father dies, Child gets training traits
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.207
 	desc = EVTDESC_ancrel_0207

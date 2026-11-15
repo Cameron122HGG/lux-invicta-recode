@@ -9,7 +9,7 @@
 # Written by Sara Wendel-Örtqvist
 
 ### Robin Hood ###
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = 10000
 	title = "EVTNAME10000"
@@ -1668,7 +1668,7 @@ narrative_event = {
 }
 
 # Wailings, screams and cries for help seems to emit from the burning gap
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = 10102
 	title = EVTNAME10102
@@ -1732,7 +1732,7 @@ narrative_event = {
 }
 
 # Close the gap
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = 10103
 	title = EVTNAME10103

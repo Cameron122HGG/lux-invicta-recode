@@ -1,4 +1,4 @@
-# LI: faith triggers for the CK2Plus AIO monastic orders mapped onto LI faiths (step B, 2026-11-15; tools/phase5b_monastic.py).
+# LI RE: faith triggers for the CK2Plus AIO monastic orders mapped onto LI faiths (step B, 2026-11-15; tools/phase5b_monastic.py).
 # Buddhist order = LI's bud_group + Indo-Hellenic Buddhism (user). Stoics use li_lodge_hellenic_trigger, Bon uses religion = bon.
 
 li_buddhist_monastic_trigger = {

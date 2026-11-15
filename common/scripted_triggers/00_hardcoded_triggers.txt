@@ -16,7 +16,7 @@
 
 # Used with character interaction to replace merc leader. DO NOT REMOVE
 # FROM is liege
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 can_be_mercenary_leader_potential_trigger = {
 	prisoner = no
 	is_ruler = no

@@ -11,7 +11,7 @@
 ########################################################################################
 # Scholar/Mystic - New Book
 ########################################################################################
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5000
 	desc = "EVTDESC5000"
@@ -2092,7 +2092,7 @@ character_event = {
 # Celibate/Hedonist - Start
 ########################################################################################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5060
 	desc = EVTDESC5060
@@ -2175,7 +2175,7 @@ character_event = {
 }
 
 # On the road towards Hedonism
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5061
 	desc = "EVTDESC5061"
@@ -2243,7 +2243,7 @@ character_event = {
 }
 
 # On the road towards Celibacy
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5062
 	desc = "EVTDESC5062"
@@ -2310,7 +2310,7 @@ character_event = {
 }
 
 # Sweet Temptation
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5063
 	desc = "EVTDESC5063"
@@ -2372,7 +2372,7 @@ character_event = {
 }
 
 # Stay Strong
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5064
 	desc = "EVTDESC5064"
@@ -2646,7 +2646,7 @@ character_event = {
 }
 
 # Towards Hedonism!
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5071
 	desc = "EVTDESC5071"
@@ -2753,7 +2753,7 @@ character_event = {
 }
 
 # Towards Poetry!
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5072
 	desc = "EVTDESC5072"
@@ -3156,7 +3156,7 @@ character_event = {
 }
 
 # Convinced/Not convinced?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 5081
 	desc = "EVTDESC5081"

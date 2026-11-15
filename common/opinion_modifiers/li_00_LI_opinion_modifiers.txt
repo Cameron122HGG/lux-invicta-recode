@@ -74,7 +74,7 @@ not_allowed_to_loot = {
 	opinion = -10
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 opinion_barbarian = {
 	opinion = -15
 }
@@ -92,7 +92,7 @@ my_liberator = {
 #	opinion = 5
 #	months = 12
 #}
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 tried_to_convert_me = {
 	opinion = -20
 }

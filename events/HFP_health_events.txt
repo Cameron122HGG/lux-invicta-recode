@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
 # Written by Flavio
 
 namespace = HFP

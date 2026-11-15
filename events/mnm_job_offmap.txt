@@ -5,7 +5,7 @@
 
 namespace = MNM
 
-# LI: CleanSlate version kept - CK2Plus AIO's copy only renamed chancellor_employer to statecraft_target, reading the target before it is saved
+# LI RE: CleanSlate version kept - CK2Plus AIO's copy only renamed chancellor_employer to statecraft_target, reading the target before it is saved
 character_event = {
 	id = MNM.78000
 	title = MNM.78000.t
@@ -463,7 +463,7 @@ character_event = {
 }
 
 # The Steward allows a smugglers ring to appear
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.78007
 	title = MNM.78007.t
@@ -771,7 +771,7 @@ character_event = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.70013
 	desc = MNM.70013.d
@@ -1145,7 +1145,7 @@ letter_event = {
 }
 
 # Generic Plot Uncovering event
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.70022
 	title = evt_spymaster_001_title
@@ -1218,7 +1218,7 @@ character_event = {
 }
 
 # The Spymaster is attacked by a Noble's thugs (Gets away, Is wounded, Is maimed, Is killed)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.70023
 	title = evt_spymaster_101_title
@@ -1390,7 +1390,7 @@ character_event = {
 }
 
 # Faction Prevention - Spymaster finds Faction Member
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.70024
 	title = evt_spymaster_201_title

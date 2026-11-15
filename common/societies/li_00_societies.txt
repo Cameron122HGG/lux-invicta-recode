@@ -4436,7 +4436,7 @@ monastic_order_pelagian = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 hermetics = {
 	primary_attribute = learning
 	society_ranks_gfx = generic_ranks
@@ -7880,7 +7880,7 @@ hermetics = {
  }
  
  ###DEVIL WORSHIPERS###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 the_satanists = {
 	primary_attribute = intrigue
 	opinion_to_other_members = +5

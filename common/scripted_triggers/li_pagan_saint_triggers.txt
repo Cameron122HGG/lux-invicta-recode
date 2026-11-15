@@ -1,4 +1,4 @@
-# LI: which saintly bloodline family a pagan saint of each Lux Invicta reformed faith founds (Holy Fury sainthood,
+# LI RE: which saintly bloodline family a pagan saint of each Lux Invicta reformed faith founds (Holy Fury sainthood,
 # phase 8 part 2, CLEANSLATE_PLAN.md). Holy Fury only had branches for its 10 vanilla reformed faiths;
 # HF_sainthood_events.txt now checks these triggers instead. Whether a faith can have saints at all is decided by the
 # religion_beatification feature (chosen at reformation), as in vanilla.

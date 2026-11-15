@@ -898,7 +898,7 @@ character_event = {
 }
 
 # Cannibal - eat?
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.4101
 	desc = EVTDESC_WoL_4101

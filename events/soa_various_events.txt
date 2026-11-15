@@ -952,7 +952,7 @@ character_event = {
 }
 
 # Accused publicly!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.3014
 	desc = EVTDESC_SOA_3014
@@ -1991,7 +1991,7 @@ character_event = {
 }
 
 # Demon Child receives troop reinforcements
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.3065
 	desc = EVTDESC_SOA_3065
@@ -2211,7 +2211,7 @@ character_event = {
 }
 
 # A witch nanny arrives at court
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.3071
 	desc = EVTDESC_SOA_3071
@@ -2278,7 +2278,7 @@ character_event = {
 }
 
 # A witch nanny arrives at court
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.3072
 	desc = EVTDESC_SOA_3072
@@ -2346,7 +2346,7 @@ character_event = {
 
 
 # Witch nanny moves with her charge - Witch
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.3073
 	hide_window = yes
@@ -2425,7 +2425,7 @@ character_event = {
 }
 
 # Witch nanny commits suicide for the demon child
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.3075
 	hide_window = yes
@@ -2514,7 +2514,7 @@ narrative_event = {
 }
 
 # The Demon Child travels to the New World and returns as the Aztec Emperor (somewhat altered descriptions in the Sunset Invasion)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.3080
 

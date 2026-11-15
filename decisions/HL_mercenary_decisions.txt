@@ -374,7 +374,7 @@ targeted_decisions = {
 }
 
 decisions = {
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 increase_mercenary_size = {
 		only_playable = yes
 		ai_check_interval = 18
@@ -477,7 +477,7 @@ increase_mercenary_size = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 carousing_with_the_men = {
 		only_playable = yes
 		ai_check_interval = 10

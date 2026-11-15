@@ -9,7 +9,7 @@
 # convert_religion_failsafe_effect
 # abdicate_all_primary_type_titles_effect
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 add_sympathy_for_prevs_true_religion_effect = {
 	if = {
 		limit = { 
@@ -258,7 +258,7 @@ add_sympathy_for_prevs_true_religion_effect = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 add_sympathy_for_prevs_open_religion_effect = {
 		if = {
 		limit = { 

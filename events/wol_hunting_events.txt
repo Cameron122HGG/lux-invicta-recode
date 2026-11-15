@@ -1494,7 +1494,7 @@ character_event = {
 }
 
 # Name puppy
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.5203
 	desc = EVTDESC_WoL_5203

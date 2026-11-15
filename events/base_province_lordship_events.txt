@@ -10,7 +10,7 @@
 # Written by Sara Wendel-Örtqvist
 
 # The Clergy demands a stop to commerce in all church squares
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 77000
 	desc = EVTDESC77000
@@ -246,7 +246,7 @@ province_event = {
 }
 
 # The Burgers demands that peasants be forbidden to sell goods within the city walls
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 77003
 	desc = EVTDESC77003
@@ -316,7 +316,7 @@ province_event = {
 }
 
 # The Nobles demands hunting rights on church lands
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 province_event = {
 	id = 77004
 	desc = EVTDESC77004
@@ -400,7 +400,7 @@ province_event = {
 }
 
 # The Clergy demands right to collect extra tithe on free peasants
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 77005
 	desc = EVTDESC77005

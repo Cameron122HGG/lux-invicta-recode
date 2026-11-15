@@ -77,7 +77,7 @@ roman_imperial_government_potential_trigger = {
 		OR = {
 			title = e_roman_empire
 			title = event_target:alternate_byz
-			AND = { # LI: Byzantium and S.P.Q.R. start on their regular government and take this one with Restore the Imperium (user, 2026-11-15)
+			AND = { # LI RE: Byzantium and S.P.Q.R. start on their regular government and take this one with Restore the Imperium (user, 2026-11-15)
 				OR = {
 					title = e_byzantium
 					title = e_roman
@@ -86,7 +86,7 @@ roman_imperial_government_potential_trigger = {
 			}
 		}
 
-		# LI: CleanSlate only kept this government after game start with Imperial Elective (succ_byzantine_elective); LI keeps it
+		# LI RE: CleanSlate only kept this government after game start with Imperial Elective (succ_byzantine_elective); LI keeps it
 		# whatever the succession law, so a law change or a new ruler doesn't drop Byzantium/S.P.Q.R. to classical (user, 2026-11-15)
 	}
 }

@@ -14,7 +14,7 @@ law_groups = {
 
 laws = {
 	# Status of Women
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 status_of_women_0 = {
 		group = status_of_women
 		allow = {
@@ -122,7 +122,7 @@ status_of_women_0 = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 status_of_women_1 = {
 		group = status_of_women
 		allow = {
@@ -234,7 +234,7 @@ status_of_women_1 = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 status_of_women_2 = {
 		group = status_of_women
 		allow = {
@@ -339,7 +339,7 @@ status_of_women_2 = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 status_of_women_3 = {
 		group = status_of_women
 		allow = {
@@ -447,7 +447,7 @@ status_of_women_3 = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 status_of_women_4 = {
 		group = status_of_women
 		allow = {
@@ -767,7 +767,7 @@ status_of_women_4 = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 ze_administration_laws_1 = {
 		group = ze_administration_laws
 		allow = {
@@ -835,7 +835,7 @@ ze_administration_laws_1 = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 ze_administration_laws_2 = {
 		group = ze_administration_laws
 		allow = {

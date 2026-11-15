@@ -122,7 +122,7 @@ character_event = {
 }
 
 # Decide on Burial
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HLF.8005
 	title = EVTNAME_HL_8005

@@ -1,4 +1,4 @@
-# LI: CleanSlate job events restored 2026-11-14. Step A had removed them as "LI never had it", but they are
+# LI RE: CleanSlate job events restored 2026-11-14. Step A had removed them as "LI never had it", but they are
 # CleanSlate's renumbered versions of the vanilla job events LI had (e.g. 910 -> chancellor.001), and job_actions calls them.
 namespace = lordspiritual
 
@@ -1414,7 +1414,7 @@ letter_event = {
 }
 
 # Chaplain arrives at Pagan capital
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 39650
 	desc = EVTDESC39650
@@ -1472,7 +1472,7 @@ character_event = {
 }
 
 # Chaplain has a chance of converting the Pagan lord
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 39651
 	desc = EVTDESC39651
@@ -1673,7 +1673,7 @@ character_event = {
 }
 
 # Chaplain converts Pagan courtier
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 39652
 	desc = EVTDESC39652

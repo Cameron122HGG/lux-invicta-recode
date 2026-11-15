@@ -814,7 +814,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HL.10401
 	desc = EVTDESC_HL_10401
@@ -870,7 +870,7 @@ character_event = {
 }
 
 ### Mercenary captain converts to local religion
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HL.10410
 
@@ -1170,7 +1170,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HL.10411
 	desc = EVTDESC_HL_10411
@@ -2148,7 +2148,7 @@ character_event = {
 }
 
 ### The captain gain mercenary traditions from being on the field
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = HL.10600
 
@@ -2227,7 +2227,7 @@ character_event = {
 }
 
 ### Curious about tales from dad's past for ward
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = HL.10610
 	desc = EVTDESC_HL_10610

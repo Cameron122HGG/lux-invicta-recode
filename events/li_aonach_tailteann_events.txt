@@ -2239,7 +2239,7 @@ narrative_event = {
 }
 
 # Character becomes misguided warrior
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.1240
 

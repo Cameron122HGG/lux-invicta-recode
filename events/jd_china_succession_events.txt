@@ -72,7 +72,7 @@ namespace = JD
 # FromFrom = Offmap
 
 # In case of dynasty change...  (fired from om_action: on_offmap_ruler_changed)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = JD.10005
     hide_window = yes

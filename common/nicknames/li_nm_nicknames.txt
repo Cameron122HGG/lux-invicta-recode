@@ -384,7 +384,7 @@ nick_the_hardruler = {
 		factor = 5
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 nick_the_tall = {
 	allow = {
 		trait = tall

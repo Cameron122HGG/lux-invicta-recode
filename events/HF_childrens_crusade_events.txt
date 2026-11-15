@@ -1,5 +1,5 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
-# LI: adapted - regions world_europe_west_gaul -> world_europe_west_francia and world_middle_east_asia_minor -> world_asia_minor (LI's map names).
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
+# LI RE: adapted - regions world_europe_west_gaul -> world_europe_west_francia and world_middle_east_asia_minor -> world_asia_minor (LI's map names).
 # Written by Flavio
 
 namespace = HF

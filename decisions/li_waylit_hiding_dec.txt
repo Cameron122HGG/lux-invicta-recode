@@ -85,7 +85,7 @@ decisions = {
 		# }
 	# }#bring
 	
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	request_important_prisoners = {
 		is_high_prio = yes
 

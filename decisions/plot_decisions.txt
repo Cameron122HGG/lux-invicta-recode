@@ -48,7 +48,7 @@ plot_decisions = {
 #		}
 #	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	plot_gain_vassal_title_decision = {
 		ai_check_interval = 12
 

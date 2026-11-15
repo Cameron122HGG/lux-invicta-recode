@@ -6,7 +6,7 @@
 # pepin_religious
 # depose_impious_pope
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 excommunicated_ruler = {
 	name = CB_NAME_EXCOMMUNICATED_RULER
 	war_name = WAR_NAME_EXCOMMUNICATED_RULER

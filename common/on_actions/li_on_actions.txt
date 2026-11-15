@@ -937,7 +937,7 @@ on_yearly_pulse = {
 		25 = luxflavourevents.242
 		25 = luxflavourevents.243
 		25 = luxflavourevents.244
-		100 = 30039 # LI: was 30040; CleanSlate's 30039 picks the annoying councillor, then fires 30040
+		100 = 30039 # LI RE: was 30040; CleanSlate's 30039 picks the annoying councillor, then fires 30040
 		100 = 0 # was 39230: LI: Orthodox bishop in prison; it needs FROM = the bishop, so it now runs via CleanSlate's 39229 on on_become_imprisoned_any_reason
 		50 = SoA.5219
 		100 = LT.60101

@@ -3,7 +3,7 @@
 namespace = HF
 
 # on_five_years pulse handling the AI picking a Swaying target
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21998
 	hide_window = yes
@@ -6977,7 +6977,7 @@ character_event = {
 ## Kind event
 
 # Swayer: Kind-based options
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21076
 	desc = {
@@ -7215,7 +7215,7 @@ character_event = {
 }
 
 # Swayed: Kind swaying
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21077
 	desc = {
@@ -7752,7 +7752,7 @@ character_event = {
 }
 
 # Swayer: Swayed was impressed by your present
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.21078
 	desc = {

@@ -671,7 +671,7 @@ disorganised_swarm_tactic = {
 	archers_offensive = -1.5
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 harras_swarm_tactic = {
 	days = 18
 	sprite = 7

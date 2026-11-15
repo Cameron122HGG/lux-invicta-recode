@@ -682,7 +682,7 @@ character_event = {
 # Hidden. Fired from on_offmap_yearly_pulse.
 # Root = Governor
 # From = Offmap
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50120
 
@@ -805,7 +805,7 @@ character_event = {
 # Hidden. Fired from on_offmap_yearly_pulse.
 # Root = Governor
 # From = Offmap
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50140
 
@@ -1028,7 +1028,7 @@ narrative_event = {
 # Hidden. Fired from on_offmap_yearly_pulse
 # Root = Governor
 # From = Offmap
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50160
 
@@ -1804,7 +1804,7 @@ narrative_event = {
 # Hidden. Fired from on_offmap_yearly_pulse.
 # Root = Governor
 # From = Offmap
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50180
 
@@ -2021,7 +2021,7 @@ narrative_event = {
 # Hidden. Fired from on_offmap_yearly_pulse
 # Root = Governor
 # From = Offmap
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50200
 
@@ -2607,7 +2607,7 @@ narrative_event = {
 # Hidden. Fired from on_offmap_yearly_pulse
 # Root = Governor
 # From = Offmap
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = JD.50300
 

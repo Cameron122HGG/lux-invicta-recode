@@ -721,7 +721,7 @@ has_any_lifestyle_trait = {
 
 ## RELIGION ##
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_crusade_trait_trigger = {
 	OR = {
 		AND = {
@@ -1371,7 +1371,7 @@ has_at_least_3_traits_opposite_prev_trigger = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 has_any_sympathy_trait_trigger = { 
 	OR = {
 		trait = sympathy_abrahamics

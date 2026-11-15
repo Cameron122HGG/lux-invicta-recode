@@ -1,6 +1,6 @@
 decisions = {
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	employ_soldier = {
 		ai = no
 
@@ -58,7 +58,7 @@ decisions = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 employ_priest = {
 		# ai = no
 		only_playable = yes
@@ -209,7 +209,7 @@ employ_priest = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 employ_priestess = {
 		# ai = no
 		only_playable = yes
@@ -377,7 +377,7 @@ employ_priestess = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 employ_steward = {
 		# ai = no
 		only_playable = yes
@@ -514,7 +514,7 @@ employ_steward = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 employ_stewardess = {
 		# ai = no
 		only_playable = yes
@@ -652,7 +652,7 @@ employ_stewardess = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 present_debutante = {
 		# ai = no
 		only_playable = yes

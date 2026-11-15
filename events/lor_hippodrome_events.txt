@@ -13,7 +13,7 @@ namespace = LoR
 ### Foul Play
 
 # Approached Sabotage
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = LoR.400
 	title = EVTNAMELoR.400

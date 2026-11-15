@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8 part 5, CLEANSLATE_PLAN.md); lodges tied to LI faiths (li_warrior_lodge_triggers.txt).
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8 part 5, CLEANSLATE_PLAN.md); lodges tied to LI faiths (li_warrior_lodge_triggers.txt).
 #####################################################
 ##### Warrior Lodge work...
 #####################################################

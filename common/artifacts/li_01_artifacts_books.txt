@@ -1043,7 +1043,7 @@ how_to_hold_a_sword = {
 	picture = "GFX_book_martial_a1"
 	slot = library
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 a_soldiers_life = {
 	picture = "GFX_book_martial_a2"
 	slot = library
@@ -1058,7 +1058,7 @@ a_soldiers_life = {
 		morale_defence = 0.05
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 a_history_of_armor = {
 	picture = "GFX_book_martial_b2"
 	slot = library
@@ -1072,7 +1072,7 @@ a_history_of_armor = {
 		morale_defence = 0.15
 	}
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 the_life_of_root = {
 	picture = "GFX_book_martial_a2"
 	slot = library

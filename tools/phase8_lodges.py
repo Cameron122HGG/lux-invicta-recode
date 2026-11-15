@@ -68,7 +68,7 @@ for p in glob.glob('common/religions/*.txt'):
     rels |= set(re.findall(r'(?m)^\t([\w-]+)\s*=\s*\{', s))
 for k, (_, _, fs) in LODGES.items():
     bad = [f for f in fs.split() if f not in rels]; assert not bad, (k, bad)
-t = ['# LI: which Lux Invicta faiths belong to each Holy Fury warrior lodge (phase 8 part 5, CLEANSLATE_PLAN.md).',
+t = ['# LI RE: which Lux Invicta faiths belong to each Holy Fury warrior lodge (phase 8 part 5, CLEANSLATE_PLAN.md).',
      '# The lodge files use these instead of religion_openly_<x>_or_reformed_trigger, which other content uses for',
      '# faith families and which still lists vanilla faiths for Zun/Bon/Hellenic. Mapping decided with the user 2026-11-15.', '']
 for k, (tt, cm, fs) in LODGES.items():
@@ -82,7 +82,7 @@ t += ['# CK2Plus AIO trigger the lodge files use; the mod checks the gender rule
 out['common/scripted_triggers/li_warrior_lodge_triggers.txt'] = '\n'.join(t)
 loc = {f'li_lodge_{k}_tt': v[0] for k, v in LODGES.items()}; loc['li_lodge_any_tt'] = 'Is of a faith with a warrior lodge'
 
-HDR = '# LI: CK2Plus AIO version of this Holy Fury file (phase 8 part 5, CLEANSLATE_PLAN.md); lodges tied to LI faiths (li_warrior_lodge_triggers.txt).\n'
+HDR = '# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8 part 5, CLEANSLATE_PLAN.md); lodges tied to LI faiths (li_warrior_lodge_triggers.txt).\n'
 # ---------------------------------------------------------------- 1. files
 soc = rd(os.path.join(A, 'common/societies/00_warrior_lodges.txt'))
 ck = rd(os.path.join(A, 'common/societies/01_CK2Plus_societies.txt'))
@@ -91,7 +91,7 @@ for key in ('warrior_lodge_celtic', 'warrior_lodge_egyptian'):
     a, b = block(ck, key); extra.append(ck[a:b])
 out['common/societies/00_warrior_lodges.txt'] = HDR + soc
 out['common/societies/01_li_CK2Plus_warrior_lodges.txt'] = (
-    '# LI: CK2Plus AIO\'s Celtic and Egyptian warrior lodges (from its 01_CK2Plus_societies.txt; phase 8 part 5, CLEANSLATE_PLAN.md).\n\n'
+    '# LI RE: CK2Plus AIO\'s Celtic and Egyptian warrior lodges (from its 01_CK2Plus_societies.txt; phase 8 part 5, CLEANSLATE_PLAN.md).\n\n'
     + '\n\n'.join(extra) + '\n')
 out['common/scripted_triggers/02_warrior_lodge_triggers.txt'] = HDR + rd(os.path.join(A, 'common/scripted_triggers/02_warrior_lodge_triggers.txt'))
 out['decisions/000_CK2Plus_warrior_lodge_decisions.txt'] = HDR + rd(os.path.join(A, 'decisions/000_CK2Plus_warrior_lodge_decisions.txt'))
@@ -102,12 +102,12 @@ for name in ('GetCelticWarriorSocietyName', 'GetCelticWarriorSocietyDesc', 'GetE
     m = re.search(r'defined_text\s*=\s*\{\s*name\s*=\s*' + name + r'\b', cl); assert m, name
     dts.append(cl[m.start():end_of(cl, cl.index('{', m.start())) + 1])
 out['localisation/customizable_localisation/09_li_CK2Plus_warrior_lodges.txt'] = (
-    '# LI: CK2Plus AIO\'s name/description getters for its Celtic and Egyptian warrior lodges (phase 8 part 5, CLEANSLATE_PLAN.md).\n\n'
+    '# LI RE: CK2Plus AIO\'s name/description getters for its Celtic and Egyptian warrior lodges (phase 8 part 5, CLEANSLATE_PLAN.md).\n\n'
     + '\n\n'.join(dts) + '\n')
 tr = []
 for f, key in (('01_CK2Plus_celtic_pagan.txt', 'celtic_leader'), ('01_CK2Plus_leadership_traits.txt', 'egyptian_leader')):
     s = rd(os.path.join(A, 'common/traits', f)); a, b = block(s, key); tr.append(s[a:b])
-out['common/traits/li_CK2Plus_lodge_traits.txt'] = ('# LI: CK2Plus AIO\'s training traits for its Celtic and Egyptian warrior lodges (phase 8 part 5, CLEANSLATE_PLAN.md).\n\n'
+out['common/traits/li_CK2Plus_lodge_traits.txt'] = ('# LI RE: CK2Plus AIO\'s training traits for its Celtic and Egyptian warrior lodges (phase 8 part 5, CLEANSLATE_PLAN.md).\n\n'
                                                      + '\n\n'.join(tr) + '\n')
 # decisions: AIO's, but LI's own duel_decision
 dec = rd(os.path.join(A, 'decisions/hf_warrior_lodge_decisions.txt'))
@@ -115,9 +115,9 @@ mod_dec = rd('decisions/hf_warrior_lodge_decisions.txt')
 li_keys = re.findall(r'(?m)^\s*(\w+)\s*=\s*\{', re.sub(r'#[^\n]*', '', mod_dec))
 assert set(li_keys) <= {'targeted_decisions', 'duel_decision', 'society_decisions', 'decisions', 'settlement_decisions'} or True
 a, b = block(mod_dec, 'duel_decision')
-c0 = mod_dec.rfind('\n', 0, mod_dec.rfind('\n', 0, a)) + 1        # keep the "# LI:" comment line above
-li_duel = mod_dec[c0:b] if '# LI:' in mod_dec[c0:a] else mod_dec[a:b]
-assert 'targeted_decisions' in mod_dec[:a] and len(re.findall(r'(?m)^\s*duel_decision\s*=\s*\{', mod_dec)) == 1 and '# LI:' in li_duel
+c0 = mod_dec.rfind('\n', 0, mod_dec.rfind('\n', 0, a)) + 1        # keep the "# LI RE:" comment line above
+li_duel = mod_dec[c0:b] if '# LI RE:' in mod_dec[c0:a] else mod_dec[a:b]
+assert 'targeted_decisions' in mod_dec[:a] and len(re.findall(r'(?m)^\s*duel_decision\s*=\s*\{', mod_dec)) == 1 and '# LI RE:' in li_duel
 
 # ---------------------------------------------------------------- 2. LI faiths in the lodge files
 EVENTS = ['HF_warrior_lodge_feast_events.txt', 'hf_warrior_lodge_events.txt', 'HF_warrior_lodge_powers_events.txt',
@@ -138,7 +138,7 @@ def adapt(s, path):
     for r, v in REL_MAP.items(): s = re.sub(r'\breligion\s*=\s*' + r + r'\b', v, s)
     s = re.sub(r'(?m)^[ \t]*religion\s*=\s*tondrakian[ \t]*(#[^\n]*)?\n', '', s)   # not in LI (OR lists only)
     s = re.sub(r'(?m)^[ \t]*trait\s*=\s*martial_lady(_pagan|_tengri)?[ \t]*(#[^\n]*)?\n', '', s)   # CK2Plus traits the mod lacks (OR list)
-    for old, new in ASSOC.items(): s = re.sub(r'(associated_religion\s*=\s*)' + old + r'\b', r'\g<1>' + new + ' # LI: was ' + old, s)
+    for old, new in ASSOC.items(): s = re.sub(r'(associated_religion\s*=\s*)' + old + r'\b', r'\g<1>' + new + ' # LI RE: was ' + old, s)
     stats[path] = (n0, len(re.findall(r'religion_openly_\w+_or_reformed_trigger', s)))
     return s
 for p in list(out):
@@ -169,7 +169,7 @@ print('ca_con_wall_6 lines dropped:', k)
 pb = rd(os.path.join(A, 'events/CK2Plus_building_events.txt'))
 m = re.search(r'(?m)^\s*id\s*=\s*PlusBuildings\.010\b', pb); pb = pb[:end_of(pb, pb.rfind('{', 0, m.start())) + 1]
 assert pb.count('PlusBuildings.0') >= 10 and 'PlusBuildings.011' not in pb
-out['events/li_CK2Plus_building_notify_events.txt'] = ('# LI: CK2Plus AIO\'s notification events PlusBuildings.001-010 (start of its CK2Plus_building_events.txt), fired by\n'
+out['events/li_CK2Plus_building_notify_events.txt'] = ('# LI RE: CK2Plus AIO\'s notification events PlusBuildings.001-010 (start of its CK2Plus_building_events.txt), fired by\n'
                                                        '# the Baltic lodge\'s warrior_lodge_romuva_baltic_holds decision (phase 8 part 5, CLEANSLATE_PLAN.md).\n' + pb + '\n')
 for p, (a0, b0) in stats.items():
     if a0: print(f'  {p}: {a0} religion_openly refs -> {b0} left')
@@ -179,7 +179,7 @@ z = zipfile.ZipFile(ZIP)
 zs = z.read('interface/CK2Plus_societies.gfx').decode('latin-1') + z.read('interface/CK2Plus_traits.gfx').decode('latin-1')
 spr = [re.sub(r'(?i)gfx/new_traits/', 'gfx/traits/', m.group(0)) for m in re.finditer(r'spriteType\s*=\s*\{[^{}]*\}', zs)
        if re.search(r'"GFX_\w*(warrior_lodge_celtic|warrior_lodge_egyptian|celtic_leader|egyptian_leader)"', m.group(0))]
-out['interface/li_CK2Plus_warrior_lodges.gfx'] = ('# LI: CK2Plus AIO sprites for its Celtic and Egyptian warrior lodges and their training traits (phase 8 part 5).\nspriteTypes = {\n\t'
+out['interface/li_CK2Plus_warrior_lodges.gfx'] = ('# LI RE: CK2Plus AIO sprites for its Celtic and Egyptian warrior lodges and their training traits (phase 8 part 5).\nspriteTypes = {\n\t'
                                                 + '\n\n\t'.join(spr) + '\n}\n')
 binfiles = {}
 for m in re.findall(r'(?i)texturefile\s*=\s*"([^"]+)"', '\n'.join(spr)):
@@ -209,7 +209,7 @@ desc_toks = {t + '_desc' for t in toks}
 need = sorted(k for k in aio_loc if k not in mod_loc and (k in toks or k in desc_toks or k.startswith(PREF)))
 need = [k for k in need if not k.startswith(('li_lodge_', 'martial_lady', 'machas_javelin'))]
 csv = ['#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x',
-       '# LI: phase 8 part 5 (CLEANSLATE_PLAN.md): warrior lodge text CK2Plus AIO has and the mod lacked, plus the LI lodge-faith tooltips.']
+       '# LI RE: phase 8 part 5 (CLEANSLATE_PLAN.md): warrior lodge text CK2Plus AIO has and the mod lacked, plus the LI lodge-faith tooltips.']
 csv += [f'{k};{v};;;;;;;;;;;;;x' for k, v in loc.items()] + [aio_loc[k] for k in need]
 out['localisation/000_li_warrior_lodges.csv'] = '\n'.join(csv) + '\n'
 print('localisation keys added from AIO:', len(need), need[:20])
@@ -229,7 +229,7 @@ for (dd, k), (s, i) in ad.items():
     if k in toks and k not in mod_names:
         addm.setdefault(dd, []).append(s[i:end_of(s, s.index('{', i)) + 1])
 for dd, bl in addm.items():
-    out[dd + '/li_phase8_lodge_' + dd.split('/')[-1] + '.txt'] = '# LI: from CK2Plus AIO, needed by the warrior lodge files (phase 8 part 5).\n\n' + '\n\n'.join(bl) + '\n'
+    out[dd + '/li_phase8_lodge_' + dd.split('/')[-1] + '.txt'] = '# LI RE: from CK2Plus AIO, needed by the warrior lodge files (phase 8 part 5).\n\n' + '\n\n'.join(bl) + '\n'
     print(dd, 'added', [re.match(r'\w+', b).group(0) for b in bl])
 # scripted triggers/effects the new files need
 SCR = ['common/scripted_triggers', 'common/scripted_effects', 'common/scripted_score_values']

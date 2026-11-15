@@ -8,7 +8,7 @@
 ###################################
 
 # Regent embezzles money
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61000
 	desc = EVTDESC61000
@@ -251,7 +251,7 @@ character_event = {
 ### NEW REGENCY EVENTS ###
 
 # Regency: Regent steals holding.
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61100
 	desc = EVTDESC61100
@@ -408,7 +408,7 @@ character_event = {
 }
 
 # Regency: Ruler informed of holding loss
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61101
 	desc = EVTDESC61101
@@ -451,7 +451,7 @@ character_event = {
 }
 
 # Regency: Regent gives Ruler's money to charity
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61105
 	desc = EVTDESC61105
@@ -552,7 +552,7 @@ character_event = {
 }
 
 # Regency: Regent is a better administrator than you ever were
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61110
 	desc = EVTDESC61110
@@ -604,7 +604,7 @@ character_event = {
 ### REGENCY SERIES, OLD RULER HUMILIATED ###
 
 # Regency: Regent humiliates Ruler
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61120
 	desc = EVTDESC61120
@@ -868,7 +868,7 @@ character_event = {
 }
 
 # Regency: Vassal defeats Regent, becomes new Regent
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61125
 	desc = EVTDESC61125
@@ -1048,7 +1048,7 @@ character_event = {
 }
 
 # Regency: Ruler, if child, kills Regent
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61135
 	desc = EVTDESC61135
@@ -1177,7 +1177,7 @@ character_event = {
 ### REGENCY SERIES, YOUNG RULER DECLARED INSANE ###
 
 # Regency: Regent attempts to declare ruler insane when he's not
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61140
 	desc = EVTDESC61140
@@ -1737,7 +1737,7 @@ character_event = {
 }
 
 # Regency: Ruler escapes from tower
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61165
 	desc = EVTDESC61165
@@ -1874,7 +1874,7 @@ character_event = {
 ### REGENCY SERIES, REGENT TRIES TO KILL YOUNG RULER ###
 
 ## Regent sends Ruler to scrub roof
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61190
 	desc = EVTDESC61190
@@ -2036,7 +2036,7 @@ character_event = {
 }
 
 ## Ruler scrubs roof successfully
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61192
 	desc = EVTDESC61192
@@ -2127,7 +2127,7 @@ character_event = {
 }
 
 ## Ruler returns from forest
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61197
 	desc = EVTDESC61197
@@ -2218,7 +2218,7 @@ character_event = {
 }
 
 ## Ruler survives the carriage ride
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61202
 	desc = EVTDESC61202
@@ -2309,7 +2309,7 @@ character_event = {
 }
 
 ## Ruler survives guard
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61207
 	desc = EVTDESC61207
@@ -2512,7 +2512,7 @@ character_event = {
 ## REGENCY SERIES, COURTIER WANTS TO REPLACE REGENT ##
 
 ## Courtier thinks he/she would do a better job than current Regent
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61215
 	desc = EVTDESC61215
@@ -2769,7 +2769,7 @@ character_event = {
 }
 
 ## Regent is informed that Courtier is trying to plead case at court
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61216
 	desc = EVTDESC61216
@@ -3035,7 +3035,7 @@ character_event = {
 }
 
 ## Courtier informed he/she won the case and is now new regent
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61217
 	desc = EVTDESC61217
@@ -3056,7 +3056,7 @@ character_event = {
 }
 
 ## Courtier informed he/she lost the case at court
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61218
 	desc = EVTDESC61218
@@ -4314,7 +4314,7 @@ character_event = {
 ## Queen or Queen Mother takes over Regency ##
 
 ## Queen takes over regency.
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61237
 	desc = EVTDESC61237
@@ -4473,7 +4473,7 @@ character_event = {
 
 ## The Regent Lowers Crown Authority in a Kingdom or Empire
 # CleanSlate: Event merged with event 61302
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 61300
 	picture = GFX_evt_courtiers_talking

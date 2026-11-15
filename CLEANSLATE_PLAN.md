@@ -45,7 +45,7 @@ File-level: 7,512 LI-only files and 3,375 LI data files (history, map, gfx) carr
 ## Layout on the branch
 
 - CleanSlate's files go into the repo with CleanSlate's names. LI's changes to a vanilla definition
-  are made in place in the CleanSlate file, marked `# LI:` so they can be found and diffed against
+  are made in place in the CleanSlate file, marked `# LI RE:` (LI Restored Edition; was `# LI:` until 2026-11-15) so they can be found and diffed against
   future CleanSlate releases.
 - LI's own definitions live in LI-named files (e.g. `common/scripted_effects/li_*.txt`,
   `events/li_*.txt`), not mixed into CleanSlate's files.
@@ -102,7 +102,7 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `--only=common/laws,common/religion_features`: `li_0_term_laws`, `li_slavery_laws` whole, plus 150
      laws from 3 files. Religion features had nothing new.
 3. **LI's real changes (~527).** For each: diff LI against vanilla, apply only LI's change onto
-   CleanSlate's definition, and mark it `# LI:`. The ~1,945 older-vanilla copies take CleanSlate's
+   CleanSlate's definition, and mark it `# LI RE:`. The ~1,945 older-vanilla copies take CleanSlate's
    version, with a spot-check of a sample per folder.
    *(Started 2026-11-14.)* First fixes, driven by the phase 2 run's log:
    - CleanSlate's renamed IDs applied to LI's files with `tools/cs_renames.py` (pulled forward from
@@ -125,7 +125,7 @@ Each phase is its own commit (or several), followed by a run and a log compariso
    - **"LI's version wins" (2026-11-14, `tools/phase3_li_wins.py`).** 676 definitions that LI
      changed and that use LI's own content (336 events, 70 decisions, 55 minor titles, 43 scripted
      triggers, 34 traits…) now carry LI's master text in place of CleanSlate's, with CleanSlate's
-     renames applied and the marker `# LI: Lux Invicta's version (from master)…`. CleanSlate's fixes
+     renames applied and the marker `# LI RE: Lux Invicta's version (from master)…`. CleanSlate's fixes
      inside those definitions are given up for now; compare against `cleanslate_beta7/` later.
      111 LI-changed definitions that CleanSlate dropped entirely were skipped.
    - **LI's on_action entries.** Phase 2 had skipped `on_actions`, so most of LI's own pulse and
@@ -174,7 +174,7 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      per folder). A definition is swapped for AIO's text when LI's master copy differs from vanilla,
      AIO's differs from CleanSlate's/vanilla's, LI's text uses none of LI's own names, and the mod's
      current block is not LI-wins, world data, an on_action list or a Holy Fury file. Marker:
-     `# LI: CK2Plus AIO version (step B, decision 5)`. Survey: 484 real swaps; 606 where the mod
+     `# LI RE: CK2Plus AIO version (step B, decision 5)`. Survey: 484 real swaps; 606 where the mod
      (CleanSlate) already equals AIO; 443 that need AIO content the mod lacks (`in_command_trigger`,
      `obj_get_nick`, Holy Fury lodges…); 544 that use LI's world (hand port).
      **Batch 1 applied:** 298 definitions in 78 files (modifiers, traits, static modifiers, decisions,
@@ -187,7 +187,7 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      state, and the tool now skips both folders and checks `events = { }` lists. Dead vanilla religions
      in AIO's religion features, societies and religion triggers were trimmed. Re-run: 5,361 (clean).
      **Batch 2 applied:** 184 events in 49 files. The tool now also skips blocks that carry an
-     `# LI:` fix inside them (so the `TOG.1000`/`HL.2000`/`100420` triggers and similar stay).
+     `# LI RE:` fix inside them (so the `TOG.1000`/`HL.2000`/`100420` triggers and similar stay).
      **Still to do in step B:** 443 definitions that need AIO content the mod lacks, and 543 that
      use LI's world (hand port).
      **Re-survey after phase 8 (2026-11-15):** 1,089 where the mod already equals AIO (was 606); 9 ready swaps

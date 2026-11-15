@@ -151,7 +151,7 @@ wonder_pyramid_giza = {
 }
 
 # A2. Stonehenge
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_pagan_stones_stonehenge = {
 	picture = GFX_wonder_strip_pagan_stones
 	allow_construction = no
@@ -764,7 +764,7 @@ wonder_apostolic_palace = {
 }
 
 # A7. House of Wisdom
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_house_of_wisdom = {
 	picture = GFX_wonder_strip_library
 	allow_construction = no

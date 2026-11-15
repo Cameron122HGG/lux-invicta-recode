@@ -7957,7 +7957,7 @@ character_event = {
 ###############################################
 
 # Host gets main event
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23910
 	title = EVTTITLE23910
@@ -8153,7 +8153,7 @@ character_event = {
 }
 
 # Vassals notified
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HF.23911
 	title = EVTTITLE23911

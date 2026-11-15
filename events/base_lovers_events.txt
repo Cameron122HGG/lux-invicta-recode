@@ -2768,7 +2768,7 @@ character_event = {
 }
 
 # Childless marriage
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 64090
 	desc = EVTDESC64090

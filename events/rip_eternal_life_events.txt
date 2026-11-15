@@ -75,7 +75,7 @@ character_event = {
 }
 
 # Advisor finds a mystic
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	title = EVTNAME_RIP_21013
 	id = RIP.21013
@@ -442,7 +442,7 @@ character_event = {
 }
 
 # A stranger appears
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	title = EVTNAME_RIP_21014
 	id = RIP.21014
@@ -771,7 +771,7 @@ narrative_event = {
 }
 
 # Mystic introduces themselves
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	title = EVTNAME_RIP_21019
 	id = RIP.21019

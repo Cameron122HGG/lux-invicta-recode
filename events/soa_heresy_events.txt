@@ -15,7 +15,7 @@ namespace = SoA
 ###################################################
 
 # Heresy Appears in Province
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 province_event = {
 	id = SoA.4000
 	desc = EVTDESC39000

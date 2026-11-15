@@ -1552,7 +1552,7 @@ nick_twistedbeard = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 nick_the_bear = {
 	allow = {
 		age = 16
@@ -1796,7 +1796,7 @@ nick_the_bewitched = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 nick_priest_hater = {
 	allow = {
 		age = 20

@@ -261,7 +261,7 @@ character_event = {
 ###########################################
 
 # Drunkard
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3100
 	desc = EVTDESC_RoI_3100
@@ -313,7 +313,7 @@ character_event = {
 }
 
 # Hedonist
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3101
 	desc = EVTDESC_RoI_3101
@@ -363,7 +363,7 @@ character_event = {
 }
 
 # Impaler
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3102
 	desc = EVTDESC_RoI_3102
@@ -446,7 +446,7 @@ character_event = {
 }
 
 # Lustful
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3103
 	desc = EVTDESC_RoI_3103
@@ -493,7 +493,7 @@ character_event = {
 }
 
 # Gluttonous
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3104
 	desc = EVTDESC_RoI_3104
@@ -540,7 +540,7 @@ character_event = {
 }
 
 # Greedy
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3105
 	desc = EVTDESC_RoI_3105
@@ -591,7 +591,7 @@ character_event = {
 }
 
 # Envious
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3106
 	desc = EVTDESC_RoI_3106
@@ -642,7 +642,7 @@ character_event = {
 }
 
 # Wroth
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3107
 	desc = EVTDESC_RoI_3107
@@ -725,7 +725,7 @@ character_event = {
 }
 
 # Proud
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3108
 	desc = EVTDESC_RoI_3108
@@ -805,7 +805,7 @@ character_event = {
 }
 
 # Arbitrary
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3109
 	desc = EVTDESC_RoI_3109
@@ -856,7 +856,7 @@ character_event = {
 }
 
 # Cynical
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3110
 	desc = EVTDESC_RoI_3110
@@ -907,7 +907,7 @@ character_event = {
 }
 
 # Cruel
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3111
 	desc = EVTDESC_RoI_3111
@@ -1084,7 +1084,7 @@ character_event = {
 }
 
 # Paranoid
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.3114
 	desc = EVTDESC_RoI_3114
@@ -1519,7 +1519,7 @@ character_event = {
 ###########################################
 
 # Meditation helps
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = RoI.3402
 	title = EVTTITLE_RoI_3402

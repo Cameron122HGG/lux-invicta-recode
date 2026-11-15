@@ -277,7 +277,7 @@ character_event = {
 }
 
 # How much are you willing to spend on the crown jewels?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = MNM.9103
     desc = EVTDESC_MNM_9103
@@ -2211,7 +2211,7 @@ character_event = {
 }
 
 # Smith steals item and decides who to give it to
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.9131
 	is_triggered_only = yes

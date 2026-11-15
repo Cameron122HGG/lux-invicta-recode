@@ -420,7 +420,7 @@ wonder_synagogue = {
 }
 
 # 1D. Great (Pagan) Temple
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_temple_pagan = {
 	picture = GFX_wonder_strip_temple
 	model = wonder_temple
@@ -536,7 +536,7 @@ wonder_temple_pagan = {
 }
 
 # 1D. Great Buddhist Temple
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 wonder_temple_buddhist = {
 	picture = GFX_wonder_strip_buddhist_temple
 	potential = {

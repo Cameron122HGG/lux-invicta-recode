@@ -943,7 +943,7 @@ character_event = {
 }
 
 # Dirt uncovered: blackmail or expose to give imprisonment reasons
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.2080
 	picture = GFX_evt_eavesdropping
@@ -3424,7 +3424,7 @@ character_event = {
 }
 
 # Hidden 'outcome tombola' event for the "Liberate" decision
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.2210
 	hide_window = yes
@@ -3918,7 +3918,7 @@ character_event = {
 }
 
 # Prisoner freed
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.2223
 	

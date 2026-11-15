@@ -274,7 +274,7 @@ character_event = {
 					}
 				}
 
-				1207 = { # LI: Kroran (Loulan), Lux Invicta's spawn point from master; CleanSlate's random_list used vanilla counties (c_anxi, c_dunhuang...) that LI's map lacks
+				1207 = { # LI RE: Kroran (Loulan), Lux Invicta's spawn point from master; CleanSlate's random_list used vanilla counties (c_anxi, c_dunhuang...) that LI's map lacks
 					save_event_target_as = spawn_province
 				}
 
@@ -321,10 +321,10 @@ character_event = {
 			else = {
 				offmap_china = { set_offmap_flag = troop_spawn_india_temp }
 
-				1572 = { # LI: Chatigama, Lux Invicta's spawn point from master (CleanSlate used c_samatata, which LI's map lacks)
+				1572 = { # LI RE: Chatigama, Lux Invicta's spawn point from master (CleanSlate used c_samatata, which LI's map lacks)
 					save_event_target_as = spawn_province
 				}
-				1309 = { # LI: Ganges delta sea zone, as on master
+				1309 = { # LI RE: Ganges delta sea zone, as on master
 					save_event_target_as = fleet_spawn_location
 				}
 

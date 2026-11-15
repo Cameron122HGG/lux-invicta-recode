@@ -76,19 +76,19 @@ def duchy_capital(d):
 out = {}
 SUCC = ('OR = {\n\t\t\t\thas_landed_title = e_roman_empire\n\n\t\t\t\tprimary_title = {\n\t\t\t\t\tOR = {\n'
         '\t\t\t\t\t\thas_title_flag = eastern_roman_successor\n\t\t\t\t\t\thas_title_flag = western_roman_successor\n'
-        '\t\t\t\t\t\t# LI: the two Romes of 1066 count even before LIprov.1 has flagged them\n'
+        '\t\t\t\t\t\t# LI RE: the two Romes of 1066 count even before LIprov.1 has flagged them\n'
         '\t\t\t\t\t\tAND = {\n\t\t\t\t\t\t\tOR = { title = e_byzantium title = e_roman }\n'
         '\t\t\t\t\t\t\tholder_scope = { government = roman_imperial_government }\n\t\t\t\t\t\t}\n'
         '\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}')
 # title scope: inside primary_title = { OR = { ... } } of the provincia titles' allow and gain_effect
-START_TITLE = 'AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066'
-HEAD = '# LI: CK2Plus AIO Roman provincia restoration on LI\'s map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json\n\n'
+START_TITLE = 'AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI RE: the two Romes of 1066'
+HEAD = '# LI RE: CK2Plus AIO Roman provincia restoration on LI\'s map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json\n\n'
 # ---- titles
 tk = rd(os.path.join(AIO, 'common/landed_titles/02_CK2Plus_titular_kingdoms.txt'))
 titles = []
 for p in P:
     b = block(tk, 'k_provincia_' + p)
-    b, n = re.subn(r'capital\s*=\s*\d+[^\n]*', f'capital = {duchy_capital(CAPITAL_DUCHY[p])} # LI: capital of {CAPITAL_DUCHY[p]}', b, count=1)
+    b, n = re.subn(r'capital\s*=\s*\d+[^\n]*', f'capital = {duchy_capital(CAPITAL_DUCHY[p])} # LI RE: capital of {CAPITAL_DUCHY[p]}', b, count=1)
     assert n == 1, p + ': capital not replaced'
     # AIO's crusade weights name vanilla faiths; LI's two weights are added below
     # (any top-level "<faith> = <number>" line, with or without a comment; capital is handled above)
@@ -101,7 +101,7 @@ for p in P:
     b = cut(b, r'custom_tooltip = \{\s*text = NOT_ROMAN_CAPITAL')
     b = cut(b, r'(?m)^\tgain_effect = \{')
     assert 'NOT_ROMAN_CAPITAL' not in b and 'gain_effect' not in b, p
-    b = b.replace('\tdynasty_title_names = no\n', '\tdynasty_title_names = no\n\n\tchristian = 1000 # Crusade target weight\n\tgraecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans\n', 1)
+    b = b.replace('\tdynasty_title_names = no\n', '\tdynasty_title_names = no\n\n\tchristian = 1000 # Crusade target weight\n\tgraecoroman_group = 1000 # LI RE: was roman/hellenic/promethean pagans\n', 1)
     # the title's own region (AIO used vanilla world regions for Hibernia and Pannonia-Dacia, which LI lacks)
     b = re.sub(r'region = (?:custom_roman|world)_\w+', 'region = ' + REGION[p], b)
     titles.append(b)
@@ -110,15 +110,15 @@ out['common/landed_titles/li_CK2Plus_provincia_titles.txt'] = HEAD + '\n\n'.join
 # every create decision hid itself and the titles could be created straight from the title screen). AIO's Holy Fury
 # pentarch line is left out.
 for p in P:
-    out[f'history/titles/k_provincia_{p}.txt'] = ('# LI: inactive until restored by create_provincia_' + p + ' (tools/phase5b_provincia.py)\n'
+    out[f'history/titles/k_provincia_{p}.txt'] = ('# LI RE: inactive until restored by create_provincia_' + p + ' (tools/phase5b_provincia.py)\n'
                                                  '1.1.1 = {\n\tactive = no\n}\n')
 # ---- decisions
 rdec = rd(os.path.join(AIO, 'decisions/CK2Plus_roman_decisions.txt'))
 claims = []
 for k in ('claim_eastern_roman_empire', 'claim_western_roman_empire'):
     b = block(rdec, k, '\t').replace('has_imperial_government_trigger = yes',
-                                      'government = roman_imperial_government # LI: AIO checked CK2Plus\'s imperial governments')
-    b = b.replace('has_dlc = "Legacy of Rome"', '# has_dlc = "Legacy of Rome" # LI: dropped (nothing here needs the DLC)')
+                                      'government = roman_imperial_government # LI RE: AIO checked CK2Plus\'s imperial governments')
+    b = b.replace('has_dlc = "Legacy of Rome"', '# has_dlc = "Legacy of Rome" # LI RE: dropped (nothing here needs the DLC)')
     claims.append(b)
 NAND = '\n'.join(f'\t\t\t\tis_title_active = k_provincia_{p}' for p in P)
 def toggle(name, flag_line, eff):
@@ -140,14 +140,14 @@ for p in P:
 		potential = {{
 			{SUCC}
 
-			is_alternate_start = no # LI: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
+			is_alternate_start = no # LI RE: AIO's has_dlc = "Legacy of Rome" dropped (nothing here needs the DLC)
 
-			NOR = {{ # LI: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
+			NOR = {{ # LI RE: AIO also hid the provincia holding the emperor's capital; LI shows it (user)
 				has_global_flag = provincia_decisions_collapsed
 				is_title_active = k_provincia_{p}
 			}}
 
-			any_realm_province = {{ # LI: AIO checked vanilla world regions; LI uses the provincia's own region
+			any_realm_province = {{ # LI RE: AIO checked vanilla world regions; LI uses the provincia's own region
 				held_under_PREV = yes
 
 				OR = {{
@@ -202,10 +202,10 @@ for eid in ('Plus.566', 'Plus.568', 'Plus.569', 'Plus.570', 'Plus.571'):
         bug = ('\t\t\t\tprimary_title = { has_title_flag = western_roman_successor }\n\t\t\t\tNOT = { has_global_flag = east_rome_lives }')
         assert e.count(bug) == 1, 'Plus.571 typo not found'
         e = e.replace(bug, '\t\t\t\tprimary_title = { has_title_flag = western_roman_successor }\n'
-                           '\t\t\t\tNOT = { has_global_flag = west_rome_lives } # LI: AIO checked east_rome_lives here')
-    e = e.replace('picture = GFX_evt_coronation_byzantine', 'picture = GFX_evt_victory_arch_byzantine # LI: AIO\'s GFX_evt_coronation_byzantine does not exist')
+                           '\t\t\t\tNOT = { has_global_flag = west_rome_lives } # LI RE: AIO checked east_rome_lives here')
+    e = e.replace('picture = GFX_evt_coronation_byzantine', 'picture = GFX_evt_victory_arch_byzantine # LI RE: AIO\'s GFX_evt_coronation_byzantine does not exist')
     evs.append(e)
-evs.append('''# LI: at game start both Romes exist in 1066 - the Eastern (e_byzantium) and Western (e_roman, S.P.Q.R.) successors
+evs.append('''# LI RE: at game start both Romes exist in 1066 - the Eastern (e_byzantium) and Western (e_roman, S.P.Q.R.) successors
 character_event = {
 	id = LIprov.1
 
@@ -237,7 +237,7 @@ character_event = {
 	}
 }
 
-# LI: a Roman province is restored (AIO used LoR.6, whose text always names Italia)
+# LI RE: a Roman province is restored (AIO used LoR.6, whose text always names Italia)
 narrative_event = {
 	id = LIprov.2
 	title = EVTNAME_LIprov_2
@@ -266,7 +266,7 @@ on_yearly_pulse = {
 }
 '''
 # ---- regions (between markers in LI's geographical_region.txt)
-MS, ME = '# LI: Roman provincia regions (tools/phase5b_provincia.py) - begin', '# LI: Roman provincia regions - end'
+MS, ME = '# LI RE: Roman provincia regions (tools/phase5b_provincia.py) - begin', '# LI RE: Roman provincia regions - end'
 reg = [MS]
 for p in P:
     ids = sorted({i for d in MAP[p] for i in duchy_provinces(d)})
@@ -293,7 +293,7 @@ toks = set(re.findall(r'[\w.-]+', nc('\n'.join(out.values()))))
 toks |= {t + s for t in toks for s in ('_desc', '_adj')} | {'EVTNAME_Plus_566', 'EVTDESC_Plus_566', 'EVTOPTA_Plus_566', 'EVTNAME_Plus_569', 'EVTDESC_Plus_569'}
 need = sorted(k for k in toks if k in aloc and k not in mloc)
 csv = ['#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x',
-       '# LI: Roman provincia restoration (tools/phase5b_provincia.py, 2026-11-15)',
+       '# LI RE: Roman provincia restoration (tools/phase5b_provincia.py, 2026-11-15)',
        'EVTNAME_LIprov_2;A Roman Province Restored;;;;;;;;;;;;;x',
        'EVTDESC_LIprov_2;For the first time in centuries, the old Roman province of [li_new_provincia.GetBaseName] is whole again under the rule of [Root.GetTitledName]. Its lands answer once more to the Empire, as they did in the days of the Caesars.;;;;;;;;;;;;;x'] \
       + [aloc[k] for k in need]

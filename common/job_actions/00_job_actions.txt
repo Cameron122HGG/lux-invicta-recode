@@ -73,7 +73,7 @@ action_clan_sentiment = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 action_fabricate_claims = {
 	attribute = diplomacy
 	
@@ -109,7 +109,7 @@ action_fabricate_claims = {
 		is_within_diplo_range = FROM
 	}
 	
-	events = { chancellor.201 chancellor.301 } # LI: were 913 914, vanilla IDs CleanSlate renumbered
+	events = { chancellor.201 chancellor.301 } # LI RE: were 913 914, vanilla IDs CleanSlate renumbered
 }
 
 action_sow_dissent = {
@@ -270,7 +270,7 @@ action_oversee_construction = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 action_advance_eco_tech = {
 	attribute = stewardship
 
@@ -589,7 +589,7 @@ action_organize_army = {
 }
 
 # Court Chaplain
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 action_inquisition = {
 	attribute = learning
 	
@@ -686,7 +686,7 @@ action_inquisition = {
 		color = { 255 35 35 }
 	}
 
-	events = { lordspiritual.001 lordspiritual.101 lordspiritual.201 lordspiritual.301 } # LI: were 900 901 902 903, vanilla IDs CleanSlate renumbered
+	events = { lordspiritual.001 lordspiritual.101 lordspiritual.201 lordspiritual.301 } # LI RE: were 900 901 902 903, vanilla IDs CleanSlate renumbered
 }
 
 action_improve_rel_relations = {
@@ -746,7 +746,7 @@ action_advance_cul_tech = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 action_build_zeal = {
 	attribute = learning
 
@@ -774,7 +774,7 @@ action_build_zeal = {
 	
 	monthly_character_piety = 0.05
 	
-	events = { lordspiritual.1301 } # LI: was 20218, vanilla ID CleanSlate renumbered
+	events = { lordspiritual.1301 } # LI RE: was 20218, vanilla ID CleanSlate renumbered
 }
 
 action_hunt_heretics = {

@@ -12,7 +12,7 @@
 ##########################################################
 
 # Vassal believes his liege should transfer a vassal title
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 63000
 	desc = EVTDESC63000
@@ -92,7 +92,7 @@ character_event = {
 }
 
 # Vassal requests a transfer of a vassal title
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 63001
 	desc = EVTDESC63001
@@ -674,7 +674,7 @@ character_event = {
 }
 
 # The liege receives the information
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = 63011
 	desc = EVTDESC63011
@@ -1489,7 +1489,7 @@ letter_event = {
 ####################################################################
 
 # Vassal asks liege for a specific title
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 63040
 	desc = EVTDESC63040
@@ -1635,7 +1635,7 @@ character_event = {
 }
 
 # Liege receives the request
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = 63041
 	desc = EVTDESC63041
@@ -1963,7 +1963,7 @@ letter_event = {
 }
 
 # Vassal requests the release of a prisoner
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = 63052
 	desc = EVTDESC63052
@@ -2193,7 +2193,7 @@ letter_event = {
 ####################################################################
 
 # A mayor asks for lower taxes
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 63060
 	desc = EVTDESC63060
@@ -2269,7 +2269,7 @@ character_event = {
 }
 
 # The mayor asks his liege
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 63061
 	desc = EVTDESC63061

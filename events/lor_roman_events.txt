@@ -30,7 +30,7 @@ namespace = LoR
 ### Roman Empire Restored
 
 # The Restoration of Rome
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = LoR.20
 	title = EVTNAMELoR.20
@@ -87,7 +87,7 @@ narrative_event = {
 }
 
 # Informed about Restoration of Rome
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = LoR.21
 	title = EVTNAMELoR.21
@@ -138,7 +138,7 @@ narrative_event = {
 
 
 # Triumph Expected
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = LoR.30
 	desc = EVTDESCLoR.30

@@ -119,7 +119,7 @@ terrible_armor = {
 }
 
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 zweihander_sword = {
 	picture = "GFX_zweihander_sword"
 	slot = weapon
@@ -157,7 +157,7 @@ zweihander_sword = {
 }
 
 #The default name and desccription refer to Cathedral, but this can be overwrritten at spawn
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 wonder_artifact_bells = {
 	picture = "GFX_relic_box_iron"
 	flags = { religious bells cathedral_part }

@@ -14,7 +14,7 @@ namespace = HFP
 ### Berserker Events
 
 # Character becomes a Berserker in battle
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3000
 	desc = EVTDESC_TOG_3000
@@ -376,7 +376,7 @@ character_event = {
 
 
 # Child wants to join the Varangians (Child)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3109
 	hide_window = yes
@@ -496,7 +496,7 @@ character_event = {
 }
 
 # Child wants to join the Varangians (Parent)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = TOG.3110
 	desc = EVTDESC_TOG_3110
@@ -1221,7 +1221,7 @@ character_event = {
 }
 
 # Setup: Child returns castrated and blinded (Child)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = TOG.3118
 
@@ -1397,7 +1397,7 @@ character_event = {
 }
 
 # Child returns home with Greek spouse
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3125
 	desc = EVTDESC_TOG_3125
@@ -1493,7 +1493,7 @@ character_event = {
 }
 
 # Setup: Child returns home as a Christian zealot (Child)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3126
 	hide_window = yes
@@ -1534,7 +1534,7 @@ character_event = {
 }
 
 # Son returns home as a Christian zealot
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3127
 	desc = EVTDESC_TOG_3127
@@ -1571,7 +1571,7 @@ character_event = {
 }
 
 # Setup: Child returns home as a seasoned warrior (Child)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3128
 	hide_window = yes
@@ -1642,7 +1642,7 @@ character_event = {
 }
 
 # Child returns home as a seasoned warrior
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3129
 	desc = EVTDESC_TOG_3129
@@ -1712,7 +1712,7 @@ character_event = {
 }
 
 # Setup: Child dies in battle (Child)
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3130
 	hide_window = yes
@@ -1994,7 +1994,7 @@ character_event = {
 ### Sejdr Events
 
 # Völva Appears
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3200
 	desc = EVTDESC_TOG_3200
@@ -2045,7 +2045,7 @@ character_event = {
 }
 
 # Young Völva Appears
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3201
 	desc = EVTDESC_TOG_3201
@@ -2097,7 +2097,7 @@ character_event = {
 }
 
 # Old Völva Appears
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3202
 	desc = EVTDESC_TOG_3202
@@ -3205,7 +3205,7 @@ character_event = {
 }
 
 # Viking Trait Gained
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TGF.3320
 	desc = { 
@@ -3297,7 +3297,7 @@ character_event = {
 }
 
 # Ravager
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TGF.3321
 	desc = { 
@@ -3385,7 +3385,7 @@ character_event = {
 }
 
 # Sea King/Queen
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TGF.3322
 	desc = TOG.3322.d
@@ -3456,7 +3456,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TGF.3323
 	
@@ -3507,7 +3507,7 @@ character_event = {
 ### Event Contest Winners
 
 # Son of the Buffalo Woman
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3400
 	desc = EVTDESC_TOG_3400
@@ -3566,7 +3566,7 @@ character_event = {
 }
 
 # Peijaiset
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3401
 	desc = EVTDESC_TOG_3401
@@ -3627,7 +3627,7 @@ character_event = {
 }
 
 # Will the real Odin please stand up?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = TOG.3402
 	desc = EVTDESC_TOG_3402

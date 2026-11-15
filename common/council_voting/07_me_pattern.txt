@@ -1,4 +1,4 @@
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 me_pattern_for = {
 	icon = 8
 	pattern_type = for

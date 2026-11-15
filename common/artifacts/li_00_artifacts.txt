@@ -1294,7 +1294,7 @@ engraved_sword = {
 	slot = ceremonial_weapon
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 crown_hre = {
 	picture = "GFX_crown_hre"
 	slot = crown
@@ -1330,7 +1330,7 @@ crown_hre = {
 	church_opinion = 10
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 crown_byzantine = {
 	picture = "GFX_crown_byzantine"
 	slot = crown
@@ -1376,7 +1376,7 @@ crown_pahlavi = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 crown_fylkir = {
 	picture = "GFX_crown_fylkir"
 	slot = crown
@@ -1401,7 +1401,7 @@ crown_fylkir = {
 	tribal_opinion = 10
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 crown_tengri_fylkir = {
 	picture = "GFX_crown_tengri_fylkir"
 	slot = crown
@@ -1425,7 +1425,7 @@ crown_tengri_fylkir = {
 	martial = 2
 	tribal_opinion = 10
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 crown_finnish_fylkir = {
 	picture = "GFX_crown_finnish_fylkir"
 	slot = crown
@@ -1449,7 +1449,7 @@ crown_finnish_fylkir = {
 	intrigue = 2
 	tribal_opinion = 10
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 crown_slavic_fylkir = {
 	picture = "GFX_crown_slavic_fylkir"
 	slot = crown
@@ -1473,7 +1473,7 @@ crown_slavic_fylkir = {
 	learning = 2
 	tribal_opinion = 10
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 crown_romuva_fylkir = {
 	picture = "GFX_crown_slavic_fylkir"
 	slot = crown
@@ -1497,7 +1497,7 @@ crown_romuva_fylkir = {
 	intrigue = 2
 	tribal_opinion = 10
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 scepter_bon_fylkir = {
 	picture = "GFX_scepter_bon_fylkir"
 	slot = scepter

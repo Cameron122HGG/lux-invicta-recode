@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO's name/description getters for its Celtic and Egyptian warrior lodges (phase 8 part 5, CLEANSLATE_PLAN.md).
+# LI RE: CK2Plus AIO's name/description getters for its Celtic and Egyptian warrior lodges (phase 8 part 5, CLEANSLATE_PLAN.md).
 
 defined_text = {
 	name = GetCelticWarriorSocietyName

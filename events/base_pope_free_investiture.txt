@@ -8,7 +8,7 @@
 # Written by Johan Andersson
 
 # The Pope singles out a Kingdom with Free Investiture (unless he has already targetted one)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 67000
 	desc = EVTDESC67000
@@ -100,7 +100,7 @@ character_event = {
 }
 
 # King/Emperor gets the papal emissary asking them to change laws!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 67001
 	desc = EVTDESC67001
@@ -724,7 +724,7 @@ character_event = {
 }
 
 # The Pope contacts a powerful (preferably rebellious) vassal of a liege who has refused to change investiture Law
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 67020
 	desc = EVTDESC67020

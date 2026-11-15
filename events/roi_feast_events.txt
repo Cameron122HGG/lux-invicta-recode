@@ -1767,7 +1767,7 @@ character_event = {
 ###########################################
 
 # Religious ceremony - liege
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = RoI.1170
 

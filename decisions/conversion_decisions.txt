@@ -1,6 +1,6 @@
 targeted_decisions = {
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	convert_to_liege_religion = {
 		filter = self
 
@@ -73,7 +73,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	convert_to_liege_religion_on_liege = {
 		filter = liege
 
@@ -317,7 +317,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 convert_to_local_religion = {
 		only_playable = yes
 		
@@ -621,7 +621,7 @@ convert_to_local_religion = {
 					add_trait = sympathy_indohellens
 				}
 			}
-			# LI: removed the inti_group / sympathy_intis branch - Lux Invicta has neither, so it could never run
+			# LI RE: removed the inti_group / sympathy_intis branch - Lux Invicta has neither, so it could never run
 			if = {
 				limit = {
 					religion_group = inuit_group
@@ -876,7 +876,7 @@ convert_to_local_religion = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	convert_to_parent_religion = {
 		filter = self
 		ai_target_filter = self
@@ -1002,7 +1002,7 @@ convert_to_local_religion = {
 
 
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 convert_to_spouse_religion = {
 		only_playable = yes
 		filter = home_court
@@ -1177,7 +1177,7 @@ convert_to_spouse_religion = {
 decisions = {
 
 	# Weak or unreformed religions are allowed to convert to the attacker's religion when under Holy War
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 convert_to_attacker_religion = { #Fix by comparing this to base game's decision
 		only_playable = yes
 		ai_check_interval = 18

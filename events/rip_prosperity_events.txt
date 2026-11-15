@@ -1350,7 +1350,7 @@ province_event = {
 }
 
 # Logging Company
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = RIP.11716
 	title = PROSPERITY_TITLE

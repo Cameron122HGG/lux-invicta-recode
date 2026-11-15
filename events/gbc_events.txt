@@ -887,7 +887,7 @@ character_event = {
 }
 
 # Trying to find a lover
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = GBC.100
 

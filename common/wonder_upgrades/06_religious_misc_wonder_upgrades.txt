@@ -403,7 +403,7 @@ upgrade_overseer_of_rites = {
 ############### Pagan Stones ###############
 ##########################################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_runestones = {
 	picture = GFX_upgrade_icon_stones
 

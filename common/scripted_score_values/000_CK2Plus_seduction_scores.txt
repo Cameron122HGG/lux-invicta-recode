@@ -1,4 +1,4 @@
-# LI: copied from CK2Plus AIO (step B, decision 5) - the AIO versions of the seduction events in
+# LI RE: copied from CK2Plus AIO (step B, decision 5) - the AIO versions of the seduction events in
 # wol_seduction_events.txt use these two score values.
 
 plus_seduction_common_score = {

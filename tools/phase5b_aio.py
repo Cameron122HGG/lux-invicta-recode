@@ -6,10 +6,10 @@ A definition qualifies when
     CleanSlate's/vanilla's (CK2Plus changed it);
   - LI's master text uses none of LI's own religions/cultures/titles (names LI has and vanilla lacks);
   - the folder is not LI world data (titles, cultures, religions, dynasties, bookmarks...);
-  - the mod's current block is not an LI-wins block ("# LI:" marker right above it).
+  - the mod's current block is not an LI-wins block ("# LI RE:" marker right above it).
 For each, the report lists where the mod has it now and what AIO's version needs that the mod lacks
 (events, scripted triggers/effects, modifiers, traits, localisation keys). --apply replaces only blocks with no
-missing needs, writing AIO's text with a "# LI: CK2Plus AIO version" marker."""
+missing needs, writing AIO's text with a "# LI RE: CK2Plus AIO version" marker."""
 import os, re, sys, json
 from collections import Counter, defaultdict
 REPO, MT, AIO, VA, OUT = sys.argv[1:6]
@@ -156,8 +156,8 @@ for key, (lf, la, lb, ltext) in li.items():
     else:
         mf, ma, mb, _ = mod[key]
         ms = rd(os.path.join(REPO, mf)); pre = ms[max(0, ma - 300):ma].rstrip().split('\n')[-1]
-        if '# LI:' in pre: c = 'LI-wins block in mod (skip)'
-        elif '# LI:' in ms[ma:mb]: c = 'block carries an LI fix inside (skip)'
+        if '# LI RE:' in pre: c = 'LI-wins block in mod (skip)'
+        elif '# LI RE:' in ms[ma:mb]: c = 'block carries an LI fix inside (skip)'
         else:
             body = nc(aio[key])
             listed = {e for lst in re.findall(r'\bevents\s*=\s*\{([^}]*)\}', body) for e in re.findall(r'[\w.]+', lst)}
@@ -188,7 +188,7 @@ if APPLY:
             if r['need']: new = drop_refs(new, r['need'])
             new = new.replace('\n', nl)
             ind = s[s.rfind('\n', 0, a) + 1:a]
-            s = s[:a] + '# LI: CK2Plus AIO version (step B, decision 5)' + nl + ind + new + s[b:]; n += 1
+            s = s[:a] + '# LI RE: CK2Plus AIO version (step B, decision 5)' + nl + ind + new + s[b:]; n += 1
         assert s.count('{') == s.count('}') or True
         open(p, 'wb').write(s.encode('latin-1'))
     print('replaced', n, 'definitions in', len(by_file), 'files')

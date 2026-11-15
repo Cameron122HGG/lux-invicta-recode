@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO's notification events PlusBuildings.001-010 (start of its CK2Plus_building_events.txt), fired by
+# LI RE: CK2Plus AIO's notification events PlusBuildings.001-010 (start of its CK2Plus_building_events.txt), fired by
 # the Baltic lodge's warrior_lodge_romuva_baltic_holds decision (phase 8 part 5, CLEANSLATE_PLAN.md).
 namespace = PlusBuildings
 

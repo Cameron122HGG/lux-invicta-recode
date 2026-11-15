@@ -56,7 +56,7 @@ employment_timer = { icon = 1 }
 
 ramadan_timer = { icon = 1 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 holy_truce_timer = {
 	icon = 31
 	global_revolt_risk = -0.1
@@ -113,7 +113,7 @@ hero_to_peasants = {		#### FROM ADDITIONAL OBJECTIVES
 
 
 # Better rebels mod
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 brm_revolt = {
 	city_tax_modifier = -0.5
 	castle_tax_modifier = -0.5
@@ -152,7 +152,7 @@ sanctioned_holy_war = {
 	icon = 8
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_poverty_2 = {
 	local_tax_modifier = -0.15
 	levy_size = -0.10
@@ -160,7 +160,7 @@ province_poverty_2 = {
 	icon = 64
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_poverty_1 = {
 	local_tax_modifier = -0.1
 	levy_size = -0.05
@@ -168,7 +168,7 @@ province_poverty_1 = {
 	icon = 64
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_prosperity_1 = {
 	local_tax_modifier = 0.1
 	levy_size = 0.05
@@ -176,7 +176,7 @@ province_prosperity_1 = {
 	icon = 63
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_prosperity_2 = {
 	local_tax_modifier = 0.15
 	levy_size = 0.10
@@ -192,7 +192,7 @@ peasant_obstructionism = {
 # Fiefs
 
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 estates_1 = {
 	monthly_character_wealth = 0.2
 	monthly_character_prestige = 0.01
@@ -224,13 +224,13 @@ estates_5 = {
 }
 
 # Civil war stuff
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 tax_reduction = {
 	local_tax_modifier = -0.33
 	icon = 12
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 tax_privileges = {
 	local_tax_modifier = 0.33
 	icon = 11
@@ -291,7 +291,7 @@ faction_republican_bonus_5 = {
 	icon = 6
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 tax_privileges_0_vassal = {
 	castle_vassal_tax_modifier = -0.1
 	city_vassal_tax_modifier = -0.2
@@ -299,7 +299,7 @@ tax_privileges_0_vassal = {
 	icon = 12
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 tax_privileges_2_vassal = {
 	castle_vassal_tax_modifier = 0.1
 	city_vassal_tax_modifier = 0.2

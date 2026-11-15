@@ -1,5 +1,5 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
-# LI: adapted - k_papacy -> k_papal_state; HFP.42212 picks the faith's LI holy order instead of vanilla's named orders.
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
+# LI RE: adapted - k_papacy -> k_papal_state; HFP.42212 picks the faith's LI holy order instead of vanilla's named orders.
 namespace = HFP
 
 # Written by Joachim
@@ -2321,7 +2321,7 @@ character_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		random_character = { # LI: was a random_list over vanilla's named orders (Templars, Hospitallers, Teutons...); Lux Invicta has one holy order per faith (d_holycatholic...)
+		random_character = { # LI RE: was a random_list over vanilla's named orders (Templars, Hospitallers, Teutons...); Lux Invicta has one holy order per faith (d_holycatholic...)
 			limit = {
 				is_ruler = yes
 				holy_order = yes

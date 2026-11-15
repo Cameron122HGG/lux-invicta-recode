@@ -11,7 +11,7 @@
 namespace = HL
 
 # Envoy demands tribute
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HL.5000
 	desc = EVTDESC_HL_5000
@@ -111,7 +111,7 @@ character_event = {
 }
 
 # Envoy offers his services
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HL.5001
 	desc = EVTDESC_HL_5001
@@ -281,7 +281,7 @@ character_event = {
 }
 
 # Determine random events
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = HL.5002
 	hide_window = yes

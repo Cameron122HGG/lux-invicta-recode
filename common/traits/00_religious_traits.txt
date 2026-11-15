@@ -89,7 +89,7 @@ bad_priest_muslim = {
 	child_insult_adj = INSULT_CRUMMY
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 bad_priest_norse = {
 	religious = yes
 	customizer = no
@@ -477,7 +477,7 @@ aryika = {
 	female_compliment = COMPL_NUN
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 bhikkhu = {
 	potential = {
 		is_ruler = no
@@ -497,7 +497,7 @@ bhikkhu = {
 	male_compliment = COMPL_MONK
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 bhikkhuni = {
 	potential = {
 		is_ruler = no
@@ -885,7 +885,7 @@ svetambara_jain = {
 }
 
 # Hindu Caste System
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 brahmin = {
 	potential = {
 		caste_religions_trigger = yes
@@ -903,7 +903,7 @@ brahmin = {
 	random = no
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 kshatriya = {
 	potential = {
 		caste_religions_trigger = yes
@@ -921,7 +921,7 @@ kshatriya = {
 	random = no
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 vaishya = {
 	potential = {
 		caste_religions_trigger = yes

@@ -166,7 +166,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router SoA.5220 restored 2026-11-14 (step A had left it out; it fires LI's SoA.5204)
+# LI RE: CleanSlate router SoA.5220 restored 2026-11-14 (step A had left it out; it fires LI's SoA.5204)
 # Relic is stolen by raiders - Setup
 character_event = {
 	id = SoA.5220
@@ -323,7 +323,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router SoA.5221 restored 2026-11-14 (step A had left it out; it fires LI's SoA.5207, SoA.5207, SoA.5207, SoA.5207, SoA.5207, SoA.5207, SoA.5207, SoA.5207, )
+# LI RE: CleanSlate router SoA.5221 restored 2026-11-14 (step A had left it out; it fires LI's SoA.5207, SoA.5207, SoA.5207, SoA.5207, SoA.5207, SoA.5207, SoA.5207, SoA.5207, )
 # Bring relic out to bless the fields - Setup to fire the event between April and June
 character_event = {
 	id = SoA.5221
@@ -1442,7 +1442,7 @@ character_event = {
 }
 
 # Muslim becoming a wicked caliph
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5301
 	desc = EVTDESC_SoA_5301
@@ -1520,7 +1520,7 @@ character_event = {
 }
 
 # Norse becoming an unworthy priest
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5302
 	desc = EVTDESC_SoA_5302
@@ -1592,7 +1592,7 @@ character_event = {
 }
 
 # Tengri becoming an unworthy priest
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5303
 
@@ -1739,7 +1739,7 @@ character_event = {
 }
 
 # Aztec becoming an unworthy priest
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.5305
 
@@ -1957,7 +1957,7 @@ character_event = {
 ###########################################
 
 # Cluny priests are very influential
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5340
 
@@ -2002,7 +2002,7 @@ character_event = {
 }
 
 # Donate to Cluny Abbey
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5341
 	title = EVTNAME_SoA_5341
@@ -2088,7 +2088,7 @@ narrative_event = {
 }
 
 # Visit Cluny?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5342
 	title = EVTNAME_SoA_5342
@@ -2239,7 +2239,7 @@ narrative_event = {
 ###########################################
 
 # Priests at Mount Athos are very influential
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = SoA.5344
 
@@ -2279,7 +2279,7 @@ character_event = {
 }
 
 # Donate to Mount Athos monasteries
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5345
 	title = EVTNAME_SoA_5345
@@ -2352,7 +2352,7 @@ narrative_event = {
 }
 
 # Visit Mount Athos?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5346
 	title = EVTNAME_SoA_5346
@@ -3374,7 +3374,7 @@ narrative_event = {
 ###########################################
 
 # Massacre at Beziers - fires from on_siege_over_winner
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 narrative_event = {
 	id = SoA.5400
 	title = EVTNAME_SoA_5400
@@ -3921,7 +3921,7 @@ character_event = {
 }
 
 # Zealous character insults other religions
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.5420
 	desc = EVTDESC_SoA_5420

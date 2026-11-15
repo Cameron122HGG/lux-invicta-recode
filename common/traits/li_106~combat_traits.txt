@@ -1,5 +1,5 @@
 ###Combat Traits###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 poor_warrior = { # Novice Fighter
 	combat_rating = 10
 	martial = 1
@@ -13,7 +13,7 @@ poor_warrior = { # Novice Fighter
 	random = no
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 trained_warrior = { # Trained Fighter
 	combat_rating = 20
 	martial = 1
@@ -27,7 +27,7 @@ trained_warrior = { # Trained Fighter
 	random = no
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 skilled_warrior = { # Skilled Fighter
 	combat_rating = 30
 	martial = 2
@@ -44,7 +44,7 @@ skilled_warrior = { # Skilled Fighter
 	random = no
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 master_warrior = { # Formidable Fighter
 	combat_rating = 50
 	martial = 2

@@ -13,7 +13,7 @@
 ########################################
 
 # Heresy appears out of "nowhere"
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 province_event = {
 	id = 39000
 	desc = "EVTDESC39000"
@@ -262,7 +262,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 39405 restored 2026-11-14 (step A had left it out; it fires LI's 39403)
+# LI RE: CleanSlate router 39405 restored 2026-11-14 (step A had left it out; it fires LI's 39403)
 # Pope urges to root out heresy in province - Setup
 character_event = {
 	id = 39405
@@ -303,7 +303,7 @@ character_event = {
 }
 
 # Pope urges to root out heresy in province
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39403
 	desc = EVTDESC39403
@@ -394,7 +394,7 @@ character_event = {
 }
 
 # Letter from the pope about a heretic advisor
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 39441
 	desc = EVTDESC39441
@@ -525,7 +525,7 @@ letter_event = {
 }
 
 
-# LI: CleanSlate router 39444 restored 2026-11-14 (step A had left it out; it fires LI's 39445)
+# LI RE: CleanSlate router 39444 restored 2026-11-14 (step A had left it out; it fires LI's 39445)
 # Vassal disappointed in liege having heretic advisor - Setup
 character_event = {
 	id = 39444
@@ -627,7 +627,7 @@ letter_event = {
 }
 
 # Heresy spreads to a neighboring province
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 39001
 	desc = EVTDESC39001
@@ -1212,7 +1212,7 @@ character_event = {
 ########################################
 
 # The Pope gives money to someone fighting the Infidel
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 39200
 	desc = "EVTDESC39200"
@@ -1332,7 +1332,7 @@ letter_event = {
 }
 
 
-# LI: CleanSlate router 39209 restored 2026-11-14 (step A had left it out; it fires LI's 39210)
+# LI RE: CleanSlate router 39209 restored 2026-11-14 (step A had left it out; it fires LI's 39210)
 # Pope offers absolution for Kinslaying - Setup
 character_event = {
 	id = 39209
@@ -1510,7 +1510,7 @@ character_event = {
 ########################################
 
 
-# LI: CleanSlate router 39219 restored 2026-11-14 (step A had left it out; it fires LI's 39220, 39220, 39220)
+# LI RE: CleanSlate router 39219 restored 2026-11-14 (step A had left it out; it fires LI's 39220, 39220, 39220)
 # Catholic Chain - Setup
 character_event = {
 	id = 39219
@@ -1601,7 +1601,7 @@ character_event = {
 }
 
 # Bishop in prison whines to pope..
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39220
 	desc = EVTDESC39220
@@ -1972,7 +1972,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 39229 restored 2026-11-14 (step A had left it out; it fires LI's 39230, 39230, 39230, 39230)
+# LI RE: CleanSlate router 39229 restored 2026-11-14 (step A had left it out; it fires LI's 39230, 39230, 39230, 39230)
 # Orthodox Chain - Setup
 character_event = {
 	id = 39229
@@ -2103,7 +2103,7 @@ character_event = {
 ########################################################################
 
 
-# LI: CleanSlate router 39239 restored 2026-11-14 (step A had left it out; it fires LI's 39240)
+# LI RE: CleanSlate router 39239 restored 2026-11-14 (step A had left it out; it fires LI's 39240)
 # CleanSlate: Orthodox variant merged with Catholic variant
 # Pope/Patriarch demands that a ruler not have heathens employed. - Setup
 character_event = {
@@ -2153,7 +2153,7 @@ character_event = {
 }
 
 # Pope/Patriarch demands that a ruler not have heathens employed.
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39240
 	desc = EVTDESC39240
@@ -2205,7 +2205,7 @@ character_event = {
 }
 
 # Demands is coming on us about
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39241
 	picture = GFX_evt_emissary
@@ -3305,7 +3305,7 @@ character_event = {
 ##########################
 
 # Preacher Arrives
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 39600
 	desc = EVTDESC39600
@@ -3798,7 +3798,7 @@ character_event = {
 }
 
 # Convert?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 39601
 	desc = EVTDESC39601
@@ -4292,7 +4292,7 @@ character_event = {
 }
 
 # Vassals receive letter
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 39617
 	desc = EVTDESC_39617
@@ -4589,7 +4589,7 @@ letter_event = {
 }
 
 # Courtier converts (hidden)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 39610
 
@@ -4994,7 +4994,7 @@ character_event = {
 # FROM is the target vassal.
 # ROOT is the current character.
 # Fires for the target and each of his/her courtiers and direct vassals (but not for characters below the target's vassals).
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 39700
 	

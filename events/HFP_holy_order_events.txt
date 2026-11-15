@@ -1,5 +1,5 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
-# LI: phase 8 part 4 step B: the island request goes to the faith's own holy order (LI has one per faith);
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
+# LI RE: phase 8 part 4 step B: the island request goes to the faith's own holy order (LI has one per faith);
 # the Teutonic and Livonian events (HFP.44005-44010) are left out by decision.
 namespace = HFP
 
@@ -16,7 +16,7 @@ character_event = {
 		FROM = {
 			# Checking if it is an island a holy order could be interested in
 			OR = {
-				title = c_corsica # LI: no d_corsica
+				title = c_corsica # LI RE: no d_corsica
 				title = d_sardinia
 				title = d_cephalonia
 				title = d_krete
@@ -48,7 +48,7 @@ character_event = {
 			save_event_target_as = potential_title
 		}
 
-		# LI: every faith has its own holy order, so the faith's order asks (vanilla: the Knights Hospitaller)
+		# LI RE: every faith has its own holy order, so the faith's order asks (vanilla: the Knights Hospitaller)
 		random_character = {
 			limit = {
 				holy_order = yes
@@ -128,7 +128,7 @@ character_event = {
 					}
 				}
 
-				c_corsica = { # LI: a county in d_sardinia (vanilla d_corsica)
+				c_corsica = { # LI RE: a county in d_sardinia (vanilla d_corsica)
 					holder_scope = {
 						NOR = {
 							character = PREVPREV
@@ -242,7 +242,7 @@ letter_event = {
 							NOT = { holding_type = castle }
 						}
 						trigger_else = {
-							holy_order = no # LI: keep the order's own title
+							holy_order = no # LI RE: keep the order's own title
 						}
 					}
 

@@ -289,7 +289,7 @@ title_male_consort = {
 }
 
 # Commander, granted via its own interaction, so very special
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_commander = {
 	is_high_prio = yes
 	
@@ -370,7 +370,7 @@ title_commander = {
 # SOFT: GRANTABLE - FULLY MODDABLE
 #######################################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_eunuch = {
 	dignity = 0.01
 	realm_in_name = yes
@@ -452,7 +452,7 @@ title_court_dwarf = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_court_jester = {
 	is_unique = yes
 	message = yes
@@ -508,7 +508,7 @@ title_court_jester = {
 }
 
 # Keeper of the King's Swans
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_keeper_of_swans = {
 	dignity = 0.05
 	realm_in_name = yes
@@ -555,7 +555,7 @@ title_keeper_of_swans = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_horse = {
 	dignity = 0.06
 	realm_in_name = yes
@@ -622,7 +622,7 @@ title_master_of_the_horse = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_hunt = {
 	dignity = 0.05
 	realm_in_name = yes
@@ -690,7 +690,7 @@ title_master_of_the_hunt = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_high_almoner = {
 	dignity = 0.03
 	realm_in_name = yes
@@ -731,7 +731,7 @@ title_high_almoner = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_cupbearer = {
 	dignity = 0.1
 	realm_in_name = yes
@@ -795,7 +795,7 @@ title_cupbearer = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_seneschal = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -903,7 +903,7 @@ title_paramount_knight = {
 }
 
 # Byzantine Titles
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_despot = {
 	dignity = 6.0
 	realm_in_name = yes
@@ -967,7 +967,7 @@ title_despot = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_sebastokrator = {
 	dignity = 0.2
 	realm_in_name = yes
@@ -1005,7 +1005,7 @@ title_sebastokrator = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_caesar = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -1040,7 +1040,7 @@ title_caesar = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_kouropalates = {
 	dignity = 0.10
 	realm_in_name = yes
@@ -1099,7 +1099,7 @@ title_kouropalates = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_anthypatos = {
 	dignity = 3.0
 	grant_limit = 5
@@ -1161,7 +1161,7 @@ title_anthypatos = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_imperial_eunuch = {
 	dignity = 0.050
 	grant_limit = 1
@@ -1201,7 +1201,7 @@ title_imperial_eunuch = {
 
 # Muslim World titles
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_food_taster = {
 	dignity = 0.01
 	realm_in_name = yes
@@ -1273,7 +1273,7 @@ title_food_taster = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_calligrapher = {
 	dignity = 0.05
 	realm_in_name = yes
@@ -1390,7 +1390,7 @@ title_court_musician = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_poet = {
 	dignity = 0.05
 	realm_in_name = yes
@@ -1455,7 +1455,7 @@ title_court_poet = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_chief_architect = {
 	dignity = 0.03
 	realm_in_name = yes
@@ -1517,7 +1517,7 @@ title_chief_architect = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_chief_qadi = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -1596,7 +1596,7 @@ title_chief_qadi = {
 
 # MERCHANT REPUBLIC TITLES
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_state_inquisitor = {
 	dignity = 0.06
 	realm_in_name = yes
@@ -1654,7 +1654,7 @@ title_state_inquisitor = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_high_admiral = {
 	dignity = 0.1
 	realm_in_name = yes
@@ -1709,7 +1709,7 @@ title_high_admiral = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_high_judge = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -1768,7 +1768,7 @@ title_high_judge = {
 }
 
 # Special - This title determines the heir of a Patrician
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_patrician_heir = {
 	is_high_prio = yes
 	message = yes
@@ -1838,7 +1838,7 @@ title_patrician_heir = {
 
 # NORSE PAGAN TITLES
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_volva = {
 	dignity = 0.050
 	grant_limit = 1
@@ -1871,7 +1871,7 @@ title_volva = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_lawspeaker = {
 	dignity = 0.2
 	realm_in_name = yes
@@ -1908,7 +1908,7 @@ title_lawspeaker = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_drottseti = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -1945,7 +1945,7 @@ title_drottseti = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_skald = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -1982,7 +1982,7 @@ title_court_skald = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_marksman = {
 	dignity = 0.1
 	realm_in_name = yes
@@ -2044,7 +2044,7 @@ title_marksman = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_hirdman = {
 	dignity = 0.075
 	grant_limit = 4
@@ -2104,7 +2104,7 @@ title_hirdman = {
 
 # MONGOL PAGAN TITLES
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_baghatur = {
 	dignity = 0.2
 	realm_in_name = yes
@@ -2141,7 +2141,7 @@ title_baghatur = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_cherbi = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -2187,7 +2187,7 @@ title_cherbi = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_darkhan = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -2233,7 +2233,7 @@ title_darkhan = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_noyan = {
 	dignity = 0.075
 	grant_limit = 4
@@ -2269,7 +2269,7 @@ title_noyan = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_behi = {
 	dignity = 0.1
 	grant_limit = 2
@@ -2315,7 +2315,7 @@ title_behi = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_eagle = {
 	dignity = 0.10
 	grant_limit = 1
@@ -2362,7 +2362,7 @@ title_master_of_the_eagle = {
 
 # ZOROASTRIAN TITLES
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_shahrwaraz = {
 	dignity = 0.2
 	realm_in_name = yes
@@ -2425,7 +2425,7 @@ title_shahrwaraz = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_kardarigan = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -2488,7 +2488,7 @@ title_kardarigan = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_shahin = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -2551,7 +2551,7 @@ title_shahin = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_pushtigban_salar = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -2610,7 +2610,7 @@ title_pushtigban_salar = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_spahbod = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -2717,7 +2717,7 @@ title_eran_ambaragbed = {
 
 # GENERIC PAGAN TITLES
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_champion = {
 	dignity = 0.2
 	realm_in_name = yes
@@ -2777,7 +2777,7 @@ title_champion = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_blade = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -2845,7 +2845,7 @@ title_master_of_the_blade = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_bow = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -2913,7 +2913,7 @@ title_master_of_the_bow = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_venerable_elder = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -2978,7 +2978,7 @@ title_venerable_elder = {
 
 # TENGRI TITLES:
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_yabgu = {
 	dignity = 0.25
 	realm_in_name = yes
@@ -3038,7 +3038,7 @@ title_yabgu = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_ishad = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -3097,7 +3097,7 @@ title_ishad = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_kundur = {
 	dignity = 0.15
 	realm_in_name = yes
@@ -3135,7 +3135,7 @@ title_kundur = {
 
 # INDIAN TITLES
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_master_of_the_royal_elephants = {
 	dignity = 0.06
 	realm_in_name = yes
@@ -3205,7 +3205,7 @@ title_master_of_the_royal_elephants = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_royal_builder = {
 	dignity = 0.03
 	realm_in_name = yes
@@ -3271,7 +3271,7 @@ title_royal_builder = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_poet_india = {
 	dignity = 0.05
 	realm_in_name = yes
@@ -3337,7 +3337,7 @@ title_court_poet_india = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_guru = {
 	dignity = 0.050
 	grant_limit = 1
@@ -3549,7 +3549,7 @@ title_councilmember_emperor = {
 
 # TAOIST TITLES
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_court_architect = {
 	is_unique = yes
 	message = yes
@@ -3600,7 +3600,7 @@ title_court_architect = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_zhangshi = {
 	is_unique = yes
 	message = yes
@@ -3654,7 +3654,7 @@ title_zhangshi = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_canjun = {
 	is_unique = yes
 	message = yes
@@ -3708,7 +3708,7 @@ title_canjun = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_yuhou = {
 	is_unique = yes
 	message = yes
@@ -3762,7 +3762,7 @@ title_yuhou = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 title_historiographer = {
 	is_unique = yes
 	message = yes
@@ -3817,7 +3817,7 @@ title_historiographer = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_court_physician = {
 	is_high_prio = yes
 	attribute = learning
@@ -4298,7 +4298,7 @@ title_teacher = {
 }
 
 ### New Byzantine Minor Titles ###
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_augusta = {
 	dignity = 5.0
 	realm_in_name = yes
@@ -4339,7 +4339,7 @@ title_augusta = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_patrikios = {
 	dignity = 2.0
 	grant_limit = 10
@@ -4380,7 +4380,7 @@ title_patrikios = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_hypatos = {
 	dignity = 1.0
 	grant_limit = 20
@@ -4420,7 +4420,7 @@ title_hypatos = {
 	message = yes
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 title_sebastos = {
 	dignity = 2.5
 	grant_limit = 10

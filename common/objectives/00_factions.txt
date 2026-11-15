@@ -3717,7 +3717,7 @@ faction_succ_feudal_elective = {
 }
 
 # Lower Crown Authority
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 faction_lower_crown_authority = {
 	type = liege_titles
 	

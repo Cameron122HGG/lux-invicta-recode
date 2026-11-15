@@ -269,7 +269,7 @@ humble = {
 	child_insult_adj = INSULT_STUPID
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 kind = {
 	personality = yes
 	opposites =  {
@@ -374,7 +374,7 @@ ambitious = {
 	child_insult_adj = INSULT_WICKED
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 arbitrary = {
 	personality = yes
 
@@ -425,7 +425,7 @@ brave = {
 	female_compliment_adj = COMPL_BRAVE
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 content = {
 	personality = yes
 	opposites =  {
@@ -474,7 +474,7 @@ craven = {
 	child_insult_adj = INSULT_WUSSY
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 cruel = {
 	personality = yes
 	opposites =  {
@@ -588,7 +588,7 @@ erudite = {
 	female_compliment_adj = COMPL_WISE
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 gregarious = {
 	personality = yes
 	opposites =  {
@@ -648,7 +648,7 @@ honest = {
 	child_compliment_adj = COMPL_GOOD
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 just = {
 	personality = yes
 	opposites =  {
@@ -741,7 +741,7 @@ stubborn = {
 	female_insult_adj = INSULT_PIGHEADED
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 trusting = {
 	personality = yes
 	opposites =  {
@@ -777,7 +777,7 @@ uncouth = {
 	child_insult_adj = INSULT_UGLY
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zealous = {
 	personality = yes
 	opposites =  {

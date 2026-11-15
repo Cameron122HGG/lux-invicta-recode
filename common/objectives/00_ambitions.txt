@@ -2146,7 +2146,7 @@ obj_lower_decadence = {
 }
 
 # Become King
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_become_king = {
 	type = character
 	
@@ -2285,7 +2285,7 @@ obj_become_king = {
 
 ### Buddhist ambitions ###
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_stop_drinking = {
 	type = character
 	
@@ -2330,7 +2330,7 @@ obj_buddhist_stop_drinking = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_reject_empty_pleasures = {
 	type = character
 	
@@ -2375,7 +2375,7 @@ obj_buddhist_reject_empty_pleasures = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_abstain_sexual_excess = {
 	type = character
 	
@@ -2420,7 +2420,7 @@ obj_buddhist_abstain_sexual_excess = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_reject_cruelty = {
 	type = character
 	
@@ -2471,7 +2471,7 @@ obj_buddhist_reject_cruelty = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_temperance_food = {
 	type = character
 	
@@ -2516,7 +2516,7 @@ obj_buddhist_temperance_food = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_reject_greed = {
 	type = character
 	
@@ -2561,7 +2561,7 @@ obj_buddhist_reject_greed = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_reject_envy = {
 	type = character
 	
@@ -2606,7 +2606,7 @@ obj_buddhist_reject_envy = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_reject_hate = {
 	type = character
 	
@@ -2651,7 +2651,7 @@ obj_buddhist_reject_hate = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_reject_pride = {
 	type = character
 	
@@ -2696,7 +2696,7 @@ obj_buddhist_reject_pride = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_buddhist_defeat_fear = {
 	type = character
 	
@@ -2746,7 +2746,7 @@ obj_buddhist_defeat_fear = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 obj_become_paragon_of_enlightenment = {
 	type = character
 	

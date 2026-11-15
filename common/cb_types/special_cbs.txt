@@ -2,7 +2,7 @@
 # imperial_reconquest
 # thankmars_rebellion
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 invasion = {
 	name = CB_NAME_SANCTIONED_INVASION
 	war_name = WAR_NAME_SANCTIONED_INVASION

@@ -330,7 +330,7 @@ targeted_decisions = {
 	}
 
 	# Power: Dark healing
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	devil_worshipers_dark_healing = {
 		filter = self
 		ai_target_filter = self
@@ -1108,7 +1108,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 devil_worshipers_induction = {
 		is_in_society = yes
 		filter = court

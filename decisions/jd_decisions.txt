@@ -6,7 +6,7 @@
 
 decisions = {
 
-	# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+	# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 adopt_chinese_imperialism = {
 		only_independent = yes
 		is_high_prio = yes

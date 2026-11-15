@@ -1140,7 +1140,7 @@ province_event = {
 }
 
 # Liege get new character: Nizami Ganjavi
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106051
 	desc = EVTDESC106051
@@ -1755,7 +1755,7 @@ province_event = {
 }
 
 # Liege get new character: Nasir al-Din al-Tusi
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106081
 	desc = EVTDESC106081
@@ -2277,7 +2277,7 @@ province_event = {
 }
 
 # Liege get new character: Zayn al-Din Gorgani
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106106
 	desc = EVTDESC106106
@@ -2687,7 +2687,7 @@ province_event = {
 }
 
 # Liege get new character: Khwaja Abdullah Ansari
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106126
 	desc = EVTDESC106126
@@ -2891,7 +2891,7 @@ province_event = {
 }
 
 # Liege get new character: Najmuddin Kubra
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106136
 	desc = EVTDESC106136
@@ -2991,7 +2991,7 @@ province_event = {
 }
 
 # Liege get new character: Omar Khayyám
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 106141
 	desc = EVTDESC106141

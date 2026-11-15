@@ -278,7 +278,7 @@ character_event = {
 }
 
 # Donating
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = MNM.6005
 	desc = EVTDESC_MNM_6005
@@ -316,7 +316,7 @@ letter_event = {
 }
 
 # Events for demands to pay back loan
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = MNM.6006
 	border = GFX_event_letter_frame_religion
@@ -497,7 +497,7 @@ letter_event = {
 ### JOINING & RECRUITMENT EVENTS###
 
 # Recruit: Does recruit approve of shia? For non-shia characters
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.6020
 	picture = GFX_evt_feast
@@ -622,7 +622,7 @@ character_event = {
 }
 
 # Recruiter: True religion, or sympathetic?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.6021
 	picture = GFX_evt_feast
@@ -1045,7 +1045,7 @@ character_event = {
 }
 
 # Recruit: Talking about fighting for the faith, reaction
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.6022
 	picture = GFX_evt_shady_meeting
@@ -1311,7 +1311,7 @@ character_event = {
 }
 
 # Recruiter: Recruit said yes
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.6026
 	picture = GFX_evt_whispers
@@ -1852,7 +1852,7 @@ character_event = {
 }
 
 # Recruit: Joining begins
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.6028
 	picture = GFX_evt_shadow
@@ -3352,7 +3352,7 @@ character_event = {
 }
 
 # Recruit: Invitation to stronghold
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 letter_event = {
 	id = MNM.6033
 	desc = EVTDESC_MNM_6033
@@ -3542,7 +3542,7 @@ character_event = {
 }
 
 # Recruit: Kill to prove
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.6036
 	picture = GFX_evt_whispers
@@ -6345,7 +6345,7 @@ character_event = {
 
 
 # Mission tombola
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.6199
 	hide_window = yes
@@ -6822,7 +6822,7 @@ character_event = {
 }
 
 # You get your target
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 society_quest_event = {
 	id = MNM.6202
 	title = quest_the_assassins_assassination
@@ -7155,7 +7155,7 @@ character_event = {
 }
 
 # MISSION: Convert specific province to Shia
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 society_quest_event = {
 	id = MNM.6204
 	quest_target = event_target:conversion_province
@@ -7562,7 +7562,7 @@ province_event = {
 }
 
 # Mission completion
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = MNM.6205
 	desc = {
@@ -8436,7 +8436,7 @@ character_event = {
 }
 
 # MISSION: Occupy infidel holding
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 society_quest_event = {
 	id = MNM.6221
 	desc = EVTDESC_MNM_6221
@@ -11969,7 +11969,7 @@ character_event = { # bad outcome
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { # Conversion event (for apprentice) if they are not already my faith (sent from MNM.6052)
 	id = MNM.6258
 	desc = EVTDESC_MNM_6258
@@ -12453,7 +12453,7 @@ character_event = { # Conversion event (for apprentice) if they are not already 
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { # Final talk with apprentice
 	id = MNM.6259
 	picture = GFX_evt_secret_ceremony
@@ -13514,7 +13514,7 @@ character_event = {
 }
 
 # Interaction: Blackmailing superior
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.6920
 	picture = GFX_evt_shady_meeting
@@ -13871,8 +13871,8 @@ character_event = {
 ### MISC EVENTS###
 
 # Makes sure d_fedayeen owner and subjects have appropriate religion and assassins membership
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
-# LI: MNM.6990 fixed 2026-11-14 - the secret-religion and join steps of each order block were not keyed on that order,
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: MNM.6990 fixed 2026-11-14 - the secret-religion and join steps of each order block were not keyed on that order,
 # so every leader ran all 9 blocks (refused by the engine: "Holy Order leader" / "Already part of a society").
 character_event = {
 	id = MNM.6990
@@ -13908,7 +13908,7 @@ character_event = {
 
 		if = {
 			limit = {
-				primary_title = { title = d_hashshashin } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
+				primary_title = { title = d_hashshashin } # LI RE: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_hashshashin }
@@ -13923,8 +13923,8 @@ character_event = {
 		#Try and force them to lvl 3 of the assassins
 		if = {
 			limit = {
-				primary_title = { title = d_hashshashin } # LI: only for this order's own leader
-				is_in_society = no # LI: joining fails for someone already in a society
+				primary_title = { title = d_hashshashin } # LI RE: only for this order's own leader
+				is_in_society = no # LI RE: joining fails for someone already in a society
 			}
 			join_society = the_assassins
 		}
@@ -14012,7 +14012,7 @@ character_event = {
 
 		if = {
 			limit = {
-				primary_title = { title = d_enemies_of_avidya } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
+				primary_title = { title = d_enemies_of_avidya } # LI RE: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_enemies_of_avidya }
@@ -14027,8 +14027,8 @@ character_event = {
 		#Try and force them to lvl 3 of the assassins
 		if = {
 			limit = {
-				primary_title = { title = d_enemies_of_avidya } # LI: only for this order's own leader
-				is_in_society = no # LI: joining fails for someone already in a society
+				primary_title = { title = d_enemies_of_avidya } # LI RE: only for this order's own leader
+				is_in_society = no # LI RE: joining fails for someone already in a society
 			}
 			join_society = the_assassins_bud_mahayana
 		}
@@ -14116,7 +14116,7 @@ character_event = {
 
 		if = {
 			limit = {
-				primary_title = { title = d_ahrimans_divs } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
+				primary_title = { title = d_ahrimans_divs } # LI RE: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_ahrimans_divs }
@@ -14131,8 +14131,8 @@ character_event = {
 		#Try and force them to lvl 3 of the assassins
 		if = {
 			limit = {
-				primary_title = { title = d_ahrimans_divs } # LI: only for this order's own leader
-				is_in_society = no # LI: joining fails for someone already in a society
+				primary_title = { title = d_ahrimans_divs } # LI RE: only for this order's own leader
+				is_in_society = no # LI RE: joining fails for someone already in a society
 			}
 			join_society = the_assassins_mani_ahriman
 		}
@@ -14220,7 +14220,7 @@ character_event = {
 
 		if = {
 			limit = {
-				primary_title = { title = d_holy_doctors } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
+				primary_title = { title = d_holy_doctors } # LI RE: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_holy_doctors }
@@ -14235,8 +14235,8 @@ character_event = {
 		#Try and force them to lvl 3 of the assassins
 		if = {
 			limit = {
-				primary_title = { title = d_holy_doctors } # LI: only for this order's own leader
-				is_in_society = no # LI: joining fails for someone already in a society
+				primary_title = { title = d_holy_doctors } # LI RE: only for this order's own leader
+				is_in_society = no # LI RE: joining fails for someone already in a society
 			}
 			join_society = the_assassins_priscillian
 		}
@@ -14324,7 +14324,7 @@ character_event = {
 
 		if = {
 			limit = {
-				primary_title = { title = d_council_of_aesir } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
+				primary_title = { title = d_council_of_aesir } # LI RE: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_council_of_aesir }
@@ -14339,8 +14339,8 @@ character_event = {
 		#Try and force them to lvl 3 of the assassins
 		if = {
 			limit = {
-				primary_title = { title = d_council_of_aesir } # LI: only for this order's own leader
-				is_in_society = no # LI: joining fails for someone already in a society
+				primary_title = { title = d_council_of_aesir } # LI RE: only for this order's own leader
+				is_in_society = no # LI RE: joining fails for someone already in a society
 			}
 			join_society = the_assassins_ragnarok
 		}
@@ -14428,7 +14428,7 @@ character_event = {
 
 		if = {
 			limit = {
-				primary_title = { title = d_warriors_of_oasis } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
+				primary_title = { title = d_warriors_of_oasis } # LI RE: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_warriors_of_oasis }
@@ -14443,8 +14443,8 @@ character_event = {
 		#Try and force them to lvl 3 of the assassins
 		if = {
 			limit = {
-				primary_title = { title = d_warriors_of_oasis } # LI: only for this order's own leader
-				is_in_society = no # LI: joining fails for someone already in a society
+				primary_title = { title = d_warriors_of_oasis } # LI RE: only for this order's own leader
+				is_in_society = no # LI RE: joining fails for someone already in a society
 			}
 			join_society = the_assassins_set
 		}
@@ -14532,7 +14532,7 @@ character_event = {
 
 		if = {
 			limit = {
-				primary_title = { title = d_blue_wolves } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
+				primary_title = { title = d_blue_wolves } # LI RE: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_blue_wolves }
@@ -14547,8 +14547,8 @@ character_event = {
 		#Try and force them to lvl 3 of the assassins
 		if = {
 			limit = {
-				primary_title = { title = d_blue_wolves } # LI: only for this order's own leader
-				is_in_society = no # LI: joining fails for someone already in a society
+				primary_title = { title = d_blue_wolves } # LI RE: only for this order's own leader
+				is_in_society = no # LI RE: joining fails for someone already in a society
 			}
 			join_society = the_assassins_tengri_ahriman
 		}
@@ -14636,7 +14636,7 @@ character_event = {
 
 		if = {
 			limit = {
-				primary_title = { title = d_order_of_righteous } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
+				primary_title = { title = d_order_of_righteous } # LI RE: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_order_of_righteous }
@@ -14651,8 +14651,8 @@ character_event = {
 		#Try and force them to lvl 3 of the assassins
 		if = {
 			limit = {
-				primary_title = { title = d_order_of_righteous } # LI: only for this order's own leader
-				is_in_society = no # LI: joining fails for someone already in a society
+				primary_title = { title = d_order_of_righteous } # LI RE: only for this order's own leader
+				is_in_society = no # LI RE: joining fails for someone already in a society
 			}
 			join_society = the_assassins_yahyanism
 		}
@@ -14740,7 +14740,7 @@ character_event = {
 
 		if = {
 			limit = {
-				primary_title = { title = d_avengers_of_holy_pyre } # LI: only for this order's own leader (the event runs every block for any of the 9 orders)
+				primary_title = { title = d_avengers_of_holy_pyre } # LI RE: only for this order's own leader (the event runs every block for any of the 9 orders)
 				NAND = {
 					independent = yes 
 					primary_title = { title = d_avengers_of_holy_pyre }
@@ -14755,8 +14755,8 @@ character_event = {
 		#Try and force them to lvl 3 of the assassins
 		if = {
 			limit = {
-				primary_title = { title = d_avengers_of_holy_pyre } # LI: only for this order's own leader
-				is_in_society = no # LI: joining fails for someone already in a society
+				primary_title = { title = d_avengers_of_holy_pyre } # LI RE: only for this order's own leader
+				is_in_society = no # LI RE: joining fails for someone already in a society
 			}
 			join_society = the_assassins_zor_angra
 		}

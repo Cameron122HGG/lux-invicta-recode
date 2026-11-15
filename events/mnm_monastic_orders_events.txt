@@ -263,7 +263,7 @@ society_quest_event = {
 }
 
 # Penance/meditation begins
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4403
 	picture = GFX_evt_secluded_in_prayer
@@ -1586,7 +1586,7 @@ character_event = {
 }
 
 # You interpret the text
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4415
 	desc = EVTDESC_MNM_4415
@@ -1645,7 +1645,7 @@ character_event = {
 }
 
 # You fail to interpret the text
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4416
 	desc = EVTDESC_MNM_4416
@@ -1689,7 +1689,7 @@ character_event = {
 }
 
 # You get help
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4417
 	desc = EVTDESC_MNM_4417
@@ -2135,7 +2135,7 @@ character_event = {
 }
 
 # General good outcome
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4426
 	picture = GFX_evt_religious_exultation
@@ -3800,7 +3800,7 @@ letter_event = {
 
 # Soul purity effect
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4400
 	picture = GFX_evt_religious_exultation
@@ -5119,7 +5119,7 @@ character_event = {
 }
 
 # Monastic Artifact failure: got caught red-handed!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4614
 	picture = GFX_evt_eavesdropping
@@ -5187,7 +5187,7 @@ character_event = {
 					monastic_order_orthodox    = { ROOT = { set_character_flag = betrayed_monastic_order_orthodox } }
 					monastic_order_nestorian   = { ROOT = { set_character_flag = betrayed_monastic_order_nestorian } }
 					monastic_order_monophysite = { ROOT = { set_character_flag = betrayed_monastic_order_monophysite } }
-					# LI: Lux Invicta's own Christian monastic orders (added 2026-11-15)
+					# LI RE: Lux Invicta's own Christian monastic orders (added 2026-11-15)
 					monastic_order_adoptionist = { ROOT = { set_character_flag = betrayed_monastic_order_adoptionist } }
 					monastic_order_apollinarist= { ROOT = { set_character_flag = betrayed_monastic_order_apollinarist } }
 					monastic_order_iconoclast  = { ROOT = { set_character_flag = betrayed_monastic_order_iconoclast } }
@@ -5877,7 +5877,7 @@ character_event = {
 }
 
 # Someone pieced it together
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = MNM.4624
 	desc = EVTDESC_MNM_4624
@@ -6012,7 +6012,7 @@ letter_event = {
 					monastic_order_orthodox    = { ROOT = { set_character_flag = betrayed_monastic_order_orthodox } }
 					monastic_order_nestorian   = { ROOT = { set_character_flag = betrayed_monastic_order_nestorian } }
 					monastic_order_monophysite = { ROOT = { set_character_flag = betrayed_monastic_order_monophysite } }
-					# LI: Lux Invicta's own Christian monastic orders (added 2026-11-15)
+					# LI RE: Lux Invicta's own Christian monastic orders (added 2026-11-15)
 					monastic_order_adoptionist = { ROOT = { set_character_flag = betrayed_monastic_order_adoptionist } }
 					monastic_order_apollinarist= { ROOT = { set_character_flag = betrayed_monastic_order_apollinarist } }
 					monastic_order_iconoclast  = { ROOT = { set_character_flag = betrayed_monastic_order_iconoclast } }
@@ -7135,7 +7135,7 @@ character_event = {
 ### Monastic Order Child Education Power ###
 ## 2.8 addition by Matthew Clohessy
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4300
 
@@ -7901,7 +7901,7 @@ character_event = {
 }
 
 # Child educated by a MO member reaches adulthood
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4302
 
@@ -7937,7 +7937,7 @@ character_event = {
 }
 
 # Educator can try to sway their former student to be better
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.4303
 	desc = EVT_DESC_MNM_4303

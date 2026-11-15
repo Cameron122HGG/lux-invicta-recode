@@ -1,5 +1,5 @@
-# LI: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
-# LI: adapted - k_papacy -> k_papal_state (CleanSlate's k_papacy is LI's Pope title).
+# LI RE: CK2Plus AIO version of this Holy Fury file (phase 8, CLEANSLATE_PLAN.md).
+# LI RE: adapted - k_papacy -> k_papal_state (CleanSlate's k_papacy is LI's Pope title).
 namespace = HFP
 
 # Written by Joachim

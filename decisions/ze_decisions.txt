@@ -1,6 +1,6 @@
 targeted_decisions = {
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	create_mercenary_company_feudal = {
 		filter = home_court
 		ai_target_filter = home_court
@@ -147,7 +147,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	change_council_job = {
 		filter = sub_realm
 
@@ -248,7 +248,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	change_wards_focus_to_heritage = {
 		filter = court
 		ai_target_filter = court
@@ -432,7 +432,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	change_composition_mercenary_company_feudal = {
 		ai_target_filter = dynasty
 		ai_check_interval = 36
@@ -468,7 +468,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	send_troops_mercenary_company_feudal = {
 		ai_target_filter = dynasty
 		ai_check_interval = 36
@@ -504,7 +504,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	introduce_heir = {
 		filter = close_relative
 		ai_target_filter = close_relatives

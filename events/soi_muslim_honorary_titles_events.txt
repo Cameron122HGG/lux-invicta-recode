@@ -13,7 +13,7 @@
 ### CHIEF QADI ###
 
 
-# LI: CleanSlate router 104999 restored 2026-11-14 (step A had left it out; it fires LI's 105000)
+# LI RE: CleanSlate router 104999 restored 2026-11-14 (step A had left it out; it fires LI's 105000)
 ### Woman asks Chief Qadi for a divorce - Setup ###
 character_event = {
 	id = 104999
@@ -543,7 +543,7 @@ character_event = {
 
 
 
-# LI: CleanSlate router 105009 restored 2026-11-14 (step A had left it out; it fires LI's 105010)
+# LI RE: CleanSlate router 105009 restored 2026-11-14 (step A had left it out; it fires LI's 105010)
 ### Suggest a Chief Qadi - Setup ###
 character_event = {
 	id = 105009
@@ -934,7 +934,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 105019 restored 2026-11-14 (step A had left it out; it fires LI's 105020)
+# LI RE: CleanSlate router 105019 restored 2026-11-14 (step A had left it out; it fires LI's 105020)
 ### Suggest a new Chief Qadi - Setup ###
 character_event = {
 	id = 105019
@@ -1411,7 +1411,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 105029 restored 2026-11-14 (step A had left it out; it fires LI's 105030)
+# LI RE: CleanSlate router 105029 restored 2026-11-14 (step A had left it out; it fires LI's 105030)
 ### Chief Qadi and the drunkard - Setup ###
 character_event = {
 	id = 105029
@@ -1757,7 +1757,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 105034 restored 2026-11-14 (step A had left it out; it fires LI's 105035)
+# LI RE: CleanSlate router 105034 restored 2026-11-14 (step A had left it out; it fires LI's 105035)
 ### Chief Qadi and Zina - Setup ###
 character_event = {
 	id = 105034
@@ -2984,7 +2984,7 @@ character_event = {
 ### COURT CALLIGRAPHER ###
 
 
-# LI: CleanSlate router 105049 restored 2026-11-14 (step A had left it out; it fires LI's 105050)
+# LI RE: CleanSlate router 105049 restored 2026-11-14 (step A had left it out; it fires LI's 105050)
 # Court Calligrapher is asked to decorate the mosque - Setup
 character_event = {
 	id = 105049
@@ -3567,7 +3567,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 105059 restored 2026-11-14 (step A had left it out; it fires LI's 105060)
+# LI RE: CleanSlate router 105059 restored 2026-11-14 (step A had left it out; it fires LI's 105060)
 ### Court Calligrapher created fine Hilya - Setup ###
 character_event = {
 	id = 105059
@@ -3789,7 +3789,7 @@ character_event = {
 }
 
 
-# LI: CleanSlate router 105064 restored 2026-11-14 (step A had left it out; it fires LI's 105065)
+# LI RE: CleanSlate router 105064 restored 2026-11-14 (step A had left it out; it fires LI's 105065)
 ### Court Calligrapher: Golden Qu'ran - Setup ###
 character_event = {
 	id = 105064
@@ -4264,7 +4264,7 @@ character_event = {
 ### COURT MUSICIAN ###
 
 
-# LI: CleanSlate router 105074 restored 2026-11-14 (step A had left it out; it fires LI's 105075)
+# LI RE: CleanSlate router 105074 restored 2026-11-14 (step A had left it out; it fires LI's 105075)
 ### Court Musician presents a song for the liege/liege's spouse - Setup ###
 character_event = {
 	id = 105074
@@ -4593,7 +4593,7 @@ character_event = {
 ### COURT POET ###
 
 
-# LI: CleanSlate router 105099 restored 2026-11-14 (step A had left it out; it fires LI's 105100)
+# LI RE: CleanSlate router 105099 restored 2026-11-14 (step A had left it out; it fires LI's 105100)
 ### Court Poet writes poem - Setup ###
 character_event = {
 	id = 105099
@@ -4942,7 +4942,7 @@ character_event = {
 ### CUPBEARER ###
 
 
-# LI: CleanSlate router 105149 restored 2026-11-14 (step A had left it out; it fires LI's 105150)
+# LI RE: CleanSlate router 105149 restored 2026-11-14 (step A had left it out; it fires LI's 105150)
 ### Cupbearer: Poison Host - Setup###
 character_event = {
 	id = 105149
@@ -5302,7 +5302,7 @@ character_event = {
 ### CHIEF ARCHITECT ###
 
 
-# LI: CleanSlate router 105199 restored 2026-11-14 (step A had left it out; it fires LI's 105200)
+# LI RE: CleanSlate router 105199 restored 2026-11-14 (step A had left it out; it fires LI's 105200)
 ### Chief Architect: Suggest improvements to castle - Setup ###
 character_event = {
 	id = 105199
@@ -5680,7 +5680,7 @@ character_event = {
 ### FOOD TASTER ###
 
 
-# LI: CleanSlate router 105249 restored 2026-11-14 (step A had left it out; it fires LI's 105250)
+# LI RE: CleanSlate router 105249 restored 2026-11-14 (step A had left it out; it fires LI's 105250)
 ### Food Taster: Poison host - Setup ###
 character_event = {
 	id = 105249

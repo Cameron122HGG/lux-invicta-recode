@@ -285,7 +285,7 @@
 ###############################################
 
 
-# LI: CleanSlate router 50004 restored 2026-11-14 (step A had left it out; it fires LI's 50005, 50005, 50005, 50005)
+# LI RE: CleanSlate router 50004 restored 2026-11-14 (step A had left it out; it fires LI's 50005, 50005, 50005, 50005)
 # Request better accommodations - Setup
 character_event = {
 	id = 50004
@@ -390,7 +390,7 @@ character_event = {
 }
 
 # Host responds to the prisoner's request
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 50006
 	picture = GFX_evt_into_the_dungeon
@@ -713,7 +713,7 @@ character_event = {
 ###############################################
 
 # Torture a prisoner!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 50010
 	desc = EVTDESC50010
@@ -1088,7 +1088,7 @@ character_event = {
 ###############################################
 
 # Ruler is notified of the capture of an enemy commander
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 50020
 	title = captured_in_battle
@@ -1314,7 +1314,7 @@ character_event = {
 ###############################################
 
 
-# LI: CleanSlate router 50024 restored 2026-11-14 (step A had left it out; it fires LI's 50025)
+# LI RE: CleanSlate router 50024 restored 2026-11-14 (step A had left it out; it fires LI's 50025)
 # Petition liege to release prisoner - Setup
 character_event = {
 	id = 50024
@@ -1369,7 +1369,7 @@ character_event = {
 }
 
 # Petition liege to release prisoner
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 50025
 	desc = EVTDESC50025

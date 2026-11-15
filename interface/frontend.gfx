@@ -534,7 +534,7 @@ spriteTypes = {
 		norefcount = yes
 	}
 
-	# LI: CleanSlate's Frontend_settings.gui uses these capitalised names (sprite names are case-sensitive);
+	# LI RE: CleanSlate's Frontend_settings.gui uses these capitalised names (sprite names are case-sensitive);
 	# same art as the lowercase sprites above, which LI/vanilla keep.
 	spriteType = {
 		name = "yearslider_leftButton"

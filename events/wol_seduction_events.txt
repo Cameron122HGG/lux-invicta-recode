@@ -348,7 +348,7 @@ character_event = {
 }
 
 # Courtier discovers the affair
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.55
 	title = EVTTITLE_WOL_55
@@ -799,7 +799,7 @@ character_event = {
 }
 
 # The seducer is blackmailed
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = WoL.56
 	border = GFX_event_letter_frame_intrigue
@@ -953,7 +953,7 @@ letter_event = {
 }
 
 # Seducer: the scandal breaks!
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.60
 	title = EVTTITLE_WOL_60
@@ -1625,7 +1625,7 @@ character_event = {
 }
 
 # Seducer / Seductress or Hedonist trait gained!
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.99
 	desc = EVTDESC_WOL_99
@@ -2513,7 +2513,7 @@ character_event = {
 ######################################
 
 # Opinion booster - Love Letter
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.200
 	title = EVTTITLE_WOL_200
@@ -3047,7 +3047,7 @@ character_event = {
 }
 
 # Opinion booster - Gift (necklace or sword)
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.210
 	title = EVTTITLE_WOL_210
@@ -3672,7 +3672,7 @@ character_event = {
 }
 
 # Opinion booster - Gossip
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.220
 	title = EVTTITLE_WOL_220
@@ -4245,7 +4245,7 @@ character_event = {
 ######################################################
 # Seduction - Dance
 ######################################################
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.300
 	title = EVTTITLE_WOL_300
@@ -5032,7 +5032,7 @@ character_event = {
 }
 
 # Target: Seduction - Dance - Advance Encouraged - Tumble Attempt
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.303
 	title = EVTTITLE_WOL_300
@@ -5215,7 +5215,7 @@ character_event = {
 }
 
 # Seducer: Seduction - bed games - End
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.306
 	picture = GFX_evt_lovers
@@ -5647,7 +5647,7 @@ character_event = {
 }
 
 # Target: Confession of love
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.352
 	title = EVTTITLE_WOL_351
@@ -6410,7 +6410,7 @@ character_event = {
 }
 
 # Seducer: Seduction rebuffed!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.353
 	picture = GFX_evt_lovers
@@ -6600,7 +6600,7 @@ character_event = {
 ######################################################
 
 # Seducer: Attempts to get target alone
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.401
 	title = EVTTITLE_WOL_401
@@ -7166,7 +7166,7 @@ character_event = {
 }
 
 # Seduced: Seduction attempt
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.404
 	title = EVTTITLE_WOL_401
@@ -7952,7 +7952,7 @@ character_event = {
 }
 
 # Seducer: Success End
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.405
 	title = EVTTITLE_WOL_401
@@ -9481,7 +9481,7 @@ character_event = {
 ######################################################
 
 # Flirting at confession - attraction vs priest
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.500
 	desc = EVTDESC_WOL_500
@@ -9675,7 +9675,7 @@ character_event = {
 }
 
 # Female: Seduce handsome guard. Can appear at court (chance of Syphilitic, Cruel, Pregnancy).
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.520
 	desc = EVTDESC_WOL_520
@@ -10040,7 +10040,7 @@ character_event = {
 }
 
 # Lunatics: Seduction of a rose bush.
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.560
 	desc = EVTDESC_WOL_560
@@ -10162,7 +10162,7 @@ character_event = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.562
 	desc = EVTDESC_WOL_562
@@ -10280,7 +10280,7 @@ character_event = {
 }
 
 # Lunatics: Seduction of a centaur.
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.570
 	desc = EVTDESC_WOL_570

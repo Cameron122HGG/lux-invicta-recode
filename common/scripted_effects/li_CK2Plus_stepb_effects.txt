@@ -1,4 +1,4 @@
-# LI: CK2Plus AIO version (step B, decision 5): dependencies of AIO definitions the mod uses (tools/phase5b_deps.py).
+# LI RE: CK2Plus AIO version (step B, decision 5): dependencies of AIO definitions the mod uses (tools/phase5b_deps.py).
 
 remove_do_not_disturb_effect = {
 	hidden_effect = {

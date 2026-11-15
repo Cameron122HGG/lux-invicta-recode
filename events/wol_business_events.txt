@@ -37,7 +37,7 @@ character_event = {
 }
 
 # Steward presents an opportunity
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.10102
 	is_triggered_only = yes
@@ -545,7 +545,7 @@ character_event = {
 }
 
 # Arriving at destination - present a gift?
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.10114
 	is_triggered_only = yes
@@ -1704,7 +1704,7 @@ province_event = {
 }
 
 # Select bishop
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = WoL.10208
 	is_triggered_only = yes
@@ -2955,7 +2955,7 @@ character_event = {
 
 ### Minor events
 
-# LI: CleanSlate router WoL.10000 restored 2026-11-14 (step A had left it out; it fires LI's WoL.10401, WoL.10440, WoL.10430, WoL.10420, WoL.10410, WoL.10200, WoL.10300, WoL)
+# LI RE: CleanSlate router WoL.10000 restored 2026-11-14 (step A had left it out; it fires LI's WoL.10401, WoL.10440, WoL.10430, WoL.10420, WoL.10410, WoL.10200, WoL.10300, WoL)
 # Fire events
 character_event = {
 	id = WoL.10000

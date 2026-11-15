@@ -1048,7 +1048,7 @@ character_event = {
 }
 
 # Courtier ate your food
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.11554
 	desc = RIP.11554.d
@@ -3208,7 +3208,7 @@ character_event = {
 }
 
 # Ambush succeeds: Somebody was captured!
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.12054
 	desc = EVTDESC_RIP_12054

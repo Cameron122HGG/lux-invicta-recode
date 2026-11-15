@@ -1,6 +1,6 @@
 decisions = {
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	extort_subjects = {
 		ai_check_interval = 12
 
@@ -144,7 +144,7 @@ decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	donate_to_liege = {
 		ai_check_interval = 12
 

@@ -928,7 +928,7 @@ character_event = {
 }
 
 ### Chaste negative ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3030
 	desc = EVTDESC3030
@@ -999,7 +999,7 @@ character_event = {
 }
 
 ### Chaste negative ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3035
 	desc = EVTDESC3035
@@ -1963,7 +1963,7 @@ character_event = {
 }
 
 ### Greedy negative: Start ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3070
 	desc = EVTDESC3070
@@ -5225,7 +5225,7 @@ character_event = {
 }
 
 ### Wroth negative ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3195
 	desc = EVTDESC3195
@@ -9871,7 +9871,7 @@ character_event = {
 }
 
 ### Arbitrary negative ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3410
 	desc = EVTDESC3410
@@ -10749,7 +10749,7 @@ character_event = {
 }
 
 ### Cynical positive ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3445
 	desc = EVTDESC3445
@@ -11578,7 +11578,7 @@ character_event = {
 ######################################
 
 ### Imaginary Plot ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3480
 	desc = EVTDESC3480
@@ -11816,7 +11816,7 @@ character_event = {
 }
 
 ### Imagine that friend trying to poison? ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3490
 	desc = EVTDESC3490
@@ -11953,7 +11953,7 @@ character_event = {
 }
 
 ### Paranoia is dangerous ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3495
 	desc = EVTDESC3495
@@ -16510,7 +16510,7 @@ character_event = {
 ### IMPALER ###
 
 ### Impaler: New torture equipment - Start ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3600
 	desc = EVTDESC3600
@@ -21142,7 +21142,7 @@ character_event = {
 }
 
 ### Poet: Courtier might claim liege's poem is his/hers! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3680
 	desc = EVTDESC3680
@@ -23308,7 +23308,7 @@ character_event = {
 }
 
 ### Gregarious character ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3725
 	desc = EVTDESC3725

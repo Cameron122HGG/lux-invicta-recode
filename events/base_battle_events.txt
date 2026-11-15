@@ -1921,7 +1921,7 @@
 # }
 
 # On-action battle_won: Heroism shown
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 260
 	hide_window = yes
@@ -2305,7 +2305,7 @@ character_event = {
 }
 
 # On-action battle_won: Soldier Distinguishes himself
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 261
 	picture = GFX_evt_battle
@@ -2541,7 +2541,7 @@ character_event = {
 }
 
 # On-action battle_lost: Imprisoned by the enemy
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = 250
 	title = captured_in_battle

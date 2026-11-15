@@ -804,7 +804,7 @@ character_event = {
 }
 
 # Becomes zealous
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
 	id = CM.6106
 	desc = EVTDESC_CM_6106

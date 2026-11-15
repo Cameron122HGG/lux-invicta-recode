@@ -11,33 +11,33 @@
 # revoke_reason
 
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 opinion_held_divination = {
 	opinion = 10
 	years = 1
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 opinion_refused_divination = {
 	opinion = -15
 	years = 1
 }
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 opinion_tailteann_participant = {
 	opinion = 5
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 opinion_tailteann_athlete = {
 	opinion = 10
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 opinion_tailteann_fighter = {
 	opinion = 10
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 opinion_tailteann_craftsman = {
 	opinion = 10
 }

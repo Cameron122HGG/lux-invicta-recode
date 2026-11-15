@@ -1,5 +1,5 @@
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-# LI: CK2Plus AIO text for step B dependencies (tools/phase5b_deps.py).
+# LI RE: CK2Plus AIO text for step B dependencies (tools/phase5b_deps.py).
 seduction_timer;dummy;;;;;x
 ai_austerity;Austerity;;Strenge;;;x
 ai_austerity_desc;Austerity;;Austerität;;;x

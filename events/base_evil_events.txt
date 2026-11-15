@@ -9,7 +9,7 @@
 # Adjusted by Henrik Fåhraeus
 
 # If in the red => increase revolt risk in a province.
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68000
 	desc = EVTDESC68000
@@ -186,7 +186,7 @@ province_event = {
 	}
 }
 
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68001
 	desc = EVTDESC68001
@@ -272,7 +272,7 @@ province_event = {
 }
 
 # Establishment of thieves_guild in a province, if budget in the red
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68010
 	desc = EVTDESC68010
@@ -444,7 +444,7 @@ province_event = {
 }
 
 # Destruction of thieves_guild in a province
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68011
 	desc = EVTDESC68011
@@ -506,7 +506,7 @@ province_event = {
 }
 
 # Establishment of smugglers_ring in a province, if red budget
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68020
 	desc = EVTDESC68020
@@ -678,7 +678,7 @@ province_event = {
 }
 
 # Destruction of smugglers_ring in a province
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68021
 	picture = GFX_evt_burning_house
@@ -1001,7 +1001,7 @@ province_event = {
 }
 
 # Establishment of highway_robber_band in a province, if red budget
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68030
 	desc = EVTDESC68030
@@ -1172,7 +1172,7 @@ province_event = {
 }
 
 # Destruction of highway_robber_band in a province
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = 68031
 	picture = GFX_evt_burning_house

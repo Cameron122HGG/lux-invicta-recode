@@ -26,7 +26,7 @@
 # have_duplicate_smith_artifacts_tier_4_optionB_trigger
 # have_duplicate_smith_artifacts_tier_4_optionC_trigger
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 looting_artifact_event_religious_artifacts_trigger = {
 	FROM = {
 		any_artifact = {

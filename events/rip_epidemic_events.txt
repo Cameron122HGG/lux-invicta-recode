@@ -688,7 +688,7 @@ character_event = { # Blame game starts
 #	}
 # }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { #head of religion chimes in. could be player.
 	id = RIP.13401
 	picture = GFX_evt_end_of_days

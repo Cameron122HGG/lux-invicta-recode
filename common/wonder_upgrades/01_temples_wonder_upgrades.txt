@@ -423,7 +423,7 @@ upgrade_bells_golden = {
 ################# Temple #################
 ##########################################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_statue_god = {
 	picture = GFX_upgrade_icon_statue
 
@@ -455,7 +455,7 @@ upgrade_statue_god = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_temple_guards = { 
 	picture = GFX_upgrade_icon_guard
 	
@@ -512,7 +512,7 @@ upgrade_sacrificial_altar = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_sacred_grove = { 
 	picture = GFX_upgrade_icon_roses_white
 
@@ -543,7 +543,7 @@ upgrade_sacred_grove = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_prophecy_rooms = { 
 	picture = GFX_upgrade_icon_crates
 
@@ -568,7 +568,7 @@ upgrade_prophecy_rooms = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_temple_precinct = { 
 	picture = GFX_upgrade_icon_crates
 
@@ -592,7 +592,7 @@ upgrade_temple_precinct = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_inner_sanctuary = { 
 	picture = GFX_upgrade_icon_crates
 
@@ -620,7 +620,7 @@ upgrade_inner_sanctuary = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_custodian_of_temple = {
 	picture = GFX_upgrade_icon_key
 	potential = { }
@@ -1104,7 +1104,7 @@ upgrade_school_synagogue = {
 ########### Buddhist Temple ##############
 ##########################################
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_chaitya-grihas = {
 	picture = GFX_upgrade_icon_crates
 	
@@ -1133,7 +1133,7 @@ upgrade_chaitya-grihas = {
 
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_gompa= {
 	picture = GFX_upgrade_icon_crates
 	
@@ -1161,7 +1161,7 @@ upgrade_gompa= {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_bodhi_tree = {
 	picture = GFX_upgrade_icon_crates
 	
@@ -1189,7 +1189,7 @@ upgrade_bodhi_tree = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_cave_complex = {
 	picture = GFX_upgrade_icon_crates
 	
@@ -1217,7 +1217,7 @@ upgrade_cave_complex = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_vihara = {
 	picture = GFX_upgrade_icon_crates
 	
@@ -1243,7 +1243,7 @@ upgrade_vihara = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_school_buddhist = {
 	picture = GFX_upgrade_icon_crates
 	
@@ -1273,7 +1273,7 @@ upgrade_school_buddhist = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_relic_stupa = {
 	picture = GFX_upgrade_icon_crates
 	
@@ -1321,7 +1321,7 @@ upgrade_relic_stupa = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_commerative_stupa = {
 	picture = GFX_upgrade_icon_crates
 	
@@ -1349,7 +1349,7 @@ upgrade_commerative_stupa = {
 
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_symbolic_stupa = {
 	picture = GFX_upgrade_icon_crates
 	
@@ -1376,7 +1376,7 @@ upgrade_symbolic_stupa = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 upgrade_votive_stupa = {
 	picture = GFX_upgrade_icon_crates
 	

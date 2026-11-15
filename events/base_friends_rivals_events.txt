@@ -13,7 +13,7 @@
 ##################################################
 
 ### You've made friends with another child in the court ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100000
 	desc = EVTDESC100000
@@ -184,7 +184,7 @@ character_event = {
 }
 
 ### One of the other children in court is very shy and would rather read than play with us ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100005
 	desc = EVTDESC100005
@@ -1051,7 +1051,7 @@ character_event = {
 }
 
 ### Ladies shun me, I need help! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100024
 
@@ -1816,7 +1816,7 @@ character_event = {
 }
 
 ### Flirtatious girl - new friend or rival? ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100040
 	desc = EVTDESC100040
@@ -2098,7 +2098,7 @@ character_event = {
 }
 
 ### A girl at court is very flirtatious and seems to get away with everything... ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100050
 	desc = EVTDESC100050
@@ -2413,7 +2413,7 @@ character_event = {
 }
 
 ### Someone defeated me in swordplay! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100060
 	desc = EVTDESC100060
@@ -2576,7 +2576,7 @@ character_event = {
 }
 
 ### Someone does not like me and keeps picking on me! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100065
 	desc = EVTDESC100065
@@ -2890,7 +2890,7 @@ character_event = {
 }
 
 ### I can't stand someone! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100070
 	desc = EVTDESC100070
@@ -3241,7 +3241,7 @@ character_event = {
 }
 
 ### Someone does not believe in God! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100080
 	desc = EVTDESC100080
@@ -3511,7 +3511,7 @@ character_event = {
 }
 
 ### My embroidery is not as good as someone else's! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100090
 	desc = EVTDESC100090
@@ -3840,7 +3840,7 @@ character_event = {
 }
 
 ### Someone stole my doll! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100100
 	desc = EVTDESC100100
@@ -4152,7 +4152,7 @@ character_event = {
 }
 
 ### Crusaders becomes friends/rivals ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100105
 	desc = EVTDESC100105
@@ -4532,7 +4532,7 @@ character_event = {
 }
 
 ### Learn from the best (and take his job) ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100110
 	desc = EVTDESC100110
@@ -4959,7 +4959,7 @@ character_event = {
 }
 
 ### Sharing the wonders of childbearing has made you a new friend ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100115
 	desc = EVTDESC100115
@@ -5168,7 +5168,7 @@ character_event = {
 ##################################################
 
 ### Friend at war - send help? ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100150
 	desc = EVTDESC100150
@@ -5437,7 +5437,7 @@ character_event = {
 }
 
 ### I'm at war and need help! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100160
 	desc = EVTDESC100160
@@ -5828,7 +5828,7 @@ letter_event = {
 }
 
 ### My friend's friend is my friend ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100170
 	desc = EVTDESC100170
@@ -6344,7 +6344,7 @@ character_event = {
 }
 
 ### My friend is a heretic ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100180
 	desc = EVTDESC100180
@@ -6770,7 +6770,7 @@ character_event = {
 }
 
 ### My friend is a much better diplomat than I, ask for help? ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100190
 	desc = EVTDESC100190
@@ -7142,7 +7142,7 @@ character_event = {
 }
 
 ### My friend has much better martial stats than I, ask for help? ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100200
 	desc = EVTDESC100200
@@ -7579,7 +7579,7 @@ character_event = {
 }
 
 ### My friend has much better stewardship stats than I ask for help? ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100210
 	desc = EVTDESC100210
@@ -7993,7 +7993,7 @@ character_event = {
 }
 
 ### My friend has much better intrigue stats than I, ask for help? ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100220
 	desc = EVTDESC100220
@@ -8440,7 +8440,7 @@ character_event = {
 }
 
 ### My friend has much better learning stats than I, ask for help? ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100230
 	desc = EVTDESC100230
@@ -8860,7 +8860,7 @@ character_event = {
 }
 
 ### My friend is celibate ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100240
 	desc = EVTDESC100240
@@ -9119,7 +9119,7 @@ character_event = {
 }
 
 ### My friend is a hedonist ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100250
 	desc = EVTDESC100250
@@ -9377,7 +9377,7 @@ character_event = {
 }
 
 ### My friend is a scholar ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100260
 	desc = EVTDESC100260
@@ -9632,7 +9632,7 @@ character_event = {
 }
 
 ### I don't recognize my friend anymore, I don't know if we really are friends... ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100350
 	desc = EVTDESC100350
@@ -9944,7 +9944,7 @@ character_event = {
 ##################################################
 
 ### My friend's rival tried to kill/maim/wound him/her! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100400
 	desc = EVTDESC100400
@@ -10203,7 +10203,7 @@ character_event = {
 }
 
 ### I ask permission to challenge my rival into a duel ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100410
 	desc = EVTDESC100410
@@ -10428,7 +10428,7 @@ character_event = {
 }
 
 # Liege decides if ROOT is allowed to duel
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100411
 	desc = EVTDESC100411
@@ -10881,7 +10881,7 @@ character_event = {
 # CleanSlate: Event 100420 moved to base_tournament_events.txt
 
 ### Your fierce rival has embraced heretical ways ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100440
 	desc = EVTDESC100440
@@ -11104,7 +11104,7 @@ character_event = {
 # }
 
 ### Make your liege distrust your rival ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100450
 	desc = EVTDESC100450
@@ -11409,7 +11409,7 @@ character_event = {
 }
 
 ### My rival is homosexual! ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100460
 	desc = EVTDESC100460
@@ -11622,7 +11622,7 @@ character_event = {
 }
 
 ### A rival of yours is so much beneath you that it seems a bit silly of you to hold him as an enemy ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100470
 	desc = EVTDESC100470
@@ -11770,7 +11770,7 @@ character_event = {
 }
 
 ### Your rivalry to your liege is straining your commitment to your feudal duties ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100480
 	desc = EVTDESC100480
@@ -12320,7 +12320,7 @@ character_event = {
 # CleanSlate: Event 100520 moved to base_feast_events.txt
 
 ### Revenge seeker seeks revenge ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100530
 	desc = EVTDESC100530
@@ -13409,7 +13409,7 @@ character_event = {
 }
 
 ### Son seeks revenge for his father ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100540
 	desc = EVTDESC100540
@@ -14456,7 +14456,7 @@ character_event = {
 }
 
 ### My friend has much better learning stats than I, ask for help? Muslim ###
-# LI: CK2Plus AIO version (step B, decision 5)
+# LI RE: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100550
 	picture = GFX_evt_courtiers_talking

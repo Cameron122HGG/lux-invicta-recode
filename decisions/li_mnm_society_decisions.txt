@@ -608,7 +608,7 @@ targeted_decisions = {
 		}
 	  }
 
-	# LI: the six devil worshipper recruit decisions below are Lux Invicta's versions (from master; LI-world religion
+	# LI RE: the six devil worshipper recruit decisions below are Lux Invicta's versions (from master; LI-world religion
 	# limits). CleanSlate merged vanilla's seven into devil_worshiper_recruit, which step A left out, so they were missing.
 	#Action: satanist recruit
 	satanists_recruit = {
@@ -921,7 +921,7 @@ targeted_decisions = {
 			NAND = {
 				ai = yes
 				FROM = { ai = yes }
-				NOT = { can_join_society = the_cult_of_kali } # LI: was the_trollcrafters (copy-paste slip in the original)
+				NOT = { can_join_society = the_cult_of_kali } # LI RE: was the_trollcrafters (copy-paste slip in the original)
 			}
 
 			#Blocks so AI recruits sensible people (who might say no)

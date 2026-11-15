@@ -93,7 +93,7 @@ character_event = { # Hidden set-up event!
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = { # Travel Tombola
 	id = JD.32005
 	has_dlc = "Jade Dragon"
@@ -858,7 +858,7 @@ narrative_event = { # Follow up from option A
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 character_event = {
     id = JD.15000
 	has_dlc = "Jade Dragon"

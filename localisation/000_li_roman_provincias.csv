@@ -1,5 +1,5 @@
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-# LI: Roman provincia restoration (tools/phase5b_provincia.py, 2026-11-15)
+# LI RE: Roman provincia restoration (tools/phase5b_provincia.py, 2026-11-15)
 EVTNAME_LIprov_2;A Roman Province Restored;;;;;;;;;;;;;x
 EVTDESC_LIprov_2;For the first time in centuries, the old Roman province of [li_new_provincia.GetBaseName] is whole again under the rule of [Root.GetTitledName]. Its lands answer once more to the Empire, as they did in the days of the Caesars.;;;;;;;;;;;;;x
 CONSUL;Consul;;;;;x

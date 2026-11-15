@@ -6,7 +6,7 @@
 
 targeted_decisions = {
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	brew_happiness_potion = {
 		filter = sub_realm_including_me
 		ai_target_filter = sub_realm_including_me
@@ -201,7 +201,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	hermetics_make_horoscope = {
 		ai_target_filter = court
 		ai_check_interval = 10
@@ -284,7 +284,7 @@ targeted_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	choose_hermetic_art = {
 		filter = self
 		ai_target_filter = self
@@ -640,7 +640,7 @@ society_decisions = {
 	}
 
 	# Write a Theorem Paper
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	hermetics_write_theory_paper = {
 		ai_check_interval = 24
 
@@ -678,7 +678,7 @@ society_decisions = {
 		}
 	}
 
-	# LI: CK2Plus AIO version (step B, decision 5)
+	# LI RE: CK2Plus AIO version (step B, decision 5)
 	hermetic_grand_debate = {
 		ai_check_interval = 24
 

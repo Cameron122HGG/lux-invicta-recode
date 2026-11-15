@@ -1,4 +1,4 @@
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zealot_pattern_for = {
 	icon = 5
 	pattern_type = for
@@ -518,7 +518,7 @@ zealot_pattern_for = {
 	}
 }
 
-# LI: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
+# LI RE: Lux Invicta's version (from master), not CleanSlate's - it uses LI's own world.
 zealot_pattern_against = {
 	icon = 5
 	pattern_type = against
