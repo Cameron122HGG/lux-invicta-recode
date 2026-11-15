@@ -1350,6 +1350,7 @@ province_event = {
 }
 
 # Logging Company
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = RIP.11716
 	title = PROSPERITY_TITLE
@@ -1373,7 +1374,15 @@ province_event = {
 			duration = -1
 		}
 
-		ai_chance = { factor = 95 }
+		ai_chance = {
+			factor = 95
+
+			trigger = {
+				owner = {
+					NOT = { has_character_modifier = ai_austerity }
+				}
+			}
+		}
 	}
 
 	option = {

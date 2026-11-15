@@ -10203,6 +10203,7 @@ character_event = {
 }
 
 ### I ask permission to challenge my rival into a duel ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100410
 	desc = EVTDESC100410
@@ -10217,7 +10218,6 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		liege = { war = no }
@@ -10227,9 +10227,11 @@ character_event = {
 		num_of_symptoms == 0
 		is_maimed_trigger = no
 		is_inaccessible_trigger = no
+		in_command_trigger = no
 
 		NOR = {
 			religion = jain
+			religion = cathar
 			trait = wounded
 		}
 
@@ -10239,7 +10241,7 @@ character_event = {
 			independent = no
 			practical_age < 60
 			war = no
-			in_command = no
+			in_command_trigger = no
 			is_ill = no
 			num_of_symptoms == 0
 			is_maimed_trigger = no
@@ -10280,6 +10282,11 @@ character_event = {
 
 		mult_modifier = {
 			factor = 2
+			trait = duelist
+		}
+
+		mult_modifier = {
+			factor = 2
 			trait = just
 		}
 
@@ -10299,13 +10306,13 @@ character_event = {
 		}
 
 		mult_modifier = {
-			factor = 2
+			factor = 0.5
 			liege = { realm_size >= 100 }
 		}
 
 		mult_modifier = {
-			factor = 2
-			liege = { realm_size >= 150 }
+			factor = 0.5
+			liege = { realm_size >= 150	}
 		}
 	}
 
@@ -10317,7 +10324,7 @@ character_event = {
 				independent = no
 				practical_age < 60
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_ill = no
 				num_of_symptoms == 0
 				is_maimed_trigger = no
@@ -10383,6 +10390,11 @@ character_event = {
 
 		ai_chance = {
 			factor = 10
+
+			mult_modifier = {
+				factor = 5
+				trait = duelist
+			}
 
 			mult_modifier = {
 				factor = 5
@@ -11397,6 +11409,7 @@ character_event = {
 }
 
 ### My rival is homosexual! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100460
 	desc = EVTDESC100460
@@ -11409,9 +11422,9 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_rival = {
@@ -11421,7 +11434,31 @@ character_event = {
 			num_of_vassals >= 1
 			block_general_event_trigger = no
 			war = no
-			in_command = no
+			in_command_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = cruel
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = charitable
 		}
 	}
 
@@ -11434,7 +11471,7 @@ character_event = {
 				num_of_vassals >= 1
 				block_general_event_trigger = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 			}
 
 			save_event_target_as = homosexual_rival
@@ -12283,6 +12320,7 @@ character_event = {
 # CleanSlate: Event 100520 moved to base_feast_events.txt
 
 ### Revenge seeker seeks revenge ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100530
 	desc = EVTDESC100530
@@ -12294,10 +12332,10 @@ character_event = {
 	min_age = 16
 	only_capable = yes
 	prisoner = no
-	in_command = no
 
 	trigger = {
 		NOT = { has_character_modifier = revenge_seeker_timer }
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_rival = {
@@ -12306,8 +12344,32 @@ character_event = {
 				who = ROOT
 			}
 
-			in_command = no
+			in_command_trigger = no
 			is_inaccessible_or_incapable_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = impaler
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = poet
 		}
 	}
 
@@ -12325,7 +12387,7 @@ character_event = {
 					who = ROOT
 				}
 
-				in_command = no
+				in_command_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 			}
 
@@ -12392,17 +12454,6 @@ character_event = {
 	option = {
 		name = EVTOPTB100530 # Kill
 
-		event_target:target_rival = {
-			show_scope_change = no
-
-			character_event = {
-				id = 100533
-				days = 7
-				random = 7
-				tooltip = EVTTOOLTIP100533
-			}
-		}
-
 		ai_chance = {
 			factor = 10
 
@@ -12414,6 +12465,17 @@ character_event = {
 			mult_modifier = {
 				factor = 5
 				trait = wounded
+			}
+		}
+
+		event_target:target_rival = {
+			show_scope_change = no
+
+			character_event = {
+				id = 100533
+				days = 7
+				random = 7
+				tooltip = EVTTOOLTIP100533
 			}
 		}
 	}
@@ -13347,12 +13409,13 @@ character_event = {
 }
 
 ### Son seeks revenge for his father ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100540
 	desc = EVTDESC100540
 	picture = GFX_evt_council
 
-	is_triggered_only = yes # on_yearly_pulse, random_events, friends_rivals_adults
+	is_triggered_only = yes
 
 	only_men = yes
 	rivals = yes
@@ -13360,7 +13423,6 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		NOR = {
@@ -13368,6 +13430,7 @@ character_event = {
 			has_character_flag = avenged_father
 		}
 
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_rival = {
@@ -13377,8 +13440,32 @@ character_event = {
 			}
 
 			war = no
-			in_command = no
+			in_command_trigger = no
 			is_inaccessible_or_incapable_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = impaler
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = poet
 		}
 	}
 
@@ -13397,7 +13484,7 @@ character_event = {
 				}
 
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 			}
 

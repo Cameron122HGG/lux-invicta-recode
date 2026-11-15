@@ -1,0 +1,29 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+# LI: CK2Plus AIO text for step B dependencies (tools/phase5b_deps.py).
+seduction_timer;dummy;;;;;x
+ai_austerity;Austerity;;Strenge;;;x
+ai_austerity_desc;Austerity;;Austerität;;;x
+new_buildings_timer;dummy;;;;;x
+tributary_timer;Tributary Timer;;Tributpflichtiger Timer;;;x
+tributary_timer_desc;This character cannot make another tributary action until this modifier expires.;;Der Charakter kann keine weitere Tributaktion durchführen, bis dieser Modifikator abläuft.;;;x
+feast_event_timer;dummy;;;;;x
+recently_converted;Recently Converted;;Kürzlich konvertiert;;;x
+recently_converted_desc;This character was recently converted to [Root.Religion.GetName] faith.;;Dieser Charakter ist vor kurzem zum Glauben von [Root.Religion.GetName] konvertiert.;;;x
+nick_the_eyeless;the Eyeless;le Sans-Yeux;der Augenlose;;el Sin-Ojos;
+nick_the_suicide;the Suicide;le Suicide;der Selbstmörder;;el Suicidio;
+allowed_to_serve_holy_order;Allowed to Join Order;Autorisé l'ordre de jointure;Dem Orden beitreten dürfen;;Mascotas a unirse a orden;x
+recent_bon_conversion;Recently converted to Bön;;Kürzlich zum Bön konvertiert;;;x
+recent_bon_conversion_desc;This province recently converted to Bön, a Tibetan religion which combines elements from Buddhism and traditional faiths of the region. This change can cause unrest in the realm and religious rebellions.;;Diese Provinz ist vor kurzem zum Bön konvertiert, einer tibetischen Religion, die Elemente des Buddhismus und der traditionellen Glaubensrichtungen der Region miteinander verbindet. Dieser Wechsel kann zu Unruhen im Reich und zu religiösen Rebellionen führen.;;;x
+EVTDESC_ancrel_0207;With the death of [From.GetTitledFirstName], you have been recalled early from your druidic training. Thankfully it was not without having received some benefit.;;Durch den Tod von [From.GetTitledFirstName] wurdest du vorzeitig von deiner Druidenausbildung abberufen. Zum Glück nicht ohne einen gewissen Nutzen daraus gezogen zu haben.;;;x
+EVTDESC50006B;My prisoner, [From.GetBestName], is complaining about the horrible smell in the dungeon, asking for more suitable accommodations...;;Mein Gefangener, [From.GetBestName], beschwert sich über den schrecklichen Geruch im Kerker und bittet um eine geeignetere Unterbringung...;;;x
+EVTDESC_ancrel_2121;After 30 years of devoted service to Vesta the time has come for you to retire from public office.;Après 30 ans dévoués au service de Vesta, le moment est venu pour vous de vous retirer de votre fonction publique.;Nach 30 Jahren aufopferungsvollen Dienstes für Vesta ist für Sie die Zeit gekommen, sich von öffentlichen Ämtern zurückzuziehen.;;;x
+HERESIARCH;Heresiarch;Hérésiarque;Häresiarch;;Archihereje;x
+EVTOPTBRIP.15001;Back to the dungeon with [From.GetHerHim]!;;Zurück in den Kerker mit [From.GetHerHim]!;;;x
+EVTOPTBRIP.15003;Back to the dungeon with [From.GetHerHim]!;;Zurück in den Kerker mit [From.GetHerHim]!;;;x
+EVTOPTBRIP.15005;Back to the dungeon with [From.GetHerHim]!;;Zurück in den Kerker mit [From.GetHerHim]!;;;x
+EVTOPTBRIP.15007;Back to the dungeon with [From.GetHerHim]!;;Zurück in den Kerker mit [From.GetHerHim]!;;;x
+INSULT_SILVER_TONGUE;silver-tongued;;silberzüngig;;;x
+PREPARE_FOR_HAJJ;Begin preparations for the Hajj\n;;;;;x
+CAPITAL_NOT_UNDER_SIEGE;No controlled holdings in §Y[Root.Capital.GetName]§! are under siege or sieged down;;;;;x
+inheritance;External Inheritance;;Externe Vererbung;;Herencias al exterior;x
+ai_objective_timer;dummy;;;;;x

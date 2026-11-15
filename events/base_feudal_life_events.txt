@@ -273,6 +273,7 @@ character_event = {
 }
 
 # Wolf hunting - Luparii
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4085
 	desc = EVTDESC4085
@@ -290,6 +291,16 @@ character_event = {
 
 	trigger = {
 		real_tier = COUNT
+		in_command_trigger = no
+
+		trigger_if = {
+			limit = { has_character_flag = event_4085 }
+
+			had_character_flag = {
+				flag = event_4085
+				years >= 5
+			}
+		}
 
 		NOR = {
 			religion_group = muslim
@@ -308,6 +319,12 @@ character_event = {
 				trait = slothful
 				trait = content
 				trait = craven
+			}
+
+			NOR = {
+				trait = diligent
+				trait = ambitious
+				trait = brave
 			}
 		}
 
@@ -328,12 +345,12 @@ character_event = {
 		factor = 1
 
 		mult_modifier = {
-			factor = 3
+			factor = 1.5
 			trait = brave
 		}
 
 		mult_modifier = {
-			factor = 5
+			factor = 1.5
 			trait = ambitious
 		}
 
@@ -348,8 +365,32 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = event_4085
+	}
+
 	option = {
 		name = EVTOPTA4085
+
+	#	trigger = {
+	#		any_vassal = {
+	#			practical_age >= 20
+	#			war = no
+	#			prisoner = no
+	#
+	#			OR = {
+	#				trait = slothful
+	#				trait = content
+	#				trait = craven
+	#			}
+	#
+	#			NOR = {
+	#				trait = diligent
+	#				trait = ambitious
+	#				trait = brave
+	#			}
+	#		}
+	#	}
 
 		any_vassal = {
 			show_scope_change = no
@@ -374,7 +415,7 @@ character_event = {
 			opinion = {
 				name = opinion_relieved
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 	}
@@ -382,14 +423,24 @@ character_event = {
 	option = {
 		name = EVTOPTB4085
 
+	#	trigger = {
+	#		any_vassal = {
+	#			practical_age >= 20
+	#			war = no
+	#			prisoner = no
+	#
+	#			OR = {
+	#				trait = diligent
+	#				trait = ambitious
+	#				trait = brave
+	#			}
+	#		}
+	#	}
+
 		any_vassal = {
 			show_scope_change = no
 
 			limit = {
-				practical_age >= 20
-				war = no
-				prisoner = no
-
 				OR = {
 					trait = diligent
 					trait = ambitious
@@ -405,7 +456,7 @@ character_event = {
 			opinion = {
 				name = opinion_delighted
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 	}
@@ -414,16 +465,28 @@ character_event = {
 		name = EVTOPTC4085
 
 		trigger = {
-			OR = {
-				trait = diligent
-				trait = ambitious
-				trait = brave
+			NOR = {
+				trait = slothful
+				trait = content
+				trait = craven
 			}
 		}
 
-		add_character_modifier = {
-			name = mod_bloodlust
-			months = 6
+		random_list = {
+			60 = { }
+			20 = { change_martial = 1 }
+			14 = { add_trait_wounded_effect = yes }
+			4 = { add_maimed_trait_effect = yes }
+			1 = { death = { death_reason = death_accident } }
+		}
+
+		prestige = 10
+
+		hidden_effect = {
+			change_variable = {
+				which = lifestyle_martial
+				value = 1
+			}
 		}
 	}
 
@@ -431,22 +494,16 @@ character_event = {
 		name = EVTOPTD4085
 		tooltip_info = diligent
 
-		trigger = { trait = diligent }
+		trigger = {
+			trait = diligent
 
-		any_voter = {
+			job_marshal = {
+				character = yes
+			}
+		}
+
+		job_marshal = {
 			show_scope_change = no
-
-			limit = {
-				OR = {
-					has_job_title = job_marshal
-					has_job_title = job_spymaster
-				}
-			}
-
-			score_value = {
-				value = 10
-				interesting_courtier_selection_score = yes
-			}
 
 			opinion = {
 				name = diligent_pos
@@ -2523,6 +2580,7 @@ character_event = {
 ################################################################################
 
 # Falconry
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4060
 	desc = EVTDESC4060
@@ -2536,7 +2594,6 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		OR = {
@@ -2546,19 +2603,29 @@ character_event = {
 		}
 
 		NOT = { religion = jain }
+		in_command_trigger = no
+
+		trigger_if = {
+			limit = { has_character_flag = event_4060 }
+
+			had_character_flag = {
+				flag = event_4060
+				years >= 5
+			}
+		}
 
 		any_vassal = {
 			is_adult = yes
 			prisoner = no
 
-			trigger_if = {
-				limit = { trait = craven }
+		#	trigger_if = {
+		#		limit = { trait = craven }
 
 				OR = {
 					trait = falconer
 					trait = hunter
 				}
-			}
+		#	}
 		}
 	}
 
@@ -2586,14 +2653,26 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = event_4060
+	}
+
 	option = {
 		name = EVTOPTA4060
 
-		prestige = 15
+		trigger = {
+			NOT = { trait = craven }
+		}
+
+		prestige = 5
 	}
 
 	option = {
 		name = EVTOPTB4060
+
+		trigger = {
+			NOT = { trait = craven }
+		}
 
 		any_vassal = {
 			show_scope_change = no
@@ -2621,13 +2700,25 @@ character_event = {
 			opinion = {
 				name = brave_pos
 				who = ROOT
-				years = 2
+				years = 5
+			}
+		}
+
+		hidden_effect = {
+			change_variable = {
+				which = lifestyle_diplomacy
+				value = 1
 			}
 		}
 	}
 
 	option = {
 		name = EVTOPTC4060
+		tooltip_info = craven
+
+		trigger = {
+			trait = craven
+		}
 
 		any_vassal = {
 			show_scope_change = no
@@ -2635,14 +2726,14 @@ character_event = {
 			limit = {
 				is_adult = yes
 
-				trigger_if = {
-					limit = { trait = craven }
+			#	trigger_if = {
+			#		limit = { trait = craven }
 
 					OR = {
 						trait = falconer
 						trait = hunter
 					}
-				}
+			#	}
 			}
 
 			score_value = {
@@ -2653,7 +2744,7 @@ character_event = {
 			opinion = {
 				name = opinion_oblivious
 				who = ROOT
-				years = 2
+				years = 10
 			}
 		}
 	}
@@ -2996,6 +3087,7 @@ character_event = {
 }
 
 # Market Day
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4115
 	desc = EVTDESC4115
@@ -3009,16 +3101,27 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		lower_real_tier_than = KING
-		wealth >= 30
+		wealth >= 10
 		is_inaccessible_trigger = no
+		in_command_trigger = no
+
+		trigger_if = {
+			limit = { has_character_flag = event_4115 }
+
+			had_character_flag = {
+				flag = event_4115
+				years >= 5
+			}
+		}
 
 		NOR = {
 			trait = depressed
 			trait = stressed
+			trait = shy
+			trait = cynical
 			has_character_modifier = big_spender
 		}
 
@@ -3028,6 +3131,7 @@ character_event = {
 			OR = {
 				trait = greedy
 				trait = gregarious
+				wealth > 50
 			}
 		}
 	}
@@ -3046,10 +3150,15 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = 4115
+	}
+
 	option = {
 		name = EVTOPTA4115
 
-		scaled_wealth = -0.1
+		wealth = -15
+		prestige = 5
 
 		add_character_modifier = {
 			name = big_spender
@@ -3063,14 +3172,9 @@ character_event = {
 
 		trigger = {
 			trait = greedy
-
-			NOR = {
-				trait = cynical
-				trait = zealous
-			}
+			NOR = { trait = cynical }
 		}
 
-		prestige = 50
 		add_trait = cynical
 	}
 
@@ -3078,12 +3182,11 @@ character_event = {
 		name = EVTOPTD4115
 
 		trigger = {
-			OR = {
-				trait = arbitrary
+			NOR = {
+				trait = gregarious
 				trait = greedy
+				trait = shy
 			}
-
-			NOT = { trait = shy }
 		}
 
 		add_character_modifier = {
@@ -3099,23 +3202,29 @@ character_event = {
 
 	option = {
 		name = EVTOPTE4115
+		tooltip_info = stressed
+
+		trigger = {
+			trait = stressed
+			NOT = { trait = greedy }
+		}
+
+		remove_trait = stressed
+	}
+
+	option = {
+		name = EVTOPTE4115
 
 		trigger = {
 			NOR = {
 				trait = greedy
-				trait = arbitrary
-				trait = kind
+				trait = gregarious
+				trait = shy
+				trait = stressed
 			}
 		}
 
-		add_trait_fully_silently_kind_effect = yes
-		prestige = 50
-
-		random_list = {
-			50 = { }
-			30 = { add_trait_stressed_effect = yes }
-			20 = { add_trait_drunkard_effect = yes }
-		}
+		add_trait = gregarious
 	}
 
 	option = {
@@ -3132,6 +3241,7 @@ character_event = {
 				OR = {
 					trait = greedy
 					trait = gregarious
+					wealth >= 50
 				}
 			}
 
@@ -3143,7 +3253,7 @@ character_event = {
 			opinion = {
 				name = opinion_irritated
 				who = ROOT
-				years = 5
+				years = 10
 			}
 		}
 	}
@@ -3300,12 +3410,13 @@ character_event = {
 }
 
 # Tournaments
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4125
 	desc = EVTDESC4125
 	picture = GFX_evt_joust
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	only_playable = yes
 	religion_group = christian
@@ -3314,7 +3425,6 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		martial >= 15
@@ -3325,20 +3435,27 @@ character_event = {
 			real_tier = COUNT
 		}
 
-		is_inaccessible_trigger = no
+		NOT = { trait = cynical }
 
-		NOR = {
-			has_character_modifier = the_cynical
-			has_character_modifier = the_pitiful
+		is_inaccessible_trigger = no
+		in_command_trigger = no
+
+		trigger_if = {
+			limit = { has_character_flag = event_4125 }
+
+			had_character_flag = {
+				flag = event_4125
+				years >= 5
+			}
 		}
 
 		any_vassal = {
 			trait = brave
 
-			opinion = {
-				who = ROOT
-				value >= 20
-			}
+		#	opinion = {
+		#		who = ROOT
+		#		value >= 20
+		#	}
 		}
 	}
 
@@ -3356,13 +3473,14 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = event_4125
+	}
+
 	option = {
 		name = EVTOPTA4125
 
-		add_character_modifier = {
-			name = the_cynical
-			months = 6
-		}
+		add_trait = cynical
 	}
 
 	option = {
@@ -3375,17 +3493,17 @@ character_event = {
 		prestige = 15
 	}
 
-	option = {
-		name = EVTOPTC4125
-		tooltip_info = slow
-
-		trigger = { is_dumb_trigger = yes }
-
-		add_character_modifier = {
-			name = the_pitiful
-			months = 3
-		}
-	}
+	# option = {
+	# 	name = EVTOPTC4125
+	# 	tooltip_info = slow
+	#
+	# 	trigger = { is_dumb_trigger = yes }
+	#
+	# 	add_character_modifier = {
+	# 		name = the_pitiful
+	# 		months = 3
+	# 	}
+	# }
 
 	option = {
 		name = EVTOPTD4125
@@ -3399,14 +3517,18 @@ character_event = {
 	option = {
 		name = EVTOPTE4125
 
+		trigger = {
+			NOT = { trait = craven }
+		}
+
 		any_vassal = {
 			limit = {
 				trait = brave
 
-				opinion = {
-					who = ROOT
-					value >= 20
-				}
+			#	opinion = {
+			#		who = ROOT
+			#		value >= 20
+			#	}
 			}
 
 			score_value = {
@@ -3417,7 +3539,7 @@ character_event = {
 			opinion = {
 				name = opinion_approves
 				who = ROOT
-				years = 2
+				years = 10
 			}
 		}
 	}
@@ -3532,6 +3654,7 @@ character_event = {
 }
 
 # Wedding
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4135
 	desc = EVTDESC4135
@@ -3544,11 +3667,21 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		lower_real_tier_than = KING
+		NOT = { trait = gluttonous }
 		is_inaccessible_trigger = no
+		in_command_trigger = no
+
+		trigger_if = {
+			limit = { has_character_flag = event_4135 }
+
+			had_character_flag = {
+				flag = event_4135
+				years >= 5
+			}
+		}
 
 		any_vassal = {
 			at_location = ROOT
@@ -3586,13 +3719,19 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = event_4135
+	}
+
 	option = {
 		name = EVTOPTA4135
+		tooltip_info = chaste
 
-		add_character_modifier = {
-			name = the_eager
-			months = 6
+		trigger = {
+			trait = chaste
 		}
+
+		piety = 10
 	}
 
 	option = {
@@ -3618,7 +3757,7 @@ character_event = {
 			opinion = {
 				name = opinion_pitiful
 				who = ROOT
-				years = 2
+				years = 10
 			}
 		}
 	}
@@ -3633,6 +3772,7 @@ character_event = {
 # Funeral Procession ID 4140 - moved to mourning_events.txt
 
 # Bard
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4145
 	desc = EVTDESC4145
@@ -3646,12 +3786,23 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		NOR = {
-			has_character_modifier = the_cynical
-			has_character_modifier = the_amiable
+			trait = cynical
+			trait = shy
+			has_character_flag = poet_help
+		}
+
+		in_command_trigger = no
+
+		trigger_if = {
+			limit = { has_character_flag = event_4145}
+
+			had_character_flag = {
+				flag = event_4145
+				years >= 5
+			}
 		}
 
 		any_vassal = {
@@ -3681,21 +3832,25 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = event_4145
+	}
+
 	option = {
 		name = EVTOPTA4145
 
-		add_character_modifier = {
-			name = the_cynical
-			months = 6
-		}
+		add_trait = cynical
 	}
 
 	option = {
 		name = EVTOPTB4145
+		tooltip_info = wroth
+
+		trigger = {
+			trait = wroth
+		}
 
 		any_vassal = {
-			show_scope_change = no
-
 			limit = {
 				diplomacy >= 15
 
@@ -3725,18 +3880,17 @@ character_event = {
 
 	option = {
 		name = EVTOPTC4145
-		tooltip_info = arbitrary
-
-		trigger = {
-			trait = arbitrary
-			NOT = { trait = shy }
-		}
 
 		add_trait_fully_silently_shy_effect = yes
 	}
 
 	option = {
 		name = EVTOPTD4145
+		tooltip_info = wroth
+
+		trigger = {
+			trait = wroth
+		}
 
 		any_vassal = {
 			show_scope_change = no
@@ -3772,12 +3926,12 @@ character_event = {
 		name = EVTOPTE4145
 		tooltip_info = poet
 
-		trigger = { trait = poet }
-
-		add_character_modifier = {
-			name = the_amiable
-			months = 6
+		trigger = {
+			trait = poet
 		}
+
+		change_diplomacy = 1
+		set_character_flag = poet_help
 	}
 }
 
@@ -4145,12 +4299,13 @@ character_event = {
 # Performing Bear ID 4170 - moved to summer_fair_events.txt
 
 # Bal des Ardents
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4175
 	desc = EVTDESC4175
 	picture = GFX_evt_feast
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	only_playable = yes
 	only_men = yes
@@ -4158,40 +4313,48 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		OR = {
 			trait = lunatic
 			trait = possessed
-			trait = infirm
+			trait = hedonist
 			trait = drunkard
 		}
 
 		is_inaccessible_trigger = no
+		in_command_trigger = no
 
-		any_vassal = {
-			trait = diligent
+		trigger_if = {
+			limit = { has_character_flag = event_4175 }
+
+			had_character_flag = {
+				flag = event_4175
+				years >= 5
+			}
 		}
 
-		any_vassal = {
-			trait = ambitious
-			trait = wroth
-		}
+	#	any_vassal = {
+	#		trait = diligent
+	#	}
+	#
+	#	any_vassal = {
+	#		trait = ambitious
+	#		trait = wroth
+	#	}
 	}
 
 	weight_multiplier = {
-		factor = 3
+		days = 3
 
 		mult_modifier = {
 			factor = 2
-			trait = infirm
+			trait = lunatic
 		}
+	}
 
-		mult_modifier = {
-			factor = 5
-			is_incapable = yes
-		}
+	immediate = {
+		set_character_flag = event_4175
 	}
 
 	option = {
@@ -4201,28 +4364,78 @@ character_event = {
 	}
 
 	option = {
+		name = EVTOPTA4175
+
+		trigger = {
+			NOR = {
+				any_courtier = {
+					is_female = no
+					is_adult = yes
+					trait = diligent
+				}
+
+				any_courtier = {
+					is_female = no
+					is_adult = yes
+					trait = ambitious
+
+					OR = {
+						trait = cruel
+						trait = wroth
+					}
+
+				}
+			}
+		}
+
+		add_trait_wounded_effect = yes
+	}
+
+	option = {
 		name = EVTOPTB4175
 
-		random = {
-			chance = 60
+		trigger = {
+			any_courtier = {
+				trait = diligent
+				is_female = no
+				is_adult = yes
+			}
 
+			NOT = {
+				any_courtier = {
+					trait = ambitious
+					is_female = no
+					is_adult = yes
+
+					OR = {
+						trait = cruel
+						trait = wroth
+					}
+				}
+			}
+		}
+
+		random = {
+			chance = 50
 			add_trait_wounded_effect = yes
 		}
 
-		any_vassal = {
-			show_scope_change = no
-
-			limit = { trait = diligent }
+		any_courtier = {
+			limit = {
+				is_adult = yes
+				trait = diligent
+				is_female = no
+			}
 
 			score_value = {
-				value = 10
-				interesting_courtier_selection_score = yes
-			}
+	            value = 10
+        		interesting_courtier_selection_score = yes
+	        }
 
 			reverse_opinion = {
 				name = opinion_my_saviour
 				who = ROOT
-				years = 2
+				years = 10
 			}
 		}
 	}
@@ -4230,29 +4443,42 @@ character_event = {
 	option = {
 		name = EVTOPTC4175
 
-		random = {
-			chance = 70
+		trigger = {
+			any_courtier = {
+				trait = ambitious
+				is_female = no
+				is_adult = yes
 
-			add_trait_wounded_effect = yes
+				OR = {
+					trait = cruel
+					trait = wroth
+				}
+			}
 		}
 
-		any_courtier = {
-			show_scope_change = no
+		add_maimed_trait_effect = yes
 
+		any_courtier = {
 			limit = {
 				trait = ambitious
-				trait = wroth
+				is_female = no
+				is_adult = yes
+
+				OR = {
+					trait = cruel
+					trait = wroth
+				}
 			}
 
 			score_value = {
-				value = 10
-				interesting_courtier_selection_score = yes
-			}
+	            value = 10
+        		interesting_courtier_selection_score = yes
+	        }
 
 			reverse_opinion = {
 				name = opinion_fool_courtier
 				who = ROOT
-				years = 2
+				years = 10
 			}
 		}
 	}

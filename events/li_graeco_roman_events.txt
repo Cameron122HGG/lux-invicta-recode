@@ -169,34 +169,51 @@ character_event = {
 }
 
 # A Vestalis must retire after 30 years
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.2121
-	desc = EVTDESCancrel.2121
+	desc = EVTDESC_ancrel_2121
 	picture = GFX_evt_princess_byzantine
 
-	mean_time_to_happen = {
-		days = 1
-	}
+	is_triggered_only = yes # on_yearly_pulse
+
+	has_character_flag = flag_vestalis
 
 	trigger = {
 		had_character_flag = {
 			flag = flag_vestalis
-			days = 10958 # 30 years
+			years >= 30
 		}
-		
-		has_minor_title = title_vestalis
+
+		OR = {
+			has_minor_title = title_vestalis
+			has_minor_title = title_vestalis_maxima
+		}
 	}
 
 	option = {
 		name = OK
 
-		remove_title = title_vestalis
-		remove_title = title_vestalis_maxima
+		if = {
+			limit = { has_minor_title = title_vestalis }
+			remove_title = title_vestalis
+		}
+
+		if = {
+			limit = { has_minor_title = title_vestalis_maxima }
+			remove_title = title_vestalis_maxima
+		}
+
 		remove_trait = celibate
 		remove_trait = vestalis
 		add_trait = retired_vestalis
 		recalc_succession = yes
 		clr_character_flag = flag_vestalis
+
+		change_variable = {
+			which = global_num_vestales
+			value = -1
+		}
 	}
 }
 

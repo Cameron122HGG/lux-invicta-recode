@@ -1372,6 +1372,7 @@ letter_event = {
 
 
 # Ultimatum - feudal elective
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8015
 	desc = EVTDESC8015
@@ -1379,7 +1380,9 @@ letter_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		FROM = { in_faction = faction_succ_feudal_elective }
+		FROM = {
+			in_faction = faction_succ_feudal_elective
+		}
 	}
 
 	immediate = {
@@ -1397,20 +1400,20 @@ letter_event = {
 	option = {
 		name = EVTOPTA8000
 
-		any_player = {
-			limit = {
-				vassal_of = ROOT
+		hidden_effect = {
+			any_player = {
+				limit = {
+					vassal_of = ROOT
 
-				NOR = {
-					in_faction = faction_succ_feudal_elective
-					character = ROOT
+					NOR = {
+						in_faction = faction_succ_feudal_elective
+						character = ROOT
+					}
 				}
+
+				character_event = { id = 8086 }
 			}
 
-			character_event = { id = 8086 }
-		}
-
-		hidden_effect = {
 			FROM = {
 				letter_event = { id = 8065 }
 				diplomatic_immunity = no
@@ -1428,17 +1431,22 @@ letter_event = {
 			show_scope_change = no
 
 			faction_succ_feudal_elective = { # The target (title) of the faction
+				set_title_flag = non_manual_law_change # No prestige loss
+
 				if = {
-					limit = { is_law_potential = succ_byzantine_elective }
-					add_law_w_cooldown = succ_byzantine_elective
-				}
-				else_if = {
-					limit = { is_law_potential = succ_hre_elective }
+					limit = {
+						OR = {
+							title = e_hre
+							title = event_target:alternate_hre
+						}
+					}
 					add_law_w_cooldown = succ_hre_elective
 				}
 				else = {
 					add_law_w_cooldown = succ_feudal_elective
 				}
+
+				clr_title_flag = non_manual_law_change # No prestige loss
 			}
 		}
 
@@ -1494,22 +1502,24 @@ letter_event = {
 	option = {
 		name = EVTOPTB8000
 
-		if = {
-			limit = {
-				FROM = {
-					faction_power = {
-						faction = faction_succ_feudal_elective
-						power >= 1.0
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						faction_power = {
+							faction = faction_succ_feudal_elective
+							power >= 1.0
+						}
 					}
 				}
-			}
 
-			random = {
-				chance = 25
+				random = {
+					chance = 25
 
-				character_event = {
-					id = 45002 # Loyalists flock to the liege's banner
-					months = 4
+					character_event = {
+						id = 45002 # Loyalists flock to the liege's banner
+						months = 4
+					}
 				}
 			}
 		}
@@ -1648,6 +1658,7 @@ letter_event = {
 
 			mult_modifier = {
 				factor = 0.5
+
 				FROM = {
 					faction_power = {
 						faction = faction_succ_feudal_elective
@@ -1658,6 +1669,7 @@ letter_event = {
 
 			mult_modifier = {
 				factor = 0.5
+
 				FROM = {
 					faction_power = {
 						faction = faction_succ_feudal_elective
@@ -1984,6 +1996,7 @@ letter_event = {
 }
 
 # Ultimatum - crown authority
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8025
 	desc = EVTDESC8025
@@ -1991,7 +2004,9 @@ letter_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		FROM = { in_faction = faction_lower_crown_authority }
+		FROM = {
+			in_faction = faction_lower_crown_authority
+		}
 	}
 
 	immediate = {
@@ -2009,20 +2024,20 @@ letter_event = {
 	option = {
 		name = EVTOPTA8000
 
-		any_player = {
-			limit = {
-				vassal_of = ROOT
+		hidden_effect = {
+			any_player = {
+				limit = {
+					vassal_of = ROOT
 
-				NOR = {
-					in_faction = faction_lower_crown_authority
-					character = ROOT
+					NOR = {
+						in_faction = faction_lower_crown_authority
+						character = ROOT
+					}
 				}
+
+				character_event = { id = 8094 }
 			}
 
-			character_event = { id = 8094 }
-		}
-
-		hidden_effect = {
 			FROM = {
 				letter_event = { id = 8067 }
 				diplomatic_immunity = no
@@ -2040,6 +2055,8 @@ letter_event = {
 			show_scope_change = no
 
 			faction_lower_crown_authority = { # The target (title) of the faction
+				set_title_flag = non_manual_law_change # No prestige loss
+
 				trigger_switch = {
 					on_trigger = has_law
 
@@ -2048,6 +2065,8 @@ letter_event = {
 					crown_authority_3 = { add_law_w_cooldown = crown_authority_2 }
 					crown_authority_4 = { add_law_w_cooldown = crown_authority_3 }
 				}
+
+				clr_title_flag = non_manual_law_change # No prestige loss
 			}
 
 			opinion = {
@@ -2111,22 +2130,24 @@ letter_event = {
 	option = {
 		name = EVTOPTB8000
 
-		if = {
-			limit = {
-				FROM = {
-					faction_power = {
-						faction = faction_lower_crown_authority
-						power >= 1.0
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						faction_power = {
+							faction = faction_lower_crown_authority
+							power >= 1.0
+						}
 					}
 				}
-			}
 
-			random = {
-				chance = 25
+				random = {
+					chance = 25
 
-				character_event = {
-					id = 45002 # Loyalists flock to the liege's banner
-					months = 4
+					character_event = {
+						id = 45002 # Loyalists flock to the liege's banner
+						months = 4
+					}
 				}
 			}
 		}
@@ -22278,6 +22299,7 @@ character_event = {
 }
 
 # Ultimatum - antiking
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8200
 	desc = EVTDESC8200
@@ -22303,20 +22325,20 @@ letter_event = {
 	option = {
 		name = EVTOPTA8000
 
-		any_player = {
-			limit = {
-				vassal_of = ROOT
+		hidden_effect = {
+			any_player = {
+				limit = {
+					vassal_of = ROOT
 
-				NOR = {
-					in_faction = faction_antiking
-					character = ROOT
+					NOR = {
+						in_faction = faction_antiking
+						character = ROOT
+					}
 				}
+
+				character_event = { id = 8202 }
 			}
 
-			character_event = { id = 8202 }
-		}
-
-		hidden_effect = {
 			FROM = {
 				letter_event = { id = 8203 }
 				diplomatic_immunity = no
@@ -22339,10 +22361,14 @@ letter_event = {
 			}
 
 			faction_antiking = { # The target (title) of the faction
+				set_title_flag = non_manual_law_change # No prestige loss
+
 				if = {
 					limit = { has_law = investiture_law_1 }
 					add_law_w_cooldown = investiture_law_0
 				}
+
+				clr_title_flag = non_manual_law_change # No prestige loss
 			}
 
 			hidden_effect = {
@@ -22420,22 +22446,24 @@ letter_event = {
 	option = {
 		name = EVTOPTB8000
 
-		if = {
-			limit = {
-				FROM = {
-					faction_power = {
-						faction = faction_antiking
-						power >= 1.0
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						faction_power = {
+							faction = faction_antiking
+							power >= 1.0
+						}
 					}
 				}
-			}
 
-			random = {
-				chance = 25
+				random = {
+					chance = 25
 
-				character_event = {
-					id = 45002 # Loyalists flock to the liege's banner
-					months = 4
+					character_event = {
+						id = 45002 # Loyalists flock to the liege's banner
+						months = 4
+					}
 				}
 			}
 		}
@@ -22984,6 +23012,7 @@ letter_event = {
  }
 
 # Ultimatum - increase council power
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8215
 	desc = EVTDESC8215
@@ -23009,20 +23038,20 @@ letter_event = {
 	option = {
 		name = EVTOPTA8000
 
-		any_player = {
-			limit = {
-				vassal_of = ROOT
+		hidden_effect = {
+			any_player = {
+				limit = {
+					vassal_of = ROOT
 
-				NOR = {
-					in_faction = faction_increase_council_power
-					character = ROOT
+					NOR = {
+						in_faction = faction_increase_council_power
+						character = ROOT
+					}
 				}
+
+				character_event = { id = 8217 }
 			}
 
-			character_event = { id = 8217 }
-		}
-
-		hidden_effect = {
 			FROM = {
 				letter_event = { id = 8218 }
 				diplomatic_immunity = no
@@ -23105,22 +23134,24 @@ letter_event = {
 	option = {
 		name = EVTOPTB8000
 
-		if = {
-			limit = {
-				FROM = {
-					faction_power = {
-						faction = faction_increase_council_power
-						power >= 1.0
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						faction_power = {
+							faction = faction_increase_council_power
+							power >= 1.0
+						}
 					}
 				}
-			}
 
-			random = {
-				chance = 25
+				random = {
+					chance = 25
 
-				character_event = {
-					id = 45002 # Loyalists flock to the liege's banner
-					months = 4
+					character_event = {
+						id = 45002 # Loyalists flock to the liege's banner
+						months = 4
+					}
 				}
 			}
 		}
@@ -23386,6 +23417,7 @@ letter_event = {
  }
 
 # Ultimatum - powerful vassal takeover
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 8220
 	desc = EVTDESC8220
@@ -23411,8 +23443,7 @@ letter_event = {
 			limit = {
 				higher_real_tier_than = BARON
 				is_feudal = yes
-				block_general_event_trigger = no
-				has_inheritance_blocker = no
+				is_adult = yes
 
 				trigger_if = {
 					limit = { is_female = yes }
@@ -23434,6 +23465,11 @@ letter_event = {
 						}
 					}
 				}
+
+				prisoner = no
+				is_incapable = no
+				NOT = { trait = eunuch }
+				is_inaccessible_trigger = no
 			}
 
 			save_event_target_as = new_title_holder
@@ -23443,20 +23479,20 @@ letter_event = {
 	option = {
 		name = EVTOPTA8000
 
-		any_player = {
-			limit = {
-				vassal_of = ROOT
+		hidden_effect = {
+			any_player = {
+				limit = {
+					vassal_of = ROOT
 
-				NOR = {
-					in_faction = faction_powerful_vassal_takeover
-					character = ROOT
+					NOR = {
+						in_faction = faction_powerful_vassal_takeover
+						character = ROOT
+					}
 				}
+
+				character_event = { id = 8222 }
 			}
 
-			character_event = { id = 8222 }
-		}
-
-		hidden_effect = {
 			FROM = {
 				letter_event = { id = 8223 }
 				diplomatic_immunity = no
@@ -23500,6 +23536,8 @@ letter_event = {
 				increase_council_power_effect = yes
 				increase_vassal_freedom_effect = yes
 				increase_vassal_freedom_effect = yes
+
+				set_title_flag = non_manual_law_change # No prestige loss
 
 				if = {
 					limit = { has_law = succession_voting_power_0 }
@@ -23575,6 +23613,8 @@ letter_event = {
 						}
 					}
 				}
+
+				clr_title_flag = non_manual_law_change # No prestige loss
 			}
 		}
 
@@ -23630,22 +23670,24 @@ letter_event = {
 	option = {
 		name = EVTOPTB8000
 
-		if = {
-			limit = {
-				FROM = {
-					faction_power = {
-						faction = faction_powerful_vassal_takeover
-						power >= 1.0
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						faction_power = {
+							faction = faction_powerful_vassal_takeover
+							power >= 1.0
+						}
 					}
 				}
-			}
 
-			random = {
-				chance = 25
+				random = {
+					chance = 25
 
-				character_event = {
-					id = 45002 # Loyalists flock to the liege's banner
-					months = 4
+					character_event = {
+						id = 45002 # Loyalists flock to the liege's banner
+						months = 4
+					}
 				}
 			}
 		}
@@ -23821,7 +23863,7 @@ letter_event = {
 			}
 		}
 	}
- }
+}
 
 # Inform faction backer - Powerful Vassal Takeover
 letter_event = {
@@ -23967,6 +24009,7 @@ letter_event = {
 }
 
 # Winning war notification - New title holder
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8226
 	desc = EVTDESC8226
@@ -23977,6 +24020,8 @@ character_event = {
 
 	immediate = {
 		primary_title = {
+			set_title_flag = non_manual_law_change # No prestige loss
+
 			if = {
 				limit = { has_law = succession_voting_power_0 }
 				add_law_w_cooldown = succession_voting_power_1
@@ -23984,7 +24029,7 @@ character_event = {
 
 			if = {
 				limit = {
-					NOR = {
+					NOR =  {
 						has_law = succ_feudal_elective
 						has_law = succ_byzantine_elective
 						has_law = succ_hre_elective
@@ -24016,6 +24061,8 @@ character_event = {
 					add_law_w_cooldown = succ_feudal_elective
 				}
 			}
+
+			clr_title_flag = non_manual_law_change # No prestige loss
 		}
 	}
 

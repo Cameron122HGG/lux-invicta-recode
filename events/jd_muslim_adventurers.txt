@@ -3,6 +3,7 @@
 namespace = JD
 
 # An ambitious Muslim character begins to plan an adventure for a Kingdom in India
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = JD.1000
 
@@ -173,6 +174,7 @@ character_event = {
 				# Do nothing
 			}
 			50 = {
+				# LI: AIO weight for culture = afghan dropped (no such culture in LI; never applied)
 				mult_modifier = {
 					factor = 2
 					has_character_flag = flag_denied_title

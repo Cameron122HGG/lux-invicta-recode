@@ -207,7 +207,33 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      (LI triggers, RoI.30121), `check_if_ancestor_worship_worthy_effect` (AIO checks the seafaring trigger in its
      "Unrelenting" weights). **Lesson:** the survey's "no LI names" test misses LI changes that use vanilla names
      (Qarmatian) or LI's own triggers; compare LI's master text with AIO's before applying.
-     Untested in game.
+     Batch 3 test run (logs `LI_CS_stepB3_logs_2026-11-15`): 1,727, clean (one runtime CAtWarTrigger assert).
+     **Batch 4 (2026-11-15), untested in game:**
+     - **Survey fix:** `li_world` counted vanilla scope words (`any_vassal`, `capital_scope`) as LI names because
+       `landed_titles` holds `allow = { any_vassal = {…} }` blocks; block keys used in vanilla scripts are now
+       excluded. "Uses LI world" 543 → 361.
+     - **Keep list** (`tools/phase5b_keep_li.txt`, survey category "kept as LI"): 56 definitions. LI changes the
+       survey can't see (LI's clanic laws in the 9 council-power laws, LI's messianic/people-control laws in
+       62320-62322, TECH_SKIRMISH tactics, silk road province numbers, LI's offmap China CBs,
+       `oriental_monarchy_government` in the tribal conversions); 26 whose AIO version needs content LI left out
+       on purpose (Chalcedonian, vanilla Roman pagans, Cult of Titan/Cold Ones, martial_lady traits, paragon);
+       the 2 faction ambitions (wait for the CB/faction framework decision); and 4 chain/flag cases below.
+     - **Dependencies** copied with the new `tools/phase5b_deps.py`: 2 triggers (`is_kinslayer_trigger`,
+       `is_evil_tyrant_trigger`), `remove_do_not_disturb_effect`, 7 timers/modifiers, 1 opinion modifier,
+       2 nicknames, 26 loc keys (`localisation/000_li_CK2Plus_stepb.csv`). Left out: `has_owners_secret_community`
+       (vanilla heresies), `switch_to_feudal_effect` (Bogomilist government), `out_homosexual_effect` (lesbian
+       traits), `is_feminist_trigger` (LI has its own `feminist_religions_trigger`).
+     - **Applied:** 63 swaps in 40 files (events, decisions, `truebelievers_bid_for_independence`,
+       `decadence_invasion`, `setting_up_the_crusader_kingdom_effect`, …). The dead `culture = afghan` weight in
+       `jd_muslim_adventurers` dropped. Put back afterwards: `TOG.1060` (AIO's Bön branch uses vanilla `bon_pagan`),
+       `tributary_cb` (AIO's only works through a CK2Plus decision flag, `trying_to_gain_tributary`).
+     - **Flag audit** (all step B blocks): AIO's `WoL.1036`/`WoL.1039` (batch 2) read duel-outcome flags that only
+       CK2Plus's duel engine sets; the mod's `WoL.1035` is CleanSlate's, so the outcome never showed. CleanSlate's
+       1036/1039 put back. Other unset flags are negative checks or dead branches. Target audit: none.
+       **Lesson:** the survey doesn't see flags; check `has_*_flag` in AIO blocks against `set_*_flag` in the mod.
+     - **CB trim:** CleanSlate's CB files log 202 lines, but CleanSlate alone logs 227: its scope shorthand, not dead
+       references. `trim_dead` found only 5 real ones (`indian_cbs` taoist, `tributary_cbs` `e_mongol_empire`).
+     - **Left:** 234 need AIO content (CB framework, druids, monastic orders, CK2Plus laws/focuses, plots), 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.

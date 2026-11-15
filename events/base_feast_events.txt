@@ -3634,12 +3634,25 @@ character_event = {
 }
 
 # Guest kills Host's servant: Imprison?
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 72056
 	desc = EVTDESC72056
 	picture = GFX_evt_scandal
 
 	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { ai = no }
+
+			add_character_modifier = {
+				name = feast_event_timer
+				days = 3
+				hidden = yes
+			}
+		}
+	}
 
 	option = {
 		name = EVTOPTA72056
@@ -3648,15 +3661,14 @@ character_event = {
 			show_scope_change = no
 
 			imprison = ROOT
-			character_event = { id = 72057 }
 
-			tooltip = {
-				opinion = {
-					name = opinion_angry
-					who = ROOT
-					years = 20
-				}
+			opinion = {
+				name = opinion_arrest_attempt
+				who = ROOT
+				years = 20
 			}
+
+			character_event = { id = 72057 }
 		}
 
 		add_trait_fully_silently_just_effect = yes
@@ -3665,7 +3677,14 @@ character_event = {
 	option = {
 		name = EVTOPTC72056
 
-		scaled_wealth = -0.10
+		trigger = {
+			OR = {
+				intrigue >= 12
+				diplomacy >= 12
+			}
+		}
+
+		scaled_wealth = -0.20
 	}
 
 	option = {

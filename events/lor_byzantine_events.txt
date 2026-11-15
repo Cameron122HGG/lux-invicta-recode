@@ -489,6 +489,7 @@ character_event = {
 ### Varangian Hippodrome Riots
 
 # Hippodrome Riots
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = LoR.840
 	desc = EVTDESCLoR.840
@@ -501,7 +502,6 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	min_age = 16
-	in_command = no
 
 	trigger = {
 		capital_scope = {
@@ -516,6 +516,8 @@ character_event = {
 		any_vassal = {
 			has_landed_title = d_varangian_guard
 		}
+
+		in_command_trigger = no
 	}
 
 	option = {

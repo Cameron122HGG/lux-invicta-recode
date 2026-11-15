@@ -1,5 +1,6 @@
 targeted_decisions = {
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	prisoner_torture = {
 		filter = court
 		ai_target_filter = court
@@ -10,15 +11,14 @@ targeted_decisions = {
 		from_potential = {
 			has_dlc = "Reapers"
 			num_of_prisoners > 0
-			is_adult = yes
-			prisoner = no
-			is_incapable = no
+			is_not_in_regency_trigger = yes
 		}
 
 		potential = {
 			host = { character = FROM }
 			prisoner = yes
 			practical_age >= 13
+			NOT = { has_character_modifier = tortured }
 		}
 
 		allow = {
@@ -81,6 +81,7 @@ targeted_decisions = {
 											OR = {
 												region = world_africa
 												region = world_middle_east
+												region = world_middle_east_persia
 												region = world_india_rajastan
 											}
 										}

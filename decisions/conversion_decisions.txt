@@ -876,6 +876,7 @@ convert_to_local_religion = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	convert_to_parent_religion = {
 		filter = self
 		ai_target_filter = self
@@ -888,8 +889,12 @@ convert_to_local_religion = {
 			controls_religion = no
 			holy_order = no
 
-			# May instead renounce Iconoclasm
-			NOT = { is_decision_potential = renounce_iconoclasm }
+			NOT = {
+				rightful_religious_head = THIS
+
+				# May instead renounce Iconoclasm
+				is_decision_potential = renounce_iconoclasm
+			}
 
 			# Can convert to Reformed instead
 			is_not_unreformed_pagan_trigger = yes
@@ -904,8 +909,13 @@ convert_to_local_religion = {
 				abandon_heresy = yes
 			}
 
-			prestige = -500
-			piety = 250
+			piety = -100
+			set_character_flag = converted_religion
+
+			add_character_modifier = {
+				name = recently_converted
+				years = 2
+			}
 
 			if = {
 				limit = { higher_real_tier_than = BARON }

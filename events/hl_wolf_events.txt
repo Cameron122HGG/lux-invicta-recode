@@ -822,6 +822,7 @@ narrative_event = {
 }
 
 # Return home, wife/lover/everyone is worried. Say something about it…
+# LI: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = HL.1250
 	title = EVTTITLE_HL_1250
@@ -970,7 +971,7 @@ narrative_event = {
 
 	after = {
 		clr_character_flag = wolf_homecoming_worried_character
-		clr_character_flag = do_not_disturb
+		remove_do_not_disturb_effect = yes
 	}
 }
 

@@ -1467,35 +1467,35 @@ character_event = {
 }
 
 # Father dies, Child gets training traits
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = ancrel.207
-	hide_window = yes
-	
-	has_dlc = "The Old Gods"
-	ai = yes
-	only_playable = yes
-	
-	trigger = {
-		OR = {
-			has_character_flag = wants_druidic_training
-			has_character_flag = druidic_training
-		}
-		father = { is_alive = no }
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-	}
-	
-	immediate = {
-		remove_trait = learning_druidic_arts
-		random_list = {
-			25 = { add_trait = scholar }
-			25 = { add_trait = mystic }
-			25 = { add_trait = poet }
-			25 = { add_trait = druid }
-		}
+	desc = EVTDESC_ancrel_0207
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+
 		clr_character_flag = wants_druidic_training
 		clr_character_flag = druidic_training
+		remove_trait = learning_druidic_arts
+
+		random_list = {
+			20 = { add_trait = scholar }
+			20 = { add_trait = mystic }
+			20 = { add_trait = poet }
+			40 = { change_learning = 1 }
+		}
+
+		if = {
+			limit = { is_ruler = yes }
+
+			prestige = 100
+			piety = 100
+			wealth = 50
+		}
 	}
 }

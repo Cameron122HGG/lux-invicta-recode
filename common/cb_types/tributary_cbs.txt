@@ -1,3 +1,6 @@
+# Lux Invicta copy of the vanilla/DLC file "tributary_cbs.txt": checks for cultures, religions
+# and dynasties that do not exist in LI were removed (behaviour otherwise unchanged; units that could
+# never match were dropped).
 # tributary_cb
 # free_tributary_cb
 # tributary_permanent_cb
@@ -1680,7 +1683,6 @@ tributary_nomad_cb = {
 		trigger = {
 			# The Mongol Empire just wants to take land
 			ROOT = {
-				NOT = { has_landed_title = e_mongol_empire }
 			}
 		}
 

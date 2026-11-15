@@ -1,3 +1,6 @@
+# Lux Invicta copy of the vanilla/DLC file "indian_cbs.txt": checks for cultures, religions
+# and dynasties that do not exist in LI were removed (behaviour otherwise unchanged; units that could
+# never match were dropped).
 # buddhist_holy_war
 # indian_subjugation
 
@@ -24,7 +27,6 @@ buddhist_holy_war = {
 				limit = { religion_group = FROM }
 
 				OR = {
-					FROM = { religion = taoist }
 
 					# Can always attack known devil worshippers of the same religion
 					AND = {
@@ -39,7 +41,6 @@ buddhist_holy_war = {
 
 				OR = {
 					NOT = { religion = FROM }
-					FROM = { religion = taoist }
 
 					# Can always attack known devil worshippers of the same religion
 					trigger_if = {
@@ -121,7 +122,6 @@ buddhist_holy_war = {
 				limit = { religion_group = FROM }
 
 				OR = {
-					FROM = { religion = taoist }
 
 					# Can always attack known devil worshippers of the same religion
 					AND = {
@@ -134,7 +134,6 @@ buddhist_holy_war = {
 			top_liege = {
 				OR = {
 					NOT = { religion = FROM }
-					FROM = { religion = taoist }
 
 					AND = { # Can always attack known devil worshippers of the same religion
 						religion_group = FROM

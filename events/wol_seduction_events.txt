@@ -5215,6 +5215,7 @@ character_event = {
 }
 
 # Seducer: Seduction - bed games - End
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.306
 	picture = GFX_evt_lovers
@@ -5250,6 +5251,18 @@ character_event = {
 
 		# Casanova achievement check event
 		character_event = { id = steam.019 }
+
+		if = {
+			limit = { ai = yes }
+
+			remove_character_modifier = seduction_timer
+
+			add_character_modifier = {
+				name = seduction_timer
+				years = 1
+				hidden = yes
+			}
+		}
 	}
 
 	option = {
@@ -5299,11 +5312,38 @@ character_event = {
 				factor = 2
 				trait = arbitrary
 			}
+
+			# CK2Plus
+			mult_modifier = {
+				factor = 2
+				same_sex = event_target:seduced
+			}
+
+			mult_modifier = {
+				factor = 2
+
+				OR = {
+					is_married = yes
+					event_target:seduced = { is_married = yes }
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.1
+				NOT = { has_focus = focus_seduction }
+			}
 		}
 	}
 
 	option = {
 		name = EVTOPTB_WOL_306 # Our love must grow
+
+		trigger = {
+			event_target:seduced = {
+				root_attraction_trigger = yes
+				attracted_to_root_trigger = yes
+			}
+		}
 
 		add_lover = event_target:seduced
 
@@ -6370,6 +6410,7 @@ character_event = {
 }
 
 # Seducer: Seduction rebuffed!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.353
 	picture = GFX_evt_lovers
@@ -6442,8 +6483,36 @@ character_event = {
 
 	is_triggered_only = yes
 
+	immediate = {
+		if = {
+			limit = { NOT = { has_character_flag = wol_rebuffed_once } }
+			set_character_flag = wol_rebuffed_once
+		}
+		else_if = {
+			limit = { NOT = { has_character_flag = wol_rebuffed_twice } }
+			set_character_flag = wol_rebuffed_twice
+		}
+		else_if = {
+			limit = { NOT = { has_character_flag = wol_rebuffed_thrice } }
+			set_character_flag = wol_rebuffed_thrice
+		}
+	}
+
 	option = {
 		name = EVTOPTA_WOL_307
+
+		trigger = {
+			NOT = { has_character_flag = wol_rebuffed_thrice }
+
+			trigger_if = {
+				limit = { has_character_flag = rebuffed_twice }
+
+				OR = {
+					trait = master_seducer
+					trait = master_seductress
+				}
+			}
+		}
 
 		clr_character_flag = seduction_rebuff_351
 		clr_character_flag = seduction_rebuff_401
@@ -6495,6 +6564,18 @@ character_event = {
 
 		clr_character_flag = seduction_rebuff_351
 		clr_character_flag = seduction_rebuff_401
+
+		if = {
+			limit = { ai = yes }
+
+			remove_character_modifier = seduction_timer
+
+			add_character_modifier = {
+				name = seduction_timer
+				years = 1
+				hidden = yes
+			}
+		}
 
 		ai_chance = {
 			factor = 1
@@ -7871,6 +7952,7 @@ character_event = {
 }
 
 # Seducer: Success End
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.405
 	title = EVTTITLE_WOL_401
@@ -7915,6 +7997,18 @@ character_event = {
 
 		# Casanova achievement check event
 		character_event = { id = steam.019 }
+
+		if = {
+			limit = { ai = yes }
+
+			remove_character_modifier = seduction_timer
+
+			add_character_modifier = {
+				name = seduction_timer
+				years = 1
+				hidden = yes
+			}
+		}
 	}
 
 	option = {
@@ -7964,11 +8058,38 @@ character_event = {
 				factor = 2
 				trait = arbitrary
 			}
+
+			# CK2Plus
+			mult_modifier = {
+				factor = 2
+				same_sex = event_target:seduced
+			}
+
+			mult_modifier = {
+				factor = 2
+
+				OR = {
+					is_married = yes
+					event_target:seduced = { is_married = yes }
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.1
+				NOT = { has_focus = focus_seduction }
+			}
 		}
 	}
 
 	option = {
 		name = EVTOPTB_WOL_306 # Our love must grow
+
+		trigger = {
+			event_target:seduced = {
+				root_attraction_trigger = yes
+				attracted_to_root_trigger = yes
+			}
+		}
 
 		add_lover = event_target:seduced
 

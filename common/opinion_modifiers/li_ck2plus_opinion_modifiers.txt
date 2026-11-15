@@ -63,3 +63,7 @@ opinion_recent_plot = {
 opinion_spurned_CK2+ = {
 	opinion = -10
 }
+
+allowed_to_serve_holy_order = {
+	opinion = 10
+}

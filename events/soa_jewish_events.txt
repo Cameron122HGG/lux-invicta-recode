@@ -93,6 +93,7 @@ character_event = {
 ### Jewish Passover
 
 # Invitation Sent
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = SoA.500
 	desc = EVTDESC_SoA_500
@@ -112,7 +113,7 @@ character_event = {
 				show_scope_change = no
 
 				limit = {
-					religion = jewish
+					religion_group = jewish_group
 					is_adult = yes
 					prisoner = no
 					war = no

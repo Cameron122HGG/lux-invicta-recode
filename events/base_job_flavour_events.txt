@@ -2899,6 +2899,7 @@ character_event = {
 }
 
 # Marshal is wroth, not a ruler & liege has a city vassal somewhere
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 75110
 	desc = EVTDESC75110
@@ -2914,6 +2915,16 @@ character_event = {
 		has_job_title = job_marshal
 		trait = wroth
 		is_ruler = no
+		is_republic = no
+
+		trigger_if = {
+			limit = { has_character_flag = event_75110 }
+
+			had_character_flag = {
+				flag = event_75110
+				years >= 5
+			}
+		}
 
 		liege = {
 			any_vassal = {
@@ -2924,6 +2935,10 @@ character_event = {
 
 	weight_multiplier = {
 		factor = 1
+	}
+
+	immediate = {
+		set_character_flag = event_75110
 	}
 
 	option = {

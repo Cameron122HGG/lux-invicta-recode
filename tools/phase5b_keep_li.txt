@@ -5,3 +5,55 @@ assassins_recruit                       # LI's per-faith Assassin orders (the_as
 employ_spymaster                        # LI_pagan_trigger, feminist_religions_trigger, RoI.30121
 employ_chancellor                       # same as employ_spymaster
 check_if_ancestor_worship_worthy_effect # mod's text is right; AIO checks the seafaring trigger in its 'Unrelenting' weights
+law_voting_power_0                      # council power laws: LI's text checks LI's clanic_centralization laws
+law_voting_power_1                      # same
+war_voting_power_0                      # same
+revoke_title_voting_power_0             # same
+imprison_voting_power_0                 # same
+grant_title_voting_power_0              # same
+banish_voting_power_0                   # same
+execution_voting_power_0                # same
+succession_voting_power_1               # same
+62320                                   # uses LI's messianic_power/people_control laws (li_demesne_laws)
+62321                                   # same chain as 62320 (target hand-off)
+62322                                   # same chain as 62320
+disorganised_harass_tactic              # LI's tech tree keeps TECH_SKIRMISH; AIO's drops it
+disorganised_swarm_tactic               # same
+silk_road                               # province numbers: LI renumbered its map
+tributary_nomad_cb                      # LI's offmap China
+invasion_of_china_cb                    # LI's offmap China
+faction_independence                    # faction ambitions: wait for the CK2Plus CB/faction framework decision
+faction_claimant                        # same
+# Step 2 (2026-11-15): AIO versions need content LI left out on purpose
+succ_catholic_bishopric                 # AIO needs Chalcedonian faith, which LI doesn't have
+title_flamen_dialis                     # AIO needs vanilla Roman pagans, which LI doesn't have
+title_flamen_martialis                  # AIO needs vanilla Roman pagans, which LI doesn't have
+title_flamen_quirinalis                 # AIO needs vanilla Roman pagans, which LI doesn't have
+title_vestalis_maxima                   # AIO needs vanilla Roman pagans, which LI doesn't have
+join_from_devil_worshiper_society_effect # AIO needs Cult of Titan/Cold Ones societies, which LI doesn't have
+join_prev_devil_worshiper_society_effect # AIO needs Cult of Titan/Cold Ones societies, which LI doesn't have
+is_devil_worshiper_trigger              # AIO needs Cult of Titan/Cold Ones societies, which LI doesn't have
+religion_same_as_bloodline_founder_trigger # AIO needs Chalcedonian faith, which LI doesn't have
+monastic_order_benedictine              # AIO needs Chalcedonian faith, paragon trait, which LI doesn't have
+monastic_order_orthodox                 # AIO needs Chalcedonian faith, paragon trait, which LI doesn't have
+monastic_order_nestorian                # AIO needs paragon trait, which LI doesn't have
+monastic_order_monophysite              # AIO needs paragon trait, which LI doesn't have
+55001                                   # AIO needs Chalcedonian faith, which LI doesn't have
+36010                                   # AIO needs martial_lady traits, which LI doesn't have
+36020                                   # AIO needs martial_lady traits, which LI doesn't have
+36040                                   # AIO needs martial_lady traits, which LI doesn't have
+MNM.7005                                # AIO needs Cult of Titan/Cold Ones societies, which LI doesn't have
+MNM.7015                                # AIO needs Cult of Titan/Cold Ones societies, which LI doesn't have
+MNM.7018                                # AIO needs Cult of Titan/Cold Ones societies, which LI doesn't have
+MNM.7030                                # AIO needs Cult of Titan/Cold Ones societies, which LI doesn't have
+SoA.4031                                # AIO needs Chalcedonian faith, which LI doesn't have
+SoA.3020                                # AIO needs Cult of Titan/Cold Ones societies, which LI doesn't have
+WoL.1012                                # AIO needs martial_lady traits, which LI doesn't have
+create_mercenary_company                # AIO needs martial_lady traits, which LI doesn't have
+restore_pope_in_rome                    # AIO needs Chalcedonian faith, which LI doesn't have
+convert_tribal_to_castle                # handles LI's oriental_monarchy_government
+convert_tribal_to_city                  # same
+TOG.1060                                # AIO adds a Bon branch on vanilla bon_pagan/buddhist; LI's Bon is its own faith
+tributary_cb                            # AIO version only works via a CK2Plus decision flag (trying_to_gain_tributary) the mod lacks
+WoL.1036                                # AIO version expects CK2Plus duel-engine flags; the mod's WoL.1035 is CleanSlate's (chain hand-off)
+WoL.1039                                # same

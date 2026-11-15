@@ -841,6 +841,7 @@ character_event = {
 
 # An ambitious character with no inheritance starts an adventure for a foreign title
 # (Temporary title created and a war declared)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = TOG.1212
 
@@ -852,6 +853,7 @@ character_event = {
 	only_capable = yes
 
 	trigger = {
+		always = no # Disabled in Plus
 		is_ruler = no
 
 		NOR = {

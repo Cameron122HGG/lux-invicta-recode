@@ -73,7 +73,16 @@ def names(root):
         for dp, _, fs in os.walk(os.path.join(root, d)):
             for f in fs: s |= set(re.findall(r'\b([\w-]+)\s*=\s*\{', nc(rd(os.path.join(dp, f)))))
     return s
-li_world = {x for x in names(REPO) - names(VA) if len(x) > 3}
+def script_words(root):
+    """block keys used in vanilla scripts (scopes, triggers, effects): landed_titles holds allow = { any_vassal = {...} }
+    blocks, so these turn up in names() without being LI names (180 false 'uses LI world' rows before 2026-11-15)"""
+    s = set()
+    for d in ('events', 'decisions', 'common/cb_types', 'common/scripted_triggers', 'common/scripted_effects'):
+        for dp, _, fs in os.walk(os.path.join(root, d)):
+            for f in fs:
+                if f.endswith('.txt'): s |= set(re.findall(r'\b([\w-]+)\s*=\s*\{', nc(rd(os.path.join(dp, f)))))
+    return s
+li_world = {x for x in names(REPO) - names(VA) - script_words(VA) if len(x) > 3}
 # what the mod defines (for dependency checks)
 def keyset(root, folders, depth=0):
     s = set()
@@ -112,6 +121,7 @@ for key, (lf, la, lb, ltext) in li.items():
     elif fol == 'common/on_actions': c = 'on_actions (skip: merged lists, kept as tuned on the branch)'
     elif key in mod and os.path.basename(mod[key][0]).lower().startswith(('hf_', 'hfp_')): c = 'Holy Fury file (skip: phase 8)'
     elif set(re.findall(r'[\w-]+', nc(ltext))) & li_world: c = 'uses LI world (port by hand)'
+    elif k in KEEP_LI: c = 'kept as LI (keep-li list)'
     elif key not in mod: c = 'not in mod now'
     elif mod[key][3] == t_aio: c = 'mod = AIO already'
     else:

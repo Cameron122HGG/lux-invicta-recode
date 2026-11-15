@@ -1384,6 +1384,7 @@ character_event = {
 }
 
 # Faction Prevention - Spymaster finds Faction Member
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = MNM.70024
 	title = evt_spymaster_201_title
@@ -1391,9 +1392,11 @@ character_event = {
 	picture = GFX_evt_council
 	border = GFX_event_normal_frame_intrigue
 
+	ai = no # For performance reasons
 	has_job_title = yes
 
 	trigger = {
+		always = no # Disabled in CK2Plus
 		has_job_action = action_uncover_plots_offmap
 		in_seclusion = no
 		NOT = { has_character_modifier = bedridden_illness }

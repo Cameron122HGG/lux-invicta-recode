@@ -759,6 +759,7 @@ character_event = {
 }
 
 # Jailor Tar 'n' Feather
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.15001
 	desc = EVTDESCRIP.15001
@@ -767,9 +768,7 @@ character_event = {
 
 	is_triggered_only = yes # prisoner_humiliation, rip_torture_events.txt
 
-	ai = no
-
-	option = {
+	option = { # Release
 		name = EVTOPTARIP.15001
 
 		tooltip = {
@@ -777,6 +776,63 @@ character_event = {
 				show_scope_change = no
 
 				jailor_humiliation_effect = yes
+				imprison = no
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+
+			mult_modifier = {
+				factor = 0.5
+
+				OR = {
+					trait = cruel
+					trait = impaler
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				trait = arbitrary
+			}
+		}
+	}
+
+	option = { # Keep
+		name = EVTOPTBRIP.15001
+
+		FROM = {
+			show_scope_change = no
+
+			jailor_humiliation_effect = yes
+		}
+
+		add_character_modifier = {
+			name = merciless
+			years = 2
+		}
+
+		ai_chance = {
+			factor = 10
+
+			trigger = {
+				NOR = {
+					trait = kind
+					trait = charitable
+					trait = just
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.1
+
+				has_character_modifier = merciless
+
+				NOR = {
+					trait = cruel
+					trait = impaler
+				}
 			}
 		}
 	}
@@ -820,6 +876,7 @@ character_event = {
 }
 
 # Jailor Stocks
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.15003
 	desc = EVTDESCRIP.15003
@@ -828,9 +885,7 @@ character_event = {
 
 	is_triggered_only = yes # prisoner_humiliation, rip_torture_events.txt
 
-	ai = no
-
-	option = {
+	option = { # Release
 		name = EVTOPTARIP.15003
 
 		tooltip = {
@@ -838,6 +893,63 @@ character_event = {
 				show_scope_change = no
 
 				jailor_humiliation_effect = yes
+				imprison = no
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+
+			mult_modifier = {
+				factor = 0.5
+
+				OR = {
+					trait = cruel
+					trait = impaler
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				trait = arbitrary
+			}
+		}
+	}
+
+	option = { # Keep
+		name = EVTOPTBRIP.15003
+
+		FROM = {
+			show_scope_change = no
+
+			jailor_humiliation_effect = yes
+		}
+
+		add_character_modifier = {
+			name = merciless
+			years = 2
+		}
+
+		ai_chance = {
+			factor = 10
+
+			trigger = {
+				NOR = {
+					trait = kind
+					trait = charitable
+					trait = just
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.1
+
+				has_character_modifier = merciless
+
+				NOR = {
+					trait = cruel
+					trait = impaler
+				}
 			}
 		}
 	}
@@ -881,6 +993,7 @@ character_event = {
 }
 
 # Jailor Walk of Shame
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.15005
 	desc = EVTDESCRIP.15005
@@ -889,9 +1002,7 @@ character_event = {
 
 	is_triggered_only = yes # prisoner_humiliation, rip_torture_events.txt
 
-	ai = no
-
-	option = {
+	option = { # Release
 		name = EVTOPTARIP.15005
 
 		tooltip = {
@@ -899,6 +1010,63 @@ character_event = {
 				show_scope_change = no
 
 				jailor_humiliation_effect = yes
+				imprison = no
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+
+			mult_modifier = {
+				factor = 0.5
+
+				OR = {
+					trait = cruel
+					trait = impaler
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				trait = arbitrary
+			}
+		}
+	}
+
+	option = { # Keep
+		name = EVTOPTBRIP.15005
+
+		FROM = {
+			show_scope_change = no
+
+			jailor_humiliation_effect = yes
+		}
+
+		add_character_modifier = {
+			name = merciless
+			years = 2
+		}
+
+		ai_chance = {
+			factor = 10
+
+			trigger = {
+				NOR = {
+					trait = kind
+					trait = charitable
+					trait = just
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.1
+
+				has_character_modifier = merciless
+
+				NOR = {
+					trait = cruel
+					trait = impaler
+				}
 			}
 		}
 	}
@@ -942,6 +1110,7 @@ character_event = {
 }
 
 # Jailor Tar 'n' Feather NOMAD
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.15007
 	desc = EVTDESCRIP.15007
@@ -950,9 +1119,7 @@ character_event = {
 
 	is_triggered_only = yes # prisoner_humiliation, rip_torture_events.txt
 
-	ai = no
-
-	option = {
+	option = { # Release
 		name = EVTOPTARIP.15007
 
 		tooltip = {
@@ -960,6 +1127,63 @@ character_event = {
 				show_scope_change = no
 
 				jailor_humiliation_effect = yes
+				imprison = no
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+
+			mult_modifier = {
+				factor = 0.5
+
+				OR = {
+					trait = cruel
+					trait = impaler
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.8
+				trait = arbitrary
+			}
+		}
+	}
+
+	option = { # Keep
+		name = EVTOPTBRIP.15007
+
+		FROM = {
+			show_scope_change = no
+
+			jailor_humiliation_effect = yes
+		}
+
+		add_character_modifier = {
+			name = merciless
+			years = 2
+		}
+
+		ai_chance = {
+			factor = 10
+
+			trigger = {
+				NOR = {
+					trait = kind
+					trait = charitable
+					trait = just
+				}
+			}
+
+			mult_modifier = {
+				factor = 0.1
+
+				has_character_modifier = merciless
+
+				NOR = {
+					trait = cruel
+					trait = impaler
+				}
 			}
 		}
 	}

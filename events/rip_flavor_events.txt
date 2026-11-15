@@ -6228,6 +6228,7 @@ character_event = {
 }
 
 # Reactions to crazy ruler (everyone else)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.29107
 	desc = EVTDSC_RIP_29107
@@ -6242,7 +6243,7 @@ character_event = {
 		custom_tooltip = {
 			text = EVTOPTA_RIP_29107_TOOLTIP
 
-			clr_character_flag = do_not_disturb
+			remove_do_not_disturb_effect = yes
 			remove_character_modifier = attending_masquerade
 
 			character_event = {
@@ -11079,6 +11080,7 @@ character_event = {
 }
 
 # Suicide attempt through hanging
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = RIP.30208
 	picture = GFX_evt_scandal
@@ -11120,6 +11122,21 @@ character_event = {
 		}
 
 		death = { death_reason = death_suicide_hanging }
+
+		if = {
+			limit = { can_apply_lame_nickname_trigger = yes }
+
+			random = {
+				chance = 35
+
+				mult_modifier = {
+					factor = 0.3
+					has_nickname = yes
+				}
+
+				give_nickname = nick_the_suicide
+			}
+		}
 	}
 
 	option = {

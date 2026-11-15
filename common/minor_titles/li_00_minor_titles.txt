@@ -1,48 +1,65 @@
 # Lux Invicta definitions extracted from master:common/minor_titles/00_minor_titles.txt (phase 2 of CLEANSLATE_PLAN.md).
 # Only definitions vanilla does not have; LI changes to vanilla definitions are handled in phase 3.
 
+# LI: CK2Plus AIO version (step B, decision 5)
 title_dregvant = {
+	is_unique = yes
+	message = yes
+
 	dignity = 0.01
 	grant_limit = 1
+
 	opinion_effect = -15
-	
-	monthly_prestige = -0.2
-	
-	is_unique = yes
-	allowed_to_hold = {
-		NOT = { primary_title = { temporary = yes } }
-		is_adult = yes
-		OR = {
-			trait = cruel
-			trait = kinslayer
-			trait = slothful
-			trait = wroth
-			trait = deceitful
-		}
-		NOT = {
-			trait = incapable
-		}
-	}
+	monthly_prestige = -0.25
+
 	allowed_to_grant = {
+		higher_real_tier_than = DUKE
 		religion_group = zoroastrian_group
+
 		OR = {
 			is_feudal = yes
 			is_tribal = yes
 		}
-		primary_title = {
-			OR = {
-				tier = king
-				tier = emperor
+	}
+
+	allowed_to_hold = {
+		is_adult = yes
+
+		OR = {
+			trait = cruel
+			is_kinslayer_trigger = yes
+			trait = slothful
+			trait = wroth
+			trait = deceitful
+		}
+
+		custom_tooltip = {
+			text = court_physician_tooltip_1
+
+			trigger_if = {
+				limit = { is_ruler = yes }
+
+				primary_title = {
+					temporary = no
+				}
 			}
 		}
 	}
-	
+
+	revoke_trigger = {
+	}
+
 	gain_effect = {
 	}
+
 	lose_effect = {
 	}
 
-	message = yes
+	retire_effect = {
+	}
+
+	death_effect = {
+	}
 }
 # LI: CK2Plus AIO version (step B, decision 5)
 title_ashavan = {

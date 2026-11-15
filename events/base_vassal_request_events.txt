@@ -2269,6 +2269,7 @@ character_event = {
 }
 
 # The mayor asks his liege
+# LI: CK2Plus AIO version (step B, decision 5)
 letter_event = {
 	id = 63061
 	desc = EVTDESC63061
@@ -2327,9 +2328,9 @@ letter_event = {
 			trigger_switch = {
 				on_trigger = has_law
 
-				city_tax_1 = { approve_law = city_tax_0 }
-				city_tax_2 = { approve_law = city_tax_1 }
-				city_tax_3 = { approve_law = city_tax_2 }
+				city_obligations_2 = { approve_law = city_obligations_1 }
+				city_obligations_3 = { approve_law = city_obligations_2 }
+				city_obligations_4 = { approve_law = city_obligations_3 }
 			}
 		}
 	}

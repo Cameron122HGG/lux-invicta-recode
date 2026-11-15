@@ -1,111 +1,208 @@
+# LI: CK2Plus AIO version (step B, decision 5)
 obj_gain_estates_1 = {
 	type = character
 
-	allow = {
-		prisoner = no
+	potential = {
 		is_adult = yes
 		is_ruler = no
+		is_incapable = no
+		prisoner = no
+
+		liege = {
+			is_nomadic = no
+			is_tribal = no
+		}
+
 		NOR = {
-			spouse = { is_ruler = yes }
-			trait = incapable
-			has_character_flag = obj_gain_estates
-			has_character_flag = flag_denied_estates
+			trait = monk
+			trait = nun
+			trait = eunuch
 			has_character_modifier = estates_1
-			has_character_modifier = estates_2
-			has_character_modifier = estates_3
-			has_character_modifier = estates_4
-			has_character_modifier = estates_5
+			has_character_flag = flag_denied_estates
+			has_character_flag = obj_gain_estates
+			has_minor_title = title_guru
+			any_spouse = { is_ruler = yes }
+		}
+
+		trigger_if = {
+			limit = { is_female = yes }
+
+			OR = {
+				has_law = true_cognatic_succession
+				has_law = enatic_cognatic_succession
+				has_law = enatic_succession
+
+				AND = {
+					is_close_relative = liege
+					has_law = cognatic_succession
+				}
+			}
+		}
+		trigger_else = {
+			NOT = { has_law = enatic_succession }
+		}
+	}
+
+	creation_effect = {
+		if = {
+			limit = { ai = yes }
+
+			add_character_modifier = {
+				name = ai_objective_timer
+				years = 5
+				hidden = yes
+			}
+		}
+	}
+
+	success = {
+		has_character_modifier = estates_1
+	}
+
+	effect = {
+		if = {
+			limit = { ai = yes }
+			remove_character_modifier = ai_objective_timer
+		}
+
+		set_character_flag = obj_gain_estates
+		prestige = 50
+
+		opinion = {
+			name = opinion_estates_obj
+			who = liege
+			years = 10
+		}
+	}
+
+	abort = {
+		OR = {
+			has_character_flag = flag_denied_estates
+			prisoner = yes
+			is_incapable = yes
+			is_ruler = yes
+			trait = monk
+			trait = nun
+			trait = eunuch
+			has_minor_title = title_guru
+			any_spouse = { is_ruler = yes }
+
+			liege = {
+				OR = {
+					is_tribal = yes
+					is_nomadic = yes
+				}
+			}
+
+			trigger_if = {
+				limit = { ai = yes }
+				NOT = { has_character_modifier = ai_objective_timer }
+			}
+
+			trigger_if = {
+				limit = { is_female = yes }
+
+				OR = {
+					has_law = true_cognatic_succession
+					has_law = enatic_cognatic_succession
+					has_law = enatic_succession
+
+					AND = {
+						is_close_relative = liege
+						has_law = cognatic_succession
+					}
+				}
+			}
+			trigger_else = {
+				has_law = enatic_succession
+			}
+		}
+	}
+
+	abort_effect = {
+		if = {
+			limit = { ai = yes }
+			remove_character_modifier = ai_objective_timer
 		}
 	}
 
 	chance = {
 		factor = 100
 
-		modifier = {
+		trigger = {
+			is_primary_heir = no
+		}
+
+		mult_modifier = {
 			factor = 0.1
-			NOR = {
-				num_of_children = 1
-				liege = {
-					is_close_relative = ROOT
+
+			has_living_children = no
+			NOT = { is_close_relative = liege }
+		}
+
+		mult_modifier = {
+			factor = 0.25
+
+			trigger_if = {
+				limit = { is_female = yes }
+
+				OR = {
+					has_law = agnatic_succession
+					religion_is_patriarchal_trigger = yes
+				}
+			}
+			trigger_else = {
+				OR = {
+					has_law = enatic_succession
+					religion_is_matriarchal_trigger = yes
 				}
 			}
 		}
-		modifier = {
-			factor = 0.25
-			is_female = yes
-		}
-		modifier = {
-			factor = 0
-			is_primary_heir = yes
-		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 2.0
-			liege = {
-				dynasty = ROOT
-			}
+			liege = { dynasty = ROOT }
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 2.0
-			liege = {
-				is_close_relative = ROOT
-			}
+			is_close_relative = liege
 		}
-		modifier = {
+
+		mult_modifier = {
+			factor = 5.0
+			trait = decadent
+		}
+
+		mult_modifier = {
 			factor = 2.0
 			trait = ambitious
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 2.0
 			trait = proud
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 2.0
 			trait = greedy
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 0.5
 			trait = content
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 0.5
 			trait = humble
 		}
-		modifier = {
+
+		mult_modifier = {
 			factor = 0.5
 			trait = charitable
 		}
-	}
-
-	success = {
-		OR = {
-			has_character_modifier = estates_1
-			has_character_modifier = estates_2
-			has_character_modifier = estates_3
-			has_character_modifier = estates_4
-			has_character_modifier = estates_5
-		}
-	}
-	abort = {
-		OR = {
-			has_character_flag = flag_denied_estates
-			prisoner = yes
-			trait = incapable
-			is_ruler = yes
-			spouse = { is_ruler = yes }
-		}
-	}
-	abort_effect = {
-		set_character_flag = obj_aborted
-		clr_character_flag = obj_check
-	}
-	effect = {
-		prestige = 50
-		opinion = {
-			modifier = opinion_estates_obj
-			who = liege
-			years = 10
-		}
-		set_character_flag = obj_gain_estates
 	}
 }
 

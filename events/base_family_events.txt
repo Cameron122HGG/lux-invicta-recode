@@ -765,6 +765,7 @@ character_event = {
 }
 
 # The pretender launches the attack
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 37015
 
@@ -800,6 +801,8 @@ character_event = {
 						culture = ROOT
 						name = CLAIMANT_ADVENTURE
 						holder = ROOT
+						ruler = LORD
+						ruler_female = LADY
 					}
 				}
 

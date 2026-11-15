@@ -281,6 +281,7 @@ character_event = {
 }
 
 # Heretic Rebels rise up (temporary rebel title created, with a leader and a war)
+# LI: CK2Plus AIO version (step B, decision 5)
 province_event = {
 	id = TOG.1020
 	desc = EVTDESC_TOG_1020
@@ -332,6 +333,7 @@ province_event = {
 				culture = ROOT
 				name = HERETIC_REVOLT
 				holder = THIS
+				ruler = HERESIARCH
 			}
 
 			wealth = 100
@@ -356,8 +358,6 @@ province_event = {
 						value = very_powerful
 					}
 				}
-
-				spawn_heretic_army_effect = yes
 				spawn_heretic_army_effect = yes
 				spawn_heretic_army_effect = yes
 				wealth = 250
@@ -369,9 +369,6 @@ province_event = {
 						value = extremely_powerful
 					}
 				}
-
-				spawn_heretic_army_effect = yes
-				spawn_heretic_army_effect = yes
 				spawn_heretic_army_effect = yes
 				spawn_heretic_army_effect = yes
 				spawn_heretic_army_effect = yes

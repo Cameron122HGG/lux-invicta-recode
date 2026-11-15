@@ -2007,6 +2007,7 @@ nomad_adopt_feudalism = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	nomad_adopt_republicanism = {
 		# filter = sub_realm_owned # CleanSlate: Nonfunctional
 		ai_target_filter = sub_realm_owned
@@ -2014,11 +2015,12 @@ nomad_adopt_feudalism = {
 
 		is_high_prio = yes
 
-		only_playable = yes
+		ai = no
 
 		from_potential = {
-			has_dlc = "Horse Lords"
+			always = no # Disabled in CK2Plus
 			independent = yes
+			has_dlc = "Horse Lords"
 			is_nomadic = yes
 
 			trigger_if = {
@@ -2106,7 +2108,7 @@ nomad_adopt_feudalism = {
 						population_and_manpower >= 5000
 
 						any_realm_province = {
-							num_of_settlements = 1
+							num_of_settlements >= 1
 							held_under_PREV = yes
 
 							NOR = {

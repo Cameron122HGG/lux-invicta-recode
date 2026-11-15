@@ -1533,6 +1533,7 @@ character_event = {
 }
 
 # Deer Park
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4075
 	desc = EVTDESC4075
@@ -1560,7 +1561,7 @@ character_event = {
 				prisoner = no
 				is_incapable = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 			}
 
 			score_value = {
@@ -1582,10 +1583,14 @@ character_event = {
 			}
 		}
 
-		reverse_opinion = {
-			name = opinion_irritated
-			who = event_target:target_vassal
-			years = 10
+		event_target:target_vassal = {
+			show_scope_change = no
+
+			opinion = {
+				name = opinion_irritated
+				who = ROOT
+				years = 10
+			}
 		}
 	}
 
@@ -1601,10 +1606,14 @@ character_event = {
 
 		wealth = -10
 
-		reverse_opinion = {
-			name = opinion_happy
-			who = event_target:target_vassal
-			years = 10
+		event_target:target_vassal = {
+			show_scope_change = no
+
+			opinion = {
+				name = opinion_happy
+				who = ROOT
+				years = 10
+			}
 		}
 	}
 
@@ -1618,10 +1627,14 @@ character_event = {
 			}
 		}
 
-		reverse_opinion = {
-			name = content_neg
-			who = event_target:target_vassal
-			years = 10
+		event_target:target_vassal = {
+			show_scope_change = no
+
+			opinion = {
+				name = content_neg
+				who = ROOT
+				years = 10
+			}
 		}
 	}
 }

@@ -306,6 +306,7 @@ character_event = {
 }
 
 # Experience at holy site
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.7021
 	desc = EVTDESC_WoL_7021
@@ -334,7 +335,7 @@ character_event = {
 			}
 		}
 
-		clr_character_flag = do_not_disturb
+		remove_do_not_disturb_effect = yes
 		clear_event_target = holy_site_visiting
 
 		if = {

@@ -14,6 +14,7 @@
 # randomize_religion_names_effect
 # set_random_coa_effect
 
+# LI: CK2Plus AIO version (step B, decision 5)
 shattered_conqueror_spawn_effect = {
 	random_independent_ruler = {
 		limit = {
@@ -57,7 +58,6 @@ shattered_conqueror_spawn_effect = {
 				type = great_conqueror_bloodline
 				inheritance = matrilineal
 			}
-
 		}
 		else = {
 			create_bloodline = {
@@ -116,7 +116,7 @@ shattered_conqueror_spawn_effect = {
 			chance = 10
 
 			remove_trait = dwarf
-			add_trait = giant
+			add_trait = tall
 		}
 
 		if = {

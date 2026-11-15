@@ -4,3 +4,36 @@
 ai_objective_timer = {
 	icon = 1
 }
+
+seduction_timer = {
+	icon = 1
+}
+
+ai_austerity = {
+	icon = 1
+}
+
+new_buildings_timer = {
+	local_tax_modifier = 0.25
+	icon = 1
+}
+
+tributary_timer = {
+	icon = 7
+}
+
+feast_event_timer = {
+	icon = 1
+}
+
+recently_converted = {
+	same_religion_opinion = +5
+	monthly_character_piety = 0.5
+	#infidel_opinion = -10
+	icon = 35
+}
+
+recent_bon_conversion = {
+	icon = 34
+	local_revolt_risk = 0.01
+}
