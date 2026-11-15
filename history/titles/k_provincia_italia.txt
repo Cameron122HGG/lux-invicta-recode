@@ -1,0 +1,4 @@
+# LI: inactive until restored by create_provincia_italia (tools/phase5b_provincia.py)
+1.1.1 = {
+	active = no
+}

@@ -106,6 +106,12 @@ for p in P:
     b = re.sub(r'region = (?:custom_roman|world)_\w+', 'region = ' + REGION[p], b)
     titles.append(b)
 out['common/landed_titles/li_CK2Plus_provincia_titles.txt'] = HEAD + '\n\n'.join(titles) + '\n'
+# title history: start inactive (AIO's history/titles/k_provincia_*.txt; without it the titular titles count as active, so
+# every create decision hid itself and the titles could be created straight from the title screen). AIO's Holy Fury
+# pentarch line is left out.
+for p in P:
+    out[f'history/titles/k_provincia_{p}.txt'] = ('# LI: inactive until restored by create_provincia_' + p + ' (tools/phase5b_provincia.py)\n'
+                                                 '1.1.1 = {\n\tactive = no\n}\n')
 # ---- decisions
 rdec = rd(os.path.join(AIO, 'decisions/CK2Plus_roman_decisions.txt'))
 claims = []

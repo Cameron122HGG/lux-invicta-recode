@@ -309,6 +309,11 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `has_dlc = "Legacy of Rome"` dropped from all 24 decisions; regions now written as province-ID lists (from LI's
      province history), so `setup.log` shows their real size; LIprov.1 writes a line to `game.log`; the last 4 crusade
      weights without a comment dropped.
+     **Cause found (third run, temporary debug decisions, logs `LI_CS_prov4_logs_2026-11-15`):** titular titles are active
+     unless their history says `active = no`; AIO's `history/titles/k_provincia_*.txt` had not been ported, so every provincia
+     counted as already restored (`is_title_active`), every create decision hid itself, and the titles could be created from
+     the title screen. The tool now writes the 20 history files (`1.1.1 = { active = no }`; AIO's Holy Fury pentarch line left
+     out). Debug decisions removed. **Lesson:** a titular title needs its history file to start inactive.
      Left: 199 need AIO content, 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
