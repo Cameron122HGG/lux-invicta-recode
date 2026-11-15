@@ -5187,6 +5187,14 @@ character_event = {
 					monastic_order_orthodox    = { ROOT = { set_character_flag = betrayed_monastic_order_orthodox } }
 					monastic_order_nestorian   = { ROOT = { set_character_flag = betrayed_monastic_order_nestorian } }
 					monastic_order_monophysite = { ROOT = { set_character_flag = betrayed_monastic_order_monophysite } }
+					# LI: Lux Invicta's own Christian monastic orders (added 2026-11-15)
+					monastic_order_adoptionist = { ROOT = { set_character_flag = betrayed_monastic_order_adoptionist } }
+					monastic_order_apollinarist= { ROOT = { set_character_flag = betrayed_monastic_order_apollinarist } }
+					monastic_order_iconoclast  = { ROOT = { set_character_flag = betrayed_monastic_order_iconoclast } }
+					monastic_order_melkite     = { ROOT = { set_character_flag = betrayed_monastic_order_melkite } }
+					monastic_order_monothelite = { ROOT = { set_character_flag = betrayed_monastic_order_monothelite } }
+					monastic_order_montanist   = { ROOT = { set_character_flag = betrayed_monastic_order_montanist } }
+					monastic_order_pelagian    = { ROOT = { set_character_flag = betrayed_monastic_order_pelagian } }
 					monastic_order_jain        = { ROOT = { set_character_flag = betrayed_monastic_order_jain } }
 					monastic_order_hindu       = { ROOT = { set_character_flag = betrayed_monastic_order_hindu } }
 					monastic_order_buddhist    = { ROOT = { set_character_flag = betrayed_monastic_order_buddhist } }
@@ -6004,6 +6012,14 @@ letter_event = {
 					monastic_order_orthodox    = { ROOT = { set_character_flag = betrayed_monastic_order_orthodox } }
 					monastic_order_nestorian   = { ROOT = { set_character_flag = betrayed_monastic_order_nestorian } }
 					monastic_order_monophysite = { ROOT = { set_character_flag = betrayed_monastic_order_monophysite } }
+					# LI: Lux Invicta's own Christian monastic orders (added 2026-11-15)
+					monastic_order_adoptionist = { ROOT = { set_character_flag = betrayed_monastic_order_adoptionist } }
+					monastic_order_apollinarist= { ROOT = { set_character_flag = betrayed_monastic_order_apollinarist } }
+					monastic_order_iconoclast  = { ROOT = { set_character_flag = betrayed_monastic_order_iconoclast } }
+					monastic_order_melkite     = { ROOT = { set_character_flag = betrayed_monastic_order_melkite } }
+					monastic_order_monothelite = { ROOT = { set_character_flag = betrayed_monastic_order_monothelite } }
+					monastic_order_montanist   = { ROOT = { set_character_flag = betrayed_monastic_order_montanist } }
+					monastic_order_pelagian    = { ROOT = { set_character_flag = betrayed_monastic_order_pelagian } }
 					monastic_order_jain        = { ROOT = { set_character_flag = betrayed_monastic_order_jain } }
 					monastic_order_hindu       = { ROOT = { set_character_flag = betrayed_monastic_order_hindu } }
 					monastic_order_buddhist    = { ROOT = { set_character_flag = betrayed_monastic_order_buddhist } }

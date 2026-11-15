@@ -259,6 +259,11 @@ Each phase is its own commit (or several), followed by a run and a log compariso
        faiths (never true); pointing them at LI faiths would turn on Holy Fury content in 34 places, so it is left for a
        separate decision. LI's own 7 Christian orders (Adoptionist … Pelagian) are missing from
        `is_christian_monastic_member_trigger` and the betrayal/rejoin lists (gap from before).
+       **Fixed 2026-11-15:** the 7 LI orders added to `is_christian_monastic_member_trigger`, `join_prev_monastic_order_society`
+       and both betrayal switches in `mnm_monastic_orders_events.txt` (each LI order already checks its `betrayed_` flag).
+       Monastic-order run (logs `LI_CS_monastic_logs_2026-11-15`): 1,723; the Stoic decision's `culture = owner` (load-time
+       assert) rewritten as `owner = { culture = PREV }` by `phase5b_monastic.py`. Not done: the Holy Fury saintly-bloodline
+       event and the take-vows decision still pick only vanilla orders for Christian branches/faiths.
      Left: 199 need AIO content, 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an

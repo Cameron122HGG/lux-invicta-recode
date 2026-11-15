@@ -71,6 +71,14 @@ is_christian_monastic_member_trigger = {
 		society_member_of = monastic_order_dominican
 		society_member_of = monastic_order_nestorian
 		society_member_of = monastic_order_monophysite
+		# LI: Lux Invicta's own Christian monastic orders (added 2026-11-15)
+		society_member_of = monastic_order_adoptionist
+		society_member_of = monastic_order_apollinarist
+		society_member_of = monastic_order_iconoclast
+		society_member_of = monastic_order_melkite
+		society_member_of = monastic_order_monothelite
+		society_member_of = monastic_order_montanist
+		society_member_of = monastic_order_pelagian
 	}
 }
 

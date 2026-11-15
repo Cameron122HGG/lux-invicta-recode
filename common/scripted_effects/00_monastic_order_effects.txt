@@ -120,6 +120,35 @@ join_prev_monastic_order_society = {
 		limit = { PREV = { society_member_of = monastic_order_monophysite } }
 		join_society = monastic_order_monophysite
 	}
+	# LI: Lux Invicta's own Christian monastic orders (added 2026-11-15)
+	else_if = {
+		limit = { PREV = { society_member_of = monastic_order_adoptionist } }
+		join_society = monastic_order_adoptionist
+	}
+	else_if = {
+		limit = { PREV = { society_member_of = monastic_order_apollinarist } }
+		join_society = monastic_order_apollinarist
+	}
+	else_if = {
+		limit = { PREV = { society_member_of = monastic_order_iconoclast } }
+		join_society = monastic_order_iconoclast
+	}
+	else_if = {
+		limit = { PREV = { society_member_of = monastic_order_melkite } }
+		join_society = monastic_order_melkite
+	}
+	else_if = {
+		limit = { PREV = { society_member_of = monastic_order_monothelite } }
+		join_society = monastic_order_monothelite
+	}
+	else_if = {
+		limit = { PREV = { society_member_of = monastic_order_montanist } }
+		join_society = monastic_order_montanist
+	}
+	else_if = {
+		limit = { PREV = { society_member_of = monastic_order_pelagian } }
+		join_society = monastic_order_pelagian
+	}
 	else_if = {
 		limit = { PREV = { society_member_of = monastic_order_hindu } }
 		join_society = monastic_order_hindu
