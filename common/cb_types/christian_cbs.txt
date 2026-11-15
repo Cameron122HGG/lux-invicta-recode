@@ -1172,10 +1172,10 @@ childrens_crusade = {
 				NOT = { character = attacker }
 			}
 
-			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.25823 # Notify everyone that the crusade has flopped
-				#days = 7
-			#}
+			narrative_event = {
+				id = HF.25823 # Notify everyone that the crusade has flopped
+				days = 7
+			}
 		}
 	}
 

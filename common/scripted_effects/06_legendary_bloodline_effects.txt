@@ -225,11 +225,11 @@ evaluate_legendary_progress_effect = {
 }
 
 send_legendary_tombola_effect = {
-	#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-		#id = HF.12003 # Tombola...
-		#days = 10
-		#random = 15
-	#}
+	character_event = {
+		id = HF.12003 # Tombola...
+		days = 10
+		random = 15
+	}
 }
 
 save_fellow_member_effect = {
@@ -291,10 +291,10 @@ warrior_lodge_legendary_duel_someone_effect = {
 died_before_achieveing_greatness_effect = {
 	# Send news of death to other heroes/society members
 	current_heir = {
-		#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.12103 # Send event of what happened...
-			#days = 1
-		#}
+		character_event = {
+			id = HF.12103 # Send event of what happened...
+			days = 1
+		}
 	}
 
 	society = {
@@ -306,10 +306,10 @@ died_before_achieveing_greatness_effect = {
 				}
 			}
 
-			#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.12103 # Our fellow adventurer died (and achieved nothing)...
-				#days = 1
-			#}
+			character_event = {
+				id = HF.12103 # Our fellow adventurer died (and achieved nothing)...
+				days = 1
+			}
 		}
 	}
 }
@@ -340,10 +340,10 @@ died_founding_a_bloodline_effect = { # For the main heir
 	current_heir = {
 	#	save_event_target_as = new_story_owner
 
-		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.12301 # Send event of what happened...
-			#days = 1
-		#}
+		narrative_event = {
+			id = HF.12301 # Send event of what happened...
+			days = 1
+		}
 	}
 
 	society = {
@@ -355,10 +355,10 @@ died_founding_a_bloodline_effect = { # For the main heir
 				}
 			}
 
-			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.12302 # News event to fellow society members...
-				#days = 3
-			#}
+			narrative_event = {
+				id = HF.12302 # News event to fellow society members...
+				days = 3
+			}
 		}
 	}
 }
@@ -918,11 +918,11 @@ send_new_eagle_event_effect = {
 			}
 		}
 
-		#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.12400 # Get a new bird!
-			#days = 65
-			#random = 55
-		#}
+		character_event = {
+			id = HF.12400 # Get a new bird!
+			days = 65
+			random = 55
+		}
 	}
 }
 
@@ -935,11 +935,11 @@ send_new_dog_event_effect = {
 			}
 		}
 
-		#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.12401 # Get a new dog!
-			#days = 65
-			#random = 55
-		#}
+		character_event = {
+			id = HF.12401 # Get a new dog!
+			days = 65
+			random = 55
+		}
 	}
 }
 

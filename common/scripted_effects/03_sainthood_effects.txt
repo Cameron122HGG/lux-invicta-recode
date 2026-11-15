@@ -1399,10 +1399,10 @@ check_if_ancestor_worship_worthy_effect = {
 		set_character_flag = blessed_ancestor_prestige
 
 		rightful_religious_head_scope = {
-			#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.40101 # Religious Head is notified about potential Ancestor material
-				#days = 3
-			#}
+			character_event = {
+				id = HF.40101 # Religious Head is notified about potential Ancestor material
+				days = 3
+			}
 		}
 	}
 }

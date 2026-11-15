@@ -250,10 +250,10 @@ job_marshal = {
 			opinion = { who = FROM name = opinion_fired_from_council }
 			opinion = { who = FROM name = opinion_recently_fired }
 
-			#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HFP.20806 # Good Byzantine Marshal was discharged
-				#days = 1
-			#}
+			character_event = {
+				id = HFP.20806 # Good Byzantine Marshal was discharged
+				days = 1
+			}
 		}
 
 		if = {

@@ -1695,10 +1695,10 @@ reconquista_win_effect = {
 						add_law = centralization_3
 					}
 
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.41090
-						#days = 1
-					#}
+					character_event = {
+						id = HFP.41090
+						days = 1
+					}
 				}
 			}
 		# }
@@ -1896,10 +1896,10 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.25819 # Notify everyone that the crusade has flopped
-				#days = 30
-			#}
+			narrative_event = {
+				id = HF.25819 # Notify everyone that the crusade has flopped
+				days = 30
+			}
 		}
 
 		activate_title = {
@@ -1970,17 +1970,17 @@ move_childrens_crusade_region_effect = {
 				religion_group = christian
 			}
 
-			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.25815 # Notify everyone that the crusade has reached Genoa and the sea did not part before them
-				#days = 30
-			#}
+			narrative_event = {
+				id = HF.25815 # Notify everyone that the crusade has reached Genoa and the sea did not part before them
+				days = 30
+			}
 		}
 
-		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.25808 # Ping back to main event to check travel progress
-			#days = 50
-			#random = 100
-		#}
+		narrative_event = {
+			id = HF.25808 # Ping back to main event to check travel progress
+			days = 50
+			random = 100
+		}
 	}
 	else_if = { # Then shipwreck to Achaia
 		limit = { has_character_flag = flag_children_at_genoa }
@@ -2003,10 +2003,10 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.25816 # Notify everyone that the crusade has shipwrecked into Achaia
-				#days = 30
-			#}
+			narrative_event = {
+				id = HF.25816 # Notify everyone that the crusade has shipwrecked into Achaia
+				days = 30
+			}
 		}
 
 		if = {
@@ -2024,11 +2024,11 @@ move_childrens_crusade_region_effect = {
 			}
 		}
 
-		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.25808 # Ping back to main event to check travel progress
-			#days = 50
-			#random = 100
-		#}
+		narrative_event = {
+			id = HF.25808 # Ping back to main event to check travel progress
+			days = 50
+			random = 100
+		}
 	}
 	else_if = { # Then crawl to Nikaea
 		limit = { has_character_flag = flag_children_at_achaia }
@@ -2052,17 +2052,17 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.25817 # Notify everyone that the crusade has crawled its way to Nikaea
-				#days = 30
-			#}
+			narrative_event = {
+				id = HF.25817 # Notify everyone that the crusade has crawled its way to Nikaea
+				days = 30
+			}
 		}
 
-		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.25808 # Ping back to main event to check travel progress
-			#days = 50
-			#random = 100
-		#}
+		narrative_event = {
+			id = HF.25808 # Ping back to main event to check travel progress
+			days = 50
+			random = 100
+		}
 	}
 	else_if = { # We actually got there. Start the war
 		limit = { has_character_flag = flag_children_at_nikaea }
@@ -2074,10 +2074,10 @@ move_childrens_crusade_region_effect = {
 		clr_character_flag = flag_children_at_nikaea
 		set_character_flag = flag_children_at_antioch
 
-		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.25820 # START THE CRUSADE
-			#days = 25
-		#}
+		narrative_event = {
+			id = HF.25820 # START THE CRUSADE
+			days = 25
+		}
 
 		any_player = {
 			limit = {
@@ -2085,10 +2085,10 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.25818 # Notify everyone that the crusade has actually reached Antioch and is ready to engage
-				#days = 30
-			#}
+			narrative_event = {
+				id = HF.25818 # Notify everyone that the crusade has actually reached Antioch and is ready to engage
+				days = 30
+			}
 		}
 	}
 	else = { # Move directly to Antioch in case something went wrong
@@ -2121,10 +2121,10 @@ move_childrens_crusade_region_effect = {
 			}
 		}
 
-		#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.25820 # START THE CRUSADE
-			#days = 25
-		#}
+		narrative_event = {
+			id = HF.25820 # START THE CRUSADE
+			days = 25
+		}
 
 		any_player = {
 			limit = {
@@ -2132,10 +2132,10 @@ move_childrens_crusade_region_effect = {
 				NOT = { character = ROOT }
 			}
 
-			#narrative_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.25818 # Notify everyone that the crusade has actually reached Antioch and is ready to engage
-				#days = 30
-			#}
+			narrative_event = {
+				id = HF.25818 # Notify everyone that the crusade has actually reached Antioch and is ready to engage
+				days = 30
+			}
 		}
 	}
 }

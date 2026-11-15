@@ -1048,10 +1048,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 			character_event = { id = HFP.10101 } # Double death event (attacker)
 
 			event_target:combatant_2 = {
-				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-					#id = HFP.10102 # Double death event (defender)
-					#days = 1
-				#}
+				character_event = {
+					id = HFP.10102 # Double death event (defender)
+					days = 1
+				}
 			}
 		}
 
@@ -1136,10 +1136,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				event_target:combatant_2 = {
 					set_character_flag = someone_died
 
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.10103 # "I decapitated someone!" event sent to winner...
-						#days = 1
-					#}
+					character_event = {
+						id = HFP.10103 # "I decapitated someone!" event sent to winner...
+						days = 1
+					}
 				}
 			}
 		}
@@ -1363,10 +1363,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				}
 
 				event_target:hero_instigating_duel = {
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.501 # Send a notification event to the Hero who instigated the fight, if there was one
-						#days = 7
-					#}
+					character_event = {
+						id = HFP.501 # Send a notification event to the Hero who instigated the fight, if there was one
+						days = 7
+					}
 				}
 			}
 
@@ -1506,10 +1506,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				}
 
 				event_target:hero_instigating_duel = {
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.502 # Send a notification event to the Hero that instigated the fight, if there was one
-						#days = 7
-					#}
+					character_event = {
+						id = HFP.502 # Send a notification event to the Hero that instigated the fight, if there was one
+						days = 7
+					}
 				}
 			}
 
@@ -1571,10 +1571,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				}
 
 				event_target:hero_instigating_duel = {
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.503 # Send a notification event to the Hero that instigated the fight, if there was one
-						#days = 7
-					#}
+					character_event = {
+						id = HFP.503 # Send a notification event to the Hero that instigated the fight, if there was one
+						days = 7
+					}
 				}
 			}
 
@@ -1584,13 +1584,13 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 					has_character_flag = is_legendary_duel # (special edition events)
 				}
 
-				#character_event = { id = HF.12202 } # "They ran away - I won!" event (special edition) # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = HF.12202 } # "They ran away - I won!" event (special edition)
 
 				event_target:combatant_2 = {
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HF.12203 # "I ran away and - I lost" event (special edition)
-						#days = 1
-					#}
+					character_event = {
+						id = HF.12203 # "I ran away and - I lost" event (special edition)
+						days = 1
+					}
 				}
 			}
 			else = {
@@ -1602,10 +1602,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				character_event = { id = HFP.10107 } #"They ran away - I won!" event
 
 				event_target:combatant_2 = {
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.10108 # "I ran away and - I lost" event
-						#days = 1
-					#}
+					character_event = {
+						id = HFP.10108 # "I ran away and - I lost" event
+						days = 1
+					}
 				}
 			}
 		}
@@ -1656,10 +1656,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				}
 
 				event_target:hero_instigating_duel = {
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.504 # Send a notification event to the Hero that instigated the fight, if there was one
-						#days = 7
-					#}
+					character_event = {
+						id = HFP.504 # Send a notification event to the Hero that instigated the fight, if there was one
+						days = 7
+					}
 				}
 			}
 
@@ -1674,10 +1674,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 					set_character_flag = use_tribal_victory_pic
 				}
 
-				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-					#id = HFP.10107 # "They ran away - I won" event
-					#days = 1
-				#}
+				character_event = {
+					id = HFP.10107 # "They ran away - I won" event
+					days = 1
+				}
 			}
 
 			character_event = { id = HFP.10108 } #"I ran away - I lost!" event
@@ -1813,10 +1813,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				}
 
 				event_target:hero_instigating_duel = {
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.505 # Send a notification event to the Hero that instigated the fight, if there was one
-						#days = 7
-					#}
+					character_event = {
+						id = HFP.505 # Send a notification event to the Hero that instigated the fight, if there was one
+						days = 7
+					}
 				}
 			}
 
@@ -1924,18 +1924,18 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				}
 
 				event_target:hero_instigating_duel = {
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.506 # Send a notification event to the Hero that instigated the fight, if there was one
-						#days = 7
-					#}
+					character_event = {
+						id = HFP.506 # Send a notification event to the Hero that instigated the fight, if there was one
+						days = 7
+					}
 				}
 			}
 
 			event_target:combatant_2 = {
-				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-					#id = HFP.10109 # "Both wounded - I won!" event
-					#days = 1
-				#}
+				character_event = {
+					id = HFP.10109 # "Both wounded - I won!" event
+					days = 1
+				}
 			}
 		}
 
@@ -2086,10 +2086,10 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				event_target:combatant_2 = {
 					set_character_flag = someone_died
 
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HF.12200 # "I killed the enemy!" event sent to winner...
-						#days = 1
-					#}
+					character_event = {
+						id = HF.12200 # "I killed the enemy!" event sent to winner...
+						days = 1
+					}
 				}
 			}
 		}
@@ -2188,7 +2188,7 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 
 			else = { # Most cases: the target definitely still lives...
 				set_character_flag = someone_died
-				#character_event = { id = HF.12200 } # "I killed the enemy!" event sent to winner... # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = HF.12200 } # "I killed the enemy!" event sent to winner...
 			}
 		}
 
@@ -2262,13 +2262,13 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				set_character_flag = injury_kills
 			}
 
-			#character_event = { id = HF.12204 } # Double death event (attacker) # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			character_event = { id = HF.12204 } # Double death event (attacker)
 
 			event_target:combatant_2 = {
-				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-					#id = HF.12205 # Double death event (defender)
-					#days = 1
-				#}
+				character_event = {
+					id = HF.12205 # Double death event (defender)
+					days = 1
+				}
 			}
 		}
 
@@ -3029,10 +3029,10 @@ handle_warrior_lodge_induction_effect = { # Will only affect those trying to joi
 				set_character_flag = duel_fled
 			}
 
-			#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HF.10011 # Delayed gating event for final outcome...
-				#days = 10
-			#}
+			character_event = {
+				id = HF.10011 # Delayed gating event for final outcome...
+				days = 10
+			}
 		}
 	}
 }
@@ -3222,7 +3222,7 @@ clean_up_after_duel_effect = {
 				set_character_flag = call_it_a_day
 			}
 
-			#character_event = { id = HF.12003 } # Send tombola instantly, in case of death... # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			character_event = { id = HF.12003 } # Send tombola instantly, in case of death...
 		}
 
 		else = { # You are still standing...!
@@ -3376,7 +3376,7 @@ rank_up_to_hero_level_effect = {
 
 				event_target:combatant_2 = {
 					set_character_flag = may_join_society
-					#character_event = { id = HF.10061 } # Send outcome ping to the duel target... # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					character_event = { id = HF.10061 } # Send outcome ping to the duel target...
 				}
 			}
 			else = {
@@ -3391,7 +3391,7 @@ rank_up_to_hero_level_effect = {
 
 						save_event_target_as = hero_character
 						set_character_flag = may_join_society
-						#character_event = { id = HF.10061 } # Send outcome... # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+						character_event = { id = HF.10061 } # Send outcome...
 					}
 				}
 			}
@@ -3401,7 +3401,7 @@ rank_up_to_hero_level_effect = {
 				limit = { event_target:combatant_2 = { is_alive = yes } }
 
 				event_target:combatant_2 = {
-					#character_event = { id = HF.10061 } # Send outcome ping to the duel target... # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					character_event = { id = HF.10061 } # Send outcome ping to the duel target...
 				}
 			}
 			else = {
@@ -3415,7 +3415,7 @@ rank_up_to_hero_level_effect = {
 						}
 
 						save_event_target_as = hero_character
-						#character_event = { id = HF.10061 } # Send outcome... # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+						character_event = { id = HF.10061 } # Send outcome...
 					}
 				}
 			}
@@ -3637,11 +3637,11 @@ spread_cowardice_trait_effect = {
 
 		set_character_flag = reacting_to_craven_duelist
 
-		#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-			#id = HF.16000 # Become Craven, like your liege!
-			#days = 10
-			#random = 5
-		#}
+		character_event = {
+			id = HF.16000 # Become Craven, like your liege!
+			days = 10
+			random = 5
+		}
 	}
 }
 
@@ -3972,10 +3972,10 @@ increase_duel_exp_modifier_effect = {
 			random = {
 				chance = 5
 
-				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-					#id = HFP.400 # Chance for Duelist
-					#days = 14
-				#}
+				character_event = {
+					id = HFP.400 # Chance for Duelist
+					days = 14
+				}
 			}
 		}
 
@@ -4017,10 +4017,10 @@ increase_duel_exp_modifier_effect = {
 
 				set_character_flag = got_duelist_bloodline
 
-				#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-					#id = HFP.402 # Duelist Bloodline Earned
-					#days = 14
-				#}
+				character_event = {
+					id = HFP.402 # Duelist Bloodline Earned
+					days = 14
+				}
 			}
 		}
 	}
@@ -4143,10 +4143,10 @@ increase_battle_experience_effect = { # This effect is called from Duel Experien
 				random = {
 					chance = 5
 
-					#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-						#id = HFP.401 # Chance for Strategist
-						#days = 14
-					#}
+					character_event = {
+						id = HFP.401 # Chance for Strategist
+						days = 14
+					}
 				}
 			}
 		}
@@ -4441,11 +4441,11 @@ add_battle_PTSD_effect = {
 		hidden_effect = {
 			set_character_flag = has_PTSD
 
-			#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-				#id = HFP.11019 # PTSD follow up (normal version)
-				#years = 1
-				#random = 50
-			#}
+			character_event = {
+				id = HFP.11019 # PTSD follow up (normal version)
+				years = 1
+				random = 50
+			}
 		}
 	}
 }
@@ -4622,10 +4622,10 @@ apply_opinion_reward_effect = {
 		}
 	}
 
-	#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-		#id = HFP.11044 # Clean-up reward-flags (mostly for MP safety)
-		#days = 20
-	#}
+	character_event = {
+		id = HFP.11044 # Clean-up reward-flags (mostly for MP safety)
+		days = 20
+	}
 }
 
 # For logging purposes...

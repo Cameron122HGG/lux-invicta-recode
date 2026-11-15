@@ -331,10 +331,10 @@ kingdom_adventure = {
 								add_law = succ_primogeniture
 							}
 	
-							#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-								#id = HF.303 # Child of Destiny can choose to adopt culture/religion of newly conquered land.
-								#days = 3
-							#}
+							character_event = {
+								id = HF.303 # Child of Destiny can choose to adopt culture/religion of newly conquered land.
+								days = 3
+							}
 	
 							if = { # Give bloodline to Child of Destiny
 								limit = {
@@ -348,10 +348,10 @@ kingdom_adventure = {
 									}
 								}
 	
-								#character_event = { # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
-									#id = HF.304 # Bloodline event
-									#days = 14
-								#}
+								character_event = {
+									id = HF.304 # Bloodline event
+									days = 14
+								}
 							}
 						}
 	
