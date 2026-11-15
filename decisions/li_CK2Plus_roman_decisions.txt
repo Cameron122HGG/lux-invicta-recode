@@ -82,6 +82,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -137,6 +142,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -191,6 +201,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -268,6 +283,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -339,6 +359,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -416,6 +441,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -513,6 +543,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -592,6 +627,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -691,6 +731,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -792,6 +837,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -871,6 +921,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -972,6 +1027,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1051,6 +1111,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1154,6 +1219,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1235,6 +1305,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1312,6 +1387,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1391,6 +1471,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1474,6 +1559,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1549,6 +1639,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1624,6 +1719,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1711,6 +1811,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}
@@ -1786,6 +1891,11 @@ decisions = {
 					OR = {
 						has_title_flag = eastern_roman_successor
 						has_title_flag = western_roman_successor
+						# LI: the two Romes of 1066 count even before LIprov.1 has flagged them
+						AND = {
+							OR = { title = e_byzantium title = e_roman }
+							holder_scope = { government = roman_imperial_government }
+						}
 					}
 				}
 			}

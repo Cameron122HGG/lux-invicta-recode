@@ -7,7 +7,7 @@ narrative_event = {
 	id = Plus.566
 	title = EVTNAME_Plus_566
 	desc = EVTDESC_Plus_566
-	picture = GFX_evt_coronation_byzantine
+	picture = GFX_evt_victory_arch_byzantine # LI: AIO's GFX_evt_coronation_byzantine does not exist
 
 	is_triggered_only = yes
 	major = yes

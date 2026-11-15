@@ -46,15 +46,25 @@ def duchy_capital(d):
 out = {}
 SUCC = ('OR = {\n\t\t\t\thas_landed_title = e_roman_empire\n\n\t\t\t\tprimary_title = {\n\t\t\t\t\tOR = {\n'
         '\t\t\t\t\t\thas_title_flag = eastern_roman_successor\n\t\t\t\t\t\thas_title_flag = western_roman_successor\n'
+        '\t\t\t\t\t\t# LI: the two Romes of 1066 count even before LIprov.1 has flagged them\n'
+        '\t\t\t\t\t\tAND = {\n\t\t\t\t\t\t\tOR = { title = e_byzantium title = e_roman }\n'
+        '\t\t\t\t\t\t\tholder_scope = { government = roman_imperial_government }\n\t\t\t\t\t\t}\n'
         '\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}')
+# title scope: inside primary_title = { OR = { ... } } of the provincia titles' allow and gain_effect
+START_TITLE = 'AND = { OR = { title = e_byzantium title = e_roman } holder_scope = { government = roman_imperial_government } } # LI: the two Romes of 1066'
 HEAD = '# LI: CK2Plus AIO Roman provincia restoration on LI\'s map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json\n\n'
 # ---- titles
 tk = rd(os.path.join(AIO, 'common/landed_titles/02_CK2Plus_titular_kingdoms.txt'))
 titles = []
 for p in P:
     b = block(tk, 'k_provincia_' + p)
-    b = re.sub(r'capital = \d+[^\n]*', f'capital = {duchy_capital(CAPITAL_DUCHY[p])} # LI: capital of {CAPITAL_DUCHY[p]}', b, count=1)
-    b = re.sub(r'(?m)^\t(christian|roman_pagan|hellenic_pagan|promethean_pagan) = \d+[^\n]*\n', '', b)
+    b, n = re.subn(r'capital\s*=\s*\d+[^\n]*', f'capital = {duchy_capital(CAPITAL_DUCHY[p])} # LI: capital of {CAPITAL_DUCHY[p]}', b, count=1)
+    assert n == 1, p + ': capital not replaced'
+    # AIO's crusade weights name vanilla faiths; LI's two weights are added below
+    b = re.sub(r'(?m)^\t\w+ = \d+[ \t]*#[^\n]*[Cc]rusade[^\n]*\n', '', b)
+    # the successors at game start count without their flag too (in case LIprov.1 has not run, e.g. an older save)
+    b, n = re.subn(r'(?m)^([ \t]*)title = e_roman_empire\n', lambda m: m.group(0) + m.group(1) + START_TITLE + '\n', b)
+    assert n >= 2, p + ': successor checks not found'
     b = b.replace('\tdynasty_title_names = no\n', '\tdynasty_title_names = no\n\n\tchristian = 1000 # Crusade target weight\n\tgraecoroman_group = 1000 # LI: was roman/hellenic/promethean pagans\n', 1)
     # the title's own region (AIO used vanilla world regions for Hibernia and Pannonia-Dacia, which LI lacks)
     b = re.sub(r'region = (?:custom_roman|world)_\w+', 'region = ' + REGION[p], b)
@@ -152,6 +162,7 @@ for eid in ('Plus.566', 'Plus.568', 'Plus.569', 'Plus.570', 'Plus.571'):
         assert e.count(bug) == 1, 'Plus.571 typo not found'
         e = e.replace(bug, '\t\t\t\tprimary_title = { has_title_flag = western_roman_successor }\n'
                            '\t\t\t\tNOT = { has_global_flag = west_rome_lives } # LI: AIO checked east_rome_lives here')
+    e = e.replace('picture = GFX_evt_coronation_byzantine', 'picture = GFX_evt_victory_arch_byzantine # LI: AIO\'s GFX_evt_coronation_byzantine does not exist')
     evs.append(e)
 evs.append('''# LI: at game start both Romes exist in 1066 - the Eastern (e_byzantium) and Western (e_roman, S.P.Q.R.) successors
 character_event = {

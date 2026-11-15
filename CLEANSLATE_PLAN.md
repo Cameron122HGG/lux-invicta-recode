@@ -298,6 +298,12 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      Plus.566/568/569/570/571 (571's west-uses-east typo fixed), LIprov.1 (start: e_byzantium = Eastern, e_roman = Western
      successor; makes LoR.21's successor option reachable), LIprov.2 (restored notification; AIO's LoR.6 always says Italia),
      `custom_roman_*` regions, 118 AIO text keys, 20 flags.
+     First run (logs `LI_CS_prov_r_logs_2026-11-15`): no decisions showed. Fixed: the successor check now also accepts a
+     Roman imperial holder of `e_byzantium`/`e_roman` (decisions and the titles' allow/gain_effect), so nothing depends on
+     LIprov.1 having run (e.g. an older save); AIO's `capital<tab>=` lines had kept vanilla province IDs (now LI duchy
+     capitals); all AIO crusade weights (vanilla faiths) dropped; Plus.566's missing picture replaced. Note: `setup.log` lists
+     every duchy-based region with "0 province assigned" (LI's own too) - not an error. By CK2Plus design the provincia holding
+     the emperor's capital is hidden (Italia for S.P.Q.R., Thracia for Byzantium).
      Left: 199 need AIO content, 361 hand port.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
