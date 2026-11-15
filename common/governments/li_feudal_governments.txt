@@ -3,6 +3,7 @@
 
 feudal_governments = {
 	oriental_monarchy_government = {
+		frame_suffix = "_oriental_monarchy" # LI RE: own portrait frame, gfx/interface/charframe_*_oriental_monarchy.dds (2026-11-15)
 		preferred_holdings = { CASTLE CITY }
 		allowed_holdings = { 
 			CITY
@@ -75,6 +76,7 @@ feudal_governments = {
 		court_size_modifier = 10
 	}
 	classical_government = {
+		frame_suffix = "_classical" # LI RE: own portrait frame, gfx/interface/charframe_*_classical.dds (2026-11-15)
 		preferred_holdings = { CASTLE CITY }
 		allowed_holdings = { 
 			CITY
@@ -141,6 +143,7 @@ feudal_governments = {
 		court_size_modifier = 10
 	}
 	anarchist_government = {
+		frame_suffix = "_anarchist" # LI RE: own portrait frame, gfx/interface/charframe_*_anarchist.dds (2026-11-15)
 		preferred_holdings = { CASTLE }
 		allowed_holdings = {
 			FORT
@@ -205,6 +208,7 @@ feudal_governments = {
 		court_size_modifier = 10
 	}
 	demagogic_government = {
+		frame_suffix = "_demagogic" # LI RE: own portrait frame, gfx/interface/charframe_*_demagogic.dds (2026-11-15)
 		preferred_holdings = { CASTLE }
 		allowed_holdings = {
 			FORT
@@ -274,6 +278,7 @@ feudal_governments = {
 		court_size_modifier = 10
 	}
 	mystic_government = {
+		frame_suffix = "_mystic" # LI RE: own portrait frame, gfx/interface/charframe_*_mystic.dds (2026-11-15)
 		preferred_holdings = { CASTLE }
 		allowed_holdings = {
 			FORT
@@ -339,6 +344,7 @@ feudal_governments = {
 		court_size_modifier = 10
 	}
 	absolutist_government = {
+		frame_suffix = "_absolutist" # LI RE: own portrait frame, gfx/interface/charframe_*_absolutist.dds (2026-11-15)
 		preferred_holdings = { CASTLE }
 		allowed_holdings = { 
 			CASTLE
@@ -408,6 +414,7 @@ feudal_governments = {
 		court_size_modifier = 10
 	}
 	hegemonic_government = {
+		frame_suffix = "_hegemonic" # LI RE: own portrait frame, gfx/interface/charframe_*_hegemonic.dds (2026-11-15)
 		preferred_holdings = { CASTLE }
 		allowed_holdings = {
 			FORT
@@ -481,6 +488,7 @@ feudal_governments = {
 		court_size_modifier = 10
 	}
 	messianic_government = {
+		frame_suffix = "_messianic" # LI RE: own portrait frame, gfx/interface/charframe_*_messianic.dds (2026-11-15)
 		preferred_holdings = { CASTLE }
 		allowed_holdings = {
 			FORT

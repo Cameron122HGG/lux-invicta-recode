@@ -1454,4 +1454,248 @@ spriteTypes = {
 		noOfFrames = 6
 		alwaysTransparent = yes
 	}
+
+	# LI RE: classical government frame (frame_suffix = "_classical"); textures start as copies of the plain frame (2026-11-15)
+	spriteType = {
+		name = "GFX_charframe_150_classical"
+		textureFile = "gfx\\interface\\charframe_150_classical.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_100_classical"
+		textureFile = "gfx\\interface\\charframe_100_classical.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_75_classical"
+		textureFile = "gfx\\interface\\charframe_75_classical.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_50_classical"
+		textureFile = "gfx\\interface\\charframe_50_classical.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_34_classical"
+		textureFile = "gfx\\interface\\charframe_34_classical.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+
+	# LI RE: frames for LI's other governments (oriental monarchy, the 6 radical governments); textures start as copies of the plain frame (2026-11-15)
+	spriteType = {
+		name = "GFX_charframe_150_oriental_monarchy"
+		textureFile = "gfx\\interface\\charframe_150_oriental_monarchy.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_100_oriental_monarchy"
+		textureFile = "gfx\\interface\\charframe_100_oriental_monarchy.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_75_oriental_monarchy"
+		textureFile = "gfx\\interface\\charframe_75_oriental_monarchy.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_50_oriental_monarchy"
+		textureFile = "gfx\\interface\\charframe_50_oriental_monarchy.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_34_oriental_monarchy"
+		textureFile = "gfx\\interface\\charframe_34_oriental_monarchy.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_150_absolutist"
+		textureFile = "gfx\\interface\\charframe_150_absolutist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_100_absolutist"
+		textureFile = "gfx\\interface\\charframe_100_absolutist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_75_absolutist"
+		textureFile = "gfx\\interface\\charframe_75_absolutist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_50_absolutist"
+		textureFile = "gfx\\interface\\charframe_50_absolutist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_34_absolutist"
+		textureFile = "gfx\\interface\\charframe_34_absolutist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_150_anarchist"
+		textureFile = "gfx\\interface\\charframe_150_anarchist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_100_anarchist"
+		textureFile = "gfx\\interface\\charframe_100_anarchist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_75_anarchist"
+		textureFile = "gfx\\interface\\charframe_75_anarchist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_50_anarchist"
+		textureFile = "gfx\\interface\\charframe_50_anarchist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_34_anarchist"
+		textureFile = "gfx\\interface\\charframe_34_anarchist.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_150_demagogic"
+		textureFile = "gfx\\interface\\charframe_150_demagogic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_100_demagogic"
+		textureFile = "gfx\\interface\\charframe_100_demagogic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_75_demagogic"
+		textureFile = "gfx\\interface\\charframe_75_demagogic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_50_demagogic"
+		textureFile = "gfx\\interface\\charframe_50_demagogic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_34_demagogic"
+		textureFile = "gfx\\interface\\charframe_34_demagogic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_150_hegemonic"
+		textureFile = "gfx\\interface\\charframe_150_hegemonic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_100_hegemonic"
+		textureFile = "gfx\\interface\\charframe_100_hegemonic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_75_hegemonic"
+		textureFile = "gfx\\interface\\charframe_75_hegemonic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_50_hegemonic"
+		textureFile = "gfx\\interface\\charframe_50_hegemonic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_34_hegemonic"
+		textureFile = "gfx\\interface\\charframe_34_hegemonic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_150_messianic"
+		textureFile = "gfx\\interface\\charframe_150_messianic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_100_messianic"
+		textureFile = "gfx\\interface\\charframe_100_messianic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_75_messianic"
+		textureFile = "gfx\\interface\\charframe_75_messianic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_50_messianic"
+		textureFile = "gfx\\interface\\charframe_50_messianic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_34_messianic"
+		textureFile = "gfx\\interface\\charframe_34_messianic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_150_mystic"
+		textureFile = "gfx\\interface\\charframe_150_mystic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_100_mystic"
+		textureFile = "gfx\\interface\\charframe_100_mystic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_75_mystic"
+		textureFile = "gfx\\interface\\charframe_75_mystic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_50_mystic"
+		textureFile = "gfx\\interface\\charframe_50_mystic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
+	spriteType = {
+		name = "GFX_charframe_34_mystic"
+		textureFile = "gfx\\interface\\charframe_34_mystic.dds"
+		noOfFrames = 6
+		alwaysTransparent = yes
+	}
 }
