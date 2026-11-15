@@ -3746,6 +3746,7 @@ chinese_grace_offer_artifact = {
 		}
 	}
 
+	# LI: CK2Plus AIO version (step B, decision 5)
 	chinese_kow_tow_pilgrimage = {
 		button_name = offmap_gifts
 
@@ -3828,7 +3829,7 @@ chinese_grace_offer_artifact = {
 		}
 
 		ai_will_do = {
-			factor = 0.1
+			factor = 0.01
 		}
 	}
 }

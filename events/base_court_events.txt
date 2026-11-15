@@ -818,10 +818,11 @@ character_event = {
 }
 
 ### Bored wife: Your wife wants latest fashion fad.... ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 73007
 	desc = EVTDESC73007
-	picture = GFX_evt_daughter_asking_father
+	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes # on_yearly_pulse, random_events
 
@@ -830,13 +831,19 @@ character_event = {
 	is_married = yes
 	min_age = 16
 	prisoner = no
-	in_command = no
 
 	trigger = {
-		NOR = {
-			trait = zealous
-			trait = charitable
+		trigger_if = {
+			limit = { has_character_flag = event_73007 }
+
+			had_character_flag = {
+				flag = event_73007
+				years >= 5
+			}
 		}
+
+		in_command_trigger = no
+		NOT = { trait = zealous }
 
 		spouse = {
 			opinion = {
@@ -846,11 +853,11 @@ character_event = {
 
 			is_abroad = no
 			prisoner = no
+			is_ruler = no
 
 			NOR = {
 				trait = shy
 				trait = zealous
-				trait = uncouth
 			}
 		}
 	}
@@ -879,6 +886,10 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = event_73007
+	}
+
 	option = {
 		name = EVTOPTA73007 # My money is your money, darling
 
@@ -904,13 +915,7 @@ character_event = {
 	option = {
 		name = EVTOPTB73007 # Let's go to the church instead, darling
 
-		trigger = { religion_group = christian }
-
-		if = {
-			limit = { trait = cynical }
-			prestige = -5
-		}
-
+		add_trait_silently_greedy_effect = yes
 		add_trait_fully_silently_zealous_effect = yes
 
 		spouse = {
@@ -923,16 +928,16 @@ character_event = {
 	option = {
 		name = EVTOPTC73007 # Shoo, this is my money you're talking about
 
-		trigger = {
-			NOT = { trait = greedy }
-		}
+		add_trait_silently_greedy_effect = yes
 
-		add_trait = greedy
+		spouse = {
+			show_scope_change = no
 
-		reverse_opinion = {
-			name = not_feeling_apreciated
-			who = spouse
-			years = 2
+			opinion = {
+				name = not_feeling_apreciated
+				who = ROOT
+				years = 10
+			}
 		}
 	}
 }

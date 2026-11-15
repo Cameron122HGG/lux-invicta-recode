@@ -5507,6 +5507,7 @@ character_event = {
 
 ### Poison rival during liege's feast ###
 # CleanSlate: Moved here from base_friends_rivals_events.txt. No longer fires on_yearly_pulse
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100520
 	desc = EVTDESC100520
@@ -5520,9 +5521,10 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
+		in_command_trigger = no
+
 		NOR = {
 			has_character_modifier = master_poisoner
 			has_character_modifier = the_content
@@ -5535,9 +5537,11 @@ character_event = {
 		any_rival = {
 			has_character_flag = guest_feast_started
 			same_liege = ROOT
+			is_adult = yes
+			is_incapable = no
+			prisoner = no
 			war = no
-			in_command = no
-			is_inaccessible_or_incapable_trigger = no
+			in_command_trigger = no
 		}
 	}
 
@@ -5550,9 +5554,11 @@ character_event = {
 			limit = {
 				has_character_flag = guest_feast_started
 				same_liege = ROOT
+				is_adult = yes
+				is_incapable = no
+				prisoner = no
 				war = no
-				in_command = no
-				is_inaccessible_or_incapable_trigger = no
+				in_command_trigger = no
 			}
 
 			random_list = {

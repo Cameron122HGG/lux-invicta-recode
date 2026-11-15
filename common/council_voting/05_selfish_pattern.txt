@@ -100,6 +100,7 @@ selfish_pattern_for = {
 	}
 }
 
+# LI: CK2Plus AIO version (step B, decision 5)
 selfish_pattern_against = {
 	icon = 10
 	pattern_type = against
@@ -182,11 +183,7 @@ selfish_pattern_against = {
 						liege = {
 							OR = {
 								has_law = status_of_women_4
-
-								has_game_rule = {
-									name = gender
-									value = all
-								}
+								has_gender_equal_game_rule_trigger = yes
 							}
 						}
 					}

@@ -1784,6 +1784,7 @@ character_event = {
 
 ### ROOT tries to wound rival during hunt ###
 # CleanSlate: Moved here from base_friends_rivals_events.txt. No longer fires on_yearly_pulse
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100510
 	desc = EVTDESC100510
@@ -1797,10 +1798,10 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		independent = no
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		NOR = {
@@ -1810,7 +1811,8 @@ character_event = {
 
 		liege = {
 			has_character_modifier = holding_grand_hunt
-			in_command = no
+			war = no
+			in_command_trigger = no
 			is_abroad = no
 		}
 
@@ -1818,10 +1820,14 @@ character_event = {
 			same_liege = ROOT
 			independent = no
 			can_be_maimed_trigger = yes
-			block_general_event_trigger = no
 			war = no
-			in_command = no
-			NOT = { trait = wounded }
+			in_command_trigger = no
+			block_general_event_trigger = no
+
+			NOR = {
+				trait = wounded
+				has_character_modifier = holding_grand_hunt
+			}
 		}
 	}
 
@@ -1837,9 +1843,9 @@ character_event = {
 				same_liege = ROOT
 				independent = no
 				can_be_maimed_trigger = yes
-				block_general_event_trigger = no
 				war = no
-				in_command = no
+				in_command_trigger = no
+				block_general_event_trigger = no
 
 				NOR = {
 					trait = wounded
@@ -1900,7 +1906,7 @@ character_event = {
 				martial >= 15
 				is_female = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_abroad = no
 			}
 		}
@@ -1912,7 +1918,7 @@ character_event = {
 				martial >= 15
 				is_female = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_abroad = no
 			}
 
@@ -1952,7 +1958,7 @@ character_event = {
 			chance = 10
 
 			character_event = {
-				id = 36010 # Deer Hunter, The White Hart, base_hunting_events.txt
+				id = 36010 # Deer Hunter, The White Hart, hunting_events.txt
 				days = 2
 				random = 8
 				tooltip = EVTTOOLTIP36010

@@ -855,6 +855,7 @@ character_event = {
 }
 
 # Craven courtier is frightened by ruler
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 65023
 	desc = EVTDESC65023
@@ -865,10 +866,10 @@ character_event = {
 	only_rulers = yes
 	only_capable = yes
 	prisoner = no
-	in_command = no
 
 	trigger = {
 		trait = cruel
+		in_command_trigger = no
 
 		any_courtier = {
 			trait = craven
@@ -2615,6 +2616,7 @@ character_event = {
 }
 
 # Dwarf: Tossing!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 65065
 	desc = EVTDESC65065
@@ -2628,10 +2630,10 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		is_strong_trigger = yes
+		in_command_trigger = no
 
 		NOR = {
 			trait = kind
@@ -2645,7 +2647,7 @@ character_event = {
 			practical_age >= 12
 			practical_age < 60
 			war = no
-			in_command = no
+			in_command_trigger = no
 			prisoner = no
 			NOT = { is_married = ROOT }
 		}
@@ -2669,7 +2671,7 @@ character_event = {
 			limit = {
 				trait = dwarf
 				war = no
-				in_command = no
+				in_command_trigger = no
 				prisoner = no
 				practical_age >= 12
 				practical_age < 60
@@ -3979,6 +3981,7 @@ character_event = {
 }
 
 # Imbecile: Forgot pants
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 65126
 	desc = EVTDESC65126
@@ -3992,10 +3995,10 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = imbecile
+		in_command_trigger = no
 	}
 
 	weight_multiplier = {
@@ -4016,7 +4019,7 @@ character_event = {
 			opinion = {
 				name = opinion_shocked
 				who = ROOT
-				years = 2
+				years = 5
 			}
 		}
 	}

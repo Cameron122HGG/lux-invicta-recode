@@ -668,6 +668,7 @@ character_event = {
 }
 
 # Band O'Brothers
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4010
 	desc = EVTDESC4010
@@ -680,24 +681,29 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		real_tier = COUNT
 		NOT = { has_character_modifier = the_greedy }
+		in_command_trigger = no
 
-		any_voter = {
-			OR = {
-				has_job_title = job_spymaster
-				has_job_title = job_marshal
-			}
-
+		job_marshal = {
 			OR = {
 				learning >= 12
 				martial >= 12
 				intrigue >= 12
 			}
 		}
+
+		trigger_if = {
+			limit = { has_character_flag = event_4010 }
+
+			had_character_flag = {
+				flag = event_4010
+				years >= 5
+			}
+		}
+
 	}
 
 	weight_multiplier = {
@@ -714,8 +720,19 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = event_4010
+	}
+
 	option = {
 		name = EVTOPTA4010 # Ignore
+
+		trigger = {
+			OR = {
+				trait = slothful
+				trait = arbitrary
+			}
+		}
 
 		prestige = -5
 	}
@@ -723,28 +740,18 @@ character_event = {
 	option = {
 		name = EVTOPTB4010
 
-		any_voter = {
-			show_scope_change = no
+		trigger = {
+			NOT = { trait = cruel }
 
-			limit = {
-				OR = {
-					has_job_title = job_spymaster
-					has_job_title = job_marshal
-				}
-
-				OR = {
-					learning >= 12
-					martial >= 12
-					intrigue >= 12
-
-				}
+			job_marshal = {
+				always = yes
 			}
+		}
 
-			opinion = {
-				name = perfect_punishment
-				who = ROOT
-				years = 2
-			}
+		reverse_opinion = {
+			name = perfect_punishment
+			who = job_marshal
+			years = 5
 		}
 	}
 
@@ -753,34 +760,23 @@ character_event = {
 		tooltip_info = arbitrary
 
 		trigger = {
-			trait = arbitrary
-			NOT = { trait = wroth }
+			NOR = {
+				trait = kind
+				trait = charitable
+			}
+
+			job_marshal = {
+				always = yes
+			}
 		}
 
 		pacifists_lose_piety_effect = yes
-		prestige = 15
+		prestige = 10
 
-		any_voter = {
-			show_scope_change = no
-
-			limit = {
-				OR = {
-					has_job_title = job_spymaster
-					has_job_title = job_marshal
-				}
-
-				OR = {
-					learning >= 12
-					martial >= 12
-					intrigue >= 12
-				}
-			}
-
-			opinion = {
-				name = opinion_cruel
-				who = ROOT
-				years = 2
-			}
+		reverse_opinion = {
+			name = opinion_cruel
+			who = job_marshal
+			years = 5
 		}
 	}
 
@@ -794,25 +790,26 @@ character_event = {
 		}
 
 		pacifists_lose_piety_effect = yes
-		add_trait_fully_silently_cruel_effect = yes
+		add_trait = cruel
 	}
 
-	option = {
-		name = EVTOPTE4010
-
-		trigger = {
-			NOR = {
-				trait = arbitrary
-				trait = diligent
-				trait = just
-			}
-		}
-
-		add_trait_fully_silently_diligent_effect = yes
-	}
+	# option = {
+	# 	name = EVTOPTE4010
+	#
+	# 	trigger = {
+	# 		NOR = {
+	# 			trait = arbitrary
+	# 			trait = diligent
+	# 			trait = just
+	# 		}
+	# 	}
+	#
+	# 	add_trait = diligent
+	# }
 }
 
 # Kidnapping : Start
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4045
 	desc = EVTDESC4045
@@ -827,34 +824,43 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		lower_real_tier_than = KING
+		in_command_trigger = no
 
 		OR = {
 			trait = brave
 			trait = wroth
 		}
 
+		trigger_if = {
+			limit = { has_character_flag = event_4045 }
+
+			had_character_flag = {
+				flag = event_4045
+				years >= 5
+			}
+		}
+
 		location = {
 			any_province_lord = {
 				same_realm = ROOT
-				prisoner = no
-				is_incapable = no
 				wealth >= 50
 				prestige >= 50
-
-				NOR = {
-					character = ROOT
-					is_married = ROOT
-				}
+				is_incapable = no
+				prisoner = no
 
 				OR = {
 					trait = trusting
 					is_dumb_trigger = yes
 					NOT = { trait = paranoid }
 					NOT = { trait = deceitful }
+				}
+
+				NOR = {
+					character = ROOT
+					is_married = ROOT
 				}
 			}
 		}
@@ -872,6 +878,10 @@ character_event = {
 			factor = 0.01
 			trait = slothful
 		}
+	}
+
+	immediate = {
+		set_character_flag = event_4045
 	}
 
 	option = {
@@ -906,6 +916,7 @@ character_event = {
 				score_value = {
 					value = 10
 
+					## Below is the relevant portion of interesting_courtier_selection_score
 					# Weak: Traits
 					additive_modifier = {
 						value = 5
@@ -1217,35 +1228,42 @@ character_event = {
 }
 
 # I spy a spy!
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4050
 	desc = EVTDESC4050
 	picture = GFX_evt_shadowy_cabal
 	border = GFX_event_normal_frame_intrigue
 
-	is_triggered_only = yes # on_yearly_pulse, random_events
+	is_triggered_only = yes
 
 	only_playable = yes
 	min_age = 20
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		lower_real_tier_than = KING
-		NOT = { has_character_modifier = the_cruel }
+		personality_traits < 4
+		in_command_trigger = no
+
+		NOR = {
+			trait = cruel
+			trait = wroth
+		}
+
+		trigger_if = {
+			limit = { has_character_flag = event_4050 }
+
+			had_character_flag = {
+				flag = event_4050
+				years >= 5
+			}
+		}
 
 		job_spymaster = {
-			OR = {
-				is_smart_trigger = yes
-				trait = deceitful
-			}
-
-			OR = {
-				diplomacy >= 9
-				intrigue >= 9
-			}
+			intrigue >= 14
 		}
 	}
 
@@ -1253,13 +1271,13 @@ character_event = {
 		factor = 1
 
 		mult_modifier = {
-			factor = 5
+			factor = 2
 			trait = diligent
 		}
 
 		mult_modifier = {
-			factor = 3
-			trait = just
+			factor = 2
+			intrigue >= 10
 		}
 
 		mult_modifier = {
@@ -1273,6 +1291,10 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = event_4050
+	}
+
 	option = { # Ignore
 		name = EVTOPTA4050
 
@@ -1284,25 +1306,17 @@ character_event = {
 
 		pacifists_lose_piety_effect = yes
 
-		add_character_modifier = {
-			name = the_ruthless
-			months = 6
+		if = {
+			limit = { NOT = { trait = wroth } }
+
+			remove_trait_silently_patient_effect = yes
+			add_trait = wroth
 		}
 	}
 
 	option = {
 		name = EVTOPTC4050 # Imprisonment
-		tooltip_info = arbitrary
-
-		trigger = {
-			trait = arbitrary
-			NOT = { trait = wroth }
-		}
-
-		add_character_modifier = {
-			name = spy_imprison
-			months = 6
-		}
+		prestige = 10
 	}
 
 	option = {
@@ -1334,9 +1348,11 @@ character_event = {
 
 		pacifists_lose_piety_effect = yes
 
-		add_character_modifier = {
-			name = the_cruel
-			months = 6
+		if = {
+			limit = { NOT = { trait = cruel } }
+
+			remove_trait_silently_kind_effect = yes
+			add_trait = cruel
 		}
 	}
 }
@@ -1451,6 +1467,7 @@ character_event = {
 ################################################################################
 
 # Poachers! Start
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4020
 	desc = EVTDESC4020
@@ -1458,22 +1475,31 @@ character_event = {
 
 	is_triggered_only = yes # on_yearly_pulse, random_events
 
-	only_playable = yes
+	only_rulers = yes
 	min_age = 20
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		real_tier = COUNT
-		in_seclusion = no
-		NOT = { has_character_modifier = the_merciful }
 
 		OR = {
 			martial < 8
 			learning >= 6
 			trait = charitable
+		}
+
+		in_seclusion = no
+		in_command_trigger = no
+
+		trigger_if = {
+			limit = { has_character_flag = event_4020 }
+
+			had_character_flag = {
+				flag = event_4020
+				years >= 5
+			}
 		}
 
 		job_spymaster = {
@@ -1517,13 +1543,14 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		set_character_flag = event_4020
+	}
+
 	option = {
 		name = EVTOPTA4020 # Ignore it
 
-		add_character_modifier = {
-			name = the_merciful
-			months = 3
-		}
+		piety = 10
 
 		ai_chance = { factor = 20 }
 	}
@@ -1534,7 +1561,7 @@ character_event = {
 		custom_tooltip = {
 			text = EVTTOOLTIP4021
 
-			any_voter = {
+			any_courtier = {
 				limit = {
 					OR = {
 						has_job_title = job_spymaster
@@ -2637,6 +2664,7 @@ character_event = {
 # Satirical Puppet Show ID 4105 - moved to summer_fair_events.txt
 
 # Banquette: Start
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4110
 	desc = EVTDESC4110
@@ -2651,10 +2679,19 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		is_inaccessible_trigger = no
+		in_command_trigger = no
+
+		trigger_if = {
+			limit  = { has_character_flag = event_4110 }
+
+			had_character_flag = {
+				flag = event_4110
+				years >= 5
+			}
+		}
 
 		any_friend = {
 			age >= 20
@@ -2692,15 +2729,19 @@ character_event = {
 	}
 
 	immediate = {
+		set_character_flag = event_4110
+
 		any_friend = {
 			limit = {
 				age >= 20
-				is_inaccessible_or_incapable_trigger = no
 
 				reverse_opinion = {
 					who = ROOT
 					value >= 25
 				}
+
+				prisoner = no
+				is_incapable = no
 			}
 
 			score_value = {
@@ -3109,6 +3150,7 @@ character_event = {
 }
 
 # Jousting
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 4120
 	desc = EVTDESC4120
@@ -3120,28 +3162,32 @@ character_event = {
 	religion_group = christian
 	only_men = yes
 	min_age = 20
-	friends = yes
-	rivals = yes
+	# friends = yes
+	# rivals = yes
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		is_inaccessible_trigger = no
+		in_command_trigger = no
 
-		NOR = {
-			has_character_modifier = the_pompous
-			has_character_modifier = the_cynical
+		trigger_if = {
+			limit = { has_character_flag = event_4120 }
+
+			had_character_flag = {
+				flag = event_4120
+				years >= 5
+			}
 		}
 
 		any_courtier = {
 			martial >= 15
 
-			reverse_opinion = {
-				who = ROOT
-				value >= 25
-			}
+		#	reverse_opinion = {
+		#		who = ROOT
+		#		value >= 25
+		#	}
 		}
 	}
 
@@ -3150,28 +3196,38 @@ character_event = {
 
 		mult_modifier = {
 			factor = 2.5
-			trait = arbitrary
+			trait = craven
 		}
 
 		mult_modifier = {
-			factor = 0.8
-			trait = kind
+			factor = 2.5
+			trait = humble
 		}
+	}
+
+	immediate = {
+		set_character_flag = event_4120
 	}
 
 	option = {
 		name = EVTOPTA4120
+
+		trigger = {
+			NOT = { trait = brave }
+		}
 
 		prestige = 10
 	}
 
 	option = {
 		name = EVTOPTB4120
+		tooltip_info = brave
 
-		add_character_modifier = {
-			name = the_cynical
-			months = 3
+		trigger = {
+			trait = brave
 		}
+
+		prestige = 25
 	}
 
 	option = {
@@ -3186,10 +3242,10 @@ character_event = {
 			limit = {
 				martial >= 15
 
-				reverse_opinion = {
-					who = ROOT
-					value >= 25
-				}
+			#	reverse_opinion = {
+			#		who = ROOT
+			#		value >= 25
+			#	}
 			}
 
 			score_value = {
@@ -3200,37 +3256,37 @@ character_event = {
 			opinion = {
 				name = proud_pos
 				who = ROOT
-				years = 1
+				years = 5
 			}
 		}
 	}
 
-	option = {
-		name = EVTOPTD4120
-		tooltip_info = brave
+	# option = {
+	# 	name = EVTOPTD4120
+	# 	tooltip_info = brave
+	#
+	# 	trigger = {
+	# 		trait = brave
+	# 		NOT = { trait = cynical }
+	# 	}
+	#
+	# 	prestige = 15
+	# }
 
-		trigger = {
-			trait = brave
-			NOT = { trait = cynical }
-		}
-
-		prestige = 15
-	}
-
-	option = {
-		name = EVTOPTE4120
-		tooltip_info = gregarious
-
-		trigger = {
-			trait = gregarious
-			NOT = { trait = brave }
-		}
-
-		add_character_modifier = {
-			name = the_pompous
-			months = 3
-		}
-	}
+	# option = {
+	# 	name = EVTOPTE4120
+	# 	tooltip_info = gregarious
+	#
+	# 	trigger = {
+	# 		trait = gregarious
+	# 		NOT = { trait = brave }
+	# 	}
+	#
+	# 	add_character_modifier = {
+	# 		name = the_pompous
+	# 		months = 3
+	# 	}
+	# }
 
 	option = {
 		name = EVTOPTF4120

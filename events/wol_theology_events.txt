@@ -232,6 +232,7 @@ character_event = {
 }
 
 # Visit holy site and speak with priests there (not Muslims, Christians, Jews or Indians)
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.7020
 	desc = EVTDESC_WoL_7020
@@ -245,11 +246,11 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		has_focus = focus_theology
 		is_inaccessible_trigger = no
+		in_command_trigger = no
 
 		NOR = {
 			religion_group = christian
@@ -284,7 +285,12 @@ character_event = {
 
 		piety = 20
 		scaled_wealth = -0.2
-		set_character_flag = do_not_disturb
+
+		add_character_modifier = {
+			name = do_not_disturb
+			days = 20
+			hidden = yes
+		}
 
 		character_event = {
 			id = WoL.7021

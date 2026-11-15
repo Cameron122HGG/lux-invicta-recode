@@ -928,6 +928,7 @@ character_event = {
 }
 
 ### Chaste negative ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3030
 	desc = EVTDESC3030
@@ -943,12 +944,12 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = chaste
 		can_apply_lame_nickname_trigger = yes
 		prestige < 200
+		in_command_trigger = no
 	}
 
 	weight_multiplier = {
@@ -968,18 +969,37 @@ character_event = {
 	option = {
 		name = EVTOPTA3030
 
-		random_rival = {
-			show_scope_change = no
+		if = {
+			limit = { religion_group = zoroastrian_group }
 
-			prestige = 10
+			random_rival = {
+				show_scope_change = no
+
+				prestige = 10
+			}
+
+			give_nickname = nick_the_effeminate
+			piety = -10
 		}
+		else = {
+			random_rival = {
+				show_scope_change = no
 
-		give_nickname = nick_the_effeminate
-		prestige = -5
+				prestige = 10
+			}
+
+			random = {
+				chance = 25
+
+				give_nickname = nick_the_effeminate
+				prestige = -5
+			}
+		}
 	}
 }
 
 ### Chaste negative ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3035
 	desc = EVTDESC3035
@@ -994,10 +1014,10 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = chaste
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		trigger_if = {
@@ -1037,7 +1057,7 @@ character_event = {
 
 		mult_modifier = {
 			factor = 4.0
-			trait = weak
+			is_weak_trigger = yes
 		}
 
 		mult_modifier = {
@@ -1074,15 +1094,38 @@ character_event = {
 	option = {
 		name = EVTOPTB3035
 
-		trigger = { is_married = no }
+		trigger = {
+			trigger_if = {
+				limit = { is_married = no }
+				religion_group = christian
+			}
+			trigger_else = {
+				religion_group = zoroastrian_group
+			}
+		}
 
 		random = {
 			chance = 25
 			add_trait_fully_lustful_effect = yes
 		}
 
+		if = {
+			limit = { religion_group = christian }
+			piety = -25
+		}
+		else = {
+			piety = 25
+		}
+
 		event_target:scoped_lady = {
 			show_scope_change = no
+
+			hidden_effect = {
+				random = {
+					chance = 20
+					impregnate_cuckoo = ROOT
+				}
+			}
 
 			add_trait_fully_silently_lustful_effect = yes
 
@@ -1098,6 +1141,13 @@ character_event = {
 		name = EVTOPTC3035
 
 		trigger = { is_married = yes }
+
+		if = {
+			limit = { religion_group = zoroastrian_group }
+			piety = 10
+		}
+
+		prestige = -25
 
 		random = {
 			chance = 5
@@ -1117,7 +1167,7 @@ character_event = {
 		prestige = -15
 
 		random = {
-			chance = 25
+			chance = 50
 			remove_trait_chaste_effect = yes
 		}
 	}
@@ -1913,6 +1963,7 @@ character_event = {
 }
 
 ### Greedy negative: Start ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3070
 	desc = EVTDESC3070
@@ -1926,11 +1977,11 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = greedy
 		NOT = { trait = craven }
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_courtier = {
@@ -1978,7 +2029,7 @@ character_event = {
 	immediate = {
 		random_courtier = {
 			limit = {
-				age >= 20
+				practical_age >= 20
 				practical_age < 70
 
 				trigger_if = {
@@ -2047,6 +2098,8 @@ character_event = {
 		else = {
 			prestige = -15
 		}
+
+		ai_chance = { factor = 1 }
 	}
 }
 
@@ -5172,6 +5225,7 @@ character_event = {
 }
 
 ### Wroth negative ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3195
 	desc = EVTDESC3195
@@ -5184,10 +5238,10 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = wroth
+		in_command_trigger = no
 
 		any_courtier = {
 			NOT = { trait = wroth }
@@ -9817,6 +9871,7 @@ character_event = {
 }
 
 ### Arbitrary negative ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3410
 	desc = EVTDESC3410
@@ -9829,10 +9884,10 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = arbitrary
+		in_command_trigger = no
 	}
 
 	weight_multiplier = {
@@ -10694,6 +10749,7 @@ character_event = {
 }
 
 ### Cynical positive ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3445
 	desc = EVTDESC3445
@@ -10705,15 +10761,15 @@ character_event = {
 	min_age = 16
 	only_capable = yes
 	prisoner = no
-	in_command = no
 
 	trigger = {
 		trait = cynical
+		in_command_trigger = no
 
 		any_courtier = {
 			trait = cynical
 			is_adult = yes
-			in_command = no
+			in_command_trigger = no
 		}
 	}
 
@@ -11522,6 +11578,7 @@ character_event = {
 ######################################
 
 ### Imaginary Plot ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3480
 	desc = EVTDESC3480
@@ -11534,10 +11591,10 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = paranoid
+		in_command_trigger = no
 
 		any_courtier = {
 			OR = {
@@ -11759,6 +11816,7 @@ character_event = {
 }
 
 ### Imagine that friend trying to poison? ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3490
 	desc = EVTDESC3490
@@ -11771,10 +11829,10 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = paranoid
+		in_command_trigger = no
 
 		any_courtier = {
 			is_adult = yes
@@ -11895,6 +11953,7 @@ character_event = {
 }
 
 ### Paranoia is dangerous ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3495
 	desc = EVTDESC3495
@@ -11907,11 +11966,11 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = paranoid
 		prestige >= 100
+		in_command_trigger = no
 	}
 
 	weight_multiplier = {
@@ -16451,6 +16510,7 @@ character_event = {
 ### IMPALER ###
 
 ### Impaler: New torture equipment - Start ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3600
 	desc = EVTDESC3600
@@ -16463,7 +16523,6 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = impaler
@@ -16481,13 +16540,17 @@ character_event = {
 				trait = greedy
 				stewardship >= 8
 				is_adult = yes
-				in_command = no
+				in_command_trigger = no
 			}
 		}
 
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
-		NOT = {
+		NOR = {
+			trait = depressed
+			has_character_modifier = brazen_bull
+
 			any_owned_bloodline = {
 				has_bloodline_flag = bloodline_brazen_bull # Handled by special decision
 				bloodline_is_active_for = PREV
@@ -16551,7 +16614,7 @@ character_event = {
 				trait = greedy
 				stewardship >= 8
 				is_adult = yes
-				in_command = no
+				in_command_trigger = no
 			}
 		}
 
@@ -16570,7 +16633,7 @@ character_event = {
 				trait = greedy
 				stewardship >= 8
 				is_adult = yes
-				in_command = no
+				in_command_trigger = no
 			}
 
 			character_event = {
@@ -21079,6 +21142,7 @@ character_event = {
 }
 
 ### Poet: Courtier might claim liege's poem is his/hers! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3680
 	desc = EVTDESC3680
@@ -21091,19 +21155,19 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		has_character_modifier = used_poetry_timer
 		trait = deceitful
 		has_lover = no
+		in_command_trigger = no
 		NOT = { trait = celibate }
 
 		event_target:poem_author = {
 			has_character_modifier = poetry_timer
 			prisoner = no
 			war = no
-			in_command = no
+			in_command_trigger = no
 		}
 
 		any_courtier = {
@@ -21150,6 +21214,19 @@ character_event = {
 			}
 
 			save_event_target_as = sweetheart
+		}
+
+		random_courtier = {
+			limit = {
+				has_character_modifier = poetry_timer
+				is_adult = yes
+				war = no
+				in_command_trigger = no
+				prisoner = no
+				NOT = { character = ROOT }
+			}
+
+			save_event_target_as = poem_author
 		}
 	}
 
@@ -23231,6 +23308,7 @@ character_event = {
 }
 
 ### Gregarious character ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 3725
 	desc = EVTDESC3725
@@ -23242,11 +23320,11 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		trait = gregarious
 		higher_real_tier_than = COUNT
+		in_command_trigger = no
 
 		any_courtier = {
 			is_adult = yes
@@ -23269,7 +23347,7 @@ character_event = {
 
 			limit = {
 				is_adult = yes
-				in_command = no
+				in_command_trigger = no
 				NOT = { trait = gregarious }
 			}
 
@@ -23294,7 +23372,7 @@ character_event = {
 
 			limit = {
 				is_adult = yes
-				in_command = no
+				in_command_trigger = no
 				NOT = { trait = gregarious }
 			}
 

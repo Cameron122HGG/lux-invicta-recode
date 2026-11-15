@@ -1296,6 +1296,7 @@ become_saoshyant = {
 	}
 
 	# Hold Wargames - for nomads
+	# LI: CK2Plus AIO version (step B, decision 5)
 	hold_nomad_wargames = {
 		ai_check_interval = 4
 
@@ -1314,9 +1315,7 @@ become_saoshyant = {
 			wealth >= 20
 			prestige >= 100
 			war = no
-			is_adult = yes
-			prisoner = no
-			is_incapable = no
+			is_not_in_regency_trigger = yes
 			is_inaccessible_trigger = no
 
 			trigger_if = {
@@ -1350,7 +1349,7 @@ become_saoshyant = {
 		}
 
 		ai_will_do = {
-			factor = 0.4
+			factor = 0.1
 
 			trigger = {
 				wealth >= 200
@@ -1370,7 +1369,7 @@ become_saoshyant = {
 
 				current_heir = {
 					dynasty = ROOT
-					combat_rating >= 70
+					combat_rating >= 80
 				}
 			}
 

@@ -15,6 +15,7 @@ namespace = WoL
 ##########################################
 
 # Spouse suspected of affair - Choices
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.1003
 	picture = GFX_evt_quarrel
@@ -29,7 +30,7 @@ character_event = {
 				}
 
 				has_character_flag = tipped_off_about_spouse_affair
-				has_character_flag = spy_spouse_affair
+				# has_character_flag = spy_spouse_affair
 			}
 		}
 	}
@@ -42,7 +43,7 @@ character_event = {
 
 			NOR = {
 				has_character_flag = tipped_off_about_spouse_affair
-				has_character_flag = spy_spouse_affair
+				# has_character_flag = spy_spouse_affair
 			}
 		}
 	}
@@ -50,10 +51,10 @@ character_event = {
 		text = EVTDESC_WOL_1003_TIP
 		trigger = { has_character_flag = tipped_off_about_spouse_affair }
 	}
-	desc = {
-		text = EVTDESC_WOL_1003_SPY_RESULT
-		trigger = { has_character_flag = spy_spouse_affair }
-	}
+	# desc = {
+	# 	text = EVTDESC_WOL_1003_SPY_RESULT
+	# 	trigger = { has_character_flag = spy_spouse_affair }
+	# }
 
 	is_triggered_only = yes # on_yearly_pulse, random_events, wol_lover_events
 
@@ -62,15 +63,15 @@ character_event = {
 	has_dlc = "Way of Life"
 	only_capable = yes
 	prisoner = no
-	in_command = no
 
 	trigger = {
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
-		trigger_if = {
-			limit = { is_female = yes }
-			has_polygamy = no
-		}
+		# trigger_if = {
+		# 	limit = { is_female = yes }
+		# 	has_polygamy = no
+		# }
 
 		NOR = {
 			trait = imbecile
@@ -85,6 +86,7 @@ character_event = {
 				NOR = {
 					character = ROOT
 					is_consort = PREV
+					is_married = PREV
 					has_character_modifier = wol_court_tomcat
 					has_character_modifier = wol_court_vixen
 				}
@@ -168,7 +170,7 @@ character_event = {
 		}
 
 		mult_modifier = {
-			factor = 0.33
+			factor = 1.33
 			trait = content
 		}
 
@@ -243,6 +245,7 @@ character_event = {
 						NOR = {
 							character = ROOT
 							is_consort = PREV
+							is_married = PREV
 							has_character_modifier = wol_court_tomcat
 							has_character_modifier = wol_court_vixen
 						}
@@ -390,7 +393,7 @@ character_event = {
 
 	after = {
 		clr_character_flag = tipped_off_about_spouse_affair
-		clr_character_flag = spy_spouse_affair
+		# clr_character_flag = spy_spouse_affair
 		clear_event_target = event_target_1_insulter
 		clear_event_target = event_target_1
 	}
@@ -4229,6 +4232,7 @@ character_event = {
 ##################################################
 
 # Starts with the lover
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.1160
 	desc = EVTDESC_WOL_1160
@@ -4241,16 +4245,16 @@ character_event = {
 	min_age = 16
 	only_capable = yes
 	prisoner = no
-	in_command = no
 
 	trigger = {
 		is_ill = no
 		has_regent = no
+		in_command_trigger = no
 
 		any_lover = {
 			is_married = yes
 			has_polygamy = no
-			in_command = no
+			in_command_trigger = no
 			has_regent = no
 			is_ill = no
 			prisoner = no
@@ -4324,7 +4328,7 @@ character_event = {
 			limit = {
 				is_married = yes
 				has_polygamy = no
-				in_command = no
+				in_command_trigger = no
 				has_regent = no
 				is_ill = no
 				prisoner = no

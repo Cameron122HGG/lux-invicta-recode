@@ -1051,6 +1051,7 @@ character_event = {
 }
 
 ### Ladies shun me, I need help! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100024
 
@@ -1076,7 +1077,7 @@ character_event = {
 			is_married = no
 			num_of_friends < 5
 			num_of_rivals < 5
-			in_command = no
+			in_command_trigger = no
 			war = no
 			block_general_event_trigger = no
 
@@ -1096,7 +1097,7 @@ character_event = {
 					at_location = PREVPREV
 					num_of_friends < 5
 					num_of_rivals < 5
-					in_command = no
+					in_command_trigger = no
 					war = no
 					block_general_event_trigger = no
 
@@ -1133,7 +1134,7 @@ character_event = {
 				is_married = no
 				num_of_friends < 5
 				num_of_rivals < 5
-				in_command = no
+				in_command_trigger = no
 				war = no
 				block_general_event_trigger = no
 			}
@@ -1162,7 +1163,7 @@ character_event = {
 				is_married = no
 				num_of_friends < 5
 				num_of_rivals < 5
-				in_command = no
+				in_command_trigger = no
 				war = no
 				block_general_event_trigger = no
 
@@ -4151,6 +4152,7 @@ character_event = {
 }
 
 ### Crusaders becomes friends/rivals ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100105
 	desc = EVTDESC100105
@@ -4161,13 +4163,22 @@ character_event = {
 	religion_group = christian
 	only_men = yes
 	war = yes
-	in_command = yes
 	min_age = 16
 	prisoner = no
 	only_capable = yes
 
 	trigger = {
 		trait = crusader
+		in_command_trigger = yes
+
+		any_war = {
+			using_cb = crusade
+		}
+
+		location = {
+			NOT = { religion_group = christian }
+		}
+
 		num_of_friends < 5
 		num_of_rivals < 5
 		is_inaccessible_trigger = no
@@ -4177,7 +4188,7 @@ character_event = {
 			at_location = ROOT
 			trait = crusader
 			war = yes
-			in_command = yes
+			in_command_trigger = yes
 			is_female = no
 			num_of_friends < 5
 			num_of_rivals < 5
@@ -4192,13 +4203,47 @@ character_event = {
 		}
 	}
 
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 0.5
+			trait = deceitful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cynical
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = brave
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = honest
+		}
+	}
+
 	immediate = {
 		any_host_courtier = {
 			limit = {
 				trait = crusader
 				religion_group = christian
 				is_female = no
-				in_command = yes
+				in_command_trigger = yes
 				war = yes
 				at_location = ROOT
 				num_of_friends < 5
@@ -5123,6 +5168,7 @@ character_event = {
 ##################################################
 
 ### Friend at war - send help? ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100150
 	desc = EVTDESC100150
@@ -5136,12 +5182,16 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
-		scaled_wealth = 0.5
+		scaled_wealth = {
+			value = 0.5
+			min = 100
+		}
+
 		NOT = { has_character_modifier = friend_at_war_timer }
 		is_inaccessible_trigger = no
+		in_command_trigger = no
 
 		any_friend = {
 			is_ruler = yes
@@ -5155,6 +5205,20 @@ character_event = {
 			NOT = { is_liege_or_above_of = ROOT }
 			prisoner = no
 			is_inaccessible_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = charitable
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = greedy
 		}
 	}
 
@@ -5243,6 +5307,7 @@ character_event = {
 				transfer_scaled_wealth = {
 					from = ROOT
 					value = 0.25
+					min = 50
 				}
 			}
 
@@ -5763,6 +5828,7 @@ letter_event = {
 }
 
 ### My friend's friend is my friend ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100170
 	desc = EVTDESC100170
@@ -5775,22 +5841,24 @@ character_event = {
 	only_capable = yes
 	war = no
 	friends = yes
-	in_command = no
 
 	trigger = {
 		num_of_friends < 5
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
 			prisoner = no
+			war = no
+			in_command_trigger = no
 			is_inaccessible_trigger = no
 
 			any_friend = {
 				prisoner = no
 				war = no
-				in_command = no
-				num_of_friends < 5
+				in_command_trigger = no
 				is_inaccessible_trigger = no
+				num_of_friends < 5
 
 				NOR = {
 					character = ROOT
@@ -5804,16 +5872,61 @@ character_event = {
 		}
 	}
 
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = honest
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = deceitful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = shy
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cruel
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
+		}
+	}
+
 	immediate = {
 		any_friend = {
 			limit = {
 				prisoner = no
+				war = no
 				is_inaccessible_trigger = no
 
 				any_friend = {
 					prisoner = no
 					war = no
-					in_command = no
+					in_command_trigger = no
 					num_of_friends < 5
 					is_inaccessible_trigger = no
 
@@ -6231,6 +6344,7 @@ character_event = {
 }
 
 ### My friend is a heretic ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100180
 	desc = EVTDESC100180
@@ -6243,7 +6357,6 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		OR = {
@@ -6257,13 +6370,58 @@ character_event = {
 		is_heretic = no
 		has_secret_religion = no
 		NOT = { has_character_modifier = heretic_friend_timer }
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
 			is_heresy_of = ROOT
 			war = no
-			in_command = no
+			in_command_trigger = no
 			is_inaccessible_or_incapable_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cynical
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = shy
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cruel
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
 		}
 	}
 
@@ -6278,7 +6436,7 @@ character_event = {
 			limit = {
 				is_heresy_of = ROOT
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 			}
 
@@ -6612,19 +6770,19 @@ character_event = {
 }
 
 ### My friend is a much better diplomat than I, ask for help? ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100190
 	desc = EVTDESC100190
 	picture = GFX_evt_courtiers_talking
 
-	is_triggered_only = yes # on_yearly_pulse, random_events, friends_rivals_adults
+	is_triggered_only = yes
 
 	friends = yes
 	min_age = 16
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		diplomacy < 10
@@ -6635,6 +6793,7 @@ character_event = {
 			has_job_title = job_chancellor
 		}
 
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
@@ -6643,6 +6802,50 @@ character_event = {
 			war = no
 			in_command = no
 			NOT = { has_job_title = job_chancellor }
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = honest
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = deceitful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = shy
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cruel
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
 		}
 	}
 
@@ -6664,7 +6867,7 @@ character_event = {
 				diplomacy >= 11
 				block_general_event_trigger = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 				NOT = { has_job_title = job_chancellor }
 			}
 
@@ -6939,6 +7142,7 @@ character_event = {
 }
 
 ### My friend has much better martial stats than I, ask for help? ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100200
 	desc = EVTDESC100200
@@ -6952,7 +7156,6 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		martial < 10
@@ -6964,6 +7167,7 @@ character_event = {
 			has_character_modifier = friend_martial_timer
 		}
 
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
@@ -6975,12 +7179,65 @@ character_event = {
 			is_female = no
 			block_general_event_trigger = no
 			war = no
-			in_command = no
+			in_command_trigger = no
 
 			NOR = {
 				trait = misguided_warrior
 				has_job_title = job_marshal
 			}
+
+			trigger_if = {
+				limit = { trait = master_warrior }
+
+				PREV = {
+					NOR = {
+						trait = master_warrior
+						trait = skilled_warrior
+						trait = trained_warrior
+					}
+				}
+			}
+			trigger_else = {
+				trait = skilled_warrior
+
+				PREV = {
+					NOR = {
+						trait = master_warrior
+						trait = skilled_warrior
+						trait = trained_warrior
+						trait = poor_warrior
+					}
+				}
+			}
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = misguided_warrior
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = tough_soldier
+		}
+
+		mult_modifier = {
+			factor = 0.01
+			trait = skilled_tactician
 		}
 	}
 
@@ -7007,11 +7264,35 @@ character_event = {
 				is_female = no
 				block_general_event_trigger = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 
 				NOR = {
 					trait = misguided_warrior
 					has_job_title = job_marshal
+				}
+
+				trigger_if = {
+					limit = { trait = master_warrior }
+
+					PREV = {
+						NOR = {
+							trait = master_warrior
+							trait = skilled_warrior
+							trait = trained_warrior
+						}
+					}
+				}
+				trigger_else = {
+					trait = skilled_warrior
+
+					PREV = {
+						NOR = {
+							trait = master_warrior
+							trait = skilled_warrior
+							trait = trained_warrior
+							trait = poor_warrior
+						}
+					}
 				}
 			}
 
@@ -7298,6 +7579,7 @@ character_event = {
 }
 
 ### My friend has much better stewardship stats than I ask for help? ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100210
 	desc = EVTDESC100210
@@ -7310,7 +7592,6 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		stewardship < 10
@@ -7323,6 +7604,7 @@ character_event = {
 
 		is_abroad = no
 		NOT = { has_character_modifier = friend_stewardship_timer }
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		capital_scope = {
@@ -7338,8 +7620,52 @@ character_event = {
 			}
 
 			war = no
-			in_command = no
+			in_command_trigger = no
 			is_inaccessible_or_incapable_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = honest
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = deceitful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = shy
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cruel
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
 		}
 	}
 
@@ -7366,7 +7692,7 @@ character_event = {
 				}
 
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 			}
 
@@ -7667,6 +7993,7 @@ character_event = {
 }
 
 ### My friend has much better intrigue stats than I, ask for help? ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100220
 	desc = EVTDESC100220
@@ -7679,20 +8006,64 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		intrigue < 10
 		intrigue >= 5
 		NOT = { has_character_modifier = friend_intrigue_timer }
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
 			intrigue >= 11
 			war = no
-			in_command = no
+			in_command_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 			NOT = { has_job_title = job_spymaster }
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = honest
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = deceitful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = shy
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cruel
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
 		}
 	}
 
@@ -7713,7 +8084,7 @@ character_event = {
 			limit = {
 				intrigue >= 11
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 				NOT = { has_job_title = job_spymaster }
 			}
@@ -8069,6 +8440,7 @@ character_event = {
 }
 
 ### My friend has much better learning stats than I, ask for help? ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100230
 	desc = EVTDESC100230
@@ -8082,7 +8454,6 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		learning < 10
@@ -8094,6 +8465,7 @@ character_event = {
 			has_character_modifier = pious_priests
 		}
 
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
@@ -8106,8 +8478,52 @@ character_event = {
 			}
 
 			war = no
-			in_command = no
+			in_command_trigger = no
 			is_inaccessible_or_incapable_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = honest
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = gregarious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = kind
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = trusting
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = deceitful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = shy
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cruel
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = paranoid
 		}
 	}
 
@@ -8135,7 +8551,7 @@ character_event = {
 				}
 
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 			}
 
@@ -8444,6 +8860,7 @@ character_event = {
 }
 
 ### My friend is celibate ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100240
 	desc = EVTDESC100240
@@ -8456,13 +8873,13 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		num_of_children >= 2
 		uses_decadence = no
 		lifestyle_traits < 1
 		NOT = { has_character_flag = LE_ST }
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
@@ -8474,14 +8891,40 @@ character_event = {
 		}
 	}
 
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = ambitious
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = chaste
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = slothful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = lustful
+		}
+	}
+
 	immediate = {
+		set_character_flag = LE_ST
+
 		any_friend = {
 			limit = {
 				trait = celibate
 				same_sex = ROOT
 				block_general_event_trigger = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 			}
 
 			score_value = {
@@ -8531,18 +8974,30 @@ character_event = {
 
 	option = {
 		name = EVTOPTC100240
+		tooltip_info = lustful
+
+		trigger = {
+			trait = lustful
+		}
 
 		prestige = 5
 
 		if = {
-			limit = { trait = lustful }
-
-			character_event = {
-				id = 5061 # Hedonism, lifestyle_events.txt
-				days = 30
-				random = 30
+			limit = {
+				NOT = { trait = hedonist }
 			}
+			add_trait = hedonist
 		}
+
+		# if = {
+		# 	limit = { trait = lustful }
+		#
+		# 	character_event = {
+		# 		id = 5061 # Hedonism, lifestyle_events.txt
+		# 		days = 30
+		# 		random = 30
+		# 	}
+		# }
 	}
 }
 
@@ -8664,6 +9119,7 @@ character_event = {
 }
 
 ### My friend is a hedonist ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100250
 	desc = EVTDESC100250
@@ -8676,30 +9132,58 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
-		num_of_children >= 2
-		uses_decadence = no
 		lifestyle_traits < 1
-		NOT = { has_character_flag = LE_ST }
+
+		NOR = {
+			religion_group = muslim
+			has_character_flag = LE_ST
+		}
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
 			trait = hedonist
 			block_general_event_trigger = no
 			war = no
-			in_command = no
+			in_command_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = chaste
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = slothful
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = lustful
 		}
 	}
 
 	immediate = {
+		set_character_flag = LE_ST
+
 		any_friend = {
 			limit = {
 				trait = hedonist
 				block_general_event_trigger = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 			}
 
 			score_value = {
@@ -8747,32 +9231,32 @@ character_event = {
 		}
 	}
 
-	option = {
-		name = EVTOPTC100250
-
-		prestige = 5
-
-		if = {
-			limit = { trait = chaste }
-
-			if = {
-				limit = { uses_decadence = no }
-
-				character_event = {
-					id = 5060 # Celibacy/Hedonism
-					days = 30
-					random = 30
-				}
-			}
-			else = {
-				character_event = {
-					id = 5070 # Hedonism/Poetry
-					days = 30
-					random = 30
-				}
-			}
-		}
-	}
+	# option = {
+	# 	name = EVTOPTC100250
+	#
+	# 	prestige = 5
+	#
+	# 	if = {
+	# 		limit = { trait = chaste }
+	#
+	# 		if = {
+	# 			limit = { uses_decadence = no }
+	#
+	# 			character_event = {
+	# 				id = 5060 # Celibacy/Hedonism
+	# 				days = 30
+	# 				random = 30
+	# 			}
+	# 		}
+	# 		else = {
+	# 			character_event = {
+	# 				id = 5070 # Hedonism/Poetry
+	# 				days = 30
+	# 				random = 30
+	# 			}
+	# 		}
+	# 	}
+	# }
 }
 
 # Friend is asked by ROOT about hedonism
@@ -8893,6 +9377,7 @@ character_event = {
 }
 
 ### My friend is a scholar ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100260
 	desc = EVTDESC100260
@@ -8907,22 +9392,48 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		lifestyle_traits < 1
 		NOT = { has_character_flag = LE_ST }
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
 			trait = scholar
 			is_inaccessible_or_incapable_trigger = no
 			war = no
-			in_command = no
+			in_command_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = ambitious
+		}
+
+		mult_modifier = {
+			factor = 2
+			learning >= 15
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = slothful
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = content
 		}
 	}
 
 	immediate = {
+		set_character_flag = LE_ST
+
 		any_friend = {
 			limit = {
 				trait = scholar
@@ -8979,17 +9490,27 @@ character_event = {
 	option = {
 		name = EVTOPTC100260
 
+		trigger = {
+			learning >= 15
+		}
+
 		prestige = 5
+		add_trait = scholar
 
 		if = {
-			limit = { learning >= 15 }
-
-			character_event = {
-				id = 5000 # Scholar/Mystic, lifestyle_events.txt
-				days = 30
-				random = 30
-			}
+			limit = { has_character_modifier = illumination }
+			remove_character_modifier = illumination
 		}
+
+		# if = {
+		# 	limit = { learning >= 15 }
+		#
+		# 	character_event = {
+		# 		id = 5000 # Scholar/Mystic, lifestyle_events.txt
+		# 		days = 30
+		# 		random = 30
+		# 	}
+		# }
 	}
 }
 
@@ -9111,6 +9632,7 @@ character_event = {
 }
 
 ### I don't recognize my friend anymore, I don't know if we really are friends... ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100350
 	desc = EVTDESC100350
@@ -9124,35 +9646,26 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
 			OR = {
 				trigger_if = {
 					limit = { trait = cruel }
-
-					ROOT = {
-						NOT = { trait = cruel }
-					}
+					ROOT = { NOT = { trait = cruel } }
 				}
 
 				trigger_if = {
 					limit = { trait = deceitful }
-
-					ROOT = {
-						NOT = { trait = deceitful }
-					}
+					ROOT = { NOT = { trait = deceitful } }
 				}
 
 				trigger_if = {
 					limit = { trait = wroth }
-
-					ROOT = {
-						NOT = { trait = wroth }
-					}
+					ROOT = { NOT = { trait = wroth } }
 				}
 
 				reverse_opinion = {
@@ -9169,7 +9682,7 @@ character_event = {
 			}
 
 			war = no
-			in_command = no
+			in_command_trigger = no
 			prisoner = no
 			is_inaccessible_trigger = no
 		}
@@ -9210,26 +9723,17 @@ character_event = {
 				OR = {
 					trigger_if = {
 						limit = { trait = cruel }
-
-						ROOT = {
-							NOT = { trait = cruel }
-						}
+						ROOT = { NOT = { trait = cruel } }
 					}
 
 					trigger_if = {
 						limit = { trait = deceitful }
-
-						ROOT = {
-							NOT = { trait = deceitful }
-						}
+						ROOT = { NOT = { trait = deceitful } }
 					}
 
 					trigger_if = {
 						limit = { trait = wroth }
-
-						ROOT = {
-							NOT = { trait = wroth }
-						}
+						ROOT = { NOT = { trait = wroth } }
 					}
 
 					reverse_opinion = {
@@ -9246,7 +9750,7 @@ character_event = {
 				}
 
 				war = no
-				in_command = no
+				in_command_trigger = no
 				prisoner = no
 				is_inaccessible_trigger = no
 			}
@@ -9440,23 +9944,23 @@ character_event = {
 ##################################################
 
 ### My friend's rival tried to kill/maim/wound him/her! ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100400
 	desc = EVTDESC100400
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes # on_yearly_pulse, random_events, friends_rivals_adults
-
 	only_men = yes
 	friends = yes
 	min_age = 16
 	prisoner = no
 	only_capable = yes
 	war = no
-	in_command = no
 
 	trigger = {
 		martial >= 10
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_friend = {
@@ -9470,7 +9974,7 @@ character_event = {
 			}
 
 			war = no
-			in_command = no
+			in_command_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 
 			any_rival = {
@@ -9483,7 +9987,7 @@ character_event = {
 				}
 
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 			}
 		}
@@ -9516,7 +10020,7 @@ character_event = {
 				}
 
 				war = no
-				in_command = no
+				in_command_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 
 				any_rival = {
@@ -9529,7 +10033,7 @@ character_event = {
 					}
 
 					war = no
-					in_command = no
+					in_command_trigger = no
 					is_inaccessible_or_incapable_trigger = no
 				}
 			}
@@ -9552,7 +10056,7 @@ character_event = {
 					}
 
 					war = no
-					in_command = no
+					in_command_trigger = no
 					is_inaccessible_or_incapable_trigger = no
 				}
 
@@ -9578,12 +10082,12 @@ character_event = {
 					10 = { add_trait = wounded }
 					10 = { add_maimed_trait_effect = yes }
 				}
+			}
 
-				opinion = {
-					name = grievously_offended
-					who = ROOT
-					years = 10
-				}
+			opinion = {
+				name = grievously_offended
+				who = ROOT
+				years = 10
 			}
 
 			character_event = {
@@ -10365,6 +10869,7 @@ character_event = {
 # CleanSlate: Event 100420 moved to base_tournament_events.txt
 
 ### Your fierce rival has embraced heretical ways ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100440
 	desc = EVTDESC100440
@@ -10379,18 +10884,32 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		is_heretic = no
+		in_command_trigger = no
 
 		any_rival = {
 			is_heresy_of = ROOT
 			is_female = no
 			block_general_event_trigger = no
 			war = no
-			in_command = no
+			in_command_trigger = no
 			NOT = { trait = excommunicated }
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = cynical
 		}
 	}
 
@@ -10401,7 +10920,7 @@ character_event = {
 				is_female = no
 				block_general_event_trigger = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 				NOT = { trait = excommunicated }
 			}
 
@@ -10573,6 +11092,7 @@ character_event = {
 # }
 
 ### Make your liege distrust your rival ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100450
 	desc = EVTDESC100450
@@ -10586,10 +11106,10 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		independent = no
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_rival = {
@@ -10614,6 +11134,20 @@ character_event = {
 		}
 	}
 
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = wroth
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = honest
+		}
+	}
+
 	immediate = {
 		random_rival = {
 			limit = {
@@ -10622,7 +11156,7 @@ character_event = {
 				independent = no
 				block_general_event_trigger = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 
 				liege = {
 					opinion = {
@@ -11051,6 +11585,7 @@ character_event = {
 }
 
 ### A rival of yours is so much beneath you that it seems a bit silly of you to hold him as an enemy ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100470
 	desc = EVTDESC100470
@@ -11064,10 +11599,10 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		NOT = { has_character_modifier = recalculate_rivalry_modifier }
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		any_rival = {
@@ -11076,7 +11611,21 @@ character_event = {
 			lower_real_tier_than = ROOT
 			block_general_event_trigger = no
 			war = no
-			in_command = no
+			in_command_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = proud
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = wroth
 		}
 	}
 
@@ -11098,7 +11647,7 @@ character_event = {
 				lower_real_tier_than = ROOT
 				block_general_event_trigger = no
 				war = no
-				in_command = no
+				in_command_trigger = no
 			}
 
 			tooltip = {
@@ -11184,6 +11733,7 @@ character_event = {
 }
 
 ### Your rivalry to your liege is straining your commitment to your feudal duties ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100480
 	desc = EVTDESC100480
@@ -11197,17 +11747,31 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		is_rival = liege
 		independent = no
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		liege = {
 			war = no
-			in_command = no
+			in_command_trigger = no
 			block_general_event_trigger = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 2
+			trait = diligent
+		}
+
+		mult_modifier = {
+			factor = 0.5
+			trait = envious
 		}
 	}
 
@@ -11243,7 +11807,7 @@ character_event = {
 				id = 100481
 				days = 7
 				random = 7
-				# tooltip = EVTTOOLTIP100481 # CleansSlate: Empty strings
+				# tooltip = EVTTOOLTIP100481 # empty strings
 			}
 		}
 	}
@@ -13805,6 +14369,7 @@ character_event = {
 }
 
 ### My friend has much better learning stats than I, ask for help? Muslim ###
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 100550
 	picture = GFX_evt_courtiers_talking
@@ -13820,6 +14385,7 @@ character_event = {
 			}
 		}
 	}
+
 	desc = {
 		text = EVTDESC100550_B
 		trigger = {
@@ -13838,11 +14404,11 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		learning < 10
 		learning >= 5
+		in_command_trigger = no
 		is_inaccessible_trigger = no
 
 		NOR = {
@@ -13860,12 +14426,26 @@ character_event = {
 			}
 
 			war = no
-			in_command = no
+			in_command_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
 
 		sunni = {
 			is_name_randomized = no
+		}
+	}
+
+	weight_multiplier = {
+		factor = 1
+
+		mult_modifier = {
+			factor = 0.5
+			trait = zealous
+		}
+
+		mult_modifier = {
+			factor = 2
+			trait = cynical
 		}
 	}
 
@@ -13885,7 +14465,7 @@ character_event = {
 				learning >= 11
 				religion_group = muslim
 				war = no
-				in_command = no
+				in_command_trigger = no
 				prisoner = no
 			}
 

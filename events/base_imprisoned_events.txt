@@ -1326,6 +1326,7 @@ character_event = {
 }
 
 # Petition liege to release prisoner
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 50025
 	desc = EVTDESC50025
@@ -1338,11 +1339,11 @@ character_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		is_abroad = no
 		independent = no
+		in_command_trigger = no
 
 		event_target:imprisoned_friend = {
 			prisoner = yes

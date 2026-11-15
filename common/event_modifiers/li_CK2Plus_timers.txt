@@ -1,0 +1,6 @@
+# LI: CK2Plus AIO version (step B, decision 5): brought in 2026-11-15 because AIO definitions the mod now uses need it.
+# Hidden timer used by obj_get_nick.
+
+ai_objective_timer = {
+	icon = 1
+}

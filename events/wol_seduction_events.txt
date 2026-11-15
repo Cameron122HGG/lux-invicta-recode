@@ -6519,6 +6519,7 @@ character_event = {
 ######################################################
 
 # Seducer: Attempts to get target alone
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = WoL.401
 	title = EVTTITLE_WOL_401
@@ -6576,15 +6577,22 @@ character_event = {
 					limit = {
 						same_sex = event_target:seduced
 						is_adult = yes
-						in_command = no
+						in_command_trigger = no
 						is_pilgrim = no
 						is_incapable = no
 						prisoner = no
 						ai = yes
+						is_inaccessible_trigger = no
 
 						NOR = {
 							character = event_target:seducer
+							is_lover = event_target:seducer
+							is_married = event_target:seducer
+							is_consort = event_target:seducer
 							character = event_target:seduced
+							is_parent_of = event_target:seduced
+							is_lover = event_target:seduced
+							is_rival = event_target:seduced
 							trait = in_hiding
 							has_character_modifier = in_meditation
 							has_character_modifier = doing_penance
@@ -6593,10 +6601,6 @@ character_event = {
 								in_seclusion = yes
 								NOT = { at_location = event_target:seduced }
 							}
-
-							is_parent_of = event_target:seduced
-							is_lover = event_target:seduced
-							is_rival = event_target:seduced
 						}
 					}
 
@@ -6638,7 +6642,7 @@ character_event = {
 							AND = {
 								is_adult = yes
 								at_location = event_target:seduced
-								in_command = no
+								in_command_trigger = no
 								is_pilgrim = no
 								is_incapable = no
 								prisoner = no
@@ -6647,18 +6651,18 @@ character_event = {
 									limit = {
 										OR = {
 											has_opinion_modifier = {
+												who = event_target:seducer
 												name = opinion_chasing_friend
-												who = event_target:seducer
 											}
 
 											has_opinion_modifier = {
+												who = event_target:seducer
 												name = opinion_chasing_spouse
-												who = event_target:seducer
 											}
 
 											has_opinion_modifier = {
-												name = opinion_chasing_child
 												who = event_target:seducer
+												name = opinion_chasing_child
 											}
 										}
 									}

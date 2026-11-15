@@ -1668,6 +1668,7 @@ narrative_event = {
 }
 
 # Wailings, screams and cries for help seems to emit from the burning gap
+# LI: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = 10102
 	title = EVTNAME10102
@@ -1680,10 +1681,10 @@ narrative_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		has_character_modifier = wailing_gap
+		in_command_trigger = no
 	}
 
 	fail_trigger_effect = {
@@ -1707,7 +1708,7 @@ narrative_event = {
 
 		add_character_modifier = {
 			name = gates_hell
-			years = 4
+			years = 2
 		}
 	}
 
@@ -1731,6 +1732,7 @@ narrative_event = {
 }
 
 # Close the gap
+# LI: CK2Plus AIO version (step B, decision 5)
 narrative_event = {
 	id = 10103
 	title = EVTNAME10103
@@ -1743,10 +1745,10 @@ narrative_event = {
 	only_capable = yes
 	prisoner = no
 	war = no
-	in_command = no
 
 	trigger = {
 		has_character_modifier = gates_hell
+		in_command_trigger = no
 	}
 
 	fail_trigger_effect = {

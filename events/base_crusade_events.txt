@@ -7,6 +7,7 @@
 ###########################################
 
 # Arriving for the Crusade/Jihad/Great Holy War
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8300
 	desc = EVTDESC8300
@@ -32,10 +33,13 @@ character_event = {
 
 	is_triggered_only = yes # on_unit_entering_province, on_command_(sub_)unit
 
-	in_command = yes
+	war = yes
 	min_age = 16
 
 	trigger = {
+		has_called_crusade = yes
+		in_command_trigger = yes
+
 		OR = {
 			AND = {
 				any_war = {
@@ -109,6 +113,7 @@ character_event = {
 }
 
 # Arriving at the crusade target
+# LI: CK2Plus AIO version (step B, decision 5)
 character_event = {
 	id = 8305
 	desc = EVTDESC8305
@@ -117,15 +122,16 @@ character_event = {
 
 	is_triggered_only = yes # on_unit_entering_province, on_command_(sub_)unit
 
-	religion = catholic
-	in_command = yes
 	min_age = 16
 
 	trigger = {
 		has_called_crusade = yes
+		in_command_trigger = yes
 
 		OR = {
 			any_war = {
+				attacker = { religion = ROOT }
+
 				OR = {
 					using_cb = crusade
 					using_cb = new_crusade
@@ -133,9 +139,9 @@ character_event = {
 			}
 
 			any_liege = {
-				religion = catholic
-
 				any_war = {
+					attacker = { religion = ROOT }
+
 					OR = {
 						using_cb = crusade
 						using_cb = new_crusade

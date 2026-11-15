@@ -1,6 +1,6 @@
 """Step B (decision 5, CLEANSLATE_PLAN.md): use CK2Plus AIO's current version for LI definitions copied from
 CK2Plus that carry no LI-specific content.
-usage: python -I phase5b_aio.py <repo> <master_tree> <aio> <vanilla> <report.json> [--folders=a,b] [--apply]
+usage: python -I phase5b_aio.py <repo> <master_tree> <aio> <vanilla> <report.json> [--folders=a,b] [--keep-li=phase5b_keep_li.txt] [--apply]
 A definition qualifies when
   - LI (master) has it, and AIO has it, and it is CK2Plus's: either not in vanilla, or AIO's text differs from
     CleanSlate's/vanilla's (CK2Plus changed it);
@@ -15,6 +15,10 @@ from collections import Counter, defaultdict
 REPO, MT, AIO, VA, OUT = sys.argv[1:6]
 APPLY = '--apply' in sys.argv
 ONLY = next((a.split('=', 1)[1].split(',') for a in sys.argv if a.startswith('--folders=')), None)
+KEEP_LI = set()   # --keep-li=<file>: definitions whose LI version stays (one key per line, '#' comments)
+for a in sys.argv:
+    if a.startswith('--keep-li='):
+        KEEP_LI |= {l.split('#')[0].strip() for l in open(a.split('=', 1)[1], encoding='latin-1') if l.split('#')[0].strip()}
 CS = os.path.join(REPO, 'cleanslate_beta7')
 DEPTH1 = {'decisions', 'common/governments', 'common/laws', 'common/religion_features'}
 WORLD = {'common/landed_titles', 'common/cultures', 'common/religions', 'common/dynasties', 'common/bookmarks',
@@ -134,7 +138,7 @@ print('most-needed AIO items:', need_all.most_common(25))
 if APPLY:
     by_file = defaultdict(list)
     for r in rows:
-        if r['need'] or (ONLY and r['folder'] not in ONLY): continue
+        if r['need'] or (ONLY and r['folder'] not in ONLY) or r['key'] in KEEP_LI: continue
         by_file[r['mod_file']].append(r)
     n = 0
     for mf, lst in by_file.items():

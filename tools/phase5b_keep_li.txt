@@ -1,0 +1,7 @@
+# Step B: definitions the survey marks ready to swap whose LI version stays (LI changes the survey can't see).
+# Read by phase5b_aio.py --keep-li=. One key per line.
+the_assassins                           # LI ties the order to the Qarmatians and d_hashshashin (AIO: Shia, d_fedayeen)
+assassins_recruit                       # LI's per-faith Assassin orders (the_assassins_set, _zor_angra...)
+employ_spymaster                        # LI_pagan_trigger, feminist_religions_trigger, RoI.30121
+employ_chancellor                       # same as employ_spymaster
+check_if_ancestor_worship_worthy_effect # mod's text is right; AIO checks the seafaring trigger in its 'Unrelenting' weights

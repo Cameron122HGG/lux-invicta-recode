@@ -190,6 +190,24 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      `# LI:` fix inside them (so the `TOG.1000`/`HL.2000`/`100420` triggers and similar stay).
      **Still to do in step B:** 443 definitions that need AIO content the mod lacks, and 543 that
      use LI's world (hand port).
+     **Re-survey after phase 8 (2026-11-15):** 1,089 where the mod already equals AIO (was 606); 9 ready swaps
+     with nothing missing (6 decisions, `selfish_pattern_against`, `check_if_ancestor_worship_worthy_effect`,
+     society `the_assassins`); 400 that need AIO content (211 need one item: `obj_get_nick` 74 nicknames,
+     `in_command_trigger` 53, `sent_druidic_training` 10…; some needs are things LI left out on purpose, e.g.
+     `the_cold_ones`, `chalcedonian`, `roman_pagan`, `martial_lady*`, so those rows are hand-port or skip);
+     543 that use LI's world (unchanged); 105 skipped as Holy Fury files.
+     **Batch 3 applied (2026-11-15):** AIO's `obj_get_nick` ambition (`common/objectives/li_CK2Plus_ambitions.txt`,
+     with its hidden `ai_objective_timer` in `common/event_modifiers/li_CK2Plus_timers.txt`) and `in_command_trigger`
+     (`common/scripted_triggers/li_CK2Plus_war_triggers.txt`) brought in, which freed 127 definitions. 131 swapped
+     in 19 files: 74 nicknames, 53 events (court, crusade, feast, feudal life, friends/rivals, hunting, prison,
+     legends, traits, WoL lover/seduction/theology), `selfish_pattern_against`, and the decisions
+     `chinese_kow_tow_pilgrimage`, `hermetic_grand_debate`, `hold_nomad_wargames`. **Kept LI's version** of 5 the
+     survey marked ready, listed in `tools/phase5b_keep_li.txt` (`--keep-li=`): `the_assassins` and
+     `assassins_recruit` (LI's Qarmatian Assassins and per-faith orders), `employ_spymaster`/`employ_chancellor`
+     (LI triggers, RoI.30121), `check_if_ancestor_worship_worthy_effect` (AIO checks the seafaring trigger in its
+     "Unrelenting" weights). **Lesson:** the survey's "no LI names" test misses LI changes that use vanilla names
+     (Qarmatian) or LI's own triggers; compare LI's master text with AIO's before applying.
+     Untested in game.
 4. **CleanSlate's renames** across LI's files: `k_papal_state` ↔ `k_papacy` (swapped!),
    `assassins_debt` → `assassins_debt_modifier`, the secret-religion triggers (replaced by an
    `old_religion` event target), and the smith/goldsmith artifact `_flag_*` → `_tier_N` names.

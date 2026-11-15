@@ -1,0 +1,80 @@
+# LI: CK2Plus AIO version (step B, decision 5): brought in 2026-11-15 because AIO definitions the mod now uses need it.
+# Needed by CK2Plus's nicknames (has_ambition = obj_get_nick).
+
+obj_get_nick = {
+	type = character
+
+	potential = {
+		is_ruler = yes
+		has_nickname = no
+		prestige >= 500
+		is_adult = yes
+		prisoner = no
+		is_incapable = no
+
+		NOR = {
+			trait = humble
+			has_character_flag = got_ambition_nickname
+		}
+	}
+
+	chance = {
+		factor = 25
+
+		mult_modifier = {
+			factor = 2.0
+			prestige >= 1000
+		}
+
+		mult_modifier = {
+			factor = 2.0
+			prestige >= 2000
+		}
+	}
+
+	creation_effect = {
+		if = {
+			limit = { ai = yes }
+
+			add_character_modifier = {
+				name = ai_objective_timer
+				years = 5
+				hidden = yes
+			}
+		}
+	}
+
+	success = {
+		has_nickname = yes
+	}
+
+	abort = {
+		OR = {
+			trait = humble
+			is_incapable = yes
+
+			trigger_if = {
+				limit = { ai = yes }
+				NOT = { has_character_modifier = ai_objective_timer }
+			}
+		}
+	}
+
+	abort_effect = {
+		if = {
+			limit = { ai = yes }
+			remove_character_modifier = ai_objective_timer
+		}
+	}
+
+	effect = {
+		if = {
+			limit = { ai = yes }
+			remove_character_modifier = ai_objective_timer
+		}
+
+		set_character_flag = got_ambition_nickname
+		change_diplomacy = 1
+		prestige = 100
+	}
+}
