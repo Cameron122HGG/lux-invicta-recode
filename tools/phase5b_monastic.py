@@ -71,6 +71,10 @@ out['common/societies/li_CK2Plus_monastic_orders.txt'] = (
     + '\n\n'.join([bud, bon, sto]) + '\n')
 # --- decision + events
 dec = get('decisions/HF_religious_decisions.txt', 'stoic_order_culture_convert_county')
+# the load-time checker can't read 'culture = owner' (logs pCulture->IsValid); same test written out
+assert dec.count("culture = owner # Cannot convert counties of owners' culture") == 1
+dec = dec.replace("culture = owner # Cannot convert counties of owners' culture",
+                  "owner = { culture = PREV } # Cannot convert counties of owners' culture (LI: was culture = owner)")
 out['decisions/li_CK2Plus_monastic_decisions.txt'] = (
     '# LI: CK2Plus AIO Stoic order power (step B, 2026-11-15; tools/phase5b_monastic.py)\n\ntargeted_decisions = {\n'
     + dec + '\n}\n')

@@ -35,7 +35,7 @@ targeted_decisions = {
 			location = {
 				NOR = {
 					culture = FROM
-					culture = owner # Cannot convert counties of owners' culture
+					owner = { culture = PREV } # Cannot convert counties of owners' culture (LI: was culture = owner)
 				}
 			}
 		}
