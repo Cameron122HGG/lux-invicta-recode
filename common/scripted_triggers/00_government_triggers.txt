@@ -75,10 +75,15 @@ roman_imperial_government_potential_trigger = {
 	could_be_temporal_religious_head_trigger = yes # If holder is a religion head, makes sure they shouldn't be a theocracy instead
 	primary_title = {
 		OR = {
-			title = e_byzantium
 			title = e_roman_empire
-			title = e_roman # LI: Lux Invicta's Western Roman Empire (S.P.Q.R.) gets the Roman imperial government too (user, 2026-11-15)
 			title = event_target:alternate_byz
+			AND = { # LI: Byzantium and S.P.Q.R. start on their regular government and take this one with Restore the Imperium (user, 2026-11-15)
+				OR = {
+					title = e_byzantium
+					title = e_roman
+				}
+				has_title_flag = li_roman_imperium
+			}
 		}
 
 		# LI: CleanSlate only kept this government after game start with Imperial Elective (succ_byzantine_elective); LI keeps it

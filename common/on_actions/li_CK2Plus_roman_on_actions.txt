@@ -3,6 +3,7 @@
 on_startup = {
 	events = {
 		LIprov.1 # Mark e_byzantium / e_roman as the Eastern / Western Roman successors
+		LIprov.3 # Restore the Imperium: share of the de jure empire in the realm
 	}
 }
 
@@ -11,5 +12,6 @@ on_yearly_pulse = {
 		Plus.568 # Eastern successor gone: clear east_rome_lives
 		Plus.570 # Western successor gone: clear west_rome_lives
 		Plus.571 # Successor exists but its flag is missing: restore it
+		LIprov.3 # Restore the Imperium: share of the de jure empire in the realm
 	}
 }

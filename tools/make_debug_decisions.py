@@ -33,6 +33,8 @@ status = ('\t\t\tcustom_tooltip = { text = li_debug_tt_east_lives has_global_fla
           '\t\t\tcustom_tooltip = { text = li_debug_tt_restored has_global_flag = rome_restored }\n'
           '\t\t\tcustom_tooltip = { text = li_debug_tt_east_mine primary_title = { has_title_flag = eastern_roman_successor } }\n'
           '\t\t\tcustom_tooltip = { text = li_debug_tt_west_mine primary_title = { has_title_flag = western_roman_successor } }\n'
+          '\t\t\tcustom_tooltip = { text = li_debug_tt_imperium primary_title = { has_title_flag = li_roman_imperium } }\n'
+          '\t\t\tcustom_tooltip = { text = li_debug_tt_share check_variable = { which = li_imperium_share value >= 50 } }\n'
           '\t\t\tcustom_tooltip = { text = li_debug_tt_gov government = roman_imperial_government }\n'
           '\t\t\tcustom_tooltip = { text = li_debug_tt_law primary_title = { has_law = succ_byzantine_elective } }\n'
           '\t\t\tcustom_tooltip = { text = li_debug_tt_collapsed NOT = { has_global_flag = provincia_decisions_collapsed } }\n')
@@ -41,14 +43,18 @@ loc += ['li_debug_tt_east_lives;An Eastern Roman successor exists (east_rome_liv
         'li_debug_tt_restored;The Roman Empire is restored (rome_restored);;;;;;;;;;;;;x',
         'li_debug_tt_east_mine;My primary title is the Eastern successor;;;;;;;;;;;;;x',
         'li_debug_tt_west_mine;My primary title is the Western successor;;;;;;;;;;;;;x',
+        'li_debug_tt_imperium;My primary title has restored the Imperium (li_roman_imperium);;;;;;;;;;;;;x',
+        'li_debug_tt_share;Last yearly count: half or more of my de jure empire is in my realm (li_imperium_share);;;;;;;;;;;;;x',
         'li_debug_tt_gov;I have the Roman imperial government;;;;;;;;;;;;;x',
         'li_debug_tt_law;My primary title has Imperial Elective;;;;;;;;;;;;;x',
         'li_debug_tt_collapsed;Provincia decisions are not collapsed;;;;;;;;;;;;;x']
 D.append(dec('li_debug_roman_status', f'\t\t\t{ON}\n', '', allow=status + '\t\t\talways = no\n',
              name='Roman status (hover)', desc='Hover the allow list: green/red shows the Roman successor flags, government, succession law and provincia list state. Cannot be taken.'))
 D.append(dec('li_debug_roman_government', f'\t\t\t{ON}\n\t\t\tNOT = {{ government = roman_imperial_government }}\n',
+             '\t\t\tprimary_title = {\n\t\t\t\tif = {\n\t\t\t\t\tlimit = {\n\t\t\t\t\t\tOR = {\n\t\t\t\t\t\t\ttitle = e_byzantium\n\t\t\t\t\t\t\ttitle = e_roman\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n'
+             '\t\t\t\t\tset_title_flag = li_roman_imperium\n\t\t\t\t\tadd_law = succ_byzantine_elective\n\t\t\t\t}\n\t\t\t}\n'
              '\t\t\tset_government_type = roman_imperial_government\n',
-             name='Set Roman imperial government', desc='Switches you to the Roman imperial government (the game may switch you back if you do not hold a Roman empire as primary title).'))
+             name='Restore the Imperium now', desc='Byzantium / S.P.Q.R.: restores the Imperium at once (title flag, Imperial Elective, Roman imperial government), skipping the half-the-empire check. Anyone else just gets the government, which the game may switch back.'))
 for side, Side, other in (('eastern', 'Eastern', 'western'), ('western', 'Western', 'eastern')):
     g = 'east_rome_lives' if side == 'eastern' else 'west_rome_lives'
     D.append(dec(f'li_debug_make_{side}_successor', f'\t\t\t{ON}\n\t\t\treal_tier = EMPEROR\n',

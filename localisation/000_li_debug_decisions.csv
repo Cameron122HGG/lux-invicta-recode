@@ -11,13 +11,15 @@ li_debug_tt_west_lives;A Western Roman successor exists (west_rome_lives);;;;;;;
 li_debug_tt_restored;The Roman Empire is restored (rome_restored);;;;;;;;;;;;;x
 li_debug_tt_east_mine;My primary title is the Eastern successor;;;;;;;;;;;;;x
 li_debug_tt_west_mine;My primary title is the Western successor;;;;;;;;;;;;;x
+li_debug_tt_imperium;My primary title has restored the Imperium (li_roman_imperium);;;;;;;;;;;;;x
+li_debug_tt_share;Last yearly count: half or more of my de jure empire is in my realm (li_imperium_share);;;;;;;;;;;;;x
 li_debug_tt_gov;I have the Roman imperial government;;;;;;;;;;;;;x
 li_debug_tt_law;My primary title has Imperial Elective;;;;;;;;;;;;;x
 li_debug_tt_collapsed;Provincia decisions are not collapsed;;;;;;;;;;;;;x
 li_debug_roman_status;DEBUG: Roman status (hover);;;;;;;;;;;;;x
 li_debug_roman_status_desc;Hover the allow list: green/red shows the Roman successor flags, government, succession law and provincia list state. Cannot be taken.;;;;;;;;;;;;;x
-li_debug_roman_government;DEBUG: Set Roman imperial government;;;;;;;;;;;;;x
-li_debug_roman_government_desc;Switches you to the Roman imperial government (the game may switch you back if you do not hold a Roman empire as primary title).;;;;;;;;;;;;;x
+li_debug_roman_government;DEBUG: Restore the Imperium now;;;;;;;;;;;;;x
+li_debug_roman_government_desc;Byzantium / S.P.Q.R.: restores the Imperium at once (title flag, Imperial Elective, Roman imperial government), skipping the half-the-empire check. Anyone else just gets the government, which the game may switch back.;;;;;;;;;;;;;x
 li_debug_make_eastern_successor;DEBUG: Make my empire the Eastern successor;;;;;;;;;;;;;x
 li_debug_make_eastern_successor_desc;Flags your primary title as the Eastern Roman successor and sets east_rome_lives, without the claim decision.;;;;;;;;;;;;;x
 li_debug_make_western_successor;DEBUG: Make my empire the Western successor;;;;;;;;;;;;;x

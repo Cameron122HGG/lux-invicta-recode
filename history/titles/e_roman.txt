@@ -89,5 +89,4 @@
 1019.1.1={ holder = 11522 }
 1060.1.1={
 	holder=501
-	law = succ_byzantine_elective # LI: Imperial Elective, the Roman succession (user, 2026-11-15)
 }

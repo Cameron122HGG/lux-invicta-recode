@@ -78,6 +78,8 @@ decisions = {
 			custom_tooltip = { text = li_debug_tt_restored has_global_flag = rome_restored }
 			custom_tooltip = { text = li_debug_tt_east_mine primary_title = { has_title_flag = eastern_roman_successor } }
 			custom_tooltip = { text = li_debug_tt_west_mine primary_title = { has_title_flag = western_roman_successor } }
+			custom_tooltip = { text = li_debug_tt_imperium primary_title = { has_title_flag = li_roman_imperium } }
+			custom_tooltip = { text = li_debug_tt_share check_variable = { which = li_imperium_share value >= 50 } }
 			custom_tooltip = { text = li_debug_tt_gov government = roman_imperial_government }
 			custom_tooltip = { text = li_debug_tt_law primary_title = { has_law = succ_byzantine_elective } }
 			custom_tooltip = { text = li_debug_tt_collapsed NOT = { has_global_flag = provincia_decisions_collapsed } }
@@ -105,6 +107,18 @@ decisions = {
 		}
 
 		effect = {
+			primary_title = {
+				if = {
+					limit = {
+						OR = {
+							title = e_byzantium
+							title = e_roman
+						}
+					}
+					set_title_flag = li_roman_imperium
+					add_law = succ_byzantine_elective
+				}
+			}
 			set_government_type = roman_imperial_government
 		}
 

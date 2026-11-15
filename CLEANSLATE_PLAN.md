@@ -311,6 +311,17 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      law has `NOT = { is_law_potential = succ_byzantine_elective }`, so a Roman empire can only use Imperial Elective (gender
      laws still change). Added to LI's seniority, primogeniture, tanistry, ultimogeniture, feudal elective and Turkish
      succession; gavelkind, elective gavelkind and eldership (CleanSlate's) already had it.
+     **Restore the Imperium (user, 2026-11-15, replaces the start on Imperial Elective), untested:** Byzantium and S.P.Q.R.
+     start on their regular government and succession (the 1060.1.1 `succ_byzantine_elective` lines are gone). The
+     government trigger accepts e_byzantium/e_roman only with the title flag `li_roman_imperium`; the six lock lines are now
+     `NAND = { is_law_potential = succ_byzantine_elective  OR = { has_title_flag = li_roman_imperium  NOR = { e_byzantium e_roman } } }`,
+     so before the imperium they keep LI's free succession choice. Decision `restore_roman_imperium`
+     (`decisions/li_CK2Plus_roman_decisions.txt`; independent emperor, primary title e_byzantium/e_roman): needs half of
+     the de jure empire's counties in the realm, the old capital duchy (d_thrace / d_latium), 1000 prestige, crowned, no
+     war; costs 500 prestige; sets the flag, Imperial Elective and the government, then LIprov.4. The half is counted by
+     LIprov.3 (on_startup + on_yearly_pulse, variable `li_imperium_share` in percent). History estimate at 1066: Byzantium
+     about 3% of 90 counties, S.P.Q.R. about 2% of 59. Provincias and the Eastern/Western claims need the government, so
+     they come after the imperium. Test decision "Restore the Imperium now" skips the checks.
    - **Roman provincia restoration (user, 2026-11-15), untested:** CK2Plus AIO's `CK2Plus_roman_decisions.txt` rebuilt on
      LI's map by `tools/phase5b_provincia.py`. Mapping (`migration_notes/provincia_mapping_draft.md`, reviewed): LI's map
      compared with vanilla's (`provinces.bmp`, local offsets from 989 shared county keys; LI redrew the map, one global fit

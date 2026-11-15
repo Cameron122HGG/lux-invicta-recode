@@ -208,3 +208,66 @@ narrative_event = {
 		name = EVTOPTALoR.1
 	}
 }
+
+# LI: Restore the Imperium (user, 2026-11-15). Yearly (and at start) for Byzantium / S.P.Q.R. before the imperium is
+# claimed: li_imperium_share = percent of the empire's de jure counties inside the holder's realm.
+character_event = {
+	id = LIprov.3
+
+	is_triggered_only = yes # on_startup, on_yearly_pulse
+	hide_window = yes
+
+	trigger = {
+		is_ruler = yes
+		primary_title = {
+			OR = {
+				title = e_byzantium
+				title = e_roman
+			}
+			NOT = { has_title_flag = li_roman_imperium }
+		}
+	}
+
+	immediate = {
+		set_variable = { which = li_imperium_held value = 0 }
+		set_variable = { which = li_imperium_total value = 0 }
+		primary_title = {
+			any_de_jure_vassal_title = {
+				limit = { tier = COUNT }
+				ROOT = { change_variable = { which = li_imperium_total value = 1 } }
+			}
+			any_de_jure_vassal_title = {
+				limit = {
+					tier = COUNT
+					holder_scope = {
+						OR = {
+							character = ROOT
+							is_vassal_or_below_of = ROOT
+						}
+					}
+				}
+				ROOT = { change_variable = { which = li_imperium_held value = 1 } }
+			}
+		}
+		set_variable = { which = li_imperium_share which = li_imperium_held }
+		multiply_variable = { which = li_imperium_share value = 100 }
+		if = {
+			limit = { check_variable = { which = li_imperium_total value >= 1 } }
+			divide_variable = { which = li_imperium_share which = li_imperium_total }
+		}
+	}
+}
+
+# LI: Restore the Imperium taken
+narrative_event = {
+	id = LIprov.4
+	title = EVTNAME_LIprov_4
+	desc = EVTDESC_LIprov_4
+	picture = GFX_evt_victory_arch_byzantine
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_LIprov_4
+	}
+}

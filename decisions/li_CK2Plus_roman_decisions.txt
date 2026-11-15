@@ -1,6 +1,53 @@
 # LI: CK2Plus AIO Roman provincia restoration on LI's map (2026-11-15; tools/phase5b_provincia.py). Duchy lists: migration_notes/provincia_mapping.json
 
 decisions = {
+	restore_roman_imperium = { # LI: Byzantium and S.P.Q.R. start on their regular government and claim the Roman imperial one here (user, 2026-11-15)
+		only_independent = yes
+		is_high_prio = yes
+
+		potential = {
+			real_tier = EMPEROR
+			primary_title = {
+				OR = {
+					title = e_byzantium
+					title = e_roman
+				}
+				NOT = { has_title_flag = li_roman_imperium }
+			}
+		}
+
+		allow = {
+			custom_tooltip = {
+				text = li_restore_imperium_half_tt
+				check_variable = { which = li_imperium_share value >= 50 }
+			}
+			trigger_if = {
+				limit = { primary_title = { title = e_byzantium } }
+				completely_controls = d_thrace
+			}
+			trigger_else = {
+				completely_controls = d_latium
+			}
+			prestige >= 1000
+			NOT = { trait = uncrowned }
+			war = no
+		}
+
+		effect = {
+			prestige = -500
+			primary_title = {
+				set_title_flag = li_roman_imperium
+				add_law = succ_byzantine_elective
+			}
+			set_government_type = roman_imperial_government
+			narrative_event = { id = LIprov.4 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	claim_eastern_roman_empire = {
 		only_independent = yes
 

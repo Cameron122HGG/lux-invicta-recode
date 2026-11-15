@@ -118,3 +118,9 @@ k_provincia_thracia;Thracia;;Thrakien;;Thracia;x
 k_provincia_thracia_adj;Thracian;;Thrakisch;;Thracian;x
 k_provincia_viennensis;Viennensis;;Viennensis;;Viennensis;x
 k_provincia_viennensis_adj;Viennese;;Wien;;Viennese;x
+restore_roman_imperium;Restore the Imperium;;;;;;;;;;;;;x
+restore_roman_imperium_desc;Half of the lands that were once ours answer to us again. It is time to rule them as the Caesars did: as Imperator of the Romans, chosen by the Senate, the army and the people.;;;;;;;;;;;;;x
+li_restore_imperium_half_tt;At least half of the de jure counties of the empire are in your realm (counted every year);;;;;;;;;;;;;x
+EVTNAME_LIprov_4;The Imperium Restored;;;;;;;;;;;;;x
+EVTDESC_LIprov_4;[Root.GetTitledFirstName] has restored the Imperium. The realm is ruled again as Rome was ruled, and the purple will pass by Imperial Elective.;;;;;;;;;;;;;x
+EVTOPTA_LIprov_4;Ave Imperator!;;;;;;;;;;;;;x
