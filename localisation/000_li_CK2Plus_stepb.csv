@@ -27,3 +27,7 @@ PREPARE_FOR_HAJJ;Begin preparations for the Hajj\n;;;;;x
 CAPITAL_NOT_UNDER_SIEGE;No controlled holdings in §Y[Root.Capital.GetName]§! are under siege or sieged down;;;;;x
 inheritance;External Inheritance;;Externe Vererbung;;Herencias al exterior;x
 ai_objective_timer;dummy;;;;;x
+sent_druidic_training;Sent for Druidic Training;;Zur druidischen Ausbildung geschickt;;;x
+EVTDESC_ancrel_0185;An old man has arrived, dressed in the garbs of a druid. He is here to take you with him to a sacred grove deep inside the forest. There you will be taught the secret arts of the druids, training which will take many years. Novices have been known to come back changed, or worse...dead.;;Ein alter Mann ist gekommen, gekleidet in die Gewänder eines Druiden. Er ist hier, um dich zu einem heiligen Hain tief im Wald mitzunehmen. Dort wirst du in den geheimen Künsten der Druiden unterrichtet werden, eine Ausbildung, die viele Jahre dauern wird. Es ist bekannt, dass Neulinge verändert oder, schlimmer noch, tot zurückkehren.;;;x
+EVTNAME_ancrel_0185;The Path of the Druids;;Der Weg der Druiden;;;x
+EVTOPTA_ancrel_0185;I will not Fáil;;Ich werde nicht versagen;;;x
