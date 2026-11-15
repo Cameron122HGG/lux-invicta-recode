@@ -287,6 +287,17 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      government whose `potential` passes, and `feudal_government` (LI's version from master) didn't exclude Roman imperial
      rulers the way CleanSlate's `feudal_group_potential_trigger` does. Character 1 (Sol) only escaped it through the
      classical-faith check; Traianus is Catholic. Added `NOT = { is_government_potential = roman_imperial_government }`.
+     **Government lost in play (user report: Byzantium went classical after "losing authority"; S.P.Q.R. went classical
+     when a claimant took it), fixed 2026-11-15, untested:** (1) CleanSlate's potential only kept the government after game
+     start with Imperial Elective, and LI's e_byzantium/e_roman history set no succession law, so any re-check dropped them;
+     the law requirement is removed (user), and both start on `succ_byzantine_elective` in their 1060.1.1 history block (user:
+     both). (2) LI's demesne laws (`li_demesne_laws.txt`, 4 places) and the SELIN messianic law event/decision reset the
+     government by faith when a radical law tier is left (feudal/Muslim/oriental/classical, never Roman imperial); each now
+     ends with "if `is_government_potential = roman_imperial_government`, set it".
+     **Succession locked like CK2Plus (user screenshot of CK2Plus's Byzantine law screen):** in CK2Plus every other succession
+     law has `NOT = { is_law_potential = succ_byzantine_elective }`, so a Roman empire can only use Imperial Elective (gender
+     laws still change). Added to LI's seniority, primogeniture, tanistry, ultimogeniture, feudal elective and Turkish
+     succession; gavelkind, elective gavelkind and eldership (CleanSlate's) already had it.
    - **Roman provincia restoration (user, 2026-11-15), untested:** CK2Plus AIO's `CK2Plus_roman_decisions.txt` rebuilt on
      LI's map by `tools/phase5b_provincia.py`. Mapping (`migration_notes/provincia_mapping_draft.md`, reviewed): LI's map
      compared with vanilla's (`provinces.bmp`, local offsets from 989 shared county keys; LI redrew the map, one global fit

@@ -81,14 +81,8 @@ roman_imperial_government_potential_trigger = {
 			title = event_target:alternate_byz
 		}
 
-		trigger_if = { # so it shows on the title selection screen
-			limit = {
-				NOT = { has_law = succ_byzantine_elective }
-			}
-
-			is_save_game = no
-			has_game_started = no
-		}
+		# LI: CleanSlate only kept this government after game start with Imperial Elective (succ_byzantine_elective); LI keeps it
+		# whatever the succession law, so a law change or a new ruler doesn't drop Byzantium/S.P.Q.R. to classical (user, 2026-11-15)
 	}
 }
 

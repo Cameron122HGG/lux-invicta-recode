@@ -230,6 +230,7 @@ succ_seniority = {
 		dynasty_opinion = 5
 	
 		potential = {
+			NOT = { is_law_potential = succ_byzantine_elective } # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15)
 			NAND = { 
 				has_law = succ_byzantine_elective 
 				OR = { 
@@ -399,6 +400,7 @@ succ_primogeniture = {
 		child_opinion = -10
 		dynasty_opinion = -5
 		potential = {
+			NOT = { is_law_potential = succ_byzantine_elective } # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15)
 			holder_scope = {
 				NOR = {
 					religion_group = muslim
@@ -511,6 +513,7 @@ succ_feudal_elective = {
 		dynasty_opinion = -5
 		vassal_opinion = 10
 		potential = {
+			NOT = { is_law_potential = succ_byzantine_elective } # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15)
 			holder_scope = {
 				OR = {
 					independent = yes
@@ -742,6 +745,7 @@ succ_tanistry = {
 		dynasty_opinion = 5
 		vassal_opinion = 5
 		potential = {
+			NOT = { is_law_potential = succ_byzantine_elective } # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15)
 			holder_scope = {
 				OR = {
 					independent = yes
@@ -843,6 +847,7 @@ succ_ultimogeniture = {
 		child_opinion = -10
 		dynasty_opinion = -5
 		potential = {
+			NOT = { is_law_potential = succ_byzantine_elective } # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15)
 			holder_scope = {
 				OR = {
 					independent = yes
@@ -943,6 +948,7 @@ succ_turkish_succession = {
 #		child_opinion = 30
 #		dynasty_opinion = 10
 		potential = {
+			NOT = { is_law_potential = succ_byzantine_elective } # LI: the Roman empires are locked to Imperial Elective, as in CK2Plus (2026-11-15)
 			holder_scope = {
 				NOR = {
 					religion_group = abrahamic_group 		# <--- added by Numahr, to take into account change changes introduced on the religious groups structure
