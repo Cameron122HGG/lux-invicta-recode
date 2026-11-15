@@ -1279,7 +1279,7 @@ new_crusade = {
 				}
 
 				# save_event_target_as = crusade_attacker
-				#character_event = { id = HFP.41007 } # Beneficiary event - AI only # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = HFP.41007 } # Beneficiary event - AI only
 			}
 
 			# A selfish main contributor of the Crusade seizes the land for him/herself or his/her Beneficiary
@@ -1596,7 +1596,7 @@ new_crusade = {
 						}
 					}
 
-					#character_event = { id = HFP.41060 } # Pre-event to play as a Beneficiary # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					character_event = { id = HFP.41060 } # Pre-event to play as a Beneficiary
 				}
 
 				distribute_crusade_pot = {
@@ -1631,7 +1631,7 @@ new_crusade = {
 					}
 
 					any_playable_ruler = {
-						#narrative_event = { id = HFP.41160 } # Winning Crusade # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+						narrative_event = { id = HFP.41160 } # Winning Crusade
 					}
 				}
 
@@ -1853,7 +1853,7 @@ new_crusade = {
 								}
 							}
 
-							#character_event = { id = HFP.41007 } # Beneficiary event - AI only # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = HFP.41007 } # Beneficiary event - AI only
 						}
 					}
 
@@ -2073,7 +2073,7 @@ new_crusade = {
 					}
 
 					any_playable_ruler = {
-						#narrative_event = { id = HFP.41160 } # Winning Crusade # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+						narrative_event = { id = HFP.41160 } # Winning Crusade
 					}
 				}
 
@@ -2204,7 +2204,7 @@ new_crusade = {
 					set_character_flag = grandCrusader
 				}
 				else = {
-					#narrative_event = { id = HF.49020 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					narrative_event = { id = HF.49020 }
 				}
 			}
 

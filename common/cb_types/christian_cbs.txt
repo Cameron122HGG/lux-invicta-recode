@@ -435,7 +435,7 @@ shepherds_crusade_invasion = {
 
 	on_attacker_leader_death = {
 		any_player = {
-			#narrative_event = { id = HFP.42310 } # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			narrative_event = { id = HFP.42310 }
 		}
 	}
 
@@ -562,7 +562,7 @@ shepherds_crusade_invasion = {
 					}
 				}
 
-				#character_event = { id = HFP.41090 days = 1 } # Refill the levy, and remove the negative modifiers # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				character_event = { id = HFP.41090 days = 1 } # Refill the levy, and remove the negative modifiers
 				#character_event = { id = HFP.41090 days = 3 } # Refill the levy, and remove the negative modifiers
 
 				if = {
@@ -682,7 +682,7 @@ shepherds_crusade_invasion = {
 		}
 
 		any_player = {
-			#narrative_event = { id = HFP.42309 } # Victorious Shepherds' Crusade # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			narrative_event = { id = HFP.42309 } # Victorious Shepherds' Crusade
 		}
 	}
 
@@ -707,7 +707,7 @@ shepherds_crusade_invasion = {
 		}
 
 		any_player = {
-			#narrative_event = { id = HFP.42308 } # Failed Shepherds' Crusade # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			narrative_event = { id = HFP.42308 } # Failed Shepherds' Crusade
 		}
 	}
 
@@ -807,7 +807,7 @@ northern_crusade_war = {
 
 						teutonic_order_upgrade_capital_effect = yes
 						holy_order_distribute_titles_effect = yes
-						#character_event = { id = HFP.41090 days = 1 } # Refill the levy, and remove the negative modifiers # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+						character_event = { id = HFP.41090 days = 1 } # Refill the levy, and remove the negative modifiers
 						#character_event = { id = HFP.41090 days = 3 } # Refill the levy, and remove the negative modifiers
 					}
 
@@ -1193,7 +1193,7 @@ childrens_crusade = {
 				NOT = { character = attacker }
 			}
 
-			#narrative_event = { id = HF.25824 } # Notify infidels that the children have arrived # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			narrative_event = { id = HF.25824 } # Notify infidels that the children have arrived
 		}
 
 		anger_china_effect = yes
@@ -1300,7 +1300,7 @@ childrens_crusade = {
 							NOT = { character = attacker }
 						}
 
-						#narrative_event = { id = HF.25828 } # Notify everyone that the crusade has succeeded # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+					narrative_event = { id = HF.25828 } # Notify everyone that the crusade has succeeded
 					}
 
 					# Vassalize and convert all infidels under the title
@@ -1419,7 +1419,7 @@ childrens_crusade = {
 						NOT = { character = attacker }
 					}
 
-					#narrative_event = { id = HF.25827 } # Notify all infidels that the crusade has succeeded. Offer chance of conversion/vassalization if within k_jerusalem # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+				narrative_event = { id = HF.25827 } # Notify all infidels that the crusade has succeeded. Offer chance of conversion/vassalization if within k_jerusalem
 				}
 			}
 			else = {
@@ -1575,11 +1575,11 @@ childrens_crusade = {
 
 			if = {
 				limit = { religion_group = christian }
-				#narrative_event = { id = HF.25825 } # Notify everyone that the crusade has failed # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			narrative_event = { id = HF.25825 } # Notify everyone that the crusade has failed
 			}
 			else_if = {
 				limit = { religion_group = defender }
-				#narrative_event = { id = HF.25826 } # Notify every pagan that the crusade has failed # event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)
+			narrative_event = { id = HF.25826 } # Notify every pagan that the crusade has failed
 			}
 		}
 	}

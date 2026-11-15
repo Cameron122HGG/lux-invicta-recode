@@ -9,6 +9,9 @@ files. usage: python -I phase8_hf.py <repo> <aio> <ids_out.txt> <file.txt> [<fil
    opinion modifiers, traits, artifacts, localisation keys"""
 import os, re, sys, glob, collections
 REPO, AIO, OUT = sys.argv[1:4]; FILES = [a for a in sys.argv[4:] if not a.startswith('--')]; APPLY = '--apply' in sys.argv
+# --keep-off=<file>: event IDs (one per line) whose switched-off calls stay off (e.g. story chains left out by decision)
+_ko = next((a.split('=', 1)[1] for a in sys.argv if a.startswith('--keep-off=')), None)
+KEEP_OFF = {l.strip() for l in open(_ko) if l.strip()} if _ko else set()
 NOTE = 'event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md)'
 def rd(p): return open(p, 'rb').read().decode('latin-1')
 def nc(s): return re.sub(r'#[^\n]*', '', s)
@@ -95,7 +98,7 @@ for top in ('common/on_actions', 'events', 'decisions', 'common/scripted_effects
         ch = False
         for n, l in enumerate(lines):
             if NOTE not in l: continue
-            hit = [r for r in restored if re.search(r'(?<![\w.])' + re.escape(r) + r'(?![\w.])', l)]
+            hit = [r for r in restored - KEEP_OFF if re.search(r'(?<![\w.])' + re.escape(r) + r'(?![\w.])', l)]
             if not hit: continue
             r = hit[0]; cand = None
             for lines_ref in ref:

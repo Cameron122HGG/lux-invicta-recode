@@ -173,7 +173,7 @@ on_yearly_childhood_pulse = {
 		}
 
 		childrens_crusade = {
-			#100 = HF.25800	# The Children's Crusade (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+			100 = HF.25800	# The Children's Crusade
 			7900 = 0
 		}
 	}
@@ -232,7 +232,7 @@ on_battle_won_leader = {
 		#HF.49121 # Northern Crusade Flavor Randomizer (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		#HF.49471 # Reconquista Flavor Randomizer (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
-		#HFP.41085 # Add to Crusade pot at the end of every won battle (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41085 # Add to Crusade pot at the end of every won battle
 	}
 }
 
@@ -243,7 +243,7 @@ on_major_battle_won_leader = {
 		#HF.49121 # Northern Crusade Flavor Randomizer (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		#HF.49471 # Reconquista Flavor Randomizer (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
-		#HFP.41085 # Add to Crusade pot at the end of every won battle (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41085 # Add to Crusade pot at the end of every won battle
 	}
 }
 
@@ -261,7 +261,7 @@ on_siege_won_leader = {
 on_siege_over_winner = {
 	events = {
 		#HF.23473 # Destroy Tribal Great Pillar (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41084 # Piety and Prestige on siege wins (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41084 # Piety and Prestige on siege wins
 	}
 	random_events = {
 		50 = HF.46020 # Taking Saintly Burial Site
@@ -326,7 +326,7 @@ on_pregnancy = {
 # FROM is imprisoner
 on_become_imprisoned_any_reason = {
 	events = {
-		#HF.25803 # Childrens' Crusade leader has been captured, disband everything. (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HF.25803 # Childrens' Crusade leader has been captured, disband everything.
 		#HF.12305 # Legendary Hero has been imprisoned - notifies society members (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		#HFP.24024 # Elder imprisoned without reason, other Elders upset. (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 	}
@@ -369,7 +369,7 @@ on_death = {
 		HF.23450 # Host of blood games dies before the games start
 		HF.23801 # Host of a great tribal festival dies, end the event chain
 		#HF.10502 # Clears quest target for: Warrior Lodge duel-, wage war-, and recruit child-missions (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HF.25801 # Leader of Childrens' Crusade died before war, disband everything (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HF.25801 # Leader of Childrens' Crusade died before war, disband everything
 		#HF.560   # Notify Lodge Members that die in duels (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		#HF.25071 # Clear Warriors of Ukko event troops (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		HF.24017 # Murder points for Forge Bloodline Ambition
@@ -379,9 +379,9 @@ on_death = {
 		#HF.49208 # Clean up event troops at an old ex-Reconquistadors death (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
 		HFP.10997 # For logging purposes: how many of my commanders died during my lifetime
-		#HFP.41002 # Change the Official Crusade Recipient if the current one dies (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41053 # Change Beneficiary when a Beneficiary dies (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41170 # Check Crusade Dynasty Modifier (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41002 # Change the Official Crusade Recipient if the current one dies
+		HFP.41053 # Change Beneficiary when a Beneficiary dies
+		HFP.41170 # Check Crusade Dynasty Modifier
 		#HFP.24019 # Elder has been killed, other Elders hate the killer. (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		HFP.19101 # Varangian guards return home upon becoming players
 	}
@@ -428,8 +428,8 @@ on_new_holder = {
 		#HF.49452 # Check if Reconquista is finished yet (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		HF.23779 # Setting up next god-emperor
 
-		#HFP.41053 # Check Beneficiaries (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.42002 # Check titular Crusader titles (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41053 # Check Beneficiaries
+		HFP.42002 # Check titular Crusader titles
 		#HFP.44000 # Knights Hospitaller asks to receive an island (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
 		#HFP.44005 # The Teutonic Order asks for land (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
 		#HFP.40033 # Romagna / Papal States usurpation (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
@@ -463,8 +463,8 @@ on_new_holder_inheritance = {
 		HF.23779 # Setting up next god-emperor
 		HF.20407 # Inherit special crowns on abdication
 
-		#HFP.41087 # Makes sure the Holy Orders doesn't get any part of the pot (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.42002 # Check titular Crusader titles (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41087 # Makes sure the Holy Orders doesn't get any part of the pot
+		HFP.42002 # Check titular Crusader titles
 		#HFP.44000 # Knights Hospitaller asks to receive an island (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
 		#HFP.44005 # The Teutonic Order asks for land (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
 		#HFP.40033 # Romagna / Papal States usurpation (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
@@ -484,7 +484,7 @@ on_new_holder_usurpation = {
 		#HF.49452 # Check if Reconquista is finished yet (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		HF.20417 # Clear uncrowned modifier
 
-		#HFP.42002 # Check titular Crusader titles (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.42002 # Check titular Crusader titles
 		#HFP.44000 # Knights Hospitaller asks to receive an island (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
 		#HFP.44005 # The Teutonic Order asks for land (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
 		#HFP.40033 # Romagna / Papal States usurpation (Holy Fury event from a later phase 8 part, not restored yet (CLEANSLATE_PLAN.md))
@@ -520,7 +520,7 @@ on_character_convert_religion = {
 		# Reconquista
 		#HF.49202 # Clean up event for religion conversion in the Reconquista (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 		# Crusades
-		#HFP.41001 # Checks if Official Crusade Recipient is still a valid target (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41001 # Checks if Official Crusade Recipient is still a valid target
 	}
 }
 
@@ -694,7 +694,7 @@ on_unit_entering_province = {
 	events = {
 		#HF.49121 # Northern Crusade flavor (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
-		#HFP.42320 # Shepherds Tombola (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.42320 # Shepherds Tombola
 	}
 }
 
@@ -705,13 +705,13 @@ on_crusade_preparation_starts = {
 	events = {
 		#HF.49000 # Fourth Crusade Event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
-		#HFP.41000 # Set Official Recipient (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41003 # Crusade preparation pre-Announcement event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41005 # Pledge preperation start event - AI only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41021 # Pope asking a player owing him a favor, to pledge (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41070 # Getting AI defense pledges (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41080 # Initial Rewards (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41081 # Seeking Christian Monetary support - AI (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41000 # Set Official Recipient
+		HFP.41003 # Crusade preparation pre-Announcement event
+		HFP.41005 # Pledge preperation start event - AI only
+		HFP.41021 # Pope asking a player owing him a favor, to pledge
+		HFP.41070 # Getting AI defense pledges
+		HFP.41080 # Initial Rewards
+		HFP.41081 # Seeking Christian Monetary support - AI
 	}
 }
 
@@ -721,11 +721,11 @@ on_crusade_launches = {
 	events = {
 		#HF.49006 # The Pope declares the launch of the Fourth Crusade (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
 
-		#HFP.41008 # Crusade Launch pre-announcement event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41083 # Giving out gold at the start of a Crusade (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41130 # Pope finds people to be disappointed in - AI only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41140 # Pope checking if anyone hasn't been properly Crusading (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.49122 # For dealing with pesky NAP breakers... (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41008 # Crusade Launch pre-announcement event
+		HFP.41083 # Giving out gold at the start of a Crusade
+		HFP.41130 # Pope finds people to be disappointed in - AI only
+		HFP.41140 # Pope checking if anyone hasn't been properly Crusading
+		HFP.49122 # For dealing with pesky NAP breakers...
 	}
 }
 
@@ -733,7 +733,7 @@ on_crusade_launches = {
 # ROOT is the religious head
 on_crusade_canceled = {
 	events = {
-		#HFP.41010 # Crusade fail to launch pre-announcement event (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41010 # Crusade fail to launch pre-announcement event
 	}
 }
 
@@ -741,16 +741,16 @@ on_crusade_canceled = {
 # ROOT is the religious head
 on_crusade_monthly = {
 	events = {
-		#HFP.41006 # Pledge monthly event - AI only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41012 # Crusade cancelled check (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41020 # Pope forcing people owing him a favor to pledge - AI only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41050 # The Pope decides to ask a player for their pledge for the Crusade (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41052 # Recheck Beneficiary every month (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41055 # Monthly Pulse check (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41073 # Defense severely outmatched - AI only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41074 # Any character owing a favor of the same religion will pledge to the defense - AI only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41086 # No Pot rewards for Holy Orders - AI only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.42200 # Monthly Pulse Crusade Events - Tombola (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41006 # Pledge monthly event - AI only
+		HFP.41012 # Crusade cancelled check
+		HFP.41020 # Pope forcing people owing him a favor to pledge - AI only
+		HFP.41050 # The Pope decides to ask a player for their pledge for the Crusade
+		HFP.41052 # Recheck Beneficiary every month
+		HFP.41055 # Monthly Pulse check
+		HFP.41073 # Defense severely outmatched - AI only
+		HFP.41074 # Any character owing a favor of the same religion will pledge to the defense - AI only
+		HFP.41086 # No Pot rewards for Holy Orders - AI only
+		HFP.42200 # Monthly Pulse Crusade Events - Tombola
 	}
 }
 
@@ -761,8 +761,8 @@ on_crusade_monthly = {
 # FROMFROMFROM is the character who made the change, if via diplomatic action. Otherwise not defined
 on_crusade_target_changes = {
 	events = {
-		#HFP.41000 # Set Official Recipient (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
-		#HFP.41072 # Get new pledges, if the target is changed to someone of another religion - AI only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41000 # Set Official Recipient
+		HFP.41072 # Get new pledges, if the target is changed to someone of another religion - AI only
 	}
 }
 
@@ -770,7 +770,7 @@ on_crusade_target_changes = {
 # ROOT is the character pledging
 on_pledge_crusade_participation = {
 	events = {
-		#HFP.41030 # Random Event Tombola when you pledge to join the Crusade - Player Only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41030 # Random Event Tombola when you pledge to join the Crusade - Player Only
 	}
 }
 
@@ -778,7 +778,7 @@ on_pledge_crusade_participation = {
 # ROOT is the character unpledging
 on_unpledge_crusade_participation = {
 	events = {
-		#HFP.41040 # Random Event Tombola when you remove your pledge from the Crusade - Player Only (event left out of the CleanSlate build: LI never had it (decision 6, CLEANSLATE_PLAN.md))
+		HFP.41040 # Random Event Tombola when you remove your pledge from the Crusade - Player Only
 	}
 }
 

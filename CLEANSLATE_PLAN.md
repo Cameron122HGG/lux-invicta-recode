@@ -339,6 +339,20 @@ Each phase is its own commit (or several), followed by a run and a log compariso
      bud_group`). User decision: **not** Alexander's tomb (LI has its own `alexander` bloodline), Teuta or
      Matilda (tied to vanilla's world); those quests stay switched off. `HF.12405` (battle bards) belongs to
      part 5 (warrior lodge legends).
+   - **Part 4 decisions (user, 2026-11-15):** vanilla's named holy orders (Templars, Hospitallers, Teutonic and
+     Livonian Orders, Santiago, Calatrava): generic content maps to the faith's LI order (`d_holycatholic`…),
+     order-founding content stays out; Holy Fury realm events (`HFP_realm_events`): out; Reconquista: out
+     (revisit with LI's Iberian lore); Fourth Crusade / Latin Empire path: off.
+   - **Part 4 step A applied (2026-11-15):** AIO's `HF_crusade_events`, `HFP_crusade_events` (replaced),
+     `HF_childrens_crusade_events`, `HFP_crusade_flavour` and decisions `HFP_crusades.txt`
+     (`select_crusade_beneficiary`, `dynamic_crusader_state`): 172 events, 78 step A switch-offs undone, with
+     `phase8_hf.py --keep-off=` keeping the Fourth Crusade (`HF.49000/49006/49008`) and Teutonic Northern Crusade
+     (`HF.49100-49121`) chains off; only the crusade bloodlines (`HF.49020/49021`) are live from that file.
+     Adapted: `k_papacy` → `k_papal_state`; children's crusade regions `world_europe_west_gaul` →
+     `world_europe_west_francia`, `world_middle_east_asia_minor` → `world_asia_minor`; `HFP.42212` picks a ruler
+     leading a holy order of the character's faith instead of vanilla's named orders. Crusade announcement
+     event `200` restored from AIO (LI's old 320/322/323 stay for the old system). **Step B next:** the Holy
+     Fury holy-order events (`HFP_holy_order_events`): generic ones adapted, Teutonic/Livonian ones out.
    - **"Province 0" traced (2026-11-14).** Events looping over demesne provinces (VIET region checks, saint
      flavour) hit an invalid province. A temporary debug event (removed again) logged rulers holding a
      barony or county with no location: LI's populist revolt (`li_rebel_events_the_old_gods.txt`) created
